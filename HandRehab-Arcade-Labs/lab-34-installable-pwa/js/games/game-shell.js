@@ -44,6 +44,8 @@ export class HandInput {
       const h = detectHand(this.video, performance.now());
       drawHand(this.preview, h, { style: loadPrefs().handStyle || 'simple' }); // Lab 34: สไตล์มือตามที่ตั้งไว้
       this.points = h?.points || null;
+      // points = จุดดิบ 0-1 (ใช้วางตำแหน่งบนจอ) · points.sq = จุดแก้สัดส่วนภาพ (ใช้คำนวณมุม/ระยะให้ถูกต้อง)
+      if (this.points) this.points.sq = h.sq;
     }
     return this.points;
   }

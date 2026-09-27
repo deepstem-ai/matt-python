@@ -65,7 +65,7 @@ REM วนกลับไปตรวจพอร์ตใหม่
 REM ---------- เปิดเว็บเซิร์ฟเวอร์เบื้องหลัง ----------
 echo  กำลังเปิดเซิร์ฟเวอร์ที่ http://localhost:%PORT% ...
 REM บอกผู้ใช้ว่ากำลังทำอะไร
-start "HandRehab Server" /min %PY% -m http.server %PORT% --bind 127.0.0.1
+start "HandRehab Server" /min %PY% tools\serve.py %PORT%
 REM เปิดเซิร์ฟเวอร์ในหน้าต่างย่อ (ปิดหน้าต่างนั้น = ปิดเซิร์ฟเวอร์)
 
 REM ---------- 3) รอ 2 วินาที แล้วเปิด Chrome แบบแอป ----------

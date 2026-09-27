@@ -93,26 +93,34 @@ export async function deleteByIndex(store, index, value) {
 
 // ---------- ผู้ใช้ (CRUD ครบวงจร) ----------
 export async function createUser(data) {
-  const now = Date.now();
-  const user = { id: newId('u_'), createdAt: now, active: true, ...data };
-  return put('users', user);
+  try {
+    const now = Date.now();
+    const user = { id: newId('u_'), createdAt: now, active: true, ...data };
+    return await put('users', user);
+  } catch (e) { console.error('[db] createUser สร้างผู้ใช้ไม่สำเร็จ', e); throw e; }
 }
 export const getUser = (id) => get('users', id);
 export async function listUsers() {
-  const all = await getAll('users');
-  return all.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+  try {
+    const all = await getAll('users');
+    return all.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+  } catch (e) { console.error('[db] listUsers อ่านรายชื่อไม่สำเร็จ', e); throw e; }
 }
 // ค้นหาจากชื่อ นามสกุล โรค ผู้ดูแล (ไม่สนตัวพิมพ์เล็กใหญ่)
 export async function searchUsers(text) {
-  const q = String(text || '').trim().toLowerCase();
-  const all = await listUsers();
-  if (!q) return all;
-  return all.filter((u) => [u.firstName, u.lastName, u.carer, u.phone, ...(u.conditions || [])].join(' ').toLowerCase().includes(q));
+  try {
+    const q = String(text || '').trim().toLowerCase();
+    const all = await listUsers();
+    if (!q) return all;
+    return all.filter((u) => [u.firstName, u.lastName, u.carer, u.phone, u.conditionOther, ...(u.conditions || [])].join(' ').toLowerCase().includes(q));
+  } catch (e) { console.error('[db] searchUsers ค้นหาไม่สำเร็จ', e); throw e; }
 }
 export async function updateUser(id, patch) {
-  const u = await getUser(id);
-  if (!u) throw new Error('ไม่พบผู้ใช้ ' + id);
-  return put('users', { ...u, ...patch, id, updatedAt: Date.now() });
+  try {
+    const u = await getUser(id);
+    if (!u) throw new Error('ไม่พบผู้ใช้ ' + id);
+    return await put('users', { ...u, ...patch, id, updatedAt: Date.now() });
+  } catch (e) { console.error('[db] updateUser แก้ไขไม่สำเร็จ', e); throw e; }
 }
 export const deleteUser = (id) => del('users', id);
 
@@ -122,7 +130,9 @@ export async function deleteUserCompletely(userId) {
   try {
     if (await getUser(userId)) { await deleteUser(userId); report.users = 1; }
     report.faces = await deleteByIndex('faces', 'userId', userId);
-    report.reps = await deleteByIndex('reps', 'userId', userId);
+    // ท่าที่บันทึกโดยไม่มี userId (มีแต่ sessionId) ก็ต้องลบด้วย → ไล่ลบตาม session ของคนนี้ก่อน
+    for (const s of await getByIndex('sessions', 'userId', userId)) report.reps += await deleteByIndex('reps', 'sessionId', s.id);
+    report.reps += await deleteByIndex('reps', 'userId', userId);
     report.sessions = await deleteByIndex('sessions', 'userId', userId);
     if (await get('settings', userId)) { await del('settings', userId); report.settings = 1; }
     report.achievements = await deleteByIndex('achievements', 'userId', userId);
@@ -134,52 +144,63 @@ export async function deleteUserCompletely(userId) {
 
 // ---------- ใบหน้า ----------
 export async function saveFace({ userId, embedding, quality, image, pose }) {
-  return put('faces', { id: newId('f_'), userId, embedding: Array.from(embedding || []), quality, image, pose, capturedAt: Date.now() });
+  try {
+    return await put('faces', { id: newId('f_'), userId, embedding: Array.from(embedding || []), quality, image, pose, capturedAt: Date.now() });
+  } catch (e) { console.error('[db] saveFace บันทึกใบหน้าไม่สำเร็จ', e); throw e; }
 }
 export const listFacesByUser = (userId) => getByIndex('faces', 'userId', userId);
 export const listAllFaces = () => getAll('faces');
 
 // ---------- การฝึก ----------
 export async function saveSession(s) {
-  return put('sessions', { id: s.id || newId('s_'), ...s });
+  try { return await put('sessions', { id: s.id || newId('s_'), ...s }); }
+  catch (e) { console.error('[db] saveSession บันทึกการฝึกไม่สำเร็จ', e); throw e; }
 }
 export async function listSessionsByUser(userId) {
-  const all = await getByIndex('sessions', 'userId', userId);
-  return all.sort((a, b) => (b.startTime || 0) - (a.startTime || 0));
+  try {
+    const all = await getByIndex('sessions', 'userId', userId);
+    return all.sort((a, b) => (b.startTime || 0) - (a.startTime || 0));
+  } catch (e) { console.error('[db] listSessionsByUser', e); throw e; }
 }
-export async function saveRep(r) { return put('reps', { id: newId('r_'), ...r }); }
+export async function saveRep(r) { try { return await put('reps', { id: newId('r_'), ...r }); } catch (e) { console.error('[db] saveRep', e); throw e; } }
 export const listRepsBySession = (sessionId) => getByIndex('reps', 'sessionId', sessionId);
 export async function deleteSession(id) {
-  const n = await deleteByIndex('reps', 'sessionId', id);
-  await del('sessions', id);
-  return { sessions: 1, reps: n };
+  try {
+    const n = await deleteByIndex('reps', 'sessionId', id);
+    await del('sessions', id);
+    return { sessions: 1, reps: n };
+  } catch (e) { console.error('[db] deleteSession', e); throw e; }
 }
 
 // ---------- ตั้งค่ารายคน ----------
-export async function getSettings(key = 'global') { return (await get('settings', key))?.value || {}; }
-export async function saveSettings(key, value) { return put('settings', { key, value }); }
+export async function getSettings(key = 'global') { try { return (await get('settings', key))?.value || {}; } catch (e) { console.error('[db] getSettings', e); return {}; } }
+export async function saveSettings(key, value) { try { return await put('settings', { key, value }); } catch (e) { console.error('[db] saveSettings', e); throw e; } }
 
 // ---------- สำรอง / นำเข้า ----------
 export async function exportAll() {
-  const out = { app: DB_NAME, version: DB_VERSION, exportedAt: new Date().toISOString(), stores: {} };
-  for (const [name] of STORES) out.stores[name] = await getAll(name);
-  return out;
+  try {
+    const out = { app: DB_NAME, version: DB_VERSION, exportedAt: new Date().toISOString(), stores: {} };
+    for (const [name] of STORES) out.stores[name] = await getAll(name);
+    return out;
+  } catch (e) { console.error('[db] exportAll ส่งออกไม่สำเร็จ', e); throw e; }
 }
 // นำเข้าข้อมูล (ทับรายการที่ id ซ้ำ) คืนจำนวนที่นำเข้าแต่ละ store
 export async function importAll(data) {
-  if (!data?.stores) throw new Error('ไฟล์ไม่ใช่ข้อมูลสำรองของแอปนี้');
-  const report = {};
-  for (const [name] of STORES) {
-    const rows = data.stores[name] || [];
-    for (const r of rows) await put(name, r);
-    report[name] = rows.length;
-  }
-  return report;
+  try {
+    if (!data?.stores) throw new Error('ไฟล์ไม่ใช่ข้อมูลสำรองของแอปนี้');
+    const report = {};
+    for (const [name] of STORES) {
+      const rows = Array.isArray(data.stores[name]) ? data.stores[name] : [];
+      for (const r of rows) await put(name, r);
+      report[name] = rows.length;
+    }
+    return report;
+  } catch (e) { console.error('[db] importAll นำเข้าไม่สำเร็จ', e); throw e; }
 }
 
 // ---------- ผู้ใช้ที่เข้าระบบอยู่ (จำไว้ใน sessionStorage ปิดแท็บแล้วหาย) ----------
-export function setCurrentUser(id) { if (id) sessionStorage.setItem('hr-user', id); else sessionStorage.removeItem('hr-user'); }
-export function getCurrentUserId() { return sessionStorage.getItem('hr-user'); }
+export function setCurrentUser(id) { try { if (id) sessionStorage.setItem('hr-user', id); else sessionStorage.removeItem('hr-user'); } catch (e) { console.warn('[db] setCurrentUser', e); } }
+export function getCurrentUserId() { try { return sessionStorage.getItem('hr-user'); } catch { return null; } }
 export async function getCurrentUser() { const id = getCurrentUserId(); return id ? getUser(id) : null; }
 
 // คำนวณอายุจากวันเกิด (ใช้แสดงในรายการผู้ใช้)

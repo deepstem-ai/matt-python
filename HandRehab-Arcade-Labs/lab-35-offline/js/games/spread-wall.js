@@ -39,7 +39,7 @@ export class SpreadWall {
   sample() {
     let raw = null;
     if (this.source === 'demo') raw = this.demoDeg;
-    else { const pts = this.hooks.readHand?.(); if (pts) raw = spread(pts, 'index', 'little'); }
+    else { const pts = this.hooks.readHand?.(); if (pts) raw = spread(pts.sq || pts, 'index', 'little'); }
     this.seen = raw !== null;
     if (raw === null) return this.deg;
     this.deg = this.deg === null ? raw : this.deg + (raw - this.deg) * 0.35;

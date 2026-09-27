@@ -83,7 +83,7 @@ export class StarPortal {
     if (pts) {
       const p = toScreen(pts[8], this.canvas, true);      // ปลายนิ้วชี้ × ขนาด canvas แบบกระจก
       this.pointer = { ...p, visible: true };
-      this.pinchScore = detectPinch(pts).score;
+      this.pinchScore = detectPinch(pts.sq || pts).score;
       this._lostT = 0;
     } else {
       this._lostT += dt;                                   // มือหายชั่วครู่ (≤0.3 วิ) ใช้ค่าเดิมไปก่อน

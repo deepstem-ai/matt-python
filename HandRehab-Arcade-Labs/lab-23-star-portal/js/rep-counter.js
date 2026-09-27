@@ -11,6 +11,8 @@ export const REP_STATES = ['idle', 'engaging', 'held', 'releasing', 'cooldown'];
 
 export class RepCounter {
   // enter: เกณฑ์เริ่ม, exit: เกณฑ์ปล่อย, minHoldMs: ต้องค้างอย่างน้อยกี่ ms, cooldownMs: เว้นหลังนับ
+  // สถานะ: idle (รอ) → engaging (เพิ่งเกิน enter รอค้างให้นาน minHoldMs) → held (ค้างพอแล้ว)
+  //        → releasing (ลดลงต่ำกว่า enter แต่ยังไม่ต่ำกว่า exit) → [ต่ำกว่า exit = นับ 1 ครั้ง] → cooldown → idle
   constructor({ enter = 0.7, exit = 0.3, minHoldMs = 200, cooldownMs = 300, onRep = null } = {}) {
     if (exit >= enter) throw new Error('ค่า exit ต้องน้อยกว่า enter');
     Object.assign(this, { enter, exit, minHoldMs, cooldownMs, onRep });
@@ -50,13 +52,15 @@ export class RepCounter {
         else if (t - this.startT >= this.minHoldMs) this.state = 'held';
         break;
       case 'held': // ค้างท่านานพอแล้ว รอผ่านประตูที่สอง
+      case 'releasing': // กำลังคลายท่า (อยู่ในเขตกันสั่นระหว่าง exit..enter)
         this.peak = Math.max(this.peak, score);
-        if (score < this.exit) this.state = 'releasing';
+        if (score < this.exit) { counted = true; break; }                 // ผ่านประตูที่สอง → ครบวงจร
+        this.state = score >= this.enter ? 'held' : 'releasing';          // ขึ้นลงในเขตกันสั่น ไม่นับ
         break;
       default:
         break;
     }
-    if (this.state === 'releasing') {
+    if (counted === true) {
       // ครบวงจร → นับหนึ่งครั้ง
       const holdMs = t - this.startT;
       const quality = Math.round(100 * Math.min(1, this.peak) * Math.min(1, holdMs / (this.minHoldMs * 2)));

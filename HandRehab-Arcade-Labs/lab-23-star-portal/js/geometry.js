@@ -52,9 +52,11 @@ export function angle(a, b, c) {
 }
 
 // ความงอของนิ้ว 0 = เหยียดตรง, 1 = งอสุด
-// ใช้มุมที่ข้อกลางนิ้ว (PIP) และข้อปลายนิ้ว (DIP): นิ้วตรง ≈ 180°, งอสุด ≈ 60° ต่อข้อ
-// curl = clamp( (180 − (θ_PIP + θ_DIP)/2) / 120 , 0, 1 )
-// นิ้วโป้งใช้มุมที่ข้อ 2 และ 3 และช่วงงอแคบกว่า (หาร 70)
+// ใช้มุม 3 ข้อของนิ้ว: θ_MCP (ข้อโคน, มุมที่ P5 ระหว่างข้อมือ P0 กับ P6), θ_PIP (ข้อกลาง), θ_DIP (ข้อปลาย)
+// นิ้วตรง ทุกมุม ≈ 180°  ยิ่งงอ มุมยิ่งเล็กลง
+// นิ้วชี้-ก้อย:  θ̄ = (0.5·θ_MCP + θ_PIP + θ_DIP) / 2.5     (ข้อโคนให้น้ำหนักครึ่งเดียว)
+//               curl = clamp( (180 − θ̄) / 110 , 0, 1 )      (110° = งอสุดโดยเฉลี่ย)
+// นิ้วโป้ง:      curl = clamp( (180 − (θ_MCP + θ_IP)/2) / 70 , 0, 1 )  (นิ้วโป้งงอได้แคบกว่า)
 export function fingerCurl(pts, finger) {
   check(pts);
   const f = FINGERS[finger];
@@ -90,6 +92,13 @@ export function handFacingCamera(pts, threshold = 0.6) {
   const mag = Math.hypot(n.x, n.y, n.z) || 1e-9;
   const facing = Math.abs(n.z) / mag;
   return { facing: facing >= threshold, ratio: facing };
+}
+
+// แก้สัดส่วนภาพ: MediaPipe ให้ x หารด้วยความกว้าง y หารด้วยความสูง (หน่วยไม่เท่ากัน!)
+// ภาพ 16:9 ทำให้แนวนอน "หดลง" 0.56 เท่า มุมกางนิ้วจึงดูน้อยกว่าจริง
+// แก้โดย x' = x·(W/H), z' = z·(W/H), y' = y  → ทุกแกนมีหน่วยเป็น "ความสูงภาพ" เท่ากัน
+export function squarePoints(pts, aspect) {
+  return pts.map((p) => ({ x: p.x * aspect, y: p.y, z: (p.z || 0) * aspect }));
 }
 
 // ---------- ตัวช่วย ----------

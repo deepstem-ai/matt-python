@@ -195,3 +195,6 @@ table.data th { color: var(--text-2); }
 
 /* ---------- ป้ายทีมมุมล่าง ---------- */
 .team-badge { position: fixed; right: var(--sp-3); bottom: var(--sp-2); font-size: var(--fs-xs); color: var(--text-2); z-index: 5; }
+
+/* ลิงก์ที่หน้าตาเป็นปุ่ม ไม่ต้องขีดเส้นใต้ */
+a.btn-glow { text-decoration: none; }

@@ -55,7 +55,9 @@ export function lineChart(canvas, data, opts = {}) {
   const n = Math.max(0, ...series.map((s) => s.points.length));
   drawTitle(ctx, w, opts, fs);
   if (!n) { drawEmpty(ctx, w, h, opts.emptyText, fs); return { hitTest: () => null }; }
-  const pad = { l: fs * 3.6, r: 16, t: opts.title ? fs * 2.6 : 16, b: fs * 3.4 };
+  // มีหลายเส้น → เว้นแถวให้คำอธิบายเส้น (legend) ใต้ชื่อกราฟ ไม่ให้ทับกัน
+  const legendH = series.length > 1 ? fs * 1.4 : 0;
+  const pad = { l: fs * 3.6, r: 16, t: (opts.title ? fs * 2.6 : 16) + legendH, b: fs * 3.4 };
   const vals = series.flatMap((s) => s.points.map((p) => p.value)).filter((v) => Number.isFinite(v));
   const yMin = opts.yMin ?? Math.min(0, ...vals);
   const yMax = opts.yMax ?? niceMax(Math.max(...vals, ...(opts.lines || []).map((l) => l.value)));
@@ -107,7 +109,8 @@ export function lineChart(canvas, data, opts = {}) {
   // คำอธิบายเส้น (legend) เมื่อมีหลายชุด
   if (series.length > 1) {
     let lx = pad.l; ctx.textAlign = 'left'; ctx.font = `${fs * 0.85}px ${font}`;
-    series.forEach((s) => { ctx.fillStyle = s.color; ctx.fillRect(lx, pad.t - fs, 14, 6); ctx.fillStyle = css('--text', '#F8FAFC'); ctx.fillText(s.name, lx + 18, pad.t - fs * 0.6); lx += ctx.measureText(s.name).width + 40; });
+    const ly = pad.t - legendH * 0.45;
+    series.forEach((s) => { ctx.fillStyle = s.color; ctx.fillRect(lx, ly - 5, 18, 8); ctx.fillStyle = css('--text', '#F8FAFC'); ctx.fillText(s.name, lx + 24, ly + fs * 0.3); lx += ctx.measureText(s.name).width + 48; });
   }
   return {
     // คืนจุดที่ใกล้ตำแหน่ง (x,y) ที่แตะที่สุด (หน่วย CSS pixel)
@@ -144,7 +147,8 @@ export function barChart(canvas, data, opts = {}) {
     ctx.fillRect(x, Y(d.value), bw, h - pad.b - Y(d.value));
     if (d.error) { // ขีดส่วนเบี่ยงเบนมาตรฐาน
       ctx.strokeStyle = css('--text', '#F8FAFC'); ctx.lineWidth = 2; const cx = x + bw / 2;
-      ctx.beginPath(); ctx.moveTo(cx, Y(Math.max(0, d.value - d.error))); // ไม่ให้ขีดล้นใต้แกน 0 ctx.lineTo(cx, Y(d.value + d.error));
+      // ขีดล่างไม่ให้ล้นใต้แกน 0
+      ctx.beginPath(); ctx.moveTo(cx, Y(Math.max(0, d.value - d.error))); ctx.lineTo(cx, Y(d.value + d.error));
       ctx.moveTo(cx - 8, Y(d.value + d.error)); ctx.lineTo(cx + 8, Y(d.value + d.error)); ctx.stroke(); ctx.lineWidth = 1; ctx.strokeStyle = css('--line', '#334155');
     }
     ctx.fillStyle = css('--text', '#F8FAFC'); ctx.textAlign = 'center';

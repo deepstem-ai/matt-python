@@ -8,11 +8,21 @@
 // ห้ามแตะ: การเปิดกล้อง, ฐานข้อมูล, กติกาเกม
 // ============================================================
 import { loadVisionLib, fetchModel, createTask, modelUrls, MODELS } from './vision.js';
-import { FINGERS } from './geometry.js';
+import { FINGERS, squarePoints } from './geometry.js';
 export { FINGERS };
 export const FINGER_NAMES = ['thumb', 'index', 'middle', 'ring', 'little'];
 export const FINGER_TH = { thumb: 'โป้ง', index: 'ชี้', middle: 'กลาง', ring: 'นาง', little: 'ก้อย' };
 export const TIPS = [4, 8, 12, 16, 20];
+
+// ชื่อภาษาไทยของจุดทั้ง 21 จุด (MCP = ข้อโคนนิ้ว, PIP = ข้อกลาง, DIP = ข้อปลาย, CMC = ฐานนิ้วโป้ง, IP = ข้อนิ้วโป้ง)
+export const LANDMARK_TH = [
+  'ข้อมือ',
+  'ฐานนิ้วโป้ง (CMC)', 'ข้อโคนนิ้วโป้ง (MCP)', 'ข้อนิ้วโป้ง (IP)', 'ปลายนิ้วโป้ง',
+  'ข้อโคนนิ้วชี้ (MCP)', 'ข้อกลางนิ้วชี้ (PIP)', 'ข้อปลายนิ้วชี้ (DIP)', 'ปลายนิ้วชี้',
+  'ข้อโคนนิ้วกลาง (MCP)', 'ข้อกลางนิ้วกลาง (PIP)', 'ข้อปลายนิ้วกลาง (DIP)', 'ปลายนิ้วกลาง',
+  'ข้อโคนนิ้วนาง (MCP)', 'ข้อกลางนิ้วนาง (PIP)', 'ข้อปลายนิ้วนาง (DIP)', 'ปลายนิ้วนาง',
+  'ข้อโคนนิ้วก้อย (MCP)', 'ข้อกลางนิ้วก้อย (PIP)', 'ข้อปลายนิ้วก้อย (DIP)', 'ปลายนิ้วก้อย',
+];
 
 // เส้นเชื่อม 21 เส้น: [จุดเริ่ม, จุดจบ, ชื่อนิ้ว]
 export const HAND_CONNECTIONS = [
@@ -54,7 +64,7 @@ export async function initHand({ numHands = 1, minDetection = 0.5, minTracking =
 export function handInfo() { return { ...state }; }
 
 // ตรวจมือในเฟรมนี้
-// คืน null ถ้าไม่เจอมือ หรือ { points: 21 จุด {x,y,z} (0-1), world: จุดหน่วยเมตร, handedness: 'Left'|'Right', score, hands: [...ทุกมือ] }
+// คืน null ถ้าไม่เจอมือ หรือ { points: 21 จุด {x,y,z} (0-1), sq: จุดแก้สัดส่วนภาพ, aspect, world: จุดหน่วยเมตร, handedness: 'Left'|'Right', score, hands: [...ทุกมือ] }
 export function detectHand(video, timestamp = performance.now()) {
   if (!landmarker || !video?.videoWidth) return null;
   if (timestamp <= lastTs) timestamp = lastTs + 1; // เวลาต้องเพิ่มขึ้นเสมอ
@@ -68,8 +78,12 @@ export function detectHand(video, timestamp = performance.now()) {
   if (now - fpsT >= 1000) { fps = Math.round((fpsFrames * 1000) / (now - fpsT)); fpsFrames = 0; fpsT = now; }
   if (!r.landmarks?.length) return null;
   found++;
+  const aspect = video.videoWidth / video.videoHeight;
   const hands = r.landmarks.map((pts, i) => ({
     points: pts,
+    // sq = จุดที่แก้สัดส่วนภาพแล้ว (ทุกแกนหน่วยเดียวกัน) ใช้ป้อนให้ geometry/gestures เพื่อให้มุมถูกต้อง
+    sq: squarePoints(pts, aspect),
+    aspect,
     world: r.worldLandmarks?.[i] || null,
     // หมายเหตุ: MediaPipe ตั้งชื่อมือโดยถือว่าภาพกลับด้านแล้ว ภาพกล้องหน้าจึงอาจสลับซ้ายขวา
     handedness: r.handednesses?.[i]?.[0]?.categoryName || r.handedness?.[i]?.[0]?.categoryName || '?',
@@ -95,6 +109,7 @@ export function fingerColors() {
   return {
     thumb: g('--f-thumb', '#F472B6'), index: g('--f-index', '#22D3EE'), middle: g('--f-middle', '#A3E635'),
     ring: g('--f-ring', '#FBBF24'), little: g('--f-little', '#A78BFA'), palm: g('--text-2', '#94A3B8'),
+    joint: g('--text', '#F8FAFC'), // สีจุดข้อต่อที่ไม่ใช่ปลายนิ้ว
   };
 }
 function fingerOf(i) {
@@ -102,9 +117,9 @@ function fingerOf(i) {
   return FINGER_NAMES.find((f) => FINGERS[f].includes(i));
 }
 
-// opts: { style: 'simple'|'neon'|'trail', lineWidth, glowLayers, trailLength, clear, colors }
+// opts: { style: 'simple'|'neon'|'trail', lineWidth (px), glowLayers (ชั้นวงเรืองแสงรอบปลายนิ้ว), glowBlur (ความฟุ้ง), trailLength (เฟรม), clear, colors }
 export function drawHand(canvas, hand, opts = {}) {
-  const { style = 'neon', lineWidth = 5, glowLayers = 2, trailLength = 12, clear = true } = opts;
+  const { style = 'neon', lineWidth = 5, glowLayers = 2, glowBlur = 12, trailLength = 12, clear = true } = opts;
   const colors = opts.colors || fingerColors();
   const ctx = canvas.getContext('2d');
   if (clear) ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -134,7 +149,7 @@ export function drawHand(canvas, hand, opts = {}) {
   for (const [a, b, f] of HAND_CONNECTIONS) {
     ctx.strokeStyle = colors[f];
     ctx.lineWidth = style === 'simple' ? 2 : lineWidth;
-    if (glow) { ctx.shadowColor = colors[f]; ctx.shadowBlur = 12; }
+    if (glow) { ctx.shadowColor = colors[f]; ctx.shadowBlur = glowBlur; }
     ctx.beginPath(); ctx.moveTo(P[a][0], P[a][1]); ctx.lineTo(P[b][0], P[b][1]); ctx.stroke();
   }
   // จุด (ปลายนิ้วใหญ่กว่า + วงเรืองแสงหลายชั้น)
@@ -149,7 +164,7 @@ export function drawHand(canvas, hand, opts = {}) {
       }
       ctx.globalAlpha = 1;
     }
-    ctx.fillStyle = isTip ? col : '#F8FAFC';
+    ctx.fillStyle = isTip ? col : (colors.joint || col);
     ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill();
   });
   ctx.shadowBlur = 0;

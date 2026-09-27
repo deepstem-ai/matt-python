@@ -8,19 +8,25 @@ let stream = null;                 // สายวิดีโอที่เป
 let videoEl = null;                // <video> ที่กำลังแสดงภาพ
 let status = 'idle';               // idle | starting | running | error | stopped
 let frames = 0, fps = 0, lastT = performance.now(), rafId = 0;
+let loopGen = 0;                  // เลขรอบของตัวนับเฟรม: เปิดกล้องใหม่ = รอบใหม่ รอบเก่าจะหยุดเอง
 
 // นับเฟรมจริงของวิดีโอ เพื่อคำนวณ FPS
 function countFrames() {
   if (!videoEl) return;
+  const v = videoEl, gen = ++loopGen;       // จำว่าเป็นตัวนับรอบไหน
+  frames = 0; lastT = performance.now();
+  const next = () => {
+    if ('requestVideoFrameCallback' in v) v.requestVideoFrameCallback(step);
+    else rafId = requestAnimationFrame(step);
+  };
   const step = () => {
+    if (gen !== loopGen || videoEl !== v) return; // ปิดกล้องแล้ว หรือเปิดใหม่แล้ว → หยุดนับ (กันลูปค้าง)
     frames++;
     const now = performance.now();
     if (now - lastT >= 1000) { fps = Math.round((frames * 1000) / (now - lastT)); frames = 0; lastT = now; }
-    if (videoEl && 'requestVideoFrameCallback' in videoEl) videoEl.requestVideoFrameCallback(step);
-    else rafId = requestAnimationFrame(step);
+    next();
   };
-  if ('requestVideoFrameCallback' in videoEl) videoEl.requestVideoFrameCallback(step);
-  else rafId = requestAnimationFrame(step);
+  next();
 }
 
 // เปิดกล้อง: ถ้าไม่ส่ง deviceId จะใช้กล้องที่จำไว้ ถ้ากล้องนั้นหายไปจะถอยไปใช้กล้องแรกเงียบ ๆ
@@ -60,6 +66,8 @@ export async function startCamera(video, deviceId, { width = 1280, height = 720 
     countFrames();
     return stream;
   } catch (err) {
+    // เปิดไม่สำเร็จกลางทาง (เช่น video.play พัง) → ปิด track ที่เปิดค้างไว้ ไม่ให้ไฟกล้องติดค้าง
+    if (stream) { stream.getTracks().forEach((t) => t.stop()); stream = null; }
     status = 'error';
     throw err;
   }
@@ -70,6 +78,7 @@ export function stopCamera() {
   if (stream) stream.getTracks().forEach((t) => t.stop());
   if (videoEl) { videoEl.srcObject = null; }
   cancelAnimationFrame(rafId);
+  loopGen++;                        // ทำให้ตัวนับเฟรมรอบเก่าหยุด
   stream = null; videoEl = null; fps = 0;
   if (status !== 'idle') status = 'stopped';
 }

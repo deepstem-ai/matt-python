@@ -42,7 +42,7 @@ export class RhythmTap {
   // จากกล้อง: นับเป็น "การแตะ" เมื่อมีนิ้วงอขึ้นมาหลังจากทุกนิ้วเหยียดครบแล้วอย่างน้อย 0.1 วินาที
   readHand(dt) {
     const pts = this.hooks.readHand?.();
-    const finger = pts ? detectFingerTap(pts).finger : null;
+    const finger = pts ? detectFingerTap(pts.sq || pts).finger : null;
     if (!finger) { this.freeFor += dt; if (this.freeFor >= 0.1) this.armed = true; }
     else if (this.armed && finger !== this.prevFinger) { this.armed = false; this.freeFor = 0; this.tap(FINGER_NAMES.indexOf(finger)); }
     if (finger) this.freeFor = 0;

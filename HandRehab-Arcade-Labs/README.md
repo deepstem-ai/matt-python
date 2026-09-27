@@ -11,10 +11,10 @@ Each `lab-NN-*` folder is **self-contained**. It holds a copy of every file that
 | Lab | How to open |
 |-----|-------------|
 | Lab 01 | Double-click `lab-01-camera-single-file/index.html` and open it with Chrome |
-| Lab 02–40 | Open the lab folder. On Windows, double-click `start.bat`. On Mac or Linux, run `bash start.sh`. You can also run `python -m http.server 8000` in the folder and open http://localhost:8000 |
+| Lab 02–40 | Open the lab folder. On Windows, double-click `start.bat`. On Mac or Linux, run `bash start.sh`. You can also run `python tools/serve.py 8000` in the folder (Lab 02: `python -m http.server 8000`) and open http://localhost:8000 |
 
 - From Lab 02 on, open the app **through `http://localhost`**, not by double-clicking the file. Browsers refuse to load ES modules and AI models from `file://`.
-- You need Chrome or Edge, a webcam, and Python 3 for the local server.
+- You need Chrome or Edge, a webcam, and Python 3 for the local server. From Lab 03 on, the launchers use `tools/serve.py` instead of plain `http.server`. It forces the correct file types, because on some Windows machines `.js` files are served as `text/plain`, which gives a blank app.
 - The AI models (MediaPipe Tasks Vision 0.10.14, pinned) download from the internet the first time. Lab 35 shows how to run fully offline.
 - Every lab has a `README.md`. It lists the goal, the files, the **blanks we filled in** (every `___` in that lab's prompt and the value chosen), and how to check the lab's PASS criteria.
 - Pages that need a hand also offer a **demo mode** that uses the mouse, keyboard or a synthetic hand, so you can try them without a camera.

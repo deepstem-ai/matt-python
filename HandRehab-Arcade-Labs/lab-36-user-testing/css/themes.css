@@ -19,10 +19,12 @@ body.theme-calm {
   --blur: 0px;
 }
 
-/* ธีม large — สำหรับผู้สูงอายุที่ต้องการตัวใหญ่ชัด */
-body.theme-large {
+/* ธีม large — สำหรับผู้สูงอายุที่ต้องการตัวใหญ่ชัด
+   (ใส่ :not(...) เพื่อให้ชนะ profile-standard แต่ไม่ไปลดขนาดของโปรไฟล์ elder / kiosk ที่ใหญ่กว่าอยู่แล้ว) */
+body.theme-large:not(.profile-elder):not(.profile-kiosk) {
   --fs-base: 22px;
   --btn-h: 72px;
+  --sp-mul: 1.25;
 }
 
 /* โหมดสว่าง (light) — สลับพื้นหลังกับตัวอักษร */
@@ -33,12 +35,16 @@ body.light {
   --text: #0F172A;
   --text-2: #475569;
   --line: #CBD5E1;
-  --primary: #0E7490;
+  --primary: #0C6A84;   /* เข้มพอให้ตัวอักษรบนพื้น --input ยังผ่าน 4.5 */
   --secondary: #6D28D9;
   --success: #3F6212;
   --warning: #92400E;
   --error: #B91C1C;
+  --pink: #BE185D;
+  --sky: #0369A1;
   --on-bright: #FFFFFF;
+  --shadow: rgb(15 23 42 / 0.18);
+  --scrim: rgb(15 23 42 / 0.55);
 }
 
 /* ---------- โปรไฟล์ขนาด (Lab 09) ---------- */
@@ -60,6 +66,12 @@ body.theme-calm *, body.theme-calm *::before, body.theme-calm *::after {
   box-shadow: none !important;
   text-shadow: none !important;
 }
+
+/* ปุ่มไม่ขยาย ไม่สว่างขึ้น วงแหวนไม่เรืองแสง เมื่ออยู่ในโหมดสงบ */
+body.calm .btn-glow:hover, body.theme-calm .btn-glow:hover,
+body.calm .btn-glow:active, body.theme-calm .btn-glow:active { transform: none; filter: none; }
+body.calm .ring .ring-fg, body.theme-calm .ring .ring-fg { filter: none; }
+body.calm .card-neon, body.theme-calm .card-neon { backdrop-filter: none; -webkit-backdrop-filter: none; }
 
 /* ผู้ใช้ตั้งค่าในระบบปฏิบัติการว่า "ลดการเคลื่อนไหว" ก็เคารพด้วย */
 @media (prefers-reduced-motion: reduce) {
