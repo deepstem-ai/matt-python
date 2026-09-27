@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>วัดความแม่นยำ · HandRehab Arcade (Lab 32)</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap col">
+  <header>
+    <h1>📊 วัดความแม่นยำแบบนักวิจัย</h1>
+    <p class="muted">Evaluate · Lab 32 — ตารางความสับสน · precision / recall / F1 · การทดลองเรื่องแสง 3 ระดับ</p>
+  </header>
+  <div class="alert warn"><b>⚠️ ข้อมูลทดสอบต้องแยกจากข้อมูลฝึกเสมอ</b> — ทำท่าใหม่ทุกครั้ง อย่าใช้ตัวอย่างเดิมที่ใช้สอน AI
+    (โหมด kNN: ข้อมูลที่เก็บในหน้านี้ <b>ไม่ถูกเพิ่มเข้าโมเดลเด็ดขาด</b> หน้านี้เรียกแค่ predict) · ถ้าได้เกิน 99% ให้สงสัยก่อนว่าทดสอบกับข้อมูลชุดเดียวกับที่ฝึกหรือเปล่า</div>
+
+  <section class="card-neon col">
+    <h3>1) ตั้งค่าการทดลอง <span class="muted">Setup</span></h3>
+    <div class="row">
+      <label class="choice"><input type="radio" name="det" value="rule" checked> ตัวตรวจแบบกฎ 5 ท่า (Lab 19-20)</label>
+      <label class="choice"><input type="radio" name="det" value="knn"> โมเดล kNN ที่สอนใน Lab 31</label>
+    </div>
+    <div id="knnBox" class="row hidden">
+      <span id="knnInfo" class="muted"></span>
+      <button class="btn-glow small ghost" id="btnImport">📂 นำเข้าโมเดล JSON (จาก Lab 31)</button>
+      <input type="file" id="fileIn" accept=".json" class="hidden">
+    </div>
+    <div class="row">
+      <div class="field"><label for="nPer">จำนวนครั้งต่อท่า ต่อสภาพแสง</label>
+        <select id="nPer"><option>5</option><option selected>10</option><option>20</option></select></div>
+      <div class="field"><label for="hypo">ตอบสมมติฐานข้อที่</label><input type="text" id="hypo" value="2" size="4"></div>
+      <div class="field"><label>ป้ายกำกับ</label><span class="muted" id="labelsInfo"></span></div>
+    </div>
+  </section>
+
+  <section class="card-neon col">
+    <h3>2) การทดลองเรื่องแสง <span class="muted">Lighting experiment</span></h3>
+    <div class="row" id="condRow"></div>
+    <div class="row">
+      <button class="btn-glow" id="btnRun"><span class="ico">▶️</span> เริ่มรอบนี้ด้วยกล้อง</button>
+      <button class="btn-glow ghost" id="btnSim"><span class="ico">🤖</span> โหมดจำลอง (ครบ 3 แสง ไม่ต้องใช้กล้อง)</button>
+      <button class="btn-glow small danger hidden" id="btnStop">⏹ หยุด</button>
+      <span class="chip">ความสว่างที่วัดได้ <b id="liveB">-</b></span>
+    </div>
+    <div id="camError"></div>
+    <div class="stage mirror hidden" id="stage">
+      <video id="video" playsinline muted></video>
+      <canvas id="overlay" class="mirror"></canvas>
+      <div class="callout" id="callout"></div>
+    </div>
+    <div class="bar"><i id="runBar"></i></div>
+    <span class="muted" id="runMsg">เลือกสภาพแสง ปรับไฟในห้องให้ตรง แล้วกดเริ่ม · ทำครบ 3 รอบ (สว่าง / ปกติ / มืด)</span>
+  </section>
+
+  <section class="card-neon col hidden" id="results">
+    <div class="row" style="justify-content:space-between">
+      <h3 style="margin:0">3) ผลลัพธ์ <span class="muted">Results</span> <span class="chip hidden" id="simChip">🤖 ข้อมูลจำลอง — ห้ามใช้ในรายงาน</span></h3>
+      <div class="field"><label for="condFilter">แสดงตาราง</label>
+        <select id="condFilter"><option value="all">ทุกสภาพแสง</option><option value="bright">สว่าง</option><option value="normal">ปกติ</option><option value="dim">มืด</option></select></div>
+    </div>
+    <div class="row"><span class="chip">ทดสอบ <b id="nTot">0</b> ครั้ง</span><span class="chip ok">ความแม่นยำรวม <b id="accTot">-</b></span><span class="chip">F1 macro <b id="f1Tot">-</b></span></div>
+    <h4>ตารางความสับสน (Confusion matrix) — กดที่ช่องเพื่อดูตัวอย่าง</h4>
+    <div class="table-scroll"><table class="cm" id="grid"></table></div>
+    <div id="cellDetail" class="cell-detail"></div>
+    <h4>ตัวชี้วัด (Metrics)</h4>
+    <div class="table-scroll"><table class="data" id="metrics"></table></div>
+    <details><summary>ความหมายของตัวชี้วัด (คัดลอกไปใส่รายงานได้)</summary><dl id="metricHelp"></dl></details>
+    <h4>ความแม่นยำตามสภาพแสง</h4>
+    <canvas id="chart" class="chart"></canvas>
+    <div class="table-scroll"><table class="data" id="condTable"></table></div>
+    <h4>อภิปรายผล (สร้างจากตัวเลขจริง)</h4>
+    <p class="discussion" id="discussion"></p>
+    <div class="row">
+      <button class="btn-glow small" id="btnCopy">📋 คัดลอกย่อหน้า</button>
+      <button class="btn-glow small ghost" id="btnCSV">⬇️ CSV ทุกครั้งทดสอบ</button>
+      <button class="btn-glow small ghost" id="btnPngCM">🖼️ PNG ตารางความสับสน</button>
+      <button class="btn-glow small ghost" id="btnPngChart">🖼️ PNG กราฟ</button>
+      <button class="btn-glow small success" id="btnSave">💾 บันทึกผลลงฐานข้อมูล</button>
+    </div>
+    <canvas id="cmCanvas" class="hidden"></canvas>
+  </section>
+
+  <section class="card-neon col">
+    <h3>ผลที่บันทึกไว้ <span class="muted">Saved runs</span></h3>
+    <ul id="runs" class="runs"></ul>
+  </section>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/eval-page.js"></script>
+</body>
+</html>

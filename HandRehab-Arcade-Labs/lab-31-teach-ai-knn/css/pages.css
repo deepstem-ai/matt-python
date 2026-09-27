@@ -1,0 +1,16 @@
+/* pages.css — สไตล์เฉพาะหน้า train (Lab 31) ใช้สีจาก tokens.css เท่านั้น */
+.layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(320px, 1fr); gap: var(--sp-5); align-items: start; }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+.stage-msg { position: absolute; inset: auto 0 var(--sp-4) 0; text-align: center; color: var(--text); font-weight: 700; text-shadow: 0 1px 4px var(--bg); }
+.hold { user-select: none; touch-action: none; }
+.hold.active { filter: brightness(1.2); transform: scale(0.98); }
+.gest-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+.gest-list li { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-2) var(--sp-3); background: var(--input); border-radius: var(--r-md); border: 1px solid var(--line); }
+.gest-list li.low { border-color: var(--warning); }
+.gest-list .gname { flex: 1; font-weight: 700; }
+.gest-list .warn { color: var(--warning); font-size: var(--fs-sm); }
+.guess { font-size: var(--fs-2xl); font-weight: 800; text-align: center; min-height: 1.4em; color: var(--primary); }
+.bar.grow { flex: 1; }
+.neigh { margin: 0; padding-left: var(--sp-5); font-size: var(--fs-sm); }
+.neigh li.win { color: var(--success); }
+.preset.on { outline: 3px solid var(--primary); }
