@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ติดตั้งเป็นแอปได้ทุกหน้า (Lab 34) สีตรงกับ manifest.json -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <title>จับดาวใส่ประตูมิติ · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/shell.css">
+</head>
+<body class="game-page world-space">
+  <header class="game-bar">
+    <h1>⭐ จับดาวใส่ประตูมิติ</h1>
+    <span class="chip">คะแนน <b id="score" class="num">0</b></span>
+    <span class="chip">คอมโบ <b id="combo" class="num">0</b></span>
+    <span class="chip">จีบนิ้ว <b id="pinches" class="num">0</b> ครั้ง</span>
+    <span class="chip">เวลา <b id="time" class="num">60</b> วิ</span>
+    <span id="demoBadge" class="demo-badge hidden" title="เมาส์ = ปลายนิ้วชี้ · กดปุ่มเมาส์ค้าง = จีบนิ้ว">🖱 โหมดสาธิต</span>
+    <span class="spacer"></span>
+    <button id="pauseBtn" class="btn-glow small" title="ปุ่มลัด P">⏸ หยุดพัก</button>
+  </header>
+  <div class="bar timer-bar" aria-label="เวลาที่เหลือ"><i id="timeBar" style="width:100%"></i></div>
+
+  <main class="game-area">
+    <canvas id="game" class="game" aria-label="สนามเกม"></canvas>
+    <!-- ภาพกล้องเล็ก ๆ ให้ผู้เล่นเห็นมือตัวเอง (กลับด้านเหมือนกระจก) -->
+    <div id="camBox" class="stage mirror cam-mini hidden">
+      <span class="tag">กล้อง</span>
+      <video id="video" playsinline muted></video>
+      <canvas id="handCanvas" class="mirror"></canvas>
+    </div>
+    <div id="overlay" class="overlay"></div>
+  </main>
+
+  <section class="settings" aria-label="ตั้งค่าเกม">
+    <button id="modeBtn" class="btn-glow ghost small">🖱 โหมดสาธิต</button>
+    <button id="calmBtn" class="btn-glow ghost small">🌙 โหมดสงบ</button>
+    <label>ความยาก
+      <select id="levelSel">
+        <option value="easy">ง่าย (ประตูใหญ่)</option>
+        <option value="normal" selected>ปกติ</option>
+        <option value="hard">ยาก (ประตูเล็ก เคลื่อนที่)</option>
+      </select>
+    </label>
+    <label>รัศมีการจับ <input id="radiusRange" type="range" min="30" max="150" step="5" value="60"> <b id="radiusVal" class="num">60</b> px</label>
+    <span class="muted">ผู้เล่น: <b id="who">guest</b> · เตือนพักทุก <b id="restMin">5</b> นาที</span>
+    <span class="muted">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</span>
+  </section>
+
+  <script type="module" src="js/star-portal-page.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

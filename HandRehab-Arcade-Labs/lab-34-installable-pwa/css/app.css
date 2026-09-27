@@ -1,0 +1,54 @@
+/* ============================================================
+   app.css — โครงหน้าแอป: แถบบน, หน้า (.page), การเปลี่ยนหน้า, แถบนำทางล่าง (Lab 07)
+   ============================================================ */
+
+/* ---------- หน้า: ซ่อนทุกหน้า แสดงเฉพาะหน้า .active ---------- */
+section.page { display: none; padding-bottom: calc(var(--btn-h) + var(--sp-6) * 2); }
+section.page.active { display: block; }
+section.page h1:focus { outline: none; }
+
+/* การเปลี่ยนหน้า เลือกได้ 3 แบบ ยาว --page-ms (ค่าเริ่มต้น 250ms = ลื่นแต่ไม่ช้า) */
+body[data-transition="fade"]  section.page.enter { animation: page-fade  var(--page-ms, 250ms) ease-out; }
+body[data-transition="slide"] section.page.enter { animation: page-slide var(--page-ms, 250ms) ease-out; }
+body[data-transition="zoom"]  section.page.enter { animation: page-zoom  var(--page-ms, 250ms) ease-out; }
+@keyframes page-fade  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes page-slide { from { opacity: 0; transform: translateX(60px); } to { opacity: 1; transform: none; } }
+@keyframes page-zoom  { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: none; } }
+
+/* ---------- แถบบน: ชื่อแอป + ตำแหน่งปัจจุบัน ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3);
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--card);
+  border-bottom: 1px solid var(--line);
+}
+.brand { font: 800 var(--fs-lg) var(--font-num); background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.where { font-weight: 700; }
+.crumbs { display: flex; flex-wrap: wrap; gap: var(--sp-1); font-size: var(--fs-sm); color: var(--text-2); list-style: none; margin: 0; padding: 0; }
+.crumbs li + li::before { content: "›"; margin-right: var(--sp-1); }
+#crumbs li:last-child, .crumbs li.now { color: var(--primary); font-weight: 700; }
+.topbar .spacer { flex: 1; }
+
+/* ---------- แถบนำทางล่าง ปุ่มใหญ่ สำหรับคนที่คลิกแม่น ๆ ได้ยาก ---------- */
+.bottom-nav {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--card);
+  border-top: 1px solid var(--line);
+}
+.bottom-nav button { flex-direction: column; gap: 0; font-size: var(--fs-sm); padding: var(--sp-1); }
+.bottom-nav button[aria-current="page"] { outline: 3px solid var(--primary); outline-offset: -3px; }
+.bottom-nav.hidden-nav { display: none; }
+
+/* ---------- ส่วนประกอบในหน้า ---------- */
+.page-card { max-width: 900px; margin: 0 auto; }
+.tabs { display: flex; gap: var(--sp-2); flex-wrap: wrap; margin-bottom: var(--sp-3); }
+.tabs button[aria-selected="true"] { outline: 3px solid var(--primary); outline-offset: -3px; }
+.cam-status { font-weight: 700; }
+.cam-status.on  { color: var(--error); }
+.cam-status.off { color: var(--text-2); }
+.kbd { display: inline-block; min-width: 2em; padding: 0 var(--sp-2); border: 1px solid var(--line); border-bottom-width: 3px; border-radius: var(--r-sm); font-family: var(--font-num); text-align: center; }
+.team-badge { bottom: calc(var(--btn-h) + var(--sp-5)); }
+.toast-host { bottom: calc(var(--btn-h) + var(--sp-6)); } /* แจ้งเตือนลอยอยู่เหนือแถบล่าง */

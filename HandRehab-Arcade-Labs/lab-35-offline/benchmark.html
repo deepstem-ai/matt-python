@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ติดตั้งเป็นแอปได้ทุกหน้า (Lab 34) สีตรงกับ manifest.json -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <title>ทดสอบความลื่นของเครื่อง · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/bench.css">
+  <link rel="stylesheet" href="css/shell.css">
+</head>
+<!-- world-space = สีฉากอวกาศของเกมจับดาว (ใช้ในสถานการณ์ "เกมเต็ม") -->
+<body class="theme-neon profile-standard world-space">
+<main class="wrap">
+  <header class="bench-head">
+    <h1>⚡ ทดสอบความลื่นของเครื่อง <small class="muted">Benchmark</small></h1>
+    <span class="spacer"></span>
+    <span id="backSlot"></span>
+  </header>
+
+  <div class="bench-grid">
+    <div>
+      <!-- 1) สเปกเครื่องจาก detectDevice() -->
+      <section class="card-neon" id="devCard">
+        <h2>💻 เครื่องนี้ <span id="tier" class="tier">…</span></h2>
+        <ul id="spec" class="spec"></ul>
+        <p id="gpu" class="gpu-name"></p>
+      </section>
+
+      <!-- 2) ปุ่มเริ่ม + ชื่อเครื่อง + ความคืบหน้าแต่ละสถานการณ์ -->
+      <section class="card-neon">
+        <h2>🧪 ทดสอบอัตโนมัติ 6 สถานการณ์</h2>
+        <label class="field">ชื่อเครื่อง (เช่น "ห้องคอม 2 เครื่อง 15")
+          <input id="machine" type="text" maxlength="40" autocomplete="off" placeholder="ตั้งชื่อให้จำได้ว่าเป็นเครื่องไหน">
+        </label>
+        <p class="muted">สถานการณ์ละ <b id="secs" class="num">10</b> วินาที (รวมประมาณ <b id="total" class="num">1</b> นาที) · ภาพกล้อง 640×480 · อย่าสลับไปหน้าต่างอื่นระหว่างทดสอบ</p>
+        <div class="row">
+          <button id="btnStart" class="btn-glow success"><span class="ico">▶</span> เริ่มทดสอบอัตโนมัติ</button>
+          <button id="btnStop" class="btn-glow danger hidden"><span class="ico">⏹</span> หยุด</button>
+        </div>
+        <ul id="scList" class="sc-list" style="margin-top:var(--sp-3)"></ul>
+        <div id="errBox" class="alert hidden" role="alert"></div>
+      </section>
+    </div>
+
+    <div>
+      <section class="card-neon">
+        <div class="stage mirror bench-stage">
+          <video id="video" playsinline muted></video>
+          <canvas id="overlay" class="mirror"></canvas>
+          <canvas id="gameCanvas" class="game hidden" aria-label="เกมที่ใช้ทดสอบ"></canvas>
+        </div>
+        <p id="stageNote" class="muted" aria-live="polite">กด "เริ่มทดสอบ" แล้วนั่งหน้ากล้อง ยกมือให้กล้องเห็นระหว่างทดสอบมือ (ถ้าไม่เห็นมือ ระบบจะวาดมือตัวอย่างแทน)</p>
+      </section>
+
+      <!-- 4) คำแนะนำ -->
+      <section class="card-neon" id="recoCard">
+        <h2>💡 คำแนะนำสำหรับเครื่องนี้</h2>
+        <p id="recoText" class="reco-text">ทดสอบให้เสร็จก่อน แล้วคำแนะนำจะมาอยู่ตรงนี้</p>
+        <p id="recoBasis" class="muted"></p>
+        <div id="recoLossBox" class="hidden"><b>สิ่งที่จะเสียไปถ้าใช้ค่านี้:</b><ul id="recoLoss" class="reco-loss"></ul></div>
+        <button id="btnApply" class="btn-glow" disabled><span class="ico">✔</span> ใช้ค่าแนะนำทันที</button>
+        <p id="prefsNow" class="prefs-now"></p>
+      </section>
+    </div>
+  </div>
+
+  <!-- 3) การ์ดผลลัพธ์ -->
+  <section class="card-neon">
+    <div class="row"><h2 style="margin:0">📊 ผลการทดสอบ</h2><span class="spacer"></span><span id="saveState" class="muted"></span></div>
+    <div id="cards" class="result-cards" style="margin-top:var(--sp-3)"><p class="muted">ยังไม่มีผล</p></div>
+  </section>
+
+  <!-- 5) เปรียบเทียบหลายเครื่อง -->
+  <section class="card-neon">
+    <h2>🖥 เปรียบเทียบหลายเครื่อง</h2>
+    <p id="cmpInfo" class="muted"></p>
+    <div class="row">
+      <label class="field">สถานการณ์ <select id="cmpScenario"></select></label>
+      <label class="field">ค่าที่ดู
+        <select id="cmpMetric"><option value="avgFps">FPS เฉลี่ย</option><option value="minFps">FPS ต่ำสุด</option><option value="msPerFrame">ms ต่อเฟรม</option></select>
+      </label>
+    </div>
+    <div class="chart-box"><canvas id="cmpChart"></canvas></div>
+    <div class="row" style="margin-top:var(--sp-3)">
+      <button id="btnCsv" class="btn-glow ghost small">⬇ CSV</button>
+      <button id="btnPng" class="btn-glow ghost small">🖼 บันทึกกราฟ PNG</button>
+      <button id="btnExport" class="btn-glow ghost small">📤 ส่งออกไฟล์ผล (ให้เครื่องอื่น)</button>
+      <button id="btnImport" class="btn-glow ghost small">📥 นำเข้าผลจากเครื่องอื่น</button>
+      <input id="importFile" type="file" accept=".json,application/json" class="hidden">
+    </div>
+    <p class="muted small">เก็บผลจากเพื่อนอย่างน้อย 5 เครื่อง: ให้เพื่อนเปิดหน้านี้ ทดสอบ กด "ส่งออกไฟล์ผล" แล้วนำไฟล์มากด "นำเข้า" ที่เครื่องนี้</p>
+    <div class="table-scroll"><table id="cmpTable" class="data"></table></div>
+  </section>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/bench-page.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>
