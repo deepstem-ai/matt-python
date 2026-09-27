@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>หนังสือยินยอม — HandRehab Arcade</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/themes.css">
+<link rel="stylesheet" href="../css/parts.css">
+<style>
+  /* ตัวอักษรใหญ่พิเศษ ผู้สูงอายุอ่านสบาย (20pt ขึ้นไป) */
+  .sheet { max-width: 900px; margin: 0 auto; padding: var(--sp-5) var(--sp-4); font-size: 20pt; line-height: 1.7; }
+  .sheet h1 { font-size: 30pt; margin-bottom: var(--sp-2); }
+  .sheet h2 { font-size: 23pt; margin: var(--sp-5) 0 var(--sp-2); border-bottom: 2px solid var(--line); }
+  .sheet ul { margin: 0; padding-left: 1.2em; }
+  .sheet b { font-weight: 800; }
+  .box { display: inline-block; width: 0.9em; height: 0.9em; border: 2px solid var(--text); margin-right: 0.4em; vertical-align: -0.1em; }
+  .check li { list-style: none; margin-left: -1.2em; }
+  .sign { margin-top: var(--sp-6); display: grid; gap: var(--sp-6); }
+  .sign .line { border-bottom: 2px dotted var(--text); height: 1.6em; }
+  .sign .cap { font-size: 16pt; color: var(--text-2); }
+  .toolbar { position: sticky; top: 0; background: var(--bg); padding: var(--sp-3) var(--sp-4); border-bottom: 1px solid var(--line); z-index: 3; }
+  /* ตอนพิมพ์: ซ่อนแถบปุ่ม ไม่ให้หัวข้อถูกตัดกลางหน้า */
+  @media print {
+    .toolbar { display: none; }
+    .sheet { padding: 0; max-width: none; }
+    h2, li { break-inside: avoid; }
+    .sign { break-inside: avoid; }
+    @page { size: A4; margin: 15mm; }
+  }
+</style>
+</head>
+<body class="paper profile-standard">
+<div class="toolbar row">
+  <button class="btn-glow" onclick="window.print()"><span class="ico">🖨️</span> พิมพ์แบบฟอร์ม (2 ชุด)</button>
+  <a class="btn-glow ghost" href="../index.html">← กลับเมนู</a>
+  <span class="muted">แก้ชื่อทีม โรงเรียน และเบอร์ครูก่อนพิมพ์</span>
+</div>
+<main class="sheet">
+  <h1>หนังสือแสดงความยินยอมเข้าร่วมการทดสอบ</h1>
+  <div>แอป <b>HandRehab Arcade</b> — เกมฝึกมือและนิ้วด้วยกล้อง</div>
+  <div>ผู้จัดทำ: <b>ทีม NeonHands</b> · <b>โรงเรียนของเรา</b></div>
+  <div>ครูที่ปรึกษา: ...................................... โทร ......................................</div>
+
+  <h2>1. เราขอให้ท่านทำอะไร</h2>
+  <ul>
+    <li>ลองใช้แอปฝึกมือบนคอมพิวเตอร์ <b>ด้วยตัวท่านเอง</b> มีงาน 8 อย่าง เช่น ลงทะเบียน เข้าระบบด้วยใบหน้า เล่นเกม 1 รอบ ดูกราฟของตัวเอง</li>
+    <li>นักเรียนจะ <b>นั่งดูเงียบ ๆ และจดบันทึก</b> จะไม่ช่วยบอก ถ้าท่านทำไม่ได้ <b>แปลว่าแอปต้องแก้ ไม่ใช่ความผิดของท่าน</b></li>
+    <li>ตอนจบ ตอบแบบสอบถาม 10 ข้อ โดยกดรูปหน้ายิ้ม</li>
+  </ul>
+
+  <h2>2. ใช้เวลานานเท่าไร</h2>
+  <ul><li>ประมาณ <b>20–30 นาที</b> พักได้ทุกเมื่อ</li></ul>
+
+  <h2>3. เราเก็บข้อมูลอะไรบ้าง</h2>
+  <ul>
+    <li>รหัสผู้เข้าร่วม (เช่น P01) อายุ มือข้างที่ถนัด</li>
+    <li>รูปใบหน้า <b>เพื่อใช้เข้าระบบเท่านั้น</b></li>
+    <li>ตำแหน่งจุดบนมือ (เป็นตัวเลข) จำนวนครั้งที่ทำท่า คะแนนเกม เวลาที่ใช้ และคำตอบแบบสอบถาม</li>
+    <li><b>ไม่เก็บ</b> เลขบัตรประชาชน ที่อยู่ หรือข้อมูลการเงิน</li>
+  </ul>
+
+  <h2>4. ข้อมูลเก็บไว้ที่ไหน</h2>
+  <ul>
+    <li>เก็บ <b>ในคอมพิวเตอร์เครื่องที่ใช้ทดสอบเท่านั้น</b> ไม่ส่งขึ้นอินเทอร์เน็ต</li>
+    <li>แบบฟอร์มกระดาษนี้เก็บในแฟ้มของครูที่ปรึกษา</li>
+  </ul>
+
+  <h2>5. ใครเห็นข้อมูลได้บ้าง</h2>
+  <ul>
+    <li>นักเรียนทีมผู้จัดทำ และครูที่ปรึกษาเท่านั้น</li>
+    <li>ในรายงานใช้ <b>รหัสแทนชื่อจริง</b> และ <b>ไม่แสดงใบหน้า</b> ถ้าท่านไม่อนุญาตในข้อ 8</li>
+  </ul>
+
+  <h2>6. ท่านหยุดได้ทุกเมื่อ</h2>
+  <ul>
+    <li>เข้าร่วม <b>ด้วยความสมัครใจ</b> หยุดได้ทุกเมื่อ <b>โดยไม่ต้องบอกเหตุผล</b> และไม่มีผลเสียใด ๆ</li>
+    <li>ถ้ารู้สึกเจ็บ ปวด หรือเหนื่อย <b>ให้หยุดทันที</b></li>
+  </ul>
+
+  <h2>7. ขอลบข้อมูลได้อย่างไร</h2>
+  <ul>
+    <li>บอกนักเรียนหรือครูที่ปรึกษาว่า "ขอลบข้อมูล" พร้อมรหัสของท่าน ทีมจะลบทั้งหมด (รวมรูปใบหน้า) ภายใน <b>7 วัน</b></li>
+    <li>เมื่อจบโครงงาน ทีมจะลบข้อมูลผู้เข้าร่วมทุกคน</li>
+  </ul>
+
+  <h2>8. ทำเครื่องหมาย ✓ ในช่องที่ท่านยินยอม</h2>
+  <ul class="check">
+    <li><span class="box"></span>ได้อ่าน (หรือมีผู้อ่านให้ฟัง) และเข้าใจข้อความข้างต้นแล้ว</li>
+    <li><span class="box"></span>ยินยอมเข้าร่วมการทดสอบ</li>
+    <li><span class="box"></span>ยินยอมให้บันทึกเสียง (ไม่บังคับ)</li>
+    <li><span class="box"></span>ยินยอมให้บันทึกวิดีโอเฉพาะมือ (ไม่บังคับ)</li>
+    <li><span class="box"></span>ยินยอมให้แสดงใบหน้าในวิดีโอนำเสนอ (ไม่บังคับ)</li>
+  </ul>
+
+  <div class="sign">
+    <div>รหัสผู้เข้าร่วม ............ &nbsp; วันที่ ...... / ...... / ............</div>
+    <div><div class="line"></div><div class="cap">ลงชื่อผู้เข้าร่วม ( ชื่อตัวบรรจง ............................................ )</div></div>
+    <div><div class="line"></div><div class="cap">ลงชื่อพยาน / ผู้ดูแล ( ............................................ )</div></div>
+    <div><div class="line"></div><div class="cap">ลงชื่อนักเรียนผู้ทดสอบ ( ............................................ )</div></div>
+  </div>
+</main>
+</body>
+</html>

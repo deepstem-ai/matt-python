@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 36 · ทดสอบกับผู้ใช้จริง</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/parts.css">
+<style>
+  .step { font-family: var(--font-num); color: var(--primary); font-size: var(--fs-xl); }
+  .card-neon p { margin: 0 0 var(--sp-3); }
+  .card-neon a.btn-glow { text-decoration: none; }
+</style>
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap">
+  <h1>🧓 Lab 36 · ทดสอบกับผู้ใช้จริง</h1>
+  <p class="muted">ชุดเครื่องมือทดสอบ 5 คน: ยินยอม → ทำงาน 8 ข้อ → แบบสอบถาม 10 ข้อ → สรุปผล · ข้อมูลทั้งหมดอยู่ในเครื่องนี้เท่านั้น</p>
+
+  <div class="grid">
+    <section class="card-neon">
+      <div class="card-head"><span class="step">1</span><h2 class="card-title">📝 หนังสือยินยอม</h2></div>
+      <p>พิมพ์ตัวใหญ่ มีช่องลงชื่อ ต้องเซ็น <b>ก่อน</b> เริ่มทุกครั้ง</p>
+      <a class="btn-glow" href="docs/consent-form.html">เปิดเพื่อพิมพ์</a>
+    </section>
+    <section class="card-neon">
+      <div class="card-head"><span class="step">2</span><h2 class="card-title">⏱️ บันทึกการทดสอบ</h2></div>
+      <p>ผู้สังเกตใช้: งาน 8 ข้อ จับเวลา กดผล ทำได้เอง / ต้องช่วย / ทำไม่ได้ + จดคำพูด</p>
+      <a class="btn-glow" href="tools/test-recorder.html">เปิดตัวบันทึก</a>
+      <p class="muted" style="margin-top:var(--sp-2)">ฉบับกระดาษ: docs/test-script.md</p>
+    </section>
+    <section class="card-neon">
+      <div class="card-head"><span class="step">3</span><h2 class="card-title">😄 แบบสอบถาม</h2></div>
+      <p>10 ข้อ ทีละข้อ กดหน้ายิ้มปุ่มใหญ่ ให้ผู้เข้าร่วมทำเอง</p>
+      <a class="btn-glow" href="survey.html">เริ่มแบบสอบถาม</a>
+    </section>
+    <section class="card-neon">
+      <div class="card-head"><span class="step">4</span><h2 class="card-title">📊 สรุปผล</h2></div>
+      <p>ค่าเฉลี่ย ± SD ทุกข้อ กราฟแท่ง บันทึก PNG / CSV และสรุปผลงาน 8 ข้อ</p>
+      <a class="btn-glow" href="results.html">ดูผลลัพธ์</a>
+    </section>
+  </div>
+
+  <section class="card-neon" style="margin-top:var(--sp-5)">
+    <h2 class="card-title">🧪 ข้อมูลตัวอย่าง (สำหรับลองระบบ)</h2>
+    <p class="muted">ใส่ผู้เข้าร่วมสมมติ 5 คน รหัสขึ้นต้นด้วย DEMO- เพื่อดูหน้าผลลัพธ์ได้ทันที · <b>ห้ามนำตัวเลขตัวอย่างไปใส่รายงาน</b></p>
+    <div class="row">
+      <button class="btn-glow ghost" id="demo">โหลดข้อมูลตัวอย่าง 5 คน</button>
+      <button class="btn-glow ghost" id="clear">ลบข้อมูลตัวอย่าง</button>
+      <span id="count" class="chip">แบบสอบถามในเครื่อง <b>–</b></span>
+    </div>
+  </section>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module">
+import { applyPrefs, toast } from './js/ui.js';
+import { loadDemo, clearDemo, listSurveys } from './js/usertest-store.js';
+applyPrefs();
+const count = document.querySelector('#count b');
+async function refresh() {
+  try { count.textContent = (await listSurveys()).length; }
+  catch { count.textContent = '?'; toast('เปิดฐานข้อมูลไม่ได้ ลองปิดแท็บอื่นของแอปแล้วรีเฟรช', 'error', 6); }
+}
+document.getElementById('demo').onclick = async () => { await loadDemo(); toast('ใส่ข้อมูลตัวอย่าง 5 คนแล้ว'); refresh(); };
+document.getElementById('clear').onclick = async () => { await clearDemo(); toast('ลบข้อมูลตัวอย่างแล้ว ข้อมูลจริงยังอยู่'); refresh(); };
+refresh();
+</script>
+</body>
+</html>

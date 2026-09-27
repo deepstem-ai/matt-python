@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>แบบสอบถาม · HandRehab Arcade</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/parts.css">
+<style>
+  main { max-width: 1100px; margin: 0 auto; padding: var(--sp-4); }
+  .qnum { color: var(--text-2); font-size: var(--fs-lg); }
+  .qtext { font-size: var(--fs-3xl); font-weight: 800; line-height: 1.3; margin: var(--sp-4) 0 var(--sp-5); min-height: 2.6em; }
+  /* ปุ่มหน้ายิ้ม ใหญ่มาก แตะง่ายแม้มือสั่น */
+  .faces { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--sp-3); }
+  .face {
+    min-height: 180px; border-radius: var(--r-lg); border: 3px solid var(--line);
+    background: var(--input); color: var(--text); font: inherit; cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--sp-2);
+    transition: transform var(--speed), border-color var(--speed);
+  }
+  .face .em { font-size: 88px; line-height: 1; }
+  .face .lb { font-size: var(--fs-lg); font-weight: 700; }
+  .face:hover, .face:focus-visible { border-color: var(--primary); transform: scale(1.04); }
+  .face.sel { border-color: var(--primary); box-shadow: var(--glow); }
+  .nav { margin-top: var(--sp-5); justify-content: space-between; }
+  .big-input { font-size: var(--fs-2xl) !important; min-height: 88px !important; width: 100%; max-width: 420px; }
+  @media (max-width: 700px) { .faces { grid-template-columns: 1fr; } .face { min-height: 96px; flex-direction: row; } .face .em { font-size: 56px; } }
+</style>
+</head>
+<body class="theme-neon profile-elder">
+<main>
+  <div class="row" style="justify-content:space-between">
+    <a class="btn-glow ghost small" href="index.html">← เมนู</a>
+    <div style="flex:1;max-width:520px" class="bar" aria-hidden="true"><i id="prog"></i></div>
+  </div>
+
+  <!-- หน้าเริ่ม: ใส่รหัสผู้เข้าร่วม (ผู้สังเกตกรอกให้) -->
+  <section id="start">
+    <h1 style="margin-top:var(--sp-5)">แบบสอบถามหลังทดลองใช้</h1>
+    <p style="font-size:var(--fs-lg)">มี 10 ข้อ ข้อละ 1 หน้า กดรูปหน้าที่ตรงกับความรู้สึก <b>ไม่มีคำตอบถูกหรือผิด</b></p>
+    <div class="field"><label for="pid">รหัสผู้เข้าร่วม (ผู้สังเกตกรอก เช่น P01)</label>
+      <input id="pid" class="big-input" type="text" autocomplete="off" placeholder="P01"></div>
+    <div class="err-msg" id="pidErr"></div>
+    <button class="btn-glow" id="go" style="font-size:var(--fs-xl);min-height:88px">เริ่มตอบ →</button>
+  </section>
+
+  <!-- หน้าคำถาม ทีละข้อ -->
+  <section id="qs" class="hidden">
+    <div class="qnum" id="qnum"></div>
+    <div class="qtext" id="qtext"></div>
+    <div class="faces" id="faces" role="radiogroup" aria-label="ระดับความรู้สึก"></div>
+    <div class="row nav"><button class="btn-glow ghost" id="back">← ข้อก่อนหน้า</button></div>
+  </section>
+
+  <!-- ความเห็นเพิ่มเติม -->
+  <section id="more" class="hidden">
+    <h1 style="margin-top:var(--sp-5)">อยากบอกอะไรเราเพิ่มไหม</h1>
+    <p class="muted">ไม่บังคับ พูดให้ผู้สังเกตพิมพ์ให้ก็ได้</p>
+    <textarea id="comment" style="width:100%;min-height:200px;font-size:var(--fs-lg)"></textarea>
+    <div class="row nav"><button class="btn-glow ghost" id="back2">← ย้อนกลับ</button>
+      <button class="btn-glow success" id="save" style="font-size:var(--fs-xl);min-height:88px">ส่งคำตอบ ✓</button></div>
+  </section>
+
+  <!-- ขอบคุณ -->
+  <section id="done" class="hidden" style="text-align:center;margin-top:var(--sp-6)">
+    <div style="font-size:120px">🙏</div>
+    <h1>ขอบคุณมากค่ะ/ครับ</h1>
+    <p id="doneMsg" class="muted"></p>
+    <div class="row" style="justify-content:center">
+      <button class="btn-glow" id="again">คนถัดไป</button>
+      <a class="btn-glow ghost" href="results.html">ดูผลรวม</a>
+      <button class="btn-glow ghost" id="csv">⬇ CSV คำตอบทั้งหมด</button>
+    </div>
+  </section>
+</main>
+<script type="module">
+import { applyPrefs, toast, downloadCSV, esc } from './js/ui.js';
+import { newId } from './js/db.js';
+import { QUESTIONS, FACES } from './js/usertest-data.js';
+import { saveSurvey, listSurveys } from './js/usertest-store.js';
+import { surveyRows, surveyCols } from './js/usertest-csv.js';
+applyPrefs({ theme: 'neon', profile: 'elder' });
+
+const $ = (id) => document.getElementById(id);
+let idx = 0, answers = {}, pid = '';
+const show = (id) => ['start', 'qs', 'more', 'done'].forEach((s) => $(s).classList.toggle('hidden', s !== id));
+const setProg = (n) => { $('prog').style.width = (n / (QUESTIONS.length + 1)) * 100 + '%'; };
+
+// สร้างปุ่มหน้ายิ้ม 5 ปุ่ม
+FACES.forEach((f) => {
+  const b = document.createElement('button');
+  b.className = 'face'; b.dataset.v = f.v; b.setAttribute('role', 'radio');
+  b.innerHTML = `<span class="em" aria-hidden="true">${f.face}</span><span class="lb">${f.th}</span>`;
+  b.onclick = () => choose(f.v);
+  $('faces').appendChild(b);
+});
+
+function renderQ() {
+  const q = QUESTIONS[idx];
+  $('qnum').textContent = `ข้อ ${idx + 1} จาก ${QUESTIONS.length} · ${q.group}`;
+  $('qtext').textContent = q.th;
+  document.querySelectorAll('.face').forEach((b) => { const on = +b.dataset.v === answers[q.id]; b.classList.toggle('sel', on); b.setAttribute('aria-checked', on); });
+  $('back').disabled = idx === 0;
+  setProg(idx);
+}
+// กดแล้วไฮไลต์สั้น ๆ ก่อนไปข้อถัดไป ให้เห็นว่าเลือกแล้ว
+function choose(v) {
+  answers[QUESTIONS[idx].id] = v;
+  renderQ();
+  setTimeout(() => {
+    if (idx < QUESTIONS.length - 1) { idx++; renderQ(); }
+    else { show('more'); setProg(QUESTIONS.length); $('comment').focus(); }
+  }, 350);
+}
+
+$('go').onclick = () => {
+  pid = $('pid').value.trim().toUpperCase();
+  if (!/^[A-Z0-9-]{2,12}$/.test(pid)) { $('pidErr').textContent = 'กรอกรหัส เช่น P01 (ห้ามใช้ชื่อจริง)'; $('pid').classList.add('invalid'); return; }
+  idx = 0; answers = {}; show('qs'); renderQ();
+};
+$('pid').addEventListener('keydown', (e) => { if (e.key === 'Enter') $('go').click(); });
+$('back').onclick = () => { if (idx > 0) { idx--; renderQ(); } };
+$('back2').onclick = () => { idx = QUESTIONS.length - 1; show('qs'); renderQ(); };
+
+$('save').onclick = async () => {
+  const rec = { id: newId('s_'), userId: pid, participant: pid, createdAt: Date.now(), answers, comment: $('comment').value.trim(), demo: false };
+  try {
+    await saveSurvey(rec);
+    show('done'); setProg(QUESTIONS.length + 1);
+    $('doneMsg').innerHTML = `บันทึกคำตอบของ <b>${esc(pid)}</b> แล้ว (${Object.keys(answers).length} ข้อ)`;
+  } catch (e) {
+    toast('บันทึกไม่สำเร็จ: ' + e.message + ' — กดส่งอีกครั้ง', 'error', 8);
+  }
+};
+$('again').onclick = () => { $('pid').value = ''; $('comment').value = ''; show('start'); setProg(0); $('pid').focus(); };
+$('csv').onclick = async () => {
+  const list = await listSurveys();
+  if (!list.length) return toast('ยังไม่มีคำตอบ', 'warning');
+  downloadCSV('lab36-survey-responses.csv', surveyRows(list), surveyCols());
+};
+setProg(0);
+$('pid').focus();
+</script>
+</body>
+</html>
