@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 18 · คณิตศาสตร์ของมือ — HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/lab.css">
+  <style>
+    .cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
+    @media (max-width: 980px) { .cols { grid-template-columns: 1fr; } }
+    .cols h2 small { display: block; font-size: var(--fs-sm); color: var(--text-2); font-weight: 400; }
+    .ratio-big { font: 800 var(--fs-2xl) var(--font-num); }
+    .mini { display: grid; grid-template-columns: 90px 1fr 60px; gap: var(--sp-2); align-items: center; margin: var(--sp-1) 0; }
+    .top { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--sp-4); align-items: start; }
+    @media (max-width: 980px) { .top { grid-template-columns: 1fr; } }
+    #hist { width: 100%; height: 220px; display: block; border-radius: var(--r-md); }
+  </style>
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap">
+  <header class="lab-head">
+    <div>
+      <h1>📐 Lab 18 · คณิตศาสตร์ของมือ</h1>
+      <div class="sub">Raw pixel distance vs distance ÷ palm size (P0–P9) — move your hand toward and away from the camera</div>
+    </div>
+    <div class="row">
+      <button class="btn-glow ghost small" id="demoBtn">🖱️ โหมดสาธิต</button>
+      <button class="btn-glow small" id="resetBtn">↺ รีเซ็ตค่าสูงสุด/ต่ำสุด</button>
+    </div>
+  </header>
+  <div class="stats">
+    <span class="chip">FPS <b id="sFps">0</b></span>
+    <span class="chip">ขนาดฝ่ามือ S = d(P0,P9) <b id="sPalm">—</b></span>
+    <span class="chip">การหันฝ่ามือ <b id="sFace">—</b></span>
+    <span class="chip">ตัวอย่างที่เก็บ <b id="sN">0</b></span>
+  </div>
+  <div id="msg" class="alert warn msg hidden"></div>
+
+  <div class="top">
+    <section>
+      <div class="stage mirror" id="stage">
+        <video id="video" playsinline muted></video>
+        <canvas id="canvas" class="mirror"></canvas>
+        <div class="demo-tag">โหมดสาธิต (มือจำลอง)</div>
+        <div class="nohand" id="nohand">✋ ยังไม่เห็นมือ — ค้างท่าเดิมไว้ แล้วขยับมือเข้า-ออกจากกล้อง</div>
+      </div>
+      <p class="muted">วิธีทดสอบ: แบมือค้างท่าเดิม กด "รีเซ็ต" แล้วเลื่อนมือเข้าใกล้-ออกห่างกล้องช้า ๆ 3 รอบ
+        คอลัมน์ซ้ายจะเปลี่ยนมาก คอลัมน์ขวาควรเปลี่ยนไม่เกิน 5% (อัตราส่วน max÷min ≤ 1.05)</p>
+      <div id="demoPanel"></div>
+    </section>
+    <section class="card-neon">
+      <h2>📈 ประวัติ 10 วินาทีล่าสุด (คู่ 4–8 เทียบกับค่าแรก)</h2>
+      <canvas id="hist"></canvas>
+      <p class="muted">เส้นที่ขึ้นลงตามระยะกล้อง = ระยะดิบ · เส้นที่นิ่งที่ 1.0 = ระยะหารขนาดฝ่ามือ</p>
+    </section>
+  </div>
+
+  <div class="cols" style="margin-top:var(--sp-4)">
+    <section class="card-neon">
+      <h2>⬅️ ระยะดิบ (พิกเซล)<small>d(Pi,Pj) — เปลี่ยนตามระยะจากกล้อง</small></h2>
+      <table class="data"><thead><tr><th>คู่จุด</th><th class="num">ตอนนี้</th><th class="num">ต่ำสุด</th><th class="num">สูงสุด</th><th class="num">สูงสุด÷ต่ำสุด</th></tr></thead><tbody id="rawBody"></tbody></table>
+      <p>อัตราส่วนเฉลี่ยทั้งคอลัมน์ <span class="ratio-big" id="rawRatio">—</span></p>
+    </section>
+    <section class="card-neon">
+      <h2>➡️ หารด้วยขนาดฝ่ามือ<small>nd = d(Pi,Pj) / d(P0,P9) — ควรนิ่ง</small></h2>
+      <table class="data"><thead><tr><th>คู่จุด</th><th class="num">ตอนนี้</th><th class="num">ต่ำสุด</th><th class="num">สูงสุด</th><th class="num">สูงสุด÷ต่ำสุด</th></tr></thead><tbody id="normBody"></tbody></table>
+      <p>อัตราส่วนเฉลี่ยทั้งคอลัมน์ <span class="ratio-big" id="normRatio">—</span> <span id="verdict"></span></p>
+    </section>
+  </div>
+
+  <div class="cols" style="margin-top:var(--sp-4)">
+    <section class="card-neon">
+      <h2>🤞 ความงอของนิ้ว (0 = เหยียด, 1 = งอสุด)</h2>
+      <div id="curls"></div>
+    </section>
+    <section class="card-neon">
+      <h2>🖐️ มุมกางนิ้ว (องศา)</h2>
+      <div id="spreads"></div>
+    </section>
+  </div>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/math-test.js"></script>
+</body>
+</html>

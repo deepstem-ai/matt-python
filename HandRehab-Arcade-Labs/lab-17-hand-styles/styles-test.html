@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 17 · วาดมือให้สวยพอจะอวดได้ — HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/lab.css">
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap">
+  <header class="lab-head">
+    <div>
+      <h1>✨ Lab 17 · วาดมือ 3 สไตล์ + ลดระดับอัตโนมัติ</h1>
+      <div class="sub">Hand drawing styles: simple / neon / trail — with automatic adaptation to machine speed</div>
+    </div>
+    <button class="btn-glow ghost small" id="demoBtn">🖱️ โหมดสาธิต</button>
+  </header>
+
+  <div class="stats">
+    <span class="chip">FPS <b id="sFps">0</b></span>
+    <span class="chip">วาด ms/เฟรม <b id="sDraw">0</b></span>
+    <span class="chip">AI ms/เฟรม <b id="sAi">0</b></span>
+    <span class="chip">สไตล์ตอนนี้ <b id="sStyle">—</b></span>
+    <span class="chip">สไตล์ที่เลือก <b id="sWanted">—</b></span>
+    <span class="chip">หน่วยประมวลผล <b id="sDel">—</b></span>
+  </div>
+  <div id="msg" class="alert warn msg hidden"></div>
+
+  <div class="lab-grid">
+    <section>
+      <div class="stage mirror" id="stage">
+        <video id="video" playsinline muted></video>
+        <canvas id="canvas" class="mirror"></canvas>
+        <div class="demo-tag">โหมดสาธิต (มือจำลอง)</div>
+        <div class="nohand" id="nohand">✋ ยังไม่เห็นมือ — ยกมือขึ้น หรือกดโหมดสาธิต</div>
+      </div>
+      <div class="row" style="margin-top:var(--sp-3)">
+        <button class="btn-glow" id="benchBtn">📊 วัด FPS ทั้ง 3 สไตล์ (15 วินาที)</button>
+        <label class="switch"><input type="checkbox" id="slowSim"> 🐢 จำลองเครื่องช้า</label>
+      </div>
+      <div id="benchOut" class="card-neon hidden" style="margin-top:var(--sp-3)"></div>
+      <div id="demoPanel" style="margin-top:var(--sp-3)"></div>
+    </section>
+
+    <aside class="panel">
+      <div class="card-neon">
+        <h2>🎨 สไตล์การวาด</h2>
+        <div class="seg" id="styleSeg" role="radiogroup" aria-label="สไตล์การวาดมือ"></div>
+        <p class="muted" id="styleNote"></p>
+        <div class="slider-row"><span>ความหนาเส้น (px)</span><b class="num" id="vLine">5</b><input type="range" id="line" min="2" max="10" step="1" value="5"></div>
+        <div class="slider-row"><span>จำนวนชั้นวงเรืองแสงที่ปลายนิ้ว</span><b class="num" id="vLayers">2</b><input type="range" id="layers" min="0" max="4" step="1" value="2"></div>
+        <div class="slider-row"><span>ความฟุ้งของแสง (shadowBlur)</span><b class="num" id="vBlur">12</b><input type="range" id="blur" min="0" max="30" step="1" value="12"></div>
+        <div class="slider-row"><span>ความยาวหางแสง (เฟรม)</span><b class="num" id="vTrail">12</b><input type="range" id="trail" min="2" max="40" step="1" value="12"></div>
+      </div>
+      <details class="card-neon">
+        <summary><h2>🖍️ สีของแต่ละนิ้ว</h2></summary>
+        <div class="row" id="colorRow"></div>
+        <button class="btn-glow ghost small" id="colorReset" style="margin-top:var(--sp-3)">↺ กลับเป็นสีธีม</button>
+      </details>
+      <div class="card-neon">
+        <h2>⚙️ ปรับอัตโนมัติ</h2>
+        <label class="switch"><input type="checkbox" id="auto" checked> เปิดการปรับสไตล์อัตโนมัติ</label>
+        <p class="muted">FPS ต่ำกว่า <b>24</b> นาน <b>3</b> วินาที → ลดสไตล์ลงหนึ่งระดับ (แจ้งเตือนทุกครั้ง)<br>
+          FPS สูงกว่า <b>45</b> นานกว่า <b>10</b> วินาที → ถามก่อนว่าจะกลับไปสไตล์ที่เลือกไหม</p>
+        <p class="muted">⚠️ ตอนวัดความแม่นยำในแลปถัดไป ให้กลับมาใช้สไตล์ "เรียบง่าย" เสมอ</p>
+      </div>
+    </aside>
+  </div>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/styles-test.js"></script>
+</body>
+</html>

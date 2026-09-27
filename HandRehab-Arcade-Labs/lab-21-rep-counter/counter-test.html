@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 21 · นับครั้งแม่นด้วยประตูสองบาน — HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/lab.css">
+  <style>
+    #chart { width: 100%; height: 300px; display: block; border-radius: var(--r-md); }
+    .res { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-3); margin-top: var(--sp-3); }
+    @media (max-width: 800px) { .res { grid-template-columns: 1fr; } }
+    .res .card-neon { padding: var(--sp-4); }
+    .res .btn-glow { width: 100%; }
+    .verdict { font: 800 var(--fs-lg) var(--font-num); margin-top: var(--sp-2); }
+    .counts { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); text-align: center; }
+    .counts .bignum.bad { color: var(--error); }
+    .state-chip b { text-transform: uppercase; }
+    .modes { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+    .stage { max-width: 100%; }
+  </style>
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap">
+  <header class="lab-head">
+    <div>
+      <h1>🔁 Lab 21 · นับครั้งแม่นด้วย "ประตูสองบาน"</h1>
+      <div class="sub">Hysteresis / Schmitt trigger: enter above one threshold, release below another — plus min hold and cooldown</div>
+    </div>
+    <div class="modes seg" role="radiogroup" aria-label="โหมด">
+      <label class="choice"><input type="radio" name="mode" value="sim" checked> 🧪 สัญญาณจำลอง</label>
+      <label class="choice"><input type="radio" name="mode" value="live"> 📷 กล้องจริง</label>
+    </div>
+  </header>
+
+  <div class="lab-grid">
+    <section>
+      <!-- โหมดสัญญาณจำลอง -->
+      <div id="simBox">
+        <div class="res" id="simBtns"></div>
+        <div class="row" style="margin-top:var(--sp-3)">
+          <button class="btn-glow success" id="runAll">▶️ รันทั้ง 3 แบบ</button>
+          <button class="btn-glow ghost small" id="gapBtn">🔬 ทดลองแคบช่องประตู</button>
+        </div>
+      </div>
+      <!-- โหมดกล้องจริง -->
+      <div id="liveBox" class="hidden">
+        <div class="row" style="margin-bottom:var(--sp-3)">
+          <label>ท่าที่นับ <select id="gesture"></select></label>
+          <button class="btn-glow ghost small" id="demoBtn">🖱️ โหมดสาธิต</button>
+          <button class="btn-glow ghost small" id="liveReset">↺ เริ่มนับใหม่</button>
+        </div>
+        <div id="msg" class="alert warn msg hidden"></div>
+        <div class="stage mirror" id="stage">
+          <video id="video" playsinline muted></video>
+          <canvas id="canvas" class="mirror"></canvas>
+          <div class="demo-tag">โหมดสาธิต — กดเมาส์ค้าง = จีบ, F = กำมือ</div>
+          <div class="nohand" id="nohand">✋ ยังไม่เห็นมือ — ทำท่าให้ครบ 10 ครั้ง</div>
+        </div>
+        <div id="demoPanel" style="margin-top:var(--sp-3)"></div>
+      </div>
+
+      <div class="card-neon" style="margin-top:var(--sp-4)">
+        <canvas id="chart" aria-label="กราฟสัญญาณคะแนนพร้อมเส้นเกณฑ์"></canvas>
+        <div class="row" style="margin-top:var(--sp-3)">
+          <button class="btn-glow small" id="pngBtn">🖼️ บันทึกกราฟเป็น PNG</button>
+          <span class="muted">● เขียวด้านบน = สองประตูนับ · ขีดแดงด้านล่าง = เกณฑ์เดียวนับ · แถบเทา = เขตกันสั่น</span>
+        </div>
+      </div>
+      <div id="gapOut" class="card-neon hidden" style="margin-top:var(--sp-4)"></div>
+    </section>
+
+    <aside class="panel">
+      <div class="card-neon">
+        <div class="counts">
+          <div>สองประตู<div class="bignum" id="cnt">0</div></div>
+          <div>เกณฑ์เดียว<div class="bignum bad" id="naiveCnt">0</div></div>
+        </div>
+        <p style="text-align:center"><span class="chip state-chip">สถานะ <b id="state">idle</b></span></p>
+      </div>
+      <div class="card-neon">
+        <h2>🎚️ ค่าเกณฑ์</h2>
+        <div class="slider-row"><span>enter — ต้องขึ้นเกินจึงเริ่ม</span><b class="num" id="vEnter"></b><input type="range" id="enter" min="0.3" max="0.95" step="0.05" value="0.7"></div>
+        <div class="slider-row"><span>exit — ต้องลงต่ำกว่าจึงปล่อย</span><b class="num" id="vExit"></b><input type="range" id="exit" min="0.05" max="0.9" step="0.05" value="0.4"></div>
+        <div class="slider-row"><span>minHold — ค้างอย่างน้อย (ms)</span><b class="num" id="vHold"></b><input type="range" id="hold" min="0" max="800" step="50" value="200"></div>
+        <div class="slider-row"><span>cooldown — ห้ามนับซ้ำภายใน (ms)</span><b class="num" id="vCool"></b><input type="range" id="cool" min="0" max="1500" step="50" value="400"></div>
+        <div class="slider-row"><span>เกณฑ์เดียว (ตัวเปรียบเทียบ)</span><b class="num" id="vNaive"></b><input type="range" id="naive" min="0.2" max="0.9" step="0.05" value="0.5"></div>
+      </div>
+      <div class="card-neon">
+        <h2>📋 รายการแต่ละครั้ง</h2>
+        <div class="tbl-scroll" style="max-height:320px">
+          <table class="data"><thead><tr><th>#</th><th>เวลา</th><th class="num">peak</th><th class="num">ค้าง ms</th><th class="num">คุณภาพ</th></tr></thead><tbody id="reps"></tbody></table>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/counter-test.js"></script>
+</body>
+</html>
