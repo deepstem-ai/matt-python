@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HandRehab Arcade — ระบบสลับหน้า (Lab 07)</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body class="theme-neon profile-standard">
+  <!-- ===== แถบบน: บอกว่าตอนนี้อยู่หน้าไหน ===== -->
+  <header class="topbar">
+    <span class="brand">HandRehab Arcade</span>
+    <span class="where" aria-live="polite">📍 <span id="where">-</span></span>
+    <ol class="crumbs" id="crumbs" aria-label="เส้นทางที่ผ่านมา"></ol>
+    <span class="spacer"></span>
+    <span class="chip" id="userChip">ยังไม่ล็อกอิน</span>
+    <button class="btn-glow ghost small" id="backBtn" data-tip="กด Esc ก็ได้"><span class="ico">↩</span> ย้อนกลับ</button>
+    <button class="btn-glow ghost small" id="helpBtn" data-tip="กด F1 ก็ได้"><span class="ico">❓</span> ช่วยเหลือ</button>
+  </header>
+
+  <main class="wrap">
+    <!-- 1) splash -->
+    <section class="page" id="page-splash">
+      <div class="card-neon page-card">
+        <h1>🖐 HandRehab Arcade</h1>
+        <p>หน้าเปิดแอป (Lab 08 จะเปลี่ยนเป็นหน้าโหลดจริง)</p>
+        <button class="btn-glow" data-go="login"><span class="ico">▶</span> เริ่มต้น</button>
+      </div>
+    </section>
+
+    <!-- 2) login -->
+    <section class="page" id="page-login">
+      <div class="card-neon page-card">
+        <h1>🔐 เข้าสู่ระบบ</h1>
+        <div id="authNote" class="alert warn hidden" role="alert"></div>
+        <p>ปุ่มนี้เป็นการล็อกอินจำลอง ใช้ทดสอบว่าหน้าที่ต้องล็อกอิน (requiresAuth) ทำงานถูก</p>
+        <div class="row">
+          <button class="btn-glow" id="fakeLogin"><span class="ico">✔</span> เข้าสู่ระบบ (ทดสอบ)</button>
+          <button class="btn-glow ghost" data-go="register"><span class="ico">📝</span> ลงทะเบียนใหม่</button>
+          <button class="btn-glow ghost" data-go="home"><span class="ico">🏠</span> ลองเข้าหน้าหลักโดยไม่ล็อกอิน</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3) register -->
+    <section class="page" id="page-register">
+      <div class="card-neon page-card">
+        <h1>📝 ลงทะเบียน</h1>
+        <ol class="crumbs" aria-label="ขั้นตอนลงทะเบียน"><li class="now" aria-current="step">ขั้น 1 ชื่อ</li><li>ขั้น 2 ข้อมูลสุขภาพ</li><li>ขั้น 3 ยินยอม</li></ol>
+        <label class="field">ชื่อเล่น (ลองพิมพ์แล้วกดย้อนกลับ จะมีหน้าต่างถามก่อนออก)
+          <input type="text" id="regName" autocomplete="off" placeholder="เช่น ยายสมใจ">
+        </label>
+        <button class="btn-glow" id="regNext"><span class="ico">➡</span> ถัดไป: หน้าหลัก</button>
+      </div>
+    </section>
+
+    <!-- 4) home -->
+    <section class="page" id="page-home">
+      <div class="card-neon page-card">
+        <h1>🏠 หน้าหลัก</h1>
+        <p id="hello">สวัสดี</p>
+        <div class="row">
+          <button class="btn-glow" data-go="game"><span class="ico">🎮</span> ถัดไป: เล่นเกม</button>
+          <button class="btn-glow ghost" id="logout"><span class="ico">🚪</span> ออกจากระบบ</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) game (ใช้กล้อง) -->
+    <section class="page" id="page-game">
+      <div class="card-neon page-card">
+        <h1>🎮 เกม</h1>
+        <p>กล้อง: <span id="camStatus" class="cam-status off">⚫ ปิด</span> — ออกจากหน้านี้เมื่อไร กล้องต้องปิดทันที (ไฟกล้องดับ)</p>
+        <div class="stage mirror"><video id="gameVideo" playsinline muted></video></div>
+        <div id="camError" class="alert hidden" role="alert"></div>
+        <div class="row" style="margin-top:var(--sp-4)">
+          <button class="btn-glow" data-go="progress"><span class="ico">📈</span> ถัดไป: ความก้าวหน้า</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) progress -->
+    <section class="page" id="page-progress">
+      <div class="card-neon page-card">
+        <h1>📈 ความก้าวหน้า</h1>
+        <div class="tabs" role="tablist">
+          <button class="btn-glow ghost small" role="tab" data-tab="week" aria-selected="true"><span class="ico">📅</span> สัปดาห์นี้</button>
+          <button class="btn-glow ghost small" role="tab" data-tab="month" aria-selected="false"><span class="ico">🗓</span> เดือนนี้</button>
+          <button class="btn-glow ghost small" role="tab" data-tab="all" aria-selected="false"><span class="ico">📚</span> ทั้งหมด</button>
+        </div>
+        <p id="tabView" role="tabpanel">สัปดาห์นี้ฝึกไป 4 วัน (กราฟจริงมาใน Lab 29)</p>
+        <button class="btn-glow" data-go="settings"><span class="ico">⚙</span> ถัดไป: ตั้งค่า</button>
+      </div>
+    </section>
+
+    <!-- 7) settings -->
+    <section class="page" id="page-settings">
+      <div class="card-neon page-card">
+        <h1>⚙ ตั้งค่า</h1>
+        <div class="row">
+          <label class="field">แบบการเปลี่ยนหน้า
+            <select id="transSel">
+              <option value="fade">ค่อย ๆ จางเข้า (นุ่มนวล เหมาะกับผู้สูงอายุ)</option>
+              <option value="slide">เลื่อนจากขวา (เหมือนแอปมือถือ)</option>
+              <option value="zoom">ซูมเข้า</option>
+            </select>
+          </label>
+          <label class="field">ความยาว <b id="durVal" class="num">250</b> ms
+            <input type="range" id="durSlider" min="100" max="600" step="50" value="250">
+          </label>
+          <label class="switch"><input type="checkbox" id="calmSw"> โหมดสงบ (ปิดการเคลื่อนไหว)</label>
+        </div>
+        <div class="row">
+          <button class="btn-glow ghost" id="selfTest"><span class="ico">🔁</span> ทดสอบสลับหน้า 50 ครั้ง</button>
+          <label class="switch"><input type="checkbox" id="withCam" checked> รวมหน้าเกม (เปิด-ปิดกล้องด้วย)</label>
+        </div>
+        <div id="testOut" class="alert ok hidden" role="status"></div>
+        <button class="btn-glow" data-go="home"><span class="ico">🏠</span> ถัดไป: กลับหน้าหลัก</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== แถบนำทางล่าง ===== -->
+  <nav class="bottom-nav" id="bottomNav" aria-label="เมนูหลัก">
+    <button class="btn-glow ghost" data-go="home" data-nav="home"><span class="ico">🏠</span> หน้าหลัก</button>
+    <button class="btn-glow ghost" data-go="game" data-nav="game"><span class="ico">🎮</span> เกม</button>
+    <button class="btn-glow ghost" data-go="progress" data-nav="progress"><span class="ico">📈</span> ความก้าวหน้า</button>
+    <button class="btn-glow ghost" data-go="settings" data-nav="settings"><span class="ico">⚙</span> ตั้งค่า</button>
+  </nav>
+  <div class="team-badge">ทีม NeonHands · โรงเรียนของเรา</div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

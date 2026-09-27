@@ -1,0 +1,18 @@
+/* ============================================================
+   showcase.css — จัดหน้า parts.html (Lab 06)
+   ============================================================ */
+h2 { margin-top: var(--sp-6); }
+h2 small { font-size: var(--fs-sm); font-weight: 400; }
+.toolbar { display: flex; flex-direction: column; gap: var(--sp-3); }
+.grow { flex: 1 1 280px; }
+.fps-hud { position: fixed; top: var(--sp-3); right: var(--sp-3); display: flex; gap: var(--sp-2); z-index: 100; }
+.fps-hud .chip { background: var(--card); }
+.fx-status { display: flex; flex-wrap: wrap; gap: var(--sp-2); font-size: var(--fs-sm); }
+.fx-status .on  { color: var(--success); }
+.fx-status .off { color: var(--text-2); }
+.stress { margin-top: var(--sp-4); grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+.stress .card-neon { padding: var(--sp-3); display: flex; flex-direction: column; gap: var(--sp-2); align-items: flex-start; }
+.stress .ring { width: 72px; height: 72px; }
+.stress .ring .ring-label { font-size: var(--fs-sm); }
+#report { margin-top: var(--sp-4); }
+#report ul { margin: var(--sp-2) 0 0; }

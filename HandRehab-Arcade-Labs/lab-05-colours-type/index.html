@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ระบบสีและตัวอักษร — HandRehab Arcade (Lab 05)</title>
+  <!-- ลำดับสำคัญ: tokens (ค่าตั้งต้น) → themes (ธีมทับค่า) → parts (ชิ้นส่วน) → ของหน้านี้ -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/style-page.css">
+</head>
+<body class="theme-neon profile-standard">
+  <main class="wrap">
+    <header class="page-head">
+      <h1>🎨 ระบบสีและตัวอักษร</h1>
+      <p class="muted">HandRehab Arcade · ทีม NeonHands · หน้า style.html สำหรับให้ทีมโหวตธีม (Lab 05)</p>
+    </header>
+
+    <!-- ===== แผงควบคุม ===== -->
+    <section class="card-neon controls" aria-label="แผงควบคุมธีม">
+      <div class="row">
+        <span class="lbl">ธีม:</span>
+        <button class="btn-glow ghost" data-theme="neon"><span class="ico">⚡</span> Neon วัยรุ่น</button>
+        <button class="btn-glow ghost" data-theme="calm"><span class="ico">🌿</span> Calm สบายตา</button>
+        <button class="btn-glow ghost" data-theme="large"><span class="ico">🔠</span> Large ตัวใหญ่</button>
+        <label class="field inline">เลือกจากรายการ
+          <select id="themeSel">
+            <option value="neon">Neon — สำหรับวัยรุ่น</option>
+            <option value="calm">Calm — ไวต่อสีจัด</option>
+            <option value="large">Large — ผู้สูงอายุ ตัวใหญ่</option>
+          </select>
+        </label>
+      </div>
+      <div class="row">
+        <button class="btn-glow ghost" id="modeBtn"><span class="ico">🌙</span> <span>โหมดมืด</span></button>
+        <label class="switch"><input type="checkbox" id="lightSw"> โหมดสว่าง (Light)</label>
+        <label class="field grow">ขนาดตัวอักษรฐาน <b id="fsVal" class="num">16px</b>
+          <input type="range" id="fsSlider" min="12" max="32" step="1" value="16">
+        </label>
+      </div>
+      <div class="row">
+        <button class="btn-glow ghost" id="resetBtn"><span class="ico">↺</span> คืนค่าสีเดิมทั้งหมด</button>
+        <button class="btn-glow ghost" id="exportBtn"><span class="ico">💾</span> ดาวน์โหลดสีชุดนี้ (tokens-custom.css)</button>
+        <button class="btn-glow" id="testBtn"><span class="ico">🧪</span> รันการทดสอบ contrastRatio</button>
+        <span class="chip" id="overrideChip">สีที่แก้เอง <b>0</b></span>
+      </div>
+    </section>
+
+    <!-- ===== สรุปผลคอนทราสต์ ===== -->
+    <div id="summary" class="alert ok" role="status"></div>
+
+    <!-- ===== การ์ดสีทุกสี ===== -->
+    <h2>สีทั้งหมด <small class="muted">(กดช่องสีเพื่อแก้สด ๆ)</small></h2>
+    <div id="colours" class="grid"></div>
+
+    <!-- ===== ตารางคู่สีที่ใช้จริง ===== -->
+    <h2>คู่สีที่ใช้จริงในแอป</h2>
+    <div class="card-neon"><table class="data" id="pairs"></table></div>
+
+    <!-- ===== ขนาดตัวอักษร 7 ขั้น ===== -->
+    <h2>ขนาดตัวอักษร 7 ขั้น</h2>
+    <div id="types" class="col"></div>
+
+    <!-- ===== ตัวเลขในเกม ===== -->
+    <h2>ฟอนต์ตัวเลขเกม (Orbitron)</h2>
+    <div class="card-neon row score-demo">
+      <span class="num big">98,760</span><span class="chip">คอมโบ <b>x12</b></span><span class="chip ok">แม่นยำ <b>94%</b></span>
+    </div>
+
+    <!-- ===== ผลการทดสอบ ===== -->
+    <h2>ผลการทดสอบ contrastRatio()</h2>
+    <ul id="testOut" class="card-neon tests"><li class="muted">กดปุ่ม "รันการทดสอบ" ด้านบน</li></ul>
+  </main>
+  <div class="team-badge">ทีม NeonHands · โรงเรียนของเรา</div>
+  <script type="module" src="js/style-page.js"></script>
+</body>
+</html>
