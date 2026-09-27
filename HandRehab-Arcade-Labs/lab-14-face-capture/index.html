@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>เก็บภาพใบหน้า · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/face.css">
+</head>
+<!-- data-next = หน้าที่จะพาไปหลังบันทึก (Lab 14 ไม่มี / Lab 15 ใส่ index.html) -->
+<body class="theme-neon profile-standard" data-next="">
+<main class="wrap">
+  <header class="row top">
+    <h1>📸 เก็บภาพใบหน้า <small class="muted">Face capture</small></h1>
+    <span id="userChip" class="chip hidden"></span>
+    <span class="spacer"></span>
+    <button id="btnBack" class="btn-glow ghost small">👥 เปลี่ยนผู้ใช้</button>
+  </header>
+
+  <!-- 1) เลือกผู้ใช้ -->
+  <section id="secPick" class="card-neon">
+    <h2>ใครจะเก็บใบหน้า?</h2>
+    <div id="userList" class="col"></div>
+    <div id="noUsers" class="alert warn hidden">ยังไม่มีผู้ใช้ในเครื่องนี้ — สร้างชื่อด่วนด้านล่างได้เลย
+      (การลงทะเบียนแบบเต็มพร้อมตรวจข้อมูลอยู่ใน <b>Lab 12</b>)</div>
+    <form id="quickForm" class="quick" autocomplete="off">
+      <div class="field">
+        <label for="quickName">➕ สร้างผู้ใช้ด่วน (ชื่อเล่นหรือชื่อจริง)</label>
+        <input id="quickName" type="text" maxlength="40" placeholder="เช่น คุณสมศรี">
+        <span class="err-msg" id="quickErr"></span>
+      </div>
+      <button class="btn-glow" type="submit">สร้างและเลือก</button>
+    </form>
+    <p class="muted">หมายเหตุ: ฟอร์มนี้เก็บแค่ชื่อ เพื่อทดสอบแลปนี้ การลงทะเบียนจริงอยู่ใน Lab 12</p>
+  </section>
+
+  <!-- 2) แจ้งเรื่องข้อมูลส่วนตัวก่อนถ่ายทุกครั้ง -->
+  <section id="secConsent" class="card-neon hidden">
+    <h2>🔒 ก่อนเริ่ม: ภาพใบหน้าของคุณจะอยู่ที่ไหน</h2>
+    <ul class="bigtext">
+      <li>ภาพใบหน้าเป็น <b>ข้อมูลชีวมิติ</b> ซึ่งอ่อนไหวที่สุด</li>
+      <li>เก็บไว้ <b>ในเบราว์เซอร์ของเครื่องนี้เท่านั้น</b> (IndexedDB) ไม่ส่งขึ้นอินเทอร์เน็ต ไม่อัปโหลดขึ้น GitHub</li>
+      <li>ใช้เพื่อ <b>เข้าสู่ระบบด้วยใบหน้า</b> อย่างเดียว และลบทั้งหมดได้ทุกเมื่อด้วยปุ่มด้านล่าง</li>
+      <li>จะถ่าย 5 ท่า: หน้าตรง · หันซ้าย · หันขวา · เงย · ก้ม (เล็กน้อยทุกท่า)</li>
+    </ul>
+    <p id="oldFaces" class="muted"></p>
+    <div class="row">
+      <button id="btnStart" class="btn-glow">▶ เข้าใจแล้ว เริ่มถ่าย</button>
+      <button id="btnConsentBack" class="btn-glow ghost">ยกเลิก</button>
+      <button id="btnDeleteFaces" class="btn-glow danger small">🗑 ลบใบหน้าทั้งหมดของฉัน</button>
+    </div>
+  </section>
+
+  <!-- 3) ถ่ายภาพ -->
+  <section id="secCapture" class="hidden">
+    <div class="capture-grid">
+      <div class="col">
+        <div id="stage" class="stage mirror">
+          <video id="video" playsinline muted></video>
+          <canvas id="overlay"></canvas>
+          <div id="poseTag" class="pose-tag"></div>
+          <div id="countdown" class="countdown hidden"><div id="cdRing" class="ring"></div></div>
+        </div>
+        <div id="status" class="status-strip" data-state="none" role="status" aria-live="polite">
+          <span id="statusIco" class="ico">⏳</span><span id="statusText">กำลังเตรียมกล้อง…</span>
+        </div>
+        <div class="qbar"><span>คุณภาพ</span><div class="bar"><i id="qFill"></i></div><b id="qNum" class="num">0</b></div>
+      </div>
+      <aside class="card-neon col">
+        <h3>ท่าที่ต้องถ่าย (5 ภาพ)</h3>
+        <ol id="poseList" class="pose-list"></ol>
+        <details><summary>📊 ตัวเลขสด (สำหรับปรับเกณฑ์)</summary><table id="liveTable" class="data"></table></details>
+        <details><summary>❌ ภาพที่ถูกปฏิเสธ</summary><ul id="rejectLog" class="muted small-list"></ul></details>
+        <button id="btnStop" class="btn-glow ghost">⏹ หยุดและดูสรุป</button>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 4) สรุป -->
+  <section id="secSummary" class="card-neon hidden">
+    <h2>สรุปภาพใบหน้า</h2>
+    <div id="avgBox"></div>
+    <div id="strip" class="strip" aria-label="ภาพที่ถ่าย เลื่อนแนวนอนได้"></div>
+    <div class="row">
+      <button id="btnSave" class="btn-glow success">💾 บันทึกลงเครื่อง</button>
+      <button id="btnRetakeAll" class="btn-glow ghost">↻ ถ่ายใหม่ทั้งหมด</button>
+      <button id="btnDeleteFaces2" class="btn-glow danger small">🗑 ลบใบหน้าที่บันทึกไว้</button>
+    </div>
+    <div id="afterSave"></div>
+  </section>
+
+  <div id="errBox" class="alert hidden" role="alert"></div>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/capture-page.js"></script>
+</body>
+</html>

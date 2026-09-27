@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ลงทะเบียน · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/face.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap narrow">
+  <header class="row top">
+    <h1>📝 ลงทะเบียนแบบย่อ</h1><span class="spacer"></span>
+    <a class="btn-glow ghost small" href="index.html">↩ หน้าเข้าสู่ระบบ</a>
+  </header>
+  <p class="muted">ฟอร์มย่อสำหรับแลปนี้ (ชื่อ + PIN) — ฟอร์มลงทะเบียนเต็มที่ตรวจข้อมูลครบอยู่ใน Lab 12</p>
+  <div class="steps"><span id="st1" class="now">1 ชื่อ</span><span id="st2">2 ตั้ง PIN</span><span id="st3">3 ยืนยัน PIN</span><span id="st4">4 เสร็จ</span></div>
+
+  <section id="s1" class="card-neon">
+    <form id="nameForm" autocomplete="off">
+      <div class="field"><label for="firstName">ชื่อ *</label><input id="firstName" type="text" maxlength="40" required><span class="err-msg" id="nameErr"></span></div>
+      <div class="field"><label for="lastName">นามสกุล (ไม่บังคับ)</label><input id="lastName" type="text" maxlength="40"></div>
+      <label class="choice"><input id="consent" type="checkbox"> ข้อมูลเก็บในเครื่องนี้เท่านั้น ฉันเข้าใจและยินยอม</label>
+      <span class="err-msg" id="consentErr"></span>
+      <div class="row" style="margin-top:12px"><button class="btn-glow" type="submit">ถัดไป ➜</button></div>
+    </form>
+  </section>
+  <section id="s2" class="card-neon hidden">
+    <h2 id="pinTitle">ตั้ง PIN 6 หลัก</h2>
+    <p id="pinMsg" class="muted">PIN ใช้เข้าสู่ระบบแทนใบหน้า (ห้ามเลขเดียวกันทั้งหมด หรือเรียงกัน)</p>
+    <div id="pad"></div>
+  </section>
+  <section id="s4" class="card-neon hidden">
+    <h2>✅ ลงทะเบียนแล้ว</h2>
+    <p>ต่อไปเลือกได้ว่าจะเก็บใบหน้าไว้เข้าสู่ระบบ หรือใช้ PIN อย่างเดียว — <b>ทั้งสองทางใช้ได้เท่ากัน</b> เป็นสิทธิ์ของคุณ</p>
+    <div class="row"><a id="goEnrol" class="btn-glow" href="enrol.html">📸 เก็บใบหน้าตอนนี้</a><button id="goHome" class="btn-glow ghost">ใช้ PIN อย่างเดียว ➜ หน้าหลัก</button></div>
+  </section>
+  <div id="errBox" class="alert hidden" role="alert"></div>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/register-page.js"></script>
+</body>
+</html>
