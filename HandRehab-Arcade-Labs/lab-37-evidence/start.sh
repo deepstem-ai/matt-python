@@ -15,7 +15,7 @@ for i in 1 2 3 4 5; do                        # ลองหาพอร์ต�
   PORT=$((PORT+1))
   if [ $i -eq 5 ]; then echo "[!] พอร์ต 8000-8004 ถูกใช้หมด"; exit 1; fi
 done
-"$PY" -m http.server $PORT --bind 127.0.0.1 >/dev/null 2>&1 &   # เปิดเซิร์ฟเวอร์เบื้องหลัง
+"$PY" tools/serve.py $PORT >/dev/null 2>&1 &   # เปิดเซิร์ฟเวอร์เบื้องหลัง
 SERVER=$!                                     # จำหมายเลขโปรเซสไว้ปิดทีหลัง
 sleep 2                                       # รอเซิร์ฟเวอร์พร้อม
 URL="http://localhost:$PORT/index.html"
