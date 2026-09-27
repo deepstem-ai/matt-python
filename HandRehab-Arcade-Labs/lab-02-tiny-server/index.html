@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HandRehab Arcade — เปิดกล้อง</title>
+<!-- Lab 02: ตั้งแต่แลปนี้ ต้องเปิดผ่าน start.bat / http://localhost เท่านั้น -->
+<style>
+/* ===== ตัวแปรสี: เปลี่ยนสีทั้งแอปได้จากตรงนี้ที่เดียว ===== */
+:root {
+  --bg: #0B1020;        /* พื้นหลัง น้ำเงินเข้มเกือบดำ ดูเป็นเกมทันที */
+  --card: #151B33;      /* พื้นการ์ด / กล่อง */
+  --text: #F8FAFC;      /* ตัวอักษรหลัก ขาวนวล */
+  --text-2: #94A3B8;    /* ตัวอักษรรอง สีเทา */
+  --primary: #22D3EE;   /* ฟ้าไซเบอร์ สีปุ่มหลัก */
+  --secondary: #A78BFA; /* ม่วงอ่อน ใช้คู่กับสีฟ้า */
+  --success: #A3E635;   /* เขียว = ดี */
+  --warning: #FBBF24;   /* เหลือง = พอใช้ */
+  --error: #F87171;     /* แดงอ่อน = มีปัญหา */
+  --line: #334155;      /* เส้นขอบบาง ๆ */
+  --on-bright: #0B1020; /* ตัวอักษรบนปุ่มสีสว่าง */
+  --stage: #000000;     /* พื้นหลังช่องวิดีโอ ดำสนิท */
+  --glass: rgba(11, 16, 32, 0.8); /* พื้นโปร่งแสงใต้ป้าย FPS */
+}
+/* กล่องทุกกล่องนับขอบรวมในขนาด จะได้คำนวณง่าย */
+* { box-sizing: border-box; }
+/* พื้นหลังทั้งหน้า + ฟอนต์ไทยที่มีในเครื่อง */
+html, body { margin: 0; height: 100%; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: "Noto Sans Thai", "Leelawadee UI", "Tahoma", sans-serif;
+  display: flex; flex-direction: column; min-height: 100vh;
+}
+/* หัวเรื่องตรงกลางด้านบน ตัวใหญ่ */
+header { text-align: center; padding: 16px 16px 4px; }
+h1 {
+  margin: 0; font-size: clamp(32px, 5vw, 56px); letter-spacing: 1px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.sub { margin: 4px 0 0; color: var(--text-2); font-size: 18px; }
+/* แถบควบคุม: ปุ่มและตัวเลือก */
+.controls { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; align-items: center; padding: 12px 16px; }
+/* ปุ่มใหญ่ สูงอย่างน้อย 56px กดง่ายแม้มือสั่น */
+.btn {
+  min-height: 56px; padding: 0 28px; border: 0; border-radius: 16px;
+  font: inherit; font-size: 22px; font-weight: 700; cursor: pointer;
+  background: var(--primary); color: var(--on-bright);
+  box-shadow: 0 0 18px var(--primary);
+}
+.btn.big { min-height: 80px; font-size: 30px; padding: 0 48px; border-radius: 22px; }
+.btn.ghost { background: transparent; color: var(--text); border: 2px solid var(--line); box-shadow: none; }
+.btn:focus-visible, select:focus-visible, input:focus-visible { outline: 4px solid var(--secondary); outline-offset: 3px; }
+.btn:active { transform: scale(0.97); }
+/* ช่องเลือกความละเอียด และสวิตช์กระจก */
+label.opt { display: flex; align-items: center; gap: 8px; font-size: 18px; min-height: 56px; }
+select {
+  min-height: 56px; padding: 0 12px; border-radius: 12px; font: inherit; font-size: 18px;
+  background: var(--card); color: var(--text); border: 2px solid var(--line);
+}
+input[type=checkbox] { width: 28px; height: 28px; accent-color: var(--primary); }
+/* พื้นที่แสดงภาพกล้อง กินที่ที่เหลือทั้งหมด */
+main { flex: 1; display: flex; padding: 8px 16px 56px; min-height: 0; }
+.stage {
+  position: relative; flex: 1; min-height: 50vh; border-radius: 20px;
+  background: var(--stage); overflow: hidden; border: 3px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+}
+/* ขอบเรืองแสงเต้นเป็นจังหวะ ตอนกล้องเปิดอยู่ */
+.stage.live { border-color: var(--primary); animation: pulse 2s ease-in-out infinite; }
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 10px var(--primary), 0 0 20px var(--secondary); }
+  50% { box-shadow: 0 0 28px var(--primary), 0 0 56px var(--secondary); }
+}
+/* คนที่ตั้งค่าให้ลดการเคลื่อนไหว จะไม่เห็นขอบกะพริบ */
+@media (prefers-reduced-motion: reduce) { .stage.live { animation: none; box-shadow: 0 0 16px var(--primary); } }
+/* วิดีโอ: object-fit contain = ขยายเต็มพื้นที่แต่ไม่บิดสัดส่วนภาพ */
+video { width: 100%; height: 100%; object-fit: contain; display: block; }
+video.mirror { transform: scaleX(-1); }  /* พลิกซ้ายขวาให้เหมือนส่องกระจก */
+/* ป้ายตัวเลข FPS มุมขวาบน */
+.fps {
+  position: absolute; top: 12px; right: 12px; padding: 6px 14px; border-radius: 12px;
+  background: var(--glass); border: 2px solid var(--line);
+  font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums;
+}
+.fps small { display: block; font-size: 13px; font-weight: 400; color: var(--text-2); text-align: right; }
+.fps.good { color: var(--success); border-color: var(--success); }
+.fps.ok { color: var(--warning); border-color: var(--warning); }
+.fps.bad { color: var(--error); border-color: var(--error); }
+/* ข้อความตรงกลางตอนยังไม่เปิดกล้อง / กล่องแจ้งข้อผิดพลาด */
+.center-msg { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px; text-align: center; }
+.alert {
+  max-width: 560px; background: var(--card); border: 3px solid var(--error); border-radius: 20px;
+  padding: 24px; text-align: left;
+}
+.alert h2 { margin: 0 0 8px; color: var(--error); font-size: 26px; }
+.alert p { margin: 0 0 8px; font-size: 18px; line-height: 1.6; }
+.alert ol { margin: 0 0 16px; padding-left: 24px; font-size: 17px; line-height: 1.7; color: var(--text-2); }
+.alert code { color: var(--text-2); font-size: 13px; }
+/* ตารางจดผล FPS แต่ละความละเอียด */
+.log { font-size: 15px; color: var(--text-2); text-align: center; padding: 0 16px 8px; }
+.log b { color: var(--text); }
+/* ป้ายชื่อทีมมุมซ้ายล่าง */
+.team { position: fixed; left: 16px; bottom: 12px; font-size: 15px; color: var(--text-2); }
+.hidden { display: none !important; }
+/* แถบเตือนสีเหลือง เมื่อเปิดไฟล์ตรง ๆ แทนที่จะเปิดผ่าน localhost */
+.warn-bar { background: var(--warning); color: var(--on-bright); text-align: center; padding: 12px 16px; font-size: 17px; font-weight: 700; }
+/* จอแคบ (มือถือ/แท็บเล็ต): ย้ายป้ายทีมมาไว้ใต้สุด จะได้ไม่ทับข้อความอื่น */
+@media (max-width: 700px) { .team { position: static; text-align: center; padding: 0 16px 12px; } main { padding-bottom: 8px; } }
+</style>
+</head>
+<body>
+  <!-- แถบเตือน: จะโผล่เฉพาะตอนเปิดไฟล์ด้วยการดับเบิลคลิก (file://) -->
+  <div class="warn-bar hidden" id="fileWarn">⚠️ ตอนนี้เปิดไฟล์ตรง ๆ อยู่ — ตั้งแต่ Lab 02 ให้ปิดหน้านี้ แล้วดับเบิลคลิก start.bat แทน (ไม่อย่างนั้นแลปถัดไปจะโหลดโมเดล AI ไม่ได้)</div>
+  <header>
+    <h1>HandRehab Arcade</h1>
+    <p class="sub">เกมฝึกมือด้วยกล้อง · Lab 02 เปิดผ่านเซิร์ฟเวอร์เล็ก (localhost)</p>
+  </header>
+
+  <!-- แถบควบคุม -->
+  <div class="controls">
+    <label class="opt">ความละเอียด
+      <select id="resSelect" aria-label="เลือกความละเอียดกล้อง">
+        <option value="640x480">640 × 480 (เบา)</option>
+        <option value="1280x720" selected>1280 × 720 (แนะนำ)</option>
+        <option value="1920x1080">1920 × 1080 (คมสุด)</option>
+      </select>
+    </label>
+    <label class="opt"><input type="checkbox" id="mirrorToggle" checked> ภาพกระจก</label>
+    <button class="btn ghost hidden" id="stopBtn">■ ปิดกล้อง</button>
+  </div>
+
+  <main>
+    <div class="stage" id="stage">
+      <!-- playsinline + muted ให้วิดีโอเล่นเองได้ทุกเบราว์เซอร์ -->
+      <video id="video" class="mirror" autoplay playsinline muted></video>
+      <div class="fps hidden" id="fpsBadge" aria-live="off">-- FPS<small id="resInfo"></small></div>
+
+      <!-- หน้าจอก่อนเปิดกล้อง: ปุ่มใหญ่กลางจอ -->
+      <div class="center-msg" id="startPanel">
+        <button class="btn big" id="startBtn">▶ เปิดกล้อง</button>
+        <p class="sub">กดปุ่ม แล้วกด "อนุญาต" (Allow) ให้ใช้กล้อง</p>
+      </div>
+
+      <!-- กล่องแจ้งปัญหา (ซ่อนไว้ก่อน) -->
+      <div class="center-msg hidden" id="errorPanel">
+        <div class="alert" role="alert">
+          <h2 id="errTitle">เปิดกล้องไม่ได้</h2>
+          <p id="errDetail"></p>
+          <ol id="errSteps"></ol>
+          <button class="btn" id="retryBtn">↻ ลองใหม่อีกครั้ง</button>
+          <p><code id="errCode"></code></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- จดผล FPS ของแต่ละความละเอียด (สำหรับข้อ SHOULD DO) -->
+  <div class="log" id="fpsLog">ผล FPS ที่วัดได้จะขึ้นตรงนี้ — จดไว้เทียบในแลปถัดไป</div>
+
+  <!-- ชื่อทีมและโรงเรียน (ทีมเปลี่ยนเป็นของตัวเองได้) -->
+  <div class="team">ทีม NeonHands · โรงเรียนของเรา</div>
+
+<script>
+// ===================================================================
+// ส่วน JavaScript ของ Lab 01 — เปิดกล้อง แสดงภาพ นับ FPS และจัดการข้อผิดพลาด
+// ===================================================================
+
+// ----- 1) หยิบชิ้นส่วนบนหน้าจอมาเก็บไว้ในตัวแปร จะได้เรียกใช้ง่าย -----
+const video = document.getElementById('video');
+const stage = document.getElementById('stage');
+const startBtn = document.getElementById('startBtn');
+const stopBtn = document.getElementById('stopBtn');
+const retryBtn = document.getElementById('retryBtn');
+const resSelect = document.getElementById('resSelect');
+const mirrorToggle = document.getElementById('mirrorToggle');
+const fpsBadge = document.getElementById('fpsBadge');
+const resInfo = document.getElementById('resInfo');
+const startPanel = document.getElementById('startPanel');
+const errorPanel = document.getElementById('errorPanel');
+const fpsLog = document.getElementById('fpsLog');
+
+// ----- 2) ตัวแปรที่จำสถานะของแอป -----
+let stream = null;        // "ท่อ" ภาพจากกล้อง ถ้ายังไม่เปิดจะเป็น null
+let frames = 0;           // นับว่าในวินาทีนี้ได้ภาพกี่เฟรมแล้ว
+let lastTick = 0;         // เวลาที่อัปเดตตัวเลข FPS ครั้งล่าสุด
+let lastVideoTime = -1;   // เวลาของเฟรมก่อนหน้า ใช้เช็กว่ามีเฟรมใหม่จริงไหม
+let loopId = 0;           // เลขประจำรอบวาด ใช้หยุดรอบเก่า
+const fpsHistory = {};    // เก็บ FPS ของแต่ละความละเอียด เช่น {"1280x720": [30, 29, ...]}
+
+// ----- 3) ข้อความภาษาไทยสำหรับปัญหาแต่ละแบบ -----
+const ERRORS = {
+  denied: {
+    title: 'ยังไม่ได้อนุญาตให้ใช้กล้อง',
+    detail: 'เบราว์เซอร์ถูกตั้งไว้ว่า "ไม่อนุญาต" แอปจึงมองไม่เห็นภาพจากกล้อง',
+    steps: ['กดรูปกล้อง 🎥 หรือแม่กุญแจ 🔒 ที่แถบด้านบนของ Chrome', 'เลือก "อนุญาต" (Allow) ให้กล้อง', 'กดปุ่ม "ลองใหม่อีกครั้ง" ด้านล่าง'],
+  },
+  notfound: {
+    title: 'ไม่พบกล้องในเครื่องนี้',
+    detail: 'คอมพิวเตอร์เครื่องนี้ไม่มีกล้อง หรือกล้องยังไม่ได้เสียบสาย',
+    steps: ['ถ้าเป็นกล้อง USB ให้ถอดแล้วเสียบใหม่', 'รอ 5 วินาทีให้เครื่องรู้จักกล้อง', 'กดปุ่ม "ลองใหม่อีกครั้ง"'],
+  },
+  busy: {
+    title: 'กล้องกำลังถูกโปรแกรมอื่นใช้อยู่',
+    detail: 'มีโปรแกรมอื่นจับกล้องไว้ เช่น Zoom, LINE, Teams หรือแท็บ Chrome อีกแท็บ',
+    steps: ['ปิดโปรแกรมประชุมออนไลน์ / แท็บอื่นที่ใช้กล้อง', 'ถ้ายังไม่ได้ ให้ถอดกล้องแล้วเสียบใหม่', 'กดปุ่ม "ลองใหม่อีกครั้ง"'],
+  },
+  lost: {
+    title: 'สัญญาณกล้องหลุด',
+    detail: 'กล้องหยุดส่งภาพกลางทาง อาจเพราะสายหลวมหรือมีโปรแกรมอื่นแย่งไป',
+    steps: ['ตรวจสายกล้อง', 'กดปุ่ม "ลองใหม่อีกครั้ง"'],
+  },
+  unsupported: {
+    title: 'เบราว์เซอร์นี้เปิดกล้องไม่ได้',
+    detail: 'ลองเปิดไฟล์นี้ด้วย Google Chrome หรือ Microsoft Edge รุ่นใหม่',
+    steps: ['คลิกขวาที่ไฟล์ index.html', 'เลือก "Open with" → Google Chrome'],
+  },
+  other: {
+    title: 'เปิดกล้องไม่สำเร็จ',
+    detail: 'เกิดปัญหาที่ไม่คาดคิด ลองอีกครั้ง ถ้ายังไม่ได้ให้กด F12 แล้วอ่านบรรทัดสีแดงในแท็บ Console',
+    steps: ['กดปุ่ม "ลองใหม่อีกครั้ง"', 'ถ้ายังไม่ได้ ให้ปิด Chrome ทั้งหมดแล้วเปิดใหม่'],
+  },
+};
+
+// ----- 4) แปลง "ชื่อ error" ของเบราว์เซอร์ ให้เป็นประเภทปัญหาของเรา -----
+function classifyError(err) {
+  const name = (err && err.name) || '';
+  if (name === 'NotAllowedError' || name === 'PermissionDeniedError' || name === 'SecurityError') return 'denied';
+  if (name === 'NotFoundError' || name === 'DevicesNotFoundError') return 'notfound';
+  if (name === 'NotReadableError' || name === 'TrackStartError' || name === 'AbortError') return 'busy';
+  if (name === 'CameraLost') return 'lost';
+  if (name === 'Unsupported') return 'unsupported';
+  return 'other';
+}
+
+// ----- 5) แสดงกล่องแจ้งปัญหา (ห้ามปล่อยจอว่างเด็ดขาด) -----
+function showError(err) {
+  const kind = classifyError(err);
+  const info = ERRORS[kind];
+  stopCamera();                                         // ปิดกล้องที่ค้างอยู่ (ถ้ามี)
+  document.getElementById('errTitle').textContent = info.title;
+  document.getElementById('errDetail').textContent = info.detail;
+  // สร้างรายการขั้นตอนแก้ไขทีละบรรทัด
+  document.getElementById('errSteps').innerHTML = info.steps.map((s) => '<li>' + s + '</li>').join('');
+  // โชว์ชื่อ error ภาษาอังกฤษตัวเล็ก ๆ ไว้ให้ครู/คนเขียนโค้ดดู
+  document.getElementById('errCode').textContent = 'รหัสปัญหา: ' + ((err && err.name) || 'Unknown') + (err && err.message ? ' — ' + err.message : '');
+  startPanel.classList.add('hidden');
+  errorPanel.classList.remove('hidden');
+  retryBtn.focus();                                     // ย้ายโฟกัสไปที่ปุ่มลองใหม่ กด Enter ได้เลย
+  return kind;
+}
+
+// ----- 6) เปิดกล้อง -----
+async function startCamera() {
+  // เช็กก่อนว่าเบราว์เซอร์นี้รู้จักคำสั่งเปิดกล้องไหม
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    showError({ name: 'Unsupported' });
+    return;
+  }
+  stopCamera();                                         // ปิดของเก่าก่อนเปิดใหม่ (เช่นตอนเปลี่ยนความละเอียด)
+  const [w, h] = resSelect.value.split('x').map(Number); // "1280x720" → 1280 กับ 720
+  startBtn.disabled = true;
+  startBtn.textContent = '⏳ กำลังเปิดกล้อง...';
+  try {
+    // ขอภาพจากกล้อง: เบราว์เซอร์จะถามผู้ใช้ว่า "อนุญาตไหม" ในครั้งแรก
+    stream = await navigator.mediaDevices.getUserMedia({ video: { width: w, height: h }, audio: false });
+    video.srcObject = stream;                           // ต่อท่อภาพเข้ากับกล่องวิดีโอ
+    await video.play();                                 // สั่งให้วิดีโอเริ่มเล่น
+    // ถ้ากล้องหลุดกลางทาง (ถอดสาย) ให้แจ้งเตือน
+    stream.getVideoTracks()[0].addEventListener('ended', () => showError({ name: 'CameraLost' }));
+    startPanel.classList.add('hidden');
+    errorPanel.classList.add('hidden');
+    stopBtn.classList.remove('hidden');
+    fpsBadge.classList.remove('hidden');
+    stage.classList.add('live');                        // เปิดขอบเรืองแสง
+    startFpsLoop();
+  } catch (err) {
+    console.warn('เปิดกล้องไม่ได้:', err);
+    showError(err);
+  } finally {
+    startBtn.disabled = false;
+    startBtn.textContent = '▶ เปิดกล้อง';
+  }
+}
+
+// ----- 7) ปิดกล้อง (คืนกล้องให้เครื่อง ไฟกล้องจะดับ) -----
+function stopCamera() {
+  if (stream) stream.getTracks().forEach((t) => t.stop());
+  stream = null;
+  video.srcObject = null;
+  loopId++;                                             // ทำให้รอบนับ FPS เก่าหยุดเอง
+  stage.classList.remove('live');
+  fpsBadge.classList.add('hidden');
+  stopBtn.classList.add('hidden');
+}
+
+// ----- 8) นับ FPS: นับเฟรมใหม่ที่เข้ามา แล้วอัปเดตตัวเลขทุก 1 วินาที -----
+function startFpsLoop() {
+  const myId = ++loopId;
+  frames = 0;
+  lastTick = performance.now();
+  lastVideoTime = -1;
+  function tick(now) {
+    if (myId !== loopId) return;                        // มีรอบใหม่มาแทนแล้ว หยุดรอบนี้
+    // นับเฉพาะตอนที่วิดีโอมีเฟรมใหม่จริง (เวลาในวิดีโอขยับ)
+    if (video.currentTime !== lastVideoTime) { frames++; lastVideoTime = video.currentTime; }
+    if (now - lastTick >= 1000) {                       // ครบ 1 วินาที
+      const fps = Math.round((frames * 1000) / (now - lastTick));
+      showFps(fps);
+      frames = 0;
+      lastTick = now;
+    }
+    requestAnimationFrame(tick);                        // ขอทำงานอีกครั้งในเฟรมหน้าจอถัดไป
+  }
+  requestAnimationFrame(tick);
+}
+
+// ----- 9) แสดงตัวเลข FPS พร้อมสี: เขียว ≥ 24, เหลือง 15-23, แดง < 15 -----
+function showFps(fps) {
+  fpsBadge.firstChild.textContent = fps + ' FPS';
+  fpsBadge.className = 'fps ' + (fps >= 24 ? 'good' : fps >= 15 ? 'ok' : 'bad');
+  resInfo.textContent = video.videoWidth + '×' + video.videoHeight;  // ความละเอียดที่กล้องให้มาจริง
+  // เก็บผลไว้เทียบ แยกตามความละเอียดที่เลือก
+  const key = resSelect.value;
+  (fpsHistory[key] = fpsHistory[key] || []).push(fps);
+  fpsLog.innerHTML = 'FPS เฉลี่ย: ' + Object.keys(fpsHistory).map((k) => {
+    const list = fpsHistory[k];
+    const avg = Math.round(list.reduce((a, b) => a + b, 0) / list.length);
+    return k.replace('x', '×') + ' = <b>' + avg + '</b>';
+  }).join(' · ');
+}
+
+// ----- 10) ผูกปุ่มต่าง ๆ เข้ากับฟังก์ชัน -----
+startBtn.addEventListener('click', startCamera);
+retryBtn.addEventListener('click', startCamera);
+stopBtn.addEventListener('click', () => { stopCamera(); startPanel.classList.remove('hidden'); });
+// เปลี่ยนความละเอียด: ถ้ากล้องเปิดอยู่ ให้เปิดใหม่ด้วยขนาดใหม่ทันที
+resSelect.addEventListener('change', () => { if (stream) startCamera(); });
+// สวิตช์ภาพกระจก: ติ๊ก = พลิกซ้ายขวา
+mirrorToggle.addEventListener('change', () => video.classList.toggle('mirror', mirrorToggle.checked));
+// ออกจากหน้า: ปิดกล้องคืนเครื่องเสมอ
+window.addEventListener('pagehide', stopCamera);
+
+// Lab 02: ถ้าเปิดแบบ file:// ให้โชว์แถบเตือน เพราะต่อไปต้องเปิดผ่าน http://localhost เท่านั้น
+if (location.protocol === 'file:') document.getElementById('fileWarn').classList.remove('hidden');
+
+// ช่องทางสำหรับทดสอบ: ครูเรียก window.lab01.showError({name:'NotAllowedError'}) ใน Console ได้
+window.lab01 = { startCamera, stopCamera, showError };
+</script>
+</body>
+</html>
