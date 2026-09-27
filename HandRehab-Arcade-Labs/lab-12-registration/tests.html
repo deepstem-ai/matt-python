@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ทดสอบ validators.js (Lab 12)</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <style>
+    td.pass { color: var(--success); font-weight: 700; }
+    td.fail { color: var(--error); font-weight: 700; }
+    code { font-family: var(--font-num); font-size: var(--fs-xs); }
+  </style>
+</head>
+<body class="theme-neon profile-standard">
+  <main class="wrap">
+    <h1>🧪 ทดสอบฟังก์ชันตรวจข้อมูล</h1>
+    <p class="muted">หน้านี้รันกรณีทดสอบชุดเดียวกับ <code>node tests/validators.test.mjs</code> — แก้วันเกิดทีมได้ใน <code>tests/validator-cases.js</code></p>
+    <div class="row"><span class="chip ok">ผ่าน <b id="nPass">0</b></span><span class="chip bad">ไม่ผ่าน <b id="nFail">0</b></span>
+      <a class="btn-glow ghost small" href="index.html">← กลับไปหน้าลงทะเบียน</a></div>
+    <table class="data" style="margin-top:var(--sp-4)">
+      <thead><tr><th>#</th><th>กรณี</th><th>ได้</th><th>ควรได้</th><th>ผล</th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </main>
+  <script type="module">
+    import { applyPrefs, esc } from './js/ui.js';
+    import { runCases } from './tests/validator-cases.js';
+    applyPrefs();
+    const res = runCases();
+    document.getElementById('rows').innerHTML = res.map((r, i) => `<tr><td>${i + 1}</td><td>${esc(r.name)}</td><td><code>${esc(JSON.stringify(r.actual))}</code></td><td><code>${esc(JSON.stringify(r.expect))}</code></td><td class="${r.pass ? 'pass' : 'fail'}">${r.pass ? '✔ ผ่าน' : '✘ ไม่ผ่าน'}</td></tr>`).join('');
+    document.getElementById('nPass').textContent = res.filter((r) => r.pass).length;
+    document.getElementById('nFail').textContent = res.filter((r) => !r.pass).length;
+    window.__testSummary = { total: res.length, fail: res.filter((r) => !r.pass).length };
+  </script>
+</body>
+</html>
