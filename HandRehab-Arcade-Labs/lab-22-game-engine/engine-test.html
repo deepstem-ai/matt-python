@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ทดสอบเอนจินเกม — HandRehab Arcade (Lab 22)</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/game.css">
+</head>
+<body class="game-page world-space">
+  <!-- แถบบน: ตัวเลขสถานะ + ปุ่มหลัก -->
+  <header class="game-bar">
+    <h1>🚀 ทดสอบเอนจินเกม</h1>
+    <span class="chip">FPS <b id="fps" class="num">0</b></span>
+    <span class="chip">วัตถุที่มีชีวิต <b id="objs" class="num">0</b></span>
+    <span class="chip">อนุภาคสูงสุด <b id="limit" class="num">400</b></span>
+    <span class="chip" id="memChip">หน่วยความจำ JS <b id="mem" class="num">—</b></span>
+    <span class="spacer"></span>
+    <button id="pauseBtn" class="btn-glow ghost small" title="ปุ่มลัด P">⏸ หยุดพัก</button>
+    <button id="calmBtn" class="btn-glow ghost small">🌙 โหมดสงบ</button>
+  </header>
+
+  <!-- สนามเกม: คลิกตรงไหนก็ระเบิดดาวตรงนั้น -->
+  <main class="game-area">
+    <canvas id="game" class="game" aria-label="สนามทดสอบเอนจิน คลิกเพื่อระเบิดดาว"></canvas>
+  </main>
+
+  <!-- แผงควบคุมการทดสอบ -->
+  <section class="settings" aria-label="ตัวควบคุมการทดสอบ">
+    <button id="burstBtn" class="btn-glow small">💥 ระเบิดดาว</button>
+    <label>อนุภาคต่อครั้ง <input id="countRange" type="range" min="10" max="150" value="40"> <b id="countVal" class="num">40</b></label>
+    <button id="stressBtn" class="btn-glow danger small">🔥 ทดสอบหนัก 5 วินาที</button>
+    <button id="cometBtn" class="btn-glow ghost small">☄ เพิ่มดาวหาง (addEntity)</button>
+    <span class="muted">เสียง:</span>
+    <button class="btn-glow ghost small" data-snd="grab">จับ</button>
+    <button class="btn-glow ghost small" data-snd="score">ได้คะแนน</button>
+    <button class="btn-glow ghost small" data-snd="miss">พลาด</button>
+    <button class="btn-glow ghost small" data-snd="combo">คอมโบ</button>
+    <button class="btn-glow ghost small" data-snd="levelUp">เลเวลอัป</button>
+    <button class="btn-glow ghost small" data-snd="note">โน้ต 5 ตัว</button>
+    <label title="หน่วงทุกเฟรมด้วยการวนรอ เพื่อจำลองเครื่องช้า">จำลองเครื่องช้า <input id="lagRange" type="range" min="0" max="80" value="0"> <b id="lagVal" class="num">0</b> ms/เฟรม</label>
+    <button id="resetSpeedBtn" class="btn-glow ghost small">↺ เริ่มวัดความเร็วใหม่</button>
+    <span class="muted">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</span>
+  </section>
+
+  <script type="module" src="js/engine-test.js"></script>
+</body>
+</html>
