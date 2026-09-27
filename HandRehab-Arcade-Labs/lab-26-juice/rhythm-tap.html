@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>เคาะจังหวะทีละนิ้ว — HandRehab Arcade (Lab 26)</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/game.css">
+  <link rel="stylesheet" href="css/juice.css">
+</head>
+<body class="game-page world-stage">
+  <header class="game-bar">
+    <h1>🎵 เคาะจังหวะทีละนิ้ว</h1>
+    <span class="chip">คะแนน <b id="score" class="num">0</b></span>
+    <span class="chip">ระดับ <b id="level" class="num">1</b>/5</span>
+    <span class="chip ok">ถูกติด <b id="streak" class="num">0</b>/5</span>
+    <span class="chip bad">พลาด <b id="misses" class="num">0</b>/3</span>
+    <span class="chip">เวลา <b id="time" class="num">60</b> วิ</span>
+    <span id="demoBadge" class="demo-badge hidden" title="กดปุ่ม 1-5 บนคีย์บอร์ด หรือคลิกที่แป้น แทนการงอนิ้ว">⌨ โหมดสาธิต</span>
+    <span class="spacer"></span>
+    <button id="pauseBtn" class="btn-glow small" title="ปุ่มลัด P">⏸ หยุดพัก</button>
+  </header>
+  <div class="bar timer-bar" aria-label="เวลาที่เหลือ"><i id="timeBar" style="width:100%"></i></div>
+
+  <main class="game-area">
+    <canvas id="game" class="game" aria-label="แป้นห้านิ้ว"></canvas>
+    <div id="camBox" class="stage mirror cam-mini hidden">
+      <span class="tag">กล้อง</span>
+      <video id="video" playsinline muted></video>
+      <canvas id="handCanvas" class="mirror"></canvas>
+    </div>
+    <div id="overlay" class="overlay"></div>
+  </main>
+
+  <section class="settings" aria-label="ข้อมูลเกม">
+    <button id="modeBtn" class="btn-glow ghost small">⌨ โหมดสาธิต</button>
+    <button id="calmBtn" class="btn-glow ghost small" title="สวิตช์หลัก: ปิดเอฟเฟกต์ เสียง อนุภาค และตัวเลขเด้งทั้งหมด">🌙 โหมดสงบ</button>
+    <a class="btn-glow ghost small" href="index.html">🏠 เมนู</a>
+    <span class="muted">นิ้วที่ถูกต้อง → โน้ตดนตรี · นิ้วผิด → หัก 5 คะแนน · ช้ากว่า 3 วินาที → พลาด · ถูก 5 ครั้งติด = เร็วขึ้น · พลาด 3 ครั้ง = ช้าลง</span>
+    <span class="spacer"></span>
+    <span class="muted">ผู้เล่น: <b id="who">guest</b> · เตือนพักทุก <b id="restMin">5</b> นาที</span>
+    <span class="muted">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</span>
+  </section>
+
+  <script type="module" src="js/rhythm-tap-page.js"></script>
+</body>
+</html>

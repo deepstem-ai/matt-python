@@ -1,0 +1,19 @@
+/* ============================================================
+   history.css — หน้าประวัติการฝึก (Lab 28)  สีจาก tokens เท่านั้น
+   ============================================================ */
+.filters { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: end; }
+.filters label { display: flex; flex-direction: column; gap: var(--sp-1); font-size: var(--fs-sm); }
+.sess { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); }
+.sess > summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: auto 1fr auto; gap: var(--sp-3); align-items: center; padding: var(--sp-3) var(--sp-4); min-height: 72px; }
+.sess > summary::-webkit-details-marker { display: none; }
+.sess[open] { border-color: var(--primary); }
+.sess .g-icon { font-size: var(--fs-2xl); }
+.sess .meta { display: flex; flex-wrap: wrap; gap: var(--sp-1) var(--sp-3); font-size: var(--fs-sm); color: var(--text-2); }
+.sess .meta b { color: var(--text); font-family: var(--font-num); }
+.sess .title { font-weight: 800; font-size: var(--fs-lg); }
+.sess .feel { font-size: var(--fs-2xl); text-align: center; }
+.sess .body { padding: 0 var(--sp-4) var(--sp-4); overflow-x: auto; }
+.tag-demo { background: var(--warning); color: var(--on-bright); border-radius: 999px; padding: 0 var(--sp-2); font-size: var(--fs-xs); font-weight: 800; }
+.tag-live { background: var(--input); border: 1px solid var(--line); border-radius: 999px; padding: 0 var(--sp-2); font-size: var(--fs-xs); }
+.ok { color: var(--success); font-weight: 800; } .no { color: var(--error); font-weight: 800; }
+.mood-row .choice { flex-direction: column; text-align: center; }

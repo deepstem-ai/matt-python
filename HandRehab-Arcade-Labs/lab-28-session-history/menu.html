@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>เมนูเกม + ความสำเร็จ — HandRehab Arcade (Lab 28)</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/page.css">
+  <link rel="stylesheet" href="css/juice.css">
+</head>
+<body>
+  <header class="top-bar">
+    <h1>🕹️ HandRehab Arcade</h1>
+    <a class="btn-glow ghost small" href="index.html">📒 ประวัติการฝึก</a>
+    <div id="picker" class="row"></div>
+    <span class="spacer"></span>
+    <button id="calmBtn" class="btn-glow ghost small" title="สวิตช์หลัก: ปิดเอฟเฟกต์ทั้งหมด">🌙 โหมดสงบ</button>
+  </header>
+
+  <main class="wrap">
+    <!-- ไฟ streak: วันติดต่อกันที่ฝึกอย่างน้อย 5 นาที -->
+    <section class="card-neon streak-big" aria-label="วันติดต่อกัน">
+      <span id="flame" class="flame">🔥</span>
+      <div class="col" style="gap:0">
+        <span><b id="streakNum">0</b> <span style="font-size:var(--fs-lg);font-weight:800">วันติดต่อกัน</span></span>
+        <span id="streakText" class="muted">กำลังโหลด…</span>
+        <span class="muted">สถิติดีที่สุด <b id="streakBest" class="num" style="font-size:var(--fs-md)">0</b> วัน · เป้าหมาย: ฝึกวันละอย่างน้อย 5 นาที</span>
+      </div>
+      <div style="flex:1;min-width:180px">
+        <small class="muted">วันนี้ฝึกแล้ว <span id="todayMin">0</span> / 5 นาที</small>
+        <div class="bar"><i id="todayBar"></i></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>เลือกเกม</h2>
+      <div class="menu-grid">
+        <a class="card-neon" href="star-portal.html" style="text-decoration:none;color:inherit">
+          <span class="big-icon">⭐</span><h3>จับดาวใส่ประตูมิติ</h3>
+          <p class="muted">ฝึกจีบนิ้ว (หยิบของชิ้นเล็ก กลัดกระดุม) · โหมดสาธิตใช้เมาส์ได้</p>
+          <span class="btn-glow">▶ เล่น</span>
+        </a>
+        <a class="card-neon" href="rhythm-tap.html" style="text-decoration:none;color:inherit">
+          <span class="big-icon">🎵</span><h3>เคาะจังหวะทีละนิ้ว</h3>
+          <p class="muted">ฝึกขยับนิ้วแยกทีละนิ้ว · โหมดสาธิตกดปุ่ม 1-5</p>
+          <span class="btn-glow">▶ เล่น</span>
+        </a>
+        <a class="card-neon" href="spread-wall.html" style="text-decoration:none;color:inherit">
+          <span class="big-icon">🐠</span><h3>กางนิ้วผ่านกำแพง</h3>
+          <p class="muted">ฝึกเหยียดและกางนิ้ว · โหมดสาธิตใช้ล้อเมาส์</p>
+          <span class="btn-glow">▶ เล่น</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="row"><h2 style="margin:0">🏅 ความสำเร็จ <span id="achCount" class="num muted">0/10</span></h2>
+        <span class="spacer" style="flex:1"></span>
+        <a class="btn-glow ghost small" href="achievements.html">ดูทั้งหมด →</a></div>
+      <div id="achRow" class="ach-row" style="margin-top:var(--sp-3)"></div>
+    </section>
+
+    <section class="section card-neon">
+      <h3>คอมโบทำงานอย่างไร</h3>
+      <p>ทำถูกติดกัน <b>3</b> ครั้ง = คะแนน <b>×2</b> · <b>6</b> ครั้ง = <b>×3</b> · <b>10</b> ครั้ง = <b>×5</b> · พลาดหนึ่งครั้ง = กลับเป็น ×1
+        <br><span class="muted">โหมดสงบ (🌙) ปิดตัวเลขเด้ง อนุภาค และเสียงทั้งหมด · เครื่องช้า (FPS &lt; 30) ระบบลดเอฟเฟกต์ให้เอง</span></p>
+    </section>
+    <p class="foot">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา · Lab 28</p>
+  </main>
+  <script type="module" src="js/menu-page.js"></script>
+</body>
+</html>
