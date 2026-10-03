@@ -98,3 +98,29 @@ body.world-stage { --world-top: #0B1020; --world-bottom: #2A0F3D; --world-glow-1
 body.world-sea { --world-top: #0E4A6B; --world-bottom: #031524; --world-glow-1: #22D3EE; --world-glow-2: #7DD3FC; --world-glow-3: #A3E635; --world-star: #BAE6FD; --world-solid: #2B4C5E; }
 /* ธีมสงบ: ลดความสดของฉาก */
 body.theme-calm { --world-glow-1: #475569; --world-glow-2: #64748B; --world-glow-3: #67C6D6; }
+
+/* ---------- กระดาษ / พิมพ์ (แบบฟอร์มยินยอม แบบสอบถาม) ---------- */
+body.paper {
+  --bg: #FFFFFF;
+  --card: #FFFFFF;
+  --input: #F1F5F9;
+  --text: #000000;
+  --text-2: #333333;
+  --line: #000000;
+  --primary: #0E7490;
+  --on-bright: #FFFFFF;
+}
+@media print {
+  body {
+    --bg: #FFFFFF;
+    --card: #FFFFFF;
+    --text: #000000;
+    --text-2: #333333;
+    --line: #000000;
+    --primary: #000000;
+  }
+  .app-bar, .net-badge, .update-bar, .team-badge, .no-print { display: none !important; }
+}
+
+/* ป้ายเลขแลปบนปุ่มหลัก (พื้นไล่สี) ใช้สีตัวอักษรของปุ่มเอง ให้อ่านออก */
+.btn-glow:not(.ghost) .lab-no { color: inherit; border-color: currentColor; }

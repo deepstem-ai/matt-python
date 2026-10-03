@@ -37,7 +37,8 @@ export function palmScale(pts) {
 // nd(i,j) = d(Pi, Pj) / S
 // มือใกล้กล้อง: ทั้ง d และ S ใหญ่ขึ้นเท่ากัน → อัตราส่วนคงที่ ไม่ขึ้นกับระยะกล้อง
 export function normDist(pts, i, j) {
-  return dist(pts[i], pts[j]) / palmScale(pts);
+  const S = palmScale(pts); // ตรวจจำนวนจุดก่อนเสมอ (โยน error ภาษาไทย)
+  return dist(pts[i], pts[j]) / S;
 }
 
 // มุมที่จุด b (องศา) ระหว่างเวกเตอร์ BA กับ BC
