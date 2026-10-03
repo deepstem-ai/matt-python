@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HandRehab Arcade — เกมบริหารมือ</title>
+  <!-- ข้อมูลสำหรับติดตั้งเป็นแอป (Lab 34) — สีต้องตรงกับ manifest.json (ค่าเดียวกับ --bg / --card ใน tokens.css) -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="HandRehab">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/splash.css">
+  <link rel="stylesheet" href="css/a11y.css">
+  <link rel="stylesheet" href="css/shell.css">
+</head>
+<body class="theme-neon profile-standard">
+  <!-- ===== แถบบน (หน้าย่อยอื่น ๆ ใช้แถบหน้าตาเดียวกันจาก js/appbar.js) ===== -->
+  <header class="topbar">
+    <a class="brand" href="index.html#home">HandRehab Arcade</a>
+    <span class="where" aria-live="polite">📍 <span id="where">-</span></span>
+    <span class="spacer"></span>
+    <span class="chip" id="userChip">ยังไม่เข้าสู่ระบบ</span>
+    <button class="btn-glow ghost small" id="fsBtn" data-fullscreen><span class="ico">⛶</span> เต็มจอ</button>
+    <button class="btn-glow ghost small" id="backBtn"><span class="ico">↩</span> ย้อนกลับ</button>
+  </header>
+
+  <main class="wrap">
+    <!-- 1) splash: โหลดงานจริง (Lab 08) -->
+    <section class="page" id="page-splash">
+      <div class="splash">
+        <div id="logo" class="logo"></div>
+        <h1 class="app-name">HandRehab Arcade</h1>
+        <p class="muted">เกมบริหารมือและนิ้ว ด้วย AI มองเห็นมือ 21 จุด</p>
+        <div id="sbar" class="sbar" role="progressbar" aria-label="ความคืบหน้าการโหลด" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="status-row" aria-live="polite">
+          <span id="spinner" class="spinner" aria-hidden="true"></span>
+          <span id="status">กำลังเริ่ม...</span>
+          <b id="pct" class="num">0%</b>
+        </div>
+        <div id="splashError" class="alert hidden" role="alert"></div>
+        <footer class="splash-foot">ทีม NeonHands · โรงเรียนของเรา</footer>
+      </div>
+    </section>
+
+    <!-- 2) login: หน้าเข้าสู่ระบบจริงอยู่ที่ login.html (ใบหน้า + PIN) หน้านี้แค่พาไป -->
+    <section class="page" id="page-login">
+      <div class="card-neon page-card">
+        <h1>🔐 กำลังไปหน้าเข้าสู่ระบบ…</h1>
+        <p><a class="btn-glow" href="login.html">🔐 ไปหน้าเข้าสู่ระบบ</a></p>
+      </div>
+    </section>
+
+    <!-- 3) home: เมนูการ์ด -->
+    <section class="page" id="page-home">
+      <div class="page-card">
+        <h1 id="hello">🏠 สวัสดี</h1>
+        <p class="muted" data-say>วันนี้พร้อมบริหารมือหรือยัง? เลือกเมนูด้านล่างได้เลย</p>
+        <div id="homeStats" class="row" style="margin-bottom:var(--sp-4)"></div>
+        <div class="menu-grid">
+          <button class="menu-card" data-go="games"><span class="big-ico">🎮</span><b>เล่นเกม</b><small>3 เกมฝึกมือ</small></button>
+          <button class="menu-card" data-go="progress"><span class="big-ico">📈</span><b>ความก้าวหน้า</b><small>ผลการฝึกทุกครั้ง</small></button>
+          <a class="menu-card" href="users.html"><span class="big-ico">👥</span><b>ผู้ใช้</b><small>ค้นหา แก้ไข ลบ</small></a>
+          <button class="menu-card" data-go="settings"><span class="big-ico">⚙</span><b>ตั้งค่า</b><small>ขนาด ธีม กล้อง ติดตั้งแอป</small></button>
+          <a class="menu-card" id="enrolLink" href="enrol.html"><span class="big-ico">📸</span><b>เก็บใบหน้า</b><small>ใช้เข้าสู่ระบบด้วยหน้า</small></a>
+          <a class="menu-card" href="pin.html"><span class="big-ico">🔢</span><b>ตั้ง / เปลี่ยน PIN</b><small>ทางเลือกแทนใบหน้า</small></a>
+        </div>
+        <div class="row" style="margin-top:var(--sp-4)">
+          <button class="btn-glow ghost" id="logout"><span class="ico">🚪</span> ออกจากระบบ</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4) games: เลือกเกม -->
+    <section class="page" id="page-games">
+      <div class="page-card">
+        <h1>🎮 เลือกเกม</h1>
+        <p class="muted" data-say>ทุกเกมเล่นด้วยมือหน้ากล้อง หรือใช้เมาส์ในโหมดสาธิตก็ได้</p>
+        <div class="menu-grid">
+          <a class="menu-card game-card" href="star-portal.html"><span class="big-ico">⭐</span><b>จับดาวใส่ประตูมิติ</b><small>ฝึกจีบนิ้ว (โป้ง + ชี้) · หยิบของชิ้นเล็ก</small></a>
+          <a class="menu-card game-card" href="rhythm-tap.html"><span class="big-ico">🎵</span><b>เคาะจังหวะทีละนิ้ว</b><small>ฝึกแตะนิ้วทีละนิ้ว · ความคล่องของนิ้ว</small></a>
+          <a class="menu-card game-card" href="spread-wall.html"><span class="big-ico">🖐</span><b>กางนิ้วผ่านกำแพง</b><small>ฝึกกางนิ้ว · ยืดกล้ามเนื้อมือ</small></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) progress -->
+    <section class="page" id="page-progress">
+      <div class="page-card">
+        <h1>📈 ความก้าวหน้า</h1>
+        <div id="progSummary" class="row"></div>
+        <div class="card-neon" style="margin-top:var(--sp-4)">
+          <h2 style="margin-top:0">🖐 องศาการกางนิ้วสูงสุด (เกมกางนิ้วผ่านกำแพง)</h2>
+          <div class="chart-box"><canvas id="spreadChart"></canvas></div>
+          <div class="row" style="margin-top:var(--sp-3)">
+            <button class="btn-glow ghost small" id="spreadPng">🖼 บันทึกกราฟ PNG</button>
+            <button class="btn-glow ghost small" id="sessCsv">⬇ ดาวน์โหลด CSV ทุกครั้ง</button>
+          </div>
+        </div>
+        <div class="card-neon" style="margin-top:var(--sp-4)">
+          <h2 style="margin-top:0">📋 การฝึกทุกครั้ง</h2>
+          <div class="table-scroll"><table class="data" id="sessTable"></table></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6) settings -->
+    <section class="page" id="page-settings">
+      <div class="page-card">
+        <h1>⚙ ตั้งค่า</h1>
+        <p class="muted" data-say>เลือกแล้วเห็นผลทันที ค่าที่เลือกจะถูกจำไว้ครั้งหน้า</p>
+
+        <fieldset class="set-group">
+          <legend>📲 ติดตั้งเป็นแอป</legend>
+          <p id="installState" class="muted">กำลังตรวจ…</p>
+          <div class="row">
+            <button class="btn-glow success hidden" id="installBtn"><span class="ico">⬇</span> ติดตั้งแอปลงเครื่อง</button>
+            <button class="btn-glow ghost" data-fullscreen><span class="ico">⛶</span> เต็มจอ (สำหรับสาธิต)</button>
+            <a class="btn-glow ghost" href="docs/INSTALL.md" target="_blank"><span class="ico">📄</span> วิธีติดตั้งทีละขั้น</a>
+          </div>
+          <div class="icon-previews" aria-label="ไอคอนแอปหลายขนาด">
+            <figure><img src="icons/icon-512.png" width="128" height="128" alt="ไอคอน 128px"><figcaption>128 px</figcaption></figure>
+            <figure><img src="icons/icon-192.png" width="64" height="64" alt="ไอคอน 64px"><figcaption>64 px</figcaption></figure>
+            <figure><img src="icons/icon-192.png" width="32" height="32" alt="ไอคอน 32px"><figcaption>32 px</figcaption></figure>
+            <figure><img src="icons/icon.svg" width="16" height="16" alt="ไอคอน 16px"><figcaption>16 px</figcaption></figure>
+          </div>
+          <p id="swState" class="muted small"></p>
+        </fieldset>
+
+        <fieldset class="set-group">
+          <legend>📦 ใช้งานแบบไม่มีอินเทอร์เน็ต</legend>
+          <p class="muted">แอปหาไฟล์ AI / ฟอนต์ ในโฟลเดอร์ของแอปก่อน (vendor/ models/ fonts/) ถ้าไม่มีจึงโหลดจากอินเทอร์เน็ต เตรียมไฟล์ด้วย tools/download-assets</p>
+          <div class="row"><button class="btn-glow" id="assetsBtn"><span class="ico">🔍</span> ตรวจไฟล์ออฟไลน์ทั้งหมด</button>
+            <a class="btn-glow ghost" href="docs/OFFLINE.md" target="_blank"><span class="ico">📄</span> คู่มือเตรียมเครื่องออฟไลน์</a></div>
+        </fieldset>
+
+        <fieldset class="set-group">
+          <legend>🔠 ขนาดหน้าจอ (โปรไฟล์)</legend>
+          <div class="row" role="radiogroup">
+            <label class="choice"><input type="radio" name="profile" value="standard"> 🙂 มาตรฐาน</label>
+            <label class="choice"><input type="radio" name="profile" value="elder"> 👵 ผู้สูงอายุ (ใหญ่ขึ้น)</label>
+            <label class="choice"><input type="radio" name="profile" value="kiosk"> 🖥 จอใหญ่ติดผนัง</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="set-group">
+          <legend>🎨 ธีมสี</legend>
+          <div class="row" role="radiogroup">
+            <label class="choice"><input type="radio" name="theme" value="neon"> ⚡ Neon</label>
+            <label class="choice"><input type="radio" name="theme" value="calm"> 🌿 Calm</label>
+            <label class="choice"><input type="radio" name="theme" value="large"> 🔠 Large</label>
+          </div>
+          <div class="row">
+            <label class="switch"><input type="checkbox" id="calmSw"> โหมดสงบ (หยุดการเคลื่อนไหว ปิดเสียงและพลุ)</label>
+            <label class="switch"><input type="checkbox" id="lightSw"> โหมดสว่าง</label>
+          </div>
+        </fieldset>
+
+        <fieldset class="set-group">
+          <legend>📷 กล้องและการแสดงมือ</legend>
+          <div class="row">
+            <label class="field grow">กล้องที่ใช้ <select id="camSel"><option value="">กล้องเริ่มต้น</option></select></label>
+            <button class="btn-glow ghost small" id="camRefresh">🔄 หากล้องใหม่</button>
+          </div>
+          <div class="row" role="radiogroup">
+            <label class="choice"><input type="radio" name="handStyle" value="simple"> ✋ เรียบง่าย</label>
+            <label class="choice"><input type="radio" name="handStyle" value="neon"> ✨ นีออน</label>
+            <label class="choice"><input type="radio" name="handStyle" value="trail"> ☄ หางแสง</label>
+          </div>
+          <div class="row">
+            <label class="field">ความละเอียดกล้อง
+              <select id="resSel"><option value="1280x720">1280×720 (HD)</option><option value="640x480">640×480</option><option value="480x360">480×360 (เครื่องเบา)</option></select>
+            </label>
+            <label class="field">เอฟเฟกต์ในเกม
+              <select id="fxSel"><option value="full">เต็ม</option><option value="reduced">ลดลงครึ่งหนึ่ง</option><option value="off">ปิดอนุภาค</option></select>
+            </label>
+          </div>
+          <p class="muted small">ไม่แน่ใจว่าเครื่องนี้ไหวแค่ไหน? <a href="benchmark.html">⚡ ทดสอบความลื่นของเครื่อง</a> แล้วกด "ใช้ค่าแนะนำ"</p>
+        </fieldset>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== แถบนำทางล่าง ปุ่มใหญ่ ===== -->
+  <nav class="bottom-nav" id="bottomNav" aria-label="เมนูหลัก">
+    <button class="btn-glow ghost" data-go="home" data-nav="home"><span class="ico">🏠</span> หน้าหลัก</button>
+    <button class="btn-glow ghost" data-go="games" data-nav="games"><span class="ico">🎮</span> เกม</button>
+    <button class="btn-glow ghost" data-go="progress" data-nav="progress"><span class="ico">📈</span> ความก้าวหน้า</button>
+    <button class="btn-glow ghost" data-go="settings" data-nav="settings"><span class="ico">⚙</span> ตั้งค่า</button>
+  </nav>
+  <div class="team-badge">ทีม NeonHands · โรงเรียนของเรา</div>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HandRehab Arcade — เปิดกล้อง</title>
+<!-- Lab 04: แยก CSS ไปไว้ที่ css/style.css และ JavaScript ไปไว้ที่ js/main.js (ทำงานเหมือนเดิมทุกอย่าง) -->
+<!-- ไฟล์หน้าตาทั้งหมดอยู่ใน css/style.css -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- แถบเตือน: จะโผล่เฉพาะตอนเปิดไฟล์ด้วยการดับเบิลคลิก (file://) -->
+  <div class="warn-bar hidden" id="fileWarn">⚠️ ตอนนี้เปิดไฟล์ตรง ๆ อยู่ — ตั้งแต่ Lab 02 ให้ปิดหน้านี้ แล้วดับเบิลคลิก start.bat แทน (ไม่อย่างนั้นแลปถัดไปจะโหลดโมเดล AI ไม่ได้)</div>
+  <header>
+    <h1>HandRehab Arcade</h1>
+    <p class="sub">เกมฝึกมือด้วยกล้อง · Lab 04 โครงสร้างโปรเจกต์ + Git</p>
+  </header>
+
+  <!-- แถบควบคุม -->
+  <div class="controls">
+    <label class="opt">ความละเอียด
+      <select id="resSelect" aria-label="เลือกความละเอียดกล้อง">
+        <option value="640x480">640 × 480 (เบา)</option>
+        <option value="1280x720" selected>1280 × 720 (แนะนำ)</option>
+        <option value="1920x1080">1920 × 1080 (คมสุด)</option>
+      </select>
+    </label>
+    <label class="opt"><input type="checkbox" id="mirrorToggle" checked> ภาพกระจก</label>
+    <button class="btn ghost hidden" id="stopBtn">■ ปิดกล้อง</button>
+  </div>
+
+  <main>
+    <div class="stage" id="stage">
+      <!-- playsinline + muted ให้วิดีโอเล่นเองได้ทุกเบราว์เซอร์ -->
+      <video id="video" class="mirror" autoplay playsinline muted></video>
+      <div class="fps hidden" id="fpsBadge" aria-live="off">-- FPS<small id="resInfo"></small></div>
+
+      <!-- หน้าจอก่อนเปิดกล้อง: ปุ่มใหญ่กลางจอ -->
+      <div class="center-msg" id="startPanel">
+        <button class="btn big" id="startBtn">▶ เปิดกล้อง</button>
+        <p class="sub">กดปุ่ม แล้วกด "อนุญาต" (Allow) ให้ใช้กล้อง</p>
+      </div>
+
+      <!-- กล่องแจ้งปัญหา (ซ่อนไว้ก่อน) -->
+      <div class="center-msg hidden" id="errorPanel">
+        <div class="alert" role="alert">
+          <h2 id="errTitle">เปิดกล้องไม่ได้</h2>
+          <p id="errDetail"></p>
+          <ol id="errSteps"></ol>
+          <button class="btn" id="retryBtn">↻ ลองใหม่อีกครั้ง</button>
+          <p><code id="errCode"></code></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- จดผล FPS ของแต่ละความละเอียด (สำหรับข้อ SHOULD DO) -->
+  <div class="log" id="fpsLog">ผล FPS ที่วัดได้จะขึ้นตรงนี้ — จดไว้เทียบในแลปถัดไป</div>
+
+  <!-- ชื่อทีมและโรงเรียน (ทีมเปลี่ยนเป็นของตัวเองได้) -->
+  <div class="team">ทีม NeonHands · โรงเรียนของเรา</div>
+
+<!-- โค้ดทั้งหมดอยู่ใน js/main.js (โหลดท้ายสุด เพื่อให้เจอปุ่มต่าง ๆ ครบ) -->
+<script src="js/main.js"></script>
+</body>
+</html>

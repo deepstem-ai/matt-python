@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ตัวบันทึกการทดสอบ · Lab 36</title>
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/themes.css">
+<link rel="stylesheet" href="../css/parts.css">
+<style>
+  .timer { font-family: var(--font-num); font-size: var(--fs-3xl); color: var(--primary); min-width: 5ch; }
+  .timer.over { color: var(--warning); }
+  .task-title { font-size: var(--fs-xl); font-weight: 800; }
+  .say { font-size: var(--fs-lg); border-left: 4px solid var(--primary); padding-left: var(--sp-3); }
+  .outcomes .btn-glow { flex: 1; min-width: 160px; min-height: 80px; font-size: var(--fs-lg); }
+  .dots { display: flex; gap: var(--sp-1); flex-wrap: wrap; }
+  .dot { min-width: 44px; min-height: 44px; border-radius: var(--r-sm); border: 2px solid var(--line); background: var(--input); color: var(--text); font: inherit; cursor: pointer; }
+  .dot.cur { border-color: var(--primary); }
+  td.n { text-align: right; font-family: var(--font-num); }
+  .issue-done td { color: var(--text-2); text-decoration: line-through; }
+</style>
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap">
+  <div class="row" style="justify-content:space-between">
+    <h1>⏱️ ตัวบันทึกการทดสอบ (สำหรับผู้สังเกต)</h1>
+    <a class="btn-glow ghost small" href="../index.html">← เมนู</a>
+  </div>
+  <p class="muted">ห้ามช่วย ห้ามอธิบาย — ดูเงียบ ๆ จับเวลา กดผล และจดคำพูดตรง ๆ · บันทึกลงฐานข้อมูลอัตโนมัติทุกครั้งที่กดผล</p>
+
+  <!-- 1) ข้อมูลผู้เข้าร่วม -->
+  <section class="card-neon" id="setup">
+    <h2 class="card-title">1. ผู้เข้าร่วม</h2>
+    <div class="row">
+      <div class="field"><label for="pid">รหัส (ห้ามชื่อจริง)</label><input id="pid" type="text" placeholder="P01" style="width:160px"></div>
+      <div class="field"><label for="fac">ผู้สังเกต</label><input id="fac" type="text" placeholder="ชื่อเล่นนักเรียน" style="width:200px"></div>
+      <div class="field"><label for="age">อายุ</label><input id="age" type="number" min="40" max="110" style="width:120px"></div>
+      <div class="field"><label for="hand">มือถนัด</label><select id="hand"><option value="right">ขวา</option><option value="left">ซ้าย</option></select></div>
+    </div>
+    <label class="switch"><input type="checkbox" id="consent"> ผู้เข้าร่วมเซ็นหนังสือยินยอมแล้ว (บังคับ)</label>
+    <div class="err-msg" id="setupErr"></div>
+    <button class="btn-glow" id="begin">เริ่มทดสอบ →</button>
+  </section>
+
+  <!-- 2) ทีละงาน -->
+  <section class="card-neon hidden" id="wizard">
+    <div class="row" style="justify-content:space-between">
+      <h2 class="card-title" id="wHead"></h2>
+      <div class="dots" id="dots"></div>
+    </div>
+    <div class="task-title" id="tTitle"></div>
+    <p class="say" id="tSay"></p>
+    <p class="muted" id="tGoal"></p>
+    <div class="row">
+      <span class="timer" id="timer">0:00</span>
+      <button class="btn-glow" id="tStart">▶ เริ่มจับเวลา</button>
+      <button class="btn-glow ghost" id="tReset">↺ เริ่มใหม่</button>
+      <span class="muted" id="tMax"></span>
+    </div>
+    <div class="row outcomes" style="margin-top:var(--sp-4)" id="outcomes"></div>
+    <div class="field" style="margin-top:var(--sp-3)"><label for="note">สิ่งที่เห็น / คำพูดตรง ๆ</label><textarea id="note" placeholder='เช่น "กดตรงไหนนะ ไม่เห็นปุ่มถัดไป"'></textarea></div>
+    <div class="row"><button class="btn-glow ghost" id="prev">← งานก่อนหน้า</button><button class="btn-glow ghost" id="next">ข้าม →</button>
+      <button class="btn-glow success" id="finish">จบการทดสอบคนนี้ ✓</button></div>
+  </section>
+
+  <!-- 3) สรุปทุกคน -->
+  <section class="card-neon" style="margin-top:var(--sp-4)">
+    <div class="row" style="justify-content:space-between"><h2 class="card-title">ผลทุกคน</h2>
+      <div class="row"><button class="btn-glow ghost small" id="csv">⬇ CSV ผลงาน</button><a class="btn-glow ghost small" href="../survey.html">😄 ไปแบบสอบถาม</a></div></div>
+    <div style="overflow:auto"><table class="data" id="sumTable"></table></div>
+  </section>
+
+  <!-- 4) รายการปัญหา -->
+  <section class="card-neon" style="margin-top:var(--sp-4)">
+    <div class="row" style="justify-content:space-between"><h2 class="card-title">🛠️ ปัญหาที่ต้องแก้</h2><span class="chip" id="issueChip">พบ <b>0</b> / 5 · แก้แล้ว 0 / 3</span></div>
+    <div class="row">
+      <input id="iText" type="text" placeholder="ปัญหาที่เห็น เช่น ไม่รู้ว่าต้องกะพริบตา" style="flex:1;min-width:240px">
+      <input id="iCount" type="number" min="1" max="5" value="1" style="width:90px" aria-label="เจอกี่คน">
+      <select id="iSev" aria-label="ความรุนแรง"><option value="สูง">สูง</option><option value="กลาง" selected>กลาง</option><option value="ต่ำ">ต่ำ</option></select>
+      <button class="btn-glow small" id="iAdd">+ เพิ่ม</button>
+      <button class="btn-glow ghost small" id="iCsv">⬇ CSV</button>
+    </div>
+    <table class="data" style="margin-top:var(--sp-3)"><thead><tr><th>#</th><th>ปัญหา</th><th>เจอกี่คน</th><th>ความรุนแรง</th><th>วิธีแก้ / commit</th><th>แก้แล้ว</th><th></th></tr></thead><tbody id="iBody"></tbody></table>
+  </section>
+</main>
+<script type="module" src="../js/test-recorder.js"></script>
+</body>
+</html>

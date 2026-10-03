@@ -1,0 +1,35 @@
+/* ============================================================
+   a11y.css — ระบบขนาดและการเข้าถึง (Lab 09)
+   โปรไฟล์ขนาด (standard / elder / kiosk) อยู่ใน themes.css: เปลี่ยน class บน body แล้วทุกอย่างโตตามทันที
+   ============================================================ */
+
+/* วงโฟกัสเห็นชัด: สีหลักของธีม หนา 3px (โหมดสงบก็ยังเห็น เพราะใช้ outline ไม่ใช่เงา) */
+:focus-visible { outline: 3px solid var(--focus) !important; outline-offset: 3px; }
+.bottom-nav button:focus-visible, .tabs button:focus-visible { outline-offset: -3px; }
+.choice:has(input:focus-visible) { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+/* กลุ่มตัวเลือกในหน้าตั้งค่า */
+.set-group {
+  border: 1px solid var(--line); border-radius: var(--r-md);
+  padding: calc(var(--sp-4) * var(--sp-mul)); margin: 0 0 calc(var(--sp-4) * var(--sp-mul));
+  display: flex; flex-direction: column; gap: calc(var(--sp-3) * var(--sp-mul));
+}
+.set-group legend { font-weight: 800; font-size: var(--fs-lg); padding: 0 var(--sp-2); }
+.set-group .field { margin: 0; }
+.grow { flex: 1 1 260px; }
+
+/* สไลเดอร์และสวิตช์ใหญ่ขึ้นตามโปรไฟล์ */
+input[type=range] { min-height: calc(var(--btn-h) * 0.7); }
+body.profile-elder .switch input, body.profile-kiosk .switch input { transform: scale(1.3); margin: 0 var(--sp-3); }
+body.profile-elder input[type=radio], body.profile-kiosk input[type=radio] { width: 34px; height: 34px; }
+
+/* โหมดใหญ่: แถบล่างสูงขึ้นให้กดง่าย */
+.bottom-nav button { min-height: var(--btn-h); font-size: var(--fs-md); }
+
+/* กรอบเตือนรอบสิ่งที่ไม่ผ่านการตรวจ */
+.a11y-flag { outline: 3px dashed var(--error) !important; outline-offset: 2px; }
+
+#auditOut ul { margin: var(--sp-1) 0 var(--sp-2); }
+
+/* หัวข้อหน้าที่ router ย้ายโฟกัสไปให้ (tabindex=-1) ไม่ต้องมีกรอบ — ผู้ใช้ไม่ได้กด Tab มาเอง */
+[tabindex="-1"]:focus, [tabindex="-1"]:focus-visible { outline: none !important; }

@@ -1,0 +1,72 @@
+/* ============================================================
+   splash.css — หน้าเปิดแอป (Lab 08) สีทั้งหมดจาก tokens.css
+   ============================================================ */
+body.on-splash .topbar, body.on-splash .team-badge { display: none; }
+.splash {
+  min-height: calc(100vh - var(--sp-6) * 2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: var(--sp-3); text-align: center;
+}
+
+/* ---------- โลโก้: เส้นกระดูกค่อย ๆ ลาก แล้วจุดข้อต่อเด้งขึ้นทีละจุด ---------- */
+.logo { width: 170px; height: 196px; }
+.logo svg { width: 100%; height: 100%; overflow: visible; }
+.logo .bone {
+  stroke-width: 5; stroke-linecap: round;
+  stroke-dasharray: 80; stroke-dashoffset: 80;
+  animation: draw 0.5s ease-out forwards;
+}
+.logo .joint {
+  opacity: 0; transform-box: fill-box; transform-origin: center;
+  filter: drop-shadow(0 0 6px var(--primary));
+  animation: pop 0.45s cubic-bezier(.3, 1.6, .5, 1) forwards;
+}
+.logo .joint.tip { filter: drop-shadow(0 0 10px var(--primary)) drop-shadow(0 0 4px var(--text)); }
+/* สีตามนิ้ว (ตัวแปรเดียวกับที่ใช้วาดมือในเกม) */
+.logo .f-thumb  { stroke: var(--f-thumb);  fill: var(--f-thumb); }
+.logo .f-index  { stroke: var(--f-index);  fill: var(--f-index); }
+.logo .f-middle { stroke: var(--f-middle); fill: var(--f-middle); }
+.logo .f-ring   { stroke: var(--f-ring);   fill: var(--f-ring); }
+.logo .f-little { stroke: var(--f-little); fill: var(--f-little); }
+.logo .f-palm   { stroke: var(--text-2);   fill: var(--text); }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes pop { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
+
+/* โหมดสงบ / ลดการเคลื่อนไหว: แสดงโลโก้ครบทันที ไม่มีแสง */
+body.calm .logo .bone, body.theme-calm .logo .bone { stroke-dashoffset: 0; }
+body.calm .logo .joint, body.theme-calm .logo .joint { opacity: 1; filter: none; }
+
+/* ---------- ชื่อแอปไล่สี primary → secondary ---------- */
+.app-name {
+  font: 800 var(--fs-3xl) var(--font-num); margin: 0;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ---------- แถบความคืบหน้า กว้าง 60% ของจอ มนสุด มีแสงวิ่งผ่าน ---------- */
+.sbar {
+  position: relative; width: 60vw; min-width: 260px; height: 22px;
+  display: flex; gap: 3px; padding: 3px;
+  background: var(--input); border-radius: 999px; overflow: hidden;
+}
+.sbar .seg { position: relative; height: 100%; border-radius: 999px; background: color-mix(in srgb, var(--text-2) 18%, transparent); overflow: hidden; }
+.sbar .seg > i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.2s linear; }
+.sbar .seg.failed > i { width: 100% !important; background: var(--error); }       /* ช่องที่พัง = แดง */
+.sbar .seg.skipped > i { background: var(--warning); }                            /* ช่องที่ข้าม = เหลือง */
+.sbar::after { /* แสงวิ่ง ใช้ transform จึงลื่นแม้เครื่องกำลังโหลดหนัก */
+  content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 25%;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--text) 40%, transparent), transparent);
+  animation: travel 1.6s linear infinite; pointer-events: none;
+}
+@keyframes travel { from { transform: translateX(-100%); } to { transform: translateX(400%); } }
+
+.status-row { display: flex; align-items: center; gap: var(--sp-3); min-height: 2em; font-size: var(--fs-lg); }
+.spinner {
+  width: 22px; height: 22px; border-radius: 50%;
+  border: 3px solid var(--input); border-top-color: var(--primary);
+  animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#splashError { max-width: 640px; text-align: left; }
+.small { font-size: var(--fs-sm); }
+.splash-foot { margin-top: var(--sp-5); color: var(--text-2); font-size: var(--fs-sm); }

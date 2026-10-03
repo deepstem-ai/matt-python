@@ -1,0 +1,101 @@
+/* ============================================================
+   themes.css — ธีมที่สลับได้ + โปรไฟล์ขนาด + โหมดสงบ (Lab 05, Lab 09)
+   วิธีใช้: ใส่ class ที่ <body> เช่น theme-neon / theme-calm / theme-large
+           profile-standard / profile-elder / profile-kiosk
+           calm (ปิดแอนิเมชันทั้งหมด) และ light (โหมดสว่าง)
+   ============================================================ */
+
+/* ธีม neon — สำหรับกลุ่มอายุน้อย สีจัด เรืองแสงเต็มที่ (ค่าเริ่มต้นใน tokens.css) */
+body.theme-neon {
+  --glow: 0 0 24px color-mix(in srgb, var(--primary) 70%, transparent);
+}
+
+/* ธีม calm — สำหรับคนที่ไวต่อสีจัด ลดความสด ปิดแสงเรือง */
+body.theme-calm {
+  --primary: #67C6D6;
+  --secondary: #A99BD6;
+  --pink: #D39AB8;
+  --glow: none;
+  --blur: 0px;
+}
+
+/* ธีม large — สำหรับผู้สูงอายุที่ต้องการตัวใหญ่ชัด
+   (ใส่ :not(...) เพื่อให้ชนะ profile-standard แต่ไม่ไปลดขนาดของโปรไฟล์ elder / kiosk ที่ใหญ่กว่าอยู่แล้ว) */
+body.theme-large:not(.profile-elder):not(.profile-kiosk) {
+  --fs-base: 22px;
+  --btn-h: 72px;
+  --sp-mul: 1.25;
+}
+
+/* โหมดสว่าง (light) — สลับพื้นหลังกับตัวอักษร */
+body.light {
+  --bg: #F1F5F9;
+  --card: #FFFFFF;
+  --input: #E2E8F0;
+  --text: #0F172A;
+  --text-2: #475569;
+  --line: #CBD5E1;
+  --primary: #0C6A84;   /* เข้มพอให้ตัวอักษรบนพื้น --input ยังผ่าน 4.5 */
+  --secondary: #6D28D9;
+  --success: #3F6212;
+  --warning: #92400E;
+  --error: #B91C1C;
+  --pink: #BE185D;
+  --sky: #0369A1;
+  --on-bright: #FFFFFF;
+  --shadow: rgb(15 23 42 / 0.18);
+  --scrim: rgb(15 23 42 / 0.55);
+}
+
+/* ---------- โปรไฟล์ขนาด (Lab 09) ---------- */
+body.profile-standard { --fs-base: 16px; --btn-h: 56px; --sp-mul: 1; }
+body.profile-elder    { --fs-base: 21.6px; --btn-h: 72px; --sp-mul: 1.5; } /* 16 x 1.35 */
+body.profile-kiosk    { --fs-base: 28px; --btn-h: 72px; --sp-mul: 1.75; }
+
+/* ---------- โหมดสงบ ปิดทุกการเคลื่อนไหวและเอฟเฟกต์ ---------- */
+body.calm,
+body.theme-calm {
+  --glow: none;
+  --blur: 0px;
+  --speed: 0s;
+}
+body.calm *, body.calm *::before, body.calm *::after,
+body.theme-calm *, body.theme-calm *::before, body.theme-calm *::after {
+  animation: none !important;
+  transition: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+/* ปุ่มไม่ขยาย ไม่สว่างขึ้น วงแหวนไม่เรืองแสง เมื่ออยู่ในโหมดสงบ */
+body.calm .btn-glow:hover, body.theme-calm .btn-glow:hover,
+body.calm .btn-glow:active, body.theme-calm .btn-glow:active { transform: none; filter: none; }
+body.calm .ring .ring-fg, body.theme-calm .ring .ring-fg { filter: none; }
+body.calm .card-neon, body.theme-calm .card-neon { backdrop-filter: none; -webkit-backdrop-filter: none; }
+
+/* ผู้ใช้ตั้งค่าในระบบปฏิบัติการว่า "ลดการเคลื่อนไหว" ก็เคารพด้วย */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.001s !important; transition-duration: 0.001s !important; }
+}
+
+/* ---------- กระดาษ (Lab 36) — ตอนสั่งพิมพ์ให้เป็นขาวดำ ประหยัดหมึก อ่านง่าย ---------- */
+body.paper {
+  --bg: #FFFFFF;
+  --card: #FFFFFF;
+  --input: #F1F5F9;
+  --text: #000000;
+  --text-2: #333333;
+  --line: #000000;
+  --primary: #0E7490;
+  --on-bright: #FFFFFF;
+}
+@media print {
+  body {
+    --bg: #FFFFFF;
+    --card: #FFFFFF;
+    --text: #000000;
+    --text-2: #333333;
+    --line: #000000;
+    --primary: #000000;
+  }
+}

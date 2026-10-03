@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>หน้าหลัก · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/face.css">
+  <link rel="stylesheet" href="css/login.css">
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap">
+  <section id="hero" class="card-neon home-hero">
+    <div class="avatar">🙂</div>
+    <h1 id="hello">กำลังโหลด…</h1>
+    <p id="meta" class="muted"></p>
+    <div class="row" style="justify-content:center">
+      <a class="btn-glow ghost" href="pin.html">🔢 ตั้ง / เปลี่ยน PIN</a>
+      <a id="enrol" class="btn-glow ghost" href="enrol.html">📸 เก็บใบหน้าใหม่</a>
+      <button id="logout" class="btn-glow danger">🚪 ออกจากระบบ</button>
+    </div>
+    <p class="muted small">เกมฝึกมือจะมาอยู่ตรงนี้ในแลปถัด ๆ ไป</p>
+  </section>
+  <section class="card-neon" style="margin-top:16px">
+    <div class="row"><h2 style="margin:0">📋 บันทึกการเข้าสู่ระบบ (ข้อมูลบทที่ 4)</h2><span class="spacer"></span><button id="csv" class="btn-glow ghost small">⬇ ดาวน์โหลด CSV</button></div>
+    <p id="sum" class="muted"></p>
+    <div style="overflow-x:auto"><table class="data" id="log"></table></div>
+  </section>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/home-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ติดตั้งเป็นแอปได้ทุกหน้า (Lab 34) สีตรงกับ manifest.json -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <title>ลงทะเบียน · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/register.css">
+  <link rel="stylesheet" href="css/shell.css">
+</head>
+<body class="theme-neon profile-standard">
+  <main class="wrap" style="max-width:900px">
+    <div class="row" style="justify-content:space-between;margin-bottom:var(--sp-4)">
+      <h1 id="pageTitle" style="margin:0">📝 ลงทะเบียนผู้ใช้ใหม่</h1>
+      <a class="btn-glow ghost small back-link hidden" href="users.html">← รายชื่อผู้ใช้</a>
+    </div>
+
+    <div id="regWrap">
+      <!-- แถบบอกขั้น (breadcrumb) กดย้อนกลับไปขั้นที่ทำแล้วได้ -->
+      <p class="muted" style="margin:var(--sp-3) 0 var(--sp-2)">ขั้นที่ <b id="stepNo" class="num">1</b> จาก 4</p>
+      <ol id="crumbs" class="crumbs" aria-label="ขั้นตอน">
+        <li data-step="1"><span>1</span> ข้อมูลพื้นฐาน</li>
+        <li data-step="2"><span>2</span> สุขภาพ</li>
+        <li data-step="3"><span>3</span> ข้อมูลเพิ่มเติม</li>
+        <li data-step="4"><span>4</span> ยินยอม &amp; บันทึก</li>
+      </ol>
+
+      <form id="regForm" class="card-neon" novalidate autocomplete="off">
+        <!-- ============ ขั้นที่ 1 ข้อมูลพื้นฐาน ============ -->
+        <section class="step" data-step="1">
+          <h2 tabindex="-1">1 · ข้อมูลพื้นฐาน</h2>
+          <div class="two">
+            <div class="field"><label for="firstName">ชื่อ *</label><input id="firstName" type="text" maxlength="60" placeholder="เช่น สมศรี"><div class="err-msg" data-err="firstName"></div></div>
+            <div class="field"><label for="lastName">นามสกุล *</label><input id="lastName" type="text" maxlength="60" placeholder="เช่น ใจดี"><div class="err-msg" data-err="lastName"></div></div>
+          </div>
+          <div class="field">
+            <label>วันเกิด *</label>
+            <div class="row">
+              <select id="bDay" aria-label="วัน"></select>
+              <select id="bMonth" aria-label="เดือน"></select>
+              <select id="bYear" aria-label="ปี"></select>
+              <label class="switch"><input id="eraBE" type="checkbox" checked> <span id="eraLabel">พ.ศ.</span></label>
+            </div>
+            <div class="row quick"><span class="muted">ลัด อายุประมาณ:</span>
+              <button type="button" class="chip" data-age="50">50</button><button type="button" class="chip" data-age="60">60</button>
+              <button type="button" class="chip" data-age="70">70</button><button type="button" class="chip" data-age="80">80</button>
+            </div>
+            <output id="ageOut" class="age-out">อายุ __ ปี</output>
+            <div class="err-msg" data-err="birth"></div>
+          </div>
+          <fieldset id="sexSet"><legend>เพศ *</legend>
+            <label class="choice"><input type="radio" name="sex" value="male"> ชาย</label>
+            <label class="choice"><input type="radio" name="sex" value="female"> หญิง</label>
+            <label class="choice"><input type="radio" name="sex" value="other"> ไม่ระบุ / อื่น ๆ</label>
+            <div class="err-msg" data-err="sex"></div>
+          </fieldset>
+          <fieldset id="handSet"><legend>มือข้างที่ถนัด *</legend>
+            <label class="choice"><input type="radio" name="hand" value="right"> ✋ มือขวา</label>
+            <label class="choice"><input type="radio" name="hand" value="left"> 🤚 มือซ้าย</label>
+            <div class="err-msg" data-err="hand"></div>
+          </fieldset>
+        </section>
+
+        <!-- ============ ขั้นที่ 2 สุขภาพ ============ -->
+        <section class="step hidden" data-step="2">
+          <h2 tabindex="-1">2 · ข้อมูลสุขภาพที่จำเป็น</h2>
+          <fieldset id="condSet"><legend>โรคประจำตัว * (เลือกได้หลายข้อ)</legend>
+            <div id="condList" class="checks"></div>
+            <div class="field" style="margin-top:var(--sp-3)"><label for="conditionOther">โรคอื่น ๆ (ถ้ามี)</label><input id="conditionOther" type="text" maxlength="100" placeholder="เช่น ไทรอยด์"></div>
+            <div class="err-msg" data-err="cond"></div>
+          </fieldset>
+          <div class="field">
+            <label for="tremor">ความรุนแรงของอาการมือสั่น</label>
+            <input id="tremor" type="range" min="0" max="3" step="1" value="0">
+            <div class="ticks"><span>0</span><span>1</span><span>2</span><span>3</span></div>
+            <div id="tremorText" class="desc"></div>
+          </div>
+          <div class="field"><label for="medication">ยาที่ใช้เป็นประจำ</label><textarea id="medication" maxlength="500" placeholder="ถ้าไม่มี เว้นว่างได้"></textarea></div>
+          <div class="two">
+            <div class="field"><label for="carer">ชื่อผู้ดูแล</label><input id="carer" type="text" maxlength="60" placeholder="ถ้าไม่มี เว้นว่างได้"><div class="err-msg" data-err="carer"></div></div>
+            <div class="field"><label for="phone">เบอร์ติดต่อฉุกเฉิน *</label><input id="phone" type="tel" inputmode="tel" maxlength="14" placeholder="08x-xxx-xxxx"><div class="err-msg" data-err="phone"></div></div>
+          </div>
+        </section>
+
+        <!-- ============ ขั้นที่ 3 ข้อมูลที่ทีมเลือกเก็บ ============ -->
+        <section class="step hidden" data-step="3">
+          <h2 tabindex="-1">3 · ข้อมูลเพิ่มเติมที่ทีมเลือกเก็บ</h2>
+          <p class="muted">ทุกช่องมีเหตุผลกำกับ ถ้าอธิบายไม่ได้ว่าจะใช้ทำอะไร เราจะไม่เก็บ (หลักเก็บเท่าที่จำเป็น)</p>
+          <div class="field">
+            <label for="pain">ระดับความปวดขณะขยับมือ: <b id="painVal" class="num">0</b>/10</label>
+            <input id="pain" type="range" min="0" max="10" step="1" value="0">
+            <div id="painText" class="desc"></div>
+            <p class="because">💡 <b>เพราะ</b> ถ้าปวดมาก เกมจะลดความยากและจำนวนครั้งลง และถ้าความปวดเพิ่มขึ้นหลังฝึก ระบบจะเตือนให้หยุดพักและปรึกษานักกายภาพ</p>
+          </div>
+          <div class="field">
+            <label for="goal">เป้าหมายส่วนตัวของการฝึก *</label>
+            <select id="goal"></select>
+            <div id="goalOtherWrap" class="hidden"><input id="goalOther" type="text" maxlength="100" placeholder="เป้าหมายของคุณ" style="width:100%;margin-top:var(--sp-2)"><div class="err-msg" data-err="goalOther"></div></div>
+            <div class="err-msg" data-err="goal"></div>
+            <p class="because">💡 <b>เพราะ</b> ใช้เลือกเกมที่ฝึกท่าตรงกับเป้าหมาย (เช่น อยากติดกระดุม → เน้นท่าจีบนิ้ว) และแสดงข้อความให้กำลังใจที่มีความหมายกับผู้ใช้เอง ช่วยให้ฝึกต่อเนื่อง</p>
+          </div>
+          <fieldset id="surgerySet"><legend>เคยผ่าตัด / บาดเจ็บที่มือหรือข้อมือหรือไม่ *</legend>
+            <div id="surgeryList" class="checks"></div>
+            <div id="surgeryDetailWrap" class="hidden field" style="margin-top:var(--sp-3)"><label for="surgeryDetail">รายละเอียด (เช่น ผ่าตัดนิ้วล็อก ปี 2565)</label><input id="surgeryDetail" type="text" maxlength="120"></div>
+            <div class="err-msg" data-err="surgery"></div>
+            <p class="because">💡 <b>เพราะ</b> มือข้างที่เคยผ่าตัดต้องเริ่มฝึกเบากว่า และค่ามาตรฐานของข้างนั้น (เช่น ความกว้างการกางนิ้ว) จะต่างจากอีกข้าง ระบบจึงปรับเทียบแยกข้างได้ถูกต้อง</p>
+          </fieldset>
+        </section>
+
+        <!-- ============ ขั้นที่ 4 ยินยอม + บันทึก ============ -->
+        <section class="step hidden" data-step="4">
+          <h2 tabindex="-1">4 · ตรวจทานและให้ความยินยอม</h2>
+          <table class="data" id="summary"></table>
+          <fieldset id="filledBySet" style="margin-top:var(--sp-4)"><legend>ใครเป็นคนกรอกฟอร์มนี้ *</legend>
+            <label class="choice"><input type="radio" name="filledBy" value="self"> ผู้ใช้กรอกเอง</label>
+            <label class="choice"><input type="radio" name="filledBy" value="carer"> ผู้ดูแล / ญาติกรอกแทน</label>
+            <div id="filledByNameWrap" class="hidden field" style="margin-top:var(--sp-3)"><label for="filledByName">ชื่อผู้กรอกแทน *</label><input id="filledByName" type="text" maxlength="60"><div class="err-msg" data-err="filledByName"></div></div>
+            <div class="err-msg" data-err="filledBy"></div>
+          </fieldset>
+          <div id="consentCard" class="consent-card">
+            <p><b>ความยินยอมในการเก็บข้อมูล</b> — ข้อมูลสุขภาพเป็นข้อมูลอ่อนไหว ต้องอ่านและยอมรับก่อนบันทึก</p>
+            <p id="consentState" class="num-free"></p>
+            <button type="button" id="btnConsent" class="btn-glow">📄 อ่านข้อตกลงความยินยอม</button>
+            <div class="err-msg" data-err="consent"></div>
+          </div>
+        </section>
+
+        <div class="nav-row">
+          <button type="button" id="btnBack" class="btn-glow ghost">← ย้อนกลับ</button>
+          <span id="missing" class="muted"></span>
+          <button type="button" id="btnNext" class="btn-glow">ถัดไป →</button>
+          <button type="button" id="btnSave" class="btn-glow success hidden">💾 บันทึกข้อมูล</button>
+        </div>
+      </form>
+      <p class="muted" style="font-size:var(--fs-sm)">💾 ระบบบันทึกร่างให้อัตโนมัติ ปิดแอปกลางคันแล้วกลับมากรอกต่อได้</p>
+    </div>
+
+    <!-- ============ หน้าสำเร็จ ============ -->
+    <div id="success" class="card-neon hidden" style="text-align:center">
+      <div style="font-size:64px">🎉</div>
+      <h2 id="successTitle">ลงทะเบียนสำเร็จ!</h2>
+      <p style="font-size:var(--fs-xl)" id="successName"></p>
+      <p class="muted" id="successInfo"></p>
+      <div class="row" style="justify-content:center">
+        <button id="btnAnother" class="btn-glow">＋ ลงทะเบียนคนถัดไป</button>
+        <a class="btn-glow ghost back-link hidden" href="users.html">← กลับหน้ารายชื่อ</a>
+      </div>
+      <!-- Lab 34: ลงทะเบียนตัวเอง → ขั้นต่อไป เก็บใบหน้า (หรือใช้ PIN อย่างเดียว) -->
+      <div id="nextSteps" class="hidden" style="margin-top:var(--sp-4)">
+        <p>ต่อไปเลือกวิธีเข้าสู่ระบบครั้งหน้า — <b>ใบหน้าหรือ PIN ใช้ได้เท่ากัน</b> ทำทั้งสองอย่างก็ได้</p>
+        <div class="row" style="justify-content:center">
+          <a id="goEnrol" class="btn-glow success" href="enrol.html">📸 เก็บใบหน้า</a>
+          <a class="btn-glow" href="pin.html">🔢 ตั้ง PIN</a>
+          <a class="btn-glow ghost" href="index.html#home">🏠 ไปหน้าหลัก</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ============ หน้าต่างความยินยอม (ต้องเลื่อนอ่านจนสุด) ============ -->
+  <div id="consentBack" class="modal-back hidden">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="consentTitle">
+      <h2 id="consentTitle">📄 ข้อตกลงการเก็บและใช้ข้อมูล</h2>
+      <div id="consentScroll" class="consent-scroll" tabindex="0">
+        <h3>1. เราเก็บข้อมูลอะไร</h3>
+        <p>ชื่อ นามสกุล วันเกิด เพศ มือข้างที่ถนัด โรคประจำตัว ระดับมือสั่น ยาที่ใช้ ชื่อผู้ดูแลและเบอร์ฉุกเฉิน ระดับความปวด เป้าหมายการฝึก ประวัติผ่าตัดมือ และในภายหลังจะเก็บภาพใบหน้า (เพื่อเข้าสู่ระบบ) และผลการฝึกแต่ละครั้ง ข้อมูลสุขภาพและภาพใบหน้าเป็น <b>ข้อมูลส่วนบุคคลที่อ่อนไหว</b> ตามกฎหมายคุ้มครองข้อมูลส่วนบุคคล (PDPA)</p>
+        <h3>2. เก็บไว้ที่ไหน</h3>
+        <p>เก็บในเบราว์เซอร์ของ <b>เครื่องคอมพิวเตอร์เครื่องนี้เท่านั้น</b> (IndexedDB) ไม่มีการส่งข้อมูลหรือภาพใดขึ้นอินเทอร์เน็ต ปัญญาประดิษฐ์ทำงานในเครื่องนี้ทั้งหมด</p>
+        <h3>3. ใครเห็นข้อมูลได้บ้าง</h3>
+        <p>เฉพาะผู้ที่ใช้เครื่องนี้: ตัวผู้ใช้ ผู้ดูแล และนักเรียนทีมผู้พัฒนา/ครูที่ปรึกษาที่ช่วยดูแลการฝึก ถ้าจะนำผลไปใช้ในรายงานโครงงาน จะใช้เฉพาะตัวเลขสรุปที่ไม่ระบุชื่อ และไม่ใช้ภาพใบหน้า</p>
+        <h3>4. เก็บไว้นานเท่าไร</h3>
+        <p>เก็บตลอดช่วงโครงงาน และไม่เกิน 1 ปีหลังการฝึกครั้งสุดท้าย จากนั้นทีมจะลบทิ้งทั้งหมด หรือลบทันทีเมื่อผู้ใช้ขอ</p>
+        <h3>5. ขอลบข้อมูลได้อย่างไร</h3>
+        <p>แจ้งทีมหรือผู้ดูแลได้ทุกเมื่อ เราจะกดปุ่ม "ลบ" ในหน้ารายชื่อผู้ใช้ ซึ่งลบทุกอย่างของท่าน (ข้อมูลส่วนตัว ภาพใบหน้า ประวัติการฝึก การตั้งค่า) ออกจากเครื่องทันทีและกู้คืนไม่ได้ การไม่ยินยอมหรือถอนความยินยอมไม่มีผลเสียใด ๆ ต่อท่าน</p>
+        <p class="muted">ติดต่อ: ทีม NeonHands · โรงเรียนของเรา (ทีมควรใส่ช่องทางติดต่อจริง)</p>
+        <p><b>— จบข้อตกลง —</b></p>
+      </div>
+      <p id="consentHint" class="muted"></p>
+      <label class="choice" style="width:100%"><input id="consentChk" type="checkbox" disabled> ข้าพเจ้าได้อ่านและเข้าใจ และยินยอมให้เก็บข้อมูลตามข้างต้น</label>
+      <div class="row" style="justify-content:flex-end;margin-top:var(--sp-3)">
+        <button id="consentCancel" type="button" class="btn-glow ghost">ยังไม่ยอมรับ</button>
+        <button id="consentOk" type="button" class="btn-glow success" disabled>✓ ยอมรับ</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="team-badge">ทีม NeonHands · โรงเรียนของเรา</div>
+  <script type="module">
+    import { applyPrefs } from './js/ui.js';
+    import { initRegister } from './js/register.js';
+    import { setCurrentUser } from './js/db.js';
+    applyPrefs();
+    // มาจากหน้ารายชื่อผู้ใช้ (เพิ่ม/แก้ไขแทนคนอื่น) → แสดงปุ่มกลับหน้ารายชื่อ และไม่ล็อกอินเป็นคนนั้น
+    const qs = new URLSearchParams(location.search);
+    const fromUsers = qs.has('edit') || qs.get('from') === 'users';
+    if (fromUsers) document.body.dataset.back = 'users.html';
+    window.addEventListener('registered', (e) => {
+      const { user, edit } = e.detail;
+      if (edit || fromUsers) return;
+      setCurrentUser(user.id);   // ลงทะเบียนตัวเอง = เข้าสู่ระบบทันที
+      document.getElementById('goEnrol').href = 'enrol.html?user=' + encodeURIComponent(user.id);
+      document.getElementById('nextSteps').classList.remove('hidden');
+    });
+    initRegister();
+  </script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

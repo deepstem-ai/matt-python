@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ชิ้นส่วนหน้าจอ — HandRehab Arcade (Lab 06)</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/extras.css">
+  <link rel="stylesheet" href="css/showcase.css">
+</head>
+<body class="theme-neon profile-standard">
+  <!-- กล่อง FPS ลอยมุมขวาบน -->
+  <div class="fps-hud" aria-live="off"><span class="chip">FPS <b id="fps">--</b></span><span class="chip">ชิ้นส่วน <b id="count">0</b></span></div>
+
+  <main class="wrap">
+    <h1>✨ ชิ้นส่วนหน้าจอ (parts.html)</h1>
+    <p class="muted">ปุ่มเรืองแสง · การ์ดกระจกฝ้า · ป้ายตัวเลข · วงแหวนความคืบหน้า · แจ้งเตือนลอย — ทุกสีอ่านจาก tokens.css</p>
+
+    <!-- ===== แถบเลือกธีม ===== -->
+    <section class="card-neon toolbar" aria-label="เลือกธีม">
+      <div class="row">
+        <button class="btn-glow ghost" data-theme="neon" data-tip="สีสด เรืองแสงเต็มที่"><span class="ico">⚡</span> Neon</button>
+        <button class="btn-glow ghost" data-theme="calm" data-tip="ปิดแสง เงา และการเคลื่อนไหวทั้งหมด"><span class="ico">🌿</span> Calm</button>
+        <button class="btn-glow ghost" data-theme="large" data-tip="ตัวอักษรและปุ่มใหญ่ขึ้น"><span class="ico">🔠</span> Large</button>
+        <label class="switch"><input type="checkbox" id="lightSw"> โหมดสว่าง</label>
+        <label class="switch"><input type="checkbox" id="soundSw"> เสียงคลิก</label>
+      </div>
+      <div id="fx" class="fx-status" role="status"></div>
+    </section>
+
+    <!-- ===== 1) ปุ่ม ===== -->
+    <h2>1) ปุ่ม .btn-glow</h2>
+    <div class="row">
+      <button class="btn-glow" data-tip="ปุ่มสำคัญที่สุดของหน้า มีได้ปุ่มเดียว"><span class="ico">▶</span> เริ่มเล่น (primary)</button>
+      <button class="btn-glow success" data-tip="ยืนยัน / สำเร็จ"><span class="ico">✔</span> บันทึก (success)</button>
+      <button class="btn-glow danger" data-tip="การกระทำที่ย้อนกลับไม่ได้"><span class="ico">🗑</span> ลบ (danger)</button>
+      <button class="btn-glow ghost" data-tip="ปุ่มรอง ไม่แย่งความสนใจ"><span class="ico">↩</span> ย้อนกลับ (ghost)</button>
+      <button class="btn-glow ghost small" data-tip="ปุ่มเล็ก ยังสูงอย่างน้อย 56px"><span class="ico">⚙</span> ตั้งค่า (small)</button>
+      <button class="btn-glow" disabled data-tip="กดไม่ได้ตอนนี้"><span class="ico">🔒</span> ปิดใช้งาน</button>
+    </div>
+
+    <!-- ===== 2) การ์ด ===== -->
+    <h2>2) การ์ด .card-neon</h2>
+    <div class="grid">
+      <article class="card-neon" tabindex="0">
+        <div class="card-head"><span class="card-icon">⭐</span><h3 class="card-title">จับดาวใส่ประตู</h3></div>
+        <p>เกมฝึกหนีบนิ้วโป้งกับนิ้วชี้ ช่วยกล้ามเนื้อมัดเล็กของมือ</p>
+        <span class="chip">สถิติสูงสุด <b>1,250</b></span>
+      </article>
+      <article class="card-neon" tabindex="0">
+        <div class="card-head"><span class="card-icon">🎵</span><h3 class="card-title">แตะตามจังหวะ</h3></div>
+        <p>แตะนิ้วทีละนิ้วตามโน้ตดนตรี ฝึกการแยกนิ้วและความแม่นยำ</p>
+        <span class="chip ok">แม่นยำ <b>92%</b></span>
+      </article>
+      <article class="card-neon" tabindex="0">
+        <div class="card-head"><span class="card-icon">🖐</span><h3 class="card-title">กางนิ้วผ่านกำแพง</h3></div>
+        <p>กางนิ้วให้กว้างที่สุดเพื่อผ่านช่องกำแพง ยืดเอ็นระหว่างนิ้ว</p>
+        <span class="chip warn">วันนี้ <b>3/10</b></span>
+      </article>
+    </div>
+
+    <!-- ===== 3) ป้ายตัวเลข ===== -->
+    <h2>3) ป้ายตัวเลข .chip</h2>
+    <div class="row">
+      <span class="chip" tabindex="0" data-tip="ฝึกติดต่อกันกี่วัน">🔥 ต่อเนื่อง <b>7 วัน</b></span>
+      <span class="chip ok" tabindex="0" data-tip="ความแม่นยำเฉลี่ย">🎯 แม่นยำ <b>94%</b></span>
+      <span class="chip" tabindex="0">🔁 ครั้ง <b>12</b></span>
+      <span class="chip warn" tabindex="0">⚠ แสงน้อย <b>38</b></span>
+      <span class="chip bad" tabindex="0">✖ พลาด <b>2</b></span>
+    </div>
+
+    <!-- ===== 4) วงแหวน ===== -->
+    <h2>4) วงแหวนความคืบหน้า .ring</h2>
+    <div class="row">
+      <div class="ring" id="ringMain" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="col grow">
+        <label class="field">ตั้งค่า 0–100 <input type="range" id="ringSlider" min="0" max="100" value="35"></label>
+        <div class="row">
+          <button class="btn-glow ghost" id="ringMinus"><span class="ico">➖</span> ลด 10</button>
+          <button class="btn-glow ghost" id="ringPlus"><span class="ico">➕</span> เพิ่ม 10</button>
+          <button class="btn-glow ghost" id="ringRand"><span class="ico">🎲</span> สุ่ม</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== 5) แจ้งเตือนลอย ===== -->
+    <h2>5) แจ้งเตือนลอย .toast <small class="muted">(หายเองใน 3 วินาที)</small></h2>
+    <div class="row">
+      <button class="btn-glow success" data-toast="success"><span class="ico">✔</span> สำเร็จ</button>
+      <button class="btn-glow ghost" data-toast="warning"><span class="ico">⚠</span> เตือน</button>
+      <button class="btn-glow danger" data-toast="error"><span class="ico">✖</span> ผิดพลาด</button>
+    </div>
+
+    <!-- ===== ชิ้นส่วนพิเศษของทีม ===== -->
+    <h2>ชิ้นส่วนพิเศษของทีม</h2>
+    <div class="grid">
+      <div class="card-neon" tabindex="0">
+        <div class="card-head"><span class="flame" aria-hidden="true"></span><h3 class="card-title">เปลวไฟต่อเนื่อง</h3></div>
+        <p>ฝึกติดกัน <b class="num" id="streakN">7</b> วัน — ไฟลุกแรงขึ้นตามจำนวนวัน</p>
+        <button class="btn-glow ghost small" id="streakUp"><span class="ico">🔥</span> เพิ่มวัน</button>
+      </div>
+      <div class="card-neon" tabindex="0">
+        <div class="card-head"><span class="card-icon">⚡</span><h3 class="card-title">แถบพลังงาน</h3></div>
+        <div class="energy" id="energy"><i></i></div>
+        <button class="btn-glow ghost small" id="energyBtn"><span class="ico">🔋</span> ชาร์จพลัง</button>
+      </div>
+      <div class="card-neon stars-card" tabindex="0">
+        <div class="card-head"><span class="card-icon">🌟</span><h3 class="card-title">ดาวระยิบระยับ</h3></div>
+        <div class="stars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+
+    <!-- ===== ทดสอบหนัก + คีย์บอร์ด ===== -->
+    <h2>ทดสอบความลื่น และการใช้คีย์บอร์ด</h2>
+    <div class="row">
+      <button class="btn-glow" id="stressBtn" data-tip="วัด FPS ขณะมีชิ้นส่วนเต็มจอ (เบลอกินเครื่องมาก)"><span class="ico">🚀</span> สร้างชิ้นส่วน 100 ชิ้น</button>
+      <button class="btn-glow ghost" id="clearBtn"><span class="ico">🧹</span> ล้างทั้งหมด</button>
+      <button class="btn-glow ghost" id="tabBtn"><span class="ico">⌨</span> ตรวจ Tab และขนาดปุ่ม</button>
+    </div>
+    <div id="report" class="alert ok hidden" role="status"></div>
+    <div id="stress" class="grid stress"></div>
+  </main>
+  <div class="team-badge">ทีม NeonHands · โรงเรียนของเรา</div>
+  <script type="module" src="js/parts-page.js"></script>
+</body>
+</html>

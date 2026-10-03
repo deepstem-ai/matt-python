@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 37 · แดชบอร์ดหลักฐาน</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/parts.css">
+<style>
+  .drop { border: 3px dashed var(--line); border-radius: var(--r-lg); padding: var(--sp-5); text-align: center; transition: border-color var(--speed); }
+  .drop.over { border-color: var(--primary); background: color-mix(in srgb, var(--primary) 8%, var(--card)); }
+  .drop input[type=file] { display: none; }
+  .gcard .bar { margin: var(--sp-2) 0; }
+  .items { list-style: none; padding: 0; margin: 0; font-size: var(--fs-sm); max-height: 260px; overflow: auto; }
+  .items li { display: flex; gap: var(--sp-2); padding: 2px 0; border-bottom: 1px solid var(--line); }
+  .items li.ok { color: var(--success); }
+  .items li.miss { color: var(--text-2); }
+  .items code { color: inherit; word-break: break-all; }
+  .an-card h3 { margin-bottom: var(--sp-1); font-size: var(--fs-md); }
+  .demo-tag { color: var(--warning); font-weight: 700; }
+  pre.md { white-space: pre-wrap; background: var(--input); padding: var(--sp-3); border-radius: var(--r-md); font-size: var(--fs-xs); max-height: 380px; overflow: auto; }
+  #missing li { margin-bottom: var(--sp-1); }
+</style>
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap">
+  <h1>🗂️ Lab 37 · แดชบอร์ดหลักฐาน</h1>
+  <p class="muted">ลากไฟล์หลักฐานทั้งหมด (ภาพ, CSV, วิดีโอ, เอกสาร) มาวาง ระบบจะติ๊กรายการใน CHECKLIST ที่ชื่อตรง และคำนวณตัวเลขสำหรับ SUMMARY.md จาก CSV จริง · ทุกอย่างทำในเบราว์เซอร์ ไม่ส่งไฟล์ไปไหน</p>
+
+  <div id="loadErr" class="alert hidden"></div>
+
+  <section class="drop" id="drop">
+    <div style="font-size:56px">📥</div>
+    <p style="font-size:var(--fs-lg);margin:0">ลากไฟล์มาวางที่นี่ หรือ</p>
+    <div class="row" style="justify-content:center;margin-top:var(--sp-3)">
+      <label class="btn-glow"><input type="file" id="files" multiple>เลือกไฟล์ (หลายไฟล์)</label>
+      <label class="btn-glow ghost"><input type="file" id="folder" webkitdirectory multiple>เลือกทั้งโฟลเดอร์ evidence</label>
+      <button class="btn-glow ghost" id="demo">ลองด้วยไฟล์ตัวอย่าง (DEMO)</button>
+      <button class="btn-glow ghost" id="reset">ล้าง</button>
+    </div>
+  </section>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)">
+    <div class="row" style="justify-content:space-between">
+      <h2 class="card-title">ความครบถ้วน</h2>
+      <span class="chip" id="totalChip">มีแล้ว <b>0</b> / 0</span>
+    </div>
+    <div class="bar" style="height:26px"><i id="totalBar"></i></div>
+    <div class="grid" id="groups" style="margin-top:var(--sp-4)"></div>
+  </section>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)">
+    <h2 class="card-title">❗ ยังขาด</h2>
+    <ul id="missing"></ul>
+  </section>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)">
+    <h2 class="card-title">📈 CSV ที่อ่านได้</h2>
+    <div class="grid" id="analyses"><p class="muted">ยังไม่มี CSV — ลากไฟล์ CSV ที่ export จากแลปต่าง ๆ มาวาง</p></div>
+  </section>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)">
+    <div class="row" style="justify-content:space-between">
+      <h2 class="card-title">🧾 แถวของ SUMMARY.md (สร้างจากไฟล์จริง)</h2>
+      <div class="row"><button class="btn-glow" id="copy">📋 คัดลอกตาราง SUMMARY</button><button class="btn-glow ghost" id="dl">⬇ ดาวน์โหลด SUMMARY-auto.md</button></div>
+    </div>
+    <p class="muted">ช่องที่ว่าง = ยังไม่มีไฟล์รองรับ ห้ามเติมตัวเลขเอง ให้กลับไปวัดที่แลปที่ระบุ</p>
+    <div style="overflow:auto"><table class="data" id="sumTable"></table></div>
+    <pre class="md" id="md"></pre>
+  </section>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/dashboard.js"></script>
+</body>
+</html>

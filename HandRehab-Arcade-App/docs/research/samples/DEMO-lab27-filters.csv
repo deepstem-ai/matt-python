@@ -1,0 +1,5 @@
+﻿filter,jitter_px,reduction_pct,delay_ms
+raw,6.2,0,0
+OneEuro,1.9,69.4,14
+MovingAverage,2.4,61.3,83
+Median,2.8,54.8,67

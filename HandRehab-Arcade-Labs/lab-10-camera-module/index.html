@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HandRehab Arcade · กล้อง (Lab 10)</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <style>
+    /* สไตล์เฉพาะหน้านี้ — ใช้สีจาก var() เท่านั้น */
+    header.top { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-3); flex-wrap: wrap; padding: var(--sp-3) var(--sp-4); border-bottom: 1px solid var(--line); }
+    header.top h1 { margin: 0; font-size: var(--fs-xl); }
+    nav a { display: inline-flex; align-items: center; min-height: var(--btn-h); padding: 0 var(--sp-4); border-radius: var(--r-md); color: var(--text); text-decoration: none; font-weight: 700; }
+    nav a.active { background: var(--input); color: var(--primary); }
+    .toolbar { align-items: flex-end; margin-bottom: var(--sp-4); }
+    .toolbar .field { margin: 0; }
+    .icon-btn { width: var(--btn-h); padding: 0; font-size: var(--fs-xl); }
+    .stage { margin: 0 auto; }
+    /* กรอบนำทางซ้อนบนวิดีโอ: oval = ใบหน้า, rect = มือ */
+    .guide { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); border: 4px dashed var(--primary); pointer-events: none; display: flex; align-items: flex-end; justify-content: center; filter: drop-shadow(0 0 8px var(--primary)); }
+    .guide.oval { width: 32%; height: 80%; border-radius: 50%; }
+    .guide.rect { width: 52%; height: 72%; border-radius: var(--r-md); }
+    .guide.none { display: none; }
+    .guide span { transform: translateY(130%); background: color-mix(in srgb, var(--card) 85%, transparent); padding: 2px var(--sp-3); border-radius: var(--r-sm); font-size: var(--fs-sm); white-space: nowrap; }
+    .fps-chip { font-size: var(--fs-md); }
+    .meter { display: grid; grid-template-columns: auto 1fr auto; gap: var(--sp-3); align-items: center; max-width: 960px; margin: var(--sp-3) auto; }
+    #testShot img { max-width: 320px; border-radius: var(--r-md); border: 2px solid var(--line); }
+    #testList { font-size: var(--fs-lg); list-style: none; padding: 0; }
+    #testVideo { width: 320px; aspect-ratio: 16/9; background: var(--input); border-radius: var(--r-md); transform: scaleX(-1); }
+    .seg { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+  </style>
+</head>
+<body class="theme-neon profile-standard">
+  <header class="top">
+    <h1>🖐️ HandRehab Arcade</h1>
+    <nav>
+      <a href="#/home" data-route="home">หน้าแรก</a>
+      <a href="#/camera" data-route="camera">📷 กล้อง</a>
+      <a href="#/test" data-route="test">🩺 ทดสอบกล้อง</a>
+    </nav>
+  </header>
+
+  <!-- ===== หน้าแรก ===== -->
+  <main id="page-home" class="wrap">
+    <div class="card-neon">
+      <h2>Lab 10 · กล้องเต็มจอในแอปจริง</h2>
+      <p>โค้ดกล้องทั้งหมดอยู่ใน <code>js/camera.js</code> ไฟล์เดียว เลือกกล้องได้ ระบบจำกล้องที่เลือกไว้ และปิดกล้องทุกครั้งที่ออกจากหน้า</p>
+      <p class="muted">ลองสลับไปหน้าอื่นระหว่างเปิดกล้อง แล้วสังเกตว่า "ไฟกล้องดับ" ทุกครั้ง</p>
+      <div class="row">
+        <a class="btn-glow" href="#/camera">📷 ไปหน้ากล้อง</a>
+        <a class="btn-glow ghost" href="#/test">🩺 ทดสอบกล้อง</a>
+      </div>
+      <p class="muted">ทดลองกรณีปัญหา: <a href="?sim=denied#/camera">ไม่อนุญาต</a> · <a href="?sim=nocamera#/camera">ไม่มีกล้อง</a> · <a href="?sim=busy#/camera">กล้องถูกใช้</a> · <a href="?sim=unsupported#/camera">ไม่รองรับ</a> · <a href="./#/camera">ปกติ</a></p>
+    </div>
+  </main>
+
+  <!-- ===== หน้ากล้อง ===== -->
+  <main id="page-camera" class="wrap hidden">
+    <div class="row toolbar">
+      <div class="field">
+        <label for="camSelect">เลือกกล้อง (พบ <span id="camCount" class="num">0</span> ตัว)</label>
+        <div class="row">
+          <select id="camSelect" aria-label="เลือกกล้อง"><option value="">— กดเปิดกล้องก่อน —</option></select>
+          <button id="btnRefresh" class="btn-glow ghost icon-btn" data-tip="ค้นหากล้องใหม่" aria-label="รีเฟรชรายชื่อกล้อง">🔄</button>
+        </div>
+      </div>
+      <label class="switch"><input id="mirror" type="checkbox" checked> กลับด้านเหมือนกระจก</label>
+      <div class="field" style="min-width:260px">
+        <label for="resSlider">ความละเอียด: <span id="resLabel"></span></label>
+        <input id="resSlider" type="range" min="0" max="2" step="1" value="1">
+      </div>
+      <div class="field">
+        <label>กรอบนำทาง</label>
+        <div class="seg">
+          <label class="choice"><input type="radio" name="guide" value="oval"> ⬭ ใบหน้า</label>
+          <label class="choice"><input type="radio" name="guide" value="rect"> ▭ มือ</label>
+          <label class="choice"><input type="radio" name="guide" value="none"> ไม่แสดง</label>
+        </div>
+      </div>
+    </div>
+
+    <div id="camError" class="hidden" style="margin-bottom:var(--sp-4)"></div>
+    <div id="lostBox" class="alert warn hidden" role="alert" style="margin-bottom:var(--sp-4)">
+      <h3>🔌 กล้องหลุดการเชื่อมต่อ</h3>
+      <p>กล้องถูกถอดสาย USB หรือหยุดทำงานกะทันหัน กรุณาเสียบกล้องให้แน่น แล้วกดปุ่มด้านล่าง</p>
+      <button id="btnReconnect" class="btn-glow">🔌 เชื่อมต่อกล้องใหม่</button>
+    </div>
+
+    <div id="stage" class="stage mirror">
+      <video id="video" playsinline muted></video>
+      <div id="guide" class="guide oval"><span></span></div>
+      <!-- FPS มุมขวาบน -->
+      <div class="hud"><span class="chip fps-chip">FPS <b id="fps">0</b></span></div>
+    </div>
+
+    <div class="meter">
+      <span>💡 ความสว่าง <b id="brightVal" class="num">0</b></span>
+      <div class="bar"><i id="brightBar"></i></div>
+      <span id="camStatus" class="muted">ยังไม่ได้เปิดกล้อง</span>
+    </div>
+    <div id="darkWarn" class="alert warn hidden" style="max-width:960px;margin:0 auto var(--sp-3)"></div>
+
+    <div class="row" style="justify-content:center">
+      <button id="btnStart" class="btn-glow success">▶ เปิดกล้อง</button>
+      <button id="btnStop" class="btn-glow danger">■ ปิดกล้อง</button>
+    </div>
+  </main>
+
+  <!-- ===== หน้าทดสอบกล้อง ===== -->
+  <main id="page-test" class="wrap hidden">
+    <div class="card-neon">
+      <h2>🩺 ทดสอบกล้อง</h2>
+      <p>กดปุ่มเพื่อตรวจกล้องอัตโนมัติ 6 ข้อ ใช้เวลาประมาณ 3 วินาที แล้วระบบจะปิดกล้องให้เอง</p>
+      <button id="btnTest" class="btn-glow">▶ เริ่มทดสอบกล้อง</button>
+      <div class="row" style="align-items:flex-start;margin-top:var(--sp-4)">
+        <video id="testVideo" playsinline muted></video>
+        <ul id="testList"></ul>
+        <div id="testShot"></div>
+      </div>
+      <div id="testError" class="hidden"></div>
+    </div>
+  </main>
+
+  <div class="team-badge">ทีม NeonHands · โรงเรียนของเรา</div>
+
+  <script type="module">
+    import { applyPrefs } from './js/ui.js';
+    import { addRoute, startRouter } from './js/router.js';
+    import { initCameraPage, openCamera, closeCamera, refreshCameraList } from './js/camera-page.js';
+    import { runCameraTest, leaveCameraTest } from './js/camera-test.js';
+
+    applyPrefs();
+    initCameraPage();
+    document.getElementById('btnTest').onclick = runCameraTest;
+
+    // ลงทะเบียนหน้า — หน้าที่ใช้กล้องต้องปิดกล้องใน onLeave
+    addRoute('home', { el: document.getElementById('page-home') });
+    addRoute('camera', {
+      el: document.getElementById('page-camera'),
+      onEnter: () => { refreshCameraList(); openCamera(); },
+      onLeave: closeCamera,
+    });
+    addRoute('test', { el: document.getElementById('page-test'), onLeave: leaveCameraTest });
+    startRouter('home');
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ปรับเทียบมือของฉัน — HandRehab Arcade (Lab 27)</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/page.css">
+  <link rel="stylesheet" href="css/calib.css">
+</head>
+<body>
+  <header class="top-bar">
+    <a class="btn-glow ghost small" href="index.html">← เกม</a>
+    <h1>🎯 ปรับเทียบมือของฉัน</h1>
+    <span id="srcBadge" class="demo-badge hidden">🖐 โหมดสาธิต (มือจำลอง)</span>
+    <span class="spacer"></span>
+    <div id="picker" class="row"></div>
+  </header>
+  <main class="wrap">
+    <nav class="steps" aria-label="ขั้นตอน">
+      <span data-step="1">1 · อธิบาย</span><span data-step="2">2 · ถือนิ่ง</span><span data-step="3">3 · ทำท่า 5 ครั้ง</span><span data-step="4">4 · ผลลัพธ์</span>
+    </nav>
+    <div class="wizard">
+      <section id="panel" class="card-neon" aria-live="polite"></section>
+      <section class="card-neon col">
+        <div id="camBox" class="stage mirror hidden"><video id="video" playsinline muted></video><canvas id="handCanvas" class="mirror"></canvas></div>
+        <canvas id="demoView" class="demo-hand hidden" aria-label="มือจำลอง"></canvas>
+        <div id="demoCtl" class="col hidden">
+          <label>อาการสั่นจำลอง
+            <select id="demoTremor"><option value="0">0 · ไม่สั่น</option><option value="1">1 · เล็กน้อย</option><option value="2">2 · ปานกลาง</option><option value="3">3 · มาก</option></select></label>
+          <button id="holdBtn" class="btn-glow ghost small" title="กดค้าง = ทำท่า (หรือกด Space ค้าง)">✊ กดค้าง = ทำท่า</button>
+        </div>
+        <p id="liveInfo" class="muted num">—</p>
+      </section>
+    </div>
+    <p class="foot">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา · Lab 27 · ถ้าย้ายกล้องหรือเปลี่ยนเครื่อง ให้ปรับเทียบใหม่</p>
+  </main>
+  <script type="module" src="js/calibrate-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,659 @@
+{
+ "version": 1,
+ "groups": [
+  {
+   "id": 1,
+   "dir": "01-screenshots",
+   "th": "ภาพหน้าจอทุกหน้า",
+   "chapter": "บทที่ 3 (ภาพหน้าจอระบบ) และภาคผนวก"
+  },
+  {
+   "id": 2,
+   "dir": "02-charts-tables",
+   "th": "กราฟและตาราง",
+   "chapter": "บทที่ 4 (ผลการทดลอง)"
+  },
+  {
+   "id": 3,
+   "dir": "03-video",
+   "th": "วิดีโอ",
+   "chapter": "การนำเสนอ / ภาคผนวก (ลิงก์ QR)"
+  },
+  {
+   "id": 4,
+   "dir": "04-documents",
+   "th": "เอกสาร",
+   "chapter": "บทที่ 3 (วิธีดำเนินการ) และภาคผนวก"
+  },
+  {
+   "id": 5,
+   "dir": "05-code",
+   "th": "โค้ด",
+   "chapter": "บทที่ 3 (โครงสร้างระบบ) และภาคผนวก"
+  }
+ ],
+ "items": [
+  {
+   "group": 1,
+   "target": "01-screenshots/lab01-camera.png",
+   "lab": 1,
+   "th": "เปิดกล้องไฟล์เดียว",
+   "patterns": [
+    "lab01-camera*.png",
+    "lab01*camera*.png",
+    "*camera*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab05-style.png",
+   "lab": 5,
+   "th": "สีและตัวอักษรของทีม",
+   "patterns": [
+    "lab05-style*.png",
+    "lab05*style*.png",
+    "*style*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab06-parts.png",
+   "lab": 6,
+   "th": "ปุ่มและการ์ดเรืองแสง",
+   "patterns": [
+    "lab06-parts*.png",
+    "lab06*parts*.png",
+    "*parts*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab07-pages.png",
+   "lab": 7,
+   "th": "การสลับหน้า",
+   "patterns": [
+    "lab07-pages*.png",
+    "lab07*pages*.png",
+    "*pages*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab08-splash.png",
+   "lab": 8,
+   "th": "หน้าเปิดแอป",
+   "patterns": [
+    "lab08-splash*.png",
+    "lab08*splash*.png",
+    "*splash*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab09-senior-mode.png",
+   "lab": 9,
+   "th": "โหมดผู้สูงอายุ",
+   "patterns": [
+    "lab09-senior-mode*.png",
+    "lab09*senior*.png",
+    "*senior-mode*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab10-camera-picker.png",
+   "lab": 10,
+   "th": "เลือกกล้อง",
+   "patterns": [
+    "lab10-camera-picker*.png",
+    "lab10*camera*.png",
+    "*camera-picker*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab11-face-box.png",
+   "lab": 11,
+   "th": "กรอบตรวจจับใบหน้า",
+   "patterns": [
+    "lab11-face-box*.png",
+    "lab11*face*.png",
+    "*face-box*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab12-register.png",
+   "lab": 12,
+   "th": "ฟอร์มลงทะเบียน",
+   "patterns": [
+    "lab12-register*.png",
+    "lab12*register*.png",
+    "*register*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab13-user-manager.png",
+   "lab": 13,
+   "th": "จัดการผู้ใช้",
+   "patterns": [
+    "lab13-user-manager*.png",
+    "lab13*user*.png",
+    "*user-manager*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab14-face-capture.png",
+   "lab": 14,
+   "th": "ถ่ายใบหน้าพร้อมเตือนคุณภาพ",
+   "patterns": [
+    "lab14-face-capture*.png",
+    "lab14*face*.png",
+    "*face-capture*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab15-face-login.png",
+   "lab": 15,
+   "th": "เข้าระบบด้วยใบหน้า",
+   "patterns": [
+    "lab15-face-login*.png",
+    "lab15*face*.png",
+    "*face-login*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab16-hand-21-points.png",
+   "lab": 16,
+   "th": "มือ 21 จุด",
+   "patterns": [
+    "lab16-hand-21-points*.png",
+    "lab16*hand*.png",
+    "*hand-21-points*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab17-hand-styles.png",
+   "lab": 17,
+   "th": "สไตล์วาดมือ 3 แบบ",
+   "patterns": [
+    "lab17-hand-styles*.png",
+    "lab17*hand*.png",
+    "*hand-styles*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab18-hand-math.png",
+   "lab": 18,
+   "th": "คณิตศาสตร์ของมือ",
+   "patterns": [
+    "lab18-hand-math*.png",
+    "lab18*hand*.png",
+    "*hand-math*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab19-pinch.png",
+   "lab": 19,
+   "th": "ท่าจีบนิ้ว",
+   "patterns": [
+    "lab19-pinch*.png",
+    "lab19*pinch*.png",
+    "*pinch*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab20-five-gestures.png",
+   "lab": 20,
+   "th": "ท่าบำบัด 5 ท่า",
+   "patterns": [
+    "lab20-five-gestures*.png",
+    "lab20*five*.png",
+    "*five-gestures*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab21-rep-counter.png",
+   "lab": 21,
+   "th": "ตัวนับครั้ง",
+   "patterns": [
+    "lab21-rep-counter*.png",
+    "lab21*rep*.png",
+    "*rep-counter*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab22-engine.png",
+   "lab": 22,
+   "th": "เอนจินเกม",
+   "patterns": [
+    "lab22-engine*.png",
+    "lab22*engine*.png",
+    "*engine*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab23-star-portal.png",
+   "lab": 23,
+   "th": "เกมจับดาวใส่ประตูมิติ",
+   "patterns": [
+    "lab23-star-portal*.png",
+    "lab23*star*.png",
+    "*star-portal*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab24-rhythm-tap.png",
+   "lab": 24,
+   "th": "เกมเคาะจังหวะ",
+   "patterns": [
+    "lab24-rhythm-tap*.png",
+    "lab24*rhythm*.png",
+    "*rhythm-tap*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab25-spread-wall.png",
+   "lab": 25,
+   "th": "เกมกางนิ้วผ่านกำแพง",
+   "patterns": [
+    "lab25-spread-wall*.png",
+    "lab25*spread*.png",
+    "*spread-wall*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab26-achievements.png",
+   "lab": 26,
+   "th": "คะแนน คอมโบ รางวัล",
+   "patterns": [
+    "lab26-achievements*.png",
+    "lab26*achievements*.png",
+    "*achievements*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab27-calibration.png",
+   "lab": 27,
+   "th": "ปรับเทียบรายบุคคล",
+   "patterns": [
+    "lab27-calibration*.png",
+    "lab27*calibration*.png",
+    "*calibration*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab28-session-history.png",
+   "lab": 28,
+   "th": "ประวัติการฝึก",
+   "patterns": [
+    "lab28-session-history*.png",
+    "lab28*session*.png",
+    "*session-history*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab31-teach-ai.png",
+   "lab": 31,
+   "th": "สอน AI ท่าใหม่",
+   "patterns": [
+    "lab31-teach-ai*.png",
+    "lab31*teach*.png",
+    "*teach-ai*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab33-benchmark.png",
+   "lab": 33,
+   "th": "วัดความเร็วเครื่อง",
+   "patterns": [
+    "lab33-benchmark*.png",
+    "lab33*benchmark*.png",
+    "*benchmark*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab34-installed-app.png",
+   "lab": 34,
+   "th": "ติดตั้งเป็นแอป",
+   "patterns": [
+    "lab34-installed-app*.png",
+    "lab34*installed*.png",
+    "*installed-app*.png"
+   ]
+  },
+  {
+   "group": 1,
+   "target": "01-screenshots/lab35-offline.png",
+   "lab": 35,
+   "th": "ทำงานออฟไลน์",
+   "patterns": [
+    "lab35-offline*.png",
+    "lab35*offline*.png",
+    "*offline*.png"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab33-machine-compare.png",
+   "lab": 33,
+   "th": "กราฟเปรียบเทียบเครื่อง",
+   "patterns": [
+    "lab33*compare*.png",
+    "*machine*compare*.png",
+    "*benchmark*chart*.png",
+    "*benchmark*.png"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab33-benchmark.csv",
+   "lab": 33,
+   "th": "ตารางผลวัดความเร็วทุกเครื่อง (CSV)",
+   "patterns": [
+    "lab33*.csv",
+    "*benchmark*.csv"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab32-confusion-matrix.png",
+   "lab": 32,
+   "th": "ตารางความสับสน (confusion)",
+   "patterns": [
+    "*confusion*.png"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab32-lighting-accuracy.png",
+   "lab": 32,
+   "th": "ความแม่นยำ 3 สภาพแสง",
+   "patterns": [
+    "*lighting*.png",
+    "*light*accura*.png",
+    "*accuracy*light*.png"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab32-evaluation.csv",
+   "lab": 32,
+   "th": "ผลทดสอบความแม่นยำ (CSV)",
+   "patterns": [
+    "lab32*.csv",
+    "*evaluat*.csv",
+    "*confusion*.csv"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab27-filter-compare.png",
+   "lab": 27,
+   "th": "เปรียบเทียบตัวกรอง 3 แบบ (กราฟ)",
+   "patterns": [
+    "*filter*.png",
+    "*smoothing*.png"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab27-filters.csv",
+   "lab": 27,
+   "th": "เปรียบเทียบตัวกรอง (CSV)",
+   "patterns": [
+    "lab27*.csv",
+    "*filter*.csv",
+    "*smoothing*.csv"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab29-progress-chart.png",
+   "lab": 29,
+   "th": "กราฟความก้าวหน้า",
+   "patterns": [
+    "*progress*.png",
+    "lab29*.png"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab29-calendar.png",
+   "lab": 29,
+   "th": "ปฏิทินความสม่ำเสมอ",
+   "patterns": [
+    "*calendar*.png",
+    "*heatmap*.png"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab28-sessions.csv",
+   "lab": 28,
+   "th": "ประวัติการฝึกทั้งหมด (CSV)",
+   "patterns": [
+    "lab28*.csv",
+    "*session*.csv"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab24-reaction-time.png",
+   "lab": 24,
+   "th": "กราฟเวลาตอบสนองรายนิ้ว",
+   "patterns": [
+    "*reaction*.png",
+    "lab24*.png"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab21-rep-test.csv",
+   "lab": 21,
+   "th": "ผลทดสอบการนับครั้ง (CSV)",
+   "patterns": [
+    "lab21*.csv",
+    "*rep*test*.csv",
+    "*rep*count*.csv"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab19-pinch-values.csv",
+   "lab": 19,
+   "th": "ค่าระยะจีบนิ้วที่วัดได้ (CSV)",
+   "patterns": [
+    "lab19*.csv",
+    "*pinch*.csv"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab15-face-login.csv",
+   "lab": 15,
+   "th": "ผลทดสอบเข้าระบบด้วยใบหน้า (CSV)",
+   "patterns": [
+    "lab15*.csv",
+    "*face*login*.csv",
+    "*login*.csv",
+    "login-log*.csv"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab36-survey-chart.png",
+   "lab": 36,
+   "th": "กราฟผลแบบสอบถาม",
+   "patterns": [
+    "lab36*survey*.png",
+    "*survey*.png"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab36-survey-responses.csv",
+   "lab": 36,
+   "th": "คำตอบแบบสอบถามรายคน (CSV)",
+   "patterns": [
+    "lab36-survey-responses*.csv",
+    "*survey*respon*.csv"
+   ]
+  },
+  {
+   "group": 2,
+   "target": "02-charts-tables/lab36-survey-summary.csv",
+   "lab": 36,
+   "th": "สรุปแบบสอบถามรายข้อ (CSV)",
+   "patterns": [
+    "lab36-survey-summary*.csv",
+    "*survey*summary*.csv"
+   ]
+  },
+  {
+   "group": 3,
+   "target": "03-video/demo-2min.mp4",
+   "lab": 37,
+   "th": "วิดีโอสาธิต 2 นาที (สำรองกรณีสาธิตสดไม่ได้)",
+   "patterns": [
+    "*demo*.mp4",
+    "*demo*.webm",
+    "*demo*.mov",
+    "*demo*.mkv"
+   ],
+   "keepExt": true
+  },
+  {
+   "group": 3,
+   "target": "03-video/",
+   "lab": 36,
+   "th": "คลิปจากการทดสอบกับผู้ใช้ (เฉพาะมือ ไม่เห็นหน้า)",
+   "patterns": [
+    "*usertest*.mp4",
+    "*usertest*.webm",
+    "*usertest*.mov",
+    "*usertest*.mkv",
+    "*user-test*.mp4",
+    "*user-test*.webm",
+    "*user-test*.mov",
+    "*user-test*.mkv",
+    "*clip*.mp4",
+    "*clip*.webm",
+    "*clip*.mov",
+    "*clip*.mkv"
+   ],
+   "multi": true,
+   "min": 1
+  },
+  {
+   "group": 4,
+   "target": "04-documents/",
+   "lab": 36,
+   "th": "หนังสือยินยอมที่เซ็นแล้ว (สแกน) ครบ 5 คน",
+   "patterns": [
+    "*consent*signed*.pdf",
+    "*consent*P0*.pdf",
+    "*consent*P0*.jpg",
+    "*consent*P0*.png",
+    "*consent*scan*.*"
+   ],
+   "multi": true,
+   "min": 5
+  },
+  {
+   "group": 4,
+   "target": "04-documents/SOURCES.md",
+   "lab": 30,
+   "th": "ตารางที่มาของข้อมูล (data provenance)",
+   "patterns": [
+    "SOURCES.md"
+   ]
+  },
+  {
+   "group": 4,
+   "target": "04-documents/lab36-task-results.csv",
+   "lab": 36,
+   "th": "บันทึกการทดสอบกับผู้ใช้ (CSV)",
+   "patterns": [
+    "lab36-task-results*.csv",
+    "*task*result*.csv"
+   ]
+  },
+  {
+   "group": 4,
+   "target": "04-documents/lab36-issues.csv",
+   "lab": 36,
+   "th": "รายการปัญหาที่พบและการแก้ไข",
+   "patterns": [
+    "lab36-issues*.csv",
+    "*issues*.csv"
+   ]
+  },
+  {
+   "group": 4,
+   "target": "04-documents/math.md",
+   "lab": 18,
+   "th": "เอกสารคณิตศาสตร์ของมือ (docs/math.md)",
+   "patterns": [
+    "math.md"
+   ]
+  },
+  {
+   "group": 5,
+   "target": "05-code/repo-link.txt",
+   "lab": 4,
+   "th": "ลิงก์ repository (GitHub) + commit ล่าสุด",
+   "patterns": [
+    "repo-link.txt"
+   ],
+   "generated": true
+  },
+  {
+   "group": 5,
+   "target": "05-code/file-structure.txt",
+   "lab": 4,
+   "th": "แผนผังโครงสร้างไฟล์",
+   "patterns": [
+    "file-structure.txt"
+   ],
+   "generated": true
+  },
+  {
+   "group": 5,
+   "target": "05-code/PROJECT-MAP.md",
+   "lab": 4,
+   "th": "แผนที่โปรเจกต์ (PROJECT-MAP.md)",
+   "patterns": [
+    "PROJECT-MAP.md"
+   ]
+  },
+  {
+   "group": 5,
+   "target": "05-code/CLAUDE.md",
+   "lab": 3,
+   "th": "กฎที่ให้ AI (CLAUDE.md)",
+   "patterns": [
+    "CLAUDE.md"
+   ]
+  }
+ ]
+}

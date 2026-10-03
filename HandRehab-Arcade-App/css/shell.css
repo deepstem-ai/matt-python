@@ -1,0 +1,55 @@
+/* ============================================================
+   shell.css — ส่วนของแอปรวม (Lab 34): การ์ดเมนู, แถบบนของหน้าย่อย, แถบแจ้งเวอร์ชันใหม่, ไอคอนตัวอย่าง
+   สีทั้งหมดมาจาก tokens.css / themes.css
+   ============================================================ */
+.brand { text-decoration: none; }
+
+/* ---------- การ์ดเมนูใหญ่ในหน้าหลัก / หน้าเลือกเกม ---------- */
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--sp-4); }
+.menu-card {
+  display: flex; flex-direction: column; align-items: flex-start; gap: var(--sp-1);
+  min-height: 150px; padding: var(--sp-4); text-align: left; cursor: pointer;
+  background: var(--card); color: var(--text); text-decoration: none;
+  border: 2px solid var(--line); border-radius: var(--r-lg);
+  font: inherit; transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+.menu-card:hover, .menu-card:focus-visible { border-color: var(--primary); box-shadow: var(--glow); transform: translateY(-2px); }
+.menu-card .big-ico { font-size: calc(var(--fs-base) * 2.6); line-height: 1; }
+.menu-card b { font-size: var(--fs-lg); }
+.menu-card small { color: var(--text-2); font-size: var(--fs-sm); }
+.menu-card.game-card { min-height: 190px; }
+body.calm .menu-card, body.theme-calm .menu-card { transition: none; }
+body.calm .menu-card:hover, body.theme-calm .menu-card:hover { transform: none; box-shadow: none; }
+
+/* ---------- กราฟ / ตาราง ---------- */
+.chart-box { width: 100%; height: 320px; }
+.chart-box canvas { width: 100%; height: 100%; display: block; }
+.table-scroll { overflow-x: auto; }
+
+/* ---------- ไอคอนตัวอย่างหลายขนาด ---------- */
+.icon-previews { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--sp-4); }
+.icon-previews figure { margin: 0; text-align: center; }
+.icon-previews img { display: block; margin: 0 auto var(--sp-1); border-radius: 18%; }
+.icon-previews figcaption { font-size: var(--fs-sm); color: var(--text-2); }
+
+/* ---------- แถบบนของหน้าย่อย (users.html, เกม ฯลฯ) — หน้าตาเดียวกับแถบบนของ index.html ---------- */
+.app-bar {
+  position: sticky; top: 0; z-index: 60;
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--card); border-bottom: 1px solid var(--line);
+}
+.app-bar .brand { font: 800 var(--fs-lg) var(--font-num); background: linear-gradient(90deg, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.app-bar .where { font-weight: 700; }
+.app-bar .spacer { flex: 1; }
+body.game-page .app-bar { position: relative; }
+
+/* ---------- แถบแจ้งว่ามีเวอร์ชันใหม่ ---------- */
+.update-bar {
+  position: fixed; left: 50%; bottom: calc(var(--btn-h) + var(--sp-6)); transform: translateX(-50%); z-index: 90;
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4); max-width: calc(100vw - 32px);
+  background: var(--card); border: 2px solid var(--primary); border-radius: var(--r-lg); box-shadow: 0 8px 30px var(--shadow);
+}
+/* โหมดเต็มจอ / ติดตั้งแล้ว: ซ่อนสิ่งที่ไม่จำเป็น */
+body.is-standalone .hide-when-installed { display: none !important; }

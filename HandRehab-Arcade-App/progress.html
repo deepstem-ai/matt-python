@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ติดตั้งเป็นแอปได้ทุกหน้า (Lab 34) สีตรงกับ manifest.json -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <title>กราฟพัฒนาการ · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/page.css">
+  <link rel="stylesheet" href="css/progress.css">
+  <link rel="stylesheet" href="css/shell.css">
+</head>
+<body>
+  <header class="top-bar">
+    <h1>📈 พัฒนาการของฉัน</h1>
+    <div id="picker" class="row"></div>
+    <span class="spacer"></span>
+    <div class="seg" role="group" aria-label="ขนาดตัวอักษร">
+      <button data-profile="standard">Aa มาตรฐาน</button><button data-profile="elder">Aa ผู้สูงอายุ</button>
+    </div>
+  </header>
+  <main class="wrap">
+    <section class="row" aria-label="ข้อมูลสาธิต">
+      <button id="genDemo" class="btn-glow ghost small">🧪 สร้างประวัติจำลอง 30 วัน</button>
+      <button id="clearDemo" class="btn-glow ghost small">🧹 ลบข้อมูลจำลอง</button>
+      <label class="switch" title="ตรึงเกณฑ์: แสดงเฉพาะเซสชันที่ใช้เกณฑ์ที่ล็อกไว้ ผลเทียบข้ามวันได้">🔒 เฉพาะเซสชันเกณฑ์ตรึง <input id="lockedOnly" type="checkbox"></label>
+      <span id="dataNote" class="muted"></span>
+    </section>
+
+    <section class="stat-cards section" aria-label="ตัวเลขสรุป">
+      <div class="stat-card"><small>จำนวนครั้งที่ฝึกทั้งหมด</small><b id="cSessions">0</b><span>เซสชัน</span></div>
+      <div class="stat-card"><small>ท่าที่ทำใน 7 วันนี้</small><b id="cWeekReps">0</b><span>ครั้ง</span></div>
+      <div class="stat-card"><small>มุมกางนิ้วดีที่สุด</small><b id="cSpread">—</b><span id="cSpreadAt">องศา (นิ้วชี้–นิ้วก้อย)</span></div>
+      <div class="stat-card"><small>ฝึกติดต่อกัน (≥ 5 นาที/วัน)</small><b id="cStreak">0</b><span id="cStreakBest">วัน</span></div>
+    </section>
+
+    <section id="summary" class="card-neon section summary" aria-live="polite"></section>
+
+    <section id="empty" class="card-neon section hidden">
+      <h2>🌱 มาเริ่มฝึกกันเถอะ!</h2>
+      <p>กราฟจะอ่านรู้เรื่องเมื่อมีการฝึกอย่างน้อย <b>3 วัน</b> ตอนนี้มี <b id="eDays">0</b> วัน</p>
+      <p>เล่นเกมวันละ 5 นาที แล้วกลับมาดูเส้นกราฟที่ค่อย ๆ สูงขึ้นของคุณเอง · หรือกด "🧪 สร้างประวัติจำลอง" เพื่อดูตัวอย่าง</p>
+    </section>
+
+    <div id="charts">
+      <section class="row section">
+        <div class="seg" role="group" aria-label="ช่วงเวลา"><button data-days="7">7 วัน</button><button data-days="30">30 วัน</button><button data-days="90">90 วัน</button></div>
+        <span class="spacer" style="flex:1"></span>
+        <button id="savePng" class="btn-glow small">🖼 บันทึกทุกกราฟเป็น PNG</button>
+      </section>
+      <p id="tip" class="chip hidden" role="status"></p>
+      <figure class="card-neon chart-box"><canvas id="chReps" aria-label="กราฟจำนวนท่าต่อวัน"></canvas>
+        <figcaption>ภาพที่ 1 จำนวนท่าที่ทำได้ต่อวัน (ครั้ง) · วันที่ไม่ได้ฝึกเป็น 0 · แตะจุดเพื่อดูค่า</figcaption></figure>
+      <figure class="card-neon chart-box"><canvas id="chAcc" aria-label="กราฟความแม่นยำต่อวัน"></canvas>
+        <figcaption>ภาพที่ 2 ความแม่นยำเฉลี่ยต่อวัน (%) เฉพาะวันที่ฝึก · เส้นประ = เป้าหมาย 80%</figcaption></figure>
+      <figure class="card-neon chart-box"><canvas id="chSpread" aria-label="กราฟมุมกางนิ้วสูงสุดต่อวัน"></canvas>
+        <figcaption>ภาพที่ 3 มุมกางนิ้วสูงสุดต่อวัน (องศา ระหว่างนิ้วชี้กับนิ้วก้อย) — ตัวชี้วัดการฟื้นฟูที่สำคัญที่สุด</figcaption></figure>
+      <div class="two-col">
+        <figure class="card-neon chart-box"><canvas id="chCal" aria-label="ปฏิทินความสม่ำเสมอ 12 สัปดาห์"></canvas>
+          <figcaption>ภาพที่ 4 ปฏิทินความสม่ำเสมอ 12 สัปดาห์ (ช่อง = 1 วัน · ยิ่งเข้ม ยิ่งฝึกหลายครั้ง)</figcaption></figure>
+        <figure class="card-neon chart-box"><canvas id="chGame" aria-label="กราฟแท่งจำนวนท่าแยกตามเกม"></canvas>
+          <figcaption>ภาพที่ 5 จำนวนท่าแยกตามเกมในช่วงที่เลือก (ครั้ง)</figcaption></figure>
+      </div>
+    </div>
+    <p class="foot">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา · กราฟวาดบน canvas เอง ไม่ใช้ไลบรารี</p>
+  </main>
+  <script type="module" src="js/progress-page.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

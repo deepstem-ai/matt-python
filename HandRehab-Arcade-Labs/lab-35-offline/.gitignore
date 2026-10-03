@@ -1,0 +1,9 @@
+# ไฟล์ขนาดใหญ่ที่ดาวน์โหลดด้วย tools/download-assets.ps1 / .sh — ห้ามเก็บใน git
+# (ทุกเครื่องต้องรันสคริปต์เองหนึ่งครั้ง ดู docs/OFFLINE.md)
+models/*.task
+models/*.tflite
+vendor/**
+!vendor/README.txt
+fonts/*.woff2
+# ชุด USB ที่สร้างจาก tools/make-usb-package
+dist/

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <title>ตัวสร้างร่างรายงาน · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="js/research/research.css">
+  <style>
+    .layout { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--sp-4); align-items: start; }
+    @media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } }
+    fieldset.card-neon { margin: 0 0 var(--sp-3); }
+    legend { font-weight: 800; color: var(--primary); padding: 0 var(--sp-2); }
+    .fgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0 var(--sp-3); }
+    .fgrid .wide, #form345 .wide { grid-column: 1 / -1; }
+    .fgrid label { font-size: var(--fs-sm); }
+    #form345 { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 0 var(--sp-3); }
+    #form345 label { font-size: var(--fs-xs); }
+    .sticky { position: sticky; top: calc(var(--btn-h) + var(--sp-4)); }
+    textarea.out { width: 100%; min-height: 60vh; font-family: var(--font); font-size: var(--fs-sm); }
+    .demo { color: var(--warning); }
+  </style>
+</head>
+<!-- Lab 38 (บทที่ 1) + Lab 39 (บทที่ 3, 4, 5): ร่างรายงานจากตัวเลขที่วัดจริงเท่านั้น -->
+<body class="theme-neon profile-standard" data-title="ตัวสร้างร่างรายงาน" data-hub="research">
+<main class="wrap" style="max-width:1500px">
+  <header class="r-head">
+    <div>
+      <h1>📘 ตัวสร้างร่างรายงาน บทที่ 1 · 3 · 4 · 5 <span class="lab-no">Lab 38 + 39</span></h1>
+      <div class="sub">ลาก CSV จากโฟลเดอร์ evidence หรือ "อ่านจากฐานข้อมูลของแอปนี้" → ได้ร่างภาษาไทยทางการ ช่องไหนไม่มีข้อมูลจะขึ้น <code>[[missing: กลับไป Lab NN — ...]]</code> ·
+        <b>กฎเหล็ก: ห้ามแต่งตัวเลข</b> · ร่างนี้ต้องเขียนใหม่ด้วยสำนวนของทีมก่อนส่ง</div>
+    </div>
+    <div class="row">
+      <a class="btn-glow ghost small" href="evidence.html">🗂️ แดชบอร์ดหลักฐาน</a>
+      <a class="btn-glow ghost small" href="research.html">🔬 ห้องวิจัย</a>
+    </div>
+  </header>
+  <div id="err" class="alert hidden"></div>
+
+  <section class="drop" id="drop">
+    <b>ลากไฟล์ CSV มาวาง</b> (แบบสอบถาม, ผลความแม่นยำ, ผลวัดเครื่อง, ประวัติการฝึก ...) เพื่อเติมฟอร์มและตารางอัตโนมัติ
+    <div class="row" style="justify-content:center;margin-top:var(--sp-2)">
+      <label class="btn-glow small"><input type="file" id="files" multiple accept=".csv">เลือกไฟล์ CSV</label>
+      <button class="btn-glow success small" id="fromDb">🗄️ อ่านจากฐานข้อมูลของแอปนี้</button>
+      <button class="btn-glow ghost small" id="demo">ลองข้อมูลตัวอย่าง (DEMO)</button>
+      <button class="btn-glow ghost small" id="reset">ล้างไฟล์</button>
+      <button class="btn-glow ghost small" id="clear">ล้างฟอร์มบทที่ 1</button>
+    </div>
+    <ul class="small" id="filesList" style="text-align:left"><li class="muted">ยังไม่มีข้อมูล</li></ul>
+  </section>
+
+  <div class="tabbar" role="tablist" style="margin-top:var(--sp-4)">
+    <button class="btn-glow" role="tab" data-ch="1">บทที่ 1 บทนำ <span class="chip">ขาด <b>–</b></span></button>
+    <button class="btn-glow ghost" role="tab" data-ch="3">บทที่ 3 วิธีดำเนินการ <span class="chip">ขาด <b>–</b></span></button>
+    <button class="btn-glow ghost" role="tab" data-ch="4">บทที่ 4 ผล <span class="chip">ขาด <b>–</b></span></button>
+    <button class="btn-glow ghost" role="tab" data-ch="5">บทที่ 5 สรุป <span class="chip">ขาด <b>–</b></span></button>
+  </div>
+
+  <div class="layout">
+    <section>
+      <div id="form1Box"><div id="form1"></div></div>
+      <details class="card-neon hidden" id="form345Box" open><summary style="cursor:pointer;font-weight:700;min-height:44px">ค่าที่ต้องกรอกเอง (ไม่มีใน CSV) — บทที่ 3–5</summary><div id="form345" style="margin-top:var(--sp-3)"></div></details>
+    </section>
+    <section class="sticky">
+      <div class="card-neon">
+        <div class="row" style="justify-content:space-between">
+          <h2 class="card-title" id="outTitle">ร่างบทที่ 1</h2>
+          <span class="chip" id="missChip">ยังขาดข้อมูล <b>–</b></span>
+        </div>
+        <div class="row" style="margin:var(--sp-2) 0">
+          <button class="btn-glow small" id="copy">📋 คัดลอกบทนี้</button>
+          <button class="btn-glow ghost small" id="download">⬇ .md บทนี้</button>
+          <button class="btn-glow ghost small" id="downloadAll">⬇ .md ทั้ง 4 บท</button>
+        </div>
+        <textarea class="out" id="out1" spellcheck="false" aria-label="บทที่ 1"></textarea>
+        <textarea class="out hidden" id="out3" spellcheck="false" aria-label="บทที่ 3"></textarea>
+        <textarea class="out hidden" id="out4" spellcheck="false" aria-label="บทที่ 4"></textarea>
+        <textarea class="out hidden" id="out5" spellcheck="false" aria-label="บทที่ 5"></textarea>
+        <h3 style="margin-top:var(--sp-3)">ต้องกลับไปวัด (บทนี้)</h3><ul class="small" id="missing"></ul>
+        <h3>ทีมต้องค้น/เขียนเอง</h3><ul class="small" id="todo"></ul>
+        <div id="hypoBox"><h3>สมมติฐานมีข้อมูลตอบหรือยัง</h3><ul class="small" id="hypo"></ul></div>
+        <p class="muted">แม่แบบ: <a href="docs/research/templates/chapter1-template.md" target="_blank">บทที่ 1</a> ·
+          <a href="docs/research/templates/chapter3-template.md" target="_blank">3</a> · <a href="docs/research/templates/chapter4-template.md" target="_blank">4</a> ·
+          <a href="docs/research/templates/chapter5-template.md" target="_blank">5</a> · พรอมต์: <a href="docs/research/prompts/chapter1-prompt.md" target="_blank">บทที่ 1</a> ·
+          <a href="docs/research/prompts/chapters3-5-prompt.md" target="_blank">บทที่ 3–5</a></p>
+      </div>
+    </section>
+  </div>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/research/report-builder.js"></script>
+<script type="module" src="js/research/demo-banner.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

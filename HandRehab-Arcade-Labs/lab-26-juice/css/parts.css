@@ -1,0 +1,200 @@
+/* ============================================================
+   parts.css — ชิ้นส่วนหน้าจอที่ใช้ซ้ำทั้งแอป (Lab 06)
+   ทุกสีอ่านจาก tokens.css / themes.css เท่านั้น
+   ============================================================ */
+
+/* ---------- พื้นฐานของทั้งหน้า ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { font-size: var(--fs-base); }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: var(--fs-md);
+  line-height: 1.6;
+}
+h1, h2, h3 { line-height: 1.25; margin: 0 0 var(--sp-3); }
+h1 { font-size: var(--fs-2xl); }
+h2 { font-size: var(--fs-xl); }
+h3 { font-size: var(--fs-lg); }
+a { color: var(--primary); }
+.muted { color: var(--text-2); }
+.num { font-family: var(--font-num); letter-spacing: 0.02em; }
+.hidden { display: none !important; }
+.row { display: flex; gap: calc(var(--sp-3) * var(--sp-mul)); flex-wrap: wrap; align-items: center; }
+.col { display: flex; flex-direction: column; gap: calc(var(--sp-3) * var(--sp-mul)); }
+.grid { display: grid; gap: calc(var(--sp-4) * var(--sp-mul)); grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+.wrap { max-width: 1200px; margin: 0 auto; padding: calc(var(--sp-5) * var(--sp-mul)) var(--sp-4); }
+
+/* วงโฟกัสเห็นชัดเวลาใช้คีย์บอร์ด (Lab 09) */
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+/* ---------- 1) .btn-glow ปุ่มเรืองแสง ---------- */
+.btn-glow {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--sp-2);
+  min-height: var(--btn-h);
+  padding: 0 calc(var(--sp-5) * var(--sp-mul));
+  border: 0; border-radius: var(--r-md);
+  font: 700 var(--fs-lg) var(--font);
+  color: var(--on-bright);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: var(--glow);
+  cursor: pointer;
+  transition: transform var(--speed) ease, filter var(--speed) ease, box-shadow var(--speed) ease;
+}
+.btn-glow:hover { transform: scale(1.05); filter: brightness(1.12); }
+.btn-glow:active { transform: scale(0.98); }
+.btn-glow:disabled { opacity: 0.45; cursor: not-allowed; transform: none; filter: grayscale(0.6); }
+.btn-glow.success { background: var(--success); box-shadow: 0 0 18px color-mix(in srgb, var(--success) 55%, transparent); }
+.btn-glow.danger  { background: var(--error);   box-shadow: 0 0 18px color-mix(in srgb, var(--error) 55%, transparent); }
+.btn-glow.ghost   { background: var(--input); color: var(--text); box-shadow: none; border: 1px solid var(--line); }
+.btn-glow.small   { min-height: max(56px, calc(var(--btn-h) * 0.8)); /* ปุ่มเล็กก็ต้องสูง ≥ 56px */ font-size: var(--fs-md); padding: 0 var(--sp-4); }
+.btn-glow .ico { font-size: 1.2em; line-height: 1; }
+
+/* ---------- 2) .card-neon การ์ดกระจกฝ้า ---------- */
+.card-neon {
+  position: relative;
+  background: color-mix(in srgb, var(--card) 82%, transparent);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  border-radius: var(--r-lg);
+  padding: calc(var(--sp-5) * var(--sp-mul));
+  box-shadow: 0 0 22px color-mix(in srgb, var(--primary) 12%, transparent);
+  transition: border-color var(--speed), box-shadow var(--speed), transform var(--speed);
+}
+.card-neon:hover { border-color: var(--primary); box-shadow: var(--glow); }
+.card-neon .card-head { display: flex; align-items: center; gap: var(--sp-3); margin-bottom: var(--sp-3); }
+.card-neon .card-icon { font-size: var(--fs-xl); }
+.card-neon .card-title { font-size: var(--fs-lg); font-weight: 700; margin: 0; }
+
+/* ---------- 3) .chip ป้ายตัวเลขเล็ก ---------- */
+.chip {
+  display: inline-flex; align-items: center; gap: var(--sp-1);
+  padding: 2px var(--sp-3);
+  border-radius: 999px;
+  background: var(--input);
+  border: 1px solid var(--line);
+  font-size: var(--fs-sm); font-weight: 600;
+}
+.chip b { font-family: var(--font-num); color: var(--primary); }
+.chip.ok   b { color: var(--success); }
+.chip.warn b { color: var(--warning); }
+.chip.bad  b { color: var(--error); }
+
+/* ---------- 4) .ring วงแหวนความคืบหน้า (ใช้คู่กับ setRing ใน ui.js) ---------- */
+.ring { position: relative; width: 120px; height: 120px; display: inline-block; }
+.ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring .ring-bg { fill: none; stroke: var(--input); stroke-width: 10; }
+.ring .ring-fg {
+  fill: none; stroke: var(--primary); stroke-width: 10; stroke-linecap: round;
+  transition: stroke-dashoffset 0.6s ease;
+  filter: drop-shadow(0 0 6px var(--primary));
+}
+.ring .ring-label {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font: 800 var(--fs-lg) var(--font-num);
+}
+
+/* ---------- 5) .toast แจ้งเตือนลอย ---------- */
+.toast-host {
+  position: fixed; left: 50%; bottom: var(--sp-5); transform: translateX(-50%);
+  display: flex; flex-direction: column; gap: var(--sp-2); z-index: 9999; pointer-events: none;
+  width: min(92vw, 520px);
+}
+.toast {
+  pointer-events: auto;
+  padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-md);
+  background: var(--card);
+  border-left: 6px solid var(--primary);
+  box-shadow: 0 8px 30px var(--shadow);
+  font-size: var(--fs-md);
+  animation: toast-in 0.3s ease;
+}
+.toast.success { border-color: var(--success); }
+.toast.warning { border-color: var(--warning); }
+.toast.error   { border-color: var(--error); }
+.toast.out { animation: toast-out 0.3s ease forwards; }
+@keyframes toast-in  { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes toast-out { to { transform: translateY(40px); opacity: 0; } }
+
+/* ---------- tooltip ตอนเอาเมาส์ชี้ ---------- */
+[data-tip] { position: relative; }
+[data-tip]:hover::after, [data-tip]:focus-visible::after {
+  content: attr(data-tip);
+  position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+  background: var(--input); color: var(--text); border: 1px solid var(--line);
+  padding: var(--sp-1) var(--sp-3); border-radius: var(--r-sm);
+  font-size: var(--fs-sm); white-space: nowrap; z-index: 50;
+}
+
+/* ---------- ฟอร์ม ---------- */
+label { font-weight: 600; }
+.field { display: flex; flex-direction: column; gap: var(--sp-1); margin-bottom: calc(var(--sp-3) * var(--sp-mul)); }
+input[type=text], input[type=tel], input[type=password], input[type=search], input[type=number], input[type=date],
+select, textarea {
+  min-height: var(--btn-h);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--input); color: var(--text);
+  border: 2px solid var(--line); border-radius: var(--r-sm);
+  font: inherit;
+}
+textarea { min-height: 110px; resize: vertical; }
+input.valid, select.valid, textarea.valid { border-color: var(--success); }
+input.invalid, select.invalid, textarea.invalid { border-color: var(--error); }
+.err-msg { color: var(--error); font-size: var(--fs-sm); min-height: 1.2em; }
+input[type=range] { width: 100%; min-height: 40px; accent-color: var(--primary); }
+input[type=checkbox], input[type=radio] { width: 26px; height: 26px; accent-color: var(--primary); }
+.choice {
+  display: inline-flex; align-items: center; gap: var(--sp-2);
+  min-height: var(--btn-h); padding: 0 var(--sp-4);
+  background: var(--input); border: 2px solid var(--line); border-radius: var(--r-md);
+  cursor: pointer;
+}
+.choice:has(input:checked) { border-color: var(--primary); }
+
+/* สวิตช์เปิดปิด */
+.switch { display: inline-flex; align-items: center; gap: var(--sp-3); min-height: var(--btn-h); cursor: pointer; }
+.switch input { appearance: none; width: 60px; height: 32px; border-radius: 999px; background: var(--input); border: 2px solid var(--line); position: relative; cursor: pointer; transition: background var(--speed); }
+.switch input::after { content: ""; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 50%; background: var(--text-2); transition: left var(--speed), background var(--speed); }
+.switch input:checked { background: color-mix(in srgb, var(--primary) 40%, var(--input)); border-color: var(--primary); }
+.switch input:checked::after { left: 31px; background: var(--primary); }
+
+/* ---------- modal ---------- */
+.modal-back {
+  position: fixed; inset: 0; background: var(--scrim);
+  display: grid; place-items: center; z-index: 9000; padding: var(--sp-4);
+}
+.modal {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: calc(var(--sp-5) * var(--sp-mul)); width: min(640px, 100%); max-height: 90vh; overflow: auto;
+}
+
+/* ---------- แถบความคืบหน้า ---------- */
+.bar { height: 18px; background: var(--input); border-radius: 999px; overflow: hidden; }
+.bar > i { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.15s linear; }
+
+/* ---------- เวทีกล้อง: วิดีโอ + แคนวาสซ้อนกัน ---------- */
+.stage { position: relative; width: 100%; max-width: 960px; aspect-ratio: 16 / 9; background: var(--stage-bg); border-radius: var(--r-lg); overflow: hidden; }
+.stage video, .stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.stage.mirror video, .stage.mirror canvas.mirror { transform: scaleX(-1); }
+.stage .hud { position: absolute; top: var(--sp-3); right: var(--sp-3); display: flex; gap: var(--sp-2); }
+
+/* ---------- ตาราง ---------- */
+table.data { border-collapse: collapse; width: 100%; font-size: var(--fs-sm); }
+table.data th, table.data td { border-bottom: 1px solid var(--line); padding: var(--sp-2); text-align: left; }
+table.data th { color: var(--text-2); }
+
+/* ---------- กล่องแจ้งปัญหา (ห้ามปล่อยจอว่าง) ---------- */
+.alert { border: 2px solid var(--error); background: color-mix(in srgb, var(--error) 12%, var(--card)); border-radius: var(--r-md); padding: var(--sp-4); }
+.alert.warn { border-color: var(--warning); background: color-mix(in srgb, var(--warning) 12%, var(--card)); }
+.alert.ok { border-color: var(--success); background: color-mix(in srgb, var(--success) 12%, var(--card)); }
+
+/* ---------- ป้ายทีมมุมล่าง ---------- */
+.team-badge { position: fixed; right: var(--sp-3); bottom: var(--sp-2); font-size: var(--fs-xs); color: var(--text-2); z-index: 5; }
+
+/* ลิงก์ที่หน้าตาเป็นปุ่ม ไม่ต้องขีดเส้นใต้ */
+a.btn-glow { text-decoration: none; }

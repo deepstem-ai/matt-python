@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 39 · ตัวสร้างบทที่ 3–5</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/parts.css">
+<style>
+  .layout { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--sp-4); align-items: start; }
+  @media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } }
+  .drop { border: 3px dashed var(--line); border-radius: var(--r-lg); padding: var(--sp-4); text-align: center; }
+  .drop.over { border-color: var(--primary); }
+  .drop input { display: none; }
+  #form { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 0 var(--sp-3); }
+  #form .wide { grid-column: 1 / -1; }
+  #form label { font-size: var(--fs-xs); }
+  textarea.out { width: 100%; min-height: 62vh; font-size: var(--fs-sm); }
+  ul.small { font-size: var(--fs-sm); padding-left: 1.2em; max-height: 220px; overflow: auto; }
+  li.warn { color: var(--warning); }
+  .demo { color: var(--warning); }
+</style>
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap" style="max-width:1500px">
+  <h1>📗 Lab 39 · ตัวสร้างร่างบทที่ 3, 4, 5 จากตัวเลขที่วัดจริง</h1>
+  <p class="muted">ลาก CSV จาก evidence/ (แบบสอบถาม, ผลความแม่นยำ, ผลวัดเครื่อง, ประวัติการฝึก ...) → คำนวณค่าเฉลี่ย ± SD และสร้างตารางพร้อมบรรทัด "ที่มา: ไฟล์ ..." ให้ · ข้อมูลที่ขาดจะบอกว่าต้องกลับไปวัดที่แลปไหน · ย่อหน้าอภิปรายทีมต้องเขียนเอง</p>
+  <div id="err" class="alert hidden"></div>
+  <div class="layout">
+    <section class="col">
+      <div class="drop" id="drop">
+        <b>ลากไฟล์ CSV มาวาง</b>
+        <div class="row" style="justify-content:center;margin-top:var(--sp-2)">
+          <label class="btn-glow small"><input type="file" id="files" multiple accept=".csv">เลือกไฟล์ CSV</label>
+          <button class="btn-glow ghost small" id="demo">ลองข้อมูลตัวอย่าง (DEMO)</button>
+          <button class="btn-glow ghost small" id="reset">ล้างไฟล์</button>
+        </div>
+      </div>
+      <div class="card-neon"><h2 class="card-title">ไฟล์ที่อ่านได้</h2><ul class="small" id="files-list"><li class="muted">ยังไม่มี</li></ul></div>
+      <details class="card-neon"><summary style="cursor:pointer;font-weight:700;min-height:44px">ค่าที่ต้องกรอกเอง (ไม่มีใน CSV)</summary><div id="form" style="margin-top:var(--sp-3)"></div></details>
+    </section>
+    <section class="card-neon">
+      <div class="row">
+        <button class="btn-glow ghost" id="tab3">บทที่ 3 <span class="chip">ขาด <b>–</b></span></button>
+        <button class="btn-glow" id="tab4">บทที่ 4 <span class="chip">ขาด <b>–</b></span></button>
+        <button class="btn-glow ghost" id="tab5">บทที่ 5 <span class="chip">ขาด <b>–</b></span></button>
+      </div>
+      <div class="row" style="margin:var(--sp-3) 0">
+        <button class="btn-glow small" id="copy">📋 คัดลอกบทนี้</button>
+        <button class="btn-glow ghost small" id="download">⬇ .md บทนี้</button>
+        <button class="btn-glow ghost small" id="downloadAll">⬇ .md ทั้ง 3 บท</button>
+      </div>
+      <textarea class="out hidden" id="out3" spellcheck="false" aria-label="บทที่ 3"></textarea>
+      <textarea class="out" id="out4" spellcheck="false" aria-label="บทที่ 4"></textarea>
+      <textarea class="out hidden" id="out5" spellcheck="false" aria-label="บทที่ 5"></textarea>
+      <h3 style="margin-top:var(--sp-3)">ต้องกลับไปวัด (บทนี้)</h3><ul class="small" id="missing"></ul>
+      <h3>ทีมต้องเขียนเอง</h3><ul class="small" id="todo"></ul>
+    </section>
+  </div>
+</main>
+<script type="module" src="js/chapters.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+/* pages.css — สไตล์เฉพาะหน้า dataset viewer (Lab 30) ใช้สีจาก tokens.css เท่านั้น */
+.licence { border: 2px solid var(--warning); border-radius: var(--r-md); padding: var(--sp-3) var(--sp-4); background: color-mix(in srgb, var(--warning) 8%, var(--card)); }
+.licence summary { font-size: var(--fs-lg); font-weight: 800; cursor: pointer; min-height: 44px; display: flex; align-items: center; }
+.licence h4 { margin: var(--sp-2) 0 var(--sp-1); color: var(--warning); font-size: var(--fs-lg); }
+.licence ul { margin: var(--sp-1) 0; padding-left: var(--sp-5); }
+.licence .can li::marker { content: "✅ "; }
+.licence .must li::marker { content: "📌 "; }
+.licence .cannot li::marker { content: "⛔ "; }
+.ack { width: fit-content; }
+.attempts { margin: 0; padding-left: var(--sp-5); font-size: var(--fs-sm); }
+.attempts .ok { color: var(--success); }
+.attempts .bad { color: var(--error); }
+.table-scroll { overflow-x: auto; }
+.cards { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+.cards figure { margin: 0; background: var(--input); border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--sp-2); text-align: center; font-size: var(--fs-sm); }
+.cards canvas { width: 120px; height: 120px; display: block; }
+pre.howto { white-space: pre-wrap; font: inherit; margin: 0; }

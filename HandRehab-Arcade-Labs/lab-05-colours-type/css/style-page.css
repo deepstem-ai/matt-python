@@ -1,0 +1,34 @@
+/* ============================================================
+   style-page.css — จัดหน้า style.html (Lab 05) ใช้แต่ตัวแปรสีจาก tokens.css
+   ============================================================ */
+.page-head { margin-bottom: var(--sp-4); }
+h2 { margin-top: var(--sp-6); }
+h2 small { font-size: var(--fs-sm); font-weight: 400; }
+.controls { display: flex; flex-direction: column; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+.lbl { font-weight: 700; }
+.field.inline { margin: 0; }
+.field.grow { flex: 1 1 260px; margin: 0; }
+
+.colour-card { display: flex; flex-direction: column; gap: var(--sp-2); }
+.swatch { height: 84px; border-radius: var(--r-md); border: 1px solid var(--line); }
+.colour-card code { font-size: var(--fs-sm); }
+.small { font-size: var(--fs-sm); }
+.note { font-size: var(--fs-xs); color: var(--warning); }
+
+/* ป้ายคอนทราสต์: ผ่าน = เขียว, ไม่ผ่าน = แดง (ตามโจทย์) */
+.ratio { display: inline-block; font: 800 var(--fs-md) var(--font-num); padding: 2px var(--sp-3); border-radius: var(--r-sm); border: 2px solid; width: fit-content; }
+.ratio.pass { color: var(--success); border-color: var(--success); }
+.ratio.fail { color: var(--error); border-color: var(--error); background: color-mix(in srgb, var(--error) 15%, transparent); }
+
+.picker { display: flex; align-items: center; gap: var(--sp-2); min-height: var(--btn-h); font-weight: 600; }
+.picker input[type=color] { width: 72px; height: 48px; border: 2px solid var(--line); border-radius: var(--r-sm); background: var(--input); cursor: pointer; padding: 2px; }
+
+.pair-demo { display: inline-block; padding: var(--sp-1) var(--sp-3); border-radius: var(--r-sm); border: 1px solid var(--line); font-weight: 600; }
+.type-row p { margin: var(--sp-1) 0; }
+.type-meta { display: flex; gap: var(--sp-3); align-items: baseline; }
+.px { color: var(--primary); font-size: var(--fs-sm); }
+.score-demo .big { font-size: var(--fs-3xl); color: var(--primary); }
+.tests { list-style: none; padding-left: var(--sp-5); }
+.tests li { padding: var(--sp-1) 0; }
+.tests .pass { color: var(--success); }
+.tests .fail { color: var(--error); }

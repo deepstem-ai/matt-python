@@ -1,0 +1,24 @@
+{
+  "name": "HandRehab Arcade — เกมบริหารมือ",
+  "short_name": "HandRehab",
+  "description": "เกมฝึกบริหารมือและนิ้วสำหรับผู้สูงอายุ ด้วย AI มองเห็นมือ 21 จุด ทำงานในเครื่องทั้งหมด",
+  "id": "./index.html",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0B1020",
+  "theme_color": "#151B33",
+  "lang": "th",
+  "dir": "ltr",
+  "categories": ["health", "games", "medical"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ],
+  "shortcuts": [
+    { "name": "เล่นเกม", "url": "./index.html#games", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "ความก้าวหน้า", "url": "./index.html#progress", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}

@@ -1,0 +1,49 @@
+/* ============================================================
+   lab.css — การจัดวางหน้าทดสอบมือ (Lab 16–21)
+   ใช้สีจาก tokens.css / themes.css เท่านั้น
+   ============================================================ */
+.lab-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+.lab-head h1 { margin: 0; font-size: var(--fs-xl); }
+.lab-head .sub { color: var(--text-2); font-size: var(--fs-sm); }
+.lab-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr); gap: var(--sp-4); align-items: start; }
+@media (max-width: 980px) { .lab-grid { grid-template-columns: 1fr; } }
+.stats { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: var(--sp-3) 0; }
+.stage .nohand {
+  position: absolute; left: 50%; bottom: var(--sp-4); transform: translateX(-50%);
+  background: color-mix(in srgb, var(--card) 85%, transparent); border: 1px solid var(--line);
+  border-radius: 999px; padding: var(--sp-2) var(--sp-4); font-weight: 600; white-space: nowrap;
+}
+.stage .demo-tag {
+  position: absolute; left: var(--sp-3); top: var(--sp-3); padding: 2px var(--sp-3); border-radius: 999px;
+  background: var(--warning); color: var(--on-bright); font-weight: 800; font-size: var(--fs-sm);
+}
+body:not(.demo-on) .stage .demo-tag { display: none; }
+.stage { touch-action: none; }
+.panel { display: flex; flex-direction: column; gap: var(--sp-4); }
+.panel h2 { font-size: var(--fs-lg); margin: 0 0 var(--sp-2); }
+details > summary { cursor: pointer; min-height: 40px; display: flex; align-items: center; }
+.demo-panel .demo-row { display: block; margin: var(--sp-2) 0; font-weight: 400; }
+.demo-panel .demo-row span { display: flex; justify-content: space-between; }
+.msg { margin-bottom: var(--sp-3); }
+.tbl-scroll { max-height: 520px; overflow: auto; }
+table.data td.num, table.data th.num { text-align: right; }
+table.data tr.tip td:first-child { color: var(--primary); font-weight: 800; }
+.seg { display: inline-flex; flex-wrap: wrap; gap: var(--sp-2); }
+.seg .choice input { width: 22px; height: 22px; }
+.slider-row { display: grid; grid-template-columns: 1fr auto; gap: var(--sp-1) var(--sp-3); align-items: center; margin: var(--sp-2) 0; }
+.slider-row input[type=range] { grid-column: 1 / -1; }
+/* แถบคะแนนใหญ่ สีเปลี่ยนตามระดับ */
+.bigbar { position: relative; height: 56px; background: var(--input); border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--line); }
+.bigbar > i { position: absolute; inset: 0 auto 0 0; width: 0%; background: var(--sky); transition: width 0.08s linear, background var(--speed); }
+.bigbar[data-level="mid"] > i { background: var(--warning); }
+.bigbar[data-level="high"] > i { background: var(--success); }
+.bigbar > .mark { position: absolute; top: 0; bottom: 0; width: 3px; background: var(--text); opacity: 0.8; }
+.bigbar > span { position: absolute; inset: 0; display: grid; place-items: center; font: 800 var(--fs-xl) var(--font-num); color: var(--text); text-shadow: 0 0 6px var(--bg); }
+.bignum { font: 800 var(--fs-3xl) var(--font-num); color: var(--primary); line-height: 1; }
+.kv { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+.kv > div { background: var(--input); border-radius: var(--r-md); padding: var(--sp-3); }
+.kv b { display: block; font: 800 var(--fs-xl) var(--font-num); }
+.ok-text { color: var(--success); } .warn-text { color: var(--warning); } .bad-text { color: var(--error); }
+.hover-tip { position: absolute; pointer-events: none; background: var(--card); border: 1px solid var(--primary); border-radius: var(--r-sm); padding: 2px var(--sp-2); font-size: var(--fs-sm); transform: translate(-50%, -140%); white-space: nowrap; }
+kbd { background: var(--input); border: 1px solid var(--line); border-radius: 4px; padding: 0 6px; font-family: var(--font-num); }
+a.btn-glow { text-decoration: none; }

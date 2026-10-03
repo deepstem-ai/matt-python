@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 16 · เห็นมือเป็น 21 จุด — HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/lab.css">
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap">
+  <header class="lab-head">
+    <div>
+      <h1>🖐️ Lab 16 · เห็นมือเป็น 21 จุด</h1>
+      <div class="sub">See the hand as 21 points — MediaPipe Hand Landmarker (palm detector → 21 landmarks)</div>
+    </div>
+    <div class="row">
+      <label class="switch"><input type="checkbox" id="showSkel" checked> แสดงโครงมือ</label>
+      <button class="btn-glow ghost small" id="demoBtn">🖱️ โหมดสาธิต</button>
+    </div>
+  </header>
+
+  <div class="stats" aria-live="polite">
+    <span class="chip">FPS <b id="sFps">0</b></span>
+    <span class="chip">AI ms/เฟรม <b id="sAi">0</b></span>
+    <span class="chip">% เฟรมที่เจอมือ <b id="sFound">0</b></span>
+    <span class="chip">หน่วยประมวลผล <b id="sDel">—</b></span>
+    <span class="chip">มือ <b id="sHand">—</b></span>
+  </div>
+  <div id="msg" class="alert warn msg hidden"></div>
+
+  <div class="lab-grid">
+    <section>
+      <div class="stage mirror" id="stage">
+        <video id="video" playsinline muted></video>
+        <canvas id="canvas" class="mirror"></canvas>
+        <div class="demo-tag">โหมดสาธิต (มือจำลอง)</div>
+        <div class="nohand" id="nohand">✋ ยังไม่เห็นมือ — ยกมือขึ้นให้อยู่ในกรอบ ห่างกล้องประมาณ 50 ซม.</div>
+        <div class="hover-tip hidden" id="tip"></div>
+      </div>
+      <div class="row" style="margin-top:var(--sp-3)">
+        <button class="btn-glow" id="refBtn">⏱️ บันทึกค่าอ้างอิง 10 วินาที</button>
+        <a class="btn-glow ghost small" href="?fail=1">🧪 ลองกรณีโหลดโมเดลไม่ได้</a>
+      </div>
+      <div id="refOut" class="card-neon hidden" style="margin-top:var(--sp-3)"></div>
+      <div id="demoPanel" style="margin-top:var(--sp-3)"></div>
+    </section>
+
+    <aside class="panel">
+      <details class="card-neon" open>
+        <summary><h2>📋 พิกัดทั้ง 21 จุด (อัปเดตทุกเฟรม)</h2></summary>
+        <p class="muted">x, y = ตำแหน่งในภาพ 0–1 (ซ้าย→ขวา, บน→ล่าง) · z = ความลึกเทียบข้อมือ (ติดลบ = ใกล้กล้องกว่า)</p>
+        <div class="tbl-scroll">
+          <table class="data" id="tbl">
+            <thead><tr><th>#</th><th>ชื่อจุด</th><th class="num">x</th><th class="num">y</th><th class="num">z</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </details>
+    </aside>
+  </div>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/hand-test.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lab 38 · ตัวสร้างบทที่ 1</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/parts.css">
+<style>
+  .layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--sp-4); align-items: start; }
+  @media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } }
+  fieldset.card-neon { margin: 0 0 var(--sp-3); }
+  legend { font-weight: 800; color: var(--primary); padding: 0 var(--sp-2); }
+  .fgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0 var(--sp-3); }
+  .fgrid .wide { grid-column: 1 / -1; }
+  .fgrid label { font-size: var(--fs-sm); }
+  .sticky { position: sticky; top: var(--sp-3); }
+  #out { width: 100%; min-height: 60vh; font-family: var(--font); font-size: var(--fs-sm); }
+  .drop { border: 3px dashed var(--line); border-radius: var(--r-lg); padding: var(--sp-4); text-align: center; margin-bottom: var(--sp-3); }
+  .drop.over { border-color: var(--primary); }
+  .drop input { display: none; }
+  ul.small { font-size: var(--fs-sm); margin: var(--sp-2) 0; padding-left: 1.2em; max-height: 200px; overflow: auto; }
+</style>
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap" style="max-width:1500px">
+  <h1>📘 Lab 38 · ตัวสร้างร่างบทที่ 1 (จากข้อมูลจริงเท่านั้น)</h1>
+  <p class="muted">กรอกหรือลากไฟล์ CSV จากโฟลเดอร์ evidence มาวาง → ได้ร่างบทที่ 1 ภาษาไทยทางการ 7 หัวข้อ ช่องไหนไม่มีข้อมูลจะขึ้น <code>[[missing: กลับไป Lab NN — ...]]</code> · <b>กฎเหล็ก: ห้ามแต่งตัวเลข</b> · ร่างนี้ต้องเขียนใหม่ด้วยสำนวนของทีมก่อนส่ง</p>
+  <div id="err" class="alert hidden"></div>
+  <div class="layout">
+    <section>
+      <div class="drop" id="drop">
+        <b>ลากไฟล์ CSV มาวาง</b> (แบบสอบถาม, ผลความแม่นยำ, ผลวัดเครื่อง ...) เพื่อเติมฟอร์มอัตโนมัติ
+        <div class="row" style="justify-content:center;margin-top:var(--sp-2)">
+          <label class="btn-glow small"><input type="file" id="files" multiple accept=".csv">เลือกไฟล์ CSV</label>
+          <button class="btn-glow ghost small" id="demo">ลองข้อมูลตัวอย่าง (DEMO)</button>
+          <button class="btn-glow ghost small" id="clear">ล้างฟอร์ม</button>
+        </div>
+      </div>
+      <ul class="small" id="seen"></ul>
+      <div id="form"></div>
+    </section>
+    <section class="sticky">
+      <div class="card-neon">
+        <div class="row" style="justify-content:space-between">
+          <h2 class="card-title">ร่างบทที่ 1</h2>
+          <span class="chip" id="missChip">ยังขาดข้อมูล <b>–</b></span>
+        </div>
+        <div class="row" style="margin:var(--sp-2) 0">
+          <button class="btn-glow" id="copy">📋 คัดลอก</button>
+          <button class="btn-glow ghost" id="download">⬇ ดาวน์โหลด .md</button>
+        </div>
+        <textarea id="out" spellcheck="false" aria-label="ร่างบทที่ 1"></textarea>
+        <h3 style="margin-top:var(--sp-3)">ต้องกลับไปวัด</h3><ul class="small" id="missing"></ul>
+        <h3>ทีมต้องค้น/เขียนเอง</h3><ul class="small" id="todo"></ul>
+        <h3>สมมติฐานมีข้อมูลตอบหรือยัง</h3><ul class="small" id="hypo"></ul>
+      </div>
+    </section>
+  </div>
+</main>
+<script type="module" src="js/chapter1.js"></script>
+</body>
+</html>

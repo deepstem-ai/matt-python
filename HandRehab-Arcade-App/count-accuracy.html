@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <title>ความถูกต้องการนับ · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="js/research/research.css">
+  <style>
+  td.n, th.n { text-align: right !important; font-family: var(--font-num); }
+  canvas.chart { width: 100%; height: 340px; display: block; border-radius: var(--r-md); }
+  .tbl-scroll { max-height: 520px; overflow: auto; }
+  table.data input[type=number] { width: 90px; min-height: 44px; }
+  table.data select { min-height: 44px; }
+  .ctl { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; }
+  </style>
+</head>
+<!-- บทความ §6.2 ด้านความถูกต้อง: จำนวนครั้งที่ระบบนับ vs ผู้สังเกตนับจากวิดีโอ ภายใต้แสง 3 ระดับ -->
+<body class="theme-neon profile-standard" data-title="ความถูกต้องการนับ" data-hub="research">
+<main class="wrap">
+  <header class="r-head">
+    <div>
+      <h1>🎯 ความถูกต้องของการนับ (ระบบ vs ผู้สังเกต)</h1>
+      <div class="sub">กรอกจำนวนที่ผู้สังเกตนับจากวิดีโอของแต่ละเซสชัน · accuracy = 1 − |ระบบ − ผู้สังเกต| / ผู้สังเกต · MAE · แยกตามระดับแสง 3 ระดับ</div>
+    </div>
+    <a class="btn-glow ghost small" href="research.html">🔬 ห้องวิจัย</a>
+  </header>
+  <div id="demoBanner" class="alert warn hidden" style="margin-bottom:var(--sp-3)"></div>
+
+  <section class="card-neon ctl">
+    <label>เกม <select id="game"><option value="">ทุกเกม</option><option value="star-portal">⭐ จับดาว</option><option value="rhythm-tap">🎵 เคาะจังหวะ</option><option value="spread-wall">🐠 กางนิ้ว</option></select></label>
+    <label class="switch"><input type="checkbox" id="lockedOnly"> 🔒 เฉพาะเซสชันเกณฑ์ตรึง</label>
+    <label class="switch"><input type="checkbox" id="incDemo"> รวมข้อมูลจำลอง</label>
+    <label class="switch"><input type="checkbox" id="onlyObs"> แสดงเฉพาะที่กรอกแล้ว</label>
+    <button class="btn-glow ghost small" id="mkDemo">🧪 ใส่ตัวอย่าง 12 เซสชัน</button>
+    <button class="btn-glow ghost small" id="rmDemo">🧹 ลบตัวอย่างของหน้านี้</button>
+    <button class="btn-glow ghost small" id="csv">⬇ CSV</button>
+  </section>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)" aria-live="polite">
+    <div class="row" id="sumChips"></div>
+    <canvas id="chart" class="chart" aria-label="กราฟแท่งความถูกต้องการนับแยกตามระดับแสง"></canvas>
+    <table class="data" style="margin-top:var(--sp-3)"><thead><tr><th>ระดับแสง</th><th class="n">n</th><th class="n">ความถูกต้องเฉลี่ย %</th><th class="n">SD</th><th class="n">MAE (ครั้ง)</th><th class="n">ความสว่างเฉลี่ย</th></tr></thead><tbody id="tl"></tbody></table>
+  </section>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)">
+    <h2 class="card-title">เซสชัน (กรอกจำนวนที่ผู้สังเกตนับ แล้วระบบบันทึกทันที)</h2>
+    <div class="tbl-scroll"><table class="data"><thead><tr><th>วันเวลา</th><th>ผู้ใช้</th><th>เกม</th><th class="n">ระบบนับ</th><th class="n">ความสว่างที่วัดได้ (0–255)</th><th>ระดับแสง</th><th class="n">ผู้สังเกตนับ</th><th class="n">ถูกต้อง %</th><th>เกณฑ์</th></tr></thead><tbody id="tb"></tbody></table></div>
+    <p class="muted">ระดับแสงเริ่มต้นแนะนำจากความสว่างที่วัดได้ (≥ 140 สว่าง · 80–139 ปกติ · &lt; 80 มืด) เปลี่ยนเองได้ตามสภาพจริงตอนถ่ายวิดีโอ · บันทึกใน settings key "count-accuracy"</p>
+  </section>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/research/count-accuracy.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

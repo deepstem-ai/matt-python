@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HandRehab Arcade · จัดการผู้ใช้ (Lab 13)</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <style>
+    /* สไตล์เฉพาะหน้านี้ — ใช้สีจาก var() เท่านั้น */
+    .toolbar { display: grid; grid-template-columns: 2fr repeat(4, 1fr); gap: var(--sp-3); margin: var(--sp-4) 0; }
+    @media (max-width: 900px) { .toolbar { grid-template-columns: 1fr 1fr; } }
+    .toolbar input, .toolbar select { width: 100%; }
+    .user-card .card-head { align-items: center; }
+    .avatar { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; flex: none; border: 3px solid var(--primary); }
+    .avatar.initials { display: grid; place-items: center; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--on-bright); font: 800 var(--fs-xl) var(--font); }
+    .conds { display: flex; flex-wrap: wrap; gap: var(--sp-1); min-height: 32px; margin-bottom: var(--sp-3); }
+    .stats { margin-bottom: var(--sp-3); }
+    .actions .btn-glow { flex: 1; text-decoration: none; }
+    .summary .chip { font-size: var(--fs-md); }
+    #cards { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+  </style>
+</head>
+<body class="theme-neon profile-standard">
+  <main class="wrap">
+    <div class="row" style="justify-content:space-between">
+      <h1 style="margin:0">👥 จัดการผู้ใช้</h1>
+      <div class="row">
+        <a class="btn-glow" href="register.html">＋ เพิ่มผู้ใช้ใหม่</a>
+        <button id="btnExport" class="btn-glow ghost">⬇ ส่งออก (JSON)</button>
+        <button id="btnImport" class="btn-glow ghost">⬆ นำเข้า</button>
+        <input id="importFile" type="file" accept="application/json,.json" class="hidden">
+      </div>
+    </div>
+
+    <div class="row summary" style="margin-top:var(--sp-3)">
+      <span class="chip">ผู้ใช้ทั้งหมด <b id="sumUsers">0</b></span>
+      <span class="chip">ตรงเงื่อนไข <b id="sumShown">0</b></span>
+      <span class="chip">การฝึกรวม <b id="sumSessions">0</b></span>
+      <button id="btnDemo" class="btn-glow small ghost">🧪 สร้างผู้ใช้ตัวอย่าง 5 คน</button>
+    </div>
+    <div id="backupWarn" class="alert warn hidden" style="margin-top:var(--sp-3)">💾 ยังไม่ได้สำรองข้อมูลมากกว่า 7 วัน — กด "ส่งออก" เก็บไฟล์ไว้ในที่ปลอดภัย (ห้ามอัปโหลดขึ้น git / อินเทอร์เน็ต)</div>
+
+    <div class="toolbar">
+      <input id="q" type="search" placeholder="🔍 ค้นหาชื่อ นามสกุล โรค ผู้ดูแล เบอร์โทร…" aria-label="ค้นหา">
+      <select id="fSex" aria-label="กรองตามเพศ"><option value="">ทุกเพศ</option><option value="male">ชาย</option><option value="female">หญิง</option><option value="other">ไม่ระบุ / อื่น ๆ</option></select>
+      <select id="fTremor" aria-label="กรองตามระดับมือสั่น"></select>
+      <select id="fCond" aria-label="กรองตามโรค"></select>
+      <select id="fAge" aria-label="กรองตามช่วงอายุ"><option value="">ทุกช่วงอายุ</option><option value="0-59">ต่ำกว่า 60 ปี</option><option value="60-69">60–69 ปี</option><option value="70-79">70–79 ปี</option><option value="80-200">80 ปีขึ้นไป</option></select>
+    </div>
+    <div class="row" style="margin-bottom:var(--sp-4)">
+      <label class="switch"><input id="fIdle" type="checkbox"> เฉพาะคนที่ไม่ได้ฝึกเกิน 7 วัน</label>
+      <button id="btnClear" class="btn-glow small ghost">ล้างตัวกรอง</button>
+    </div>
+
+    <div id="loadError" class="alert hidden" role="alert">
+      <h3>⚠️ เปิดฐานข้อมูลไม่สำเร็จ</h3><p id="loadErrorMsg"></p>
+      <p>ปิดแท็บอื่นของแอปนี้ แล้วกดลองใหม่ · ถ้าใช้โหมดไม่ระบุตัวตน (Incognito) บางเบราว์เซอร์จะไม่ให้เก็บข้อมูล</p>
+      <button id="btnRetry" class="btn-glow">🔄 ลองใหม่</button>
+    </div>
+
+    <div id="cards" class="grid"></div>
+    <div id="empty" class="card-neon hidden" style="text-align:center">
+      <p style="font-size:var(--fs-xl)">ไม่พบผู้ใช้</p>
+      <p class="muted">ลองล้างตัวกรอง หรือเพิ่มผู้ใช้ใหม่ / กด "สร้างผู้ใช้ตัวอย่าง" เพื่อทดลอง</p>
+    </div>
+    <div id="pager" class="row hidden" style="justify-content:center;margin-top:var(--sp-4)">
+      <button id="prev" class="btn-glow ghost">← ก่อนหน้า</button>
+      <span id="pageInfo" class="num"></span>
+      <button id="next" class="btn-glow ghost">ถัดไป →</button>
+    </div>
+    <p class="muted" style="margin-top:var(--sp-5);font-size:var(--fs-sm)">🔒 ข้อมูลทั้งหมดเก็บใน IndexedDB ของเบราว์เซอร์เครื่องนี้เท่านั้น ปิดเบราว์เซอร์แล้วยังอยู่ ไม่ถูกส่งขึ้นอินเทอร์เน็ต</p>
+  </main>
+  <div class="team-badge">ทีม NeonHands · โรงเรียนของเรา</div>
+
+  <script type="module">
+    import { applyPrefs } from './js/ui.js';
+    import { initUsersPage } from './js/users.js';
+    applyPrefs();
+    window.__ready = initUsersPage();
+  </script>
+</body>
+</html>

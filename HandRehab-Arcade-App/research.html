@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <title>ห้องวิจัยและการสอน · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="js/research/research.css">
+</head>
+<!-- หน้ารวม "เครื่องมือวิจัยและการสอน" — รวมแลป 05, 06, 16–21, 30–32, 36–40 ไว้ในแอปเดียว -->
+<body class="theme-neon profile-standard" data-title="ห้องวิจัยและการสอน">
+<main class="wrap">
+  <header class="r-head">
+    <div>
+      <h1>🔬 ห้องวิจัยและการสอน</h1>
+      <div class="sub">เครื่องมือของนักเรียนนักวิจัย: สอนและวัดผล AI · ทดลองคณิตศาสตร์ของมือ · ทดสอบกับผู้ใช้จริง · รวบรวมหลักฐาน · ร่างรายงาน · ซ้อมนำเสนอ
+        — ทุกหน้ามีโหมดสาธิต/จำลอง ใช้ได้แม้ไม่มีกล้อง และข้อมูลทั้งหมดอยู่ในเครื่องนี้เท่านั้น</div>
+    </div>
+    <a class="btn-glow ghost small" href="index.html#home">🏠 กลับเมนูหลัก</a>
+  </header>
+
+  <section class="card-neon">
+    <div class="row" style="justify-content:space-between">
+      <b>🗄️ ข้อมูลในเครื่องนี้ (อ่านได้จากแดชบอร์ดหลักฐานและตัวสร้างรายงานโดยตรง)</b>
+      <button class="btn-glow ghost small" id="refresh">↻ นับใหม่</button>
+    </div>
+    <div class="row" id="dbChips" style="margin-top:var(--sp-2)"><span class="muted">กำลังนับ…</span></div>
+  </section>
+
+  <section class="r-group">
+    <h2>📏 แผนการประเมิน (บทความ §6.2)</h2>
+    <div class="r-cards">
+      <a class="r-card" href="benchmark.html"><span class="lab-no">§6.2 ประสิทธิภาพ</span><span class="big-ico">⚡</span><b>ทดสอบความลื่น (FPS ≥ 25)</b><small>6 สถานการณ์ พร้อมป้าย PASS/FAIL เทียบเป้าหมาย 25 ภาพ/วินาที</small></a>
+      <a class="r-card" href="count-accuracy.html"><span class="lab-no">§6.2 ความถูกต้อง</span><span class="big-ico">🎯</span><b>ความถูกต้องการนับ</b><small>ระบบนับ vs ผู้สังเกตนับจากวิดีโอ แสง 3 ระดับ · accuracy % · MAE · CSV</small></a>
+      <a class="r-card" href="reliability.html"><span class="lab-no">§6.2 ความเที่ยง</span><span class="big-ico">🔁</span><b>ความเที่ยงการวัดซ้ำ (ICC)</b><small>ICC(2,1) / ICC(3,1) ตัดเซสชันแรก เกณฑ์ Koo &amp; Li ≥ 0.75 · กรองเฉพาะเกณฑ์ตรึง</small></a>
+      <a class="r-card" href="survey.html?mode=sus"><span class="lab-no">§6.2 การใช้งาน</span><span class="big-ico">📋</span><b>SUS (มาตรฐาน)</b><small>System Usability Scale 10 ข้อ ภาษาไทย ตอบ 1–5 · ผลเทียบค่า 68 ในหน้าสรุปผล</small></a>
+      <a class="r-card" href="calibrate.html"><span class="lab-no">สมการ (8)</span><span class="big-ico">🔒</span><b>ปรับเทียบ + ตรึงเกณฑ์</b><small>วัดผลต้องตรึงเกณฑ์ไว้ ผลแต่ละวันจึงเทียบกันได้</small></a>
+      <a class="r-card" href="docs/MATH-MODEL.md" target="_blank"><span class="lab-no">สมการ (1)–(10)</span><span class="big-ico">∑</span><b>แบบจำลองคณิตศาสตร์</b><small>ทุกสมการในบทความ ↔ ไฟล์/ฟังก์ชันในโค้ด ↔ การทดสอบ</small></a>
+    </div>
+  </section>
+
+  <section class="r-group">
+    <h2>🧠 สอน AI &amp; วัดผล</h2>
+    <div class="r-cards">
+      <a class="r-card" href="train.html"><span class="lab-no">Lab 31</span><span class="big-ico">🧠</span><b>สอน AI ท่ามือใหม่</b><small>เก็บตัวอย่าง 30 ครั้งต่อท่า แล้วให้ kNN ทาย พร้อมดูเพื่อนบ้านใกล้สุด 5 ตัว</small></a>
+      <a class="r-card" href="evaluate.html"><span class="lab-no">Lab 32</span><span class="big-ico">📊</span><b>วัดความแม่นยำ</b><small>ตารางความสับสน precision / recall / F1 และการทดลองแสง 3 ระดับ</small></a>
+      <a class="r-card" href="datasets.html"><span class="lab-no">Lab 30</span><span class="big-ico">📦</span><b>ชุดข้อมูลและที่มา</b><small>อ่านสัญญาอนุญาต ดาวน์โหลดพร้อมลิงก์สำรอง ดู 20 ระเบียนแรกเป็นภาพมือ</small></a>
+    </div>
+  </section>
+
+  <section class="r-group">
+    <h2>🖐️ ห้องทดลองมือ</h2>
+    <div class="r-cards">
+      <a class="r-card" href="hand-lab.html"><span class="lab-no">Lab 16 + 17</span><span class="big-ico">🖐️</span><b>มือ 21 จุด + สไตล์การวาด</b><small>โครงมือ ตาราง 21 จุด สไตล์ simple/neon/trail และวัด FPS ทุกสไตล์</small></a>
+      <a class="r-card" href="math-lab.html"><span class="lab-no">Lab 18</span><span class="big-ico">📐</span><b>คณิตศาสตร์ของมือ</b><small>ระยะดิบเทียบระยะหารขนาดฝ่ามือ ความงอนิ้ว มุมกางนิ้ว</small></a>
+      <a class="r-card" href="gesture-lab.html"><span class="lab-no">Lab 19 + 20</span><span class="big-ico">🤏</span><b>ห้องทดลองท่ามือ</b><small>ท่าจีบ + ท่าบริหาร 5 ท่า ปรับค่าเกณฑ์ด้วยสไลเดอร์ บันทึก CSV ทุกเฟรม</small></a>
+      <a class="r-card" href="counter-lab.html"><span class="lab-no">Lab 21</span><span class="big-ico">🔁</span><b>ตัวนับ "ประตูสองบาน"</b><small>สัญญาณจำลอง 3 แบบ หรือกล้องจริง เทียบตัวนับเกณฑ์เดียว</small></a>
+    </div>
+  </section>
+
+  <section class="r-group">
+    <h2>🧓 ทดสอบกับผู้ใช้</h2>
+    <div class="r-cards">
+      <a class="r-card" href="docs/research/consent-form.html"><span class="lab-no">Lab 36</span><span class="big-ico">📝</span><b>หนังสือยินยอม</b><small>พิมพ์ตัวใหญ่ ต้องเซ็นก่อนเริ่มทดสอบทุกครั้ง</small></a>
+      <a class="r-card" href="test-recorder.html"><span class="lab-no">Lab 36</span><span class="big-ico">⏱️</span><b>ตัวบันทึกการทดสอบ</b><small>ผู้สังเกตจับเวลางาน 8 ข้อ กดผล ทำได้เอง / ต้องช่วย / ทำไม่ได้</small></a>
+      <a class="r-card" href="survey.html"><span class="lab-no">Lab 36</span><span class="big-ico">😄</span><b>แบบสอบถาม</b><small>10 ข้อ ทีละข้อ ปุ่มหน้ายิ้มใหญ่ ให้ผู้เข้าร่วมกดเอง</small></a>
+      <a class="r-card" href="survey-results.html"><span class="lab-no">Lab 36</span><span class="big-ico">📈</span><b>สรุปผลการทดสอบ</b><small>ค่าเฉลี่ย ± SD รายข้อ กราฟแท่ง CSV / PNG และผลงาน 8 ข้อ</small></a>
+    </div>
+  </section>
+
+  <section class="r-group">
+    <h2>📑 รายงาน &amp; นำเสนอ</h2>
+    <div class="r-cards">
+      <a class="r-card" href="evidence.html"><span class="lab-no">Lab 37</span><span class="big-ico">🗂️</span><b>แดชบอร์ดหลักฐาน</b><small>ติ๊ก CHECKLIST จากไฟล์ และสร้างตาราง SUMMARY จาก CSV หรือฐานข้อมูลแอป</small></a>
+      <a class="r-card" href="report-builder.html"><span class="lab-no">Lab 38 + 39</span><span class="big-ico">📘</span><b>ตัวสร้างร่างรายงาน</b><small>บทที่ 1 · 3 · 4 · 5 จากตัวเลขที่วัดจริง ช่องที่ขาดบอกว่าต้องกลับไปแลปไหน</small></a>
+      <a class="r-card" href="rehearsal.html"><span class="lab-no">Lab 40</span><span class="big-ico">🎤</span><b>ซ้อมนำเสนอ 5 นาที</b><small>นาฬิกาซ้อมทีละส่วน บทพูด การ์ดแผนสำรอง และบันทึกเวลาซ้อม</small></a>
+    </div>
+  </section>
+
+  <section class="r-group">
+    <h2>🎨 ระบบออกแบบ</h2>
+    <div class="r-cards">
+      <a class="r-card" href="design-system.html"><span class="lab-no">Lab 05 + 06</span><span class="big-ico">🎨</span><b>สี ตัวอักษร และชิ้นส่วน</b><small>คอนทราสต์ทุกคู่สี ≥ 4.5 ขนาดตัวอักษร 7 ขั้น ปุ่ม การ์ด วงแหวน แจ้งเตือน</small></a>
+    </div>
+  </section>
+
+  <section class="r-group card-neon">
+    <h2>📄 เอกสารประกอบ</h2>
+    <ul class="doc-list">
+      <li><a href="docs/research/consent-form.html">หนังสือยินยอม (พิมพ์ได้)</a> · <a href="docs/research/consent-form.md" target="_blank">.md</a></li>
+      <li><a href="docs/research/test-script.md" target="_blank">สคริปต์ทดสอบกับผู้ใช้ 8 งาน</a></li>
+      <li><a href="docs/MATH-MODEL.md" target="_blank">แบบจำลองคณิตศาสตร์ สมการ (1)–(10) ตามบทความ (MATH-MODEL.md)</a></li>
+      <li><a href="docs/research/math.md" target="_blank">สมการทั้งหมดของมือ (math.md)</a></li>
+      <li><a href="datasets/SOURCES.md" target="_blank">ตารางที่มาของข้อมูล (SOURCES.md)</a></li>
+      <li><a href="docs/research/why-provenance.md" target="_blank">ทำไมต้องบันทึกที่มาของข้อมูล</a></li>
+      <li><a href="docs/research/evidence/CHECKLIST.md" target="_blank">รายการหลักฐาน (CHECKLIST.md)</a> · <a href="docs/research/evidence/SUMMARY.md" target="_blank">SUMMARY.md</a> · <a href="docs/research/evidence/README.md" target="_blank">ไฟล์ไหนใช้บทไหน</a></li>
+      <li>สคริปต์รวบรวมหลักฐาน: <code>docs/research/tools/collect-evidence.ps1</code> (Windows) / <code>.sh</code></li>
+      <li><a href="docs/research/templates/chapter1-template.md" target="_blank">แม่แบบบทที่ 1</a> · <a href="docs/research/templates/chapter3-template.md" target="_blank">3</a> · <a href="docs/research/templates/chapter4-template.md" target="_blank">4</a> · <a href="docs/research/templates/chapter5-template.md" target="_blank">5</a></li>
+      <li><a href="docs/research/prompts/chapter1-prompt.md" target="_blank">พรอมต์บทที่ 1</a> · <a href="docs/research/prompts/chapters3-5-prompt.md" target="_blank">พรอมต์บทที่ 3–5</a></li>
+      <li><a href="docs/research/pitch.md" target="_blank">บทพูด 5 นาที (pitch.md)</a></li>
+      <li><a href="docs/research/qa-prep.md" target="_blank">ซ้อมตอบคำถามกรรมการ</a></li>
+      <li><a href="docs/research/plan-b.md" target="_blank">แผนสำรอง 9 สถานการณ์</a></li>
+      <li><a href="docs/research/packing-list.md" target="_blank">รายการของที่ต้องนำไปวันแข่ง</a></li>
+    </ul>
+  </section>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/research/research-hub.js"></script>
+<script type="module" src="js/research/demo-banner.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ติดตั้งเป็นแอปได้ทุกหน้า (Lab 34) สีตรงกับ manifest.json -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <title>สมุดความสำเร็จ · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/page.css">
+  <link rel="stylesheet" href="css/juice.css">
+  <link rel="stylesheet" href="css/shell.css">
+</head>
+<body>
+  <header class="top-bar">
+    <h1>🏅 สมุดความสำเร็จ</h1>
+    <span id="count" class="chip">ได้แล้ว <b>0</b>/10</span>
+    <span class="spacer"></span>
+    <div id="picker" class="row"></div>
+  </header>
+  <main class="wrap">
+    <p class="muted">อันที่ยังไม่ได้แสดงเป็น <b>ภาพเงาดำ</b> พร้อมเงื่อนไข เพื่อให้รู้ว่าต้องทำอะไรต่อ · ง่าย 3 · กลาง 3 · ยาก 4</p>
+    <div id="grid" class="ach-grid"></div>
+    <div class="row section">
+      <button id="resetBtn" class="btn-glow danger small">🗑 ล้างความสำเร็จของผู้เล่นนี้ (สำหรับทดสอบ)</button>
+    </div>
+    <p class="foot">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</p>
+  </main>
+  <script type="module" src="js/achievements-page.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

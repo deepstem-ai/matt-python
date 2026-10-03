@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ผลการทดสอบ · Lab 36</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/parts.css">
+<style>
+  canvas.chart { width: 100%; height: 400px; display: block; border-radius: var(--r-md); }
+  .demo-flag { color: var(--warning); font-weight: 700; }
+  td.n, th.n { text-align: right !important; font-family: var(--font-num); }
+  .quote { border-left: 4px solid var(--secondary); padding-left: var(--sp-3); margin: var(--sp-2) 0; }
+</style>
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap">
+  <div class="row" style="justify-content:space-between">
+    <h1>📊 ผลการทดสอบกับผู้ใช้จริง</h1>
+    <a class="btn-glow ghost small" href="index.html">← เมนู</a>
+  </div>
+  <div class="row">
+    <span class="chip">ผู้ตอบแบบสอบถาม <b id="n">–</b> คน</span>
+    <span class="chip">ค่าเฉลี่ยรวม <b id="overall">–</b> / 5</span>
+    <span class="chip">บันทึกงาน <b id="nt">–</b> คน</span>
+    <label class="switch"><input type="checkbox" id="incDemo" checked> รวมข้อมูลตัวอย่าง (DEMO)</label>
+  </div>
+  <div id="demoNote" class="alert warn hidden" style="margin:var(--sp-3) 0">มีข้อมูลตัวอย่าง (DEMO) ปนอยู่ — ปิดสวิตช์ด้านบน หรือลบก่อนนำตัวเลขไปใช้ในรายงาน</div>
+  <div id="empty" class="alert warn hidden" style="margin:var(--sp-3) 0">
+    ยังไม่มีคำตอบแบบสอบถาม ให้ผู้เข้าร่วมทำ <a href="survey.html">survey.html</a> หรือกดปุ่มด้านล่างเพื่อลองด้วยข้อมูลตัวอย่าง
+    <div class="row" style="margin-top:var(--sp-3)"><button class="btn-glow" id="demo">โหลดข้อมูลตัวอย่าง 5 คน</button></div>
+  </div>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)">
+    <canvas id="chart" class="chart"></canvas>
+    <p class="muted" style="margin:var(--sp-2) 0 0">ภาพที่ 4.x ค่าเฉลี่ยความพึงพอใจรายข้อ (แท่ง) ± ส่วนเบี่ยงเบนมาตรฐาน (ขีด) มาตร 1–5 · ที่มา: ไฟล์ lab36-survey-responses.csv</p>
+    <div class="row" style="margin-top:var(--sp-3)">
+      <button class="btn-glow" id="png">🖼️ บันทึกกราฟ PNG</button>
+      <button class="btn-glow ghost" id="csvStats">⬇ CSV สรุปรายข้อ</button>
+      <button class="btn-glow ghost" id="csvRaw">⬇ CSV คำตอบดิบ</button>
+      <button class="btn-glow ghost" id="csvTasks">⬇ CSV ผลงาน 8 ข้อ</button>
+    </div>
+  </section>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)">
+    <h2 class="card-title">ตารางที่ 4.x ค่าเฉลี่ยและส่วนเบี่ยงเบนมาตรฐานรายข้อ</h2>
+    <table class="data"><thead><tr><th>ข้อ</th><th>ด้าน</th><th>คำถาม</th><th class="n">n</th><th class="n">ค่าเฉลี่ย</th><th class="n">SD</th></tr></thead><tbody id="tb"></tbody></table>
+    <h3 style="margin-top:var(--sp-4)">สรุปรายด้าน</h3>
+    <table class="data"><thead><tr><th>ด้าน</th><th class="n">จำนวนคำตอบ</th><th class="n">ค่าเฉลี่ย</th><th class="n">SD</th></tr></thead><tbody id="tg"></tbody></table>
+  </section>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)" id="susSec">
+    <h2 class="card-title">📋 System Usability Scale (SUS) — เทียบเกณฑ์ 68</h2>
+    <p class="muted">คะแนน SUS รายคน = 2.5 × [Σ(ข้อคี่ − 1) + Σ(5 − ข้อคู่)] (0–100) · ค่าเฉลี่ย SUS ทั่วไป = 68 (บทความหัวข้อ 6.2) · ทำแบบสอบถามที่ <a href="survey.html?mode=sus">survey.html?mode=sus</a></p>
+    <div class="row">
+      <span class="chip">ผู้ตอบ SUS <b id="susN">–</b> คน</span>
+      <span class="chip">ค่าเฉลี่ย ± SD <b id="susMean">–</b></span>
+      <span class="chip" id="susVerdict">–</span>
+    </div>
+    <canvas id="susChart" class="chart"></canvas>
+    <p class="muted" style="margin:var(--sp-2) 0 0">ภาพที่ 4.x คะแนน SUS รายผู้เข้าร่วม (แท่ง) เส้นประ = เกณฑ์ 68</p>
+    <table class="data"><thead><tr><th>ผู้เข้าร่วม</th><th class="n">คะแนน SUS</th><th>เทียบ 68</th></tr></thead><tbody id="susTb"></tbody></table>
+    <div class="row" style="margin-top:var(--sp-3)">
+      <button class="btn-glow" id="susPng">🖼️ บันทึกกราฟ SUS PNG</button>
+      <button class="btn-glow ghost" id="susCsv">⬇ CSV SUS รายคน</button>
+    </div>
+  </section>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)">
+    <h2 class="card-title">ผลการทำงาน 8 ข้อ (จากตัวบันทึกการทดสอบ)</h2>
+    <table class="data"><thead><tr><th>งาน</th><th class="n">ทำได้เอง</th><th class="n">ต้องช่วย</th><th class="n">ทำไม่ได้</th><th class="n">สำเร็จเอง %</th><th class="n">เวลาเฉลี่ย ± SD (วิ)</th></tr></thead><tbody id="tt"></tbody></table>
+  </section>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)">
+    <h2 class="card-title">💬 คำพูดของผู้เข้าร่วม</h2>
+    <div id="quotes" class="muted">–</div>
+  </section>
+</main>
+<script type="module">
+import { applyPrefs, toast, downloadCSV, saveCanvasPNG, esc } from './js/ui.js';
+import { barChart, mean } from './js/charts.js';
+import { listSurveys, listTaskRecords, loadDemo } from './js/usertest-store.js';
+import { questionStats, statsCols, groupStats, surveyRows, surveyCols, taskRows, taskCols, taskSummary, susRows, susCols } from './js/usertest-csv.js';
+import { susSummary, SUS_BENCHMARK } from './js/sus.js';
+applyPrefs();
+const $ = (id) => document.getElementById(id);
+let surveys = [], records = [], susList = [];   // surveys = คำถามของทีม, susList = SUS มาตรฐาน
+
+async function load() {
+  try {
+    const inc = $('incDemo').checked;
+    const all = (await listSurveys()).filter((s) => inc || !s.demo);
+    surveys = all.filter((s) => s.instrument !== 'sus'); susList = all.filter((s) => s.instrument === 'sus');
+    records = (await listTaskRecords()).filter((r) => inc || !r.demo);
+  } catch (e) { toast('อ่านฐานข้อมูลไม่ได้: ' + e.message, 'error', 8); surveys = []; records = []; susList = []; }
+  render();
+}
+
+function render() {
+  const st = questionStats(surveys);
+  $('n').textContent = surveys.length;
+  $('nt').textContent = records.length;
+  const all = surveys.flatMap((s) => Object.values(s.answers || {})).filter(Number.isFinite);
+  $('overall').textContent = all.length ? mean(all).toFixed(2) : '–';
+  $('empty').classList.toggle('hidden', surveys.length > 0 || susList.length > 0);
+  $('demoNote').classList.toggle('hidden', !surveys.some((s) => s.demo) && !records.some((r) => r.demo) && !susList.some((s) => s.demo));
+  renderSus();
+  // กราฟแท่ง + ขีด SD
+  barChart($('chart'), surveys.length ? st.map((s) => ({ label: 'ข้อ ' + s.no, value: s.mean, error: s.sd })) : [],
+    { title: `ค่าเฉลี่ย ± SD รายข้อ (n = ${surveys.length})`, yMax: 5, yLabel: 'คะแนน 1–5', xLabel: 'ข้อคำถาม', format: (v) => v.toFixed(2), emptyText: 'ยังไม่มีคำตอบ' });
+  $('tb').innerHTML = st.map((s) => `<tr><td>${s.no}</td><td>${esc(s.group)}</td><td>${esc(s.text)}</td><td class="n">${s.n}</td><td class="n">${s.n ? s.mean.toFixed(2) : '–'}</td><td class="n">${s.n ? s.sd.toFixed(2) : '–'}</td></tr>`).join('');
+  $('tg').innerHTML = groupStats(surveys).map((g) => `<tr><td>${esc(g.group)}</td><td class="n">${g.n}</td><td class="n">${g.n ? g.mean.toFixed(2) : '–'}</td><td class="n">${g.n ? g.sd.toFixed(2) : '–'}</td></tr>`).join('');
+  $('tt').innerHTML = taskSummary(records).map((t) => `<tr><td>${t.task} ${esc(t.th)}</td><td class="n">${t.alone}</td><td class="n">${t.help}</td><td class="n">${t.fail}</td><td class="n">${t.successPct === '' ? '–' : t.successPct + '%'}</td><td class="n">${t.n ? `${t.meanSec} ± ${t.sdSec}` : '–'}</td></tr>`).join('');
+  const qs = [...surveys.filter((s) => s.comment).map((s) => [s.participant, s.comment, s.demo]),
+    ...records.flatMap((r) => (r.tasks || []).filter((t) => t.note).map((t) => [r.participant + ' · ' + t.id, t.note, r.demo]))];
+  $('quotes').innerHTML = qs.length ? qs.map(([p, c, d]) => `<div class="quote">"${esc(c)}" — <b>${esc(p)}</b>${d ? ' <span class="demo-flag">(DEMO)</span>' : ''}</div>`).join('') : 'ยังไม่มีความเห็น';
+}
+
+// ---------- SUS: คะแนนรายคน + ค่าเฉลี่ย ± SD เทียบ 68 ----------
+function renderSus() {
+  const S = susSummary(susList);
+  $('susN').textContent = S.n;
+  $('susMean').textContent = S.n ? `${S.mean.toFixed(1)} ± ${S.sd.toFixed(1)}` : '–';
+  $('susVerdict').textContent = S.n ? (S.mean > SUS_BENCHMARK ? `✔ สูงกว่าเกณฑ์ ${SUS_BENCHMARK}` : `✘ ไม่สูงกว่าเกณฑ์ ${SUS_BENCHMARK}`) : `เกณฑ์ ${SUS_BENCHMARK}`;
+  barChart($('susChart'), S.scores.map((r) => ({ label: r.participant, value: r.score })),
+    { title: `คะแนน SUS รายคน (n = ${S.n}${S.n ? `, ค่าเฉลี่ย ${S.mean.toFixed(1)} ± ${S.sd.toFixed(1)}` : ''})`, yMax: 100, yLabel: 'คะแนน SUS 0–100', xLabel: 'ผู้เข้าร่วม',
+      format: (v) => v.toFixed(1), emptyText: 'ยังไม่มีคำตอบ SUS', lines: [{ value: SUS_BENCHMARK, label: `เกณฑ์ ${SUS_BENCHMARK}` }] });
+  $('susTb').innerHTML = S.scores.length ? S.scores.map((r) => `<tr><td>${esc(r.participant)}${r.demo ? ' <span class="demo-flag">(DEMO)</span>' : ''}</td><td class="n">${r.score.toFixed(1)}</td><td>${r.score > SUS_BENCHMARK ? 'สูงกว่า' : r.score === SUS_BENCHMARK ? 'เท่ากับ' : 'ต่ำกว่า'}</td></tr>`).join('') : '<tr><td colspan="3" class="muted">ยังไม่มีคำตอบ SUS</td></tr>';
+  window.__sus = S;
+}
+$('susPng').onclick = () => saveCanvasPNG($('susChart'), 'lab36-sus-chart.png');
+$('susCsv').onclick = () => susList.length ? downloadCSV('lab36-sus-responses.csv', susRows(susList), susCols()) : toast('ยังไม่มีคำตอบ SUS', 'warning');
+$('incDemo').onchange = load;
+$('demo').onclick = async () => { await loadDemo(); toast('ใส่ข้อมูลตัวอย่างแล้ว'); load(); };
+$('png').onclick = () => saveCanvasPNG($('chart'), 'lab36-survey-chart.png');
+$('csvStats').onclick = () => surveys.length ? downloadCSV('lab36-survey-summary.csv', questionStats(surveys), statsCols) : toast('ยังไม่มีข้อมูล', 'warning');
+$('csvRaw').onclick = () => surveys.length ? downloadCSV('lab36-survey-responses.csv', surveyRows(surveys), surveyCols()) : toast('ยังไม่มีข้อมูล', 'warning');
+$('csvTasks').onclick = () => records.length ? downloadCSV('lab36-task-results.csv', taskRows(records), taskCols) : toast('ยังไม่มีบันทึกงาน', 'warning');
+addEventListener('resize', () => render());
+load();
+</script>
+</body>
+</html>

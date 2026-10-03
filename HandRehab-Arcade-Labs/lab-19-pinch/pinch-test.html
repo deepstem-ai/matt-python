@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 19 · ตรวจท่าจีบนิ้ว — HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/lab.css">
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap">
+  <header class="lab-head">
+    <div>
+      <h1>🤏 Lab 19 · ตรวจท่าจีบนิ้ว (Pinch)</h1>
+      <div class="sub">Bring the thumb tip (4) to the index tip (8) — score 0–1 from normDist(4, 8)</div>
+    </div>
+    <div class="row">
+      <button class="btn-glow ghost small" id="soundBtn">🔇 เปิดเสียง</button>
+      <button class="btn-glow ghost small" id="demoBtn">🖱️ โหมดสาธิต</button>
+    </div>
+  </header>
+  <div class="stats">
+    <span class="chip">FPS <b id="sFps">0</b></span>
+    <span class="chip">AI ms/เฟรม <b id="sAi">0</b></span>
+    <span class="chip">หน่วยประมวลผล <b id="sDel">—</b></span>
+    <span class="chip">สถานะ <b id="sActive">—</b></span>
+  </div>
+  <div id="msg" class="alert warn msg hidden"></div>
+
+  <div class="lab-grid">
+    <section>
+      <div class="stage mirror" id="stage">
+        <video id="video" playsinline muted></video>
+        <canvas id="canvas" class="mirror"></canvas>
+        <div class="demo-tag">โหมดสาธิต — กดเมาส์ค้าง = จีบ</div>
+        <div class="nohand" id="nohand">✋ ยังไม่เห็นมือ — ยกมือขึ้น หันฝ่ามือเข้ากล้อง</div>
+      </div>
+      <div class="card-neon" style="margin-top:var(--sp-3)">
+        <div class="bigbar" id="bar"><i></i><div class="mark" id="onMark"></div><span id="barTxt">0.00</span></div>
+        <div class="kv" style="margin-top:var(--sp-3)">
+          <div>ระยะดิบ 4–8 (พิกเซล)<b id="raw">—</b></div>
+          <div>d̂<sub>48</sub> = normDist(4,8) สมการ (1)(2)<b id="norm">—</b></div>
+        </div>
+      </div>
+      <div id="demoPanel" style="margin-top:var(--sp-3)"></div>
+    </section>
+
+    <aside class="panel">
+      <div class="card-neon" style="text-align:center">
+        <h2>จำนวนครั้งที่จีบ</h2>
+        <div class="bignum" id="count">0</div>
+        <p class="muted">นับเมื่อ active เปลี่ยนจาก false → true (แบบง่าย — Lab 21 จะแก้การนับซ้ำ)</p>
+        <button class="btn-glow ghost small" id="resetCount">↺ เริ่มนับใหม่</button>
+      </div>
+      <div class="card-neon">
+        <h2>🎚️ ค่าเกณฑ์ (ปรับได้จากภายนอก)</h2>
+        <p class="muted" id="formula">สมการ (3): π = clip( (d<sub>open</sub> − d̂<sub>48</sub>) / (d<sub>open</sub> − d<sub>close</sub>), 0, 1 ) · 1 = จีบสุด</p>
+        <div class="slider-row"><span>d<sub>open</sub> — ระยะตอนแบมือ (π = 0 เมื่อ d̂<sub>48</sub> ≥ ค่านี้)</span><b class="num" id="vZero"></b><input type="range" id="zero" min="0.3" max="1.4" step="0.01" aria-label="d_open"></div>
+        <div class="slider-row"><span>d<sub>close</sub> — ระยะตอนจีบ (π = 1 เมื่อ d̂<sub>48</sub> ≤ ค่านี้)</span><b class="num" id="vFull"></b><input type="range" id="full" min="0.05" max="0.6" step="0.01" aria-label="d_close"></div>
+        <div class="slider-row"><span>on — คะแนนเกินค่านี้ = active</span><b class="num" id="vOn"></b><input type="range" id="on" min="0.3" max="0.95" step="0.05"></div>
+        <div class="row">
+          <button class="btn-glow ghost small" id="hintVals">ค่าตามคำใบ้ d_close 0.15 / d_open 0.60</button>
+          <button class="btn-glow ghost small" id="codeVals">ค่าเริ่มต้นของโค้ด (บทความ) 0.25 / 0.80</button>
+        </div>
+      </div>
+      <div class="card-neon">
+        <h2>⏺️ บันทึกข้อมูลทุกเฟรม</h2>
+        <p class="muted">คอลัมน์: timestamp, t_ms, raw_px, norm, score, active</p>
+        <div class="row">
+          <button class="btn-glow danger" id="recBtn">⏺️ เริ่มบันทึก</button>
+          <button class="btn-glow small" id="csvBtn" disabled>⬇️ ดาวน์โหลด CSV</button>
+        </div>
+        <p>บันทึกแล้ว <b class="num" id="recN">0</b> แถว</p>
+      </div>
+    </aside>
+  </div>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/pinch-test.js"></script>
+</body>
+</html>

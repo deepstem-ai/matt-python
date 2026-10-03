@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ติดตั้งเป็นแอปได้ทุกหน้า (Lab 34) สีตรงกับ manifest.json -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <title>ตั้งหรือเปลี่ยน PIN · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/face.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/shell.css">
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap narrow">
+  <header class="row top">
+    <h1>🔢 ตั้ง / เปลี่ยน PIN</h1><span class="spacer"></span>
+    <a class="btn-glow ghost small" href="index.html#home">↩ หน้าหลัก</a>
+  </header>
+  <section class="card-neon col">
+    <div class="field"><label for="who">ผู้ใช้</label><select id="who"></select></div>
+    <h2 id="pinTitle">…</h2>
+    <p id="pinMsg" class="muted"></p>
+    <div id="pad"></div>
+    <p class="muted small">PIN ถูกเก็บเป็นแฮช SHA-256 ทางเดียว (ผสมรหัสผู้ใช้) ไม่มีใครอ่านตัวเลขจริงได้ แม้แต่ทีมผู้สร้าง</p>
+  </section>
+  <div id="errBox" class="alert hidden" role="alert"></div>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/pin-page.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

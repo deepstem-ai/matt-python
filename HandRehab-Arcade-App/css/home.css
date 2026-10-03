@@ -1,0 +1,18 @@
+/* ============================================================
+   home.css — หน้าหลักของแอปรวม v2: หัวกลุ่ม · การ์ดไฟ streak · แถวเหรียญเล็ก
+   สีทั้งหมดมาจาก tokens.css / themes.css
+   ============================================================ */
+.home-head { align-items: center; }
+.home-head h1 { margin: 0; }
+.home-head .spacer { flex: 1; }
+.group-title { margin: calc(var(--sp-5) * var(--sp-mul, 1)) 0 var(--sp-3); font-size: var(--fs-lg); }
+.home-streak { text-decoration: none; color: var(--text); flex-wrap: wrap; margin-top: var(--sp-3); }
+.home-streak:hover, .home-streak:focus-visible { border-color: var(--primary); }
+.home-streak .grow { flex: 1; min-width: 200px; }
+.home-streak .streak-unit { font-size: var(--fs-lg); font-weight: 800; }
+.ach-row.mini { font-size: var(--fs-lg); gap: var(--sp-1); }
+.research-card { border-style: dashed; }
+#guestNote { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); margin-top: var(--sp-3); }
+#guestNote.hidden { display: none; }
+/* ปุ่ม "ความก้าวหน้า" ในแถบล่างเป็นลิงก์ไป progress.html */
+.bottom-nav a { flex-direction: column; gap: 0; font-size: var(--fs-sm); padding: var(--sp-1); text-decoration: none; }

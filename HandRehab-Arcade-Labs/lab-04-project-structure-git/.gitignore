@@ -1,0 +1,38 @@
+# ============================================================
+# .gitignore — รายการไฟล์ที่ "ห้าม commit" ขึ้น git (Lab 04)
+# ============================================================
+
+# ---------- 1) ข้อมูลผู้ใช้และภาพใบหน้า (ข้อมูลส่วนตัว ห้ามหลุดเด็ดขาด) ----------
+user-data/
+userdata/
+faces/
+face-images/
+evidence/faces/
+evidence/raw/
+*.face.png
+*-backup.json
+handrehab-backup*.json
+
+# ---------- 2) ไฟล์โมเดล AI ขนาดใหญ่ (> 5 MB เช่นโมเดลมือ ~8 MB) ----------
+*.task
+*.tflite
+*.onnx
+*.bin
+models/*
+!models/README.md
+
+# ---------- 3) ชุดข้อมูลดิบขนาดใหญ่ ----------
+datasets/raw/
+*.zip
+
+# ---------- 4) ไฟล์ชั่วคราวของระบบปฏิบัติการและโปรแกรม ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+*.tmp
+*.log
+~$*
+.vscode/
+.idea/
+node_modules/

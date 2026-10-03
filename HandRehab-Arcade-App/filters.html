@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ติดตั้งเป็นแอปได้ทุกหน้า (Lab 34) สีตรงกับ manifest.json -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <title>เปรียบเทียบตัวกรองสัญญาณ · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/page.css">
+  <link rel="stylesheet" href="css/calib.css">
+  <link rel="stylesheet" href="css/shell.css">
+</head>
+<body>
+  <header class="top-bar">
+    <a class="btn-glow ghost small" href="star-portal.html">⭐ ไปเล่นจับดาว</a>
+    <h1>📈 เปรียบเทียบตัวกรองสัญญาณ</h1>
+    <span id="srcBadge" class="demo-badge">〰 สัญญาณจำลอง</span>
+    <span class="spacer"></span>
+    <a class="btn-glow ghost small" href="calibrate.html">🎯 ปรับเทียบ</a>
+  </header>
+  <main class="wrap">
+    <p class="muted">เส้นดิบ = ตำแหน่งปลายนิ้วชี้แนวนอน (0-1 ของความกว้างภาพ) · One Euro ปรับความแรงการกรองตามความเร็ว: ขยับช้า = กรองแรง นิ่ง, ขยับเร็ว = กรองเบา ตามทัน (Casiez et al., CHI 2012)</p>
+    <div class="filters-layout">
+      <section class="card-neon">
+        <canvas id="chart" class="chart" aria-label="กราฟเปรียบเทียบสัญญาณดิบกับสัญญาณที่กรองแล้ว"></canvas>
+        <p class="caption">ภาพที่ 1 ตำแหน่งปลายนิ้วชี้ก่อนและหลังกรอง 6 วินาทีล่าสุด (แกนตั้ง: ตำแหน่งแนวนอน 0-1 · แกนนอน: เวลา วินาที)</p>
+        <div class="row">
+          <label class="switch">ดิบ <input type="checkbox" data-line="raw" checked></label>
+          <label class="switch">One Euro <input type="checkbox" data-line="oneEuro" checked></label>
+          <label class="switch">ค่าเฉลี่ยเคลื่อนที่ <input type="checkbox" data-line="movingAvg" checked></label>
+          <label class="switch">มัธยฐาน <input type="checkbox" data-line="median"></label>
+        </div>
+        <h3>ตัวเลขสด (10 วินาทีล่าสุด)</h3>
+        <table class="data" id="liveTable"></table>
+      </section>
+      <aside class="card-neon col">
+        <div class="row">
+          <button id="synthBtn" class="btn-glow small">〰 สัญญาณจำลอง</button>
+          <button id="camBtn" class="btn-glow ghost small">📷 ปลายนิ้วจริง</button>
+        </div>
+        <div id="camBox" class="stage mirror hidden"><video id="video" playsinline muted></video><canvas id="handCanvas" class="mirror"></canvas></div>
+        <div id="synthBox" class="col">
+          <label>ความแรงอาการสั่น <b id="ampV" class="num">0.020</b><input id="amp" type="range" min="0" max="0.06" step="0.002" value="0.02"></label>
+          <label>ความถี่อาการสั่น <b id="hzV" class="num">6</b> Hz<input id="hz" type="range" min="3" max="12" step="0.5" value="6"></label>
+        </div>
+        <h3 style="margin:0">ตั้งค่าตัวกรอง</h3>
+        <label>One Euro · minCutoff <b id="mcV" class="num">1.0</b> Hz<input id="mc" type="range" min="0.1" max="5" step="0.1" value="1"></label>
+        <label>One Euro · beta <b id="betaV" class="num">0.50</b><input id="beta" type="range" min="0" max="3" step="0.05" value="0.5"></label>
+        <label>ค่าเฉลี่ย / มัธยฐาน · N <b id="nV" class="num">5</b> ค่า<input id="n" type="range" min="2" max="15" step="1" value="5"></label>
+        <div class="row">
+          <button id="csvBtn" class="btn-glow ghost small">⬇ CSV</button>
+          <button id="pngBtn" class="btn-glow ghost small">🖼 บันทึก PNG</button>
+          <button id="pauseBtn" class="btn-glow ghost small">⏸ หยุดกราฟ</button>
+        </div>
+      </aside>
+    </div>
+    <section class="card-neon section">
+      <div class="row"><h2 style="margin:0">ตารางเปรียบเทียบ 3 ตัวกรอง</h2><span class="spacer" style="flex:1"></span>
+        <button id="benchBtn" class="btn-glow small">▶ คำนวณใหม่ด้วยค่าปัจจุบัน</button><button id="benchCsv" class="btn-glow ghost small">⬇ CSV ตาราง</button></div>
+      <p class="muted">สัญญาณจำลองแบบเดิมทุกครั้ง (seed คงที่) 20 วินาที 30 fps · ลดสั่น % = 1 − SD(ผลต่างเฟรม กรองแล้ว) / SD(ผลต่างเฟรม ดิบ) · หน่วง = cross-correlation · ขั้นบันได = เวลาที่ใช้ไปถึง 90% ของการกระโดด</p>
+      <table class="data" id="benchTable"></table>
+    </section>
+    <p class="foot">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา · อ้างอิง: Casiez, G., Roussel, N., &amp; Vogel, D. (2012). 1€ Filter. CHI '12, 2527–2530.</p>
+  </main>
+  <script type="module" src="js/filters-page.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HandRehab Arcade · ตรวจจับใบหน้า (Lab 11)</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <style>
+    /* สไตล์เฉพาะหน้านี้ — ใช้สีจาก var() เท่านั้น */
+    .layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: var(--sp-4); align-items: start; }
+    @media (max-width: 1000px) { .layout { grid-template-columns: 1fr; } }
+    .stage .labels { position: absolute; inset: 0; pointer-events: none; }
+    .face-tag { position: absolute; transform: translateY(-120%); background: var(--primary); color: var(--on-bright); font: 800 var(--fs-sm) var(--font-num); padding: 2px var(--sp-2); border-radius: var(--r-sm); }
+    .stage .hud { flex-direction: column; align-items: flex-end; }
+    .no-face { position: absolute; left: 50%; bottom: var(--sp-3); transform: translateX(-50%); background: color-mix(in srgb, var(--card) 85%, transparent); padding: var(--sp-1) var(--sp-4); border-radius: var(--r-md); }
+    .panel .field { margin-bottom: var(--sp-3); }
+    .stat { display: flex; justify-content: space-between; align-items: center; padding: var(--sp-1) 0; border-bottom: 1px solid var(--line); }
+    .stat b { font-family: var(--font-num); color: var(--primary); }
+    .chip.warn b { color: var(--warning); }
+    .privacy { font-size: var(--fs-sm); }
+  </style>
+</head>
+<body class="theme-neon profile-standard">
+  <main class="wrap">
+    <h1>🙂 Lab 11 · สอนแอปให้มองเห็นใบหน้า</h1>
+    <div id="camError" class="hidden" style="margin-bottom:var(--sp-4)"></div>
+    <div id="aiError" class="alert hidden" role="alert" style="margin-bottom:var(--sp-4)">
+      <h3>⚠️ โหลดโมเดล AI ตรวจใบหน้าไม่สำเร็จ</h3>
+      <p>ลองทั้งลิงก์หลัก (/1/) และลิงก์สำรอง (/latest/) แล้ว ไม่ได้ทั้งคู่ สาเหตุที่พบบ่อย: อินเทอร์เน็ตหลุด หรือระบบกรองเว็บของโรงเรียนส่งหน้าเตือนมาแทนไฟล์จริง (ไฟล์เล็กกว่า 100 KB)</p>
+      <pre id="aiErrorDetail" class="muted" style="white-space:pre-wrap"></pre>
+      <p>วิธีแก้: ตรวจอินเทอร์เน็ต → กด "ลองใหม่" · ถ้ายังไม่ได้ ให้เตรียมไฟล์ออฟไลน์ตาม Lab 35</p>
+      <div class="row">
+        <button id="btnRetryAI" class="btn-glow">🔄 ลองใหม่</button>
+        <button id="btnNoFail" class="btn-glow ghost hidden">ปิดโหมดทดสอบลิงก์เสีย</button>
+      </div>
+    </div>
+
+    <div class="layout">
+      <section>
+        <div id="stage" class="stage mirror">
+          <video id="video" playsinline muted></video>
+          <canvas id="overlay" class="mirror"></canvas>
+          <div id="labels" class="labels"></div>
+          <div class="hud">
+            <span class="chip">ใบหน้า <b id="count">0</b></span>
+            <span class="chip">FPS <b id="fps">0</b></span>
+          </div>
+          <div id="noFace" class="no-face">ยังไม่พบใบหน้า — หันหน้าเข้าหากล้อง</div>
+          <div id="loadBox" class="no-face hidden" style="bottom:auto;top:50%;width:60%">
+            กำลังดาวน์โหลดโมเดล AI…<div class="bar"><i id="loadBar"></i></div>
+          </div>
+        </div>
+        <p class="privacy muted">🔒 AI (BlazeFace) ทำงานในเครื่องนี้ทั้งหมด ไม่มีภาพใดถูกส่งออกทางอินเทอร์เน็ต</p>
+      </section>
+
+      <aside class="card-neon panel">
+        <div class="field">
+          <label for="conf">ความมั่นใจขั้นต่ำ: <b id="confVal" class="num">0.50</b></label>
+          <input id="conf" type="range" min="0.3" max="0.9" step="0.05" value="0.5">
+          <span class="muted" style="font-size:var(--fs-sm)">พบใบหน้าหลอก → เพิ่มเป็น 0.7 · หาใบหน้าไม่เจอ → ลดเป็น 0.3</span>
+        </div>
+        <div class="field">
+          <label>ความมั่นใจสูงสุด <b id="confPct" class="num">0%</b></label>
+          <div class="bar"><i id="confBar"></i></div>
+        </div>
+        <label class="switch"><input id="showBox" type="checkbox" checked> แสดงกรอบใบหน้า</label>
+        <label class="switch"><input id="mirror" type="checkbox" checked> กลับด้านเหมือนกระจก</label>
+        <div class="field">
+          <label for="boxStyle">รูปแบบกรอบ</label>
+          <select id="boxStyle"><option value="corners">มุมช่องมองภาพ (แนะนำ)</option><option value="rect">สี่เหลี่ยมธรรมดา</option></select>
+        </div>
+        <div class="field">
+          <label for="accessory">ของเล่นทดสอบตำแหน่ง</label>
+          <select id="accessory"><option value="none">ไม่มี</option><option value="crown">👑 มงกุฎ</option><option value="glasses">🕶️ แว่นกันแดด</option></select>
+        </div>
+        <div class="stat"><span>หน่วยประมวลผล</span><span class="chip"><b id="delegate">-</b></span></div>
+        <div class="stat"><span>เวลา AI ต่อเฟรม</span><span><b id="aiMs">0</b> ms</span></div>
+        <div class="stat"><span>โมเดลมาจาก</span><span id="modelUrl" class="muted">-</span></div>
+      </aside>
+    </div>
+
+    <section class="card-neon" style="margin-top:var(--sp-4)">
+      <h3>📋 บันทึกผลการทดลอง (ใช้ในบทที่ 4)</h3>
+      <p class="muted">ลองค่าความมั่นใจ 0.3 / 0.5 / 0.7 และห้องสว่าง/มืด แล้วกดบันทึกทุกครั้ง</p>
+      <div class="row">
+        <input id="note" type="text" placeholder="หมายเหตุ เช่น ห้องสว่าง, 2 คน" style="flex:1;min-width:220px">
+        <button id="btnRecord" class="btn-glow">＋ บันทึกผลตอนนี้</button>
+        <button id="btnCSV" class="btn-glow ghost">⬇ ดาวน์โหลด CSV</button>
+      </div>
+      <table class="data" style="margin-top:var(--sp-3)">
+        <thead><tr><th>เวลา</th><th>ความมั่นใจขั้นต่ำ</th><th>ใบหน้า</th><th>สูงสุด</th><th>AI ms</th><th>GPU/CPU</th><th>ความสว่าง</th><th>หมายเหตุ</th></tr></thead>
+        <tbody id="recBody"></tbody>
+      </table>
+    </section>
+  </main>
+  <div class="team-badge">ทีม NeonHands · โรงเรียนของเรา</div>
+
+  <script type="module">
+    import { applyPrefs } from './js/ui.js';
+    import { initFacePage, boot } from './js/face-page.js';
+    applyPrefs();
+    initFacePage();
+    boot();
+  </script>
+</body>
+</html>

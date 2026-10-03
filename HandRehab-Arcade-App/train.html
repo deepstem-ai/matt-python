@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <title>สอน AI ท่ามือใหม่ · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="js/research/research.css">
+</head>
+<!-- Lab 31: เก็บตัวอย่าง → kNN → ทดสอบ → ส่งออก/นำเข้า · โมเดลอยู่ใน store 'ml' id 'knn-model' (evaluate.html อ่านต่อ) -->
+<body class="theme-neon profile-standard" data-title="สอน AI ท่ามือใหม่" data-hub="research">
+<main class="wrap col">
+  <header class="r-head">
+    <div>
+      <h1>🧠 สอน AI ให้รู้จักท่ามือที่เราคิดเอง <span class="lab-no">Lab 31</span></h1>
+      <div class="sub">Train — k-Nearest Neighbours ที่เขียนเองทั้งหมด · ข้อมูลเก็บในเครื่องนี้เท่านั้น ถ้าเก็บจากเพื่อน ต้องบอกว่าใช้ทำอะไรและลบให้ได้เมื่อขอ</div>
+    </div>
+    <div class="row">
+      <a class="btn-glow ghost small" href="evaluate.html">📊 ไปวัดผลโมเดลนี้</a>
+      <a class="btn-glow ghost small" href="research.html">🔬 ห้องวิจัย</a>
+    </div>
+  </header>
+  <div id="legacy" class="alert warn hidden">⚠️ โมเดลที่บันทึกไว้มาจาก Lab 31 รุ่นแลปเดี่ยว ซึ่งใช้ <b>จุดดิบของภาพ 16:9</b> แอปรวมใช้จุดที่แก้สัดส่วนภาพแล้ว (hand.sq) —
+    ทายได้แต่มุมกางนิ้วจะเพี้ยน แนะนำให้กด "ส่งออกโมเดล" เก็บไว้ แล้ว "ลบทั้งหมด" และสอนใหม่</div>
+
+  <div class="layout">
+    <section class="col">
+      <div class="stage mirror" id="stage">
+        <video id="video" playsinline muted></video>
+        <canvas id="overlay" class="mirror"></canvas>
+        <div class="hud"><span class="chip" id="srcChip">ยังไม่เริ่ม</span><span class="chip">มือ <b id="handChip">-</b></span></div>
+        <div class="stage-msg" id="stageMsg">กด "เปิดกล้อง" หรือ "โหมดสาธิต" เพื่อเริ่ม</div>
+      </div>
+      <div class="row">
+        <button class="btn-glow" id="btnCam"><span class="ico">📷</span> เปิดกล้อง</button>
+        <button class="btn-glow ghost" id="btnDemo"><span class="ico">🤖</span> โหมดสาธิต (มือจำลอง)</button>
+      </div>
+      <div id="camError"></div>
+      <div class="card-neon col hidden" id="demoBox">
+        <b>🤖 โหมดสาธิต — มือจำลอง ไม่ใช่มือจริง</b>
+        <span class="muted">เลือกท่าของมือจำลอง แต่ละเฟรมจะสุ่มขนาด ตำแหน่ง มุม ให้ต่างกันเล็กน้อยเหมือนคนจริง</span>
+        <div class="row" id="presetRow"></div>
+      </div>
+    </section>
+
+    <section class="col">
+      <div class="card-neon col">
+        <h3>1) สอนท่าใหม่ <span class="muted">Teach</span></h3>
+        <div class="field"><label for="name">ชื่อท่า (Gesture name)</label><input type="text" id="name" maxlength="30" placeholder="เช่น ชูสองนิ้ว, ท่าเจ้าหญิง"></div>
+        <button class="btn-glow success hold" id="btnHold"><span class="ico">✋</span> กดค้างไว้เพื่อเก็บ <span id="targetN">30</span> ตัวอย่าง</button>
+        <div class="bar"><i id="collectBar"></i></div>
+        <span class="muted" id="collectMsg">ค่อย ๆ หมุนมือ ขยับใกล้-ไกล ระหว่างกดค้าง เพื่อให้ได้ตัวอย่างหลายมุม</span>
+      </div>
+
+      <div class="card-neon col">
+        <h3>2) ท่าที่สอนแล้ว <span class="muted">Gestures</span></h3>
+        <ul class="gest-list" id="gestList"></ul>
+        <span class="muted" id="modelInfo"></span>
+      </div>
+
+      <div class="card-neon col">
+        <div class="row" style="justify-content:space-between">
+          <h3 style="margin:0">3) ทดสอบ <span class="muted">Test</span></h3>
+          <label class="switch"><input type="checkbox" id="testMode"> โหมดทดสอบ</label>
+        </div>
+        <div class="row"><label for="kSel">k =</label>
+          <select id="kSel"><option>1</option><option>3</option><option selected>5</option><option>7</option><option>9</option></select>
+          <span class="muted">(ควรเป็นเลขคี่ เพื่อไม่ให้โหวตเสมอ)</span></div>
+        <div class="guess"><span id="guess">—</span></div>
+        <div class="row"><span>ความมั่นใจ</span><div class="bar grow"><i id="confBar"></i></div><b class="num" id="confTxt">0%</b></div>
+        <b>เพื่อนบ้านใกล้ที่สุด 5 ตัว (AI ตัดสินใจจากตัวอย่างเหล่านี้)</b>
+        <ol class="neigh" id="neigh"></ol>
+      </div>
+
+      <div class="card-neon col">
+        <h3>4) ย้ายโมเดล <span class="muted">Export / Import</span></h3>
+        <div class="row">
+          <button class="btn-glow small" id="btnExport">⬇️ ส่งออกโมเดล JSON</button>
+          <button class="btn-glow small ghost" id="btnImport">📂 นำเข้าโมเดล</button>
+          <input type="file" id="fileIn" accept=".json" class="hidden">
+          <button class="btn-glow small danger" id="btnClearAll">🗑️ ลบทั้งหมด</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/research/train.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>
