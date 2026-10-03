@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <title>ห้องทดลองมือ 21 จุด · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="js/research/research.css">
+</head>
+<!-- Lab 16 (เห็นมือเป็น 21 จุด) + Lab 17 (วาดมือ 3 สไตล์ + ลดระดับอัตโนมัติ) รวมเป็นหน้าเดียว -->
+<body class="theme-neon profile-standard" data-title="ห้องทดลองมือ 21 จุด">
+<main class="wrap">
+  <header class="r-head">
+    <div>
+      <h1>🖐️ ห้องทดลองมือ: 21 จุด + สไตล์การวาด <span class="lab-no">Lab 16 + 17</span></h1>
+      <div class="sub">MediaPipe Hand Landmarker (palm detector → 21 landmarks) · simple / neon / trail พร้อมลดระดับอัตโนมัติตามความแรงเครื่อง</div>
+    </div>
+    <div class="row">
+      <label class="switch"><input type="checkbox" id="showSkel" checked> แสดงโครงมือ</label>
+      <button class="btn-glow ghost small" id="demoBtn">🖱️ โหมดสาธิต</button>
+      <a class="btn-glow ghost small" href="research.html">🔬 ห้องวิจัย</a>
+    </div>
+  </header>
+
+  <div class="stats" aria-live="polite">
+    <span class="chip">FPS <b id="sFps">0</b></span>
+    <span class="chip">AI ms/เฟรม <b id="sAi">0</b></span>
+    <span class="chip">วาด ms/เฟรม <b id="sDraw">0</b></span>
+    <span class="chip">% เฟรมที่เจอมือ <b id="sFound">0</b></span>
+    <span class="chip">หน่วยประมวลผล <b id="sDel">—</b></span>
+    <span class="chip">มือ <b id="sHand">—</b></span>
+    <span class="chip">สไตล์ตอนนี้ <b id="sStyle">—</b></span>
+    <span class="chip">สไตล์ที่เลือก <b id="sWanted">—</b></span>
+  </div>
+  <div id="msg" class="alert warn msg hidden"></div>
+
+  <div class="lab-grid">
+    <section>
+      <div class="stage mirror" id="stage">
+        <video id="video" playsinline muted></video>
+        <canvas id="canvas" class="mirror"></canvas>
+        <div class="demo-tag">โหมดสาธิต (มือจำลอง)</div>
+        <div class="nohand" id="nohand">✋ ยังไม่เห็นมือ — ยกมือขึ้นให้อยู่ในกรอบ ห่างกล้องประมาณ 50 ซม.</div>
+        <div class="hover-tip hidden" id="tip"></div>
+      </div>
+      <div class="row" style="margin-top:var(--sp-3)">
+        <button class="btn-glow" id="refBtn">⏱️ บันทึกค่าอ้างอิง 10 วินาที</button>
+        <button class="btn-glow" id="benchBtn">📊 วัด FPS ทั้ง 3 สไตล์ (15 วินาที)</button>
+        <label class="switch"><input type="checkbox" id="slowSim"> 🐢 จำลองเครื่องช้า</label>
+        <a class="btn-glow ghost small" href="?fail=1">🧪 ลองกรณีโหลดโมเดลไม่ได้</a>
+      </div>
+      <div id="refOut" class="card-neon hidden" style="margin-top:var(--sp-3)"></div>
+      <div id="benchOut" class="card-neon hidden" style="margin-top:var(--sp-3)"></div>
+      <div id="demoPanel" style="margin-top:var(--sp-3)"></div>
+    </section>
+
+    <aside class="panel">
+      <div class="card-neon">
+        <h2>🎨 สไตล์การวาด <span class="lab-no">Lab 17</span></h2>
+        <div class="seg" id="styleSeg" role="radiogroup" aria-label="สไตล์การวาดมือ"></div>
+        <p class="muted" id="styleNote"></p>
+        <div class="slider-row"><span>ความหนาเส้น (px)</span><b class="num" id="vLine">5</b><input type="range" id="line" min="2" max="10" step="1" value="5"></div>
+        <div class="slider-row"><span>จำนวนชั้นวงเรืองแสงที่ปลายนิ้ว</span><b class="num" id="vLayers">2</b><input type="range" id="layers" min="0" max="4" step="1" value="2"></div>
+        <div class="slider-row"><span>ความฟุ้งของแสง (shadowBlur)</span><b class="num" id="vBlur">12</b><input type="range" id="blur" min="0" max="30" step="1" value="12"></div>
+        <div class="slider-row"><span>ความยาวหางแสง (เฟรม)</span><b class="num" id="vTrail">12</b><input type="range" id="trail" min="2" max="40" step="1" value="12"></div>
+        <label class="switch"><input type="checkbox" id="auto" checked> ปรับสไตล์อัตโนมัติ</label>
+        <p class="muted">FPS ต่ำกว่า <b>24</b> นาน <b>3</b> วินาที → ลดสไตล์ลงหนึ่งระดับ (แจ้งเตือนทุกครั้ง) ·
+          FPS สูงกว่า <b>45</b> นานกว่า <b>10</b> วินาที → ถามก่อนว่าจะกลับไปสไตล์ที่เลือกไหม ·
+          ⚠️ ตอนวัดความแม่นยำ ให้ใช้สไตล์ "เรียบง่าย" เสมอ</p>
+      </div>
+      <details class="card-neon">
+        <summary><h2>🖍️ สีของแต่ละนิ้ว</h2></summary>
+        <div class="row" id="colorRow"></div>
+        <button class="btn-glow ghost small" id="colorReset" style="margin-top:var(--sp-3)">↺ กลับเป็นสีธีม</button>
+      </details>
+      <details class="card-neon" open>
+        <summary><h2>📋 พิกัดทั้ง 21 จุด <span class="lab-no">Lab 16</span></h2></summary>
+        <p class="muted">x, y = ตำแหน่งในภาพ 0–1 (ซ้าย→ขวา, บน→ล่าง) · z = ความลึกเทียบข้อมือ (ติดลบ = ใกล้กล้องกว่า) · ชี้เมาส์ที่จุดบนภาพเพื่อดูชื่อ</p>
+        <div class="tbl-scroll">
+          <table class="data" id="tbl">
+            <thead><tr><th>#</th><th>ชื่อจุด</th><th class="num">x</th><th class="num">y</th><th class="num">z</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </details>
+    </aside>
+  </div>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/research/hand-lab.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

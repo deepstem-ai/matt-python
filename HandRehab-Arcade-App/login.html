@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- ติดตั้งเป็นแอปได้ทุกหน้า (Lab 34) สีตรงกับ manifest.json -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <title>เข้าสู่ระบบด้วยใบหน้า · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/face.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/shell.css">
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap">
+  <header class="row top">
+    <h1>🔐 เข้าสู่ระบบด้วยใบหน้า <small class="muted">Face login</small></h1>
+    <span class="spacer"></span>
+    <button id="btnPin" class="btn-glow ghost small">🔢 ใช้ PIN</button>
+    <a class="btn-glow ghost small" href="register.html">📝 ลงทะเบียน</a>
+    <a class="btn-glow ghost small" href="enrol.html">📸 เก็บใบหน้า</a>
+    <button id="btnGuest" class="btn-glow small" title="ไม่ต้องลงทะเบียน ผลการเล่นเก็บไว้ในเครื่องนี้ใต้ชื่อ guest">🎮 เล่นแบบไม่ลงทะเบียน</button>
+  </header>
+
+  <div class="login-grid">
+    <div class="col">
+      <div class="stage mirror">
+        <video id="video" playsinline muted></video>
+        <div id="scanRing" class="scan-ring" aria-hidden="true"></div>
+      </div>
+      <div id="status" class="login-status" data-state="scan" role="status" aria-live="polite">กำลังเตรียม…</div>
+    </div>
+
+    <aside class="card-neon col">
+      <div>
+        <div class="meter-head"><span>ความมั่นใจ (ความเหมือน)</span><b id="confNum" class="num">0.00</b></div>
+        <div id="confBar" class="bar conf"><i id="confFill"></i><span id="thrMark" class="thr" title="เกณฑ์"></span></div>
+        <p class="muted small">เส้นขาว = เกณฑ์ ต้องเกินเส้นนี้จึงนับว่าเป็นคนเดียวกัน</p>
+      </div>
+      <div>
+        <div class="meter-head"><span>โหวตจาก 15 เฟรมล่าสุด</span><b id="voteNum" class="num">0/10</b></div>
+        <div class="bar"><i id="voteFill"></i></div>
+      </div>
+      <div id="blinkBox" class="blink-box"><span class="eye">👁</span><span>กระพริบตาเพื่อยืนยันว่าเป็นคนจริง</span><b id="blinkNum" class="num">0/1</b></div>
+      <details>
+        <summary>🎚 ปรับเกณฑ์ (สำหรับทีม)</summary>
+        <label for="thr">เกณฑ์ความเหมือน <b id="thrVal" class="num">0.92</b></label>
+        <input id="thr" type="range" min="0.80" max="0.99" step="0.01" value="0.92">
+        <p class="muted small">เข้าไม่ได้ → ลดทีละ 0.02 · เพื่อนเข้าได้ → เพิ่ม · จดค่าที่ใช้ได้ลงบทที่ 4</p>
+        <p id="liveNums" class="num small muted">—</p>
+      </details>
+    </aside>
+  </div>
+  <div id="errBox" class="alert hidden" role="alert"></div>
+</main>
+
+<!-- ข้อความทักทาย + กระดาษสี -->
+<div id="greet" class="greet hidden" role="alert"><div class="greet-card"><div class="big">🎉</div><h2 id="greetName">สวัสดี!</h2><p class="muted">กำลังพาไปหน้าหลัก…</p></div></div>
+<canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/login-page.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

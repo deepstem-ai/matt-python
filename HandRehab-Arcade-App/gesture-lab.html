@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <title>ห้องทดลองท่ามือ · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="js/research/research.css">
+  <style>
+    .g5 { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: var(--sp-3); margin-top: var(--sp-4); }
+    @media (max-width: 1100px) { .g5 { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); } }
+    .gcard { padding: var(--sp-4); }
+    .gcard.active { border-color: var(--success); box-shadow: 0 0 22px color-mix(in srgb, var(--success) 45%, transparent); }
+    .gcard .ico { font-size: var(--fs-2xl); line-height: 1; }
+    .gcard .score { font: 800 var(--fs-2xl) var(--font-num); }
+    .gcard .bar { height: 26px; margin: var(--sp-2) 0; }
+    .gcard.active .bar > i { background: var(--success); }
+    .gcard .extra { min-height: 1.6em; font-weight: 700; color: var(--primary); }
+    .gcard details { font-size: var(--fs-sm); margin-top: var(--sp-2); }
+    .gcard details p { margin: var(--sp-1) 0; }
+    .thr { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--sp-3) var(--sp-4); }
+    </style>
+</head>
+<!-- Lab 19 (ท่าจีบนิ้ว + ค่าเกณฑ์ + CSV) + Lab 20 (ท่าบริหาร 5 ท่า + ค่าเกณฑ์ + CSV) ใช้กล้อง/มือจำลองร่วมกัน -->
+<body class="theme-neon profile-standard" data-title="ห้องทดลองท่ามือ">
+<main class="wrap">
+  <header class="r-head">
+    <div>
+      <h1>🤏 ห้องทดลองท่ามือ <span class="lab-no">Lab 19 + 20</span></h1>
+      <div class="sub">จีบนิ้ว: score 0–1 จาก normDist(4, 8) · ท่าบริหาร 5 ท่า: ทำท่าไหน แถบท่านั้นขึ้น ท่าอื่นต้องต่ำกว่า 30% · ป้อนจุดที่แก้สัดส่วนภาพแล้ว (hand.sq)</div>
+    </div>
+    <div class="row">
+      <span class="chip">ท่าที่ทำอยู่ <b id="activeBadge">—</b></span>
+      <button class="btn-glow ghost small" id="soundBtn">🔇 เปิดเสียง</button>
+      <button class="btn-glow ghost small" id="demoBtn">🖱️ โหมดสาธิต</button>
+      <a class="btn-glow ghost small" href="research.html">🔬 ห้องวิจัย</a>
+    </div>
+  </header>
+  <div class="tabbar" role="tablist">
+    <button class="btn-glow" role="tab" data-tab="pinch" aria-selected="true">🤏 จีบนิ้ว <span class="lab-no">Lab 19</span></button>
+    <button class="btn-glow ghost" role="tab" data-tab="five" aria-selected="false">🏋️ ท่าบริหาร 5 ท่า <span class="lab-no">Lab 20</span></button>
+  </div>
+  <div class="stats">
+    <span class="chip">FPS <b id="sFps">0</b></span>
+    <span class="chip">AI ms/เฟรม <b id="sAi">0</b></span>
+    <span class="chip">หน่วยประมวลผล <b id="sDel">—</b></span>
+    <span class="chip" data-only="pinch">สถานะจีบ <b id="sActive">—</b></span>
+    <span class="chip hidden" data-only="five">ท่าอื่นสูงสุด <b id="sCross">—</b></span>
+  </div>
+  <div id="msg" class="alert warn msg hidden"></div>
+  <div class="g5 hidden" id="cards" data-only="five" style="margin:0 0 var(--sp-4)"></div>
+
+  <div class="lab-grid">
+    <section>
+      <div class="stage mirror" id="stage">
+        <video id="video" playsinline muted></video>
+        <canvas id="canvas" class="mirror"></canvas>
+        <div class="demo-tag">โหมดสาธิต — กดเมาส์ค้าง = จีบ · F = กำมือ · O = กางนิ้ว · 1–5 = งอนิ้ว · W/S = ข้อมือ</div>
+        <div class="nohand" id="nohand">✋ ยังไม่เห็นมือ — ยกมือขึ้น หันฝ่ามือเข้ากล้อง</div>
+      </div>
+      <div data-only="pinch">
+      <div class="card-neon" style="margin-top:var(--sp-3)">
+        <div class="bigbar" id="bar"><i></i><div class="mark" id="onMark"></div><span id="barTxt">0.00</span></div>
+        <div class="kv" style="margin-top:var(--sp-3)">
+          <div>ระยะดิบ 4–8 (พิกเซล)<b id="raw">—</b></div>
+          <div>หารขนาดฝ่ามือ normDist(4,8)<b id="norm">—</b></div>
+        </div>
+      </div>
+      </div>
+      <div id="demoPanel" style="margin-top:var(--sp-3)"></div>
+    </section>
+
+    <aside class="panel" data-only="pinch">
+      <div class="card-neon" style="text-align:center">
+        <h2>จำนวนครั้งที่จีบ</h2>
+        <div class="bignum" id="count">0</div>
+        <p class="muted">นับเมื่อ active เปลี่ยนจาก false → true (แบบง่าย — Lab 21 จะแก้การนับซ้ำ)</p>
+        <button class="btn-glow ghost small" id="resetCount">↺ เริ่มนับใหม่</button>
+      </div>
+      <div class="card-neon">
+        <h2>🎚️ ค่าเกณฑ์ (ปรับได้จากภายนอก)</h2>
+        <div class="slider-row"><span>full — ระยะ ≤ ค่านี้ คะแนน = 1</span><b class="num" id="vFull"></b><input type="range" id="full" min="0.05" max="0.6" step="0.01"></div>
+        <div class="slider-row"><span>zero — ระยะ ≥ ค่านี้ คะแนน = 0</span><b class="num" id="vZero"></b><input type="range" id="zero" min="0.3" max="1.4" step="0.01"></div>
+        <div class="slider-row"><span>on — คะแนนเกินค่านี้ = active</span><b class="num" id="vOn"></b><input type="range" id="on" min="0.3" max="0.95" step="0.05"></div>
+        <div class="row">
+          <button class="btn-glow ghost small" id="hintVals">ค่าตามคำใบ้ 0.15 / 0.60</button>
+          <button class="btn-glow ghost small" id="codeVals">ค่าเริ่มต้นของโค้ด</button>
+        </div>
+      </div>
+      <div class="card-neon">
+        <h2>⏺️ บันทึกข้อมูลทุกเฟรม</h2>
+        <p class="muted">คอลัมน์: timestamp, t_ms, raw_px, norm, score, active</p>
+        <div class="row">
+          <button class="btn-glow danger" id="recBtn">⏺️ เริ่มบันทึก</button>
+          <button class="btn-glow small" id="csvBtn" disabled>⬇️ ดาวน์โหลด CSV</button>
+        </div>
+        <p>บันทึกแล้ว <b class="num" id="recN">0</b> แถว</p>
+      </div>
+    </aside>
+    <aside class="panel hidden" data-only="five">
+      <div class="card-neon">
+        <h2>⏺️ บันทึกคะแนนทั้ง 5 ท่า ทุกเฟรม</h2>
+        <p class="muted">ใช้ทำตาราง "ท่าไหนสับสนกับท่าไหน" — ทำทีละท่า ท่าละ 10 วินาที แล้วดูคอลัมน์อื่น</p>
+        <div class="row">
+          <button class="btn-glow danger" id="recBtn5">⏺️ เริ่มบันทึก</button>
+          <button class="btn-glow small" id="csvBtn5" disabled>⬇️ CSV</button>
+        </div>
+        <p>บันทึกแล้ว <b class="num" id="recN5">0</b> แถว</p>
+      </div>
+      <details class="card-neon">
+        <summary><h2>🎚️ ค่าเกณฑ์ของแต่ละท่า</h2></summary>
+        <div class="thr" id="thr"></div>
+      </details>
+      
+    </aside>
+  </div>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/research/gesture-lab.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

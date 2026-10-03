@@ -1,0 +1,18 @@
+/* ============================================================
+   page.css — โครงหน้าทั่วไป (เมนู ประวัติ กราฟ) ของ Lab 26-29
+   ทุกสีอ่านจาก tokens.css / themes.css
+   ============================================================ */
+.top-bar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); padding: var(--sp-3) var(--sp-4); background: var(--card); border-bottom: 1px solid var(--line); }
+.top-bar h1 { font-size: var(--fs-xl); margin: 0; }
+.top-bar .spacer { flex: 1; }
+.section { margin-top: calc(var(--sp-5) * var(--sp-mul)); }
+.section > h2 { margin-bottom: var(--sp-3); }
+.stat-cards { display: grid; gap: var(--sp-3); grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+.stat-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-lg); padding: var(--sp-4); }
+.stat-card small { color: var(--text-2); display: block; }
+.stat-card b { display: block; font: 800 var(--fs-2xl) var(--font-num); color: var(--primary); line-height: 1.2; }
+.stat-card span { color: var(--text-2); font-size: var(--fs-sm); }
+.foot { margin-top: var(--sp-6); color: var(--text-2); font-size: var(--fs-sm); }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+.seg button { min-height: 56px; padding: 0 var(--sp-4); border: 0; background: var(--input); color: var(--text); font: inherit; cursor: pointer; }
+.seg button.on { background: var(--primary); color: var(--on-bright); font-weight: 800; }

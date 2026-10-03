@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <title>ดูชุดข้อมูล · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="js/research/research.css">
+</head>
+<!-- Lab 30: เลือกชุดข้อมูล → อ่าน/ยอมรับสัญญาอนุญาต → ดาวน์โหลด (ลิงก์สำรอง + ตรวจไฟล์) → ตาราง 20 แถวแรก -->
+<body class="theme-neon profile-standard" data-title="ดูชุดข้อมูล">
+<main class="wrap col">
+  <header class="r-head">
+    <div>
+      <h1>📦 ดาวน์โหลดชุดข้อมูลอย่างมืออาชีพ <span class="lab-no">Lab 30</span></h1>
+      <div class="sub">Dataset viewer — อ่านสัญญาอนุญาตก่อน แล้วค่อยดาวน์โหลด · <a href="datasets/SOURCES.md" target="_blank">ตารางที่มาของข้อมูล (SOURCES.md)</a> · <a href="docs/research/why-provenance.md" target="_blank">ทำไมต้องบันทึกที่มา</a></div>
+    </div>
+    <a class="btn-glow ghost small" href="research.html">🔬 ห้องวิจัย</a>
+  </header>
+
+  <section class="card-neon col">
+    <div class="field">
+      <label for="pick">1) เลือกชุดข้อมูล <span class="muted">Choose dataset</span></label>
+      <select id="pick"></select>
+    </div>
+    <!-- สัญญาอนุญาต: แสดงเด่น ๆ และต้องติ๊กยอมรับก่อนใช้ข้อมูล -->
+    <details id="licence" class="licence" open>
+      <summary>2) ⚖️ สัญญาอนุญาต (Licence) — อ่านให้จบก่อนใช้</summary>
+      <div id="licenceBody"></div>
+    </details>
+    <label class="choice ack"><input type="checkbox" id="ack"> ฉันอ่านเงื่อนไขครบแล้ว และจะบันทึกที่มาลงใน SOURCES.md <span class="muted">I have read the licence</span></label>
+    <div class="row">
+      <button class="btn-glow" id="btnGo" disabled><span class="ico">⬇️</span> 3) ดาวน์โหลดชุดข้อมูล</button>
+      <button class="btn-glow ghost" id="btnLocal" disabled><span class="ico">📂</span> โหลดจากเครื่อง</button>
+      <input type="file" id="file" class="hidden" accept=".json,.csv,.task,.zip,.tflite">
+      <button class="btn-glow ghost" id="btnSave" disabled><span class="ico">💾</span> บันทึกไฟล์ลงเครื่อง</button>
+    </div>
+    <div class="col" id="progressBox">
+      <div class="row"><span id="progressLabel" class="muted">ยังไม่ได้เริ่มดาวน์โหลด</span><span class="chip">ความคืบหน้า <b id="pct">0%</b></span></div>
+      <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i id="bar"></i></div>
+      <ol id="attempts" class="attempts muted"></ol>
+    </div>
+    <div id="msg"></div>
+  </section>
+
+  <section class="card-neon col hidden" id="result">
+    <div class="row">
+      <span class="chip">จำนวนระเบียนทั้งหมด <b id="total">0</b></span>
+      <span class="chip">ขนาดไฟล์ <b id="size">0</b></span>
+      <span class="chip">ได้มาจาก <b id="from">-</b></span>
+    </div>
+    <div class="row" id="sampler">
+      <button class="btn-glow small ghost" id="btnSample">🎲 สุ่มดูเป็นภาพมือ</button>
+      <div class="cards" id="cards"></div>
+    </div>
+    <h3>20 ระเบียนแรก <span class="muted">First 20 records</span></h3>
+    <div class="table-scroll"><table class="data" id="table"></table></div>
+  </section>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/research/datasets-page.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

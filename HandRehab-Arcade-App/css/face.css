@@ -1,0 +1,68 @@
+/* ============================================================
+   face.css — หน้าตาของหน้าเก็บใบหน้า / เข้าสู่ระบบ (Lab 14-15)
+   สีทั้งหมดอ่านจาก tokens.css / themes.css เท่านั้น
+   ============================================================ */
+.top { margin-bottom: var(--sp-4); }
+.top h1 { margin: 0; }
+.top small { font-size: var(--fs-sm); font-weight: 400; }
+.spacer { flex: 1; }
+.bigtext { font-size: var(--fs-lg); }
+.quick { display: flex; gap: var(--sp-3); align-items: flex-end; flex-wrap: wrap; margin-top: var(--sp-4); }
+.quick .field { flex: 1; min-width: 240px; margin: 0; }
+.user-btn { justify-content: flex-start; width: 100%; }
+.user-btn .chip { margin-left: auto; }
+
+/* กล้อง + แผงข้าง */
+.capture-grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: var(--sp-4); align-items: start; }
+@media (max-width: 900px) { .capture-grid { grid-template-columns: 1fr; } }
+.stage.flash::after { content: ""; position: absolute; inset: 0; background: var(--text); opacity: 0.6; animation: flash 0.3s ease-out forwards; }
+@keyframes flash { to { opacity: 0; } }
+.pose-tag {
+  position: absolute; top: var(--sp-3); left: 50%; transform: translateX(-50%);
+  padding: var(--sp-1) var(--sp-4); border-radius: 999px; font-weight: 700; font-size: var(--fs-lg);
+  background: color-mix(in srgb, var(--card) 85%, transparent); border: 1px solid var(--line); white-space: nowrap;
+}
+.countdown { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+.countdown .ring { width: 160px; height: 160px; }
+.countdown .ring .ring-fg { stroke: var(--success); filter: drop-shadow(0 0 8px var(--success)); }
+.countdown .ring .ring-label { font-size: var(--fs-3xl); color: var(--success); }
+
+/* แถบสถานะเปลี่ยนสีตามปัญหาจริง */
+.status-strip {
+  display: flex; align-items: center; gap: var(--sp-3); min-height: 64px;
+  padding: var(--sp-3) var(--sp-4); border-radius: var(--r-md);
+  font-size: var(--fs-lg); font-weight: 700;
+  border: 3px solid var(--st); background: color-mix(in srgb, var(--st) 14%, var(--card));
+  transition: border-color var(--speed), background var(--speed);
+}
+.status-strip .ico { font-size: 1.5em; }
+.status-strip[data-state="none"] { --st: var(--text-2); }
+.status-strip[data-state="outside"] { --st: var(--error); }
+.status-strip[data-state="poor"] { --st: var(--warning); }
+.status-strip[data-state="ready"] { --st: var(--success); }
+.qbar { display: grid; grid-template-columns: auto 1fr 48px; gap: var(--sp-3); align-items: center; }
+.qbar b { text-align: right; }
+
+.pose-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+.pose-list li { display: flex; justify-content: space-between; padding: var(--sp-2) var(--sp-3); border-radius: var(--r-sm); background: var(--input); }
+.pose-list li.now { outline: 2px solid var(--primary); }
+.pose-list li.done { color: var(--success); }
+details summary { cursor: pointer; min-height: 40px; display: flex; align-items: center; }
+.small-list { font-size: var(--fs-sm); padding-left: var(--sp-4); }
+
+/* แถบรูปเลื่อนแนวนอน */
+.strip { display: flex; gap: var(--sp-4); overflow-x: auto; padding: var(--sp-3) 0 var(--sp-4); scroll-snap-type: x mandatory; }
+.shot { position: relative; flex: 0 0 180px; scroll-snap-align: start; background: var(--input); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+.shot-img { display: block; width: 100%; aspect-ratio: 4 / 5; padding: 0; border: 0; background: var(--bg); cursor: zoom-in; }
+.shot-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shot-img.missing { display: grid; place-items: center; color: var(--text-2); cursor: default; }
+.shot-foot { display: flex; justify-content: space-between; align-items: center; padding: var(--sp-2); font-size: var(--fs-sm); }
+.shot .retake {
+  position: absolute; top: var(--sp-2); right: var(--sp-2); width: 56px; height: 56px; border-radius: 50%;
+  border: 2px solid var(--primary); background: color-mix(in srgb, var(--card) 85%, transparent); color: var(--text);
+  font-size: var(--fs-xl); cursor: pointer;
+}
+.big-shot { text-align: center; }
+.big-shot img { max-width: 100%; width: 240px; border-radius: var(--r-md); }
+#errBox { margin-top: var(--sp-4); }
+a.btn-glow { text-decoration: none; }

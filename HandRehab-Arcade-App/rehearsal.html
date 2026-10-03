@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <title>ซ้อมนำเสนอ · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="js/research/research.css">
+  <style>
+  .tabs .btn-glow { min-width: 170px; }
+  .clock { font-family: var(--font-num); font-size: clamp(64px, 14vw, 180px); line-height: 1; color: var(--primary); text-align: center; }
+  .clock.over { color: var(--error); }
+  .clock.warn { color: var(--warning); }
+  .segs { display: flex; gap: 4px; height: 26px; margin: var(--sp-3) 0; }
+  .seg { flex: 1; background: var(--input); border-radius: var(--r-sm); position: relative; overflow: hidden; font-size: var(--fs-xs); color: var(--text-2); display: flex; align-items: center; justify-content: center; }
+  .seg > i { position: absolute; inset: 0 auto 0 0; width: 0; background: linear-gradient(90deg, var(--primary), var(--secondary)); opacity: 0.55; }
+  .seg.cur { outline: 2px solid var(--primary); color: var(--text); }
+  .seg span { position: relative; }
+  .cue-title { font-size: var(--fs-2xl); font-weight: 800; }
+  .cue-say { font-size: var(--fs-xl); line-height: 1.55; border-left: 6px solid var(--primary); padding-left: var(--sp-4); margin: var(--sp-3) 0; }
+  .cue-do { font-size: var(--fs-lg); color: var(--text-2); }
+  .pace { font-size: var(--fs-lg); font-weight: 700; }
+  .pace.late { color: var(--warning); }
+  .pace.ok { color: var(--success); }
+  td.n, th.n { text-align: right; font-family: var(--font-num); }
+  td.over { color: var(--error); }
+  td.under { color: var(--warning); }
+  .pb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--sp-4); }
+  .pb-card { min-height: 170px; text-align: left; cursor: pointer; font: inherit; color: var(--text); }
+  .pb-card .ic { font-size: 56px; }
+  .pb-card .t { font-size: var(--fs-xl); font-weight: 800; }
+  .pb-full { position: fixed; inset: 0; background: var(--bg); z-index: 9000; padding: var(--sp-5); overflow: auto; }
+  .pb-full .now li { font-size: var(--fs-2xl); font-weight: 700; margin-bottom: var(--sp-3); }
+  .pb-full .prep li { font-size: var(--fs-lg); color: var(--text-2); }
+  .kbd { font-family: var(--font-num); font-size: var(--fs-xs); border: 1px solid var(--line); border-radius: 4px; padding: 0 4px; }
+</style>
+</head>
+<!-- Lab 40: นาฬิกาซ้อม 5 นาที + บทพูดทีละส่วน + การ์ดแผนสำรอง 9 สถานการณ์ + ผลซ้อม (เก็บในเบราว์เซอร์นี้) -->
+<body class="theme-neon profile-standard" data-title="ซ้อมนำเสนอ">
+<main class="wrap">
+  <div class="row" style="justify-content:space-between">
+    <div>
+      <h1>🎤 ซ้อมนำเสนอ 5 นาที <span class="lab-no">Lab 40</span></h1>
+      <div class="sub">บทพูด: <a href="docs/research/pitch.md" target="_blank">pitch.md</a> · <a href="docs/research/qa-prep.md" target="_blank">ซ้อมตอบคำถาม</a> · <a href="docs/research/plan-b.md" target="_blank">แผนสำรอง</a> · <a href="docs/research/packing-list.md" target="_blank">ของที่ต้องนำไป</a> · <a href="research.html">🔬 ห้องวิจัย</a></div>
+    </div>
+    <div class="row tabs" role="tablist">
+      <button class="btn-glow" id="tabTimer">⏱️ นาฬิกาซ้อม</button>
+      <button class="btn-glow ghost" id="tabPlanB">🆘 การ์ดแผนสำรอง</button>
+      <button class="btn-glow ghost" id="tabLog">📊 ผลซ้อม <span class="chip"><b id="runCount">0</b>/5</span></button>
+    </div>
+  </div>
+
+  <!-- 1) นาฬิกาซ้อม -->
+  <section id="viewTimer">
+    <div class="card-neon">
+      <div class="clock" id="clock" aria-live="off">5:00</div>
+      <div class="segs" id="segs"></div>
+      <div class="row" style="justify-content:center">
+        <button class="btn-glow" id="startBtn" style="min-width:200px">▶ เริ่ม <span class="kbd">Space</span></button>
+        <button class="btn-glow success" id="nextBtn">ส่วนถัดไป → <span class="kbd">N</span></button>
+        <button class="btn-glow ghost" id="resetBtn">↺ เริ่มใหม่</button>
+        <label class="switch"><input type="checkbox" id="half"> โหมดครึ่งเวลา (2:30)</label>
+      </div>
+      <p class="pace" id="pace" style="text-align:center;margin-top:var(--sp-3)">กดเริ่มเมื่อผู้พูดคนแรกเปิดปาก</p>
+    </div>
+    <div class="card-neon" style="margin-top:var(--sp-4)">
+      <div class="row" style="justify-content:space-between"><span class="cue-title" id="cueTitle"></span><span class="chip" id="cueWho"></span></div>
+      <div class="cue-say" id="cueSay"></div>
+      <div class="cue-do" id="cueDo"></div>
+      <p class="muted" id="cueNext" style="margin-top:var(--sp-3)"></p>
+    </div>
+  </section>
+
+  <!-- 2) การ์ดแผนสำรอง -->
+  <section id="viewPlanB" class="hidden">
+    <div class="row" style="justify-content:space-between;margin-bottom:var(--sp-3)">
+      <p class="muted" style="margin:0">แตะการ์ด (หรือกดเลข 1–9) เพื่อเปิดเต็มจอ · ต้องซ้อมจริงอย่างน้อย 3 สถานการณ์</p>
+      <span class="chip" id="pbChip">ซ้อมแล้ว <b>0</b>/3</span>
+    </div>
+    <div class="pb-grid" id="pbGrid"></div>
+  </section>
+
+  <!-- 3) ผลการซ้อม -->
+  <section id="viewLog" class="hidden">
+    <div class="card-neon">
+      <div class="row" style="justify-content:space-between">
+        <h2 class="card-title">เวลาจริงแต่ละส่วน (ต้องซ้อมครบ 5 รอบ)</h2>
+        <div class="row"><button class="btn-glow ghost small" id="csvBtn">⬇ CSV</button><button class="btn-glow danger small" id="clearBtn">ลบประวัติ</button></div>
+      </div>
+      <div class="bar" style="margin:var(--sp-2) 0"><i id="runBar"></i></div>
+      <div style="overflow:auto"><table class="data" id="logTable"></table></div>
+      <p class="muted">สีแดง = เกินแผนมากกว่า 10 วินาที · สีเหลือง = เร็วกว่าแผนมากกว่า 10 วินาที · เก็บเฉพาะในเบราว์เซอร์เครื่องนี้</p>
+    </div>
+  </section>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/research/rehearsal.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

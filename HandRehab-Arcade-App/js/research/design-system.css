@@ -1,0 +1,104 @@
+/* ============================================================
+   design-system.css — หน้า design-system.html (Lab 05 สีและตัวอักษร + Lab 06 ชิ้นส่วนหน้าจอ)
+   รวมจาก style-page.css, showcase.css, extras.css — สีจาก tokens.css / themes.css เท่านั้น
+   ============================================================ */
+.page-head { margin-bottom: var(--sp-4); }
+.ds h2 { margin-top: var(--sp-6); }
+.ds h2 small { font-size: var(--fs-sm); font-weight: 400; }
+.controls { display: flex; flex-direction: column; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+.lbl { font-weight: 700; }
+.field.inline { margin: 0; }
+.field.grow { flex: 1 1 260px; margin: 0; }
+
+.colour-card { display: flex; flex-direction: column; gap: var(--sp-2); }
+.swatch { height: 84px; border-radius: var(--r-md); border: 1px solid var(--line); }
+.colour-card code { font-size: var(--fs-sm); }
+.colour-card .small { font-size: var(--fs-sm); }
+.note { font-size: var(--fs-xs); color: var(--warning); }
+
+/* ป้ายคอนทราสต์: ผ่าน = เขียว, ไม่ผ่าน = แดง (ตามโจทย์) */
+.ratio { display: inline-block; font: 800 var(--fs-md) var(--font-num); padding: 2px var(--sp-3); border-radius: var(--r-sm); border: 2px solid; width: fit-content; }
+.ratio.pass { color: var(--success); border-color: var(--success); }
+.ratio.fail { color: var(--error); border-color: var(--error); background: color-mix(in srgb, var(--error) 15%, transparent); }
+
+.picker { display: flex; align-items: center; gap: var(--sp-2); min-height: var(--btn-h); font-weight: 600; }
+.picker input[type=color] { width: 72px; height: 48px; border: 2px solid var(--line); border-radius: var(--r-sm); background: var(--input); cursor: pointer; padding: 2px; }
+
+.pair-demo { display: inline-block; padding: var(--sp-1) var(--sp-3); border-radius: var(--r-sm); border: 1px solid var(--line); font-weight: 600; }
+.type-row p { margin: var(--sp-1) 0; }
+.type-meta { display: flex; gap: var(--sp-3); align-items: baseline; }
+.px { color: var(--primary); font-size: var(--fs-sm); }
+.score-demo .big { font-size: var(--fs-3xl); color: var(--primary); }
+.tests { list-style: none; padding-left: var(--sp-5); }
+.tests li { padding: var(--sp-1) 0; }
+.tests .pass { color: var(--success); }
+.tests .fail { color: var(--error); }
+.toolbar { display: flex; flex-direction: column; gap: var(--sp-3); }
+.grow { flex: 1 1 280px; }
+.fps-hud { display: flex; gap: var(--sp-2); }
+.fps-hud .chip { background: var(--card); }
+.fx-status { display: flex; flex-wrap: wrap; gap: var(--sp-2); font-size: var(--fs-sm); }
+.fx-status .on  { color: var(--success); }
+.fx-status .off { color: var(--text-2); }
+.stress { margin-top: var(--sp-4); grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+.stress .card-neon { padding: var(--sp-3); display: flex; flex-direction: column; gap: var(--sp-2); align-items: flex-start; }
+.stress .ring { width: 72px; height: 72px; }
+.stress .ring .ring-label { font-size: var(--fs-sm); }
+#report { margin-top: var(--sp-4); }
+#report ul { margin: var(--sp-2) 0 0; }
+
+/* ---------- เปลวไฟ: รูปหยดน้ำกลับหัว ไล่สีเหลือง→ชมพู→แดง ---------- */
+.flame {
+  --flame-size: 40px;              /* JS ปรับขนาดตามจำนวนวันได้ */
+  display: inline-block;
+  width: var(--flame-size); height: calc(var(--flame-size) * 1.3);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: radial-gradient(circle at 50% 75%, var(--warning) 0 30%, var(--pink) 55%, var(--error) 80%);
+  filter: drop-shadow(0 0 10px var(--warning));
+  transform-origin: 50% 100%;
+  animation: flicker 0.9s ease-in-out infinite alternate;
+}
+@keyframes flicker {
+  0%   { transform: scale(1, 1) rotate(-2deg); }
+  50%  { transform: scale(1.06, 0.94) rotate(2deg); }
+  100% { transform: scale(0.96, 1.08) rotate(-1deg); }
+}
+
+/* ---------- แถบพลังงาน: ช่องย่อย 10 ช่อง + แสงวิ่ง ---------- */
+.energy {
+  position: relative; height: 28px; margin: var(--sp-3) 0;
+  background: var(--input); border: 1px solid var(--line); border-radius: var(--r-sm); overflow: hidden;
+}
+.energy > i {
+  position: absolute; inset: 0 auto 0 0; width: 40%;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 calc(10% - 3px), var(--bg) calc(10% - 3px) 10%),
+    linear-gradient(90deg, var(--success), var(--primary));
+  transition: width 0.6s ease;
+}
+.energy::after { /* แสงวิ่งผ่าน */
+  content: ""; position: absolute; inset: 0; width: 30%;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--text) 35%, transparent), transparent);
+  animation: sweep 2s linear infinite;
+}
+@keyframes sweep { from { transform: translateX(-100%); } to { transform: translateX(400%); } }
+
+/* ---------- ดาวระยิบระยับ ---------- */
+.stars { position: relative; height: 90px; }
+.stars i {
+  position: absolute; width: 10px; height: 10px; background: var(--warning);
+  clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%);
+  animation: twinkle 1.6s ease-in-out infinite;
+}
+.stars i:nth-child(1) { left: 8%;  top: 20%; }
+.stars i:nth-child(2) { left: 22%; top: 60%; animation-delay: 0.3s; background: var(--sky); }
+.stars i:nth-child(3) { left: 38%; top: 10%; animation-delay: 0.6s; }
+.stars i:nth-child(4) { left: 50%; top: 55%; animation-delay: 0.9s; background: var(--pink); }
+.stars i:nth-child(5) { left: 64%; top: 25%; animation-delay: 0.2s; }
+.stars i:nth-child(6) { left: 76%; top: 70%; animation-delay: 1.1s; background: var(--sky); }
+.stars i:nth-child(7) { left: 86%; top: 15%; animation-delay: 0.5s; }
+.stars i:nth-child(8) { left: 94%; top: 50%; animation-delay: 1.3s; background: var(--pink); }
+@keyframes twinkle { 0%, 100% { transform: scale(0.5); opacity: 0.4; } 50% { transform: scale(1.6); opacity: 1; } }
+
+/* โหมดสงบ: เปลวไฟไม่เรืองแสง */
+body.calm .flame, body.theme-calm .flame { filter: none; }
