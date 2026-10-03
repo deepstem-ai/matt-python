@@ -8,6 +8,7 @@
 // ============================================================
 
 // ตัวกรองความถี่ต่ำพื้นฐาน (exponential smoothing): y = α·x + (1−α)·y_ก่อนหน้า
+// สมการ (5): x̂_t = α x_t + (1 − α) x̂_(t−1)
 class LowPass {
   constructor() { this.y = null; }
   filter(x, alpha) { this.y = this.y === null ? x : alpha * x + (1 - alpha) * this.y; return this.y; }
@@ -15,6 +16,7 @@ class LowPass {
 }
 
 // α จากความถี่ตัด (Hz) และช่วงเวลา dt (วินาที):  τ = 1/(2π·fc),  α = 1 / (1 + τ/dt)
+// สมการ (4): α = 1 / (1 + 1/(2π f_c T_e))   (T_e = dt = เวลาระหว่างเฟรม)
 export function smoothingAlpha(cutoff, dt) {
   const tau = 1 / (2 * Math.PI * cutoff);
   return 1 / (1 + tau / dt);
@@ -27,6 +29,7 @@ export function smoothingAlpha(cutoff, dt) {
 //   beta      = ความไวต่อความเร็ว ยิ่งมาก ยิ่งตามทันตอนมือเร็ว
 //   dCutoff   = ความถี่ตัดของ "ความเร็ว" (ปกติ 1 Hz)
 // หลักการ: fc = minCutoff + beta·|ความเร็วที่กรองแล้ว|  → ช้า = กรองแรง, เร็ว = กรองเบา
+// สมการ (6): f_c = f_c,min + β |ẋ̂_t|  (ẋ̂ = ความเร็วที่กรองด้วย dCutoff ตาม Casiez 2012)
 // ------------------------------------------------------------
 export class OneEuroFilter {
   constructor({ freq = 30, minCutoff = 1.0, beta = 0.007, dCutoff = 1.0 } = {}) {
@@ -42,8 +45,8 @@ export class OneEuroFilter {
     const dValue = this.lastRaw === null ? 0 : (value - this.lastRaw) / dt;   // ความเร็วดิบ
     this.lastRaw = value;
     const edx = this.dx.filter(dValue, smoothingAlpha(this.dCutoff, dt));   // ความเร็วที่กรองแล้ว
-    const cutoff = this.minCutoff + this.beta * Math.abs(edx);
-    return this.x.filter(value, smoothingAlpha(cutoff, dt));
+    const cutoff = this.minCutoff + this.beta * Math.abs(edx);           // สมการ (6)
+    return this.x.filter(value, smoothingAlpha(cutoff, dt));              // สมการ (4) + (5)
   }
 }
 

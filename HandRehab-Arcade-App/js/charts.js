@@ -132,7 +132,7 @@ export function barChart(canvas, data, opts = {}) {
   drawTitle(ctx, w, opts, fs);
   if (!data?.length) { drawEmpty(ctx, w, h, opts.emptyText, fs); return; }
   const pad = { l: fs * 3.6, r: 16, t: opts.title ? fs * 2.6 : 16, b: fs * 3.4 };
-  const yMax = opts.yMax ?? niceMax(Math.max(...data.map((d) => d.value + (d.error || 0))));
+  const yMax = opts.yMax ?? niceMax(Math.max(...data.map((d) => d.value + (d.error || 0)), ...(opts.lines || []).map((l) => l.value)));
   const Y = (v) => h - pad.b - (v / (yMax || 1)) * (h - pad.t - pad.b);
   ctx.strokeStyle = css('--line', '#334155'); ctx.fillStyle = css('--text-2', '#94A3B8'); ctx.font = `${fs * 0.85}px ${font}`; ctx.textAlign = 'right';
   for (let k = 0; k <= 4; k++) {
@@ -154,6 +154,12 @@ export function barChart(canvas, data, opts = {}) {
     ctx.fillStyle = css('--text', '#F8FAFC'); ctx.textAlign = 'center';
     ctx.fillText((opts.format ? opts.format(d.value) : +d.value.toFixed(1)) + '', x + bw / 2, Y(d.value) - 6);
     ctx.fillStyle = css('--text-2', '#94A3B8'); ctx.fillText(String(d.label), x + bw / 2, h - pad.b + fs * 1.2);
+  });
+  // เส้นอ้างอิง (เช่น SUS 68, FPS 25) opts.lines = [{ value, color, label }]
+  (opts.lines || []).forEach((l) => {
+    ctx.strokeStyle = l.color || css('--warning', '#FBBF24'); ctx.setLineDash([6, 6]); ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.moveTo(pad.l, Y(l.value)); ctx.lineTo(w - pad.r, Y(l.value)); ctx.stroke(); ctx.setLineDash([]); ctx.lineWidth = 1;
+    if (l.label) { ctx.fillStyle = l.color || css('--warning', '#FBBF24'); ctx.textAlign = 'right'; ctx.fillText(l.label, w - pad.r - 4, Y(l.value) - 4); }
   });
   ctx.fillStyle = css('--text', '#F8FAFC'); ctx.textAlign = 'center';
   if (opts.xLabel) ctx.fillText(opts.xLabel, (pad.l + w - pad.r) / 2, h - fs * 0.5);

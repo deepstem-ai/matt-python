@@ -11,7 +11,7 @@ import { RepCounter } from '../rep-counter.js';
 import { cssVar } from '../ui.js';
 import { spread, normDist } from '../geometry.js';
 import { PointFilter } from '../smoothing.js';
-import { scoreFromMeasure } from '../calibration.js';
+import { scoreFromMeasure, THETA_ON, THETA_OFF } from '../calibration.js';
 
 // Lab 27: อาการสั่นจำลองสำหรับ "ทดสอบมือสั่น" (พิกเซล) ระดับ 0-3
 export const SHAKE_PX = [0, 6, 14, 28];
@@ -23,7 +23,9 @@ export const LEVELS = {
   normal: { th: 'ปกติ', portalR: 85, starR: 30, drift: 0 },
   hard: { th: 'ยาก', portalR: 65, starR: 24, drift: 40 },
 };
-const PINCH_ON = 0.7, PINCH_OFF = 0.35; // ประตูสองบาน: เกิน 0.7 = จีบ, ต่ำกว่า 0.35 = ปล่อย
+// สมการ (7) ประตูสองบาน: π ≥ θ_on (0.7) = จีบ, π ≤ θ_off (0.3) = ปล่อย — เท่ากันทุกคนเพราะ π สร้างจากสมการ (3)
+const PINCH_ON = THETA_ON, PINCH_OFF = THETA_OFF;
+export const REP_COOLDOWN_MS = 400;     // สมการ (7): พัก ≈ 400 ms ก่อนนับครั้งถัดไป
 
 export class StarPortal {
   // hooks: { readHand() → points|null, onTick(dt), onHud(state), onEnd(summary) }
@@ -56,7 +58,7 @@ export class StarPortal {
     this.round = {
       active: true, timeLeft: this.roundSec, startTime: Date.now(), level: this.level,
       score: 0, combo: 0, bestCombo: 0, attempts: 0, successes: 0, starTimes: [], lastRelease: null,
-      counter: new RepCounter({ enter: PINCH_ON, exit: PINCH_OFF, minHoldMs: 80, cooldownMs: 150 }),
+      counter: new RepCounter({ enter: PINCH_ON, exit: PINCH_OFF, minHoldMs: 80, cooldownMs: REP_COOLDOWN_MS }),
       reps: [], star: null, portal: { x: 0, y: 0, r: L.portalR, vx: L.drift, vy: L.drift * 0.6, spin: 0 },
     };
     this.pinching = false;
@@ -113,7 +115,7 @@ export class StarPortal {
       const p = toScreen(pts[8], this.canvas, true);      // ปลายนิ้วชี้ × ขนาด canvas แบบกระจก
       this.pointer = { ...this.smooth(p), visible: true };
       const sq = pts.sq || pts;
-      // Lab 27: มีค่าปรับเทียบ → ใช้ระยะจีบดิบเทียบกับ entry/exit ของคนนี้ · ไม่มี → ใช้เกณฑ์มาตรฐาน
+      // Lab 27: มีค่าปรับเทียบ → สมการ (3) ด้วย d_open = rest, d_close = best ของคนนี้ · ไม่มี → d_open 0.80 / d_close 0.25
       this.pinchScore = this.cal ? scoreFromMeasure(normDist(sq, 4, 8), this.cal) : detectPinch(sq).score;
       this.angle = spread(sq, 'thumb', 'index');   // Lab 28: มุมระหว่างนิ้วโป้ง-นิ้วชี้ (องศา)
       this._lostT = 0;
@@ -140,7 +142,7 @@ export class StarPortal {
       if (this.pointer.visible && Math.hypot(this.pointer.x - s.x, this.pointer.y - s.y) <= this.grabRadius) {
         s.held = true; s.returning = false; this.engine.sound.grab();
       }
-    } else if (this.pinching && this.pinchScore < PINCH_OFF) {
+    } else if (this.pinching && this.pinchScore <= PINCH_OFF) {   // สมการ (7): release ⇔ π ≤ θ_off
       this.pinching = false;
       if (s.held) this.release();
     }

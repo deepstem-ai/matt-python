@@ -2,6 +2,7 @@
 // appbar.js — แถบบนหน้าตาเดียวกันทุกหน้าย่อยของแอป (Lab 34)
 // หน้าที่แยกเป็นไฟล์ HTML ของตัวเอง (login, users, เกม ฯลฯ) ใส่ <script type="module" src="js/appbar.js">
 // แล้วจะได้: ชื่อแอป · ตอนนี้อยู่หน้าไหน · ผู้ใช้ · ปุ่มเต็มจอ · ปุ่มย้อนกลับ · ปุ่มหน้าหลัก
+// หน้าเครื่องมือวิจัย (<body data-hub="research">) ได้ปุ่ม "🔬 ห้องวิจัย" กลับไปหน้ารวม research.html
 // และลงทะเบียน service worker ให้ด้วย (ทำงานออฟไลน์ + แจ้งเวอร์ชันใหม่)
 // ============================================================
 import { registerSW, markStandalone } from './pwa.js';
@@ -20,6 +21,7 @@ bar.innerHTML = `<a class="brand" href="index.html#home">HandRehab Arcade</a>
   <span class="where">📍 ${esc(title)}</span>
   <span class="spacer"></span>
   <span class="chip" id="appUser">…</span>
+  ${document.body.dataset.hub === 'research' ? '<a class="btn-glow ghost small" href="research.html"><span class="ico">🔬</span> ห้องวิจัย</a>' : ''}
   <button class="btn-glow ghost small" data-fullscreen><span class="ico">⛶</span> เต็มจอ</button>
   <button class="btn-glow ghost small" id="appBack"><span class="ico">↩</span> ย้อนกลับ</button>
   <a class="btn-glow ghost small" href="${esc(home)}"><span class="ico">🏠</span> หน้าหลัก</a>`;

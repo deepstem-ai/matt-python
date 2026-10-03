@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <title>ความเที่ยงของการวัดซ้ำ (ICC) · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <link rel="stylesheet" href="js/research/research.css">
+  <style>
+  td.n, th.n { text-align: right !important; font-family: var(--font-num); }
+  .big-icc { font: 800 var(--fs-3xl) var(--font-num); }
+  .band-poor { color: var(--error); } .band-moderate { color: var(--warning); } .band-good, .band-excellent { color: var(--success); }
+  .ctl { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: end; }
+  .tbl-scroll { max-height: 420px; overflow: auto; }
+  </style>
+</head>
+<!-- บทความ §6.2 ด้านความเที่ยงของการวัดซ้ำ: ICC ≥ 0.75 = ดี (Koo & Li 2016), ไม่นำรอบแรกมาวิเคราะห์ (Kim et al. 2025) -->
+<body class="theme-neon profile-standard" data-title="ความเที่ยงของการวัดซ้ำ (ICC)" data-hub="research">
+<main class="wrap">
+  <header class="r-head">
+    <div>
+      <h1>🔁 ความเที่ยงของการวัดซ้ำ (Test–retest ICC)</h1>
+      <div class="sub">ตาราง ผู้ใช้ × ครั้งที่วัด → ICC(2,1) และ ICC(3,1) · ตัดเซสชันแรกของแต่ละคนออก · เกณฑ์ Koo &amp; Li (2016)</div>
+    </div>
+    <a class="btn-glow ghost small" href="research.html">🔬 ห้องวิจัย</a>
+  </header>
+  <div id="demoBanner" class="alert warn hidden" style="margin-bottom:var(--sp-3)"></div>
+
+  <section class="card-neon">
+    <div class="ctl">
+      <label>เกม <select id="game"><option value="spread-wall">🐠 กางนิ้วผ่านกำแพง</option><option value="star-portal">⭐ จับดาว</option><option value="rhythm-tap">🎵 เคาะจังหวะ</option></select></label>
+      <label>ตัวชี้วัด <select id="metric"></select></label>
+      <label>จำนวนครั้งที่ใช้ (k ≥ 2) <input id="k" type="number" min="2" max="10" value="2" style="width:90px"></label>
+      <label class="switch"><input type="checkbox" id="lockedOnly"> 🔒 เฉพาะเซสชันเกณฑ์ตรึง</label>
+      <label class="switch"><input type="checkbox" id="incDemo"> รวมข้อมูลจำลอง</label>
+    </div>
+    <div class="row" style="margin-top:var(--sp-3)">
+      <button class="btn-glow ghost small" id="mkDemo">🧪 ใส่ข้อมูลจำลอง 8 คน × 5 ครั้ง</button>
+      <button class="btn-glow ghost small" id="rmDemo">🧹 ลบข้อมูลจำลองของหน้านี้</button>
+      <button class="btn-glow ghost small" id="csv">⬇ CSV ตาราง + ผล ICC</button>
+    </div>
+  </section>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)" aria-live="polite">
+    <div class="row" style="gap:var(--sp-5)">
+      <div><small class="muted">ICC(2,1) · absolute agreement · two-way random</small><div class="big-icc" id="icc21">–</div><b id="band21"></b></div>
+      <div><small class="muted">ICC(3,1) · consistency · two-way mixed</small><div class="big-icc" id="icc31">–</div><b id="band31"></b></div>
+      <div><small class="muted">ขนาดตาราง</small><div class="big-icc" id="size">–</div><span class="muted" id="skip"></span></div>
+    </div>
+    <p id="verdict" style="margin-top:var(--sp-3)"></p>
+  </section>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)">
+    <h2 class="card-title">ตารางข้อมูล (ผู้ใช้ × ครั้งที่ 2 … k+1)</h2>
+    <div class="tbl-scroll"><table class="data"><thead id="th"></thead><tbody id="tb"></tbody></table></div>
+  </section>
+
+  <section class="card-neon" style="margin-top:var(--sp-4)">
+    <h2 class="card-title">📖 คำอธิบาย</h2>
+    <ul>
+      <li><b>ICC (Intraclass Correlation Coefficient)</b> บอกว่าการวัดซ้ำในคนเดิมได้ค่าใกล้กันแค่ไหน เมื่อเทียบกับความต่างระหว่างคน — ค่าใกล้ 1 = วัดซ้ำได้ผลคงที่</li>
+      <li><b>ICC(2,1)</b> แบบ "ความสอดคล้องสัมบูรณ์" นับความต่างเชิงระบบระหว่างครั้ง (เช่น ครั้งหลังเก่งขึ้นทุกคน) เป็นความคลาดเคลื่อนด้วย — ใช้รายงานหลัก</li>
+      <li><b>ICC(3,1)</b> แบบ "ความคงเส้นคงวา" ไม่นับความต่างเชิงระบบ ใช้ดูว่าลำดับของคนคงที่หรือไม่</li>
+      <li>สูตร (Shrout &amp; Fleiss 1979): ICC(2,1) = (MSR − MSE) / (MSR + (k−1)MSE + k(MSC − MSE)/n) · ICC(3,1) = (MSR − MSE) / (MSR + (k−1)MSE)</li>
+      <li>เกณฑ์แปลผล Koo &amp; Li (2016): &lt; 0.5 ต่ำ · 0.5–0.75 ปานกลาง · 0.75–0.9 ดี · &gt; 0.9 ดีเยี่ยม · บทความกำหนดเป้าหมาย ≥ 0.75</li>
+      <li><b>ตัดเซสชันแรก</b>ของแต่ละคนทิ้ง เพราะได้รับผลจากการฝึก (practice effect, Kim et al. 2025) แล้วใช้ k ครั้งถัดไปที่มีค่า · คนที่มีไม่ครบ k ครั้งไม่นำมาคิด</li>
+      <li>การวัดผลต้อง <b>ตรึงเกณฑ์</b> (หน้า <a href="calibrate.html">ปรับเทียบ</a>) — เปิดสวิตช์ "🔒 เฉพาะเซสชันเกณฑ์ตรึง" เพื่อใช้เฉพาะเซสชันที่เกณฑ์ไม่เปลี่ยน</li>
+      <li>รายละเอียดสมการทั้งหมด: <a href="docs/MATH-MODEL.md" target="_blank">docs/MATH-MODEL.md</a></li>
+    </ul>
+  </section>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/research/reliability.js"></script>
+<script type="module" src="js/appbar.js"></script>
+</body>
+</html>

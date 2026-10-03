@@ -8,6 +8,8 @@ import { normDist, fingerCurl, spread, angle, clamp01, scoreLow, scoreHigh } fro
 
 // ค่าเกณฑ์เริ่มต้น (ได้จากการทดลองกับมือผู้ใหญ่ทั่วไป ควรสอบเทียบรายคนใน Lab 27)
 export const GESTURE_CONFIG = {
+  // สมการ (3) ตอนยังไม่ปรับเทียบ: full = d_close = 0.25 (ระยะตอนจีบ), zero = d_open = 0.80 (ระยะตอนแบนิ้ว)
+  //   (ชื่อคีย์ full/zero คงไว้ให้โค้ดเดิมใช้ได้) · on = θ_on = 0.7 ของสมการ (7)
   // indexCurlMax: ถ้านิ้วชี้งอเกินนี้ถือว่าเป็น "กำมือ" ไม่ใช่จีบ (กันท่ากำมือทำให้แถบจีบขึ้นตาม)
   pinch: { a: 4, b: 8, full: 0.25, zero: 0.8, on: 0.7, indexCurlMax: 0.65 },
   fist: { fingers: ['index', 'middle', 'ring', 'little'], zero: 0.3, full: 0.8, on: 0.7 },
@@ -34,7 +36,9 @@ export function setGestureConfig(name, patch) {
 // ใช้ในชีวิตประจำวัน: หยิบเหรียญ กลัดกระดุม หยิบยาเม็ด จับปากกา
 // ทำไมสำคัญในการฟื้นฟู: ผู้ป่วยหลอดเลือดสมอง ข้อนิ้วเสื่อม หรือเอ็นนิ้วบาดเจ็บ มักเสีย "การหยิบละเอียด" เป็นอย่างแรก
 //   และเป็นทักษะที่กำหนดว่าจะใช้ชีวิตเองได้ไหม (กินยาเอง แต่งตัวเอง) นักกายภาพจึงฝึกท่านี้ซ้ำ ๆ ทุกวัน
-// สมการ: d = normDist(4,8); score = 1 เมื่อ d ≤ full, 0 เมื่อ d ≥ zero, ระหว่างนั้นเป็นเส้นตรง
+// สมการ (2): d̂48 = normDist(4,8)
+// สมการ (3): π = clip((d_open − d̂48)/(d_open − d_close), 0, 1)  ค่าเริ่มต้น d_open = 0.80 (zero), d_close = 0.25 (full)
+//        (เท่ากับ score = 1 เมื่อ d ≤ d_close, 0 เมื่อ d ≥ d_open, ระหว่างนั้นเป็นเส้นตรง)
 //        ตัวคูณกันสับสนกับกำมือ: g = clamp((indexCurlMax − curl_ชี้) / 0.15)  → score = score × g
 // ------------------------------------------------------------
 export function detectPinch(pts, over) {
@@ -42,8 +46,8 @@ export function detectPinch(pts, over) {
   const distance = normDist(pts, c.a, c.b);
   const indexCurl = fingerCurl(pts, 'index');
   const gate = clamp01((c.indexCurlMax - indexCurl) / 0.15);
-  const score = scoreLow(distance, c.full, c.zero) * gate;
-  return { score, active: score > c.on, distance, details: { distance, indexCurl, gate } };
+  const score = scoreLow(distance, c.full, c.zero) * gate;   // สมการ (3) × ตัวคูณกันสับสนกับกำมือ
+  return { score, active: score >= c.on, distance, details: { distance, indexCurl, gate } };
 }
 
 // ------------------------------------------------------------

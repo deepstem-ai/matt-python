@@ -2,10 +2,10 @@
 // calibrate-page.js — วิซาร์ดปรับเทียบ 4 ขั้น (Lab 27)
 //   1 อธิบาย + เวลา  2 ถือมือนิ่ง 5 วิ → วัดอาการสั่น  3 ดูท่าตัวอย่าง แล้วทำเต็มแรง 5 ครั้ง  4 ผลลัพธ์ + ลองเลย
 // ============================================================
-import { applyPrefs, esc, toast } from './ui.js';
+import { applyPrefs, esc, toast, modal } from './ui.js';
 import { updateUser, getCurrentUserId } from './db.js';
 import { RepCounter } from './rep-counter.js';
-import { GESTURES, TREMOR_LEVELS, STILL_SEC, REPS_NEEDED, classifyTremor, tremorFromSamples, median, PeakTracker, buildRecord, saveCalibration, loadCalibration, scoreFromMeasure } from './calibration.js';
+import { GESTURES, TREMOR_LEVELS, STILL_SEC, REPS_NEEDED, classifyTremor, tremorFromSamples, median, PeakTracker, buildRecord, saveCalibration, loadCalibration, scoreFromMeasure, THETA_ON, THETA_OFF, setCalibrationLock, listCalibrations } from './calibration.js';
 import { CalibInput, animateGesture } from './calib-input.js';
 import { mountUserPicker, currentUid } from './user-picker.js';
 
@@ -39,14 +39,52 @@ function step1() {
     <div class="row">${btn('camGo', '📷 เริ่มด้วยกล้อง')}${btn('demoGo', '🖐 โหมดสาธิต (มือจำลอง)', 'ghost')}</div>`);
   const pick = () => { gestureKey = panel.querySelector('input[name=g]:checked').value; G = GESTURES[gestureKey]; input.gesture = gestureKey; };
   $('camGo').onclick = async () => {
-    pick(); $('camGo').disabled = true; $('camGo').textContent = '⏳ กำลังเปิดกล้องและโหลดโมเดล…';
+    pick(); if (!(await confirmUnlock())) return;
+    $('camGo').disabled = true; $('camGo').textContent = '⏳ กำลังเปิดกล้องและโหลดโมเดล…';
     try { await input.startCamera(); setView('hand'); step2(); }
     catch (e) {
       show(1, `<div class="alert"><h2>⚠️ ${esc(e.message)}</h2><p>${esc(e.detail || '')}</p></div><div class="row" style="margin-top:12px">${btn('retry', '↻ ลองอีกครั้ง')}${btn('demoGo2', '🖐 ใช้โหมดสาธิต', 'ghost')}</div>`);
       $('retry').onclick = step1; $('demoGo2').onclick = () => { input.useDemo(); setView('demo'); step2(); };
     }
   };
-  $('demoGo').onclick = () => { pick(); input.useDemo(); setView('demo'); step2(); };
+  $('demoGo').onclick = async () => { pick(); if (!(await confirmUnlock())) return; input.useDemo(); setView('demo'); step2(); };
+}
+// ตรึงเกณฑ์: ท่าที่ล็อกไว้ต้องยืนยันปลดล็อกก่อนปรับเทียบใหม่ (คืน true = ไปต่อได้)
+async function confirmUnlock() {
+  const old = await loadCalibration(currentUid(), gestureKey);
+  if (!old?.locked) return true;
+  const ok = await modal(`<h2>🔒 เกณฑ์${esc(G.th)}ถูกตรึงไว้</h2>
+    <p>เกณฑ์นี้ถูกล็อกเพื่อการวัดผล (ล็อกเมื่อ ${old.lockedAt ? new Date(old.lockedAt).toLocaleString('th-TH') : '—'})</p>
+    <p>ถ้าปรับเทียบใหม่ เกณฑ์จะเปลี่ยน และผลหลังจากนี้ <b>เทียบกับผลก่อนหน้าไม่ได้โดยตรง</b> ต้องการปลดล็อกจริงหรือไม่?</p>`,
+  [{ label: '🔓 ปลดล็อกและปรับเทียบใหม่', value: true, cls: 'danger' }, { label: 'ยกเลิก (คงเกณฑ์เดิม)', value: false, cls: 'ghost' }]);
+  if (ok) { await setCalibrationLock(currentUid(), gestureKey, false).catch(() => {}); renderLocks(); }
+  return !!ok;
+}
+const GESTURE_TH = { ...Object.fromEntries(Object.entries(GESTURES).map(([k, g]) => [k, `${g.icon} ${g.th}`])), spread: '🐠 กางนิ้ว (เกมกำแพง)' };
+// รายการค่าปรับเทียบของผู้ใช้ + สวิตช์ล็อกต่อท่า
+async function renderLocks() {
+  const host = $('lockList'), uid = currentUid();
+  const recs = (await listCalibrations(uid)).sort((a, b) => a.id.localeCompare(b.id));
+  if (!recs.length) { host.innerHTML = '<p class="muted">ยังไม่มีค่าปรับเทียบ — ปรับเทียบด้านบนก่อน แล้วจึงตรึงเกณฑ์</p>'; return; }
+  host.innerHTML = recs.map((c) => {
+    const vals = c.gesture === 'spread' ? `หุบ ${c.min}° · กาง ${c.max}°` : `rest ${(+c.rest).toFixed(3)} · best ${(+c.best).toFixed(3)} · entry ${(+c.entry).toFixed(3)} · exit ${(+c.exit).toFixed(3)}`;
+    return `<div class="row" style="align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:6px 0">
+      <div><b>${esc(GESTURE_TH[c.gesture] || c.gesture)}</b> ${c.locked ? '<span class="chip">🔒 ตรึงแล้ว</span>' : '<span class="chip">🔓 ยังไม่ตรึง</span>'}
+        <div class="muted num">${esc(vals)} · ปรับเทียบ ${c.at ? new Date(c.at).toLocaleString('th-TH') : '—'}</div></div>
+      <label class="switch"><input type="checkbox" data-lock="${esc(c.gesture)}" ${c.locked ? 'checked' : ''} aria-label="ตรึงเกณฑ์ ${esc(GESTURE_TH[c.gesture] || c.gesture)}"> ตรึงเกณฑ์</label></div>`;
+  }).join('');
+  host.querySelectorAll('input[data-lock]').forEach((el) => {
+    el.onchange = async () => {
+      const g = el.dataset.lock;
+      if (!el.checked) {
+        const ok = await modal(`<h2>🔓 ปลดล็อกเกณฑ์?</h2><p>ผลการวัดหลังปลดล็อกอาจเทียบกับผลก่อนหน้าไม่ได้</p>`, [{ label: '🔓 ปลดล็อก', value: true, cls: 'danger' }, { label: 'ยกเลิก', value: false, cls: 'ghost' }]);
+        if (!ok) { el.checked = true; return; }
+      }
+      try { await setCalibrationLock(uid, g, el.checked); toast(el.checked ? '🔒 ตรึงเกณฑ์แล้ว' : '🔓 ปลดล็อกแล้ว', 'success'); }
+      catch (e) { toast('บันทึกไม่สำเร็จ: ' + e.message, 'error', 5); }
+      renderLocks();
+    };
+  });
 }
 function setView(src) {
   $('camBox').classList.toggle('hidden', src !== 'hand');
@@ -109,16 +147,17 @@ async function step4() {
     <p>อาการสั่น: <span class="tremor-badge lv${lv.lv}">ระดับ ${lv.lv} · ${lv.th}</span> <span class="muted num">(SD ${rec.tremorSd.toFixed(4)} × ขนาดฝ่ามือ)</span></p>
     <table class="data"><tr><th>ค่า</th><th>${G.unit}</th></tr>
       <tr><td>ตอนพัก (rest)</td><td class="num">${f(rec.rest)}</td></tr><tr><td>ดีที่สุด (best, เฉลี่ย 3 ใน 5)</td><td class="num">${f(rec.best)}</td></tr>
-      <tr><td>เกณฑ์เริ่มท่า entry = rest − 0.7×(rest − best)</td><td class="num good">${f(rec.entry)}</td></tr>
-      <tr><td>เกณฑ์ปล่อยท่า exit = rest − 0.3×(rest − best)</td><td class="num">${f(rec.exit)}</td></tr></table>
+      <tr><td>เกณฑ์เริ่มท่า entry = rest − 0.7×(rest − best) · สมการ (8)</td><td class="num good">${f(rec.entry)}</td></tr>
+      <tr><td>เกณฑ์ปล่อยท่า exit = rest − 0.3×(rest − best) · สมการ (8)</td><td class="num">${f(rec.exit)}</td></tr>
+      <tr><td>ในหน่วยคะแนน π (สมการ (3)): θ_on / θ_off</td><td class="num">${THETA_ON} / ${THETA_OFF}</td></tr></table>
     <label>รัศมีการจับในเกม <b id="grV" class="num">${rec.grabRadius}</b> px <input id="gr" type="range" min="40" max="150" step="5" value="${rec.grabRadius}"></label>
     <label>ความนิ่งของตัวชี้ (minCutoff ยิ่งน้อยยิ่งนิ่ง) <b id="mcV" class="num">${rec.filter.minCutoff}</b> Hz <input id="mc" type="range" min="0.1" max="3" step="0.1" value="${rec.filter.minCutoff}"></label>
     <h3>ลองเลย: ทำท่าแล้วดูแถบ (เขียว = entry, เหลือง = exit)</h3>
     <div class="meter"><i id="meterBar"></i><span class="mark exit" style="left:30%"></span><span class="mark enter" style="left:70%"></span></div>
     <p>นับได้ <b id="tryCount" class="num">0</b> ครั้ง <span id="saveMsg" class="muted"></span></p>
-    <div class="row">${btn('play', '▶ ลองเล่นจับดาวเลย', 'success')}${btn('again', '↻ ปรับเทียบใหม่', 'ghost')}</div>`);
+    <div class="row">${btn('play', '▶ ลองเล่นจับดาวเลย', 'success')}${btn('lockNow', '🔒 ตรึงเกณฑ์นี้สำหรับการวัดผล')}${btn('again', '↻ ปรับเทียบใหม่', 'ghost')}</div>`);
   const save = async () => {
-    try { await saveCalibration(rec); $('saveMsg').textContent = `💾 บันทึกแล้ว (id ${rec.id})`; }
+    try { await saveCalibration(rec); $('saveMsg').textContent = `💾 บันทึกแล้ว (id ${rec.id})${rec.locked ? ' · 🔒 ตรึงเกณฑ์' : ''}`; renderLocks(); }
     catch (e) { $('saveMsg').textContent = '⚠️ บันทึกไม่สำเร็จ: ' + e.message; toast('บันทึกไม่สำเร็จ ใช้ค่านี้ชั่วคราวได้', 'error', 5); }
   };
   await save();
@@ -126,12 +165,14 @@ async function step4() {
   if (realUser) updateUser(realUser, { tremor: rec.tremorLevel }).catch(() => {});   // จำระดับสั่นไว้ในข้อมูลผู้ใช้ด้วย
   $('gr').oninput = (e) => { rec.grabRadius = +e.target.value; $('grV').textContent = rec.grabRadius; save(); };
   $('mc').oninput = (e) => { rec.filter.minCutoff = +e.target.value; $('mcV').textContent = rec.filter.minCutoff; save(); };
-  const counter = new RepCounter({ enter: 0.7, exit: 0.35, minHoldMs: 80, cooldownMs: 150 });
+  $('lockNow').onclick = async () => { rec.locked = true; rec.lockedAt = Date.now(); await save(); $('lockNow').disabled = true; toast('🔒 ตรึงเกณฑ์แล้ว', 'success'); };
+  // สมการ (7) ด้วย θ_on = 0.7, θ_off = 0.3 และ cooldown 400 ms (เหมือนในเกม)
+  const counter = new RepCounter({ enter: THETA_ON, exit: THETA_OFF, minHoldMs: 80, cooldownMs: 400 });
   handler = (t, sq, m) => {
     if (m === null) return;
-    const p = Math.max(0, Math.min(1, (m - rec.rest) / (rec.best - rec.rest || 1)));   // 0 = พัก, 1 = ดีที่สุด
+    const p = scoreFromMeasure(m, rec);                    // สมการ (3): 0 = พัก, 1 = ดีที่สุด
     $('meterBar').style.width = (p * 100).toFixed(1) + '%';
-    if (counter.update(scoreFromMeasure(m, rec), t * 1000)) $('tryCount').textContent = counter.count;
+    if (counter.update(p, t * 1000)) $('tryCount').textContent = counter.count;
   };
   $('play').onclick = () => { location.href = 'star-portal.html'; };
   $('again').onclick = step1;
@@ -148,7 +189,8 @@ $('demoTremor').onchange = (e) => { input.demo.tremorLevel = +e.target.value; };
 
 mountUserPicker($('picker'), async (uid) => {
   const c = await loadCalibration(uid, gestureKey);
-  toast(c ? `ผู้เล่นนี้เคยปรับเทียบ${G.th}แล้ว (ระดับสั่น ${c.tremorLevel}) ปรับใหม่ได้เลย` : 'ผู้เล่นนี้ยังไม่เคยปรับเทียบ', 'success', 3);
+  toast(c ? `ผู้เล่นนี้เคยปรับเทียบ${G.th}แล้ว (ระดับสั่น ${c.tremorLevel})${c.locked ? ' · 🔒 ตรึงเกณฑ์ไว้' : ' ปรับใหม่ได้เลย'}` : 'ผู้เล่นนี้ยังไม่เคยปรับเทียบ', 'success', 3);
 });
+renderLocks();
 step1();
-window.__cal = { input, S, step: () => step };
+window.__cal = { input, S, step: () => step, renderLocks };

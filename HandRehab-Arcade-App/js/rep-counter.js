@@ -1,8 +1,10 @@
 // ============================================================
-// rep-counter.js — นับจำนวนครั้งแม่นยำด้วยหลัก "ประตูสองบาน" (Lab 21)
-// ชื่อทางวิศวกรรม: hysteresis / Schmitt trigger
-//   - คะแนนต้อง "ขึ้นเกิน enter" จึงนับว่าเริ่มทำท่า
-//   - คะแนนต้อง "ลงต่ำกว่า exit" จึงนับว่าปล่อยท่า
+// rep-counter.js — นับจำนวนครั้งแม่นยำด้วยหลัก "ประตูสองบาน" (Lab 21) · บทความ §4.4
+// ชื่อทางวิศวกรรม: hysteresis / Schmitt trigger (Schmitt 1938)
+// สมการ (7): held ⇔ π_t ≥ θ_on ; release ⇔ π_t ≤ θ_off ; θ_on > θ_off  (enter = θ_on, exit = θ_off)
+//   - คะแนนต้อง "ขึ้นถึง enter" (≥) จึงนับว่าเริ่มทำท่า
+//   - คะแนนต้อง "ลงถึง exit" (≤) จึงนับว่าปล่อยท่า
+//   - นับ 1 ครั้งเมื่อผ่านครบวงจร แล้วพัก cooldown ≈ 400 ms ก่อนนับครั้งถัดไป
 //   - ช่วงระหว่าง exit..enter คือเขตกันสั่น ไม่มีอะไรเปลี่ยน
 // กฎ: ห้ามอ่านนาฬิกาภายในคลาส เวลาต้องส่งเข้ามาทุกครั้ง (ทดสอบด้วยเวลาจำลองได้)
 // ============================================================
@@ -12,8 +14,8 @@ export const REP_STATES = ['idle', 'engaging', 'held', 'releasing', 'cooldown'];
 export class RepCounter {
   // enter: เกณฑ์เริ่ม, exit: เกณฑ์ปล่อย, minHoldMs: ต้องค้างอย่างน้อยกี่ ms, cooldownMs: เว้นหลังนับ
   // สถานะ: idle (รอ) → engaging (เพิ่งเกิน enter รอค้างให้นาน minHoldMs) → held (ค้างพอแล้ว)
-  //        → releasing (ลดลงต่ำกว่า enter แต่ยังไม่ต่ำกว่า exit) → [ต่ำกว่า exit = นับ 1 ครั้ง] → cooldown → idle
-  constructor({ enter = 0.7, exit = 0.3, minHoldMs = 200, cooldownMs = 300, onRep = null } = {}) {
+  //        → releasing (ลดลงต่ำกว่า enter แต่ยังสูงกว่า exit) → [≤ exit = นับ 1 ครั้ง] → cooldown → idle
+  constructor({ enter = 0.7, exit = 0.3, minHoldMs = 200, cooldownMs = 400, onRep = null } = {}) {
     if (exit >= enter) throw new Error('ค่า exit ต้องน้อยกว่า enter');
     Object.assign(this, { enter, exit, minHoldMs, cooldownMs, onRep });
     this.reset();
@@ -48,13 +50,13 @@ export class RepCounter {
         break;
       case 'engaging': // ผ่านประตูแรกแล้ว รอให้ค้างนานพอ
         this.peak = Math.max(this.peak, score);
-        if (score < this.exit) this.state = 'idle';               // ปล่อยเร็วเกินไป ไม่นับ
+        if (score <= this.exit) this.state = 'idle';              // สมการ (7) release แต่ปล่อยเร็วเกินไป ไม่นับ
         else if (t - this.startT >= this.minHoldMs) this.state = 'held';
         break;
       case 'held': // ค้างท่านานพอแล้ว รอผ่านประตูที่สอง
       case 'releasing': // กำลังคลายท่า (อยู่ในเขตกันสั่นระหว่าง exit..enter)
         this.peak = Math.max(this.peak, score);
-        if (score < this.exit) { counted = true; break; }                 // ผ่านประตูที่สอง → ครบวงจร
+        if (score <= this.exit) { counted = true; break; }                // สมการ (7) release ⇔ π ≤ θ_off → ครบวงจร
         this.state = score >= this.enter ? 'held' : 'releasing';          // ขึ้นลงในเขตกันสั่น ไม่นับ
         break;
       default:

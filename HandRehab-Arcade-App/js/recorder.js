@@ -23,12 +23,14 @@ export class SessionRecorder {
   constructor(opts) { this.opts = opts; this.session = null; this.timer = null; this.pending = []; }
 
   // เรียกตอนเริ่มรอบ (ไม่ต้องรอ) — ระเบียนเซสชันพร้อมรับท่าทันที ส่วนการบันทึกลงฐานข้อมูลทำตามหลัง
-  start(extra = {}) {
+  // calib = ภาพถ่ายค่าปรับเทียบที่ใช้ (calibration.js calibSnapshot) → session.calib
+  //   { rest, best, entry, exit, thetaOn, thetaOff, locked, calibratedAt } ใช้กรองเฉพาะเซสชันที่ "ตรึงเกณฑ์" ในงานวิจัย
+  start(extra = {}, { calib = null } = {}) {
     this.stopSampling();
     const o = this.opts;
     this.session = { id: newId('s_'), userId: o.userId(), game: o.game, startTime: Date.now(), endTime: null, status: 'in-progress',
       reps: 0, accuracy: 0, score: 0, avgFps: null, avgBrightness: null, machine: null,
-      delegate: o.isDemo() ? 'demo' : handInfo().delegate || 'unknown', details: { ...extra, demo: o.isDemo() } };
+      delegate: o.isDemo() ? 'demo' : handInfo().delegate || 'unknown', calib, details: { ...extra, demo: o.isDemo() } };
     this.fps = []; this.bright = []; this.repCount = 0; this.pending = [];
     const s = this.session;
     getMachineName().then((name) => { s.machine = name; return saveSession(s); })

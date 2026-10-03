@@ -13,7 +13,7 @@ import { setupJuice } from './juice-page.js';
 import { multiplierFor } from './juice.js';
 import { SessionRecorder } from './recorder.js';
 import { askFeeling } from './feeling.js';
-import { loadCalibration } from './calibration.js';
+import { loadCalibration, calibSnapshot } from './calibration.js';
 
 applyPrefs();
 const $ = (id) => document.getElementById(id);
@@ -58,7 +58,7 @@ async function applyCalibration() {
   try { cal = await loadCalibration(userId(), 'pinch'); } catch (e) { console.warn('[calib] อ่านค่าปรับเทียบไม่ได้', e); }
   game.applyCalibration(cal);
   $('radiusRange').value = game.grabRadius; $('radiusVal').textContent = game.grabRadius;
-  $('calInfo').textContent = cal ? `${LEVEL_TH[cal.tremorLevel]} · รัศมี ${cal.grabRadius} px · จีบ ≤ ${cal.entry.toFixed(2)} / ปล่อย ≥ ${cal.exit.toFixed(2)}` : 'ยังไม่ปรับเทียบ (ใช้ค่ามาตรฐาน)';
+  $('calInfo').textContent = cal ? `${cal.locked ? '🔒 ตรึงเกณฑ์ · ' : ''}${LEVEL_TH[cal.tremorLevel]} · รัศมี ${cal.grabRadius} px · จีบ ≤ ${cal.entry.toFixed(2)} / ปล่อย ≥ ${cal.exit.toFixed(2)}` : 'ยังไม่ปรับเทียบ (ใช้ค่ามาตรฐาน d_open 0.80 / d_close 0.25)';
   return cal;
 }
 applyCalibration();
@@ -116,7 +116,7 @@ async function play() {
   game.level = $('levelSel').value;
   fx.juice.reset(); fpsLog.samples = [];
   game.startRound();
-  rec.start({ level: game.level, grabRadius: game.grabRadius });
+  rec.start({ level: game.level, grabRadius: game.grabRadius }, { calib: calibSnapshot(game.cal, 'pinch') });   // ตรึงเกณฑ์: เก็บค่าที่ใช้จริงไว้กับเซสชัน
   if (eng.paused) eng.resume();
 }
 

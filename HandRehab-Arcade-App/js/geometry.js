@@ -25,6 +25,7 @@ export function dist(a, b) {
 }
 
 // ขนาดฝ่ามือ = ระยะจากข้อมือ (จุด 0) ถึงโคนนิ้วกลาง (จุด 9)
+// สมการ (1): s = ‖p0 − p9‖ (ระยะ 3 มิติ ทุกเฟรม) — บทความ §4.4
 // S = d(P0, P9)   เลือกคู่นี้เพราะเป็นกระดูกฝ่ามือที่ไม่งอ ความยาวแทบคงที่ไม่ว่าจะทำท่าอะไร
 export function palmScale(pts) {
   check(pts);
@@ -34,6 +35,7 @@ export function palmScale(pts) {
 }
 
 // ระยะที่หารด้วยขนาดฝ่ามือ — ฟังก์ชันที่สำคัญที่สุด
+// สมการ (2): d̂_ij = ‖p_i − p_j‖ / s  (ระยะที่ปรับด้วยขนาดฝ่ามือ)
 // nd(i,j) = d(Pi, Pj) / S
 // มือใกล้กล้อง: ทั้ง d และ S ใหญ่ขึ้นเท่ากัน → อัตราส่วนคงที่ ไม่ขึ้นกับระยะกล้อง
 export function normDist(pts, i, j) {
@@ -107,6 +109,7 @@ export function clamp01(v) { return Math.max(0, Math.min(1, v)); }
 function sub(a, b) { return { x: a.x - b.x, y: a.y - b.y, z: (a.z || 0) - (b.z || 0) }; }
 
 // แปลงค่าเป็นคะแนน 0-1 แบบเส้นตรง: v ≤ full → 1, v ≥ zero → 0 (ใช้กับท่า "ยิ่งน้อยยิ่งดี")
+// สมการ (3) คือ scoreLow(d̂48, d_close, d_open) = clip((d_open − d̂48)/(d_open − d_close), 0, 1)
 export function scoreLow(v, full, zero) { return clamp01((zero - v) / (zero - full)); }
 // v ≥ full → 1, v ≤ zero → 0 (ใช้กับท่า "ยิ่งมากยิ่งดี")
 export function scoreHigh(v, zero, full) { return clamp01((v - zero) / (full - zero)); }

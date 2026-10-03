@@ -40,7 +40,7 @@ export const CONVERTERS = {
     return split('reps', reps, (r) => r.synthetic || r.demo || isDemoSession(sById.get(r.sessionId)), (l) => l, cols);
   },
   // แบบสอบถาม (Lab 36) — ใช้ฟังก์ชันเดียวกับปุ่ม CSV ของหน้าแบบสอบถาม
-  surveys(list) { return split('survey-responses', list, (s) => s.demo, surveyRows, surveyCols()); },
+  surveys(list) { return split('survey-responses', list.filter((s) => s.type !== 'sus'), (s) => s.demo, surveyRows, surveyCols()); },   // SUS แยกไปหน้า survey-results
   // ผลงาน 8 ข้อจากตัวบันทึกการทดสอบ (Lab 36)
   usertasks(records) { return split('task-results', records, (r) => r.demo, taskRows, taskCols); },
   // ผลวัดความแม่นยำ (Lab 32) — 1 ไฟล์ต่อ 1 รอบที่กดบันทึก (ตัวตรวจคนละแบบ ห้ามรวมกัน)

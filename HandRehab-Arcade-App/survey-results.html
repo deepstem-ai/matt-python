@@ -20,7 +20,7 @@
 </style>
 </head>
 <!-- Lab 36: ค่าเฉลี่ย ± SD รายข้อ กราฟแท่ง CSV/PNG + ผลงาน 8 ข้อจากตัวบันทึก -->
-<body class="theme-neon profile-standard" data-title="ผลแบบสอบถาม">
+<body class="theme-neon profile-standard" data-title="ผลแบบสอบถาม" data-hub="research">
 <main class="wrap">
   <div class="row" style="justify-content:space-between">
     <h1>📊 ผลการทดสอบกับผู้ใช้จริง <span class="lab-no">Lab 36</span></h1>
@@ -31,7 +31,7 @@
     <span class="chip">ค่าเฉลี่ยรวม <b id="overall">–</b> / 5</span>
     <span class="chip">บันทึกงาน <b id="nt">–</b> คน</span>
     <label class="switch"><input type="checkbox" id="incDemo" checked> รวมข้อมูลตัวอย่าง (DEMO)</label>
-    <button class="btn-glow ghost small" id="demo2">🧪 ใส่ข้อมูลตัวอย่าง 5 คน</button>
+    <button class="btn-glow ghost small" id="demo2">🧪 ใส่ข้อมูลตัวอย่าง 5 คน (รวม SUS)</button>
     <button class="btn-glow ghost small" id="clearDemo">🧹 ลบข้อมูลตัวอย่าง</button>
   </div>
   <div id="demoNote" class="alert warn hidden" style="margin:var(--sp-3) 0">มีข้อมูลตัวอย่าง (DEMO) ปนอยู่ — ปิดสวิตช์ด้านบน หรือลบก่อนนำตัวเลขไปใช้ในรายงาน</div>
@@ -39,6 +39,17 @@
     ยังไม่มีคำตอบแบบสอบถาม ให้ผู้เข้าร่วมทำ <a href="survey.html">survey.html</a> หรือกดปุ่มด้านล่างเพื่อลองด้วยข้อมูลตัวอย่าง
     <div class="row" style="margin-top:var(--sp-3)"><button class="btn-glow" id="demo">โหลดข้อมูลตัวอย่าง 5 คน</button></div>
   </div>
+
+  <!-- บทความ §6.2 ด้านความสามารถในการใช้งาน: System Usability Scale เทียบค่า 68 -->
+  <section class="card-neon" style="margin-top:var(--sp-4)" id="susCard">
+    <h2 class="card-title">📋 SUS (มาตรฐาน) · System Usability Scale</h2>
+    <div class="row" id="susChips"></div>
+    <canvas id="susChart" class="chart" aria-label="กราฟคะแนน SUS รายคน เทียบเส้น 68"></canvas>
+    <table class="data" style="margin-top:var(--sp-3)"><thead><tr><th>ผู้เข้าร่วม</th><th>วันที่</th><th class="n">คะแนน SUS</th><th>แปลผล</th></tr></thead><tbody id="tsus"></tbody></table>
+    <p class="muted">คะแนน = 2.5 × [Σ(ข้อคี่ − 1) + Σ(5 − ข้อคู่)] ช่วง 0–100 · ค่าเฉลี่ยอ้างอิง 68 (ต่ำกว่า 68 = ต่ำกว่าค่าเฉลี่ย, &gt; 80.3 = ดีเยี่ยม; Bangor et al. 2009, Sauro 2011) ·
+      เก็บคำตอบที่ <a href="survey.html?mode=sus">survey.html?mode=sus</a></p>
+    <div class="row"><button class="btn-glow ghost" id="csvSus">⬇ CSV คะแนน SUS</button><button class="btn-glow ghost" id="pngSus">🖼️ บันทึกกราฟ SUS</button></div>
+  </section>
 
   <section class="card-neon" style="margin-top:var(--sp-4)">
     <canvas id="chart" class="chart"></canvas>
@@ -70,6 +81,7 @@
 </main>
 <div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
 <script type="module" src="js/research/survey-results.js"></script>
+<script type="module" src="js/research/demo-banner.js"></script>
 <script type="module" src="js/appbar.js"></script>
 </body>
 </html>

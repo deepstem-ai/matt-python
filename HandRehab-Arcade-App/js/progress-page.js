@@ -19,6 +19,7 @@ try { range = +localStorage.getItem('hr-progress-days') || 30; } catch { /* ใ�
 // วันที่แบบสั้นภาษาไทย เช่น 27/9
 const short = (k) => { const [, m, d] = k.split('-'); return `${+d}/${+m}`; };
 
+$('lockedOnly').onchange = () => render();
 async function load() {
   try { sessions = await listSessionsByUser(currentUid()); }
   catch (e) {
@@ -29,7 +30,7 @@ async function load() {
 }
 
 function render() {
-  const done = sessions.filter((s) => s.status !== 'in-progress');
+  const done = sessions.filter((s) => s.status !== 'in-progress' && (!$('lockedOnly').checked || s.calib?.locked));
   const daily = dailyStats(done), trainedDays = Object.keys(daily).length;
   $('dataNote').textContent = done.some((s) => s.details?.synthetic) ? 'มีข้อมูลจำลองปนอยู่ (ห้ามใช้เป็นผลวิจัยจริง)' : '';
   // ---- การ์ด 4 ใบ ----

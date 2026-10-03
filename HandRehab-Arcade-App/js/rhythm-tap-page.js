@@ -112,6 +112,8 @@ async function finish(sum) {
   const fast = withData.length ? withData.reduce((a, b) => (b.m < a.m ? b : a)) : null;
   const allRt = FINGER_NAMES.flatMap((f) => sum.reactionTimes[f]);
   const meanRt = Math.round(mean(allRt));
+  // ความละเอียดของเวลาตอบสนอง: ระบบเห็นมือทีละเฟรม ค่าที่วัดได้จึงคลาดได้ราว 1 เฟรม = 1000 / FPS (30 fps ≈ 33 ms) — บทความ §4.3
+  const resMs = fpsLog.avg > 0 ? Math.round(1000 / fpsLog.avg) : null;
   // นิ้วที่ถูกสับสนบ่อยที่สุด (นอกเส้นทแยง)
   let worst = null;
   for (const a of FINGER_NAMES) for (const b of FINGER_NAMES) if (sum.confusion[a][b] && (!worst || sum.confusion[a][b] > worst.n)) worst = { a, b, n: sum.confusion[a][b] };
@@ -122,7 +124,7 @@ async function finish(sum) {
     delegate: game.source === 'keys' ? 'demo-keys' : handInfo().delegate, machine: machineInfo(),
     details: { reactionTimes: sum.reactionTimes, confusion: sum.confusion, maxLevel: sum.maxLevel, trials: sum.trials.length,
       wrong: sum.wrong, miss: sum.miss, meanRtMs: meanRt, meanRtByFinger: Object.fromEntries(stats.map((s) => [s.f, Math.round(s.m)])),
-      slowestFinger: slow?.f || null, demo: game.source === 'keys' },
+      slowestFinger: slow?.f || null, timingResolutionMs: resMs, demo: game.source === 'keys' },
   };
   const status = await save(session);
   if (status.ok) fx.endSession({ summary: sum });
@@ -135,8 +137,9 @@ async function finish(sum) {
       <div class="stat"><small>นิ้วผิด / พลาด</small><b>${sum.wrong} / ${sum.miss}</b></div>
       <div class="stat"><small>ความแม่นยำ</small><b>${Math.round(sum.accuracy * 100)}%</b></div>
       <div class="stat"><small>ระดับสูงสุด</small><b>${sum.maxLevel}/5</b></div>
-      <div class="stat"><small>เวลาตอบสนองเฉลี่ย</small><b>${allRt.length ? meanRt + ' ms' : '—'}</b></div>
+      <div class="stat"><small>เวลาตอบสนองเฉลี่ย</small><b>${allRt.length ? meanRt + ' ms' : '—'}</b><small id="rtRes">ความละเอียด ≈ ±${resMs ?? '—'} ms (1000 / ${fpsLog.avg ? Math.round(fpsLog.avg) : '—'} fps)</small></div>
     </div>
+    <p class="muted">⏱ เวลาตอบสนองวัดได้ละเอียดทีละเฟรม: ที่ ${fpsLog.avg ? Math.round(fpsLog.avg) : '—'} fps ความละเอียดประมาณ ${resMs ?? '—'} ms (เช่น 30 fps ≈ 33 ms) ความต่างที่น้อยกว่านี้จึงแยกไม่ได้</p>
     <canvas id="rtChart" style="width:100%;height:260px" aria-label="กราฟเวลาตอบสนองเฉลี่ยของแต่ละนิ้ว"></canvas>
     <p style="font-size:var(--fs-lg);font-weight:800">${slow ? `👉 นิ้ว${th(slow.f)}ของคุณช้าที่สุด ลองฝึกนิ้วนี้เพิ่ม` : 'ยังไม่มีข้อมูลเวลาตอบสนองพอจะบอกนิ้วที่ช้าที่สุด'}</p>
     ${fast && fast !== slow ? `<p class="muted">นิ้วที่เร็วที่สุด: นิ้ว${th(fast.f)} (${Math.round(fast.m)} ms)</p>` : ''}

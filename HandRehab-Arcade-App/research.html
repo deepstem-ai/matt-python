@@ -34,6 +34,18 @@
   </section>
 
   <section class="r-group">
+    <h2>📏 แผนการประเมิน (บทความ §6.2)</h2>
+    <div class="r-cards">
+      <a class="r-card" href="benchmark.html"><span class="lab-no">§6.2 ประสิทธิภาพ</span><span class="big-ico">⚡</span><b>ทดสอบความลื่น (FPS ≥ 25)</b><small>6 สถานการณ์ พร้อมป้าย PASS/FAIL เทียบเป้าหมาย 25 ภาพ/วินาที</small></a>
+      <a class="r-card" href="count-accuracy.html"><span class="lab-no">§6.2 ความถูกต้อง</span><span class="big-ico">🎯</span><b>ความถูกต้องการนับ</b><small>ระบบนับ vs ผู้สังเกตนับจากวิดีโอ แสง 3 ระดับ · accuracy % · MAE · CSV</small></a>
+      <a class="r-card" href="reliability.html"><span class="lab-no">§6.2 ความเที่ยง</span><span class="big-ico">🔁</span><b>ความเที่ยงการวัดซ้ำ (ICC)</b><small>ICC(2,1) / ICC(3,1) ตัดเซสชันแรก เกณฑ์ Koo &amp; Li ≥ 0.75 · กรองเฉพาะเกณฑ์ตรึง</small></a>
+      <a class="r-card" href="survey.html?mode=sus"><span class="lab-no">§6.2 การใช้งาน</span><span class="big-ico">📋</span><b>SUS (มาตรฐาน)</b><small>System Usability Scale 10 ข้อ ภาษาไทย ตอบ 1–5 · ผลเทียบค่า 68 ในหน้าสรุปผล</small></a>
+      <a class="r-card" href="calibrate.html"><span class="lab-no">สมการ (8)</span><span class="big-ico">🔒</span><b>ปรับเทียบ + ตรึงเกณฑ์</b><small>วัดผลต้องตรึงเกณฑ์ไว้ ผลแต่ละวันจึงเทียบกันได้</small></a>
+      <a class="r-card" href="docs/MATH-MODEL.md" target="_blank"><span class="lab-no">สมการ (1)–(10)</span><span class="big-ico">∑</span><b>แบบจำลองคณิตศาสตร์</b><small>ทุกสมการในบทความ ↔ ไฟล์/ฟังก์ชันในโค้ด ↔ การทดสอบ</small></a>
+    </div>
+  </section>
+
+  <section class="r-group">
     <h2>🧠 สอน AI &amp; วัดผล</h2>
     <div class="r-cards">
       <a class="r-card" href="train.html"><span class="lab-no">Lab 31</span><span class="big-ico">🧠</span><b>สอน AI ท่ามือใหม่</b><small>เก็บตัวอย่าง 30 ครั้งต่อท่า แล้วให้ kNN ทาย พร้อมดูเพื่อนบ้านใกล้สุด 5 ตัว</small></a>
@@ -83,6 +95,7 @@
     <ul class="doc-list">
       <li><a href="docs/research/consent-form.html">หนังสือยินยอม (พิมพ์ได้)</a> · <a href="docs/research/consent-form.md" target="_blank">.md</a></li>
       <li><a href="docs/research/test-script.md" target="_blank">สคริปต์ทดสอบกับผู้ใช้ 8 งาน</a></li>
+      <li><a href="docs/MATH-MODEL.md" target="_blank">แบบจำลองคณิตศาสตร์ สมการ (1)–(10) ตามบทความ (MATH-MODEL.md)</a></li>
       <li><a href="docs/research/math.md" target="_blank">สมการทั้งหมดของมือ (math.md)</a></li>
       <li><a href="datasets/SOURCES.md" target="_blank">ตารางที่มาของข้อมูล (SOURCES.md)</a></li>
       <li><a href="docs/research/why-provenance.md" target="_blank">ทำไมต้องบันทึกที่มาของข้อมูล</a></li>
@@ -99,6 +112,7 @@
 </main>
 <div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
 <script type="module" src="js/research/research-hub.js"></script>
+<script type="module" src="js/research/demo-banner.js"></script>
 <script type="module" src="js/appbar.js"></script>
 </body>
 </html>

@@ -27,7 +27,7 @@
   </style>
 </head>
 <!-- Lab 21: ตัวนับสองประตู (hysteresis) เทียบตัวนับเกณฑ์เดียว ด้วยสัญญาณจำลอง หรือกล้องจริง -->
-<body class="theme-neon profile-standard" data-title="ห้องทดลองตัวนับครั้ง">
+<body class="theme-neon profile-standard" data-title="ห้องทดลองตัวนับครั้ง" data-hub="research">
 <main class="wrap">
   <header class="r-head">
     <div>
@@ -89,7 +89,7 @@
       <div class="card-neon">
         <h2>🎚️ ค่าเกณฑ์</h2>
         <div class="slider-row"><span>enter — ต้องขึ้นเกินจึงเริ่ม</span><b class="num" id="vEnter"></b><input type="range" id="enter" min="0.3" max="0.95" step="0.05" value="0.7"></div>
-        <div class="slider-row"><span>exit — ต้องลงต่ำกว่าจึงปล่อย</span><b class="num" id="vExit"></b><input type="range" id="exit" min="0.05" max="0.9" step="0.05" value="0.4"></div>
+        <div class="slider-row"><span>exit — ต้องลงถึง (≤) จึงปล่อย · สมการ (7)</span><b class="num" id="vExit"></b><input type="range" id="exit" min="0.05" max="0.9" step="0.05" value="0.3"></div>
         <div class="slider-row"><span>minHold — ค้างอย่างน้อย (ms)</span><b class="num" id="vHold"></b><input type="range" id="hold" min="0" max="800" step="50" value="200"></div>
         <div class="slider-row"><span>cooldown — ห้ามนับซ้ำภายใน (ms)</span><b class="num" id="vCool"></b><input type="range" id="cool" min="0" max="1500" step="50" value="400"></div>
         <div class="slider-row"><span>เกณฑ์เดียว (ตัวเปรียบเทียบ)</span><b class="num" id="vNaive"></b><input type="range" id="naive" min="0.2" max="0.9" step="0.05" value="0.5"></div>

@@ -81,9 +81,11 @@ export function makeEmbedding(landmarks, { width = 1, height = 1 } = {}) {
   return out;
 }
 
+// สมการ (9): cos θ = (A·B) / (‖A‖‖B‖)  — บทความ §4.5 (เข้าสู่ระบบด้วยใบหน้า)
 // cosineSimilarity(a, b) — ความเหมือนระหว่างชุดตัวเลขสองชุด 0 ถึง 1
 //  = cos ของมุมระหว่างลูกศรสองดอก (ชี้ทางเดียวกัน = 1, ตั้งฉาก = 0)
 //  ค่าติดลบ (ชี้สวนทาง = ต่างกันแน่นอน) ปัดเป็น 0 เพื่อให้อ่านง่ายเป็น 0..1
+//  (การ clip เป็น 0..1 ใช้เพื่อแสดงผลและเทียบเกณฑ์เท่านั้น ไม่เปลี่ยนลำดับความเหมือนของค่าบวก)
 export function cosineSimilarity(a, b) {
   if (!a || !b || a.length !== b.length || a.length === 0) return 0;
   let dot = 0, na = 0, nb = 0;

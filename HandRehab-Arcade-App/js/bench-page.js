@@ -5,7 +5,7 @@
 // ============================================================
 import { detectDeviceWithOverride } from './device-info.js';
 import { SCENARIOS, runScenario, fpsLevel } from './bench-runner.js';
-import { recommend, toPrefs, STYLE_TH, RES_TH, EFFECTS_TH } from './recommend.js';
+import { recommend, toPrefs, STYLE_TH, RES_TH, EFFECTS_TH, TARGET_FPS, keyFps } from './recommend.js';
 import { firstRunCheck } from './first-run.js';
 import { bindCompare, drawCompare } from './bench-compare.js';
 import { startCamera, stopCamera, cameraErrorMessage } from './camera.js';
@@ -111,13 +111,24 @@ async function runAll() {
   }
 }
 
-// ---------- การ์ดผลลัพธ์ ----------
+// ---------- การ์ดผลลัพธ์ + ป้าย PASS/FAIL เทียบเป้าหมาย 25 FPS (บทความ §6.2) ----------
+const badge = (fps) => (fps >= TARGET_FPS ? `<span class="fps-badge pass">PASS ≥ ${TARGET_FPS}</span>` : `<span class="fps-badge fail">FAIL &lt; ${TARGET_FPS}</span>`);
+function renderOverall(results) {
+  const done = SCENARIOS.filter((s) => results[s.key] && !results[s.key].skipped);
+  if (!done.length) return;
+  const nPass = done.filter((s) => results[s.key].avgFps >= TARGET_FPS).length, { fps, from } = keyFps(results);
+  $('overall').innerHTML = `ภาพรวมเทียบเป้าหมาย ${TARGET_FPS} FPS: ${from === 'none' ? '—' : badge(fps)} <b class="num">${Math.round(fps)}</b> FPS
+    (${from === 'game' ? 'เกมเต็ม' : from === 'hand' ? 'การวาดมือที่ช้าที่สุด' : 'กล้องอย่างเดียว'}) · ผ่าน ${nPass}/${done.length} สถานการณ์`;
+  window.__benchOverall = { pass: fps >= TARGET_FPS, fps, nPass, n: done.length };
+}
 function renderCards(results) {
+  renderOverall(results);
   $('cards').innerHTML = SCENARIOS.filter((s) => results[s.key]).map((s) => {
     const r = results[s.key];
     if (r.skipped) return `<div class="rcard skip"><h3>${s.icon} ${s.th}</h3><p class="muted">ข้าม — ${esc(r.reason)}</p></div>`;
     return `<div class="rcard ${fpsLevel(r.avgFps)}"><h3>${s.icon} ${s.th}</h3>
       <div class="big">${Math.round(r.avgFps)} <small>FPS เฉลี่ย</small></div>
+      <p style="margin:4px 0">${badge(r.avgFps)}</p>
       <dl><dt>FPS ต่ำสุด</dt><dd>${Math.round(r.minFps)}</dd><dt>ms ต่อเฟรม</dt><dd>${r.msPerFrame}</dd>
       ${r.camFps ? `<dt>กล้องส่งภาพ</dt><dd>${r.camFps} fps</dd>` : ''}
       ${r.handFoundPct !== undefined ? `<dt>เห็นมือจริง</dt><dd>${r.handFoundPct}%</dd>` : ''}</dl></div>`;

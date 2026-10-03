@@ -38,6 +38,7 @@
         <option value="">ทั้งหมด</option><option value="good">🙂 ดี–สบายมาก (4-5)</option><option value="bad">😣 ไม่ค่อยดี–เหนื่อยมาก (1-2)</option>
         <option value="pain">🩹 ปวดตั้งแต่ 4/10</option><option value="none">— ยังไม่ได้บันทึก</option></select></label>
       <label title="นักกายภาพมักอยากเห็นวันที่ทำได้ไม่ดี">ความแม่นยำ <select id="acc"><option value="">ทั้งหมด</option><option value="0.6">ต่ำกว่า 60%</option><option value="0.8">ต่ำกว่า 80%</option></select></label>
+      <label title="เฉพาะเซสชันที่ใช้เกณฑ์ที่ตรึงไว้ (ใช้วัดผลเทียบข้ามวัน)">เกณฑ์ <select id="lock"><option value="">ทั้งหมด</option><option value="locked">🔒 เฉพาะเกณฑ์ตรึง</option><option value="unlocked">ยังไม่ตรึง</option></select></label>
       <button id="clearF" class="btn-glow ghost small">ล้างตัวกรอง</button>
     </section>
     <section class="row section" aria-label="ส่งออกและข้อมูลสาธิต">
@@ -52,7 +53,7 @@
       <button id="saveMachine" class="btn-glow ghost small">💾 บันทึกชื่อเครื่อง</button>
       <span class="spacer" style="flex:1"></span>
       <button id="genDemo" class="btn-glow small">🧪 สร้างประวัติจำลอง 30 วัน</button>
-      <button id="clearDemo" class="btn-glow ghost small">🧹 ลบข้อมูลจำลอง</button>
+      <button id="clearDemo" class="btn-glow ghost small" title="ลบข้อมูลจำลองก่อนเก็บข้อมูลวิจัย">🧹 ลบข้อมูลจำลอง</button>
     </section>
     <section id="list" class="section col" aria-live="polite"></section>
     <p class="foot">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา · ข้อมูลการฝึกผูกกับบุคคลถือเป็นข้อมูลสุขภาพ ส่งออกเพื่อทำรายงานให้เลือก "ไม่ระบุตัวตน"</p>

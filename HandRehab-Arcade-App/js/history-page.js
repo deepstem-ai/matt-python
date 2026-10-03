@@ -28,13 +28,15 @@ async function load() {
 
 // ---------- ตัวกรอง ----------
 function filtered() {
-  const from = $('from').value, to = $('to').value, game = $('game').value, feel = $('feel').value, acc = +$('acc').value || 0;
+  const from = $('from').value, to = $('to').value, game = $('game').value, feel = $('feel').value, acc = +$('acc').value || 0, lock = $('lock').value;
   return all.filter((s) => {
     const d = dayStr(s.startTime), f = s.feeling;
     if (from && d < from) return false;
     if (to && d > to) return false;
     if (game && s.game !== game) return false;
     if (acc && !(s.accuracy < acc)) return false;
+    if (lock === 'locked' && !s.calib?.locked) return false;          // ตรึงเกณฑ์ (สมการ (8) กฎการวัดผล)
+    if (lock === 'unlocked' && s.calib?.locked) return false;
     if (feel === 'good' && !(f && f.mood >= 4)) return false;
     if (feel === 'bad' && !(f && f.mood <= 2)) return false;
     if (feel === 'pain' && !(f && f.pain >= 4)) return false;
@@ -42,8 +44,8 @@ function filtered() {
     return true;
   });
 }
-['from', 'to', 'game', 'feel', 'acc'].forEach((id) => { $(id).onchange = () => { shown = 40; render(); }; });
-$('clearF').onclick = () => { ['from', 'to', 'game', 'feel', 'acc'].forEach((id) => { $(id).value = ''; }); render(); };
+['from', 'to', 'game', 'feel', 'acc', 'lock'].forEach((id) => { $(id).onchange = () => { shown = 40; render(); }; });
+$('clearF').onclick = () => { ['from', 'to', 'game', 'feel', 'acc', 'lock'].forEach((id) => { $(id).value = ''; }); render(); };
 
 // ---------- การ์ด ----------
 function card(s) {
@@ -51,7 +53,7 @@ function card(s) {
   const f = s.feeling;
   return `<details class="sess" data-id="${esc(s.id)}">
     <summary><span class="g-icon" aria-hidden="true">${g.icon}</span>
-      <div><div class="title">${esc(g.th)} ${s.details?.synthetic ? '<span class="tag-demo">จำลอง</span>' : ''} ${s.status === 'in-progress' ? '<span class="tag-live">ไม่จบรอบ</span>' : ''}</div>
+      <div><div class="title">${esc(g.th)} ${s.details?.synthetic ? '<span class="tag-demo">จำลอง</span>' : ''} ${s.status === 'in-progress' ? '<span class="tag-live">ไม่จบรอบ</span>' : ''} ${s.calib?.locked ? `<span class="tag-lock" title="ใช้เกณฑ์ที่ตรึงไว้ (ปรับเทียบ ${s.calib.calibratedAt ? new Date(s.calib.calibratedAt).toLocaleDateString('th-TH') : '—'})">🔒 เกณฑ์ตรึง</span>` : ''}</div>
         <div class="meta"><span>📅 <b>${new Date(s.startTime).toLocaleString('th-TH', { dateStyle: 'medium', timeStyle: 'short' })}</b></span><span>⏱ <b>${min}</b> นาที</span>
           <span>${esc(g.unit)} <b>${s.reps ?? 0}</b></span><span>แม่นยำ <b>${Math.round((s.accuracy || 0) * 100)}%</b></span><span>คะแนน <b>${s.score ?? 0}</b></span>
           ${Number.isFinite(s.maxSpreadDeg) ? `<span>กางสุด <b>${s.maxSpreadDeg}°</b></span>` : ''}
@@ -75,7 +77,9 @@ async function openCard(d) {
   try { reps = (await listRepsBySession(s.id)).sort((a, b) => (a.timestamp || a.t || 0) - (b.timestamp || b.t || 0)); }
   catch (e) { body.innerHTML = `<p class="no">โหลดท่าไม่ได้: ${esc(e.message)}</p>`; return; }
   const f = s.feeling;
-  body.innerHTML = `${f ? `<p>ความรู้สึก: ${moodIcon(f.mood)} ${esc(MOODS.find((m) => m.v === f.mood)?.th || '')} · ปวด ${f.pain}/10 ${f.note ? '· 📝 ' + esc(f.note) : ''}</p>` : ''}
+  const c = s.calib;
+  const calLine = c ? `<p class="muted num">เกณฑ์ที่ใช้: ${c.locked ? '🔒 ตรึง' : '🔓 ไม่ตรึง'} · ${esc(c.source || '')} · rest ${+(+c.rest).toFixed(3)} · best ${+(+c.best).toFixed(3)} · entry ${+(+c.entry).toFixed(3)} · exit ${+(+c.exit).toFixed(3)} · θ_on ${c.thetaOn} / θ_off ${c.thetaOff}</p>` : '';
+  body.innerHTML = `${calLine}${f ? `<p>ความรู้สึก: ${moodIcon(f.mood)} ${esc(MOODS.find((m) => m.v === f.mood)?.th || '')} · ปวด ${f.pain}/10 ${f.note ? '· 📝 ' + esc(f.note) : ''}</p>` : ''}
     <table class="data"><tr><th>#</th><th>เวลา</th><th>ท่า</th><th>คะแนนสูงสุด</th><th>ค้าง (ms)</th><th>สำเร็จ</th><th>มุม (°)</th><th>อื่น ๆ</th></tr>
     ${reps.map((r, i) => `<tr><td>${i + 1}</td><td>${r.timestamp ? new Date(r.timestamp).toLocaleTimeString('th-TH') : '—'}</td><td>${esc(r.gesture || '')}</td>
       <td>${r.peak ?? '—'}</td><td>${r.holdMs ?? '—'}</td><td class="${r.success === false ? 'no' : 'ok'}">${r.success === false ? '✗' : '✓'}</td><td>${r.angle ?? '—'}</td>
@@ -104,7 +108,9 @@ $('csvS').onclick = async () => {
     session_id: s.id, user, game: s.game, start: stamp(s.startTime), end: stamp(s.endTime), duration_min: s.endTime ? +((s.endTime - s.startTime) / 60000).toFixed(2) : '',
     reps: s.reps, accuracy: s.accuracy, score: s.score, max_spread_deg: s.maxSpreadDeg ?? '', avg_fps: s.avgFps ?? '', avg_brightness: s.avgBrightness ?? '',
     machine: typeof s.machine === 'string' ? s.machine : '', delegate: s.delegate || '', mood_1_5: s.feeling?.mood ?? '', pain_0_10: s.feeling?.pain ?? '',
-    note: anon ? '' : s.feeling?.note || '', status: s.status || 'done', synthetic: s.details?.synthetic ? 1 : 0 })));
+    note: anon ? '' : s.feeling?.note || '', status: s.status || 'done', synthetic: s.details?.synthetic ? 1 : 0,
+    calib_locked: s.calib ? (s.calib.locked ? 1 : 0) : '', calib_rest: s.calib?.rest ?? '', calib_best: s.calib?.best ?? '', calib_entry: s.calib?.entry ?? '', calib_exit: s.calib?.exit ?? '',
+    theta_on: s.calib?.thetaOn ?? '', theta_off: s.calib?.thetaOff ?? '', calibrated_at: stamp(s.calib?.calibratedAt) })));
 };
 $('csvR').onclick = async () => {
   const list = filtered(); if (!list.length) return toast('ไม่มีข้อมูลให้ส่งออก', 'warning');
@@ -138,3 +144,5 @@ $('clearDemo').onclick = async () => {
 
 mountUserPicker($('picker'), load);
 load();
+// ลิงก์จากเครื่องมือวิจัย (history.html#clearDemo): เลื่อนไปที่ปุ่มลบข้อมูลจำลองและเน้นให้เห็น
+if (location.hash === '#clearDemo') { const b = $('clearDemo'); b.scrollIntoView({ block: 'center' }); b.focus(); b.classList.remove('ghost'); }

@@ -17,3 +17,5 @@
 .tag-live { background: var(--input); border: 1px solid var(--line); border-radius: 999px; padding: 0 var(--sp-2); font-size: var(--fs-xs); }
 .ok { color: var(--success); font-weight: 800; } .no { color: var(--error); font-weight: 800; }
 .mood-row .choice { flex-direction: column; text-align: center; }
+
+.tag-lock { background: var(--secondary); color: var(--on-bright); border-radius: 999px; padding: 0 var(--sp-2); font-size: var(--fs-xs); font-weight: 800; }

@@ -6,6 +6,7 @@
 // ============================================================
 import { put, getAll, del, get } from '../db.js';
 import { demoSurveys, demoTaskRecords } from './usertest-data.js';
+import { demoSusSurveys } from './sus-data.js';
 
 export const listSurveys = async () => (await getAll('surveys')).sort((a, b) => a.createdAt - b.createdAt);
 export const saveSurvey = (s) => put('surveys', s);
@@ -26,6 +27,7 @@ export const saveIssues = (list) => put('settings', { key: 'usertest-issues', va
 // ใส่ข้อมูลตัวอย่าง 5 คน (ติดป้าย DEMO) เพื่อให้หน้าผลลัพธ์แสดงได้ทันที
 export async function loadDemo() {
   for (const s of demoSurveys()) await put('surveys', s);
+  for (const s of demoSusSurveys()) await put('surveys', s);          // SUS (มาตรฐาน) ตัวอย่าง 5 คน
   for (const r of demoTaskRecords()) await put('settings', r);
 }
 // ลบเฉพาะข้อมูลตัวอย่าง ข้อมูลจริงไม่หาย

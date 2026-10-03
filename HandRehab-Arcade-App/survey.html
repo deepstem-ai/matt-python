@@ -25,6 +25,9 @@
     transition: transform var(--speed), border-color var(--speed);
   }
   .face .em { font-size: 88px; line-height: 1; }
+  .faces.agree .face .em { font: 800 64px var(--font-num); }
+  .faces.agree .face .lb { text-align: center; }
+  .qen { color: var(--text-2); font-size: var(--fs-base); margin-top: calc(-1 * var(--sp-4)); margin-bottom: var(--sp-4); }
   .face .lb { font-size: var(--fs-lg); font-weight: 700; }
   .face:hover, .face:focus-visible { border-color: var(--primary); transform: scale(1.04); }
   .face.sel { border-color: var(--primary); box-shadow: var(--glow); }
@@ -34,7 +37,7 @@
 </style>
 </head>
 <!-- Lab 36: แบบสอบถาม 10 ข้อ หน้ายิ้มปุ่มใหญ่ · บันทึกลง store surveys -->
-<body class="theme-neon profile-elder" data-title="แบบสอบถาม">
+<body class="theme-neon profile-elder" data-title="แบบสอบถาม" data-hub="research">
 <main>
   <div class="row" style="justify-content:space-between">
     <a class="btn-glow ghost small" href="research.html">← ห้องวิจัย</a>
@@ -44,7 +47,10 @@
   <!-- หน้าเริ่ม: ใส่รหัสผู้เข้าร่วม (ผู้สังเกตกรอกให้) -->
   <section id="start">
     <h1 style="margin-top:var(--sp-5)">แบบสอบถามหลังทดลองใช้</h1>
-    <p style="font-size:var(--fs-lg)">มี 10 ข้อ ข้อละ 1 หน้า กดรูปหน้าที่ตรงกับความรู้สึก <b>ไม่มีคำตอบถูกหรือผิด</b></p>
+    <fieldset class="row" style="border:0;padding:0;margin:0 0 var(--sp-3)"><legend>เลือกแบบสอบถาม</legend>
+      <label class="choice"><input type="radio" name="mode" value="faces" checked> 😄 ความพึงพอใจ 10 ข้อ (หน้ายิ้ม)</label>
+      <label class="choice"><input type="radio" name="mode" value="sus"> 📋 SUS (มาตรฐาน) · System Usability Scale 10 ข้อ</label></fieldset>
+    <p style="font-size:var(--fs-lg)" id="intro">มี 10 ข้อ ข้อละ 1 หน้า กดรูปหน้าที่ตรงกับความรู้สึก <b>ไม่มีคำตอบถูกหรือผิด</b></p>
     <div class="field"><label for="pid">รหัสผู้เข้าร่วม (ผู้สังเกตกรอก เช่น P01)</label>
       <input id="pid" class="big-input" type="text" autocomplete="off" placeholder="P01"></div>
     <div class="err-msg" id="pidErr"></div>
@@ -55,6 +61,7 @@
   <section id="qs" class="hidden">
     <div class="qnum" id="qnum"></div>
     <div class="qtext" id="qtext"></div>
+    <div class="qen" id="qen"></div>
     <div class="faces" id="faces" role="radiogroup" aria-label="ระดับความรู้สึก"></div>
     <div class="row nav"><button class="btn-glow ghost" id="back">← ข้อก่อนหน้า</button></div>
   </section>

@@ -1,15 +1,20 @@
 // ============================================================
-// calibration.js — ปรับเทียบรายบุคคล: วัดอาการสั่น + ค่าเกณฑ์ของท่า (Lab 27)
-// สูตรเกณฑ์ (ใช้กับ "ค่าดิบ" ของท่า เช่น ระยะจีบ normDist(4,8) หรือมุมกางนิ้วองศา):
-//   entry (เริ่มนับว่าทำท่า) = rest − 0.7 × (rest − best)   → ต้องไปให้ถึง 70% ของความสามารถตัวเอง
-//   exit  (นับว่าปล่อยท่า)  = rest − 0.3 × (rest − best)   → ถอยกลับมา 70% ของทาง
-//   rest = ค่าตอนมือพักนิ่ง, best = ค่าที่ดีที่สุดตอนออกแรงเต็มที่ (เฉลี่ย 3 ครั้งที่ดีที่สุดจาก 5)
-//   ใช้ได้ทั้งท่าที่ "ค่าน้อย = ดี" (จีบ) และ "ค่ามาก = ดี" (กางนิ้ว) เพราะเครื่องหมายของ (rest − best) จัดการให้เอง
+// calibration.js — ปรับเทียบรายบุคคล: วัดอาการสั่น + ค่าเกณฑ์ของท่า (Lab 27) · บทความ §4.4
+// สมการ (8): T = r − k (r − b), 0 < k < 1   (ใช้กับ "ค่าดิบ" ของท่า เช่น ระยะจีบ d̂48 หรือมุมกางนิ้วองศา)
+//   entry (เริ่มนับว่าทำท่า) = r − k_on  × (r − b), k_on  = 0.7 → ต้องไปให้ถึง 70% ของความสามารถตัวเอง
+//   exit  (นับว่าปล่อยท่า)  = r − k_off × (r − b), k_off = 0.3 → ถอยกลับมาเหลือ 30% ของทาง
+//   r (rest) = ค่าตอนมือพักนิ่ง = d_open ของสมการ (3), b (best) = ค่าที่ดีที่สุดตอนออกแรงเต็มที่ = d_close
+//   (best = เฉลี่ย 3 ครั้งที่ดีที่สุดจาก 5) ใช้ได้ทั้งท่าที่ "ค่าน้อย = ดี" (จีบ) และ "ค่ามาก = ดี" (กางนิ้ว)
+//   เพราะเครื่องหมายของ (r − b) จัดการให้เอง
+// สมการ (3): π = clip((r − m)/(r − b), 0, 1) → π(T) = k พอดี ดังนั้นเกณฑ์ในหน่วยคะแนน
+//   θ_on = k_on = 0.7 และ θ_off = k_off = 0.3 เท่ากันทุกคน (สมการ (7) ใช้ค่าคู่นี้)
+// กฎการวัดผล: เมื่อใช้ระบบ "วัดผล" ต้องตรึงเกณฑ์ (ตรึงเกณฑ์ = locked) เพื่อเทียบผลข้ามวันได้
 // ============================================================
 import { normDist, spread, palmScale } from './geometry.js';
-import { get, put } from './db.js';
+import { get, put, getByIndex } from './db.js';
 
-export const ENTRY_K = 0.7, EXIT_K = 0.3;
+export const ENTRY_K = 0.7, EXIT_K = 0.3;          // k_on, k_off ของสมการ (8)
+export const THETA_ON = ENTRY_K, THETA_OFF = EXIT_K; // θ_on, θ_off ของสมการ (7) ในหน่วยคะแนน π (เพราะ π(T) = k)
 export const STILL_SEC = 5, REPS_NEEDED = 5;
 
 // ท่าที่ปรับเทียบได้: measure(sq) = ค่าดิบ, expectBest = ค่าคาดเดาไว้ใช้ตรวจจับครั้ง (ก่อนรู้ค่าจริง)
@@ -50,6 +55,7 @@ export function tremorFromSamples(samples) {
   return Math.hypot(detrendedSd(ts, xs), detrendedSd(ts, ys));
 }
 
+// สมการ (8): เกณฑ์รายบุคคลในหน่วยค่าดิบ
 export function thresholds(rest, best) {
   return { entry: rest - ENTRY_K * (rest - best), exit: rest - EXIT_K * (rest - best) };
 }
@@ -60,11 +66,28 @@ export function bestOf(peaks, rest) {
   return mean(s.slice(0, Math.min(3, s.length)));
 }
 
-// แปลงค่าดิบของท่า → คะแนน 0..1 ให้ entry = 0.7 และ exit = 0.35 พอดี
-// (เกมเดิมใช้ประตูสองบาน 0.7 / 0.35 อยู่แล้ว จึงเปลี่ยนแค่ตัวแปลง ไม่ต้องแก้ตัวเกม)
+// สมการ (3): แปลงค่าดิบของท่า m → คะแนน π = clip((r − m)/(r − b), 0, 1) โดย r = d_open (rest), b = d_close (best)
+// 1 = ทำท่าได้เต็มความสามารถ, 0 = มือพัก · ใช้ได้ทุกทิศทาง (ค่าน้อย = ดี หรือค่ามาก = ดี)
+// ผลที่ตามมา: m = entry → π = 0.7 = θ_on และ m = exit → π = 0.3 = θ_off
 export function scoreFromMeasure(m, cal) {
-  if (!cal || cal.entry === cal.exit) return 0;
-  return Math.max(0, Math.min(1, 0.35 + 0.35 * (m - cal.exit) / (cal.entry - cal.exit)));
+  if (!cal || !Number.isFinite(cal.rest) || !Number.isFinite(cal.best) || cal.rest === cal.best) return 0;
+  return Math.max(0, Math.min(1, (cal.rest - m) / (cal.rest - cal.best)));
+}
+
+// ค่าเริ่มต้นเมื่อยังไม่ปรับเทียบ (จีบนิ้ว): d_open = 0.80, d_close = 0.25 (ตรงกับ GESTURE_CONFIG.pinch ใน gestures.js)
+export const DEFAULT_PINCH = { rest: 0.8, best: 0.25 };
+
+// ภาพถ่ายค่าปรับเทียบที่ใช้ในเซสชันนี้ (เก็บลงระเบียนเซสชันเป็น session.calib)
+// เก็บไว้เพื่อให้ตรวจย้อนหลังได้ว่าแต่ละเซสชันใช้เกณฑ์ชุดไหน และเกณฑ์ถูกตรึงไว้หรือไม่
+export function calibSnapshot(cal, gesture = 'pinch') {
+  const src = cal || (gesture === 'pinch' ? { ...DEFAULT_PINCH, source: 'default' } : null);
+  if (!src) return null;
+  const rest = src.rest ?? src.min, best = src.best ?? src.max;     // ระเบียน spread-wall เก็บ min/max
+  if (!Number.isFinite(rest) || !Number.isFinite(best)) return null;
+  const th = thresholds(rest, best);
+  return { gesture: src.gesture || gesture, rest, best, entry: src.entry ?? th.entry, exit: src.exit ?? th.exit,
+    thetaOn: THETA_ON, thetaOff: THETA_OFF, locked: !!src.locked, calibratedAt: cal ? src.at ?? null : null,
+    source: cal ? src.source || 'calibration' : 'default' };
 }
 
 // ตัวตรวจจับ "ครั้ง" ระหว่างขั้น 3 (ยังไม่รู้ค่า best จริง ใช้ความคืบหน้าเทียบกับค่าคาดเดา)
@@ -73,6 +96,8 @@ export class PeakTracker {
   progress(m) { return this.span ? (m - this.rest) / this.span : 0; }
   better(a, b) { return this.span < 0 ? a < b : a > b; }
   // ป้อนค่าดิบหนึ่งค่า คืน peak ถ้าเพิ่งจบหนึ่งครั้ง
+  // ค่าคงที่ตรวจจับเฉพาะขั้นนี้ (ไม่ใช่เกณฑ์วัดผล): เริ่มครั้งเมื่อคืบหน้า ≥ 35% ของค่าคาดเดา, จบครั้งเมื่อกลับมา < 15%
+  // ตั้งให้หลวมกว่า θ_on/θ_off เพราะยังไม่รู้ค่า best จริงของผู้ใช้ (ใช้ expectBest ประมาณไว้ก่อน)
   update(m) {
     const p = this.progress(m);
     if (!this.inRep && p >= 0.35) { this.inRep = true; this.peak = m; }
@@ -91,9 +116,20 @@ export function buildRecord({ userId, gesture, rest, peaks, tremorSd, source }) 
   const best = bestOf(peaks, rest), lv = classifyTremor(tremorSd ?? 0), th = thresholds(rest, best);
   return { id: userId + ':' + gesture, userId, gesture, rest, best, peaks, entry: th.entry, exit: th.exit,
     entryK: ENTRY_K, exitK: EXIT_K, tremorSd, tremorLevel: lv.lv, grabRadius: lv.grabRadius, filter: { ...lv.filter, dCutoff: 1 },
-    source, at: Date.now() };
+    thetaOn: THETA_ON, thetaOff: THETA_OFF, locked: false, source, at: Date.now() };
 }
 export async function saveCalibration(rec) { return put('calibration', rec); }
+// ตรึงเกณฑ์ / ปลดล็อก (ใช้ได้กับทุกระเบียนใน store calibration รวมทั้ง spread-wall)
+export async function setCalibrationLock(userId, gesture, locked) {
+  const rec = await get('calibration', userId + ':' + gesture);
+  if (!rec) throw new Error('ยังไม่มีค่าปรับเทียบของท่านี้');
+  rec.locked = !!locked; rec.lockedAt = locked ? Date.now() : null;
+  await put('calibration', rec);
+  return rec;
+}
+export async function listCalibrations(userId) {
+  try { return await getByIndex('calibration', 'userId', userId); } catch (e) { console.warn('[calibration] อ่านรายการไม่ได้', e); return []; }
+}
 export async function loadCalibration(userId, gesture = 'pinch') {
   try { return (await get('calibration', userId + ':' + gesture)) || null; } catch (e) { console.warn('[calibration] โหลดไม่ได้', e); return null; }
 }

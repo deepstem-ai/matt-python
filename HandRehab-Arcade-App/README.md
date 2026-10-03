@@ -88,10 +88,15 @@ research/teaching tools. Plain HTML/CSS/JS, no build step, no install of Node or
 | `calibrate.html` · `filters.html` | 4-step hand calibration (real hand or simulated hand) · raw vs One Euro vs moving-average filter comparison |
 | `benchmark.html` | FPS benchmark + recommended resolution/effects (also offered on first run) |
 | `research.html` + research pages | datasets, teach-AI (kNN), evaluation, hand/gesture/counter/math labs, survey, evidence, report builder, rehearsal (built separately) |
+| `reliability.html` · `count-accuracy.html` · `survey.html?mode=sus` | evaluation plan of the article §6.2: test–retest ICC(2,1)/ICC(3,1) (first session excluded, Koo & Li bands) · system vs observer rep count under 3 light levels (accuracy %, MAE) · System Usability Scale (Thai, 10 items) vs 68 in `survey-results.html` · benchmark shows PASS/FAIL vs 25 FPS |
+
+**Math model · แบบจำลองคณิตศาสตร์:** every equation (1)–(10) of the article, where it lives in the code and its test →
+[`docs/MATH-MODEL.md`](docs/MATH-MODEL.md) · verify with `node tests/math-model.test.mjs`.
+For measurement, freeze the thresholds (ตรึงเกณฑ์ 🔒) on `calibrate.html`; each session stores the calibration snapshot it used.
 
 Files: `css/` (tokens + themes = all colours), `js/` (ES modules, Thai comments), `js/games/`, `icons/` (`app.ico` for the shortcut),
-`sw.js` (offline cache, version **v2.0.0**), `manifest.json`, `tools/` (servers, installer, shortcut, downloads, USB package, `make-ico.py`),
-`docs/` (`INSTALL.md`, `OFFLINE.md`), `tests/` (node unit tests: `node tests/juice.test.mjs` etc.).
+`sw.js` (offline cache, version **v2.2.0**), `manifest.json`, `tools/` (servers, installer, shortcut, downloads, USB package, `make-ico.py`),
+`docs/` (`INSTALL.md`, `OFFLINE.md`, `MATH-MODEL.md`), `tests/` (node unit tests: `node tests/math-model.test.mjs`, `node tests/juice.test.mjs` etc.).
 
 ## For the team · สำหรับทีม
 - Placeholders to change: app name "HandRehab Arcade", team "ทีม NeonHands", school "โรงเรียนของเรา".

@@ -61,7 +61,7 @@ export const FIELDS = [
   { g: 'Lab 27 / 21 / 18 · ค่าปรับเทียบ', key: 'rep_enter', label: 'ตัวนับ enter (ค่าในโค้ด)', lab: 21, def: '0.7' },
   { g: 'Lab 27 / 21 / 18 · ค่าปรับเทียบ', key: 'rep_exit', label: 'ตัวนับ exit (ค่าในโค้ด)', lab: 21, def: '0.3' },
   { g: 'Lab 27 / 21 / 18 · ค่าปรับเทียบ', key: 'rep_hold', label: 'ค้างขั้นต่ำ ms (ค่าในโค้ด)', lab: 21, def: '200' },
-  { g: 'Lab 27 / 21 / 18 · ค่าปรับเทียบ', key: 'rep_cooldown', label: 'พักหลังนับ ms (ค่าในโค้ด)', lab: 21, def: '300' },
+  { g: 'Lab 27 / 21 / 18 · ค่าปรับเทียบ', key: 'rep_cooldown', label: 'พักหลังนับ ms (ค่าในโค้ด)', lab: 21, def: '400' },
   { g: 'Lab 27 / 21 / 18 · ค่าปรับเทียบ', key: 'scale_var', label: 'ระยะเปลี่ยนเมื่อเลื่อนมือ (%) (Lab 18)', lab: 18 },
   { g: 'อื่น ๆ', key: 'file_face', label: 'ไฟล์ทดสอบเข้าระบบ (Lab 15)', lab: 15 },
   { g: 'อื่น ๆ', key: 'camera', label: 'รุ่นกล้องและความละเอียด (Lab 10)', lab: 10 },

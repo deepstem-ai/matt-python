@@ -3,6 +3,7 @@
 // ============================================================
 import { SpreadWall } from './games/spread-wall.js';
 import { runCalibration, loadCalibration, saveCalibration } from './games/spread-calibrate.js';
+import { calibSnapshot } from './calibration.js';
 import {
   HandInput, releaseOnLeave, showOverlay, hideOverlay, pauseWithModal, RestReminder, restModal,
   bindCalmButton, previousSessions, compare, machineInfo, FpsLog, userId, urlNumber,
@@ -99,9 +100,17 @@ async function ready() {
     ]);
   } else calibrate();
 }
-function useCalib(c) { game.calib = { min: c.min, max: c.max }; $('calInfo').textContent = `${c.min}°–${c.max}°`; }
+let calRec = null;                                    // ระเบียนค่าปรับเทียบที่ใช้อยู่ (มี locked = ตรึงเกณฑ์)
+function useCalib(c) { calRec = c; game.calib = { min: c.min, max: c.max }; $('calInfo').textContent = `${c.locked ? '🔒 ' : ''}${c.min}°–${c.max}°`; }
 async function calibrate() {
   if (game.round?.active) game.endRound();
+  // ตรึงเกณฑ์: ถ้าค่าเดิมถูกล็อกไว้ ต้องยืนยันปลดล็อกก่อนจึงปรับเทียบใหม่ได้
+  const old = await loadCalibration(userId());
+  if (old?.locked) {
+    const ok = await modal(`<h2>🔒 เกณฑ์การกางนิ้วถูกตรึงไว้</h2><p>เกณฑ์นี้ถูกตรึงไว้สำหรับการวัดผล (เทียบผลข้ามวัน) การปรับเทียบใหม่จะ <b>ปลดล็อก</b> และเปลี่ยนเกณฑ์</p>`,
+      [{ label: '🔓 ปลดล็อกและปรับเทียบใหม่', value: true, cls: 'danger' }, { label: 'ใช้ค่าเดิม', value: false, cls: 'ghost' }]);
+    if (!ok) { useCalib(old); return play(); }
+  }
   const c = await runCalibration(overlay, game);
   if (!c) return ready();
   try { useCalib(await saveCalibration(userId(), c, game.source)); toast('บันทึกค่าปรับเทียบแล้ว', 'success'); }
@@ -109,7 +118,7 @@ async function calibrate() {
   showOverlay(overlay, `<h2>✅ ปรับเทียบเสร็จ</h2><p>หุบนิ้ว ${game.calib.min}° · กางสุด ${game.calib.max}°</p>
     <p>กางนิ้วให้ปลายนิ้วอยู่ใน <b>แถบสีเขียว</b> ของช่องกำแพง · กว้างไปหรือแคบไปจะชน</p>`, [{ label: '▶ เริ่มเล่น', cls: 'success', onClick: play }]);
 }
-function play() { hideOverlay(overlay); fx.juice.reset(); fpsLog.samples = []; game.startRound(); rec.start({ calibration: game.calib, sensitivity: game.sens, practice: game.practice }); if (eng.paused) eng.resume(); }
+function play() { hideOverlay(overlay); fx.juice.reset(); fpsLog.samples = []; game.startRound(); rec.start({ calibration: game.calib, sensitivity: game.sens, practice: game.practice }, { calib: calibSnapshot(calRec, 'spread') }); if (eng.paused) eng.resume(); }
 $('recalBtn').onclick = () => { if (game.source === 'hand' && !input.ready) return startCamera(); calibrate(); };
 $('endBtn').onclick = () => game.endRound();
 

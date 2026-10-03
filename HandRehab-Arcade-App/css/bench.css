@@ -52,3 +52,8 @@ section.card-neon h2 { margin-top: 0; }
 .chart-box canvas { width: 100%; height: 100%; display: block; }
 .table-scroll { overflow-x: auto; margin-top: var(--sp-3); }
 .first-run-list { padding-left: var(--sp-5); }
+
+/* บทความ §6.2: ป้ายผ่าน/ไม่ผ่านเกณฑ์ FPS ≥ 25 */
+.fps-badge { display: inline-block; border-radius: 999px; padding: 2px var(--sp-3); font-weight: 800; font-size: var(--fs-sm); color: var(--on-bright); }
+.fps-badge.pass { background: var(--success); }
+.fps-badge.fail { background: var(--error); }
