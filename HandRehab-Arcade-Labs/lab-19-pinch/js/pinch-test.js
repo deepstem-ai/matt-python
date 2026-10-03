@@ -22,6 +22,11 @@ const $ = (id) => document.getElementById(id);
 const video = $('video'), canvas = $('canvas'), stage = $('stage');
 
 // ---------- สไลเดอร์ค่าเกณฑ์: เขียนลง GESTURE_CONFIG ผ่าน setGestureConfig (ไม่ฝังตัวเลขในฟังก์ชัน) ----------
+// สมการ (3) ในบทความ: π = clip( (d_open − d̂48) / (d_open − d_close), 0, 1 )
+//   d_open  = GESTURE_CONFIG.pinch.zero  (ระยะตอนแบมือ ค่าเริ่มต้น 0.80) → π = 0
+//   d_close = GESTURE_CONFIG.pinch.full  (ระยะตอนจีบสุด ค่าเริ่มต้น 0.25) → π = 1
+//   d̂48 = ‖p4 − p8‖ / s ตามสมการ (1)(2)   หลังสอบเทียบ (Lab 27) ใช้ d_open = r (พัก), d_close = b (ดีที่สุด)
+//   (detectPinch ใน gestures.js คำนวณสูตรนี้ด้วย scoreLow(d̂48, d_close, d_open))
 const CODE_DEFAULT = { ...GESTURE_CONFIG.pinch };
 function syncSliders() {
   const c = GESTURE_CONFIG.pinch;
@@ -32,7 +37,7 @@ function syncSliders() {
   $(k).oninput = () => {
     let v = +$(k).value;
     const c = GESTURE_CONFIG.pinch;
-    if (k === 'full' && v >= c.zero - 0.05) v = c.zero - 0.05; // full ต้องน้อยกว่า zero เสมอ
+    if (k === 'full' && v >= c.zero - 0.05) v = c.zero - 0.05; // d_close ต้องน้อยกว่า d_open เสมอ
     if (k === 'zero' && v <= c.full + 0.05) v = c.full + 0.05;
     setGestureConfig('pinch', { [k]: v });
     syncSliders();

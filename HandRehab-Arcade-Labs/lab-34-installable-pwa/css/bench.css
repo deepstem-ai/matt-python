@@ -52,3 +52,8 @@ section.card-neon h2 { margin-top: 0; }
 .chart-box canvas { width: 100%; height: 100%; display: block; }
 .table-scroll { overflow-x: auto; margin-top: var(--sp-3); }
 .first-run-list { padding-left: var(--sp-5); }
+/* PASS/FAIL เทียบเกณฑ์บทความ FPS ≥ 25 */
+.pf { display: inline-block; margin-top: var(--sp-2); padding: 2px var(--sp-3); border-radius: 999px; font-weight: 800; border: 2px solid var(--line); }
+.pf.pass { color: var(--success); border-color: var(--success); }
+.pf.fail { color: var(--error); border-color: var(--error); }
+.pf small { font-weight: 600; color: var(--text-2); }

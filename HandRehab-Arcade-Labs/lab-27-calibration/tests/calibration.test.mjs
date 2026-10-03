@@ -1,5 +1,5 @@
 // ทดสอบตรรกะการปรับเทียบด้วยมือจำลอง   วิธีรัน: node tests/calibration.test.mjs
-import { thresholds, bestOf, classifyTremor, tremorFromSamples, scoreFromMeasure, PeakTracker, buildRecord, GESTURES } from '../js/calibration.js';
+import { THETA_ON, THETA_OFF, thresholdSnapshot, thresholds, bestOf, classifyTremor, tremorFromSamples, scoreFromMeasure, PeakTracker, buildRecord, GESTURES } from '../js/calibration.js';
 import { demoHand } from '../js/synth-hand.js';
 
 let pass = 0, fail = 0;
@@ -11,9 +11,17 @@ let th = thresholds(0.8, 0.1); ok(near(th.entry, 0.31) && near(th.exit, 0.59), '
 th = thresholds(15, 50); ok(near(th.entry, 39.5) && near(th.exit, 25.5), 'สูตรเกณฑ์กางนิ้ว');
 ok(near(bestOf([0.2, 0.1, 0.12, 0.5, 0.14], 0.8), 0.12), 'best = เฉลี่ย 3 ครั้งที่ดีที่สุด (ค่าน้อยดี)');
 ok(near(bestOf([40, 50, 48, 20, 46], 15), 48), 'best = เฉลี่ย 3 ครั้งที่ดีที่สุด (ค่ามากดี)');
-// คะแนน: entry → 0.7, exit → 0.35
-const cal = { entry: 0.31, exit: 0.59 };
-ok(near(scoreFromMeasure(0.31, cal), 0.7) && near(scoreFromMeasure(0.59, cal), 0.35) && scoreFromMeasure(0.05, cal) === 1 && scoreFromMeasure(1.2, cal) === 0, 'แปลงค่าดิบ → คะแนน');
+// คะแนนสมการ (3) d_open = r, d_close = b: entry → 0.7 (θ_on), exit → 0.3 (θ_off) — เดิม exit → 0.35 (เปลี่ยนตามบทความ)
+const cal = { rest: 0.8, best: 0.1, entry: 0.31, exit: 0.59 };
+ok(near(scoreFromMeasure(0.31, cal), 0.7) && near(scoreFromMeasure(0.59, cal), 0.3) && scoreFromMeasure(0.05, cal) === 1 && scoreFromMeasure(1.2, cal) === 0, 'แปลงค่าดิบ → คะแนน สมการ (3)');
+ok(near(scoreFromMeasure(0.8, cal), 0) && near(scoreFromMeasure(0.1, cal), 1) && near(scoreFromMeasure(0.45, cal), 0.5), 'π(r) = 0, π(b) = 1, เส้นตรง');
+// π(T) = k สำหรับ k ใด ๆ และท่ากางนิ้ว (ค่ามาก = ดี)
+for (const k of [0.1, 0.3, 0.5, 0.7, 0.9]) { const T = 0.8 - k * (0.8 - 0.1); ok(near(scoreFromMeasure(T, cal), k), `π(T) = k (k=${k})`); }
+const calOpen = { rest: 15, best: 50 }; const tOpen = thresholds(15, 50);
+ok(near(scoreFromMeasure(tOpen.entry, calOpen), 0.7) && near(scoreFromMeasure(tOpen.exit, calOpen), 0.3), 'กางนิ้ว: entry → 0.7, exit → 0.3');
+ok(THETA_ON === 0.7 && THETA_OFF === 0.3, 'θ_on = 0.7, θ_off = 0.3');
+const snap = thresholdSnapshot({ ...cal, locked: true, lockedAt: 5, at: 1 });
+ok(snap.locked && snap.dOpen === 0.8 && snap.dClose === 0.1 && snap.thetaOff === 0.3 && thresholdSnapshot(null).source === 'default', 'snapshot เกณฑ์ (ตรึง/ค่ามาตรฐาน)');
 // ระดับอาการสั่นจากมือจำลองแต่ละระดับ
 for (let lv = 0; lv < 4; lv++) {
   const s = []; for (let i = 0; i < 150; i++) { const t = i / 30; s.push({ t, sq: demoHand(t, { tremorLevel: lv }) }); }
@@ -29,7 +37,7 @@ const pt = new PeakTracker(rest, G.expectBest);
 for (let r = 0; r < 5; r++) for (let i = 0; i <= 40; i++) pt.update(G.measure(demoHand(0, { amount: Math.sin((i / 40) * Math.PI) * (0.8 + r * 0.05) })));
 ok(pt.peaks.length === 5, 'นับได้ 5 ครั้ง ได้ ' + pt.peaks.length);
 const rec = buildRecord({ userId: 'u1', gesture: 'pinch', rest, peaks: pt.peaks, tremorSd: 0.08, source: 'demo' });
-ok(rec.id === 'u1:pinch' && rec.tremorLevel === 3 && rec.grabRadius === 100 && rec.filter.minCutoff < 0.5 && rec.entry < rec.exit && rec.exit < rest, 'ระเบียน: สั่นมาก → รัศมี 100 กรองแรง');
+ok(rec.id === 'u1:pinch' && rec.tremorLevel === 3 && rec.grabRadius === 100 && rec.filter.minCutoff < 0.5 && rec.entry < rec.exit && rec.exit < rest && rec.locked === false, 'ระเบียน: สั่นมาก → รัศมี 100 กรองแรง');
 ok(buildRecord({ userId: 'u1', gesture: 'pinch', rest, peaks: pt.peaks, tremorSd: 0.005 }).grabRadius === 60, 'ไม่สั่น → รัศมีมาตรฐาน 60');
 
 console.log(`\nผ่าน ${pass} / ${pass + fail}`);

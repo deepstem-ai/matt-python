@@ -45,7 +45,7 @@ To see the "model failed to download" screen, open `index.html?fail=1`.
 | `js/counter-sim.js` | pure: the 3 signals (seeded), `NaiveCounter`, `runSim`, `gapExperiment` |
 | `js/signal-chart.js` | custom canvas chart with threshold lines and count markers (solid background, so the PNG is readable) |
 | `js/counter-test.js` | page logic |
-| `tests/rep-counter.test.mjs` | `node tests/rep-counter.test.mjs` (12 tests: the 3 signals, 100 noise seeds, hold, cooldown, the 5 states, determinism) |
+| `tests/rep-counter.test.mjs` | `node tests/rep-counter.test.mjs` (14 tests: the 3 signals, 100 noise seeds, hold, cooldown, the 5 states, determinism, release at exactly θ_off, default cooldown 400 ms) |
 | shared | `gestures.js`, `geometry.js`, `hand.js`, `hand-app.js`, `demo-hand.js`, `synth-hand.js`, `camera.js`, `vision.js`, `ui.js`, `css/*` |
 
 ## Blanks we filled in
@@ -53,13 +53,18 @@ To see the "model failed to download" screen, open `index.html?fail=1`.
 | Blank | Value | Why |
 |---|---|---|
 | Rise above ___ to start | **0.7** | hint |
-| Fall below ___ to release | **0.4** | The hint. A wider gap rejects more noise but makes the gesture harder. |
+| Fall below ___ to release | **0.3** (release when score **≤ θ_off**) | Article eq. (7)/(8): θ_off = k_off = 0.3. (Earlier version used the hint 0.4; the noisy test still gives 10/10 with 0.3.) |
 | Hold at least ___ ms | **200 ms** | rejects a quick brush-past |
-| No new count within ___ ms | **400 ms** | Nobody performs the gesture faster than this. |
+| No new count within ___ ms | **400 ms** (also the default `cooldownMs` in `rep-counter.js`, was 300) | Article eq. (7): cooldown ≈ 400 ms. Nobody performs the gesture faster than this. |
+
+## Article alignment (MITIJ article, eq. 7)
+
+- `rep-counter.js` follows equation (7) of the team's article: **held ⇔ π ≥ θ_on, release ⇔ π ≤ θ_off** (θ_on > θ_off), five states idle / engaging / held / releasing / cooldown, one count per full cycle, then **≈ 400 ms cooldown**. The release test is now `score <= exit` (was `<`), and the default `cooldownMs` is 400 (was 300). Sliders now start at θ_on 0.7 / θ_off 0.3.
+- Citation for the two-threshold trigger: Schmitt (1938).
 
 ## How to verify (MUST / PASS)
 
-- [ ] **All three simulated tests pass:** press ▶️ รันทั้ง 3 แบบ. All three cards show PASS ✅ (10 / 10 / 0). `node tests/rep-counter.test.mjs` → 12/12.
+- [ ] **All three simulated tests pass:** press ▶️ รันทั้ง 3 แบบ. All three cards show PASS ✅ (10 / 10 / 0). `node tests/rep-counter.test.mjs` → 14/14.
 - [ ] **Time is passed in, never read inside:** `rep-counter.js` has no `performance.now()` or `Date.now()` (`grep -n "now()" js/rep-counter.js` finds nothing).
 - [ ] **Ten real repetitions = 10:** switch to 📷, choose จีบนิ้ว, and pinch 10 times. The two-gate counter reads 10. The naive one usually reads more.
 - [ ] Save the chart PNG with both threshold lines for your report (SHOULD). Run 🔬 and copy the table into your experiment chapter.

@@ -19,10 +19,10 @@ let current = '4';
 // ค่าที่กรอกเอง (ไม่มีใน CSV) — ค่าเริ่มต้นเฉพาะค่าตั้งค่าในโค้ดหรือเกณฑ์ที่ทีมเลือก ไม่ใช่ผลวัด
 const FIELDS = [
   ['project', 'ชื่อแอป', 'HandRehab Arcade'], ['team', 'ชื่อทีม', 'ทีม NeonHands'],
-  ['fps_crit', 'เกณฑ์ FPS (สมมติฐาน 2)', '15'], ['survey_crit', 'เกณฑ์ความพึงพอใจ (สมมติฐาน 3)', '3.51'], ['login_crit', 'เกณฑ์เวลาเข้าระบบ วินาที (สมมติฐาน 5)', '5'],
-  ['calib_k', 'k เข้า / k ออก (Lab 27)'], ['tremor_sec', 'วินาทีวัดมือสั่น (Lab 27)'], ['tremor_cuts', 'ค่าแบ่งระดับมือสั่น (Lab 27)'],
+  ['fps_crit', 'เกณฑ์ FPS (สมมติฐาน 2 · บทความ ≥ 25)', '25'], ['survey_crit', 'เกณฑ์ความพึงพอใจ (สมมติฐาน 3)', '3.51'], ['login_crit', 'เกณฑ์เวลาเข้าระบบ วินาที (สมมติฐาน 5)', '5'],
+  ['calib_k', 'k เข้า / k ออก (Lab 27)', 'k_on = 0.7, k_off = 0.3'], ['tremor_sec', 'วินาทีวัดมือสั่น (Lab 27)'], ['tremor_cuts', 'ค่าแบ่งระดับมือสั่น (Lab 27)'],
   ['oe_mincutoff', 'One Euro minCutoff (Lab 27)'], ['oe_beta', 'One Euro beta (Lab 27)'], ['oe_dcutoff', 'One Euro dCutoff (Lab 27)'],
-  ['rep_enter', 'ตัวนับ enter (ค่าในโค้ด)', '0.7'], ['rep_exit', 'ตัวนับ exit (ค่าในโค้ด)', '0.3'], ['rep_hold', 'minHoldMs (ค่าในโค้ด)', '200'], ['rep_cooldown', 'cooldownMs (ค่าในโค้ด)', '300'],
+  ['rep_enter', 'ตัวนับ enter (ค่าในโค้ด)', '0.7'], ['rep_exit', 'ตัวนับ exit (ค่าในโค้ด)', '0.3'], ['rep_hold', 'minHoldMs (ค่าในโค้ด)', '200'], ['rep_cooldown', 'cooldownMs (ค่าในโค้ด)', '400'],
   ['face_threshold', 'เกณฑ์ความคล้ายใบหน้า (Lab 15)'], ['ear_threshold', 'เกณฑ์ EAR กะพริบตา (Lab 15)'], ['photo_reject', 'ภาพถ่ายถูกปฏิเสธ เช่น 10/10 (Lab 15)'],
   ['knn_k', 'ค่า k ของ kNN (Lab 31)'], ['python_version', 'รุ่น Python (Lab 02)'], ['browser', 'รุ่นเบราว์เซอร์ (Lab 33)'], ['claude_version', 'รุ่น Claude Code (Lab 03)'],
   ['repo', 'ลิงก์ repository (Lab 04)'], ['camera', 'รุ่นกล้อง/ความละเอียด (Lab 10)'], ['cam_distance', 'ระยะมือถึงกล้อง ซม. (Lab 32)'], ['bench_sec', 'วินาทีต่อสถานการณ์ (Lab 33)'],

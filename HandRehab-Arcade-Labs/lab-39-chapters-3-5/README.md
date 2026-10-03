@@ -25,6 +25,14 @@
 | paste evidence/SUMMARY.md | Drop the same CSVs the summary was built from (the generator recomputes; every table names its file) |
 | paste every CSV | Recognised automatically by column names (see csv-kit.js `detectKind`) |
 | list the charts that already exist | Figure captions point at the exact Lab 37 file names (`lab32-lighting-accuracy.png`, `lab33-machine-compare.png`, `lab36-survey-chart.png` …) |
+| FPS criterion (hypothesis 2) | **25** (was 15) — article §6.2 |
+| cooldownMs (code value) | **400** (was 300) |
+
+## Article alignment (MITIJ article)
+
+- `templates/chapter3-template.md` §3.3 now uses the article’s **equations (1)–(10) with the same numbers** — (1)(2) palm normalisation (Zarrat Ehsan 2026), (3) pinch score, (4)–(6) One Euro (Casiez 2012), (7) two-threshold counter (Schmitt 1938), (8) per-person thresholds k_on 0.7 / k_off 0.3 + the freeze rule, (9) cosine similarity, (10) EAR (Soukupová & Čech 2016); supplementary equations are (11)–(20) (incl. counting accuracy, ICC, SUS) with a reference list.
+- §3.5/§3.7 add the article evaluation plan: FPS ≥ 25, counting accuracy vs video observer under 3 light levels, ICC ≥ 0.75 excluding the first session (Koo & Li 2016; Kim 2025), SUS vs 68.
+- Form defaults: cooldownMs **400** (was 300), FPS criterion **25** (was 15), k = "k_on = 0.7, k_off = 0.3".
 
 ## How to verify (MUST / PASS)
 - [ ] Drop every real CSV from `evidence/` — Chapter 4's missing chip should reach 0 (or name exactly which lab to redo).

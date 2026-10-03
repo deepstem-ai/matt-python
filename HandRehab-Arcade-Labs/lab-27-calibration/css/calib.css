@@ -24,3 +24,5 @@ canvas.demo-hand { width: 100%; max-width: 360px; aspect-ratio: 1; background: v
 .meter > i { position: absolute; top: 0; bottom: 0; left: 0; background: var(--primary); }
 .meter > .mark { position: absolute; top: 0; bottom: 0; width: 3px; }
 .meter > .mark.enter { background: var(--success); } .meter > .mark.exit { background: var(--warning); }
+.lock-box { margin: var(--sp-3) 0; padding: var(--sp-2) var(--sp-3); border: 2px dashed var(--line); border-radius: var(--r-md); }
+.eq-box .eq { font-size: 1.15rem; margin: var(--sp-2) 0; }

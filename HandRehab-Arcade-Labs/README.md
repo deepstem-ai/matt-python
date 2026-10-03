@@ -41,3 +41,27 @@ Each `lab-NN-*` folder is **self-contained**. It holds a copy of every file that
 - All data stays in the browser's IndexedDB (`handrehab-arcade`). No image or health data leaves the computer.
 
 > The team name "ทีม NeonHands" and school "โรงเรียนของเรา" are placeholders. Change them to your own.
+
+## Maths model (MITIJ article)
+
+The labs use the same equation numbers as the team's article (MITIJ, "HandRehab Arcade"). Code comments say `สมการ (n)`.
+
+| Eq. | Formula | Where in the labs | Source |
+|---|---|---|---|
+| (1) | s = ‖p0 − p9‖ (palm size, 3-D, every frame) | `js/geometry.js` `palmScale` — Lab 18 (`docs/math.md`), every copy | Zarrat Ehsan et al. 2026 (idea) |
+| (2) | d̂ij = ‖pi − pj‖ / s | `js/geometry.js` `normDist` — Lab 18, every copy | Zarrat Ehsan et al. 2026 (idea) |
+| (3) | π = clip((d_open − d̂48)/(d_open − d_close), 0, 1); defaults 0.80 / 0.25 | `js/gestures.js` `detectPinch`; Lab 19 sliders d_open / d_close; Lab 27 `scoreFromMeasure` (d_open = r, d_close = b) | team design |
+| (4)–(6) | α = 1/(1 + 1/(2π f_c T_e)); x̂t = α xt + (1 − α) x̂t−1; f_c = f_c,min + β\|ẋ̂t\| | Lab 27 `js/smoothing.js` (`smoothingAlpha`, `OneEuroFilter`), `filters.html` | Casiez et al. 2012 |
+| (7) | held ⇔ π ≥ θ_on, release ⇔ π ≤ θ_off; 5 states; cooldown 400 ms | `js/rep-counter.js` (Labs 21, 23, 26–28, 33–35); Star Portal PINCH_ON 0.7 / PINCH_OFF 0.3 | Schmitt 1938 |
+| (8) | T = r − k(r − b), k_on 0.7, k_off 0.3 → θ_on 0.7, θ_off 0.3 for everyone; freeze thresholds (ตรึงเกณฑ์) for measurement | Lab 27 `js/calibration.js`, `calibrate.html` lock switch, session `details.thresholds` snapshot (Labs 27, 28) | team design |
+| (9) | cos θ = A·B / (‖A‖‖B‖), clamped to 0..1 | `js/face-embed.js` `cosineSimilarity` (Labs 14, 15, 34, 35), Lab 15 `docs/cosine-similarity.md` | standard |
+| (10) | EAR = (‖p2 − p6‖ + ‖p3 − p5‖)/(2‖p1 − p4‖) | `js/face-login.js` `eyeAspectRatio` (Labs 15, 34, 35) | Soukupová & Čech 2016 |
+
+Evaluation plan (article §6.2) → tools:
+
+- **FPS ≥ 25** on each platform → Lab 33 benchmark PASS/FAIL per scenario and overall (`js/fps-target.js`, also in Labs 34–35).
+- **Counting accuracy** (system vs observer count from video, 3 light levels) → Lab 32 `counting.html` (accuracy %, MAE, chart, CSV).
+- **Test–retest ICC ≥ 0.75** (Koo & Li 2016), first session excluded (Kim 2025) → Lab 32 `reliability.html` (ICC(2,1), ICC(3,1); verified on the Shrout & Fleiss 1979 table: 0.29 / 0.71).
+- **SUS vs 68** → Lab 36 `survey.html?mode=sus` + `results.html` (SUS = 2.5 × [Σ(odd − 1) + Σ(5 − even)]).
+- Reaction-time resolution ≈ 1000 / FPS (≈ 33 ms at 30 fps) → Rhythm Tap summary (Labs 24, 26, 28, 34, 35).
+- Chapter 3 template with equations (1)–(10) and the evaluation plan → Lab 39.

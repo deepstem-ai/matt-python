@@ -19,3 +19,13 @@ tr.macro td { border-top: 2px solid var(--line); }
 .runs li { display: flex; gap: var(--sp-3); align-items: center; flex-wrap: wrap; background: var(--input); border-radius: var(--r-md); padding: var(--sp-2) var(--sp-3); }
 dl dt { font-weight: 700; margin-top: var(--sp-2); }
 dl dd { margin: 0 0 0 var(--sp-4); color: var(--text-2); }
+/* แท็บเครื่องมือนักวิจัย + หน้า counting / reliability */
+.tabs { gap: var(--sp-2); margin-top: var(--sp-2); }
+.tabs a[aria-current="page"] { pointer-events: none; }
+input.obs { width: 90px; min-height: 48px; font: 700 var(--fs-md) var(--font-num); }
+select.light { min-height: 48px; }
+.icc-big { font: 800 var(--fs-2xl) var(--font-num); }
+.band { display: inline-block; padding: var(--sp-1) var(--sp-3); border-radius: 999px; font-weight: 800; border: 2px solid var(--line); }
+.band.poor { border-color: var(--error); color: var(--error); }
+.band.moderate { border-color: var(--warning); color: var(--warning); }
+.band.good, .band.excellent { border-color: var(--success); color: var(--success); }

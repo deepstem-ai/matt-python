@@ -9,7 +9,7 @@ import {
 import { applyPrefs, modal, esc, toast } from './ui.js';
 import { saveSession, saveRep, newId, getCurrentUser } from './db.js';
 import { handInfo } from './hand.js';
-import { loadCalibration } from './calibration.js';
+import { loadCalibration, thresholdSnapshot } from './calibration.js';
 import { mountUserPicker } from './user-picker.js';
 
 applyPrefs();
@@ -51,7 +51,7 @@ async function applyCalibration() {
   const cal = await loadCalibration(userId(), 'pinch');
   game.applyCalibration(cal);
   $('radiusRange').value = game.grabRadius; $('radiusVal').textContent = game.grabRadius;
-  $('calInfo').textContent = cal ? `${LEVEL_TH[cal.tremorLevel]} · รัศมี ${cal.grabRadius} px · จีบ ≤ ${cal.entry.toFixed(2)} / ปล่อย ≥ ${cal.exit.toFixed(2)}` : 'ยังไม่ปรับเทียบ (ใช้ค่ามาตรฐาน)';
+  $('calInfo').textContent = cal ? `${LEVEL_TH[cal.tremorLevel]} · รัศมี ${cal.grabRadius} px · จีบ ≤ ${cal.entry.toFixed(2)} / ปล่อย ≥ ${cal.exit.toFixed(2)}${cal.locked ? ' · 🔒 ตรึงเกณฑ์' : ''}` : 'ยังไม่ปรับเทียบ (ใช้ค่ามาตรฐาน)';
   return cal;
 }
 applyCalibration();
@@ -135,7 +135,8 @@ async function finish(sum) {
     id: newId('s_'), userId: userId(), game: 'star-portal', startTime: sum.startTime, endTime: sum.endTime,
     reps: sum.pinches, accuracy: +sum.accuracy.toFixed(3), score: sum.score, avgFps: fpsLog.avg,
     delegate: game.source === 'mouse' ? 'demo-mouse' : handInfo().delegate, machine: machineInfo(),
-    details: { level: sum.level, grabRadius: game.grabRadius, calibrated: !!game.cal, tremorLevel: game.cal?.tremorLevel ?? null, filterOn: game.filterOn, shakeLevel: game.shakeLevel, attempts: sum.attempts, successes: sum.successes,
+    details: { level: sum.level, grabRadius: game.grabRadius, calibrated: !!game.cal, tremorLevel: game.cal?.tremorLevel ?? null,
+      thresholds: thresholdSnapshot(game.cal),   // snapshot เกณฑ์ที่ใช้รอบนี้ (สมการ 3, 7, 8) + ตรึงไว้หรือไม่ filterOn: game.filterOn, shakeLevel: game.shakeLevel, attempts: sum.attempts, successes: sum.successes,
       bestCombo: sum.bestCombo, avgStarMs: Math.round(sum.avgStarMs), starTimes: sum.starTimes, demo: game.source === 'mouse' },
   };
   const status = await save(session, sum.reps);

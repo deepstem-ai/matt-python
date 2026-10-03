@@ -43,6 +43,10 @@ Two core bugs were fixed here: (1) in `barChart`, the SD whisker's `lineTo` sat 
 | Four stat cards, for example ___ ___ ___ ___ | **total sessions · reps this week · best spread angle · current streak** |
 | "this week you trained ___ percent more than last week" | computed: (minutes this week − minutes last week) / minutes last week |
 
+## Article alignment (MITIJ article)
+
+- `js/charts.js` `barChart` accepts optional reference lines `opts.lines = [{ value, color, label }]` (used for the SUS 68 line in Lab 36). Existing charts are unchanged.
+
 ## MUST / PASS checklist · วิธีตรวจ
 - [ ] At least 5 days of data exist (real play from Lab 28, or 🧪 demo). The charts render, and tapping a point shows its value.
 - [ ] Change the numbers (delete some recent sessions in Lab 28). The summary text changes and stays encouraging. It is never hard-coded.

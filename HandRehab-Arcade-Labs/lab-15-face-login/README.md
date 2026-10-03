@@ -46,6 +46,11 @@ Synthetic check (node, fake faces built from MediaPipe's canonical mesh with ran
 
 Honest limitations (Chapter 5): geometry only, weaker than a dedicated face-recognition model; MediaPipe's z estimate is noisy; the SHA-256 of a 6-digit PIN can be brute-forced by someone who copies the database (the 30 s lock only slows the on-screen keypad) — acceptable for a local school prototype, use PBKDF2/Argon2 in a real product.
 
+## Article alignment (MITIJ article)
+
+- `js/face-embed.js` / `js/face-login.js` comments cite **eq. (9)** cos θ = A·B/(‖A‖‖B‖) — the app **clamps cos to 0..1** for display and threshold — and **eq. (10)** EAR (Soukupová & Čech 2016, landmarks 33,160,158,133,153,144 / 362,385,387,263,373,380). Comments only.
+- `docs/cosine-similarity.md` now shows eq. (9) with its number, explains the 0..1 clamp, and adds eq. (10) EAR.
+
 ## How to verify (MUST / PASS)
 - [ ] Register → enrol 5 poses → login: you get in **within 5 s** (check the "ใช้เวลา" column on the home page).
 - [ ] Only after a **blink**: stay still with eyes open → status says "จำได้แล้ว! กระพริบตา…" and does not log in.

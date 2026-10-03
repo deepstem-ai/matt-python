@@ -49,6 +49,10 @@ To see the "model failed to download" screen, open `index.html?fail=1`.
 | Step down below FPS … for … s | **24 FPS for 3 s** | The team spec uses 24 (the hint suggests 20). 3 s avoids annoying flip-flopping. |
 | Step back up | **> 45 FPS for > 10 s, ask first** | given in the prompt |
 
+## Article alignment (MITIJ article)
+
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+
 ## How to verify (MUST / PASS)
 
 - [ ] **All three styles switch:** click each style. Reload the page and the choice is remembered.

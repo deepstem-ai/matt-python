@@ -51,6 +51,11 @@ MUST: confirm these with a health or PE teacher, or a source, and cite them in y
 | Daily activity example | pinching picks up coins and fastens buttons, a fist holds a glass, spreading grips a door handle | hint. The full list is in the table above. |
 | Wrist flex axis | palm axis P0→P9 vs forearm axis (vertical, elbow resting on the table) | from the prompt |
 
+## Article alignment (MITIJ article)
+
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+- `js/gestures.js` pinch comment cites **eq. (3)** π = clip((d_open − d̂48)/(d_open − d_close)), with d_open = `pinch.zero` = 0.80 and d_close = `pinch.full` = 0.25 (comments only).
+
 ## Separation rules we added (so one gesture does not drag another up)
 
 - **Pinch** × gate on index curl (`indexCurlMax` 0.65): a fist is not a pinch.

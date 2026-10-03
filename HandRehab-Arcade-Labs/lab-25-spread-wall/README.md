@@ -47,6 +47,11 @@
 | Rest reminder every | **5 minutes** |
 | Game theme | **Underwater / coral reef** |
 
+## Article alignment (MITIJ article)
+
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+- `js/gestures.js` pinch comment cites **eq. (3)** π = clip((d_open − d̂48)/(d_open − d_close)), with d_open = `pinch.zero` = 0.80 and d_close = `pinch.full` = 0.25 (comments only).
+
 ## MUST / PASS checklist · วิธีตรวจ
 - [ ] **Per-person calibration:** two people calibrate. Both can reach the widest gaps, because width is relative to each person's own min/max.
 - [ ] **Max angle saved:** after a game, `sessions` has `maxSpreadDeg`, and `settings › spread-daily:<user>` has today's value.

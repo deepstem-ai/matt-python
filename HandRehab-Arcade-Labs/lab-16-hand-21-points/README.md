@@ -55,6 +55,10 @@ To see the "model failed to download" screen, open `index.html?fail=1`.
 
 Model links: primary `…/hand_landmarker/float16/1/hand_landmarker.task`, backup `…/float16/latest/…` (`vision.js → modelUrls`).
 
+## Article alignment (MITIJ article)
+
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+
 ## How to verify (MUST / PASS)
 
 - [ ] **Backup link and size check:** open `index.html?fail=1`. The console shows both links tried, and the Thai error box shows a manual download link and retry buttons.

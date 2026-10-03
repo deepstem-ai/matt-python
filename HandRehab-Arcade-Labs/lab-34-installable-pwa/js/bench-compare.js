@@ -6,7 +6,7 @@
 import { getAll, put, del } from './db.js';
 import { barChart } from './charts.js';
 import { downloadCSV, downloadText, saveCanvasPNG, esc, toast, modal } from './ui.js';
-import { SCENARIOS } from './bench-runner.js';
+import { SCENARIOS, FPS_TARGET, fpsPass, fpsVerdict } from './bench-runner.js';
 
 const $ = (id) => document.getElementById(id);
 let records = [];
@@ -35,11 +35,12 @@ export async function drawCompare() {
     title: `${scTh} — ${mTh}`, yLabel: mTh, xLabel: 'เครื่อง', emptyText: 'ยังไม่มีผลทดสอบ',
   });
   $('cmpTable').innerHTML = '<tr><th>เครื่อง</th><th>ระดับ</th><th>CPU</th><th>RAM</th><th>การ์ดจอ</th>' +
-    SCENARIOS.map((s) => `<th>${s.icon} FPS</th>`).join('') + '<th>แนะนำ</th><th></th></tr>' +
+    SCENARIOS.map((s) => `<th>${s.icon} FPS</th>`).join('') + `<th>FPS ≥ ${FPS_TARGET}</th><th>แนะนำ</th><th></th></tr>` +
     records.map((r) => `<tr><td><b>${esc(r.machine)}</b><br><small class="muted">${new Date(r.createdAt).toLocaleString('th-TH')}</small></td>
       <td>${esc(r.device?.tierTh || '')}</td><td class="num">${r.device?.cores || '?'}</td><td class="num">${r.device?.memory || '?'}</td>
       <td><small>${esc((r.device?.gpuRenderer || '').slice(0, 40))}</small></td>
       ${SCENARIOS.map((s) => `<td class="num">${r.results?.[s.key]?.skipped ? '—' : pick(r, s.key, 'avgFps')}</td>`).join('')}
+      <td>${(() => { const v = fpsVerdict(r.results); return v.tested ? `<span class="pf ${v.pass ? 'pass' : 'fail'}">${v.pass ? 'PASS' : 'FAIL'}</span> <small>${v.passed}/${v.tested}</small>` : '—'; })()}</td>
       <td><small>${esc(r.recommendation?.style || '')} · ${esc(r.recommendation?.resolution || '')}</small></td>
       <td><button class="btn-glow ghost small" data-del="${esc(r.id)}" title="ลบผลนี้">🗑 ลบ</button></td></tr>`).join('');
 }
@@ -53,6 +54,8 @@ export function csvRows() {
       const x = r.results?.[s.key] || {};
       row[s.key + '_avgFps'] = x.skipped ? '' : x.avgFps; row[s.key + '_minFps'] = x.skipped ? '' : x.minFps; row[s.key + '_ms'] = x.skipped ? '' : x.msPerFrame;
     }
+    const v = fpsVerdict(r.results); row.fps_target = FPS_TARGET; row.fps_pass_overall = v.tested ? (v.pass ? 'PASS' : 'FAIL') : '';
+    for (const s of SCENARIOS) { const x = r.results?.[s.key]; row[s.key + '_pass25'] = !x || x.skipped ? '' : (fpsPass(x.avgFps) ? 'PASS' : 'FAIL'); }
     row.recommend = r.recommendation?.text || '';
     return row;
   });

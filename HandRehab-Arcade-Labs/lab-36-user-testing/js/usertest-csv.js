@@ -4,6 +4,7 @@
 // ============================================================
 import { QUESTIONS, TASKS } from './usertest-data.js';
 import { mean, sd } from './charts.js';
+import { SUS_ITEMS, susScore } from './sus.js';
 
 // ---------- แบบสอบถาม: 1 แถว = 1 คน ----------
 export const surveyCols = () => ['participant', 'date', ...QUESTIONS.map((q) => q.id), 'mean', 'comment', 'demo'];
@@ -51,5 +52,16 @@ export function taskSummary(records) {
     const c = (k) => rows.filter((x) => x.outcome === k).length;
     return { task: t.id, th: t.th, n: rows.length, alone: c('alone'), help: c('help'), fail: c('fail'),
       successPct: rows.length ? Math.round((c('alone') / rows.length) * 100) : '', meanSec: +mean(secs).toFixed(1), sdSec: +sd(secs).toFixed(1) };
+  });
+}
+
+// ---------- SUS: 1 แถว = 1 คน (คำตอบดิบ 10 ข้อ + คะแนน SUS 0-100) ----------
+export const susCols = () => ['participant', 'date', ...SUS_ITEMS.map((q) => q.id), 'sus_score', 'demo'];
+export function susRows(list) {
+  return list.map((s) => {
+    const row = { participant: s.participant || s.userId, date: new Date(s.createdAt).toISOString().slice(0, 10), demo: s.demo ? 'yes' : 'no' };
+    SUS_ITEMS.forEach((q) => { row[q.id] = s.answers?.[q.id] ?? ''; });
+    row.sus_score = susScore(s.answers) ?? '';
+    return row;
   });
 }

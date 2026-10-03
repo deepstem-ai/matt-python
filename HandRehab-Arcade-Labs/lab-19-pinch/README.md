@@ -48,6 +48,14 @@ To see the "model failed to download" screen, open `index.html?fail=1`.
 | Score = 0 at or above ___ | **0.80** (hint 0.60 available) | a relaxed open hand measures about 1.0–1.2, so 0.8 gives a smooth ramp |
 | active when score > ___ | **0.7** | hint. Lower values let the gesture trigger without real exercise. |
 | (extra) `indexCurlMax` | 0.65 | If the index finger is curled more than this, it is a fist and not a pinch. This keeps the pinch bar down during a fist (Lab 20 rule: others < 30 %). |
+| (article names) d_open / d_close | **d_open = 0.80** (`zero`), **d_close = 0.25** (`full`) — eq. (3); after Lab 27 calibration d_open = rest r, d_close = best b |
+
+## Article alignment (MITIJ article)
+
+- The sliders are now named **d_open** (π = 0) and **d_close** (π = 1) and the card shows **eq. (3)** π = clip((d_open − d̂48)/(d_open − d_close), 0, 1) ("สมการ (3)" comment in `js/pinch-test.js`). Internally they are still `GESTURE_CONFIG.pinch.zero/full`.
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+- `js/gestures.js` pinch comment cites **eq. (3)** π = clip((d_open − d̂48)/(d_open − d_close)), with d_open = `pinch.zero` = 0.80 and d_close = `pinch.full` = 0.25 (comments only).
+- New test in `tests/gestures.test.mjs`: detectPinch equals eq. (3) with the defaults 0.80 / 0.25.
 
 ## How to verify (MUST / PASS)
 

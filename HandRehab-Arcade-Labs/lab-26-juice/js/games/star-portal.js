@@ -17,7 +17,8 @@ export const LEVELS = {
   normal: { th: 'ปกติ', portalR: 85, starR: 30, drift: 0 },
   hard: { th: 'ยาก', portalR: 65, starR: 24, drift: 40 },
 };
-const PINCH_ON = 0.7, PINCH_OFF = 0.35; // ประตูสองบาน: เกิน 0.7 = จีบ, ต่ำกว่า 0.35 = ปล่อย
+// ประตูสองบาน สมการ (7)(8): π ≥ 0.7 = จีบ (θ_on = k_on), π ≤ 0.3 = ปล่อย (θ_off = k_off)
+const PINCH_ON = 0.7, PINCH_OFF = 0.3;
 
 export class StarPortal {
   // hooks: { readHand() → points|null, onTick(dt), onHud(state), onEnd(summary) }
@@ -44,7 +45,7 @@ export class StarPortal {
     this.round = {
       active: true, timeLeft: this.roundSec, startTime: Date.now(), level: this.level,
       score: 0, combo: 0, bestCombo: 0, attempts: 0, successes: 0, starTimes: [], lastRelease: null,
-      counter: new RepCounter({ enter: PINCH_ON, exit: PINCH_OFF, minHoldMs: 80, cooldownMs: 150 }),
+      counter: new RepCounter({ enter: PINCH_ON, exit: PINCH_OFF, minHoldMs: 80, cooldownMs: 400 }),
       reps: [], star: null, portal: { x: 0, y: 0, r: L.portalR, vx: L.drift, vy: L.drift * 0.6, spin: 0 },
     };
     this.pinching = false;
@@ -108,7 +109,7 @@ export class StarPortal {
       if (this.pointer.visible && Math.hypot(this.pointer.x - s.x, this.pointer.y - s.y) <= this.grabRadius) {
         s.held = true; s.returning = false; this.engine.sound.grab();
       }
-    } else if (this.pinching && this.pinchScore < PINCH_OFF) {
+    } else if (this.pinching && this.pinchScore <= PINCH_OFF) {
       this.pinching = false;
       if (s.held) this.release();
     }

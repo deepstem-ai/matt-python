@@ -26,7 +26,7 @@ It must end with **"สรุป: สำเร็จ 12 / 12 ไฟล์"**. Fu
 | `fonts/fonts.css` (new, committed) | `@font-face` for the local variable woff2 files (Noto Sans Thai thai + latin subsets, Orbitron latin) |
 | `js/offline-status.js` + `css/offline.css` (new) | **corner badge**: 🌐 online / 📴 offline · using local files, with ✔ local files complete 12/12 or ⚠ missing N files, naming them. Clicking it opens **a list of every required file** with its status and **progress bar**, plus **🔍 ตรวจทุกไฟล์ (โหลดจริง)**, which really downloads each file and checks its size. A **self-check on launch** warns once if anything is missing |
 | `index.html` Settings | "📦 ใช้งานแบบไม่มีอินเทอร์เน็ต" section → the same panel + a link to OFFLINE.md |
-| `sw.js` | `VERSION v1.1.0`, new files listed, `unpkg.com` added to the runtime hosts. Local vendor/model/font files are cache-first once loaded |
+| `sw.js` | `VERSION v1.1.1` (v1.1.0 + article-maths update), new files listed, `unpkg.com` added to the runtime hosts. Local vendor/model/font files are cache-first once loaded |
 | `tools/serve.py`, `start.bat`, `start.sh` | MIME-safe local server |
 
 ## Tools
@@ -40,6 +40,20 @@ It must end with **"สรุป: สำเร็จ 12 / 12 ไฟล์"**. Fu
 |---|---|
 | Lookup order: ___ first, then ___ | **local folder (`vendor/`, `models/`, `fonts/`) first, then the internet (CDN)** |
 | Checklist ___ days before the presentation | **3 days** (the checklist in `docs/OFFLINE.md`). MUST: finish this lab **≥ 7 days** before, and test again on the morning itself |
+| Star Portal release threshold (θ_off) | **0.3** (was 0.35) — article eq. (7)/(8): k_off = 0.3; release when score ≤ 0.3 |
+| RepCounter cooldown | **400 ms** (was 150 in the games, 300 default) — article eq. (7) |
+
+## Article alignment (MITIJ article)
+
+- Star Portal (`js/games/star-portal.js`): PINCH_OFF **0.3** (was 0.35) = θ_off = k_off of eqs. (7)/(8); the game’s own release test is now `pinchScore <= PINCH_OFF`; its RepCounter uses cooldown **400 ms** (was 150).
+- `js/rep-counter.js` follows **eq. (7)**: release when score **≤ θ_off** (was `<`), default `cooldownMs` **400 ms** (was 300).
+- Rhythm Tap summary shows the **timing resolution ≈ 1000 / avgFps ms** next to the mean reaction time (≈ 33 ms at 30 fps, article §4) and saves it as `details.timingResolutionMs`.
+- Benchmark page: FPS ≥ 25 PASS/FAIL per scenario and overall (same code as Lab 33, new file `js/fps-target.js` added to the service-worker shell list).
+- `js/face-embed.js` / `js/face-login.js` comments cite **eq. (9)** cos θ = A·B/(‖A‖‖B‖) — the app **clamps cos to 0..1** for display and threshold — and **eq. (10)** EAR (Soukupová & Čech 2016, landmarks 33,160,158,133,153,144 / 362,385,387,263,373,380). Comments only.
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+- `js/gestures.js` pinch comment cites **eq. (3)** π = clip((d_open − d̂48)/(d_open − d_close)), with d_open = `pinch.zero` = 0.80 and d_close = `pinch.full` = 0.25 (comments only).
+- `js/charts.js` `barChart` accepts optional reference lines `opts.lines = [{ value, color, label }]` (used for the SUS 68 line in Lab 36). Existing charts are unchanged.
+- Service-worker `VERSION` bumped so installed copies pick up the new files.
 
 ## How to verify (MUST / PASS)
 1. Run `download-assets` → 12/12. Start the app → the badge says **✔ ไฟล์ในเครื่องครบ 12/12**. Click it → **ตรวจทุกไฟล์** → every row ✔.

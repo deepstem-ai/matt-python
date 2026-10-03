@@ -4,7 +4,7 @@
 // โหมดเร็วสำหรับทดสอบโค้ด: index.html?quick=1 (สถานการณ์ละ 2 วินาที) หรือ ?sec=5
 // ============================================================
 import { detectDeviceWithOverride } from './device-info.js';
-import { SCENARIOS, runScenario, fpsLevel } from './bench-runner.js';
+import { SCENARIOS, runScenario, fpsLevel, fpsPass, fpsVerdict, FPS_TARGET } from './bench-runner.js';
 import { recommend, toPrefs, STYLE_TH, RES_TH, EFFECTS_TH } from './recommend.js';
 import { firstRunCheck } from './first-run.js';
 import { bindCompare, drawCompare } from './bench-compare.js';
@@ -116,12 +116,25 @@ function renderCards(results) {
   $('cards').innerHTML = SCENARIOS.filter((s) => results[s.key]).map((s) => {
     const r = results[s.key];
     if (r.skipped) return `<div class="rcard skip"><h3>${s.icon} ${s.th}</h3><p class="muted">ข้าม — ${esc(r.reason)}</p></div>`;
+    const ok = fpsPass(r.avgFps);
     return `<div class="rcard ${fpsLevel(r.avgFps)}"><h3>${s.icon} ${s.th}</h3>
       <div class="big">${Math.round(r.avgFps)} <small>FPS เฉลี่ย</small></div>
+      <span class="pf ${ok ? 'pass' : 'fail'}">${ok ? '✔ PASS' : '✘ FAIL'} <small>เกณฑ์ ≥ ${FPS_TARGET}</small></span>
       <dl><dt>FPS ต่ำสุด</dt><dd>${Math.round(r.minFps)}</dd><dt>ms ต่อเฟรม</dt><dd>${r.msPerFrame}</dd>
       ${r.camFps ? `<dt>กล้องส่งภาพ</dt><dd>${r.camFps} fps</dd>` : ''}
       ${r.handFoundPct !== undefined ? `<dt>เห็นมือจริง</dt><dd>${r.handFoundPct}%</dd>` : ''}</dl></div>`;
   }).join('');
+  renderVerdict(results);
+}
+// สรุปรวมทั้งเครื่องเทียบเกณฑ์บทความ FPS ≥ 25 (หัวข้อ 6.2)
+function renderVerdict(results) {
+  const v = fpsVerdict(results), el = $('fpsVerdict');
+  if (!v.tested) { el.classList.add('hidden'); return; }
+  const th = (k) => SCENARIOS.find((s) => s.key === k)?.th || k;
+  el.className = 'alert ' + (v.pass ? 'ok' : 'warn');
+  el.innerHTML = `<b>${v.pass ? '✔ PASS' : '✘ FAIL'} ภาพรวมเครื่องนี้</b> — ผ่านเกณฑ์ FPS ≥ ${FPS_TARGET} (บทความหัวข้อ 6.2) ${v.passed} จาก ${v.tested} สถานการณ์` +
+    (v.failed.length ? ` · ไม่ผ่าน: ${v.failed.map((k) => esc(th(k))).join(', ')}` : '');
+  window.__fpsVerdict = v;
 }
 
 // ---------- สรุป คำแนะนำ บันทึก ----------
@@ -129,7 +142,7 @@ async function finish(name, results) {
   const reco = recommend(results);
   showReco(reco);
   const rec = { id: newId('b_'), machine: name, createdAt: Date.now(), seconds: SECONDS, resolution: `${RES.width}x${RES.height}`,
-    device, results, recommendation: reco };
+    device, results, recommendation: reco, fpsTarget: FPS_TARGET, fpsVerdict: fpsVerdict(results) };
   try { await put('benchmarks', rec); $('saveState').textContent = `💾 บันทึกผลของ "${name}" แล้ว`; toast('บันทึกผลทดสอบแล้ว', 'success'); }
   catch (e) { $('saveState').innerHTML = `⚠️ บันทึกไม่ได้: ${esc(e.message)}`; }
   window.__lastBench = rec;

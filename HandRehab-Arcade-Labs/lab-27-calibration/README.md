@@ -46,9 +46,9 @@ exit  = rest − 0.3 × (rest − best)     (release: back past 30 %)
 ```
 - Pinch uses `normDist(sq, 4, 8)` (smaller is better). Example: rest 0.80, best 0.10 → entry 0.31, exit 0.59.
 - Spread uses `spread(sq, 'index', 'little')` in degrees (larger is better). Example: rest 15°, best 50° → entry 39.5°, exit 25.5°.
-- The game keeps its two-gate counter (0.7 / 0.35). `scoreFromMeasure()` maps the raw measure so that **entry → 0.7** and **exit → 0.35**, so the game code did not change.
+- The game keeps its two-gate counter (θ_on 0.7 / θ_off **0.3**). `scoreFromMeasure()` is article eq. (3) with d_open = rest, d_close = best: π = clip((rest − m)/(rest − best)), so **entry → 0.7** and **exit → 0.3** exactly (eq. 8: π(T) = k).
 
-**Storage:** the `calibration` store, `id = userId + ':' + gesture`, holding `{ rest, best, peaks, entry, exit, tremorSd, tremorLevel, grabRadius, filter, source, at }`. The user record's `tremor` field is updated too. It is **loaded automatically** when the page opens, when the player changes, and before every round.
+**Storage:** the `calibration` store, `id = userId + ':' + gesture`, holding `{ rest, best, peaks, entry, exit, locked, lockedAt, tremorSd, tremorLevel, grabRadius, filter, source, at }`. The user record's `tremor` field is updated too. It is **loaded automatically** when the page opens, when the player changes, and before every round.
 
 ## Files · ไฟล์
 | File | Role |
@@ -72,6 +72,18 @@ exit  = rest − 0.3 × (rest − best)     (release: back past 30 %)
 | entry = rest − ___ × (rest − best) | **0.7** |
 | exit = rest − ___ × (rest − best) | **0.3** |
 | Severe tremor: grab radius ___ px | **100 px** + minCutoff 0.3 Hz (stronger filtering); no tremor → standard **60 px** |
+| Score mapping | **eq. (3)** π = clip((r − m)/(r − b)) → entry = 0.7, exit = **0.3** (was 0.35) |
+| Freeze thresholds (ตรึงเกณฑ์) | **off** by default; turn on for research measurement |
+| RepCounter cooldown | **400 ms** (was 150) |
+
+## Article alignment (MITIJ article)
+
+- `scoreFromMeasure()` is now **eq. (3)** with d_open = rest r and d_close = best b: **π = clip((r − m)/(r − b), 0, 1)**. Because π(T) = k for T = r − k(r − b) (**eq. 8**), entry maps to **θ_on = 0.7** and exit to **θ_off = 0.3** for every user (was a linear map onto 0.7 / 0.35). The game and the wizard counter now use 0.7 / **0.3** and cooldown **400 ms**.
+- **ตรึงเกณฑ์ (freeze thresholds):** a switch on `calibrate.html` (step 1 and the result step) sets `locked: true` + `lockedAt` in the calibration record. Re-calibrating a locked record first asks for an unlock confirmation. While locked, the grab-radius / filter sliders are disabled. Every Star Portal session saves a snapshot `details.thresholds` = {thetaOn, thetaOff, dOpen, dClose, entry, exit, locked, calibratedAt, source}.
+- `js/smoothing.js` comments and `filters.html` show the One Euro **eqs. (4)–(6)**: α = 1/(1 + 1/(2π f_c T_e)), x̂_t = α x_t + (1 − α) x̂_(t−1), f_c = f_c,min + β|ẋ̂_t| (Casiez 2012).
+- Tests: `calibration.test.mjs` now expects exit → **0.3** (was 0.35, changed because the article defines θ_off = k_off = 0.3) and adds π(T) = k, open-hand direction and snapshot checks; `smoothing.test.mjs` adds the eq. (4) α check.
+- Star Portal (`js/games/star-portal.js`): PINCH_OFF **0.3** (was 0.35) = θ_off = k_off of eqs. (7)/(8); the game’s own release test is now `pinchScore <= PINCH_OFF`; its RepCounter uses cooldown **400 ms** (was 150).
+- `js/rep-counter.js` follows **eq. (7)**: release when score **≤ θ_off** (was `<`), default `cooldownMs` **400 ms** (was 300).
 
 ## MUST / PASS checklist · วิธีตรวจ
 - [ ] Test with a real tremor, or **simulate one**: `index.html` → demo → ทดสอบมือสั่น = มาก. With One Euro on, the pointer barely moves (the test measured 20.8 px SD raw → 1.2 px filtered).

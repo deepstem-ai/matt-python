@@ -45,6 +45,14 @@
 | Misses to drop a level | **3** (wrong finger or timeout) |
 | "your ___ finger is the slowest" | filled automatically from the data |
 | Game theme | **Neon concert stage** |
+| Timing resolution shown in the summary | **≈ 1000 / avgFps ms** (≈ 33 ms at 30 fps) |
+
+## Article alignment (MITIJ article)
+
+- Rhythm Tap summary shows the **timing resolution ≈ 1000 / avgFps ms** next to the mean reaction time (≈ 33 ms at 30 fps, article §4) and saves it as `details.timingResolutionMs`.
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+- `js/gestures.js` pinch comment cites **eq. (3)** π = clip((d_open − d̂48)/(d_open − d_close)), with d_open = `pinch.zero` = 0.80 and d_close = `pinch.full` = 0.25 (comments only).
+- `js/charts.js` `barChart` accepts optional reference lines `opts.lines = [{ value, color, label }]` (used for the SUS 68 line in Lab 36). Existing charts are unchanged.
 
 ## MUST / PASS checklist · วิธีตรวจ
 - [ ] **Every RT by finger:** after a round, `sessions.details.reactionTimes` has an array of ms values for each finger.

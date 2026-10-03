@@ -33,6 +33,7 @@
 | `index.html`, `css/bench.css`, `js/bench-page.js` | the benchmark page |
 | `js/device-info.js` | `detectDevice()`, `classify()`, `gpuClass()` |
 | `js/bench-runner.js` | the 6 scenarios + the measuring loop + sample hand |
+| `js/fps-target.js`, `tests/fps-target.test.mjs` | FPS ≥ 25 target (article §6.2): `fpsPass`, `fpsVerdict` + node test |
 | `js/recommend.js` | recommendation rules, Thai text, losses, `toPrefs()`, `parseResolution()` |
 | `js/bench-compare.js` | chart / table / CSV / PNG / export / import |
 | `js/first-run.js` | the first-launch warning |
@@ -46,8 +47,18 @@
 | style ___ | from the measured **full-game FPS**: ≥ 45 → **trail** (if trail ≥ 45) or **neon** · 30–44 → **neon** · 20–29 → neon if neon ≥ 25, else **simple** · < 20 → **simple** | Hint: below 20 fps, use the simple style and disable particles |
 | resolution ___ | ≥ 45 → **1280×720** · 20–44 → **640×480** · < 20 → **480×360** | MediaPipe shrinks the image itself, so a smaller camera image mostly saves decoding and drawing |
 | with ___ | ≥ 30 → **full effects** · 20–29 → **half the particles** · < 20 → **particles off** | Particles are the most expensive drawing in the games |
+| Performance target | **FPS ≥ 25** per scenario and overall (article §6.2) |
 
 Team placeholders to change: "HandRehab Arcade", "ทีม NeonHands", "โรงเรียนของเรา".
+
+## Article alignment (MITIJ article)
+
+- Each result card shows **PASS/FAIL against FPS ≥ 25** (article §6.2), and a banner gives the **overall** verdict (PASS only if every tested scenario averages ≥ 25 FPS). Saved records include `fpsTarget` / `fpsVerdict`; the comparison table and CSV gain PASS/FAIL columns. Pure logic in `js/fps-target.js`, test `node tests/fps-target.test.mjs`.
+- Star Portal (`js/games/star-portal.js`): PINCH_OFF **0.3** (was 0.35) = θ_off = k_off of eqs. (7)/(8); the game’s own release test is now `pinchScore <= PINCH_OFF`; its RepCounter uses cooldown **400 ms** (was 150).
+- `js/rep-counter.js` follows **eq. (7)**: release when score **≤ θ_off** (was `<`), default `cooldownMs` **400 ms** (was 300).
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+- `js/gestures.js` pinch comment cites **eq. (3)** π = clip((d_open − d̂48)/(d_open − d_close)), with d_open = `pinch.zero` = 0.80 and d_close = `pinch.full` = 0.25 (comments only).
+- `js/charts.js` `barChart` accepts optional reference lines `opts.lines = [{ value, color, label }]` (used for the SUS 68 line in Lab 36). Existing charts are unchanged.
 
 ## How to verify (MUST / SHOULD / PASS)
 1. Open the page. The device card shows the tier with its reasons and the GPU name. On a weak machine (or `?firstrun=1&tier=low`) the warning modal appears and explains what would be lost.

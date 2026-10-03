@@ -14,7 +14,7 @@
 4. A round lasts **60 s**, and the bar at the top drains. **⏸ หยุดพัก** (or P / Esc) works at any time. A **rest reminder** pauses the game every 5 minutes of play.
 5. **Demo mode 🖱** works without a camera: the mouse is the fingertip, and holding the mouse button is a pinch. The page falls back to it when the camera fails, and you can also switch with the button.
 
-At the end of each round, a summary shows: score, **reps** (pinches counted by a `RepCounter` on the pinch score, enter 0.7 / exit 0.35), **accuracy** (stars scored ÷ releases), **average time per star**, best combo, and a **comparison with the previous attempt**. Every play is saved.
+At the end of each round, a summary shows: score, **reps** (pinches counted by a `RepCounter` on the pinch score, enter 0.7 / exit 0.3 — release when ≤ 0.3, cooldown 400 ms, article eq. 7), **accuracy** (stars scored ÷ releases), **average time per star**, best combo, and a **comparison with the previous attempt**. Every play is saved.
 
 ## Data saved · ข้อมูลที่บันทึก (IndexedDB `handrehab-arcade`)
 - `sessions`: `{ id, userId (getCurrentUserId() or 'guest'), game:'star-portal', startTime, endTime, reps, accuracy, score, avgFps, delegate, machine, details:{ level, grabRadius, attempts, successes, bestCombo, avgStarMs, starTimes[], demo } }`
@@ -40,6 +40,15 @@ If saving fails, the summary says so and offers **ลองบันทึกอ
 | Rest reminder every | **5 minutes** of play (`?rest=0.1` for quick tests) |
 | Game theme | **Space: stars, a nebula and a portal** |
 | (COULD) difficulty | easy / normal / hard: portal size, star size, and the portal moves on hard |
+| Star Portal release threshold (θ_off) | **0.3** (was 0.35) — article eq. (7)/(8): k_off = 0.3; release when score ≤ 0.3 |
+| RepCounter cooldown | **400 ms** (was 150 in the games, 300 default) — article eq. (7) |
+
+## Article alignment (MITIJ article)
+
+- Star Portal (`js/games/star-portal.js`): PINCH_OFF **0.3** (was 0.35) = θ_off = k_off of eqs. (7)/(8); the game’s own release test is now `pinchScore <= PINCH_OFF`; its RepCounter uses cooldown **400 ms** (was 150).
+- `js/rep-counter.js` follows **eq. (7)**: release when score **≤ θ_off** (was `<`), default `cooldownMs` **400 ms** (was 300).
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+- `js/gestures.js` pinch comment cites **eq. (3)** π = clip((d_open − d̂48)/(d_open − d_close)), with d_open = `pinch.zero` = 0.80 and d_close = `pinch.full` = 0.25 (comments only).
 
 ## MUST / PASS checklist · วิธีตรวจ
 - [ ] **Mirror:** move your hand to your right. The pointer also moves right, like a mirror.

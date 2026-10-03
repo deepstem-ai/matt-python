@@ -46,6 +46,18 @@
 |---|---|
 | Filters by date range, by game, and by ___ | **feeling** (mood / pain), plus **accuracy below a threshold** and the player picker |
 | Post-session field, for example ___ | **emoji mood scale (5 faces) + pain 0–10 + free note** ("เมื่อคืนนอนน้อย", "ข้อนิ้วตึง") |
+| Star Portal release threshold (θ_off) | **0.3** (was 0.35) — article eq. (7)/(8): k_off = 0.3; release when score ≤ 0.3 |
+| RepCounter cooldown | **400 ms** (was 150 in the games, 300 default) — article eq. (7) |
+
+## Article alignment (MITIJ article)
+
+- Every session now stores `details.thresholds` (θ_on 0.7, θ_off 0.3, cooldown 400 ms, d_open 0.80, d_close 0.25, locked false, source "default") so later analysis knows which thresholds were used.
+- Rhythm Tap summary shows the **timing resolution ≈ 1000 / avgFps ms** next to the mean reaction time (≈ 33 ms at 30 fps, article §4) and saves it as `details.timingResolutionMs`.
+- Star Portal (`js/games/star-portal.js`): PINCH_OFF **0.3** (was 0.35) = θ_off = k_off of eqs. (7)/(8); the game’s own release test is now `pinchScore <= PINCH_OFF`; its RepCounter uses cooldown **400 ms** (was 150).
+- `js/rep-counter.js` follows **eq. (7)**: release when score **≤ θ_off** (was `<`), default `cooldownMs` **400 ms** (was 300).
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+- `js/gestures.js` pinch comment cites **eq. (3)** π = clip((d_open − d̂48)/(d_open − d_close)), with d_open = `pinch.zero` = 0.80 and d_close = `pinch.full` = 0.25 (comments only).
+- `js/charts.js` `barChart` accepts optional reference lines `opts.lines = [{ value, color, label }]` (used for the SUS 68 line in Lab 36). Existing charts are unchanged.
 
 ## MUST / PASS checklist · วิธีตรวจ
 - [ ] Type a machine name, then play **5 sessions** (demo or camera). Each one appears as a card. A camera session shows **แสง xx/255** and **GPU/CPU**, and every session shows **FPS**.

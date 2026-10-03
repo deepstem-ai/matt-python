@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🔁 ความเชื่อมั่นแบบทดสอบซ้ำ (ICC) · HandRehab Arcade (Lab 32)</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap col">
+  <header>
+    <h1>🔁 ความเชื่อมั่นแบบทดสอบซ้ำ (ICC)</h1>
+    <p class="muted">Test–retest reliability · ICC(2,1) absolute agreement และ ICC(3,1) consistency · ตัดเซสชันแรกออก (ผลจากการฝึกหัด) · เกณฑ์ ICC ≥ 0.75 = ดี (Koo & Li, 2016)</p>
+    <nav class="tabs row" aria-label="เครื่องมือนักวิจัย">
+      <a class="btn-glow small ghost" href="index.html">🎯 ความแม่นยำท่า</a>
+      <a class="btn-glow small ghost" href="counting.html">🔢 ความแม่นยำการนับ</a>
+      <a class="btn-glow small" aria-current="page" href="reliability.html">🔁 ความเชื่อมั่น ICC</a>
+    </nav>
+  </header>
+  <div id="demoWarn" class="alert warn hidden"></div>
+  <div id="dbError"></div>
+
+  <section class="card-neon col">
+    <h3>1) ตั้งค่า <span class="muted">Setup</span></h3>
+    <div class="row">
+      <div class="field"><label for="metric">ตัวชี้วัด</label><select id="metric"></select></div>
+      <div class="field"><label for="game">เกม</label><select id="game"><option value="all">ทุกเกม</option><option value="star-portal">จับดาว</option><option value="rhythm-tap">แตะตามจังหวะ</option><option value="spread-wall" selected>กำแพงกางนิ้ว</option></select></div>
+      <div class="field"><label for="k">จำนวนครั้งต่อคน (k)</label><select id="k"><option>2</option><option selected>3</option><option>4</option><option>5</option><option>6</option></select></div>
+    </div>
+    <div class="row">
+      <label class="switch"><input type="checkbox" id="exFirst" checked> ตัดเซสชันแรกของแต่ละคนออก (แนะนำ)</label>
+      <label class="switch"><input type="checkbox" id="incDemo"> รวมข้อมูลสาธิต (ห้ามใช้ในรายงาน)</label>
+    </div>
+    <div class="row">
+      <button class="btn-glow small" id="btnCalc">▶️ คำนวณ</button>
+      <button class="btn-glow small ghost" id="btnSF">📘 ตัวอย่างตำรา Shrout &amp; Fleiss (1979)</button>
+      <button class="btn-glow small ghost" id="btnCSV">⬇️ CSV</button>
+    </div>
+    <span class="chip hidden" id="sampleChip">📘 ตัวอย่างจากตำรา (6 คน × 4 ผู้ประเมิน) — ควรได้ ICC(2,1) = 0.29, ICC(3,1) = 0.71</span>
+  </section>
+
+  <section class="card-neon col">
+    <h3>2) ผลลัพธ์ <span class="muted">Results</span></h3>
+    <div class="row">
+      <div class="col"><small>ICC(2,1) ความตรงกันสัมบูรณ์</small><b class="icc-big" id="icc21">-</b><span class="band" id="band21">-</span></div>
+      <div class="col"><small>ICC(3,1) ความสอดคล้อง</small><b class="icc-big" id="icc31">-</b><span class="band" id="band31">-</span></div>
+      <div class="col"><small>ผู้เข้าร่วม × ครั้ง</small><b class="icc-big" id="nk">-</b></div>
+    </div>
+    <p id="verdict"></p>
+    <p class="muted">แปลผล (Koo &amp; Li, 2016): &lt; 0.50 ต่ำ · 0.50–0.75 ปานกลาง · 0.75–0.90 ดี · &gt; 0.90 ดีมาก · เป้าหมายของบทความ ICC ≥ 0.75</p>
+    <div class="table-scroll"><table class="data" id="matrix"></table></div>
+    <p class="muted" id="skipped"></p>
+  </section>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/reliability-page.js"></script>
+</body>
+</html>

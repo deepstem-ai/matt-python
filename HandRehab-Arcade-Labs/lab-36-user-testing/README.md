@@ -32,13 +32,22 @@ CSV files (fixed column names, read by Labs 37–39): `lab36-survey-responses.cs
 | play the ___ game | **Star Portal (จับดาวใส่ประตูมิติ)** | Easiest game, uses the pinch gesture |
 | questionnaire of ___ questions | **10** | Hint: more than 10 and older adults answer carelessly |
 | results chart | mean ± SD bar chart, saved as PNG | Prompt item 4 |
+| Usability scale | **SUS, 10 standard items, 1–5**, compared with **68** |
 
 Questions cover: ease (q1–q3), enjoyment (q4–q5), tiredness (q6–q7), confidence to keep using (q8–q9), privacy (q10). All are written positively so 😄 = 5 = best.
+
+## Article alignment (MITIJ article)
+
+- **SUS mode** (article §6.2): `survey.html?mode=sus` (or the choice on the start page) asks the 10 standard System Usability Scale items (Brooke 1996) in faithful Thai, on a 1–5 agreement scale (1 = ไม่เห็นด้วยอย่างยิ่ง … 5 = เห็นด้วยอย่างยิ่ง). Records are saved with `instrument: "sus"` and `sus` score.
+- `results.html` shows each participant’s **SUS = 2.5 × [Σ(odd − 1) + Σ(5 − even)]**, the **mean ± SD**, and a bar chart with the **68** benchmark line (Acharya et al. 2025); CSV `lab36-sus-responses.csv`. The team questionnaire statistics ignore SUS records.
+- Pure logic in `js/sus.js`; test `node tests/sus.test.mjs` (all 3s → 50, ideal → 100, worst → 0, mixed example 77.5).
+- `js/charts.js` `barChart` accepts optional reference lines `opts.lines = [{ value, color, label }]` (used for the SUS 68 line in Lab 36). Existing charts are unchanged.
 
 ## How to verify (MUST / PASS) / วิธีตรวจ
 - [ ] Print `docs/consent-form.html` (Ctrl+P → A4) — every participant signs **before** starting (the recorder refuses to start without the consent tick).
 - [ ] Run the 8 tasks with `tools/test-recorder.html`; never help — record ทำได้เอง / ต้องช่วย / ทำไม่ได้ + time + exact words.
 - [ ] Each participant completes `survey.html` alone.
+- [ ] SUS: run `survey.html?mode=sus`; `node tests/sus.test.mjs` passes (all 3s → 50, ideal → 100). `results.html` SUS section shows each participant’s score, mean ± SD and the 68 line.
 - [ ] `results.html` shows n = 5, mean ± SD per question; save the PNG and the CSVs into `evidence/` (Lab 37).
 - [ ] The issue list shows **≥ 5 issues found and ≥ 3 fixed** (chip turns green).
 - [ ] Before using numbers in the report: switch off "รวมข้อมูลตัวอย่าง (DEMO)" or press "ลบข้อมูลตัวอย่าง" on the menu.

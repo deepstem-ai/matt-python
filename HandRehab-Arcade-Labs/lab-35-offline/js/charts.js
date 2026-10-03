@@ -155,6 +155,13 @@ export function barChart(canvas, data, opts = {}) {
     ctx.fillText((opts.format ? opts.format(d.value) : +d.value.toFixed(1)) + '', x + bw / 2, Y(d.value) - 6);
     ctx.fillStyle = css('--text-2', '#94A3B8'); ctx.fillText(String(d.label), x + bw / 2, h - pad.b + fs * 1.2);
   });
+  // เส้นอ้างอิงแนวนอน opts.lines = [{ value, color, label }] เช่น เกณฑ์ SUS 68 หรือ FPS 25
+  (opts.lines || []).forEach((ln) => {
+    if (!(ln.value <= yMax)) return;
+    ctx.save(); ctx.strokeStyle = ln.color || css('--warning', '#FBBF24'); ctx.lineWidth = 2; ctx.setLineDash([8, 6]);
+    ctx.beginPath(); ctx.moveTo(pad.l, Y(ln.value)); ctx.lineTo(w - pad.r, Y(ln.value)); ctx.stroke(); ctx.restore();
+    if (ln.label) { ctx.fillStyle = ln.color || css('--warning', '#FBBF24'); ctx.textAlign = 'right'; ctx.fillText(ln.label, w - pad.r - 4, Y(ln.value) - 6); }
+  });
   ctx.fillStyle = css('--text', '#F8FAFC'); ctx.textAlign = 'center';
   if (opts.xLabel) ctx.fillText(opts.xLabel, (pad.l + w - pad.r) / 2, h - fs * 0.5);
   if (opts.yLabel) { ctx.save(); ctx.translate(fs * 0.9, (pad.t + h - pad.b) / 2); ctx.rotate(-Math.PI / 2); ctx.fillText(opts.yLabel, 0, 0); ctx.restore(); }

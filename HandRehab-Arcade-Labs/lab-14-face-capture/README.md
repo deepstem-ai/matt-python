@@ -52,6 +52,10 @@ Other choices: countdown 3 s with 0.3 s grace against flicker; pose checks use n
 
 **Direction words & the mirror:** the screen is mirrored, so if the face appears right of the guide the user must move to *their* left — `checkGuide()` handles this (tested both ways).
 
+## Article alignment (MITIJ article)
+
+- `js/face-embed.js` comment cites **eq. (9)** cos θ = A·B/(‖A‖‖B‖); the app clamps cos to 0..1 for display and threshold. Comments only.
+
 ## How to verify (MUST / PASS)
 - [ ] Face outside the oval → red frame + "หน้าอยู่นอกกรอบ — ขยับไปทาง…" with the **real** direction (move left/right/up/down and check).
 - [ ] Sit far away → "อยู่ไกลเกินไป — ขยับเข้ามาใกล้" ; very close → "ใกล้เกินไป — ถอยห่าง".

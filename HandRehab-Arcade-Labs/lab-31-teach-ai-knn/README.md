@@ -40,6 +40,10 @@ No raw x/y pixel values are used — the AI keeps working when the person moves 
 | Press-and-hold collects ___ examples | **30** (warning below **20**) |
 | Team placeholders | "HandRehab Arcade", "ทีม NeonHands", "โรงเรียนของเรา" ⚠️ *team: change* |
 
+## Article alignment (MITIJ article)
+
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+
 ## How to verify (MUST / PASS checklist)
 - [ ] `node tests/knn.test.mjs` → "ผ่าน 12 ข้อ".
 - [ ] Only palm-normalised values: read `extractFeatures` in `js/ml.js` — no `.x`/`.y` is pushed directly (test "ไม่ขึ้นกับขนาดมือ" proves scale/position invariance).

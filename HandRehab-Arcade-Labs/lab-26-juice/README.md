@@ -55,6 +55,17 @@
 | Multipliers | **×2 at 3, ×3 at 6, ×5 at 10** consecutive correct (the course brief; the doc hint suggested ×2 at 5 / ×3 at 10, so change `COMBO_TIERS` if you prefer it) |
 | Achievement examples | ⭐ **ดาวดวงแรก** when the first star enters the portal · 🔥 **มือไฟลุก** when you get 10 correct in a row (all 10 are above) |
 | Streak: minimum minutes per day | **5 minutes** |
+| Star Portal release threshold (θ_off) | **0.3** (was 0.35) — article eq. (7)/(8): k_off = 0.3; release when score ≤ 0.3 |
+| RepCounter cooldown | **400 ms** (was 150 in the games, 300 default) — article eq. (7) |
+
+## Article alignment (MITIJ article)
+
+- Star Portal (`js/games/star-portal.js`): PINCH_OFF **0.3** (was 0.35) = θ_off = k_off of eqs. (7)/(8); the game’s own release test is now `pinchScore <= PINCH_OFF`; its RepCounter uses cooldown **400 ms** (was 150).
+- `js/rep-counter.js` follows **eq. (7)**: release when score **≤ θ_off** (was `<`), default `cooldownMs` **400 ms** (was 300).
+- Rhythm Tap summary shows the **timing resolution ≈ 1000 / avgFps ms** next to the mean reaction time (≈ 33 ms at 30 fps, article §4) and saves it as `details.timingResolutionMs`.
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+- `js/gestures.js` pinch comment cites **eq. (3)** π = clip((d_open − d̂48)/(d_open − d_close)), with d_open = `pinch.zero` = 0.80 and d_close = `pinch.full` = 0.25 (comments only).
+- `js/charts.js` `barChart` accepts optional reference lines `opts.lines = [{ value, color, label }]` (used for the SUS 68 line in Lab 36). Existing charts are unchanged.
 
 ## MUST / PASS checklist · วิธีตรวจ
 - [ ] Play Star Portal in demo mode and score 3, 6 and 10 in a row. The big ×2 / ×3 / ×5 bounces, with sound, and the score climbs smoothly.

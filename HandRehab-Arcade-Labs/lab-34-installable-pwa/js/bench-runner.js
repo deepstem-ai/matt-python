@@ -146,3 +146,7 @@ async function runGame({ video, overlay, gameCanvas, seconds, onProgress }) {
 
 // สีของตัวเลข FPS: ≥30 เขียว · 20-29 เหลือง · <20 แดง
 export const fpsLevel = (fps) => (fps >= 30 ? 'good' : fps >= 20 ? 'ok' : 'bad');
+
+
+// เกณฑ์ FPS ≥ 25 ของบทความ อยู่ในไฟล์บริสุทธิ์ fps-target.js (ทดสอบใน node ได้)
+export { FPS_TARGET, fpsPass, fpsVerdict } from './fps-target.js';

@@ -5,11 +5,16 @@
 //   exit  (นับว่าปล่อยท่า)  = rest − 0.3 × (rest − best)   → ถอยกลับมา 70% ของทาง
 //   rest = ค่าตอนมือพักนิ่ง, best = ค่าที่ดีที่สุดตอนออกแรงเต็มที่ (เฉลี่ย 3 ครั้งที่ดีที่สุดจาก 5)
 //   ใช้ได้ทั้งท่าที่ "ค่าน้อย = ดี" (จีบ) และ "ค่ามาก = ดี" (กางนิ้ว) เพราะเครื่องหมายของ (rest − best) จัดการให้เอง
+// บทความ: สมการ (8) T = r − k(r − b), 0 < k < 1 โดย k_on = 0.7 (entry), k_off = 0.3 (exit)
+//   คะแนนใช้สมการ (3) โดย d_open = r (rest), d_close = b (best) → π(T) = k พอดี
+//   จึงได้เกณฑ์ในหน่วยคะแนน θ_on = 0.7, θ_off = 0.3 เท่ากันทุกคน (ใช้กับสมการ (7) ตัวนับประตูสองบาน)
+// กฎการวัดผล: เมื่อใช้ระบบ "วัด" (งานวิจัย) ต้อง "ตรึงเกณฑ์" (locked = true) เพื่อให้ผลแต่ละวันเทียบกันได้
 // ============================================================
 import { normDist, spread, palmScale } from './geometry.js';
 import { get, put } from './db.js';
 
-export const ENTRY_K = 0.7, EXIT_K = 0.3;
+export const ENTRY_K = 0.7, EXIT_K = 0.3;       // k_on, k_off ของสมการ (8)
+export const THETA_ON = ENTRY_K, THETA_OFF = EXIT_K; // θ_on, θ_off ของสมการ (7) ในหน่วยคะแนน π
 export const STILL_SEC = 5, REPS_NEEDED = 5;
 
 // ท่าที่ปรับเทียบได้: measure(sq) = ค่าดิบ, expectBest = ค่าคาดเดาไว้ใช้ตรวจจับครั้ง (ก่อนรู้ค่าจริง)
@@ -60,11 +65,31 @@ export function bestOf(peaks, rest) {
   return mean(s.slice(0, Math.min(3, s.length)));
 }
 
-// แปลงค่าดิบของท่า → คะแนน 0..1 ให้ entry = 0.7 และ exit = 0.35 พอดี
-// (เกมเดิมใช้ประตูสองบาน 0.7 / 0.35 อยู่แล้ว จึงเปลี่ยนแค่ตัวแปลง ไม่ต้องแก้ตัวเกม)
+// แปลงค่าดิบของท่า → คะแนน 0..1 ด้วยสมการ (3):
+//   π = clip( (r − m) / (r − b), 0, 1 )   (d_open = r = ค่าพัก, d_close = b = ค่าดีที่สุด)
+//   m = entry → π = 0.7 (θ_on) และ m = exit → π = 0.3 (θ_off) พอดี ตามเอกลักษณ์ π(T) = k ของสมการ (8)
+//   ท่ากางนิ้ว (ค่ามาก = ดี) ใช้สูตรเดียวกันได้ เพราะ r − b ติดลบ เครื่องหมายหักล้างกันเอง
 export function scoreFromMeasure(m, cal) {
-  if (!cal || cal.entry === cal.exit) return 0;
-  return Math.max(0, Math.min(1, 0.35 + 0.35 * (m - cal.exit) / (cal.entry - cal.exit)));
+  if (!cal) return 0;
+  const r = cal.rest, b = cal.best;
+  if (!Number.isFinite(r) || !Number.isFinite(b) || r === b) return 0;
+  return Math.max(0, Math.min(1, (r - m) / (r - b)));
+}
+
+// ภาพถ่ายเกณฑ์ (snapshot) สำหรับแนบไปกับทุกเซสชัน — ย้อนดูได้ว่ารอบนั้นใช้เกณฑ์อะไร และตรึงไว้หรือไม่
+export function thresholdSnapshot(cal) {
+  return cal
+    ? { thetaOn: THETA_ON, thetaOff: THETA_OFF, dOpen: cal.rest, dClose: cal.best, entry: cal.entry, exit: cal.exit,
+        locked: !!cal.locked, lockedAt: cal.lockedAt ?? null, calibratedAt: cal.at ?? null, source: 'calibration' }
+    : { thetaOn: THETA_ON, thetaOff: THETA_OFF, dOpen: 0.8, dClose: 0.25, locked: false, source: 'default' };
+}
+
+// ตรึง / ปลดเกณฑ์ ของระเบียนที่บันทึกไว้ (locked = ห้ามปรับเทียบทับจนกว่าจะยืนยันปลด)
+export async function setCalibrationLock(rec, locked) {
+  rec.locked = !!locked;
+  if (locked) rec.lockedAt = Date.now(); else rec.unlockedAt = Date.now();
+  await saveCalibration(rec);
+  return rec;
 }
 
 // ตัวตรวจจับ "ครั้ง" ระหว่างขั้น 3 (ยังไม่รู้ค่า best จริง ใช้ความคืบหน้าเทียบกับค่าคาดเดา)
@@ -90,7 +115,7 @@ export class PeakTracker {
 export function buildRecord({ userId, gesture, rest, peaks, tremorSd, source }) {
   const best = bestOf(peaks, rest), lv = classifyTremor(tremorSd ?? 0), th = thresholds(rest, best);
   return { id: userId + ':' + gesture, userId, gesture, rest, best, peaks, entry: th.entry, exit: th.exit,
-    entryK: ENTRY_K, exitK: EXIT_K, tremorSd, tremorLevel: lv.lv, grabRadius: lv.grabRadius, filter: { ...lv.filter, dCutoff: 1 },
+    entryK: ENTRY_K, exitK: EXIT_K, locked: false, tremorSd, tremorLevel: lv.lv, grabRadius: lv.grabRadius, filter: { ...lv.filter, dCutoff: 1 },
     source, at: Date.now() };
 }
 export async function saveCalibration(rec) { return put('calibration', rec); }

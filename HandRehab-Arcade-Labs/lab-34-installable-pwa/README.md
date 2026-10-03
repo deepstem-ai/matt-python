@@ -33,7 +33,7 @@ Every separate page gets the **same top bar** from `js/appbar.js`: brand · 📍
 | `manifest.json` | name **"HandRehab Arcade — เกมบริหารมือ"**, short_name **"HandRehab"** (9 chars), background **#0B1020**, theme **#151B33**, `display: standalone`, `start_url ./index.html`, icons 192 / 512 (+ maskable, + SVG), shortcuts to Games / Progress |
 | `icons/icon.svg` | our own icon: a 21-point hand in the finger colours with **glowing fingertips** and a neon ring on the theme's navy. It is full-bleed, so it also works as maskable, and the strokes are thick so it stays readable at 16 px |
 | `icons/icon-192.png`, `icon-512.png` | exported from the SVG with headless Chromium (Playwright screenshot) |
-| `sw.js` | **cache-first** for every app-shell file (all 80+ are listed, and the cache is versioned `hr-shell-v1.0.0`); **network-first** for user-data/API-style requests (`/api/`, `/data/`, `*.json` except the manifest, `?fresh`); **runtime cache-first** for MediaPipe (jsDelivr/unpkg), the models (storage.googleapis) and Google Fonts after their first load; **deletes old `hr-*` caches on activate**; waits for the user before switching versions |
+| `sw.js` | **cache-first** for every app-shell file (all 80+ are listed, and the cache is versioned `hr-shell-v1.0.1`); **network-first** for user-data/API-style requests (`/api/`, `/data/`, `*.json` except the manifest, `?fresh`); **runtime cache-first** for MediaPipe (jsDelivr/unpkg), the models (storage.googleapis) and Google Fonts after their first load; **deletes old `hr-*` caches on activate**; waits for the user before switching versions |
 | `js/pwa.js` | registers `sw.js`; the **update bar** "🆕 มีแอปเวอร์ชันใหม่แล้ว — ↻ โหลดเวอร์ชันใหม่" (SKIP_WAITING → reload); install button via **`beforeinstallprompt`**, **hidden when installed** (`display-mode: standalone` / `appinstalled`); full-screen toggle for any `[data-fullscreen]` button; `whenControlled()` |
 
 **Offline after one online run:** the splash waits for the service worker to take control *before* downloading the models. The library, wasm and all 3 models then go through `sw.js` and are cached on the very first visit.
@@ -46,8 +46,22 @@ Every separate page gets the **same top bar** from `js/appbar.js`: brand · 📍
 | Background colour on launch | **#0B1020** (`--bg`) |
 | Header bar colour | **#151B33** (`--card`) |
 | Icon concept | **a hand with 21 glowing points** (fingertips glow in the 5 finger colours) inside a neon ring, using the Neon theme colours |
+| Star Portal release threshold (θ_off) | **0.3** (was 0.35) — article eq. (7)/(8): k_off = 0.3; release when score ≤ 0.3 |
+| RepCounter cooldown | **400 ms** (was 150 in the games, 300 default) — article eq. (7) |
 
 Colours in `manifest.json`, `<meta name="theme-color">` and `icon.svg` are the only literal hex values outside `tokens.css`. They have to be literal there, and they match the tokens.
+
+## Article alignment (MITIJ article)
+
+- Star Portal (`js/games/star-portal.js`): PINCH_OFF **0.3** (was 0.35) = θ_off = k_off of eqs. (7)/(8); the game’s own release test is now `pinchScore <= PINCH_OFF`; its RepCounter uses cooldown **400 ms** (was 150).
+- `js/rep-counter.js` follows **eq. (7)**: release when score **≤ θ_off** (was `<`), default `cooldownMs` **400 ms** (was 300).
+- Rhythm Tap summary shows the **timing resolution ≈ 1000 / avgFps ms** next to the mean reaction time (≈ 33 ms at 30 fps, article §4) and saves it as `details.timingResolutionMs`.
+- Benchmark page: FPS ≥ 25 PASS/FAIL per scenario and overall (same code as Lab 33, new file `js/fps-target.js` added to the service-worker shell list).
+- `js/face-embed.js` / `js/face-login.js` comments cite **eq. (9)** cos θ = A·B/(‖A‖‖B‖) — the app **clamps cos to 0..1** for display and threshold — and **eq. (10)** EAR (Soukupová & Čech 2016, landmarks 33,160,158,133,153,144 / 362,385,387,263,373,380). Comments only.
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+- `js/gestures.js` pinch comment cites **eq. (3)** π = clip((d_open − d̂48)/(d_open − d_close)), with d_open = `pinch.zero` = 0.80 and d_close = `pinch.full` = 0.25 (comments only).
+- `js/charts.js` `barChart` accepts optional reference lines `opts.lines = [{ value, color, label }]` (used for the SUS 68 line in Lab 36). Existing charts are unchanged.
+- Service-worker `VERSION` bumped so installed copies pick up the new files.
 
 ## How to update (MUST: the old-cache clearing system)
 1. Change any file → **bump `VERSION` in `sw.js`** (for example `v1.0.0` → `v1.0.1`). Add any new file to `SHELL_FILES`.
@@ -57,10 +71,10 @@ Colours in `manifest.json`, `<meta name="theme-color">` and `icon.svg` are the o
 `index.html` + `js/app.js` (router start, hash pages), `js/pages.js` (login redirect, home, games, progress), `js/settings.js`, `js/splash.js` (Lab 08, modified), `js/router.js` (Lab 07), `js/pwa.js`, `js/appbar.js`, `css/shell.css`, `sw.js`, `manifest.json`, `icons/*`, `docs/INSTALL.md`. Every other file is copied from Labs 12–15, 23–25 and 33 and from the shared core. Edits are marked "Lab 34" in the comments.
 
 ## How to verify (MUST / PASS)
-1. `start.bat` → the splash reaches 100% → login. F12 → **Application → Manifest** shows no errors (checked here with CDP: 0 manifest errors, 0 installability errors). **Service workers** shows *activated*. **Cache storage** has `hr-shell-v1.0.0` (all files) and `hr-runtime-v1` (bundle, wasm, 3 models, fonts).
+1. `start.bat` → the splash reaches 100% → login. F12 → **Application → Manifest** shows no errors (checked here with CDP: 0 manifest errors, 0 installability errors). **Service workers** shows *activated*. **Cache storage** has `hr-shell-v1.0.1` (all files) and `hr-runtime-v1` (bundle, wasm, 3 models, fonts).
 2. Settings → **⬇ ติดตั้งแอปลงเครื่อง** (or the install icon in the address bar) → an icon appears on the desktop. Opening it shows **no browser bar**, and Settings then says "✔ ติดตั้งแล้ว" with the button hidden.
 3. **⛶ เต็มจอ** in the top bar toggles full screen.
-4. **Update test (MUST):** bump `VERSION`, reopen the installed app → the update bar appears → reload → Cache storage now holds only the new shell cache. This was tested here: `hr-shell-v1.0.0` → `hr-shell-v1.0.1` + `hr-runtime-v1`.
+4. **Update test (MUST):** bump `VERSION`, reopen the installed app → the update bar appears → reload → Cache storage now holds only the new shell cache. This was tested here: `hr-shell-v1.0.0` → `hr-shell-v1.0.1` (the shipped version is now v1.0.1 after the article-maths update, so bump to v1.0.2) + `hr-runtime-v1`.
 5. Offline test: after one online run, turn off Wi-Fi (the local server keeps running). The app, login, models and games still load. This was tested here with the browser set offline: the splash, the face model and the hand model in a game all load from the cache.
 6. SHOULD: install on a second computer.
 

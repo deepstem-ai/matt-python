@@ -42,6 +42,10 @@ Every placeholder has exactly three Thai comment lines — responsibility / whic
 | Ritual — code starts breaking | stop after 2 failed fix requests → F12 first red line → `git diff` → strong bug prompt → `git checkout -- file` → `git checkout lab-XX` if needed; small commits whenever something works |
 | Ritual — finishing a lab | PASS checks → evidence/lab-XX → `git add .` + commit "what now works" → `git tag lab-XX` → tick PROJECT-MAP → daily log |
 
+## Article alignment (MITIJ article)
+
+- The stub files `js/geometry.js`, `js/gestures.js` and `js/face-login.js` now name the article equations they will implement ((1)(2), (3), (9)(10)). Comments only.
+
 ## How to verify (MUST / PASS checklist)
 - [ ] Open the app via `start.bat`: camera, FPS, mirror toggle, resolution selector and the three Thai error cards behave exactly as in Lab 01–03.
 - [ ] Folders and files match the tree in `docs/PROJECT-MAP.md`; open a few placeholders — each says which lab fills it.

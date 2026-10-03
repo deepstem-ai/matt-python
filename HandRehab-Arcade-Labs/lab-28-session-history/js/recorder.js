@@ -9,6 +9,14 @@
 import { saveSession, saveRep, newId, getSettings, get, put } from './db.js';
 import { measureBrightness, isRunning } from './camera.js';
 import { handInfo } from './hand.js';
+import { GESTURE_CONFIG } from './gestures.js';
+
+// ภาพถ่ายเกณฑ์ (snapshot) แนบไปกับทุกเซสชัน — กฎการวัดผลในบทความ: เกณฑ์ต้องคงที่ข้ามวัน
+// Lab 28 ยังไม่มีการปรับเทียบรายคน จึงใช้ค่ามาตรฐาน: θ_on 0.7 / θ_off 0.3 (สมการ 7, 8), d_open 0.80 / d_close 0.25 (สมการ 3)
+export function thresholdSnapshot() {
+  const p = GESTURE_CONFIG.pinch;
+  return { thetaOn: 0.7, thetaOff: 0.3, cooldownMs: 400, dOpen: p.zero, dClose: p.full, locked: false, source: 'default' };
+}
 
 // ชื่อเครื่อง (ตั้งในหน้าประวัติ เก็บใน settings key 'machine')
 export async function getMachineName() {
@@ -28,7 +36,7 @@ export class SessionRecorder {
     const o = this.opts;
     this.session = { id: newId('s_'), userId: o.userId(), game: o.game, startTime: Date.now(), endTime: null, status: 'in-progress',
       reps: 0, accuracy: 0, score: 0, avgFps: null, avgBrightness: null, machine: null,
-      delegate: o.isDemo() ? 'demo' : handInfo().delegate || 'unknown', details: { ...extra, demo: o.isDemo() } };
+      delegate: o.isDemo() ? 'demo' : handInfo().delegate || 'unknown', details: { thresholds: o.thresholds?.() || thresholdSnapshot(), ...extra, demo: o.isDemo() } };
     this.fps = []; this.bright = []; this.repCount = 0; this.pending = [];
     const s = this.session;
     getMachineName().then((name) => { s.machine = name; return saveSession(s); })

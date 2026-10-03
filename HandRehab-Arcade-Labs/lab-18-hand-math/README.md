@@ -46,6 +46,11 @@ To see the "model failed to download" screen, open `index.html?fail=1`.
 |---|---|---|
 | Palm size from point ___ to point ___ | **0 (wrist) and 9 (middle-finger knuckle)** | The metacarpal bone does not bend, so the length stays the same whether you open or close your hand. **Not 0–12:** the middle fingertip moves toward the wrist when you make a fist (the test shows 0–12 changing by more than 1.5×). A ruler that stretches cannot measure anything. |
 
+## Article alignment (MITIJ article)
+
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+- `docs/math.md` sections 2 and 3 carry the article numbers (1) and (2); the page chips show s = ‖p0 − p9‖ (สมการ 1) and d̂ij (สมการ 2). Citation: Zarrat Ehsan et al. (2026).
+
 ## How to verify (MUST / PASS)
 
 - [ ] **Pure maths:** `node tests/geometry.test.mjs` → 12/12 pass without a camera. Example result: raw distance varies 5× across scales, normalised varies < 0.0001 %.

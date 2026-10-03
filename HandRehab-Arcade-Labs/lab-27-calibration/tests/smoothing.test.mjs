@@ -8,6 +8,7 @@ const near = (a, b, e = 1e-9) => Math.abs(a - b) <= e;
 
 // α ตามสูตรในเปเปอร์: τ = 1/(2π fc), α = 1/(1+τ/dt)
 ok(near(smoothingAlpha(1, 1 / 30), 1 / (1 + (1 / (2 * Math.PI)) * 30)), 'สูตร alpha');
+ok(near(smoothingAlpha(2.5, 1 / 25), 1 / (1 + 1 / (2 * Math.PI * 2.5 * (1 / 25)))), 'สมการ (4) α = 1/(1 + 1/(2π f_c T_e))');
 // ค่าแรกผ่านตรง ๆ
 const f = new OneEuroFilter({ freq: 30, minCutoff: 1, beta: 0 });
 ok(f.filter(5, 0) === 5, 'ค่าแรกของ One Euro = ค่าที่ป้อน');

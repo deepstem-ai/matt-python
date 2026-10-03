@@ -58,6 +58,10 @@ Log in with the test button, then open **ตั้งค่า** (Settings) from
 
 Team placeholders: "ทีม NeonHands", "โรงเรียนของเรา".
 
+## Article alignment (MITIJ article)
+
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+
 ## How to verify (MUST / PASS)
 1. Settings → pick **ผู้สูงอายุ**. The headings grow from 35 to 48 px and the buttons from 56 to 72 px, instantly. Pick **จอใหญ่ติดผนัง**: 62 px headings.
 2. Reload the page (F5). Your profile, theme, calm, light and language choices come back.

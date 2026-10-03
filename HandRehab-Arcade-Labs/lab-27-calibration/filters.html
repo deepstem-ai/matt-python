@@ -20,6 +20,12 @@
   </header>
   <main class="wrap">
     <p class="muted">เส้นดิบ = ตำแหน่งปลายนิ้วชี้แนวนอน (0-1 ของความกว้างภาพ) · One Euro ปรับความแรงการกรองตามความเร็ว: ขยับช้า = กรองแรง นิ่ง, ขยับเร็ว = กรองเบา ตามทัน (Casiez et al., CHI 2012)</p>
+    <section class="card-neon section eq-box" aria-label="สมการตัวกรอง One Euro">
+      <h2 style="margin:0">สมการตัวกรอง One Euro (สมการ 4–6 ในบทความ)</h2>
+      <p class="eq num">(4) α = 1 / (1 + 1 / (2π · f<sub>c</sub> · T<sub>e</sub>)) <span class="muted">— T<sub>e</sub> = เวลาระหว่างเฟรม</span></p>
+      <p class="eq num">(5) x̂<sub>t</sub> = α · x<sub>t</sub> + (1 − α) · x̂<sub>t−1</sub> <span class="muted">— ค่าใหม่ผสมกับค่าที่กรองก่อนหน้า</span></p>
+      <p class="eq num">(6) f<sub>c</sub> = f<sub>c,min</sub> + β · |ẋ̂<sub>t</sub>| <span class="muted">— ขยับเร็ว → f<sub>c</sub> สูง กรองเบา · f<sub>c,min</sub> = minCutoff, β = beta</span></p>
+    </section>
     <div class="filters-layout">
       <section class="card-neon">
         <canvas id="chart" class="chart" aria-label="กราฟเปรียบเทียบสัญญาณดิบกับสัญญาณที่กรองแล้ว"></canvas>

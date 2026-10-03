@@ -27,8 +27,13 @@
 | paste gesture list (Lab 20) | 5 checkboxes (pinch, fist, open, finger tap, wrist flex) + invented gestures (Lab 31) | Builds the gesture table |
 | pinch threshold "falling below ___" | **the participant's calibrated entry threshold from Lab 27** (field `pinch_enter`) — left as a missing marker until you type the real value | Hint: use the real calibrated value, not an invented one |
 | hypothesis criteria | FPS ≥ 15 (Lab 16 pass), login ≤ 5 s (Lab 15 pass), satisfaction ≥ 3.51 (team choice, editable) | Taken from pass conditions, as the pitfall suggests |
+| Rep counter cooldown (code value) | **400 ms** (was 300) — article eq. (7) |
 
-Code-configuration values (rep counter enter 0.7 / exit 0.3 / hold 200 ms / cooldown 300 ms, fist 0.7, open 45°) are pre-filled from the shared js files because they are settings, not measurements — change them if your team tuned them.
+Code-configuration values (rep counter enter 0.7 / exit 0.3 (release when ≤ exit) / hold 200 ms / cooldown 400 ms — article eq. (7), fist 0.7, open 45°) are pre-filled from the shared js files because they are settings, not measurements — change them if your team tuned them.
+
+## Article alignment (MITIJ article)
+
+- Rep-counter defaults now follow the article: exit 0.3 (release when ≤ exit, eq. 7) and cooldown **400 ms** (was 300); the Chapter 1 definition of a repetition says "ถึงหรือต่ำกว่าเกณฑ์ออก".
 
 ## How to verify (MUST / PASS)
 - [ ] Drop all your real CSVs from `evidence/`; the chip "ยังขาดข้อมูล" should head towards 0. Each remaining marker names the lab to redo.

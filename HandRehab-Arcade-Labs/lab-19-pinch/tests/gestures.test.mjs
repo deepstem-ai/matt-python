@@ -55,6 +55,14 @@ test('ค่าเกณฑ์ปรับจากภายนอกได้ (
   assert.equal(detectPinch(h).active, true);
   setGestureConfig('pinch', { on: old });
 });
+test('สมการ (3): π = clip((d_open − d̂48)/(d_open − d_close)) ตรงกับ detectPinch (ค่าเริ่มต้น 0.80 / 0.25)', () => {
+  assert.equal(GESTURE_CONFIG.pinch.zero, 0.8); assert.equal(GESTURE_CONFIG.pinch.full, 0.25);
+  for (const amt of [0, 0.3, 0.5, 0.7, 0.9, 1]) {
+    const h = synthHand({ pinch: amt }), r = detectPinch(h);
+    const eq3 = Math.max(0, Math.min(1, (0.8 - r.distance) / (0.8 - 0.25)));
+    assert.ok(Math.abs(r.score - eq3 * r.details.gate) < 1e-9, `amt ${amt}: ${r.score} vs ${eq3}`);
+  }
+});
 test('ทุกท่ามีคำอธิบายกายภาพบำบัด: ชื่อ กล้ามเนื้อ กิจวัตร', () => {
   for (const k of GESTURE_KEYS) for (const f of ['th', 'icon', 'trains', 'physio', 'muscles', 'daily']) assert.ok(GESTURE_INFO[k][f], `${k}.${f}`);
 });

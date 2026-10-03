@@ -102,6 +102,9 @@ async function finish(sum) {
   const fast = withData.length ? withData.reduce((a, b) => (b.m < a.m ? b : a)) : null;
   const allRt = FINGER_NAMES.flatMap((f) => sum.reactionTimes[f]);
   const meanRt = Math.round(mean(allRt));
+  // ความละเอียดของการจับเวลา ≈ 1000 / FPS (ms) — กล้อง 30 fps ≈ 33 ms (บทความ) เวลาที่ต่างกันน้อยกว่านี้ถือว่าแยกไม่ออก
+  const fpsForRes = fpsLog.avg > 0 ? fpsLog.avg : (game.engine.fps > 0 ? game.engine.fps : 30);
+  const resMs = Math.round(1000 / fpsForRes);
   // นิ้วที่ถูกสับสนบ่อยที่สุด (นอกเส้นทแยง)
   let worst = null;
   for (const a of FINGER_NAMES) for (const b of FINGER_NAMES) if (sum.confusion[a][b] && (!worst || sum.confusion[a][b] > worst.n)) worst = { a, b, n: sum.confusion[a][b] };
@@ -112,7 +115,7 @@ async function finish(sum) {
     delegate: game.source === 'keys' ? 'demo-keys' : handInfo().delegate, machine: machineInfo(),
     details: { reactionTimes: sum.reactionTimes, confusion: sum.confusion, maxLevel: sum.maxLevel, trials: sum.trials.length,
       wrong: sum.wrong, miss: sum.miss, meanRtMs: meanRt, meanRtByFinger: Object.fromEntries(stats.map((s) => [s.f, Math.round(s.m)])),
-      slowestFinger: slow?.f || null, demo: game.source === 'keys' },
+      slowestFinger: slow?.f || null, timingResolutionMs: resMs, demo: game.source === 'keys' },
   };
   const status = await save(session, sum.trials);
   const th = (f) => FINGER_TH[f];
@@ -124,7 +127,7 @@ async function finish(sum) {
       <div class="stat"><small>นิ้วผิด / พลาด</small><b>${sum.wrong} / ${sum.miss}</b></div>
       <div class="stat"><small>ความแม่นยำ</small><b>${Math.round(sum.accuracy * 100)}%</b></div>
       <div class="stat"><small>ระดับสูงสุด</small><b>${sum.maxLevel}/5</b></div>
-      <div class="stat"><small>เวลาตอบสนองเฉลี่ย</small><b>${allRt.length ? meanRt + ' ms' : '—'}</b></div>
+      <div class="stat"><small>เวลาตอบสนองเฉลี่ย</small><b>${allRt.length ? meanRt + ' ms' : '—'}</b><small class="muted">ความละเอียด ≈ ${resMs} ms (1000 / ${Math.round(fpsForRes)} fps)</small></div>
     </div>
     <canvas id="rtChart" style="width:100%;height:260px" aria-label="กราฟเวลาตอบสนองเฉลี่ยของแต่ละนิ้ว"></canvas>
     <p style="font-size:var(--fs-lg);font-weight:800">${slow ? `👉 นิ้ว${th(slow.f)}ของคุณช้าที่สุด ลองฝึกนิ้วนี้เพิ่ม` : 'ยังไม่มีข้อมูลเวลาตอบสนองพอจะบอกนิ้วที่ช้าที่สุด'}</p>
@@ -145,7 +148,7 @@ async function finish(sum) {
   const p = modal(html, buttons);
   // วาดกราฟแท่งเวลาตอบสนองเฉลี่ยต่อนิ้ว (ขีด = ส่วนเบี่ยงเบนมาตรฐาน)
   barChart($('rtChart'), stats.map((s) => ({ label: 'นิ้ว' + th(s.f), value: Math.round(s.m), error: s.s, color: getComputedStyle(document.body).getPropertyValue('--f-' + s.f).trim() })),
-    { title: 'เวลาตอบสนองเฉลี่ยของแต่ละนิ้ว (ms)', yLabel: 'ms', emptyText: 'ยังไม่มีข้อมูล' });
+    { title: `เวลาตอบสนองเฉลี่ยของแต่ละนิ้ว (ms) · ความละเอียด ≈ ${resMs} ms`, yLabel: 'ms', emptyText: 'ยังไม่มีข้อมูล' });
   let choice = await p;
   while (choice === 'retry') {
     const s2 = await save(session, sum.trials);

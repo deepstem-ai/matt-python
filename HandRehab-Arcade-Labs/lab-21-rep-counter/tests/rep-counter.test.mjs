@@ -10,9 +10,10 @@ let pass = 0, fail = 0;
 function test(name, fn) {
   try { fn(); pass++; console.log('  ✅', name); } catch (e) { fail++; console.log('  ❌', name, '\n     ', e.message); }
 }
-const CFG = { enter: 0.7, exit: 0.4, minHoldMs: 200, cooldownMs: 400 }; // ค่าตามคำใบ้ของแลป
+// ค่าตามบทความ สมการ (7)(8): θ_on 0.7, θ_off 0.3 (เดิมใช้ exit 0.4 ตามคำใบ้ของแลป), cooldown 400 ms
+const CFG = { enter: 0.7, exit: 0.3, minHoldMs: 200, cooldownMs: 400 };
 
-console.log('rep-counter.js (enter 0.7 / exit 0.4 / hold 200 ms / cooldown 400 ms)');
+console.log('rep-counter.js (enter 0.7 / exit 0.3 / hold 200 ms / cooldown 400 ms)');
 test('1) คลื่นสะอาด 10 รอบ → นับได้ 10 พอดี', () => {
   assert.equal(runSim('clean', CFG).count, 10);
 });
@@ -69,6 +70,20 @@ test('เวลาถูกส่งเข้าไปจากภายนอ�
 });
 test('exit ≥ enter → โยน error ภาษาไทย', () => {
   assert.throws(() => new RepCounter({ enter: 0.5, exit: 0.6 }), /exit/);
+});
+test('สมการ (7): ปล่อยเมื่อ π ≤ θ_off — ค่าเท่ากับ θ_off พอดีก็นับ', () => {
+  const rc = new RepCounter(CFG);
+  let t = 0;
+  for (let i = 0; i < 30; i++) rc.update(0.9, (t += 16));
+  rc.update(0.3000001, (t += 16));
+  assert.equal(rc.count, 0, 'ยังสูงกว่า θ_off นิดเดียว ยังไม่นับ');
+  rc.update(0.3, (t += 16));
+  assert.equal(rc.count, 1, 'เท่ากับ θ_off → นับ');
+});
+test('ค่าเริ่มต้น cooldownMs = 400 ms (บทความ)', () => {
+  const rc = new RepCounter();
+  assert.equal(rc.cooldownMs, 400);
+  assert.equal(rc.enter, 0.7); assert.equal(rc.exit, 0.3);
 });
 test('NaiveCounter นับเฉพาะขอบขาขึ้น', () => {
   const n = new NaiveCounter(0.5);

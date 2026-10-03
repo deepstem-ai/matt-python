@@ -83,7 +83,9 @@ export function makeEmbedding(landmarks, { width = 1, height = 1 } = {}) {
 
 // cosineSimilarity(a, b) — ความเหมือนระหว่างชุดตัวเลขสองชุด 0 ถึง 1
 //  = cos ของมุมระหว่างลูกศรสองดอก (ชี้ทางเดียวกัน = 1, ตั้งฉาก = 0)
+//  สมการ (9) ในบทความ: cos θ = (A·B) / (‖A‖‖B‖)
 //  ค่าติดลบ (ชี้สวนทาง = ต่างกันแน่นอน) ปัดเป็น 0 เพื่อให้อ่านง่ายเป็น 0..1
+//  หมายเหตุ: เราบีบ (clamp) ค่า cos ให้อยู่ใน 0..1 เพื่อแสดงผลและเทียบเกณฑ์ (cos จริงอยู่ใน −1..1)
 export function cosineSimilarity(a, b) {
   if (!a || !b || a.length !== b.length || a.length === 0) return 0;
   let dot = 0, na = 0, nb = 0;

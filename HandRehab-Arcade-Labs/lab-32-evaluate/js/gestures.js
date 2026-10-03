@@ -6,6 +6,7 @@
 // ============================================================
 import { normDist, fingerCurl, spread, angle, clamp01, scoreLow, scoreHigh } from './geometry.js';
 
+// pinch.zero = d_open, pinch.full = d_close ของสมการ (3)
 // ค่าเกณฑ์เริ่มต้น (ได้จากการทดลองกับมือผู้ใหญ่ทั่วไป ควรสอบเทียบรายคนใน Lab 27)
 export const GESTURE_CONFIG = {
   pinch: { a: 4, b: 8, full: 0.25, zero: 0.8, on: 0.7 },
@@ -28,6 +29,8 @@ export function setGestureConfig(name, patch) {
 // กายภาพบำบัด: การจับแบบปลายนิ้ว (tip-to-tip / pincer grasp)
 // ฝึก: กล้ามเนื้อ opponens pollicis, first dorsal interosseous, flexor digitorum profundus
 // ใช้ในชีวิตประจำวัน: หยิบเหรียญ กลัดกระดุม หยิบยาเม็ด จับปากกา
+// สมการ (3) ในบทความ: π = clip( (d_open − d̂48) / (d_open − d_close), 0, 1 )
+//   d̂48 = normDist(4,8) ตามสมการ (1)(2); d_open = zero = 0.80, d_close = full = 0.25 (ค่าก่อนสอบเทียบ)
 // สมการ: d = normDist(4,8); score = 1 เมื่อ d ≤ full, 0 เมื่อ d ≥ zero, ระหว่างนั้นเป็นเส้นตรง
 // ------------------------------------------------------------
 export function detectPinch(pts, over) {

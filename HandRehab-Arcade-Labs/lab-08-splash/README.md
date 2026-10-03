@@ -55,6 +55,10 @@ AI models total = **60 %**.
 
 Team placeholders: "HandRehab Arcade", "ทีม NeonHands", "โรงเรียนของเรา".
 
+## Article alignment (MITIJ article)
+
+- `js/geometry.js` comments now cite the article equation numbers: **eq. (1)** palm size s = ‖p0 − p9‖ (`palmScale`) and **eq. (2)** d̂ij = ‖pi − pj‖ / s (`normDist`). Comments only — no behaviour change.
+
 ## How to verify (MUST / PASS)
 1. Open the app. The logo draws itself and the bar fills segment by segment (the hand segment follows the download). After "✔ พร้อมแล้ว!" and 0.5 s, the login page appears.
 2. Open `?fail=models&failTimes=99`. The hand segment turns red and the Thai message appears. Press "ใช้โหมดเมาส์แทน". The face segment then fails too. Press "ข้ามไปก่อน". The login page says both were skipped and that mouse demo mode is on.

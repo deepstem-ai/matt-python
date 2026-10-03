@@ -13,7 +13,7 @@
 //   ไม่งั้นผู้ใช้ที่ติดตั้งไว้จะติดอยู่กับเวอร์ชันเก่าตลอดไป
 //   เพิ่มไฟล์ใหม่เมื่อไร ต้องเพิ่มชื่อลง SHELL_FILES ด้วย
 // ============================================================
-const VERSION = 'v1.0.0';
+const VERSION = 'v1.0.1';   // v1.0.1: สมการบทความ (θ_off 0.3, cooldown 400 ms)
 const SHELL = 'hr-shell-' + VERSION;       // ไฟล์ของแอป (เปลี่ยนชื่อทุกเวอร์ชัน)
 const RUNTIME = 'hr-runtime-v1';           // MediaPipe/โมเดล/ฟอนต์ (ไม่ผูกกับเวอร์ชันแอป จะได้ไม่ต้องโหลดโมเดล 10 MB ใหม่)
 const DATA = 'hr-data-v1';                 // สำเนาข้อมูลแบบเน็ตก่อน
@@ -36,7 +36,7 @@ const SHELL_FILES = [
   'js/star-portal-page.js', 'js/rhythm-tap-page.js', 'js/spread-wall-page.js',
   'js/games/game-shell.js', 'js/games/star-portal.js', 'js/games/star-portal-draw.js',
   'js/games/rhythm-tap.js', 'js/games/rhythm-tap-draw.js', 'js/games/spread-wall.js', 'js/games/spread-wall-draw.js', 'js/games/spread-calibrate.js',
-  'js/bench-page.js', 'js/bench-runner.js', 'js/bench-compare.js', 'js/device-info.js', 'js/recommend.js', 'js/first-run.js',
+  'js/bench-page.js', 'js/bench-runner.js', 'js/fps-target.js', 'js/bench-compare.js', 'js/device-info.js', 'js/recommend.js', 'js/first-run.js',
 ];
 
 // โดเมนที่ให้แคชหลังโหลดครั้งแรก

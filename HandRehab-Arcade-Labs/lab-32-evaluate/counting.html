@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>🔢 ความแม่นยำการนับครั้ง · HandRehab Arcade (Lab 32)</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/pages.css">
+</head>
+<body class="theme-neon profile-standard">
+<main class="wrap col">
+  <header>
+    <h1>🔢 ความแม่นยำการนับครั้ง</h1>
+    <p class="muted">Counting accuracy · บทความหัวข้อ 6.2 — จำนวนครั้งที่ระบบนับ เทียบกับผู้สังเกตนับจากวิดีโอ ภายใต้แสง 3 ระดับ</p>
+    <nav class="tabs row" aria-label="เครื่องมือนักวิจัย">
+      <a class="btn-glow small ghost" href="index.html">🎯 ความแม่นยำท่า</a>
+      <a class="btn-glow small" aria-current="page" href="counting.html">🔢 ความแม่นยำการนับ</a>
+      <a class="btn-glow small ghost" href="reliability.html">🔁 ความเชื่อมั่น ICC</a>
+    </nav>
+  </header>
+  <div id="demoWarn" class="alert warn hidden"></div>
+  <div id="dbError"></div>
+
+  <section class="card-neon col">
+    <h3>1) เลือกเซสชัน <span class="muted">Sessions</span></h3>
+    <p class="muted">อัดวิดีโอขณะเล่น → ผู้สังเกตนับจำนวนครั้งจากวิดีโอ → ใส่ตัวเลขในช่อง "ผู้สังเกตนับ" · ระดับแสงเดาจากความสว่างที่วัดได้ (≥150 สว่าง, 80–149 ปกติ, &lt;80 มืด) แก้ได้</p>
+    <div class="row">
+      <div class="field"><label for="game">เกม</label><select id="game"><option value="all">ทุกเกม</option><option value="star-portal">จับดาว</option><option value="rhythm-tap">แตะตามจังหวะ</option><option value="spread-wall">กำแพงกางนิ้ว</option></select></div>
+      <label class="switch"><input type="checkbox" id="incDemo"> รวมข้อมูลสาธิต (ห้ามใช้ในรายงาน)</label>
+      <button class="btn-glow small ghost" id="btnSample">🤖 ตัวอย่างจำลอง (ไม่บันทึก)</button>
+      <button class="btn-glow small ghost" id="btnReload">↻ โหลดจากฐานข้อมูล</button>
+    </div>
+    <span class="chip hidden" id="sampleChip">🤖 กำลังแสดงตัวอย่างจำลอง — ห้ามใช้ในรายงาน</span>
+    <div class="table-scroll"><table class="data" id="sessTable"></table></div>
+  </section>
+
+  <section class="card-neon col">
+    <h3>2) ผลลัพธ์ <span class="muted">Results</span></h3>
+    <p class="muted">ความแม่นยำต่อเซสชัน = 1 − |ระบบ − ผู้สังเกต| ÷ ผู้สังเกต (ต่ำสุด 0) · MAE = ค่าเฉลี่ยของ |ระบบ − ผู้สังเกต| (ครั้ง)</p>
+    <div class="row"><span class="chip">เซสชันที่มีผู้สังเกต <b id="nObs">0</b></span><span class="chip ok">ความแม่นยำรวม <b id="accAll">-</b></span><span class="chip">MAE <b id="maeAll">-</b> ครั้ง</span></div>
+    <canvas id="chart" class="chart" aria-label="กราฟความแม่นยำการนับตามระดับแสง"></canvas>
+    <div class="table-scroll"><table class="data" id="lightTable"></table></div>
+    <div class="row">
+      <button class="btn-glow small ghost" id="btnCSV">⬇️ CSV</button>
+      <button class="btn-glow small ghost" id="btnPNG">🖼️ PNG กราฟ</button>
+    </div>
+  </section>
+</main>
+<div class="team-badge">HandRehab Arcade · ทีม NeonHands · โรงเรียนของเรา</div>
+<script type="module" src="js/counting-page.js"></script>
+</body>
+</html>
