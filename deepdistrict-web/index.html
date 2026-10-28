@@ -3,195 +3,259 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DeepDistrict.si | Super Intelligence Research, Innovation &amp; Academy</title>
-  <meta name="description" content="DeepDistrict.si is a research, innovation and academic hub for SI (Super Intelligence). Built in Slovenia, open to the world.">
+  <title>DeepDistrict.si | STEM, AI & SI Learning and Research Lab, Bangkok</title>
+  <meta name="description" content="DeepDistrict is a STEM, AI and SI (Super Intelligence) learning and research lab in Bangkok, Thailand: programming and AI courses from foundation to advanced, research mentoring, youth STEM and industry partnerships.">
   <meta name="theme-color" content="#061433">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="DeepDistrict.si | Super Intelligence Hub">
-  <meta property="og:description" content="Research, innovation and an Academy for SI (Super Intelligence). Built in Slovenia, open to the world.">
+  <meta property="og:title" content="DeepDistrict.si | STEM, AI & SI Learning and Research Lab, Bangkok">
+  <meta property="og:description" content="DeepDistrict is a STEM, AI and SI (Super Intelligence) learning and research lab in Bangkok, Thailand: programming and AI courses from foundation to advanced, research mentoring, youth STEM and industry partnerships.">
   <meta property="og:image" content="assets/images/brand/og-image.png">
   <link rel="icon" href="assets/images/brand/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="assets/images/brand/apple-touch-icon.png">
+  <script src="assets/js/lang-init.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Michroma&family=Sora:wght@500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Michroma&family=Noto+Sans+Thai:wght@400;500;600&family=Prompt:wght@500;600&family=Sora:wght@500;600&display=swap">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body class="page-home" data-base="" data-page="home">
+<body class="page-home" data-base="" data-page="home" data-title-en="DeepDistrict.si | STEM, AI & SI Learning and Research Lab, Bangkok" data-title-th="DeepDistrict.si | ห้องปฏิบัติการเรียนรู้และวิจัย STEM, AI และ SI กรุงเทพฯ">
 
 <main id="main">
 
   <!-- ============================================================ HERO -->
   <section class="panel hero" aria-labelledby="hero-title">
-    <div class="panel__bg"><img src="assets/images/hero/alps-night.svg" alt="Alpine peaks at night under a glowing network of stars"></div>
-    <img class="swoosh swoosh--hero" src="assets/images/brand/swoosh.svg" alt="">
+    <div class="panel__bg"><img src="assets/images/hero/bangkok-night.svg" alt="Bangkok at night: temple prangs by the river, city towers and a glowing network in the sky"></div>
+    <canvas class="hero-canvas" data-neural aria-hidden="true"></canvas>
     <div class="container">
       <div class="panel__content intro">
-        <span class="eyebrow">Research · Innovation · Academy</span>
-        <h1 id="hero-title">Where the next generation builds <span class="text-grad">Super Intelligence</span></h1>
-        <p>DeepDistrict.si is a hub for SI research, education and innovation, built in Slovenia and open to talent and partners from around the world.</p>
+        <p class="hero-type" aria-hidden="true"><b>&gt;</b> <span lang="en">learn</span><span lang="th">เรียน</span> <span data-typewriter>Python</span></p>
+        <h1 id="hero-title">
+          <span lang="en">From your first line of code to <span class="text-si">Super&nbsp;Intelligence</span></span>
+          <span lang="th">จากโค้ดบรรทัดแรก สู่ <span class="text-si">Super&nbsp;Intelligence</span></span>
+        </h1>
+        <p lang="en">DeepDistrict is a learning and research lab in Bangkok. We teach programming and AI from foundation to advanced, mentor young researchers from their first question to publication, and build STEM and SI innovation with schools, families and industry.</p>
+        <p lang="th">DeepDistrict คือห้องปฏิบัติการด้านการเรียนรู้และการวิจัยในกรุงเทพฯ เราสอนการเขียนโปรแกรมและ AI ตั้งแต่พื้นฐานถึงขั้นสูง ดูแลนักวิจัยรุ่นใหม่ตั้งแต่คำถามแรกจนถึงการตีพิมพ์ผลงาน และร่วมสร้างนวัตกรรม STEM และ SI กับโรงเรียน ครอบครัว และภาคอุตสาหกรรม</p>
         <div class="btn-row">
-          <a class="btn btn--primary" href="pages/join.html#apply">Join the district
+          <a class="btn btn--primary" href="pages/programs.html"><span lang="en">Explore programs</span><span lang="th">ดูหลักสูตร</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn" href="pages/mission.html">What is SI?</a>
+          <a class="btn" href="pages/partners.html"><span lang="en">Partner with us</span><span lang="th">ร่วมเป็นพันธมิตร</span></a>
+        </div>
+        <div class="hero-badges">
+          <span class="badge"><span lang="en">Foundation → Advanced → Research</span><span lang="th">พื้นฐาน → ขั้นสูง → งานวิจัย</span></span>
+          <span class="badge"><span lang="en">Taught in Thai &amp; English</span><span lang="th">สอนภาษาไทยและอังกฤษ</span></span>
+          <span class="badge">NVIDIA Jetson · Raspberry Pi · Arduino</span>
         </div>
       </div>
     </div>
     <span class="scroll-cue" aria-hidden="true"></span>
   </section>
 
-  <div class="ticker theme-dark" aria-label="Latest updates"><div class="ticker__track" data-render="ticker"></div></div>
+  <div class="marquee" data-render="marquee" aria-label="Technologies we teach"></div>
 
-  <!-- ============================================================ OVERVIEW -->
-  <section class="section theme-light" aria-labelledby="overview-title">
+  <!-- ============================================================ WHAT WE DO -->
+  <section class="section theme-light mesh" aria-labelledby="work-title">
     <div class="container">
-      <figure class="statement reveal">
-        <blockquote id="overview-title">AI answers questions. <span class="text-grad">SI</span> asks better ones, then helps us find the answers.</blockquote>
-        <figcaption>SI = Super Intelligence: the idea at the centre of DeepDistrict</figcaption>
-      </figure>
-
-      <div class="grid grid--3" style="margin-top:clamp(48px,7vw,88px)">
-        <article class="card reveal">
-          <div class="card__icon"><img src="assets/images/icons/core.svg" alt=""></div>
-          <h3>Research</h3>
-          <p>Nine programs, from the foundations of reasoning and safety to health, climate and industry.</p>
-          <a class="link-arrow card__link" href="pages/research.html">Explore research
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </article>
-        <article class="card reveal reveal-delay-1">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow"><span lang="en">What we do</span><span lang="th">สิ่งที่เราทำ</span></span>
+          <h2 id="work-title"><span lang="en">Four kinds of work, one mission</span><span lang="th">งานสี่ด้าน หนึ่งพันธกิจ</span></h2>
+        </div>
+        <p lang="en">Teaching, teaching research, doing research and growing STEM all feed each other. What we discover in the lab goes back into the classroom.</p>
+        <p lang="th">งานสอน งานสอนทำวิจัย งานวิจัย และงาน STEM ส่งเสริมกันและกัน สิ่งที่เราค้นพบในแล็บจะกลับไปสู่ห้องเรียนเสมอ</p>
+      </div>
+      <div class="grid grid--4">
+        <a class="card card--link reveal" href="pages/programs.html">
           <div class="card__icon"><img src="assets/images/icons/academy.svg" alt=""></div>
-          <h3>Academy</h3>
-          <p>Fellowships for students, researchers and professionals. Learn SI by building it.</p>
-          <a class="link-arrow card__link" href="pages/academy.html">View tracks
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </article>
-        <article class="card reveal reveal-delay-2">
-          <div class="card__icon"><img src="assets/images/icons/rocket.svg" alt=""></div>
-          <h3>Innovation</h3>
-          <p>A venture studio that turns research into companies, products and public services.</p>
-          <a class="link-arrow card__link" href="pages/innovation.html">Start building
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </article>
+          <h3><span lang="en">Teaching</span><span lang="th">งานสอน</span></h3>
+          <p lang="en">Programming, AI and STEM courses from foundation to advanced, in Thai and English.</p>
+          <p lang="th">หลักสูตรการเขียนโปรแกรม AI และ STEM ตั้งแต่พื้นฐานถึงขั้นสูง สอนทั้งภาษาไทยและอังกฤษ</p>
+          <span class="card__meta card__meta--row"><span lang="en">Programs</span><span lang="th">หลักสูตร</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="card card--link reveal reveal-delay-1" href="pages/research.html#pathway">
+          <div class="card__icon"><img src="assets/images/icons/microscope.svg" alt=""></div>
+          <h3><span lang="en">Research mentoring</span><span lang="th">สอนทำวิจัย</span></h3>
+          <p lang="en">Step-by-step guidance from a first question to a published paper, a poster or a competition entry.</p>
+          <p lang="th">ดูแลทีละขั้น ตั้งแต่คำถามแรก จนถึงบทความที่ตีพิมพ์ โปสเตอร์ หรือผลงานเข้าแข่งขัน</p>
+          <span class="card__meta card__meta--row"><span lang="en">Research pathway</span><span lang="th">เส้นทางการทำวิจัย</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="card card--link reveal reveal-delay-2" href="pages/research.html#areas">
+          <div class="card__icon"><img src="assets/images/icons/spark.svg" alt=""></div>
+          <h3><span lang="en">Research &amp; innovation</span><span lang="th">งานวิจัยและนวัตกรรม</span></h3>
+          <p lang="en">Our own lab research in SI, health, edge AI and education, plus R&amp;D with partners.</p>
+          <p lang="th">งานวิจัยของแล็บด้าน SI สุขภาพ Edge AI และการศึกษา รวมถึงงานวิจัยและพัฒนาร่วมกับพันธมิตร</p>
+          <span class="card__meta card__meta--row"><span lang="en">Lab research</span><span lang="th">งานวิจัยของแล็บ</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="card card--link reveal reveal-delay-3" href="pages/stem.html">
+          <div class="card__icon"><img src="assets/images/icons/school.svg" alt=""></div>
+          <h3><span lang="en">Youth STEM</span><span lang="th">STEM เยาวชน</span></h3>
+          <p lang="en">Hands-on science, technology, engineering and maths that build a foundation for young people and for the nation.</p>
+          <p lang="th">วิทยาศาสตร์ เทคโนโลยี วิศวกรรม และคณิตศาสตร์แบบลงมือทำ สร้างรากฐานให้เยาวชนและประเทศชาติ</p>
+          <span class="card__meta card__meta--row"><span lang="en">Ages 8–18</span><span lang="th">อายุ 8–18 ปี</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================ RESEARCH -->
-  <section class="panel" aria-labelledby="research-title">
-    <div class="panel__bg"><img src="assets/images/sections/research-core.svg" alt="" loading="lazy"></div>
+  <!-- ============================================================ AI -> SI -->
+  <section class="section theme-dark section--violet" aria-labelledby="si-title">
     <div class="container">
-      <div class="panel__content reveal">
-        <span class="eyebrow">SI Research</span>
-        <h2 id="research-title">Research at the edge of intelligence</h2>
-        <p>We study how to build systems that reason, discover and create, and how to keep them safe, transparent and useful. Results, code and evaluations are open by default.</p>
-        <div class="btn-row"><a class="btn" href="pages/research.html">See all programs</a></div>
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow"><span lang="en">From AI to SI</span><span lang="th">จาก AI สู่ SI</span></span>
+          <h2 id="si-title"><span lang="en">We teach today's AI and research tomorrow's <span class="text-si">SI</span></span><span lang="th">สอน AI ของวันนี้ วิจัย <span class="text-si">SI</span> ของวันพรุ่งนี้</span></h2>
+        </div>
+        <p lang="en">SI, Super Intelligence, is our long-term research horizon: AI that reasons, discovers and creates across every field, built safely and for people. Every course moves learners one step along this road.</p>
+        <p lang="th">SI หรือ Super Intelligence คือเป้าหมายงานวิจัยระยะยาวของเรา คือ AI ที่ให้เหตุผล ค้นพบ และสร้างสรรค์ได้ในทุกสาขา โดยพัฒนาอย่างปลอดภัยและเพื่อมนุษย์ ทุกหลักสูตรพาผู้เรียนก้าวไปบนเส้นทางนี้ทีละขั้น</p>
       </div>
+      <div class="spectrum" data-render="spectrum"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ LEARNING PATH -->
+  <section class="section theme-light" aria-labelledby="path-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow"><span lang="en">Learning path</span><span lang="th">เส้นทางการเรียนรู้</span></span>
+          <h2 id="path-title"><span lang="en">Foundation to research, one clear path</span><span lang="th">จากพื้นฐานสู่งานวิจัย บนเส้นทางที่ชัดเจน</span></h2>
+        </div>
+        <p lang="en">Four levels, colour-coded across every course. Start where you are, move up when you are ready.</p>
+        <p lang="th">สี่ระดับ แยกสีชัดเจนในทุกรายวิชา เริ่มจากจุดที่คุณอยู่ และก้าวต่อเมื่อพร้อม</p>
+      </div>
+      <ol class="path" data-render="levels" data-compact role="list"></ol>
+      <div class="btn-row"><a class="btn btn--primary" href="pages/programs.html#catalog"><span lang="en">See the full curriculum</span><span lang="th">ดูหลักสูตรทั้งหมด</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ TRACKS -->
+  <section class="section theme-light section--tint" aria-labelledby="tracks-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow"><span lang="en">Tracks</span><span lang="th">สายการเรียนรู้</span></span>
+          <h2 id="tracks-title"><span lang="en">Six tracks. Choose your starting point.</span><span lang="th">หกสายการเรียนรู้ เลือกจุดเริ่มต้นของคุณ</span></h2>
+        </div>
+        <p lang="en">Programming, web, Apple platforms, AI, edge hardware and research skills, all connected so that you can combine them.</p>
+        <p lang="th">การเขียนโปรแกรม เว็บ แพลตฟอร์ม Apple, AI ฮาร์ดแวร์ Edge และทักษะการวิจัย ทุกสายเชื่อมโยงกันจนเรียนผสมผสานได้</p>
+      </div>
+      <div class="grid grid--3" data-render="tracks"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ EDGE AI -->
+  <section class="section theme-dark has-bg" aria-labelledby="edge-title">
+    <div class="bg"><img src="assets/images/sections/edge-board.svg" alt="" loading="lazy"></div>
+    <div class="container split">
+      <div class="reveal">
+        <span class="eyebrow"><span lang="en">Edge AI lab</span><span lang="th">แล็บ Edge AI</span></span>
+        <h2 id="edge-title"><span lang="en">Real hardware. <span class="text-si">Real-time AI.</span></span><span lang="th">ฮาร์ดแวร์จริง <span class="text-si">AI ทำงานแบบเรียลไทม์</span></span></h2>
+        <p lang="en">Learners train models, then deploy them where they are needed: cameras, sensors and robots that think on the device, with no cloud required.</p>
+        <p lang="th">ผู้เรียนเทรนโมเดล แล้วนำไปใช้ในที่ที่ต้องการจริง ทั้งกล้อง เซนเซอร์ และหุ่นยนต์ที่ประมวลผลได้บนตัวอุปกรณ์ โดยไม่ต้องพึ่งคลาวด์</p>
+        <ul class="ticks">
+          <li><span><strong>Arduino</strong> · <span lang="en">electronics, sensors and control</span><span lang="th">อิเล็กทรอนิกส์ เซนเซอร์ และการควบคุม</span></span></li>
+          <li><span><strong>Raspberry Pi</strong> · <span lang="en">Linux, IoT, cameras and dashboards</span><span lang="th">Linux, IoT กล้อง และแดชบอร์ด</span></span></li>
+          <li><span><strong>NVIDIA Jetson</strong> · <span lang="en">CUDA, TensorRT and DeepStream for real-time vision</span><span lang="th">CUDA, TensorRT และ DeepStream สำหรับงานภาพแบบเรียลไทม์</span></span></li>
+        </ul>
+        <div class="btn-row"><a class="btn" href="pages/programs.html?track=edge#catalog"><span lang="en">Edge AI courses</span><span lang="th">รายวิชา Edge AI</span></a></div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="window glow-ring">
+          <div class="window__bar"><i></i><i></i><i></i><span>jetson-orin · edg310-lab</span></div>
+          <div class="term" data-terminal aria-label="Terminal demo"></div>
+        </div>
+        <p class="window-caption"><span lang="en">Illustrative output from an EDG310 lab exercise.</span><span lang="th">ตัวอย่างผลลัพธ์จากแบบฝึกหัดในวิชา EDG310</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ APPLE -->
+  <section class="section theme-light mesh" aria-labelledby="apple-title">
+    <div class="container split">
+      <div class="reveal">
+        <div class="window">
+          <div class="window__bar"><i></i><i></i><i></i><span>PlantDoctorView.swift</span></div>
+<pre class="code"><code><span class="k">import</span> SwiftUI
+
+<span class="k">struct</span> <span class="ty">PlantDoctorView</span>: <span class="ty">View</span> {
+    <span class="k">@State private var</span> result = <span class="s">"Point the camera at a leaf"</span>
+
+    <span class="k">var</span> body: <span class="k">some</span> <span class="ty">View</span> {
+        <span class="ty">VStack</span>(spacing: <span class="n">16</span>) {
+            <span class="ty">CameraPreview</span>()
+            <span class="ty">Text</span>(result).font(.title3.bold())
+            <span class="ty">Button</span>(<span class="s">"Analyse"</span>) {
+                result = classifier.predict()  <span class="c">// Core ML, on device</span>
+            }
+            .buttonStyle(.borderedProminent)
+        }
+    }
+}</code></pre>
+        </div>
+        <p class="window-caption"><span lang="en">SwiftUI and Core ML: a plant-disease app from course IOS340.</span><span lang="th">SwiftUI และ Core ML: แอปตรวจโรคพืชจากวิชา IOS340</span></p>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <span class="eyebrow"><span lang="en">Apple platforms</span><span lang="th">แพลตฟอร์ม Apple</span></span>
+        <h2 id="apple-title"><span lang="en">From app playground to the App Store</span><span lang="th">จาก App Playground สู่ App Store</span></h2>
+        <p lang="en">Swift and SwiftUI for native iPhone and iPad apps, on-device AI with Core ML, and a dedicated studio for preparing original entries to Apple's annual Swift Student Challenge.</p>
+        <p lang="th">Swift และ SwiftUI สำหรับแอปเนทีฟบน iPhone และ iPad, AI บนอุปกรณ์ด้วย Core ML และสตูดิโอเฉพาะสำหรับเตรียมผลงานต้นฉบับเพื่อส่งเข้า Swift Student Challenge ซึ่งจัดโดย Apple ทุกปี</p>
+        <ul class="ticks">
+          <li><span lang="en"><strong>SWF110</strong> Swift and app playgrounds on iPad or Mac</span><span lang="th"><strong>SWF110</strong> Swift และ App Playground บน iPad หรือ Mac</span></li>
+          <li><span lang="en"><strong>SSC250</strong> Swift Student Challenge studio</span><span lang="th"><strong>SSC250</strong> สตูดิโอเตรียมแข่ง Swift Student Challenge</span></li>
+          <li><span lang="en"><strong>IOS220 · IOS340</strong> Native iOS/iPadOS apps and Core ML</span><span lang="th"><strong>IOS220 · IOS340</strong> แอปเนทีฟ iOS/iPadOS และ Core ML</span></li>
+        </ul>
+        <div class="btn-row"><a class="btn btn--primary" href="pages/programs.html?track=apple#catalog"><span lang="en">Apple platform courses</span><span lang="th">รายวิชาแพลตฟอร์ม Apple</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ RESEARCH PATHWAY -->
+  <section class="section theme-light section--tint" aria-labelledby="research-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow"><span lang="en">Teaching research</span><span lang="th">สอนทำวิจัย</span></span>
+          <h2 id="research-title"><span lang="en">From a question to a publication</span><span lang="th">จากคำถาม สู่การตีพิมพ์</span></h2>
+        </div>
+        <p lang="en">Eight steps, each with a clear output. Learners finish with work they can present, publish or enter into competitions.</p>
+        <p lang="th">แปดขั้นตอน แต่ละขั้นมีผลลัพธ์ที่ชัดเจน ผู้เรียนจบด้วยผลงานที่นำเสนอ ตีพิมพ์ หรือส่งเข้าแข่งขันได้จริง</p>
+      </div>
+      <ol class="rsteps" data-render="research-steps" role="list"></ol>
+      <div class="btn-row"><a class="btn btn--primary" href="pages/research.html"><span lang="en">Research at DeepDistrict</span><span lang="th">งานวิจัยที่ DeepDistrict</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ AUDIENCES -->
+  <section class="section theme-light mesh" aria-labelledby="aud-title">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <span class="eyebrow"><span lang="en">Who we serve</span><span lang="th">เราทำงานกับใคร</span></span>
+          <h2 id="aud-title"><span lang="en">Built for the whole learning community</span><span lang="th">ออกแบบเพื่อทุกคนในชุมชนการเรียนรู้</span></h2>
+        </div>
+      </div>
+      <div class="reveal" data-render="audiences"></div>
     </div>
   </section>
 
   <!-- ============================================================ STATS -->
   <section class="section section--tight theme-light section--tint" aria-label="DeepDistrict in numbers">
+    <div class="container"><div class="stats" data-render="stats"></div></div>
+  </section>
+
+  <!-- ============================================================ MISSION -->
+  <section class="section theme-dark has-bg" aria-labelledby="mission-title">
+    <div class="bg"><img src="assets/images/sections/globe-network.svg" alt="" loading="lazy"></div>
     <div class="container">
-      <div class="stats" data-render="stats"></div>
-    </div>
-  </section>
-
-  <!-- ============================================================ ACADEMY -->
-  <section class="panel" aria-labelledby="academy-title">
-    <div class="panel__bg"><img src="assets/images/sections/academy-orbit.svg" alt="" loading="lazy"></div>
-    <div class="container">
-      <div class="panel__content reveal">
-        <span class="eyebrow">SI Academy</span>
-        <h2 id="academy-title">Learn SI by building it</h2>
-        <p>Four tracks for school students through to professionals. Real projects, real mentors and a public demo day, on-site or remote.</p>
-        <div class="btn-row"><a class="btn" href="pages/academy.html">View Academy tracks</a></div>
+      <div class="reveal" style="max-width:720px">
+        <span class="eyebrow"><span lang="en">Our mission</span><span lang="th">พันธกิจของเรา</span></span>
+        <h2 id="mission-title"><span lang="en">A small dot on the world, <span class="text-si">with a big purpose</span></span><span lang="th">จุดเล็ก ๆ บนโลก <span class="text-si">ที่มีเป้าหมายยิ่งใหญ่</span></span></h2>
+        <p lang="en">We are a small lab in Bangkok that wants to strengthen and support learning and research in STEM and SI, so that people everywhere can use what they learn to create, and to keep developing a better world.</p>
+        <p lang="th">เราเป็นจุดเล็ก ๆ บนโลก ที่ต้องการสร้างเสริมและสนับสนุนการเรียนรู้และการวิจัยด้าน STEM และ SI เพื่อให้ผู้คนนำสิ่งที่ได้เรียนรู้ไปสร้างสรรค์ และพัฒนาโลกให้ดียิ่งขึ้นต่อไป</p>
+        <div class="btn-row"><a class="btn" href="pages/about.html"><span lang="en">About DeepDistrict</span><span lang="th">เกี่ยวกับ DeepDistrict</span></a></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ GLOBAL -->
-  <section class="section theme-dark" aria-labelledby="global-title" style="background:var(--navy-900)">
-    <div class="container split">
-      <div class="reveal">
-        <span class="eyebrow">Global by design</span>
-        <h2 id="global-title">Built in Slovenia. <span class="text-grad">Open to the world.</span></h2>
-        <p>We are a small country at the crossroads of Europe. That makes us a natural place to connect, between the Alps and the Adriatic and between research and industry.</p>
-        <p>DeepDistrict welcomes international fellows, offers remote Academy tracks and partners with universities and companies worldwide.</p>
-        <div class="hero-badges" style="margin-top:28px">
-          <span class="badge">English &amp; Slovenian</span>
-          <span class="badge">Remote-friendly tracks</span>
-          <span class="badge">International partners</span>
-        </div>
-      </div>
-      <figure class="media reveal reveal-delay-1">
-        <img src="assets/images/sections/globe-network.svg" alt="A globe with links from Slovenia to cities around the world" loading="lazy">
-        <figcaption>One district, connected worldwide</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <!-- ============================================================ INNOVATION -->
-  <section class="panel" aria-labelledby="innovation-title">
-    <div class="panel__bg"><img src="assets/images/sections/innovation-city.svg" alt="" loading="lazy"></div>
-    <div class="container">
-      <div class="panel__content reveal">
-        <span class="eyebrow">Innovation District</span>
-        <h2 id="innovation-title">From lab to real-world impact</h2>
-        <p>A venture studio and industry bridge that turns SI research into companies, products and better public services.</p>
-        <div class="btn-row"><a class="btn" href="pages/innovation.html">How it works</a></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ MILESTONES -->
-  <section class="section theme-light" aria-labelledby="milestones-title">
-    <div class="container">
-      <div class="section-head reveal">
-        <div>
-          <span class="eyebrow">Milestones</span>
-          <h2 id="milestones-title">What's next</h2>
-        </div>
-        <p>A public plan with dates, goals and results you can check. We update it as we go.</p>
-      </div>
-      <div class="table-wrap reveal">
-        <table class="milestones">
-          <thead><tr><th scope="col">Date</th><th scope="col">Milestone</th><th scope="col">Goal</th><th scope="col">Status</th></tr></thead>
-          <tbody data-render="milestones"></tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ TRUST -->
-  <section class="section theme-light section--tint" aria-labelledby="trust-title">
-    <div class="container split split--top">
-      <div class="reveal">
-        <span class="eyebrow">Responsible SI</span>
-        <h2 id="trust-title">Powerful technology needs trust</h2>
-        <p>Super Intelligence is only worth building if people can trust it. These commitments are part of our founding charter.</p>
-        <a class="link-arrow" href="pages/mission.html#principles">Read all six principles
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-      <div class="grid grid--2">
-        <div class="pillar reveal"><div class="card__icon"><img src="assets/images/icons/shield.svg" alt=""></div><div><h3>Human oversight</h3><p>People set the goals and make the decisions. Safety research comes before scale.</p></div></div>
-        <div class="pillar reveal reveal-delay-1"><div class="card__icon"><img src="assets/images/icons/network.svg" alt=""></div><div><h3>Open science</h3><p>Papers, code and evaluations are published so that anyone can check our work.</p></div></div>
-        <div class="pillar reveal"><div class="card__icon"><img src="assets/images/icons/lock.svg" alt=""></div><div><h3>Privacy by design</h3><p>GDPR-grade data protection and alignment with the EU AI Act from day one.</p></div></div>
-        <div class="pillar reveal reveal-delay-1"><div class="card__icon"><img src="assets/images/icons/review.svg" alt=""></div><div><h3>Independent review</h3><p>An external ethics board reviews high-impact projects before release.</p></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ REGIONAL NODES -->
-  <section class="panel" aria-labelledby="nodes-title">
-    <div class="panel__bg"><img src="assets/images/sections/adriatic-coast.svg" alt="" loading="lazy"></div>
-    <div class="container">
-      <div class="reveal" style="max-width:640px;margin-bottom:36px">
-        <span class="eyebrow">One district, six nodes</span>
-        <h2 id="nodes-title">Connected across Slovenia</h2>
-        <p>Each region brings its own strength: research in the capital, industry, the coast, the Alps and cross-border links.</p>
-      </div>
-      <div class="nodes" data-render="nodes"></div>
     </div>
   </section>
 
@@ -200,12 +264,13 @@
     <div class="panel__bg"><img src="assets/images/sections/launch-beam.svg" alt="" loading="lazy"></div>
     <div class="container">
       <div class="panel__content reveal">
-        <span class="eyebrow">Join us</span>
-        <h2 id="cta-title">Help shape what intelligence becomes</h2>
-        <p>Researchers, students, founders, companies and public institutions: there is a place for you in the district.</p>
+        <span class="eyebrow"><span lang="en">Get started</span><span lang="th">เริ่มต้น</span></span>
+        <h2 id="cta-title"><span lang="en">Start your path today</span><span lang="th">เริ่มต้นเส้นทางของคุณวันนี้</span></h2>
+        <p lang="en">Tell us who you are and what you want to learn, research or build. We reply to every message.</p>
+        <p lang="th">บอกเราว่าคุณคือใคร และอยากเรียน วิจัย หรือสร้างอะไร เราตอบกลับทุกข้อความ</p>
         <div class="btn-row">
-          <a class="btn btn--light" href="pages/join.html#apply">Apply now</a>
-          <a class="btn" href="pages/mission.html#roadmap">See the roadmap</a>
+          <a class="btn btn--light" href="mailto:info@deepdistrict.si">info@deepdistrict.si</a>
+          <a class="btn" href="pages/contact.html"><span lang="en">Contact form</span><span lang="th">แบบฟอร์มติดต่อ</span></a>
         </div>
       </div>
     </div>

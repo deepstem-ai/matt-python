@@ -1,6 +1,7 @@
 /* ==========================================================================
    DeepDistrict.si — base: brand tokens, themes, reset, typography
-   Palette is taken from the DeepDistrict logo: deep navy -> electric blue -> cyan.
+   Core palette from the DeepDistrict logo (navy -> electric blue -> cyan), plus
+   vivid accents for energy. Each learning level has its own colour.
    ========================================================================== */
 
 :root {
@@ -13,6 +14,11 @@
   --blue-500: #1f6fff;   /* logo blue */
   --blue-300: #8dbdff;
   --cyan-400: #3fd0ff;   /* logo highlight */
+  --violet-500: #8b5cf6;
+  --magenta-500: #ec4899;
+  --emerald-500: #10b981;
+  --amber-400: #fbbf24;
+  --orange-500: #f97316;
   --white: #ffffff;
   --paper: #f5f8fe;
   --ok: #16a34a;
@@ -21,11 +27,21 @@
 
   --grad-brand: linear-gradient(120deg, var(--blue-600) 0%, var(--blue-500) 45%, var(--cyan-400) 100%);
   --grad-ink: linear-gradient(120deg, var(--navy-800) 0%, var(--blue-500) 70%, var(--cyan-400) 100%);
+  --grad-si: linear-gradient(110deg, #3fd0ff 0%, #6d7bff 35%, #a855f7 65%, #ec4899 100%);
+  --grad-si-ink: linear-gradient(110deg, #1f6fff 0%, #6d4dff 45%, #c026d3 100%);
+
+  /* Learning levels: Foundation -> Intermediate -> Advanced -> Research & SI */
+  --lv-1: #10b981;
+  --lv-2: #1f6fff;
+  --lv-3: #8b5cf6;
+  --lv-4: #ec4899;
 
   /* Type */
   --f-sans: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
   --f-display: "Sora", "Inter", "Segoe UI", system-ui, sans-serif;
   --f-brand: "Michroma", "Eurostile", "Sora", system-ui, sans-serif;  /* echoes the logo wordmark */
+  --f-sans-th: "Noto Sans Thai", "Inter", "Leelawadee UI", "Thonburi", sans-serif;
+  --f-display-th: "Prompt", "Sora", "Noto Sans Thai", "Leelawadee UI", sans-serif;
   --f-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   --fs-xs: 0.75rem;
@@ -145,6 +161,29 @@ p  { margin: 0 0 1em; color: var(--text-dim); }
   color: transparent;
 }
 .theme-light .text-grad { background-image: var(--grad-ink); }
+.text-si {
+  background: var(--grad-si);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.theme-light .text-si { background-image: var(--grad-si-ink); }
+
+/* ---------------------------------------------------------------- Bilingual
+   Every text exists twice: <span lang="en"> and <span lang="th">.
+   The <html lang> attribute (set by the language switch) decides which shows. */
+html[lang="en"] body [lang="th"],
+html[lang="th"] body [lang="en"] { display: none !important; }
+
+html[lang="th"] body { font-family: var(--f-sans-th); line-height: 1.8; }
+html[lang="th"] h1,
+html[lang="th"] h2,
+html[lang="th"] h3,
+html[lang="th"] h4 { font-family: var(--f-display-th); letter-spacing: 0; line-height: 1.3; font-weight: 600; }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+html[lang="th"] .section-head h2 { max-width: 24ch; }
+html[lang="th"] .eyebrow { font-family: var(--f-display-th); font-size: 0.8rem; letter-spacing: 0.06em; }
 
 ::selection { background: var(--blue-500); color: #fff; }
 

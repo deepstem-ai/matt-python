@@ -28,6 +28,16 @@ Every page follows the same skeleton:
 `data-base` is the relative path to the site root (`""` for `index.html`, `"../"` for
 `pages/*`). `data-page` marks the active nav link.
 
+## Bilingual content
+
+Text appears twice: `<span lang="en">` and `<span lang="th">` (or `<p lang="…">`).
+`base.css` hides the language that does not match `<html lang>`. `lang-init.js`
+sets the language before paint; `main.js` (`setLang`) handles the TH | EN switch,
+the document title (`data-title-en` / `data-title-th` on `<body>`), text-only
+elements such as `<option data-en data-th>`, and attributes listed in
+`data-i18n-attrs` (for example `data-en-placeholder` / `data-th-placeholder`).
+Data objects use `{ en, th }`, and the `t()` helper in `main.js` renders both.
+
 ## Themes
 
 Sections opt into a colour theme with `theme-light` or `theme-dark`. Both set the same
@@ -44,14 +54,17 @@ the full-colour logo when the page scrolls (`.is-solid`).
 | Plain section | `section.section.theme-light` (`--tint`, `--tight`) | With `.section-head` for title + intro |
 | Button | `a.btn` (`--primary`, `--light`, `--sm`) | Pill shape; primary uses the brand gradient |
 | Card grid | `.grid.grid--3 > article.card` | Icons from `assets/images/icons/` |
-| Data blocks | `[data-render="stats|milestones|nodes|programs|roadmap|ticker"]` | Filled by `main.js` from `content.js` |
+| Data blocks | `[data-render="levels|tracks|courses|domains|research-steps|research-areas|venues|stem-bands|partner-models|audiences|spectrum|stats|marquee"]` | Filled by `main.js` from `content.js` |
+| Course catalogue | `[data-course-filters]`, `[data-course-count]`, `[data-render="courses"]` | Filters sync to `?track=&level=&q=` |
+| Animations | `canvas[data-neural]`, `[data-typewriter]`, `[data-terminal]`, `.path`, `.spectrum` | Paused off-screen; respect reduced motion |
 | Trust pillar | `.pillar` | Icon + title + text |
 | Badge | `span.badge` | Small rounded label (footer commitments, hero) |
 | Reveal | `.reveal` (`.reveal-delay-1..3`) | Fades in on scroll |
-| Local form | `form[data-local-form="name"]` | Validates and saves to `localStorage` |
+| Contact form | `form[data-mailto-form]` | Validates, then opens the visitor's email app addressed to info@deepdistrict.si |
 
 ## Adding a page
 
-1. Copy `pages/academy.html` and rename it.
-2. Change `<title>`, the meta description, `class="page-…"` and `data-page`.
+1. Generate the shell: `{ tools/page_head.sh "../" NAME "EN title" "TH title" "Description"; cat body.html; tools/page_foot.sh "../"; } > pages/NAME.html`
+   (or copy an existing page).
+2. Write every text in both languages.
 3. Add it to `NAV` in `assets/js/partials.js`.
