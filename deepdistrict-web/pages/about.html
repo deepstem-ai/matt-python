@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-theme="light" data-theme-pref="auto">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>About & SI | DeepDistrict.si</title>
   <meta name="description" content="About DeepDistrict, a small STEM, AI and SI lab in Bangkok: our mission, what SI (Super Intelligence) means, our principles and the path from learning to research and work.">
-  <meta name="theme-color" content="#061433">
+  <meta name="theme-color" content="#f6f7fd">
+  <meta name="color-scheme" content="light dark">
   <meta property="og:type" content="website">
   <meta property="og:title" content="About & SI | DeepDistrict.si">
   <meta property="og:description" content="About DeepDistrict, a small STEM, AI and SI lab in Bangkok: our mission, what SI (Super Intelligence) means, our principles and the path from learning to research and work.">
@@ -13,22 +14,23 @@
   <link rel="icon" href="../assets/images/brand/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="../assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="../assets/images/brand/apple-touch-icon.png">
-  <script src="../assets/js/lang-init.js"></script>
+  <script src="../assets/js/prefs.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Michroma&family=Noto+Sans+Thai:wght@400;500;600&family=Prompt:wght@500;600&family=Sora:wght@500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Michroma&family=Noto+Sans+Thai:wght@400;500;600&family=Prompt:wght@500;600&family=Sora:wght@500;600&display=swap">
   <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body class="page-about" data-base="../" data-page="about" data-title-en="About & SI | DeepDistrict.si" data-title-th="เกี่ยวกับเราและ SI | DeepDistrict.si">
 
 <main id="main">
 
+
   <section class="panel page-hero" aria-labelledby="page-title">
     <div class="panel__bg"><img src="../assets/images/sections/globe-network.svg" alt="A globe with links from Bangkok to cities around the world"></div>
     <div class="container">
       <div class="panel__content intro">
         <span class="eyebrow"><span lang="en">About DeepDistrict</span><span lang="th">เกี่ยวกับ DeepDistrict</span></span>
-        <h1 id="page-title"><span lang="en">A small dot on the world, <span class="text-si">lighting up learning</span></span><span lang="th">จุดเล็ก ๆ บนโลก <span class="text-si">ที่จุดประกายการเรียนรู้</span></span></h1>
+        <h1 id="page-title" data-split><span lang="en">A small dot on the world, <span class="text-si">lighting up learning</span></span><span lang="th">จุดเล็ก ๆ บนโลก <span class="text-si">ที่จุดประกายการเรียนรู้</span></span></h1>
         <p lang="en">DeepDistrict is a learning and research lab based in Bangkok, Thailand. We want to strengthen and support learning and research in STEM and SI, so that people can use it to create and to keep developing the world.</p>
         <p lang="th">DeepDistrict คือห้องปฏิบัติการด้านการเรียนรู้และการวิจัยในกรุงเทพมหานคร ประเทศไทย เราต้องการสร้างเสริมและสนับสนุนการเรียนรู้และการวิจัยด้าน STEM และ SI เพื่อให้ผู้คนนำไปสร้างสรรค์และพัฒนาโลกต่อไป</p>
       </div>
@@ -36,7 +38,7 @@
   </section>
 
   <!-- ============================================================ MISSION / VISION -->
-  <section class="section theme-light mesh" aria-labelledby="mv-title">
+  <section class="section aurora" aria-labelledby="mv-title">
     <div class="container">
       <h2 id="mv-title" class="visually-hidden">Mission, vision and values</h2>
       <div class="grid grid--3">
@@ -56,51 +58,30 @@
     </div>
   </section>
 
-  <!-- ============================================================ SI -->
-  <section class="section theme-dark section--violet" id="si" aria-labelledby="si-title">
-    <div class="container">
-      <div class="split" style="margin-bottom:clamp(48px,6vw,80px)">
-        <div class="reveal">
-          <span class="eyebrow"><span lang="en">The concept</span><span lang="th">แนวคิด</span></span>
-          <h2 id="si-title"><span lang="en">What is <span class="text-si">SI</span>?</span><span lang="th"><span class="text-si">SI</span> คืออะไร?</span></h2>
-          <p lang="en">Today's AI is excellent at patterns: recognising, predicting and generating. SI, Super Intelligence, is the long-term goal beyond it: systems that reason across domains, form and test their own hypotheses, and work with people to discover what no one knew before.</p>
-          <p lang="th">AI ในปัจจุบันเก่งเรื่องรูปแบบ ทั้งการจดจำ การทำนาย และการสร้างเนื้อหา SI หรือ Super Intelligence คือเป้าหมายระยะยาวที่ไปไกลกว่านั้น คือระบบที่ให้เหตุผลข้ามสาขาได้ ตั้งและทดสอบสมมติฐานได้เอง และทำงานร่วมกับมนุษย์เพื่อค้นพบสิ่งที่ยังไม่มีใครรู้มาก่อน</p>
-          <p lang="en">That is also why our name ends in <strong>.si</strong>: it stands for Super Intelligence.</p>
-          <p lang="th">นี่คือเหตุผลที่ชื่อของเราลงท้ายด้วย <strong>.si</strong> ซึ่งย่อมาจาก Super Intelligence</p>
-        </div>
-        <dl class="definition reveal reveal-delay-1">
-          <dt>SI <small>Super Intelligence</small></dt>
-          <dd><span lang="en">Intelligence beyond today's AI that reasons, discovers and creates across every field, developed openly and safely, aligned with human values and under human oversight.</span><span lang="th">ความฉลาดที่ก้าวข้าม AI ในปัจจุบัน สามารถให้เหตุผล ค้นพบ และสร้างสรรค์ได้ในทุกสาขา พัฒนาอย่างเปิดกว้างและปลอดภัย สอดคล้องกับคุณค่าของมนุษย์ และอยู่ภายใต้การกำกับดูแลของมนุษย์</span></dd>
-        </dl>
+  <!-- ============================================================ SI TEASER -->
+  <section class="section tone-deep" id="si" aria-labelledby="si-title">
+    <div class="container split">
+      <div>
+        <span class="eyebrow reveal"><span lang="en">The idea at our core</span><span lang="th">แนวคิดหลักของเรา</span></span>
+        <h2 id="si-title" data-split><span lang="en">The .si in our name means <span class="text-si">Super Intelligence</span></span><span lang="th">.si ในชื่อของเราหมายถึง <span class="text-si">Super Intelligence</span></span></h2>
+        <p class="reveal" lang="en">SI is intelligence that goes beyond today's AI: it reasons, discovers and creates across virtually every field, aligned with human values and under human oversight. It is our long-term research horizon, and the reason every course leads somewhere bigger.</p>
+        <p class="reveal" lang="th">SI คือความฉลาดที่ก้าวข้าม AI ในปัจจุบัน สามารถให้เหตุผล ค้นพบ และสร้างสรรค์ได้ในแทบทุกสาขา โดยสอดคล้องกับคุณค่าของมนุษย์และอยู่ภายใต้การกำกับดูแลของมนุษย์ SI คือเป้าหมายงานวิจัยระยะยาวของเรา และเป็นเหตุผลที่ทุกหลักสูตรนำไปสู่สิ่งที่ยิ่งใหญ่กว่า</p>
+        <div class="btn-row reveal"><a class="btn btn--primary" data-magnetic href="si.html"><span lang="en">What is SI?</span><span lang="th">SI คืออะไร?</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
       </div>
-      <div class="spectrum" data-render="spectrum"></div>
-    </div>
-  </section>
-
-  <!-- ============================================================ AI vs SI -->
-  <section class="section theme-light" aria-labelledby="compare-title">
-    <div class="container">
-      <div class="section-head reveal"><div><span class="eyebrow">AI vs SI</span><h2 id="compare-title"><span lang="en">What changes on the road to SI</span><span lang="th">อะไรเปลี่ยนไปบนเส้นทางสู่ SI</span></h2></div></div>
-      <div class="table-wrap reveal" style="overflow-x:auto">
-        <table class="compare">
-          <thead><tr><th scope="col"><span lang="en">Dimension</span><span lang="th">มิติ</span></th><th scope="col"><span lang="en">AI today</span><span lang="th">AI ในปัจจุบัน</span></th><th scope="col"><span lang="en">SI goal</span><span lang="th">เป้าหมาย SI</span></th></tr></thead>
-          <tbody>
-            <tr><td><span lang="en">Reasoning</span><span lang="th">การให้เหตุผล</span></td><td><span lang="en">Short chains, often unverified</span><span lang="th">ไม่กี่ขั้นตอน และมักไม่ได้ตรวจสอบ</span></td><td><span lang="en">Long, self-checked reasoning with explanations</span><span lang="th">ให้เหตุผลยาวหลายขั้น ตรวจสอบตนเอง และอธิบายได้</span></td></tr>
-            <tr><td><span lang="en">Discovery</span><span lang="th">การค้นพบ</span></td><td><span lang="en">Recombines what it has seen</span><span lang="th">ผสมผสานสิ่งที่เคยเห็นมาแล้ว</span></td><td><span lang="en">Forms and tests new hypotheses with scientists</span><span lang="th">ตั้งและทดสอบสมมติฐานใหม่ร่วมกับนักวิทยาศาสตร์</span></td></tr>
-            <tr><td><span lang="en">Scope</span><span lang="th">ขอบเขต</span></td><td><span lang="en">Narrow tasks and single tools</span><span lang="th">งานเฉพาะด้านและเครื่องมือเดี่ยว</span></td><td><span lang="en">Works across science, industry and society</span><span lang="th">ทำงานได้ทั้งวิทยาศาสตร์ อุตสาหกรรม และสังคม</span></td></tr>
-            <tr><td><span lang="en">Language</span><span lang="th">ภาษา</span></td><td><span lang="en">Strongest in the largest languages</span><span lang="th">เก่งที่สุดในภาษาที่มีผู้ใช้มาก</span></td><td><span lang="en">Fluent in Thai and other languages too</span><span lang="th">เชี่ยวชาญภาษาไทยและภาษาอื่น ๆ ด้วย</span></td></tr>
-            <tr><td><span lang="en">Trust</span><span lang="th">ความไว้วางใจ</span></td><td><span lang="en">Often a black box</span><span lang="th">มักเป็นกล่องดำ</span></td><td><span lang="en">Interpretable, evaluated and under human oversight</span><span lang="th">อธิบายได้ ผ่านการประเมิน และอยู่ภายใต้การกำกับของมนุษย์</span></td></tr>
-          </tbody>
-        </table>
+      <div class="si-orb reveal reveal-delay-1" aria-hidden="true">
+        <span class="si-orb__ring" style="--inset:0%;--dur:30s;--c:#22d3ee"></span>
+        <span class="si-orb__ring si-orb__ring--dash" style="--inset:10%;--dur:22s;--c:#8b5cf6"></span>
+        <span class="si-orb__ring" style="--inset:21%;--dur:15s;--c:#ec4899"></span>
+        <div class="si-orb__core"><b>SI</b></div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================ PRINCIPLES -->
-  <section class="section theme-light section--tint" id="principles" aria-labelledby="principles-title">
+  <section class="section section--alt" id="principles" aria-labelledby="principles-title">
     <div class="container">
-      <div class="section-head reveal">
-        <div><span class="eyebrow"><span lang="en">Principles</span><span lang="th">หลักการ</span></span><h2 id="principles-title"><span lang="en">How we teach, research and build</span><span lang="th">หลักในการสอน วิจัย และสร้างสรรค์</span></h2></div>
+      <div class="section-head">
+        <div><span class="eyebrow"><span lang="en">Principles</span><span lang="th">หลักการ</span></span><h2 id="principles-title" data-split><span lang="en">How we teach, research and build</span><span lang="th">หลักในการสอน วิจัย และสร้างสรรค์</span></h2></div>
       </div>
       <div class="grid grid--3">
         <article class="card reveal"><span class="card__index">01</span><div class="card__icon"><img src="../assets/images/icons/shield.svg" alt=""></div>
@@ -126,42 +107,42 @@
   </section>
 
   <!-- ============================================================ LEARNING -> WORKING PATH -->
-  <section class="section theme-light" aria-labelledby="career-title">
+  <section class="section" aria-labelledby="career-title">
     <div class="container">
-      <div class="section-head reveal">
+      <div class="section-head">
         <div>
           <span class="eyebrow"><span lang="en">Learning &amp; working path</span><span lang="th">เส้นทางการเรียนรู้สู่การทำงาน</span></span>
-          <h2 id="career-title"><span lang="en">From learner to contributor</span><span lang="th">จากผู้เรียน สู่ผู้สร้างคุณค่า</span></h2>
+          <h2 id="career-title" data-split><span lang="en">From learner to contributor</span><span lang="th">จากผู้เรียน สู่ผู้สร้างคุณค่า</span></h2>
         </div>
         <p lang="en">Learning does not end with a certificate. Strong learners can grow into roles inside DeepDistrict and with our partners.</p>
         <p lang="th">การเรียนรู้ไม่ได้จบที่ประกาศนียบัตร ผู้เรียนที่โดดเด่นสามารถเติบโตสู่บทบาทต่าง ๆ ภายใน DeepDistrict และกับพันธมิตรของเรา</p>
       </div>
-      <ol class="rsteps" role="list">
-        <li class="rstep reveal"><span class="rstep__num">01</span><h3><span lang="en">Learn</span><span lang="th">เรียนรู้</span></h3>
+      <ol class="steps" role="list">
+        <li class="step reveal"><h3><span lang="en">Learn</span><span lang="th">เรียนรู้</span></h3>
           <p lang="en">Build skills from foundation to advanced.</p><p lang="th">สร้างทักษะตั้งแต่พื้นฐานถึงขั้นสูง</p>
-          <span class="rstep__out"><span lang="en">Courses &amp; certificates</span><span lang="th">รายวิชาและประกาศนียบัตร</span></span></li>
-        <li class="rstep reveal reveal-delay-1"><span class="rstep__num">02</span><h3><span lang="en">Research</span><span lang="th">วิจัย</span></h3>
+          <span class="step__out"><span lang="en">Courses &amp; certificates</span><span lang="th">รายวิชาและประกาศนียบัตร</span></span></li>
+        <li class="step reveal reveal-delay-1"><h3><span lang="en">Research</span><span lang="th">วิจัย</span></h3>
           <p lang="en">Contribute new knowledge with a mentor.</p><p lang="th">สร้างองค์ความรู้ใหม่ร่วมกับอาจารย์ที่ปรึกษา</p>
-          <span class="rstep__out"><span lang="en">Papers &amp; awards</span><span lang="th">บทความและรางวัล</span></span></li>
-        <li class="rstep reveal reveal-delay-2"><span class="rstep__num">03</span><h3><span lang="en">Build</span><span lang="th">สร้างสรรค์</span></h3>
+          <span class="step__out"><span lang="en">Papers &amp; awards</span><span lang="th">บทความและรางวัล</span></span></li>
+        <li class="step reveal reveal-delay-2"><h3><span lang="en">Build</span><span lang="th">สร้างสรรค์</span></h3>
           <p lang="en">Turn research into products and services.</p><p lang="th">เปลี่ยนงานวิจัยให้เป็นผลิตภัณฑ์และบริการ</p>
-          <span class="rstep__out"><span lang="en">Prototypes &amp; startups</span><span lang="th">ต้นแบบและสตาร์ทอัป</span></span></li>
-        <li class="rstep reveal reveal-delay-3"><span class="rstep__num">04</span><h3><span lang="en">Work &amp; give back</span><span lang="th">ทำงานและส่งต่อ</span></h3>
+          <span class="step__out"><span lang="en">Prototypes &amp; startups</span><span lang="th">ต้นแบบและสตาร์ทอัป</span></span></li>
+        <li class="step reveal reveal-delay-3"><h3><span lang="en">Work &amp; give back</span><span lang="th">ทำงานและส่งต่อ</span></h3>
           <p lang="en">Teaching assistants, research assistants and engineers with partners.</p><p lang="th">ผู้ช่วยสอน ผู้ช่วยวิจัย และวิศวกรร่วมกับพันธมิตร</p>
-          <span class="rstep__out"><span lang="en">Careers &amp; mentoring</span><span lang="th">อาชีพและการเป็นพี่เลี้ยง</span></span></li>
+          <span class="step__out"><span lang="en">Careers &amp; mentoring</span><span lang="th">อาชีพและการเป็นพี่เลี้ยง</span></span></li>
       </ol>
     </div>
   </section>
 
   <!-- ============================================================ LOGO -->
-  <section class="section theme-light section--tint" id="brand" aria-labelledby="brand-title">
+  <section class="section section--alt" id="brand" aria-labelledby="brand-title">
     <div class="container split">
       <figure class="brand-showcase reveal" style="margin:0">
         <img src="../assets/images/brand/logo-stacked.png" alt="DeepDistrict logo: a bold D crossed by a bright orbit arc">
       </figure>
       <div class="reveal reveal-delay-1">
         <span class="eyebrow"><span lang="en">Our symbol</span><span lang="th">สัญลักษณ์ของเรา</span></span>
-        <h2 id="brand-title"><span lang="en">The D and the orbit</span><span lang="th">ตัว D และวงโคจร</span></h2>
+        <h2 id="brand-title" data-split><span lang="en">The D and the orbit</span><span lang="th">ตัว D และวงโคจร</span></h2>
         <p lang="en">The solid <strong>D</strong> stands for <em>Deep</em> and <em>District</em>: deep learning and research, and a real place where people work together.</p>
         <p lang="th">ตัว <strong>D</strong> ที่มั่นคงหมายถึง <em>Deep</em> และ <em>District</em> คือการเรียนรู้และการวิจัยเชิงลึก และสถานที่จริงที่ผู้คนมาทำงานร่วมกัน</p>
         <p lang="en">The bright <strong>arc</strong> is the path of intelligence moving beyond its limits, from deep blue to light: from learning, to research, to impact.</p>
@@ -174,7 +155,7 @@
     <div class="panel__bg"><img src="../assets/images/hero/bangkok-night.svg" alt="" loading="lazy"></div>
     <div class="container">
       <div class="panel__content reveal">
-        <h2 id="cta-title"><span lang="en">Join the dot. Grow the network.</span><span lang="th">มาเป็นส่วนหนึ่งของจุดเล็ก ๆ นี้ และเติบโตไปด้วยกัน</span></h2>
+        <h2 id="cta-title" data-split><span lang="en">Join the dot. Grow the network.</span><span lang="th">มาเป็นส่วนหนึ่งของจุดเล็ก ๆ นี้ และเติบโตไปด้วยกัน</span></h2>
         <div class="btn-row">
           <a class="btn btn--light" href="contact.html"><span lang="en">Contact us</span><span lang="th">ติดต่อเรา</span></a>
           <a class="btn" href="programs.html"><span lang="en">Explore programs</span><span lang="th">ดูหลักสูตร</span></a>
@@ -186,7 +167,11 @@
 </main>
 
 <script src="../assets/data/content.js"></script>
+<script src="../assets/data/courses-details.js"></script>
+<script src="../assets/data/si.js"></script>
 <script src="../assets/js/partials.js"></script>
-<script src="../assets/js/main.js"></script>
+<script src="../assets/js/consent.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/effects.js"></script>
 </body>
 </html>

@@ -7,19 +7,22 @@
 - [x] Official logo integrated, with variants, favicons and share image
 - [x] Footer with copyright, trademark notice and legal page (draft)
 - [x] Relocated to Bangkok; Thai/English bilingual site with a language switch
-- [x] Full curriculum (4 levels, 6 tracks, 33 courses, 8 domain paths) and research pathway
+- [x] Full curriculum (4 levels, 6 tracks, 34 courses with detailed modules, 8 domain paths) and research pathway
+- [x] SI explainer page, personalised-course process and plan builder, Innovation Lab
+- [x] Zoom / onsite / hybrid study modes per course
+- [x] Light and dark themes; PDPA consent banner and settings; consent on every form submission
 - [x] Content separated into `assets/data/content.js`
 - [ ] Review all concept content (course hours, schedules, plans) with the team
 - [ ] Have a native Thai editor proofread the Thai copy
 - [ ] Replace generated artwork with real photography where available
-- [ ] Self-host fonts (`assets/fonts/README.md`)
+- [ ] Self-host fonts (`assets/fonts/README.md`) so that no visitor IP addresses go to Google Fonts
 
 ## Phase 2: go online
 
 - [ ] Register and point **deepdistrict.si** DNS to a static host
       (GitHub Pages, Netlify, Cloudflare Pages or a Thai host). The current folder can be deployed as-is.
 - [ ] HTTPS, `robots.txt`, `sitemap.xml`, absolute URLs for the Open Graph image
-- [ ] Privacy-friendly analytics, with consent where the PDPA requires it
+- [ ] Privacy-friendly analytics, loaded via `data-consent="analytics"` (already gated by consent.js)
 - [ ] Optionally connect the contact form to a backend or CRM (it currently opens
       the visitor's email app)
 - [ ] Legal review of `pages/legal.html`, plus an imprint (company details)

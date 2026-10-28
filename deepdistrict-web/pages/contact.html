@@ -1,84 +1,109 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="en" class="no-js" data-theme="light" data-theme-pref="auto">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact | DeepDistrict.si</title>
-  <meta name="description" content="Contact DeepDistrict in Bangkok at info@deepdistrict.si about courses, youth STEM, research mentoring and partnerships.">
-  <meta name="theme-color" content="#061433">
+  <meta name="description" content="Ask DeepDistrict about any course, including ones not listed, personalised learning plans, the Innovation Lab and partnerships. info@deepdistrict.si, Bangkok.">
+  <meta name="theme-color" content="#f6f7fd">
+  <meta name="color-scheme" content="light dark">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Contact | DeepDistrict.si">
-  <meta property="og:description" content="Contact DeepDistrict in Bangkok at info@deepdistrict.si about courses, youth STEM, research mentoring and partnerships.">
+  <meta property="og:description" content="Ask DeepDistrict about any course, including ones not listed, personalised learning plans, the Innovation Lab and partnerships. info@deepdistrict.si, Bangkok.">
   <meta property="og:image" content="../assets/images/brand/og-image.png">
   <link rel="icon" href="../assets/images/brand/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="../assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="../assets/images/brand/apple-touch-icon.png">
-  <script src="../assets/js/lang-init.js"></script>
+  <script src="../assets/js/prefs.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Michroma&family=Noto+Sans+Thai:wght@400;500;600&family=Prompt:wght@500;600&family=Sora:wght@500;600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Michroma&family=Noto+Sans+Thai:wght@400;500;600&family=Prompt:wght@500;600&family=Sora:wght@500;600&display=swap">
   <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body class="page-contact" data-base="../" data-page="contact" data-title-en="Contact | DeepDistrict.si" data-title-th="ติดต่อเรา | DeepDistrict.si">
 
 <main id="main">
 
-  <section class="panel page-hero panel--short" aria-labelledby="page-title" style="min-height:58vh">
+  <section class="panel page-hero panel--short" aria-labelledby="page-title" style="min-height:60vh">
     <div class="panel__bg"><img src="../assets/images/hero/bangkok-night.svg" alt="Bangkok at night by the river"></div>
+    <canvas class="hero-canvas" data-neural aria-hidden="true"></canvas>
     <div class="container">
       <div class="panel__content intro">
         <span class="eyebrow"><span lang="en">Contact</span><span lang="th">ติดต่อเรา</span></span>
-        <h1 id="page-title"><span lang="en">Let's <span class="text-si">talk</span></span><span lang="th">มา<span class="text-si">พูดคุย</span>กัน</span></h1>
-        <p lang="en">Courses, youth STEM, research mentoring or partnerships: send us a message and we will get back to you.</p>
-        <p lang="th">ไม่ว่าจะเป็นเรื่องหลักสูตร STEM เยาวชน การดูแลงานวิจัย หรือความร่วมมือ ส่งข้อความถึงเราได้เลย แล้วเราจะติดต่อกลับ</p>
+        <h1 id="page-title" data-split><span lang="en">Ask about <span class="text-si">any course</span></span><span lang="th">สอบถาม<span class="text-si">ได้ทุกหลักสูตร</span></span></h1>
+        <p lang="en">Courses on the website or not, a personal learning plan, the Innovation Lab or a partnership: tell us what you need and we will reply with options.</p>
+        <p lang="th">ไม่ว่าจะเป็นหลักสูตรที่มีบนเว็บไซต์หรือไม่ก็ตาม แผนการเรียนเฉพาะบุคคล แล็บนวัตกรรม หรือความร่วมมือ บอกเราว่าคุณต้องการอะไร แล้วเราจะตอบกลับพร้อมทางเลือก</p>
       </div>
     </div>
   </section>
 
-  <section class="section theme-light section--tint" id="contact" aria-labelledby="contact-title">
+  <section class="section aurora" id="form" aria-labelledby="contact-title">
     <div class="container split split--top">
-      <div class="reveal">
+      <div>
         <h2 id="contact-title" class="visually-hidden">Contact details</h2>
-        <div class="contact-card">
+        <div class="contact-card reveal" data-glow>
           <h3><span lang="en">Email us</span><span lang="th">อีเมลถึงเรา</span></h3>
           <a class="email" href="mailto:info@deepdistrict.si">info@deepdistrict.si</a>
-          <p lang="en">For every enquiry: learners, parents, schools, companies and media. We aim to reply within two working days.</p>
-          <p lang="th">สำหรับทุกเรื่อง ทั้งผู้เรียน ผู้ปกครอง โรงเรียน บริษัท และสื่อมวลชน เราตั้งใจตอบกลับภายในสองวันทำการ</p>
+          <p lang="en">For learners, parents, schools, companies and media. We aim to reply within two working days.</p>
+          <p lang="th">สำหรับผู้เรียน ผู้ปกครอง โรงเรียน บริษัท และสื่อมวลชน เราตั้งใจตอบกลับภายในสองวันทำการ</p>
         </div>
-        <dl class="contact-list">
+        <dl class="contact-list reveal">
           <div><dt><span lang="en">Location</span><span lang="th">ที่ตั้ง</span></dt><dd><span lang="en">Bangkok, Thailand</span><span lang="th">กรุงเทพมหานคร ประเทศไทย</span></dd></div>
+          <div><dt><span lang="en">Study modes</span><span lang="th">รูปแบบการเรียน</span></dt><dd><span lang="en">Live on Zoom · Onsite · Hybrid</span><span lang="th">เรียนสดผ่าน Zoom · ที่แล็บ · ไฮบริด</span></dd></div>
           <div><dt><span lang="en">Languages</span><span lang="th">ภาษา</span></dt><dd><span lang="en">Thai and English</span><span lang="th">ภาษาไทยและภาษาอังกฤษ</span></dd></div>
-          <div><dt><span lang="en">Good to include</span><span lang="th">ข้อมูลที่ควรระบุ</span></dt><dd><span lang="en">Learner's age and experience, or your organisation's goals</span><span lang="th">อายุและพื้นฐานของผู้เรียน หรือเป้าหมายขององค์กร</span></dd></div>
+          <div><dt><span lang="en">Helpful to include</span><span lang="th">ข้อมูลที่ควรระบุ</span></dt><dd><span lang="en">Learner's age and experience, goals and preferred schedule</span><span lang="th">อายุและพื้นฐานของผู้เรียน เป้าหมาย และช่วงเวลาที่สะดวก</span></dd></div>
         </dl>
       </div>
 
       <div class="form-card reveal reveal-delay-1">
         <form class="form" data-mailto-form aria-label="Contact form">
           <div class="form-row">
-            <div class="field"><label for="f-name"><span lang="en">Name</span><span lang="th">ชื่อ-นามสกุล</span></label><input id="f-name" name="name" autocomplete="name" required><span class="field__error" aria-live="polite"></span></div>
-            <div class="field"><label for="f-email"><span lang="en">Email</span><span lang="th">อีเมล</span></label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="field__error" aria-live="polite"></span></div>
+            <div class="field"><label for="f-name"><span lang="en">Name</span><span lang="th">ชื่อ-นามสกุล</span> *</label><input id="f-name" name="name" autocomplete="name" required><span class="field__error" aria-live="polite"></span></div>
+            <div class="field"><label for="f-email"><span lang="en">Email</span><span lang="th">อีเมล</span> *</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="field__error" aria-live="polite"></span></div>
           </div>
           <div class="form-row">
-            <div class="field"><label for="f-org"><span lang="en">School or organisation (optional)</span><span lang="th">โรงเรียนหรือหน่วยงาน (ถ้ามี)</span></label><input id="f-org" name="org" autocomplete="organization"><span class="field__error"></span></div>
             <div class="field">
-              <label for="f-topic"><span lang="en">Topic</span><span lang="th">เรื่องที่ติดต่อ</span></label>
+              <label for="f-topic"><span lang="en">I'm asking about</span><span lang="th">เรื่องที่สอบถาม</span> *</label>
               <select id="f-topic" name="topic" required>
                 <option value="" data-en="Select…" data-th="เลือกหัวข้อ…">Select…</option>
-                <option value="courses" data-en="Courses & placement chat" data-th="หลักสูตรและการประเมินระดับ">Courses &amp; placement chat</option>
-                <option value="stem" data-en="Youth STEM (parents)" data-th="STEM เยาวชน (ผู้ปกครอง)">Youth STEM (parents)</option>
+                <option value="courses" data-en="A course on the website" data-th="หลักสูตรที่มีบนเว็บไซต์">A course on the website</option>
+                <option value="unlisted" data-en="A course not shown on the website" data-th="หลักสูตรที่ไม่มีบนเว็บไซต์">A course not shown on the website</option>
+                <option value="custom" data-en="Customising a course for me" data-th="ปรับหลักสูตรให้เหมาะกับฉัน">Customising a course for me</option>
+                <option value="plan" data-en="My learning plan (from the plan builder)" data-th="แผนการเรียนของฉัน (จากเครื่องมือออกแบบแผน)">My learning plan (from the plan builder)</option>
+                <option value="innovation" data-en="Innovation Lab: topic to publication" data-th="แล็บนวัตกรรม: จากหัวข้อสู่การตีพิมพ์">Innovation Lab: topic to publication</option>
+                <option value="stem" data-en="Youth STEM (for parents)" data-th="STEM เยาวชน (สำหรับผู้ปกครอง)">Youth STEM (for parents)</option>
                 <option value="research" data-en="Research mentoring" data-th="การดูแลงานวิจัย">Research mentoring</option>
-                <option value="ssc" data-en="Swift Student Challenge / Apple apps" data-th="Swift Student Challenge / แอป Apple">Swift Student Challenge / Apple apps</option>
-                <option value="school" data-en="School or university partnership" data-th="ความร่วมมือกับโรงเรียนหรือมหาวิทยาลัย">School or university partnership</option>
-                <option value="industry" data-en="Corporate training or R&D" data-th="อบรมองค์กรหรือวิจัยและพัฒนา">Corporate training or R&amp;D</option>
-                <option value="other" data-en="Other" data-th="อื่น ๆ">Other</option>
+                <option value="partner" data-en="School, university or company partnership" data-th="ความร่วมมือกับโรงเรียน มหาวิทยาลัย หรือองค์กร">School, university or company partnership</option>
+                <option value="other" data-en="Something else" data-th="เรื่องอื่น ๆ">Something else</option>
               </select>
               <span class="field__error" aria-live="polite"></span>
             </div>
+            <div class="field">
+              <label for="f-mode"><span lang="en">Preferred study mode</span><span lang="th">รูปแบบการเรียนที่สนใจ</span></label>
+              <select id="f-mode" name="mode">
+                <option value="Not sure" data-en="Not sure yet" data-th="ยังไม่แน่ใจ">Not sure yet</option>
+                <option value="Live on Zoom" data-en="Live on Zoom" data-th="เรียนสดผ่าน Zoom">Live on Zoom</option>
+                <option value="Onsite" data-en="Onsite, Bangkok" data-th="ที่แล็บ กรุงเทพฯ">Onsite, Bangkok</option>
+                <option value="Hybrid" data-en="Hybrid" data-th="ไฮบริด">Hybrid</option>
+              </select>
+              <span class="field__error"></span>
+            </div>
           </div>
-          <div class="field"><label for="f-msg"><span lang="en">Message</span><span lang="th">ข้อความ</span></label><textarea id="f-msg" name="message" required></textarea><span class="field__error" aria-live="polite"></span></div>
-          <p class="check" style="margin:0"><span lang="en">Sending opens your email app with this message addressed to info@deepdistrict.si. See our <a href="legal.html#privacy">privacy policy</a>.</span><span lang="th">เมื่อกดส่ง ระบบจะเปิดแอปอีเมลของคุณพร้อมข้อความนี้ถึง info@deepdistrict.si ดู<a href="legal.html#privacy">นโยบายความเป็นส่วนตัว</a></span></p>
-          <div><button class="btn btn--primary" type="submit"><span lang="en">Send message</span><span lang="th">ส่งข้อความ</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+          <div class="form-row">
+            <div class="field"><label for="f-course"><span lang="en">Course (optional)</span><span lang="th">หลักสูตร (ถ้ามี)</span></label><input id="f-course" name="course" placeholder="e.g. PY101, EDG310, INNO"><span class="field__error"></span></div>
+            <div class="field"><label for="f-org"><span lang="en">School or organisation (optional)</span><span lang="th">โรงเรียนหรือหน่วยงาน (ถ้ามี)</span></label><input id="f-org" name="org" autocomplete="organization"><span class="field__error"></span></div>
+          </div>
+          <div class="field"><label for="f-msg"><span lang="en">Message</span><span lang="th">ข้อความ</span> *</label><textarea id="f-msg" name="message" required></textarea><span class="field__error" aria-live="polite"></span></div>
+
+          <label class="check"><input type="checkbox" name="consent" required>
+            <span><span lang="en"><strong>Required:</strong> I consent to DeepDistrict.si collecting and using the information in this form to respond to my enquiry, as described in the <a href="legal.html#privacy">privacy policy</a>.</span><span lang="th"><strong>จำเป็น:</strong> ข้าพเจ้ายินยอมให้ DeepDistrict.si เก็บรวบรวมและใช้ข้อมูลในแบบฟอร์มนี้เพื่อตอบกลับการติดต่อของข้าพเจ้า ตามที่ระบุไว้ใน<a href="legal.html#privacy">นโยบายความเป็นส่วนตัว</a></span></span></label>
+          <label class="check"><input type="checkbox" name="age" required>
+            <span><span lang="en"><strong>Required:</strong> I am 20 or older, or I have my parent or guardian's permission to send this form.</span><span lang="th"><strong>จำเป็น:</strong> ข้าพเจ้ามีอายุ 20 ปีขึ้นไป หรือได้รับอนุญาตจากผู้ปกครองในการส่งแบบฟอร์มนี้</span></span></label>
+          <label class="check"><input type="checkbox" name="marketing">
+            <span><span lang="en">Optional: send me occasional news about courses and events. I can withdraw at any time.</span><span lang="th">ไม่บังคับ: ส่งข่าวสารเกี่ยวกับหลักสูตรและกิจกรรมเป็นครั้งคราว ข้าพเจ้าสามารถยกเลิกได้ทุกเมื่อ</span></span></label>
+
+          <p class="form-note"><span lang="en">Consent is requested every time you send a message. Sending opens your email app with the message addressed to info@deepdistrict.si; this website does not store what you type.</span><span lang="th">เราขอความยินยอมทุกครั้งที่คุณส่งข้อความ เมื่อกดส่ง ระบบจะเปิดแอปอีเมลของคุณพร้อมข้อความถึง info@deepdistrict.si โดยเว็บไซต์นี้ไม่จัดเก็บข้อมูลที่คุณพิมพ์</span></p>
+          <div><button class="btn btn--primary" type="submit" data-magnetic><span lang="en">Send message</span><span lang="th">ส่งข้อความ</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
           <p class="form-success" role="status" tabindex="-1"><span lang="en">Your email app should now open with the message ready to send. If it did not, email us directly at info@deepdistrict.si.</span><span lang="th">แอปอีเมลของคุณควรเปิดขึ้นพร้อมข้อความที่พร้อมส่งแล้ว หากไม่เปิด กรุณาส่งอีเมลถึง info@deepdistrict.si โดยตรง</span></p>
         </form>
       </div>
@@ -88,7 +113,11 @@
 </main>
 
 <script src="../assets/data/content.js"></script>
+<script src="../assets/data/courses-details.js"></script>
+<script src="../assets/data/si.js"></script>
 <script src="../assets/js/partials.js"></script>
-<script src="../assets/js/main.js"></script>
+<script src="../assets/js/consent.js"></script>
+<script src="../assets/js/app.js"></script>
+<script src="../assets/js/effects.js"></script>
 </body>
 </html>

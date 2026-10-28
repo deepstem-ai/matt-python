@@ -1,23 +1,19 @@
 # DeepDistrict.si
 
-Bilingual (Thai / English) website for **DeepDistrict**, a STEM, AI and SI
-(Super Intelligence) learning and research lab in **Bangkok, Thailand**.
+Bilingual (Thai / English) website for **DeepDistrict**, a **Super Intelligence (SI)**
+learning and research lab in **Bangkok, Thailand**. Contact: **info@deepdistrict.si**.
 
-DeepDistrict does four kinds of work: **teaching** (programming and AI from
-foundation to advanced), **teaching research** (from first question to
-publication and competition), **research and innovation** (lab research and R&D
-with partners) and **youth STEM**. It serves learners, parents, schools and
-commercial or industrial partners.
+DeepDistrict teaches programming and AI from foundation to advanced, mentors research
+from topic to publication, runs youth STEM programmes and works with schools and
+industry. Every course is **personalised** and offered **live on Zoom, onsite or hybrid**.
 
-Contact: **info@deepdistrict.si**
-
-Plain HTML, CSS and JavaScript. No build step and no dependencies.
+Plain HTML, CSS and JavaScript. No build step and no dependencies. Works from disk.
 
 ## Run it on your computer
 
-**Option 1: open the file.** Double-click `index.html`. Everything works from disk.
+**Option 1:** double-click `index.html`.
 
-**Option 2: local server** (closer to real hosting):
+**Option 2:** run a local server, then open <http://localhost:8000> (requires Python 3):
 
 ```bash
 ./start.sh            # macOS / Linux
@@ -27,95 +23,91 @@ Plain HTML, CSS and JavaScript. No build step and no dependencies.
 start.bat             :: Windows
 ```
 
-Then open <http://localhost:8000>. This needs Python 3.
-
 ## Pages
 
-| Page | File | Content |
+| Page | File | Highlights |
 |---|---|---|
-| Home | `index.html` | Animated neural-network hero, four kinds of work, AI→SI spectrum, learning path, tracks, Edge AI lab (live terminal), Apple platforms, research pathway, audience tabs, mission |
-| Programs | `pages/programs.html` | 4 levels, teaching approach, 6 tracks, **searchable catalogue of 33 courses**, 8 domain paths, formats |
-| Research | `pages/research.html` | 8-step research pathway, mentoring model, lab research areas, competitions & publication, integrity |
-| Youth STEM | `pages/stem.html` | Age bands 8–18, student journey, information and FAQ for parents |
-| Partners | `pages/partners.html` | Partner types, engagement models, example projects, process and trust |
-| About SI | `pages/about.html` | Mission/vision/values, what SI is, AI vs SI, principles, learning-to-working path, logo meaning |
-| Contact | `pages/contact.html` | info@deepdistrict.si and a form that opens the visitor's email app |
-| Legal | `pages/legal.html` | Privacy (PDPA), terms, cookies, accessibility, copyright (draft templates) |
+| Home | `index.html` | Neural-network hero, what SI is (animated SI orb, Bostrom definition), interactive AI↔SI comparison, personalisation flow, study modes, learning path, Innovation Lab, tracks, audiences |
+| What is SI? | `pages/si.html` | Definition, analogy, AI vs SI toggle, ladder from narrow AI to SI, building blocks mapped to courses, our stance, myth/fact flip cards, FAQ |
+| Programs | `pages/programs.html` | How personalisation works, Zoom/onsite/hybrid, **plan builder**, learning path, **catalogue of 34 courses with a details dialog for each**, "ask about an unlisted course", domain paths, FAQ |
+| Innovation Lab | `pages/innovation.html` | Fully personalised course: from finding a topic to publication or competition |
+| Research | `pages/research.html` | Research pathway, mentoring model, lab research areas, venues, integrity |
+| Youth STEM | `pages/stem.html` | Ages 8–18, student journey, information for parents |
+| Partners | `pages/partners.html` | Partner types, engagement models, example projects |
+| About | `pages/about.html` | Mission, vision, values, SI teaser, principles, learning-to-working path, logo meaning |
+| Contact | `pages/contact.html` | Form with required PDPA consent on every submission; prefilled from course and plan links |
+| Legal | `pages/legal.html` | PDPA privacy notice, cookie and storage table, terms, accessibility, copyright |
 
-## Thai / English
+## Key features
 
-Every piece of text exists in both languages, side by side:
-
-```html
-<h2><span lang="en">Learning path</span><span lang="th">เส้นทางการเรียนรู้</span></h2>
-<p lang="en">English paragraph…</p>
-<p lang="th">ย่อหน้าภาษาไทย…</p>
-```
-
-The **TH | EN** switch in the header sets `<html lang>`, and CSS shows only the
-matching language. The choice is remembered. On a first visit, Thai browsers
-get Thai and everyone else gets English (`assets/js/lang-init.js`). Data in
-`assets/data/content.js` uses `{ en: "...", th: "..." }` objects.
-
-When you edit text, **always update both languages**.
+- **Thai / English switch:** every text is written in both languages.
+- **Light / dark / automatic theme:** a toggle in the header, with an animated circular reveal.
+- **PDPA consent:** a banner offers *Accept all*, *Necessary only* or *Settings*, with categories
+  for necessary, preferences, analytics and marketing. Each choice is recorded with an ID,
+  date and policy version. Visitors are asked again when the policy version changes or after
+  12 months, and can reopen the settings from **Cookie settings** in the footer. Language and
+  theme are remembered across visits only with *preferences* consent. The contact form asks
+  for consent every time it is sent.
+- **Personalised courses:** a five-step process, a list of what can be customised, an
+  interactive plan builder, and "Customise this course" / "Ask about this course" buttons on
+  every course.
+- **Modern animation:** a live neural network that follows the pointer, word-by-word headline
+  reveals, an orbiting SI orb, an AI→SI morph, ladder and path drawing, a self-typing Jetson
+  terminal, cursor spotlight and 3D tilt on cards, magnetic buttons, a scroll-progress bar, an
+  animated gradient footer and page transitions. Animations pause off-screen and respect
+  "reduce motion".
 
 ## Folder structure
 
 ```
 deepdistrict-web/
-├── index.html                 Home page
-├── pages/                     programs, research, stem, partners, about, contact, legal
+├── index.html
+├── pages/                     si, programs, innovation, research, stem, partners, about, contact, legal
 ├── assets/
 │   ├── css/
-│   │   ├── main.css           Entry point (imports the files below in order)
-│   │   ├── base.css           Brand tokens, level colours, themes, Thai typography, language rules
-│   │   ├── layout.css         Header, language switch, drawer, panels, sections, footer
-│   │   ├── components.css     Cards, path, course catalogue, spectrum, terminal, tabs, forms…
-│   │   └── pages.css          Small page-specific tweaks
+│   │   ├── main.css           Imports the files below in order
+│   │   ├── tokens.css         Colours, light/dark theme tokens, level colours, fonts, spacing
+│   │   ├── base.css           Reset, typography, Thai/English rules, accessibility
+│   │   ├── layout.css         Header, toggles, drawer, panels, sections, footer
+│   │   ├── components.css     Cards, catalogue, dialog, planner, SI widgets, forms, consent UI…
+│   │   └── effects.css        Reveals, word animation, aurora, transitions
 │   ├── js/
-│   │   ├── lang-init.js       Picks the language before the page paints
-│   │   ├── partials.js        Shared header, menu and footer (navigation, copyright)
-│   │   └── main.js            Language switch, renderers, filters, animations, contact form
+│   │   ├── prefs.js           (in <head>) language + theme before paint, consent-aware
+│   │   ├── partials.js        Shared header and footer
+│   │   ├── consent.js         PDPA consent banner/settings, consent-aware storage, script gating
+│   │   ├── app.js             Language/theme switching, renderers, catalogue, course dialog, planner, forms
+│   │   └── effects.js         Neural canvas, typewriter, terminal, reveals, spotlight, tilt, progress
 │   ├── data/
-│   │   └── content.js         Courses, levels, tracks, domain paths, research steps, partners…
-│   ├── images/
-│   │   ├── hero/              Bangkok night skyline
-│   │   ├── sections/          Edge board, STEM lab, research core, globe, orbit, beam
-│   │   ├── brand/             Logo variants, favicons, share image (source/ = master logo)
-│   │   └── icons/             Line icons
-│   └── fonts/                 Optional self-hosted fonts
+│   │   ├── content.js         Levels, tracks, course catalogue, domains, research, partners, audiences
+│   │   ├── courses-details.js Modules, outcomes, prerequisites, projects and modes for every course
+│   │   └── si.js              SI explainer data, personalisation steps, plan-builder rules
+│   └── images/                hero/, sections/, brand/ (logo variants; source/ = master), icons/
 ├── tools/
-│   ├── build_logo.py          Builds all logo variants from the master logo
-│   ├── generate_images.py     Regenerates all artwork (procedural SVG)
-│   └── page_head.sh / page_foot.sh   Shared page header/footer snippets for new pages
-├── src/                       Reserved for the build-step phase (see docs/ROADMAP.md)
+│   ├── build_logo.py          Logo variants from the master logo (needs Pillow)
+│   ├── generate_images.py     All artwork and icons (procedural SVG)
+│   ├── build_curriculum_doc.py  docs/CURRICULUM.md from the data (needs Node.js)
+│   └── page_head.sh / page_foot.sh   Shared page shell for new pages
 ├── docs/                      ARCHITECTURE.md, CURRICULUM.md, ROADMAP.md
-└── start.sh / start.bat       Local server launchers
+└── start.sh / start.bat
 ```
 
 ## Common edits
 
-- **Courses, levels, tracks, domain paths, research steps, partner models:**
-  `assets/data/content.js`. Pages, filters and counters update automatically.
-- **Navigation, footer, email, copyright:** `assets/js/partials.js`.
-- **Colours** (brand and the four level colours): top of `assets/css/base.css`.
-- **Logo:** replace `assets/images/brand/source/logo-original.webp`, then run
-  `python3 tools/build_logo.py` (requires Pillow).
-- **Artwork:** `python3 tools/generate_images.py`, or replace a file with a real
-  photo of the same name.
+- **Courses:** edit `assets/data/content.js` (catalogue) and `assets/data/courses-details.js`
+  (details), then run `python3 tools/build_curriculum_doc.py`.
+- **SI explainer, personalisation, plan builder:** `assets/data/si.js`.
+- **Navigation, footer, email:** `assets/js/partials.js`.
+- **Colours, light/dark themes:** `assets/css/tokens.css`.
+- **Cookie policy change:** update `pages/legal.html`, then increase `CONSENT_VERSION` in
+  `assets/js/prefs.js` so that every visitor is asked again.
+- **Adding analytics later:** add it as
+  `<script type="text/plain" data-consent="analytics" data-src="…"></script>`. It runs only after consent.
 
-## Animations
+Always update **both languages** when you change text.
 
-A live neural-network canvas in the hero reacts to the pointer, alongside a
-typewriter, a learning path that draws itself, an AI→SI spectrum that fills on
-scroll, a self-typing Jetson terminal, a technology marquee, counters and
-scroll reveals. All animations pause off-screen and respect the visitor's
-"reduce motion" setting.
+## Before publishing
 
-## Notes
-
-- Course hours, schedules and plans are **indicative concept content**: review
-  them before publishing. The legal page is a draft for review by a Thai legal adviser.
-- Competitions such as the Swift Student Challenge, NSC, YSC, ISEF and WRO are
-  listed as events DeepDistrict *prepares learners for*; it is not their organiser.
-- Third-party trademarks are acknowledged in the footer; no affiliation is implied.
+- Review course hours, fees and schedules (they are indicative), and have the Thai copy proofread.
+- Have a Thai legal adviser review `pages/legal.html`.
+- Self-host the fonts (see `assets/fonts/README.md`) so that no IP addresses go to Google Fonts.
+- Competitions are listed as events learners are *prepared for*; DeepDistrict is not their organiser.

@@ -2,69 +2,68 @@
 
 ## Principles
 
-1. **Runs from disk.** No build step, no `fetch()`, no modules, so `file://` works.
-   That is why content is a `.js` file that sets `window.DD_CONTENT` rather than JSON.
-2. **One source per concern.** Navigation is in `partials.js`, data in `content.js`,
-   and design tokens in `base.css`.
-3. **Progressive enhancement.** Pages are readable HTML. JS adds the header, the data
-   blocks and the motion. `<html class="no-js">` keeps reveal-animated content visible
-   if JS fails.
-4. **Accessible by default.** Skip link, landmarks, `aria-current`, keyboard-closable
-   menu (Esc), visible focus, `prefers-reduced-motion` support and labelled form fields.
+1. **Runs from disk.** No build step and no `fetch()`. Data files are `.js` files that extend `window.DD_CONTENT`.
+2. **Bilingual everywhere.** Every text exists as `lang="en"` and `lang="th"`, and CSS shows the active one.
+3. **Themeable.** All colours come from tokens in `tokens.css`. Light is the default, and
+   `[data-theme="dark"]` switches. `.tone-deep`, `.panel` and `.has-bg` are dark in both themes.
+4. **Privacy by design.** Nothing optional is stored or loaded without PDPA consent (`consent.js`).
+5. **Accessible motion.** Animations are progressive, pause off-screen and respect `prefers-reduced-motion`.
 
-## Page anatomy
-
-Every page follows the same skeleton:
+## Script order
 
 ```html
-<body class="page-NAME" data-base="../" data-page="NAME">
-  <main id="main"> …sections… </main>
-  <script src="../assets/data/content.js"></script>
-  <script src="../assets/js/partials.js"></script>   <!-- injects header + footer -->
-  <script src="../assets/js/main.js"></script>
-</body>
+<head>  <script src="assets/js/prefs.js"></script>   <!-- lang + theme before paint -->
+…
+<script src="assets/data/content.js"></script>
+<script src="assets/data/courses-details.js"></script>
+<script src="assets/data/si.js"></script>
+<script src="assets/js/partials.js"></script>    <!-- header + footer -->
+<script src="assets/js/consent.js"></script>     <!-- banner, settings, DD.store, DD.consent -->
+<script src="assets/js/app.js"></script>         <!-- renderers, catalogue, dialog, planner, forms -->
+<script src="assets/js/effects.js"></script>     <!-- animations; runs last so it sees rendered content -->
 ```
 
-`data-base` is the relative path to the site root (`""` for `index.html`, `"../"` for
-`pages/*`). `data-page` marks the active nav link.
+`tools/page_head.sh` and `tools/page_foot.sh` print this shell for new pages.
 
-## Bilingual content
+## Consent (PDPA)
 
-Text appears twice: `<span lang="en">` and `<span lang="th">` (or `<p lang="…">`).
-`base.css` hides the language that does not match `<html lang>`. `lang-init.js`
-sets the language before paint; `main.js` (`setLang`) handles the TH | EN switch,
-the document title (`data-title-en` / `data-title-th` on `<body>`), text-only
-elements such as `<option data-en data-th>`, and attributes listed in
-`data-i18n-attrs` (for example `data-en-placeholder` / `data-th-placeholder`).
-Data objects use `{ en, th }`, and the `t()` helper in `main.js` renders both.
+- Record in `localStorage["dd-consent"]`: `{ v, id, at, expires, choices: { necessary, preferences, analytics, marketing } }`.
+- It is invalid when `v !== CONSENT_VERSION` (in `prefs.js`) or after `expires` (12 months), and then the banner shows again.
+- `DD.store.get/set` writes to `localStorage` only with *preferences* consent; otherwise to `sessionStorage`.
+- `DD.consent.has(cat)`, `DD.consent.open()` and `DD.consent.onChange(fn)`; `[data-open-consent]` opens the settings.
+- Gated scripts: `<script type="text/plain" data-consent="analytics" data-src="…">` are activated after consent.
+- Forms: `form[data-mailto-form]` requires every `.check input[required]` on each submission, adds a
+  consent line (timestamp, policy version) to the email, and unticks the boxes afterwards.
 
-## Themes
+## Rendering
 
-Sections opt into a colour theme with `theme-light` or `theme-dark`. Both set the same
-CSS variables (`--bg`, `--text`, `--text-dim`, `--line`, `--surface`, `--accent`), and
-components only read those variables, so any component works on either background.
-Image panels (`.panel`) are always dark. The header switches from the white logo to
-the full-colour logo when the page scrolls (`.is-solid`).
+`app.js` fills `[data-render="…"]` elements from the data:
 
-## Building blocks
+| data-render | Source |
+|---|---|
+| `levels` (`data-compact`), `tracks`, `courses`, `domains` | `levels`, `tracks`, `courses`, `domains` |
+| `planner` | `planner` (`si.js`) |
+| `flow` (`data-source="personalSteps"`), `custom-options`, `modes` | `si.js`, `courses-details.js` |
+| `si-compare`, `si-ladder`, `si-blocks`, `si-myths`, `faq` (`data-source="siFaq"`) | `si.js` |
+| `research-steps`, `research-areas`, `venues`, `stem-bands`, `partner-models`, `audiences`, `stats`, `marquee` | `content.js` |
 
-| Block | Markup | Notes |
-|---|---|---|
-| Full-screen panel | `section.panel > .panel__bg > img` + `.panel__content` | Copy bottom-left; `.panel--center` centres it; parallax via JS |
-| Plain section | `section.section.theme-light` (`--tint`, `--tight`) | With `.section-head` for title + intro |
-| Button | `a.btn` (`--primary`, `--light`, `--sm`) | Pill shape; primary uses the brand gradient |
-| Card grid | `.grid.grid--3 > article.card` | Icons from `assets/images/icons/` |
-| Data blocks | `[data-render="levels|tracks|courses|domains|research-steps|research-areas|venues|stem-bands|partner-models|audiences|spectrum|stats|marquee"]` | Filled by `main.js` from `content.js` |
-| Course catalogue | `[data-course-filters]`, `[data-course-count]`, `[data-render="courses"]` | Filters sync to `?track=&level=&q=` |
-| Animations | `canvas[data-neural]`, `[data-typewriter]`, `[data-terminal]`, `.path`, `.spectrum` | Paused off-screen; respect reduced motion |
-| Trust pillar | `.pillar` | Icon + title + text |
-| Badge | `span.badge` | Small rounded label (footer commitments, hero) |
-| Reveal | `.reveal` (`.reveal-delay-1..3`) | Fades in on scroll |
-| Contact form | `form[data-mailto-form]` | Validates, then opens the visitor's email app addressed to info@deepdistrict.si |
+Any element with `data-course="CODE"` opens that course's details dialog, and
+`programs.html#course-CODE` opens it on load. Contact links pass `?topic=&course=&plan=`,
+which prefill the contact form.
+
+## Effects (`effects.js` / `effects.css`)
+
+`[data-split]` gives a word-by-word heading reveal, and `.reveal` fades in on scroll.
+`.path`, `.flow` and `.ladder` draw themselves, and `[data-count]` animates counters.
+`canvas[data-neural]` is the neural network, with `[data-typewriter]` and `[data-terminal]`
+alongside. Pointer effects: `.card` spotlight, `[data-tilt]` 3D tilt, `[data-magnetic]`
+buttons and the `[data-glow]` footer CTA. Also included: the scroll-progress bar,
+`@view-transition` page transitions and the circular theme reveal (`html.theme-anim`).
 
 ## Adding a page
 
-1. Generate the shell: `{ tools/page_head.sh "../" NAME "EN title" "TH title" "Description"; cat body.html; tools/page_foot.sh "../"; } > pages/NAME.html`
-   (or copy an existing page).
-2. Write every text in both languages.
-3. Add it to `NAV` in `assets/js/partials.js`.
+```bash
+{ tools/page_head.sh "../" NAME "EN title" "TH title" "Description"; cat body.html; tools/page_foot.sh "../"; } > pages/NAME.html
+```
+
+Write every text in both languages, then add the page to `NAV` in `assets/js/partials.js`.
