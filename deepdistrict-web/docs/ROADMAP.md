@@ -15,7 +15,8 @@
 - [ ] Review all concept content (course hours, schedules, plans) with the team
 - [ ] Have a native Thai editor proofread the Thai copy
 - [ ] Replace generated artwork with real photography where available
-- [ ] Self-host fonts (`assets/fonts/README.md`) so that no visitor IP addresses go to Google Fonts
+- [x] Self-host fonts (`assets/fonts/README.md`) so that no visitor IP addresses go to Google Fonts
+- [ ] Turn on direct form delivery (`assets/js/config.js`) or a small backend
 
 ## Phase 2: go online
 

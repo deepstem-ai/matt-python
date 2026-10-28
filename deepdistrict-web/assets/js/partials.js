@@ -21,28 +21,22 @@
 
   var COLS = [
     { en: "Learn", th: "เรียนรู้", links: [
-      { href: "pages/programs.html#planner", en: "Build your plan", th: "ออกแบบแผนการเรียน" },
+      { href: "pages/programs.html#planner", en: "Plan my path", th: "ออกแบบเส้นทางเรียน" },
       { href: "pages/programs.html#catalog", en: "All courses", th: "รายวิชาทั้งหมด" },
-      { href: "pages/programs.html#modes", en: "Zoom · Onsite · Hybrid", th: "Zoom · ที่แล็บ · ไฮบริด" },
+      { href: "pages/programs.html#exams", en: "COMPAS & HKICO prep", th: "เตรียมสอบ COMPAS · HKICO" },
       { href: "pages/stem.html", en: "Youth STEM", th: "STEM เยาวชน" }
     ] },
-    { en: "SI & research", th: "SI และงานวิจัย", links: [
+    { en: "SI & research", th: "SI และวิจัย", links: [
       { href: "pages/si.html", en: "What is SI?", th: "SI คืออะไร" },
       { href: "pages/innovation.html", en: "Innovation Lab", th: "แล็บนวัตกรรม" },
-      { href: "pages/research.html#pathway", en: "Research pathway", th: "เส้นทางการทำวิจัย" },
+      { href: "pages/research.html#pathway", en: "Research pathway", th: "เส้นทางวิจัย" },
       { href: "pages/research.html#venues", en: "Publish & compete", th: "ตีพิมพ์และแข่งขัน" }
     ] },
-    { en: "Work with us", th: "ร่วมงานกับเรา", links: [
-      { href: "pages/partners.html", en: "Partners", th: "พันธมิตร" },
+    { en: "Organisation", th: "องค์กร", links: [
       { href: "pages/about.html", en: "About us", th: "เกี่ยวกับเรา" },
-      { href: "pages/about.html#principles", en: "Principles", th: "หลักการ" },
-      { href: "pages/contact.html", en: "Contact", th: "ติดต่อเรา" }
-    ] },
-    { en: "Legal", th: "กฎหมาย", links: [
-      { href: "pages/legal.html#privacy", en: "Privacy (PDPA)", th: "ความเป็นส่วนตัว (PDPA)" },
-      { href: "pages/legal.html#cookies", en: "Cookie policy", th: "นโยบายคุกกี้" },
-      { href: "pages/legal.html#terms", en: "Terms of use", th: "ข้อกำหนดการใช้งาน" },
-      { href: "pages/legal.html#accessibility", en: "Accessibility", th: "การเข้าถึง" }
+      { href: "pages/partners.html", en: "Partners", th: "พันธมิตร" },
+      { href: "pages/contact.html", en: "Contact", th: "ติดต่อเรา" },
+      { href: "pages/legal.html#privacy", en: "Privacy (PDPA)", th: "ความเป็นส่วนตัว (PDPA)" }
     ] }
   ];
 
@@ -74,7 +68,7 @@
     "    </a>" +
     '    <nav class="nav-primary" aria-label="Primary">' + NAV.map(function (n) { return link(n); }).join("") + "</nav>" +
     '    <div class="header-actions">' +
-    '      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Theme: auto / light / dark" title="Theme">' + SUN + MOON + AUTO + "</button>" +
+    '      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Light / dark" title="Light / dark">' + SUN + MOON + "</button>" +
     '      <div class="lang-switch" role="group" aria-label="Language / ภาษา">' +
     '        <button type="button" data-set-lang="th" aria-pressed="false" title="ภาษาไทย">TH</button>' +
     '        <button type="button" data-set-lang="en" aria-pressed="false" title="English">EN</button>' +
@@ -96,46 +90,54 @@
   var year = new Date().getFullYear();
   var years = year > FOUNDED ? FOUNDED + "–" + year : String(FOUNDED);
 
+  var VERSION = (window.DD_PREFS && window.DD_PREFS.SITE_VERSION) || "";
+  function row(icon, html) { return '<li>' + ico(icon) + "<span>" + html + "</span></li>"; }
+  function themeBtn(v, svg, en, th) { return '<button type="button" data-theme-set="' + v + '" aria-pressed="false" title="' + en + " / " + th + '">' + svg + '<span class="visually-hidden">' + bi(en, th) + "</span></button>"; }
+
   var footer =
     '<footer class="site-footer">' +
     '  <div class="container">' +
-    '    <div class="footer-cta" data-glow>' +
-    "      <div><h2>" + bi("Ready to go beyond AI?", "พร้อมก้าวไปไกลกว่า AI หรือยัง?") + "</h2>" +
-    "      <p>" + bi("Tell us your goals. We will design a course around you, live on Zoom, onsite in Bangkok or hybrid.", "บอกเป้าหมายของคุณ แล้วเราจะออกแบบหลักสูตรให้เหมาะกับคุณ ทั้งเรียนสดผ่าน Zoom ที่แล็บในกรุงเทพฯ หรือแบบไฮบริด") + "</p></div>" +
-    '      <div class="btn-row"><a class="btn btn--light" data-magnetic href="' + base + 'pages/contact.html">' + bi("Ask about a course", "สอบถามหลักสูตร") + ARROW + "</a>" +
-    '      <a class="btn" style="color:#fff;border-color:rgba(255,255,255,.55);background:rgba(10,12,40,.18)" href="mailto:' + EMAIL + '">' + EMAIL + "</a></div>" +
+    '    <div class="footer-cta">' +
+    "      <div><h2>" + bi("Start with a free 30-minute consultation", "เริ่มจากปรึกษาฟรี 30 นาที") + "</h2>" +
+    "      <p>" + bi("Tell us your goal. We shape the course around you — Zoom, onsite or hybrid.", "บอกเป้าหมายของคุณ แล้วเราออกแบบหลักสูตรให้ เรียนผ่าน Zoom ที่แล็บ หรือไฮบริด") + "</p></div>" +
+    '      <a class="btn btn--primary" data-magnetic href="' + base + 'pages/contact.html">' + bi("Ask about a course", "สอบถามหลักสูตร") + ARROW + "</a>" +
     "    </div>" +
     '    <div class="footer-main">' +
     '      <div class="footer-brand">' +
-    '        <img class="on-light" src="' + base + 'assets/images/brand/logo-stacked.png" alt="DeepDistrict" width="182" height="78">' +
-    '        <img class="on-dark" src="' + base + 'assets/images/brand/logo-stacked-white.png" alt="DeepDistrict" width="182" height="78">' +
-    "        <p>" + bi("A Super Intelligence learning and research lab in Bangkok. A small dot on the world, helping people learn, research and build what comes after AI.",
-                       "ห้องปฏิบัติการเรียนรู้และวิจัย Super Intelligence ในกรุงเทพฯ จุดเล็ก ๆ บนโลกที่ช่วยให้ผู้คนได้เรียนรู้ วิจัย และสร้างสิ่งที่ก้าวไปไกลกว่า AI") + "</p>" +
-    '        <div class="footer-chips">' +
-    '          <a class="footer-chip" href="mailto:' + EMAIL + '">' + ico("mail") + EMAIL + "</a>" +
-    '          <span class="footer-chip">' + ico("pin") + bi("Bangkok, Thailand", "กรุงเทพฯ ประเทศไทย") + "</span>" +
-    '          <span class="footer-chip">' + ico("video") + bi("Zoom · Onsite · Hybrid", "Zoom · ที่แล็บ · ไฮบริด") + "</span>" +
-    "        </div>" +
+    '        <img class="on-light" src="' + base + 'assets/images/brand/logo-horizontal.png" alt="DeepDistrict" width="295" height="36">' +
+    '        <img class="on-dark" src="' + base + 'assets/images/brand/logo-horizontal-white.png" alt="DeepDistrict" width="295" height="36">' +
+    "        <p>" + bi("Learning & research lab for STEM, AI and Super Intelligence. Bangkok, Thailand.", "แล็บการเรียนรู้และวิจัยด้าน STEM, AI และ Super Intelligence กรุงเทพฯ") + "</p>" +
+    '        <ul class="footer-contact" role="list">' +
+    row("mail", '<a href="mailto:' + EMAIL + '">' + EMAIL + "</a>") +
+    row("pin", bi("Bangkok, Thailand", "กรุงเทพมหานคร ประเทศไทย")) +
+    row("video", bi("Zoom · Onsite · Hybrid", "Zoom · ที่แล็บ · ไฮบริด")) +
+    "        </ul>" +
     "      </div>" +
+    '      <nav class="footer-cols" aria-label="Footer">' +
     COLS.map(function (col) {
       return '<div class="footer-col"><h3>' + bi(col.en, col.th) + '</h3><ul role="list">' +
         col.links.map(function (l) { return "<li>" + link(l) + "</li>"; }).join("") + "</ul></div>";
     }).join("") +
+    "      </nav>" +
     "    </div>" +
-    '    <p class="footer-wordmark" aria-hidden="true">DEEPDISTRICT.SI</p>' +
     '    <div class="footer-bottom">' +
-    "      <p>&copy; " + years + " " + ORG + " · " + bi("All rights reserved.", "สงวนลิขสิทธิ์") + "</p>" +
+    '      <p class="footer-copy">&copy; ' + years + " " + ORG + (VERSION ? ' <span class="footer-ver">v' + VERSION + "</span>" : "") + "</p>" +
     '      <div class="footer-legal">' +
     '        <a href="' + base + 'pages/legal.html#privacy">' + bi("Privacy", "ความเป็นส่วนตัว") + "</a>" +
-    '        <button type="button" data-open-consent>' + bi("Cookie settings", "ตั้งค่าคุกกี้") + "</button>" +
+    '        <button type="button" data-open-consent>' + bi("Cookies", "คุกกี้") + "</button>" +
     '        <a href="' + base + 'pages/legal.html#terms">' + bi("Terms", "ข้อกำหนด") + "</a>" +
+    "      </div>" +
+    '      <div class="footer-tools">' +
+    '        <div class="theme-seg" role="group" aria-label="Theme / ธีม">' +
+    themeBtn("auto", AUTO, "System", "ตามระบบ") + themeBtn("light", SUN, "Light", "สว่าง") + themeBtn("dark", MOON, "Dark", "มืด") +
+    "        </div>" +
     '        <button type="button" class="icon-btn to-top" data-to-top aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>' +
     "      </div>" +
     "    </div>" +
-    '    <p class="footer-tm">' + bi(
-      "The DeepDistrict name and logo are trademarks of DeepDistrict.si. Apple, Swift, Xcode, iPhone, iPad and iPadOS are trademarks of Apple Inc. NVIDIA, Jetson, CUDA and TensorRT are trademarks of NVIDIA Corporation. Raspberry Pi is a trademark of Raspberry Pi Ltd. Arduino is a trademark of Arduino SA. Zoom is a trademark of Zoom Communications, Inc. Other trademarks belong to their owners. DeepDistrict is independent and not affiliated with or endorsed by these companies unless stated.",
-      "ชื่อและโลโก้ DeepDistrict เป็นเครื่องหมายการค้าของ DeepDistrict.si ส่วน Apple, Swift, Xcode, iPhone, iPad และ iPadOS เป็นเครื่องหมายการค้าของ Apple Inc. NVIDIA, Jetson, CUDA และ TensorRT เป็นเครื่องหมายการค้าของ NVIDIA Corporation, Raspberry Pi เป็นเครื่องหมายการค้าของ Raspberry Pi Ltd., Arduino เป็นเครื่องหมายการค้าของ Arduino SA และ Zoom เป็นเครื่องหมายการค้าของ Zoom Communications, Inc. เครื่องหมายการค้าอื่นเป็นของเจ้าของแต่ละราย DeepDistrict เป็นองค์กรอิสระ ไม่ได้มีส่วนเกี่ยวข้องหรือได้รับการรับรองจากบริษัทเหล่านี้ เว้นแต่จะระบุไว้"
-    ) + "</p>" +
+    '    <details class="footer-tm"><summary>' + bi("Trademarks & independence notice", "เครื่องหมายการค้าและความเป็นอิสระ") + "</summary><p>" + bi(
+      "DeepDistrict and its logo are trademarks of DeepDistrict.si. Product and organisation names on this site — including Apple, Swift, Swift Playgrounds, Xcode, iPhone, iPad, Mac; NVIDIA, Jetson, CUDA, TensorRT, DeepStream, Isaac, NIM, NeMo; Raspberry Pi; Arduino; Claude and Claude Code (Anthropic); Codex and ChatGPT (OpenAI); Cursor (Anysphere); GitHub and GitHub Copilot (GitHub/Microsoft); Git; React (Meta); Next.js (Vercel); Zoom; COMPAS (Chulalongkorn University); HKICO — belong to their owners and are used only to describe course content. DeepDistrict is independent and is not affiliated with, sponsored or endorsed by any of them.",
+      "DeepDistrict และโลโก้เป็นเครื่องหมายการค้าของ DeepDistrict.si ชื่อผลิตภัณฑ์และองค์กรบนเว็บไซต์นี้ เช่น Apple, Swift, Swift Playgrounds, Xcode, iPhone, iPad, Mac; NVIDIA, Jetson, CUDA, TensorRT, DeepStream, Isaac, NIM, NeMo; Raspberry Pi; Arduino; Claude และ Claude Code (Anthropic); Codex และ ChatGPT (OpenAI); Cursor (Anysphere); GitHub และ GitHub Copilot (GitHub/Microsoft); Git; React (Meta); Next.js (Vercel); Zoom; COMPAS (จุฬาลงกรณ์มหาวิทยาลัย); HKICO เป็นของเจ้าของแต่ละราย ใช้เพื่ออธิบายเนื้อหาหลักสูตรเท่านั้น DeepDistrict เป็นองค์กรอิสระ ไม่มีส่วนเกี่ยวข้อง ไม่ได้รับการสนับสนุนหรือรับรองจากองค์กรเหล่านี้"
+    ) + "</p></details>" +
     "  </div>" +
     "</footer>";
 

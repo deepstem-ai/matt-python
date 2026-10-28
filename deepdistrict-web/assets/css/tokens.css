@@ -1,38 +1,41 @@
 /* ==========================================================================
    DeepDistrict.si — design tokens
+   Palette "Sapphire & Saffron": deep sapphire/indigo for trust, aqua for
+   technology, a warm saffron-gold accent (a nod to Bangkok) for highlights.
    Light theme is the default; [data-theme="dark"] on <html> switches.
-   .tone-deep marks immersive sections that are dark in both themes.
+   Image heroes (.panel), image bands (.has-bg) and the menu drawer stay dark.
    ========================================================================== */
 
 :root {
   /* Brand */
   --navy: #071a4d;           /* logo navy */
-  --blue: #1f6fff;           /* logo blue */
-  --cyan: #22d3ee;
-  --sky: #3fd0ff;            /* logo highlight */
-  --violet: #8b5cf6;
-  --magenta: #ec4899;
-  --amber: #f59e0b;
-  --emerald: #10b981;
+  --blue: #2563eb;           /* sapphire */
+  --cyan: #14b8d4;           /* aqua */
+  --sky: #5cc8ff;            /* logo highlight */
+  --violet: #4f46e5;         /* indigo (name kept for compatibility) */
+  --magenta: #f2a516;        /* saffron gold — the SI accent (name kept for compatibility) */
+  --amber: #f2a516;
+  --emerald: #0ea271;
 
-  /* The SI signature gradient: cyan -> blue -> violet -> magenta */
-  --grad-si: linear-gradient(110deg, #22d3ee 0%, #3b82f6 32%, #8b5cf6 66%, #ec4899 100%);
-  --grad-si-deep: linear-gradient(110deg, #0891b2 0%, #2563eb 35%, #7c3aed 68%, #db2777 100%);
-  --grad-brand: linear-gradient(120deg, #1747c9 0%, #1f6fff 45%, #3fd0ff 100%);
+  /* SI signature gradient: aqua -> sapphire -> indigo, finished in gold */
+  --grad-si: linear-gradient(110deg, #3ddbd9 0%, #4f9dff 34%, #7b7bff 68%, #ffc24b 100%);
+  --grad-si-deep: linear-gradient(110deg, #0e8fa8 0%, #2457e6 40%, #4338ca 75%, #c27c0e 100%);
+  --grad-brand: linear-gradient(120deg, #1d3fb8 0%, #2563eb 50%, #14b8d4 100%);
 
   /* Learning levels */
-  --lv-1: #10b981;
+  --lv-1: #0ea271;
   --lv-2: #2563eb;
-  --lv-3: #8b5cf6;
-  --lv-4: #ec4899;
+  --lv-3: #4f46e5;
+  --lv-4: #c97d06;
 
   /* Type */
   --f-sans: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
   --f-display: "Sora", "Inter", "Segoe UI", system-ui, sans-serif;
   --f-brand: "Michroma", "Eurostile", "Sora", system-ui, sans-serif;
   --f-mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
-  --f-sans-th: "Noto Sans Thai", "Inter", "Leelawadee UI", "Thonburi", sans-serif;
-  --f-display-th: "Prompt", "Sora", "Noto Sans Thai", "Leelawadee UI", sans-serif;
+  /* Thai: IBM Plex Sans Thai (body) + Anuphan (headings) — both SIL OFL 1.1, self-hosted */
+  --f-sans-th: "IBM Plex Sans Thai", "Inter", "Leelawadee UI", "Thonburi", sans-serif;
+  --f-display-th: "Anuphan", "IBM Plex Sans Thai", "Sora", "Leelawadee UI", sans-serif;
 
   --fs-xs: 0.75rem;
   --fs-sm: 0.875rem;
@@ -61,53 +64,52 @@
 
   /* ---------- Light theme (default) ---------- */
   color-scheme: light;
-  --bg: #f6f7fd;
-  --bg-2: #eceffb;
+  --bg: #f7f8fb;
+  --bg-2: #eef1f7;
   --surface: #ffffff;
-  --surface-2: #f6f7ff;
-  --text: #0c1030;
-  --text-dim: #4a5070;
-  --text-faint: #767c99;
-  --line: rgba(16, 22, 64, 0.09);
-  --line-strong: rgba(16, 22, 64, 0.2);
-  --accent: #4f46e5;
-  --accent-2: #db2777;
-  --ok: #059669;
+  --surface-2: #f3f6fb;
+  --text: #0b1324;
+  --text-dim: #46506a;
+  --text-faint: #6b7489;
+  --line: rgba(11, 19, 36, 0.09);
+  --line-strong: rgba(11, 19, 36, 0.2);
+  --accent: #2457e6;
+  --accent-2: #b86e00;
+  --ok: #047857;
   --err: #dc2626;
-  --shadow-sm: 0 1px 2px rgba(12, 16, 48, 0.05), 0 2px 10px rgba(12, 16, 48, 0.05);
-  --shadow-lg: 0 18px 50px rgba(30, 27, 110, 0.12);
-  --glass: rgba(255, 255, 255, 0.72);
-  --aurora-1: rgba(34, 211, 238, 0.28);
-  --aurora-2: rgba(139, 92, 246, 0.22);
-  --aurora-3: rgba(236, 72, 153, 0.16);
-  --icon-filter: invert(27%) sepia(85%) saturate(3600%) hue-rotate(240deg) brightness(92%);
+  --shadow-sm: 0 1px 2px rgba(11, 19, 36, 0.05), 0 2px 10px rgba(11, 19, 36, 0.05);
+  --shadow-lg: 0 18px 50px rgba(20, 40, 110, 0.12);
+  --glass: rgba(255, 255, 255, 0.78);
+  --aurora-1: rgba(20, 184, 212, 0.18);
+  --aurora-2: rgba(79, 70, 229, 0.14);
+  --aurora-3: rgba(242, 165, 22, 0.14);
+  --icon-filter: invert(27%) sepia(90%) saturate(2800%) hue-rotate(220deg) brightness(92%);
 }
 
 /* ---------- Dark theme ---------- */
 :root[data-theme="dark"],
-.tone-deep,
 .panel,
 .nav-drawer,
 .has-bg {
   color-scheme: dark;
-  --bg: #05071a;
-  --bg-2: #0a0e26;
-  --surface: #0f1431;
-  --surface-2: #141a3d;
-  --text: #eef0ff;
-  --text-dim: #aeb4d6;
-  --text-faint: #7d84ab;
-  --line: rgba(160, 172, 255, 0.13);
-  --line-strong: rgba(160, 172, 255, 0.3);
-  --accent: #93a4ff;
-  --accent-2: #f472b6;
+  --bg: #070b14;
+  --bg-2: #0b1120;
+  --surface: #101828;
+  --surface-2: #151f33;
+  --text: #e9eef7;
+  --text-dim: #a9b3c6;
+  --text-faint: #7c879c;
+  --line: rgba(160, 185, 230, 0.12);
+  --line-strong: rgba(160, 185, 230, 0.28);
+  --accent: #7ea6ff;
+  --accent-2: #ffc24b;
   --ok: #34d399;
   --err: #f87171;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.45);
-  --glass: rgba(10, 14, 38, 0.66);
-  --aurora-1: rgba(34, 211, 238, 0.2);
-  --aurora-2: rgba(139, 92, 246, 0.26);
-  --aurora-3: rgba(236, 72, 153, 0.18);
-  --icon-filter: invert(74%) sepia(36%) saturate(1500%) hue-rotate(190deg) brightness(104%);
+  --glass: rgba(7, 11, 20, 0.72);
+  --aurora-1: rgba(20, 184, 212, 0.16);
+  --aurora-2: rgba(79, 70, 229, 0.22);
+  --aurora-3: rgba(242, 165, 22, 0.12);
+  --icon-filter: invert(70%) sepia(30%) saturate(1400%) hue-rotate(185deg) brightness(104%);
 }

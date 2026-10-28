@@ -20,9 +20,6 @@ cat <<HTML
   <link rel="icon" href="${B}assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="${B}assets/images/brand/apple-touch-icon.png">
   <script src="${B}assets/js/prefs.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Michroma&family=Noto+Sans+Thai:wght@400;500;600&family=Prompt:wght@500;600&family=Sora:wght@500;600&display=swap">
   <link rel="stylesheet" href="${B}assets/css/main.css">
 </head>
 <body class="page-$PAGE" data-base="$B" data-page="$PAGE" data-title-en="$TEN" data-title-th="$TTH">

@@ -15,9 +15,6 @@
   <link rel="icon" href="../assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="../assets/images/brand/apple-touch-icon.png">
   <script src="../assets/js/prefs.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Michroma&family=Noto+Sans+Thai:wght@400;500;600&family=Prompt:wght@500;600&family=Sora:wght@500;600&display=swap">
   <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body class="page-innovation" data-base="../" data-page="innovation" data-title-en="Innovation Lab | DeepDistrict.si" data-title-th="แล็บนวัตกรรม | DeepDistrict.si">
@@ -26,6 +23,7 @@
 
   <section class="panel page-hero" aria-labelledby="page-title">
     <div class="panel__bg"><img src="../assets/images/sections/stem-lab.svg" alt="A colourful STEM collage: DNA helix, atom, gears and equations"></div>
+    <canvas class="hero-canvas" data-neural aria-hidden="true"></canvas>
     <div class="container">
       <div class="panel__content intro">
         <span class="eyebrow"><span lang="en">Innovation Lab · INNO</span><span lang="th">แล็บนวัตกรรม · INNO</span></span>
@@ -131,6 +129,21 @@
     </div>
   </section>
 
+  <!-- ============================================================ PROJECTS BY FIELD -->
+  <section class="section" id="fields" aria-labelledby="fields-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal"><span lang="en">STEM + SI projects</span><span lang="th">โครงงาน STEM + SI</span></span>
+          <h2 id="fields-title" data-split><span lang="en">Publish, present, <span class="text-si">compete</span></span><span lang="th">ตีพิมพ์ นำเสนอ <span class="text-si">แข่งขัน</span></span></h2>
+        </div>
+        <p class="reveal" lang="en">Project ideas by field, with the courses that build the skills.</p>
+        <p class="reveal" lang="th">ไอเดียโครงงานตามสาขา พร้อมรายวิชาที่ช่วยสร้างทักษะ</p>
+      </div>
+      <div class="grid grid--4" data-render="research-fields"></div>
+    </div>
+  </section>
+
   <!-- ============================================================ VENUES -->
   <section class="section section--alt" aria-labelledby="venues-title">
     <div class="container">
@@ -150,6 +163,9 @@
 
 <script src="../assets/data/content.js"></script>
 <script src="../assets/data/courses-details.js"></script>
+<script src="../assets/data/courses-more.js"></script>
+<script src="../assets/data/insights.js"></script>
+<script src="../assets/js/config.js"></script>
 <script src="../assets/data/si.js"></script>
 <script src="../assets/js/partials.js"></script>
 <script src="../assets/js/consent.js"></script>

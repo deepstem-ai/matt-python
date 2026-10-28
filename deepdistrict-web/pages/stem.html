@@ -15,9 +15,6 @@
   <link rel="icon" href="../assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="../assets/images/brand/apple-touch-icon.png">
   <script src="../assets/js/prefs.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Michroma&family=Noto+Sans+Thai:wght@400;500;600&family=Prompt:wght@500;600&family=Sora:wght@500;600&display=swap">
   <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body class="page-stem" data-base="../" data-page="stem" data-title-en="Youth STEM | DeepDistrict.si" data-title-th="STEM เยาวชน | DeepDistrict.si">
@@ -27,6 +24,7 @@
 
   <section class="panel page-hero" aria-labelledby="page-title">
     <div class="panel__bg"><img src="../assets/images/sections/stem-lab.svg" alt="A colourful STEM collage: DNA helix, atom, gears and equations"></div>
+    <canvas class="hero-canvas" data-neural aria-hidden="true"></canvas>
     <div class="container">
       <div class="panel__content intro">
         <span class="eyebrow"><span lang="en">Youth STEM · ages 8–18</span><span lang="th">STEM เยาวชน · อายุ 8–18 ปี</span></span>
@@ -48,6 +46,22 @@
         <blockquote id="why-title"><span lang="en">Children who learn to <span class="text-si">question, build and test</span> grow into adults who can solve problems no one has solved before.</span><span lang="th">เด็กที่ได้เรียนรู้การ<span class="text-si">ตั้งคำถาม สร้าง และทดสอบ</span> จะเติบโตเป็นผู้ใหญ่ที่แก้ปัญหาที่ยังไม่มีใครเคยแก้ได้</span></blockquote>
         <figcaption><span lang="en">Why STEM matters at DeepDistrict</span><span lang="th">เหตุผลที่ STEM สำคัญสำหรับ DeepDistrict</span></figcaption>
       </figure>
+    </div>
+  </section>
+
+  <!-- ============================================================ FUTURE SKILLS -->
+  <section class="section" id="skills" aria-labelledby="skills-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal"><span lang="en">Skills for 2030 and beyond</span><span lang="th">ทักษะสำหรับปี 2030 และอนาคต</span></span>
+          <h2 id="skills-title" data-split><span lang="en">Six skills that <span class="text-si">outlast any tool</span></span><span lang="th">หกทักษะที่<span class="text-si">อยู่ได้นานกว่าเครื่องมือใด ๆ</span></span></h2>
+        </div>
+        <p class="reveal" lang="en">What learning to code really trains — and how we build each skill in class.</p>
+        <p class="reveal" lang="th">สิ่งที่การเรียนเขียนโค้ดฝึกให้จริง ๆ และวิธีที่เราสร้างแต่ละทักษะในห้องเรียน</p>
+      </div>
+      <div class="skills" data-render="future-skills"></div>
+      <div class="punchline reveal" data-render="notice" data-source="futureSkillsNote"></div>
     </div>
   </section>
 
@@ -144,6 +158,9 @@
 
 <script src="../assets/data/content.js"></script>
 <script src="../assets/data/courses-details.js"></script>
+<script src="../assets/data/courses-more.js"></script>
+<script src="../assets/data/insights.js"></script>
+<script src="../assets/js/config.js"></script>
 <script src="../assets/data/si.js"></script>
 <script src="../assets/js/partials.js"></script>
 <script src="../assets/js/consent.js"></script>

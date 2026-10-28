@@ -126,7 +126,9 @@
       { id: "edge", label: L("Robots & edge AI", "หุ่นยนต์และ Edge AI") },
       { id: "medical", label: L("Medical & bio", "การแพทย์และชีวการแพทย์") },
       { id: "business", label: L("Business & data", "ธุรกิจและข้อมูล") },
-      { id: "innovation", label: L("Research & innovation", "วิจัยและนวัตกรรม") }
+      { id: "innovation", label: L("Research & innovation", "วิจัยและนวัตกรรม") },
+      { id: "aieng", label: L("Coding with AI agents", "เขียนโค้ดร่วมกับ AI Agent") },
+      { id: "exam", label: L("COMPAS / HKICO exams", "สอบ COMPAS / HKICO") }
     ],
     level: [
       { id: "new", label: L("New to it", "เพิ่งเริ่มต้น") },
@@ -152,14 +154,16 @@
     ],
     /* course sequences by interest and starting level */
     paths: {
-      si:         { new: ["AI100", "PY101", "MTH110"], some: ["ML220", "DL310", "NLP330"], adv: ["SI410", "SI420", "SI430"] },
-      code:       { new: ["CT100", "PY101"], some: ["DSA210", "CPP220", "JAV220"], adv: ["GPU320", "MLO350"] },
-      web:        { new: ["WEB101", "PY101"], some: ["WEB220"], adv: ["WEB340", "MLO350"] },
-      apple:      { new: ["SWF110"], some: ["SSC250", "IOS220"], adv: ["IOS340"] },
-      edge:       { new: ["ARD101", "PY101"], some: ["RPI210", "CPP220"], adv: ["EDG310", "ROB330", "GPU320"] },
+      si:         { new: ["AI100", "PY101", "MTH110"], some: ["ML220", "NV210", "DL310", "NLP330"], adv: ["SI410", "SI420", "SI430", "NV330"] },
+      code:       { new: ["CT100", "PY101", "GIT110"], some: ["DSA210", "CPP220", "JAV220"], adv: ["GPU320", "MLO350"] },
+      web:        { new: ["WEB101", "GIT110"], some: ["WEB230", "WEB220"], adv: ["WEB340", "ACE220"] },
+      apple:      { new: ["SWP100", "SWF110"], some: ["SSC250", "IOS220"], adv: ["APP330", "IOS340"] },
+      edge:       { new: ["ARD101", "PY101"], some: ["RPI210", "EDG220", "ARQ230"], adv: ["EDG310", "EDG320", "NV340"] },
       medical:    { new: ["PY101", "AI100"], some: ["DS210", "ML220"], adv: ["DL310", "CV320", "SI430"] },
       business:   { new: ["PY101", "AI100"], some: ["DS210", "ML220", "WEB220"], adv: ["WEB340", "MLO350"] },
-      innovation: { new: ["RES101", "INNO"], some: ["RES210", "INNO"], adv: ["RES320", "RES330", "INNO"] }
+      innovation: { new: ["RES101", "INNO"], some: ["RES210", "INNO"], adv: ["RES320", "RES330", "INNO"] },
+      aieng:      { new: ["PY101", "GIT110", "ACE110"], some: ["ACE220", "WEB230"], adv: ["ACE330"] },
+      exam:       { new: ["PY101", "EXM110"], some: ["EXM210", "EXM220"], adv: ["DSA210", "EXM210", "EXM220"] }
     },
     goalAdds: { skills: [], compete: ["RES330"], publish: ["RES320", "RES450"], portfolio: ["INNO"], career: ["MLO350"] }
   };

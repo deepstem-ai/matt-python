@@ -83,33 +83,45 @@
     if (b) setLang(b.getAttribute("data-set-lang"), true);
   });
 
-  /* ------------------------------------------------------------ Theme: auto -> light -> dark -> auto */
+  /* ------------------------------------------------------------ Theme
+     Header button flips light <-> dark. The footer offers System / Light / Dark.
+     With no saved choice the site follows the operating system.            */
   var mq = window.matchMedia("(prefers-color-scheme: dark)");
   function applyTheme(pref) {
     doc.setAttribute("data-theme-pref", pref);
     var dark = pref === "dark" || (pref === "auto" && mq.matches);
     doc.setAttribute("data-theme", dark ? "dark" : "light");
     var meta = $('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", dark ? "#05071a" : "#f6f7fd");
+    if (meta) meta.setAttribute("content", dark ? "#070b14" : "#f7f8fb");
+    $$("[data-theme-set]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-theme-set") === pref)); });
+    $$("[data-theme-toggle]").forEach(function (b) {
+      var label = dark ? L("Switch to light mode", "เปลี่ยนเป็นโหมดสว่าง") : L("Switch to dark mode", "เปลี่ยนเป็นโหมดมืด");
+      b.setAttribute("aria-label", tx(label)); b.title = tx(label);
+    });
   }
-  mq.addEventListener && mq.addEventListener("change", function () { if (doc.getAttribute("data-theme-pref") === "auto") applyTheme("auto"); });
-  document.addEventListener("click", function (e) {
-    var b = e.target.closest("[data-theme-toggle]");
-    if (!b) return;
-    var order = ["auto", "light", "dark"];
-    var next = order[(order.indexOf(doc.getAttribute("data-theme-pref") || "auto") + 1) % 3];
-    store.set("dd-theme", next);
-    var r = b.getBoundingClientRect();
-    doc.style.setProperty("--tx", (r.left + r.width / 2) + "px");
-    doc.style.setProperty("--ty", (r.top + r.height / 2) + "px");
+  function setTheme(pref, origin) {
+    store.set("dd-theme", pref);
+    if (origin) {
+      var r = origin.getBoundingClientRect();
+      doc.style.setProperty("--tx", (r.left + r.width / 2) + "px");
+      doc.style.setProperty("--ty", (r.top + r.height / 2) + "px");
+    }
     if (document.startViewTransition && !reduceMotion) {
       doc.classList.add("theme-anim");
-      var vt = document.startViewTransition(function () { applyTheme(next); });
-      vt.finished.then(function () { doc.classList.remove("theme-anim"); });
-    } else applyTheme(next);
-    var names = { auto: L("Theme: automatic", "ธีม: อัตโนมัติ"), light: L("Theme: light", "ธีม: สว่าง"), dark: L("Theme: dark", "ธีม: มืด") };
-    b.setAttribute("aria-label", tx(names[next]));
-    b.title = tx(names[next]);
+      var vt = document.startViewTransition(function () { applyTheme(pref); });
+      var clear = function () { doc.classList.remove("theme-anim"); };
+      vt.ready.catch(clear);
+      vt.finished.then(clear, clear);
+    } else applyTheme(pref);
+  }
+  DD.setTheme = setTheme;
+  mq.addEventListener && mq.addEventListener("change", function () { if (doc.getAttribute("data-theme-pref") === "auto") applyTheme("auto"); });
+  document.addEventListener("dd:lang", function () { applyTheme(doc.getAttribute("data-theme-pref") || "auto"); });
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-theme-toggle]");
+    if (b) return setTheme(doc.getAttribute("data-theme") === "dark" ? "light" : "dark", b);
+    var s = e.target.closest("[data-theme-set]");
+    if (s) setTheme(s.getAttribute("data-theme-set"), s);
   });
 
   /* ------------------------------------------------------------ Header, menu, back to top */
@@ -315,6 +327,60 @@
     }).join("");
   };
 
+  /* ---------- v4 explainers ---------- */
+  R.notice = function (el) {
+    var v = DATA[el.getAttribute("data-source") || "courseNotice"];
+    if (!v) return;
+    el.innerHTML = el.classList.contains("punchline") ? "<p>" + t(v) + "</p>" : '<img src="' + base + 'assets/images/icons/review.svg" alt=""><p>' + t(v) + "</p>";
+  };
+
+  // generic icon cards: data-source = whyStart | researchWhy | siSimple
+  R["icon-cards"] = function (el) {
+    el.innerHTML = (DATA[el.getAttribute("data-source")] || []).map(function (c, i) {
+      return '<article class="card reveal reveal-delay-' + (i % 4) + '"><div class="card__icon">' + icon(c.icon) + "</div>" +
+        (c.tag ? '<span class="card__tag">' + t(c.tag) + "</span>" : "") + "<h3>" + t(c.title) + "</h3><p>" + t(c.text) + "</p></article>";
+    }).join("");
+  };
+
+  R["si-enough"] = function (el) {
+    var d = DATA.siEnough;
+    if (!d) return;
+    el.innerHTML = '<p class="enough__yes">' + CHECK + t(d.yes) + "</p><p><strong>" + t(d.but) + '</strong></p><ul class="enough__gaps" role="list">' +
+      d.gaps.map(function (g, i) { return '<li class="reveal reveal-delay-' + (i % 4) + '">' + t(g) + "</li>"; }).join("") + '</ul><p class="enough__so">' + t(d.so) + "</p>";
+  };
+
+  R["research-fields"] = function (el) {
+    el.innerHTML = (DATA.researchFields || []).map(function (f, i) {
+      return '<article class="card field-card reveal reveal-delay-' + (i % 4) + '"><div class="card__icon">' + icon(f.icon) + "</div><h3>" + t(f.field) + "</h3><p>" + t(f.project) + "</p>" +
+        '<div class="field-out">' + f.outputs.map(function (o) { return "<span>" + t(o) + "</span>"; }).join("") + "</div>" +
+        '<div class="card__meta"><div class="chips">' + f.codes.map(codeChip).join("") + "</div></div></article>";
+    }).join("");
+  };
+
+  R["future-skills"] = function (el) {
+    el.innerHTML = (DATA.futureSkills || []).map(function (s, i) {
+      return '<article class="skill reveal reveal-delay-' + (i % 3) + '"><span class="skill__num">0' + (i + 1) + '</span><div class="card__icon">' + icon(s.icon) + "</div><h3>" + t(s.name) + "</h3><p>" + t(s.text) + '</p><p class="skill__how">' + t(s.how) + "</p></article>";
+    }).join("");
+  };
+
+  R["exam-tips"] = function (el) {
+    el.innerHTML = (DATA.examTips || []).map(function (s, i) {
+      return '<li class="tip reveal reveal-delay-' + i + '"><span class="tip__key">' + esc(s.key) + "</span><h3>" + t(s.title) + "</h3><p>" + t(s.text) + "</p></li>";
+    }).join("");
+  };
+
+  R.exams = function (el) {
+    var tc = DATA.tcas;
+    el.innerHTML = '<div class="exam-cards">' + (DATA.exams || []).map(function (x, i) {
+      return '<article class="card exam-card reveal reveal-delay-' + i + '"><span class="card__tag">' + esc(x.lang) + "</span><h3>" + esc(x.name) + '</h3><p>' + t(x.by) + "</p>" +
+        '<p class="exam-award">' + icon("trophy") + t(x.award) + "</p>" +
+        '<div class="card__meta"><span>' + t(L("Prep course", "หลักสูตรเตรียมสอบ")) + "</span> " + codeChip(x.code) + "</div></article>";
+    }).join("") + "</div>" +
+      (tc ? '<div class="tcas reveal"><h3>' + t(tc.title) + "</h3><p>" + t(tc.lead) + '</p><ol class="tcas__list" role="list">' +
+        tc.items.map(function (it, i) { return '<li><span class="tcas__n">' + (i + 1) + "</span><div><strong>" + t(it.prog) + "</strong><span>" + t(it.ref) + "</span></div></li>"; }).join("") +
+        '</ol><p class="note">' + t(tc.note) + "</p></div>" : "");
+  };
+
   /* ---------- Course catalogue ---------- */
   R.courses = function (el) {
     var params = new URLSearchParams(location.search);
@@ -440,7 +506,9 @@
       "<h3>" + t(L("Outcomes", "ผลลัพธ์ที่ได้")) + '</h3><ul class="ticks">' + (d.outcomes || []).map(function (o) { return "<li>" + t(o) + "</li>"; }).join("") + "</ul>" +
       "<h3>" + t(L("Final project", "โปรเจกต์ปลายภาค")) + "</h3><p>" + t(d.project) + "</p>" +
       "<h3>" + t(L("Tools", "เครื่องมือ")) + '</h3><div class="chips chips--tech">' + c.tools.map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("") + "</div>" +
-      '<h3>' + t(L("Customised for you", "ปรับให้เหมาะกับคุณ")) + "</h3><p>" + t(L("Every course can be adapted: pace, schedule, one-to-one or group, Thai or English, and a project in your own area of interest. Hours are indicative.", "ทุกรายวิชาปรับได้ ทั้งความเร็ว ตารางเวลา เรียนตัวต่อตัวหรือเป็นกลุ่ม ภาษาไทยหรืออังกฤษ และโปรเจกต์ในเรื่องที่คุณสนใจ จำนวนชั่วโมงเป็นค่าประมาณ")) + "</p>" +
+      "<h3>" + t(L("Shaped around you", "ปรับให้เหมาะกับคุณ")) + '</h3><p class="note">' + t(DATA.courseNotice) + "</p>" +
+      (c.track === "aieng" ? '<p class="note">' + t(DATA.aiToolsNotice) + "</p>" : "") +
+      (c.track === "exam" && DATA.tcas ? '<p class="note">' + t(DATA.tcas.note) + "</p>" : "") +
       "</div></div>" +
       '<div class="dialog__foot"><a class="btn btn--sm" href="' + contactUrl({ topic: "custom", course: c.code }) + '">' + t(L("Customise this course", "ขอปรับหลักสูตรนี้")) + "</a>" +
       '<a class="btn btn--sm btn--primary" href="' + contactUrl({ topic: "courses", course: c.code }) + '">' + t(L("Ask about this course", "สอบถามหลักสูตรนี้")) + ARROW + "</a></div>";
@@ -507,11 +575,35 @@
       var bodyText = "Name / ชื่อ: " + g("name") + "\nEmail / อีเมล: " + g("email") + "\nOrganisation / หน่วยงาน: " + (g("org") || "-") +
         "\nTopic / เรื่อง: " + topicTxt + (g("course") ? "\nCourse / หลักสูตร: " + g("course") : "") +
         "\nPreferred mode / รูปแบบที่สนใจ: " + (g("mode") || "-") + "\n\n" + g("message") + "\n\n---\n" + consentLine;
-      window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent("[DeepDistrict] " + topicTxt + " – " + g("name")) + "&body=" + encodeURIComponent(bodyText);
-      var s = $(".form-success", form);
-      if (s) { s.classList.add("is-visible"); s.focus(); }
-      // consent must be given again for every new submission
-      $$(".check input", form).forEach(function (c) { c.checked = false; });
+      var subject = "[DeepDistrict] " + topicTxt + " – " + g("name");
+      var cfg = (window.DD_CONFIG && window.DD_CONFIG.form) || {};
+      var btn = $("button[type=submit]", form);
+      function done(sent) {
+        var s = $(".form-success", form);
+        if (s) {
+          s.innerHTML = sent
+            ? t(L("Thank you — your message has been sent. We usually reply within two working days.", "ขอบคุณ ข้อความของคุณถูกส่งแล้ว โดยปกติเราจะตอบกลับภายใน 2 วันทำการ"))
+            : t(L("Your email app should now open with the message ready to send. If it did not, email us at " + EMAIL + ".", "แอปอีเมลของคุณควรเปิดขึ้นพร้อมข้อความที่พร้อมส่ง หากไม่เปิด กรุณาส่งอีเมลถึง " + EMAIL));
+          s.classList.add("is-visible"); s.focus();
+        }
+        if (sent) form.reset();
+        // consent must be given again for every new submission
+        $$(".check input", form).forEach(function (c) { c.checked = false; });
+        if (btn) btn.disabled = false;
+      }
+      function viaMail() {
+        window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(bodyText);
+        done(false);
+      }
+      if (!cfg.endpoint || !window.fetch) return viaMail();
+      if (btn) btn.disabled = true;
+      var payload = { subject: subject, name: g("name"), email: g("email"), organisation: g("org"), topic: topicTxt, course: g("course"), mode: g("mode"), message: g("message"), consent: consentLine, from_name: "DeepDistrict.si website" };
+      if (cfg.accessKey) payload.access_key = cfg.accessKey;
+      var ctrl = window.AbortController ? new AbortController() : null;
+      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, cfg.timeoutMs || 12000);
+      fetch(cfg.endpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload), signal: ctrl ? ctrl.signal : undefined })
+        .then(function (r) { clearTimeout(timer); if (!r.ok) throw new Error("HTTP " + r.status); done(true); })
+        .catch(function () { clearTimeout(timer); viaMail(); });
     });
   });
 

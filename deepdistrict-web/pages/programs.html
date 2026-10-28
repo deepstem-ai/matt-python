@@ -15,9 +15,6 @@
   <link rel="icon" href="../assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="../assets/images/brand/apple-touch-icon.png">
   <script src="../assets/js/prefs.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Michroma&family=Noto+Sans+Thai:wght@400;500;600&family=Prompt:wght@500;600&family=Sora:wght@500;600&display=swap">
   <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body class="page-programs" data-base="../" data-page="programs" data-title-en="Programs & Courses | DeepDistrict.si" data-title-th="หลักสูตร | DeepDistrict.si">
@@ -26,6 +23,7 @@
 
   <section class="panel page-hero" aria-labelledby="page-title">
     <div class="panel__bg"><img src="../assets/images/sections/academy-orbit.svg" alt="A planet horizon at dawn with satellites on orbit paths"></div>
+    <canvas class="hero-canvas" data-neural aria-hidden="true"></canvas>
     <div class="container">
       <div class="panel__content intro">
         <span class="eyebrow"><span lang="en">Programs &amp; courses</span><span lang="th">หลักสูตรและรายวิชา</span></span>
@@ -115,9 +113,10 @@
           <span class="eyebrow reveal"><span lang="en">Course catalogue</span><span lang="th">รายวิชาทั้งหมด</span></span>
           <h2 id="catalog-title" data-split><span lang="en">Every course, in full detail</span><span lang="th">ทุกรายวิชา พร้อมรายละเอียดครบถ้วน</span></h2>
         </div>
-        <p class="reveal" lang="en">Open a course to see its modules, outcomes, prerequisites, project and study modes, then ask us about it. Hours are indicative.</p>
-        <p class="reveal" lang="th">เปิดดูรายวิชาเพื่อดูบทเรียน ผลลัพธ์ พื้นฐานที่ควรมี โปรเจกต์ และรูปแบบการเรียน แล้วสอบถามเราได้ทันที จำนวนชั่วโมงเป็นค่าประมาณ</p>
+        <p class="reveal" lang="en">Open any course for modules, outcomes, project and study modes.</p>
+        <p class="reveal" lang="th">เปิดดูรายวิชาเพื่อดูบทเรียน ผลลัพธ์ โปรเจกต์ และรูปแบบการเรียน</p>
       </div>
+      <div class="notice reveal" data-render="notice" data-source="courseNotice"></div>
       <div class="catalog-tools" data-course-filters></div>
       <p class="catalog-count" data-course-count aria-live="polite"></p>
       <div class="courses" data-render="courses"></div>
@@ -129,6 +128,37 @@
         </div>
         <a class="btn btn--primary" data-magnetic href="contact.html?topic=unlisted#form"><span lang="en">Ask about another course</span><span lang="th">สอบถามหลักสูตรอื่น</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ EXAMS & OLYMPIADS -->
+  <section class="section section--alt" id="exams" aria-labelledby="exams-title">
+    <div class="container">
+      <div class="split exam-intro">
+        <div>
+          <span class="eyebrow reveal"><span lang="en">Standard exams & olympiads</span><span lang="th">สอบมาตรฐานและโอลิมปิก</span></span>
+          <h2 id="exams-title" data-split><span lang="en">COMPAS & HKICO, <span class="text-si">prepared properly</span></span><span lang="th">COMPAS และ HKICO <span class="text-si">เตรียมอย่างเป็นระบบ</span></span></h2>
+          <p class="reveal" lang="en">Timed mock exams, a personal error log and a method that holds up under pressure. A COMPAS AWARD of EXCELLENCE can also support a TCAS70 portfolio.</p>
+          <p class="reveal" lang="th">ข้อสอบจำลองจับเวลา บันทึกจุดพลาดส่วนตัว และวิธีทำข้อสอบที่ใช้ได้แม้อยู่ภายใต้ความกดดัน รางวัล AWARD of EXCELLENCE จาก COMPAS ยังช่วยเสริมพอร์ตโฟลิโอ TCAS70 ได้ด้วย</p>
+          <div class="btn-row reveal"><a class="btn btn--primary" href="?track=exam#catalog"><span lang="en">See exam courses</span><span lang="th">ดูหลักสูตรเตรียมสอบ</span></a><a class="btn" href="#exam-method">Plan · Edge · Trace · Test</a></div>
+        </div>
+        <figure class="art reveal reveal-delay-1"><img src="../assets/images/sections/exam-code.svg" alt="A code editor beside four ticked checkpoints, Plan, Edge, Trace and Test, and a gold award badge" width="1200" height="900" loading="lazy"></figure>
+      </div>
+      <div data-render="exams"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ EXAM METHOD -->
+  <section class="section grid-bg" id="exam-method" aria-labelledby="method-title">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow reveal"><span lang="en">Where exam points are lost</span><span lang="th">คะแนนสอบเขียนโปรแกรมหายไปไหน</span></span>
+        <h2 id="method-title" data-split><span lang="en">Four checkpoints: <span class="text-si">Plan · Edge · Trace · Test</span></span><span lang="th">สี่จุดตรวจ: <span class="text-si">Plan · Edge · Trace · Test</span></span></h2>
+        <p class="reveal" lang="en">Most lost marks come from skipping a step, not from hard questions.</p>
+        <p class="reveal" lang="th">คะแนนส่วนใหญ่หายเพราะข้ามขั้นตอน ไม่ใช่เพราะโจทย์ยาก</p>
+      </div>
+      <ol class="tips" data-render="exam-tips" role="list"></ol>
+      <div class="punchline reveal" data-render="notice" data-source="examTipsNote"></div>
     </div>
   </section>
 
@@ -153,7 +183,7 @@
       <div class="section-head">
         <div>
           <span class="eyebrow reveal"><span lang="en">Tracks</span><span lang="th">สายการเรียนรู้</span></span>
-          <h2 id="tracks-title" data-split><span lang="en">Six tracks that work together</span><span lang="th">หกสายการเรียนรู้ที่เสริมกัน</span></h2>
+          <h2 id="tracks-title" data-split><span lang="en">Eight tracks that work together</span><span lang="th">แปดสายการเรียนรู้ที่เสริมกัน</span></h2>
         </div>
       </div>
       <div class="grid grid--3" data-render="tracks"></div>
@@ -193,6 +223,9 @@
 
 <script src="../assets/data/content.js"></script>
 <script src="../assets/data/courses-details.js"></script>
+<script src="../assets/data/courses-more.js"></script>
+<script src="../assets/data/insights.js"></script>
+<script src="../assets/js/config.js"></script>
 <script src="../assets/data/si.js"></script>
 <script src="../assets/js/partials.js"></script>
 <script src="../assets/js/consent.js"></script>

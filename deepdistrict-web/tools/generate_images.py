@@ -133,7 +133,7 @@ def bangkok_night():
         for wy in range(top + 10, horizon - 6, 14):
             for wx in range(x + 6, x + bw - 6, 11):
                 if rng.random() < 0.2:
-                    c = rng.choice(["#ffd27a", "#ffe9c4", "#8dbdff", "#c9a7ff"])
+                    c = rng.choice(["#ffd27a", "#ffe9c4", "#8dbdff", "#a9b8ff"])
                     wins.append(f'<rect x="{wx}" y="{wy}" width="4" height="6" fill="{c}" opacity="{rng.uniform(.35, .95):.2f}"/>')
         x += bw + rng.randint(4, 30)
     # signature pixelated tower
@@ -145,20 +145,20 @@ def bangkok_night():
         nx = tx + (tw - 26 if side > 0 else 0)
         towers.append(f'<rect x="{nx}" y="{yy}" width="26" height="15" fill="#151a45"/>')
     towers.append(f'<rect x="{tx + tw / 2 - 1}" y="{horizon - th - 60}" width="2" height="60" fill="#0b0f2c"/>')
-    towers.append(f'<circle cx="{tx + tw / 2}" cy="{horizon - th - 62}" r="3" fill="#ff5a8a" filter="url(#glow)"/>')
+    towers.append(f'<circle cx="{tx + tw / 2}" cy="{horizon - th - 62}" r="3" fill="#ffa23a" filter="url(#glow)"/>')
 
     refl = []
     for _ in range(170):
         rx = rng.uniform(0, W)
         ry = rng.uniform(horizon + 6, H)
-        c = "#ffcf7a" if rx < 700 else rng.choice(["#8dbdff", "#c9a7ff", "#ffd27a", "#ff7ab0"])
+        c = "#ffcf7a" if rx < 700 else rng.choice(["#8dbdff", "#a9b8ff", "#ffd27a", "#ffc24b"])
         refl.append(f'<rect x="{rx:.0f}" y="{ry:.0f}" width="{rng.uniform(14, 90):.0f}" height="2" fill="{c}" opacity="{rng.uniform(.1, .5):.2f}"/>')
 
     nodes = [(rng.gauss(1100, 420), rng.gauss(250, 110)) for _ in range(52)]
     nodes = [(x, y) for x, y in nodes if 40 < y < 520 and 0 < x < W]
     body = f"""<defs>
 <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0" stop-color="#030918"/><stop offset=".45" stop-color="#0c1446"/><stop offset=".72" stop-color="#2a1a66"/><stop offset=".9" stop-color="#6b2a7a"/><stop offset="1" stop-color="#b8487e"/>
+  <stop offset="0" stop-color="#030918"/><stop offset=".45" stop-color="#0c1446"/><stop offset=".72" stop-color="#16216a"/><stop offset=".9" stop-color="#22307a"/><stop offset="1" stop-color="#c27c0e"/>
 </linearGradient>
 <linearGradient id="river" x1="0" y1="0" x2="0" y2="1">
   <stop offset="0" stop-color="#1a1650"/><stop offset="1" stop-color="#03061a"/>
@@ -170,7 +170,7 @@ def bangkok_night():
 </defs>
 <rect width="{W}" height="{H}" fill="url(#sky)"/>
 <g>{stars(rng, 650, 640)}</g>
-<ellipse cx="1100" cy="780" rx="900" ry="200" fill="#ff5aa8" opacity=".22" filter="url(#blur40)"/>
+<ellipse cx="1100" cy="780" rx="900" ry="200" fill="#ffb347" opacity=".22" filter="url(#blur40)"/>
 <ellipse cx="380" cy="700" rx="320" ry="220" fill="#ffb347" opacity=".18" filter="url(#blur40)"/>
 <g>{network(rng, nodes, 220, "#8fd8ff", 0.9, 2.3, 0.55)}</g>
 <g>{''.join(towers)}</g>
@@ -179,7 +179,7 @@ def bangkok_night():
 <g filter="url(#glow)">{''.join(temple_lights)}</g>
 <rect y="{horizon}" width="{W}" height="{H - horizon}" fill="url(#river)"/>
 <g>{''.join(refl)}</g>
-<rect y="{horizon}" width="{W}" height="2" fill="#ff9ac8" opacity=".35"/>
+<rect y="{horizon}" width="{W}" height="2" fill="#ffd27a" opacity=".35"/>
 {GRAIN}"""
     write("hero/bangkok-night.svg", body)
 
@@ -286,7 +286,7 @@ def edge_board():
         ey = min(max(ey, by + 30), by + bh - 30)
         mx = chip[0] + (ex - chip[0]) * 0.55
         d = f"M{chip[0]:.0f},{chip[1]:.0f} L{mx:.0f},{chip[1] + (ey - chip[1]) * 0.15:.0f} L{mx:.0f},{ey:.0f} L{ex:.0f},{ey:.0f}"
-        col = rng.choice(["#3fd0ff", "#8b5cf6", "#22d3a6"])
+        col = rng.choice(["#3fd0ff", "#6d6dff", "#22d3a6"])
         traces.append(f'<path d="{d}" fill="none" stroke="{col}" stroke-width="2" opacity=".55"/>')
         traces.append(f'<circle cx="{ex:.0f}" cy="{ey:.0f}" r="5" fill="none" stroke="{col}" stroke-width="2" opacity=".8"/>')
         pulses.append(f'<circle cx="{mx:.0f}" cy="{ey:.0f}" r="3.5" fill="#fff" filter="url(#glow)" opacity=".9"/>')
@@ -301,7 +301,7 @@ def edge_board():
   <stop offset="0" stop-color="#0d2a5a"/><stop offset="1" stop-color="#081736"/>
 </linearGradient>
 <linearGradient id="chipG" x1="0" y1="0" x2="1" y2="1">
-  <stop offset="0" stop-color="#3fd0ff"/><stop offset=".5" stop-color="#1f6fff"/><stop offset="1" stop-color="#8b5cf6"/>
+  <stop offset="0" stop-color="#3fd0ff"/><stop offset=".5" stop-color="#1f6fff"/><stop offset="1" stop-color="#6d6dff"/>
 </linearGradient>
 <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#8dbdff" stroke-opacity=".07"/></pattern>
 {GLOW}
@@ -378,10 +378,10 @@ def stem_lab():
         depth = (math.cos(a) + 1) / 2
         helix.append(f'<line x1="{x1:.1f}" y1="{y}" x2="{x2:.1f}" y2="{y}" stroke="#ffffff" stroke-opacity="{.12 + .25 * depth:.2f}" stroke-width="3"/>')
         helix.append(f'<circle cx="{x1:.1f}" cy="{y}" r="{5 + 4 * depth:.1f}" fill="#3fd0ff" opacity="{.5 + .5 * depth:.2f}"/>')
-        helix.append(f'<circle cx="{x2:.1f}" cy="{y}" r="{5 + 4 * (1 - depth):.1f}" fill="#ff5aa8" opacity="{.5 + .5 * (1 - depth):.2f}"/>')
+        helix.append(f'<circle cx="{x2:.1f}" cy="{y}" r="{5 + 4 * (1 - depth):.1f}" fill="#ffb347" opacity="{.5 + .5 * (1 - depth):.2f}"/>')
     ax, ay = 1180, 470
     orbits = "".join(
-        f'<ellipse cx="{ax}" cy="{ay}" rx="260" ry="92" fill="none" stroke="#c9b6ff" stroke-width="3" opacity=".75" transform="rotate({r} {ax} {ay})"/>'
+        f'<ellipse cx="{ax}" cy="{ay}" rx="260" ry="92" fill="none" stroke="#b8c6ff" stroke-width="3" opacity=".75" transform="rotate({r} {ax} {ay})"/>'
         f'<circle cx="{ax + 260 * math.cos(math.radians(e)) * math.cos(math.radians(r)) - 92 * math.sin(math.radians(e)) * math.sin(math.radians(r)):.1f}" '
         f'cy="{ay + 260 * math.cos(math.radians(e)) * math.sin(math.radians(r)) + 92 * math.sin(math.radians(e)) * math.cos(math.radians(r)):.1f}" r="11" fill="#fff" filter="url(#glow)"/>'
         for r, e in [(0, 30), (60, 200), (120, 300)])
@@ -410,7 +410,7 @@ def stem_lab():
 {GLOW}
 </defs>
 <rect width="{W}" height="{H}" fill="url(#bg)"/>
-<circle cx="1180" cy="470" r="380" fill="#8b5cf6" opacity=".35" filter="url(#blur40)"/>
+<circle cx="1180" cy="470" r="380" fill="#6d6dff" opacity=".35" filter="url(#blur40)"/>
 <circle cx="360" cy="560" r="300" fill="#3fd0ff" opacity=".22" filter="url(#blur40)"/>
 <g>{dots}</g>
 <g>{''.join(helix)}</g>
@@ -499,6 +499,56 @@ def swoosh():
     write("brand/swoosh.svg", body, 1000, 320)
 
 
+def exam_code():
+    """Editor window with the Plan / Edge / Trace / Test checkpoints and an award badge."""
+    rng = random.Random(70)
+    w, h = 1200, 900
+    lines = []
+    y = 250
+    palette = ["#4f9dff", "#3ddbd9", "#ffc24b", "#a9b8ff", "#7a86a8"]
+    for i in range(14):
+        x = 150 + (rng.choice([0, 0, 1, 2]) * 34)
+        for _ in range(rng.randint(1, 4)):
+            bw = rng.randint(40, 170)
+            if x + bw > 700:
+                break
+            lines.append(f'<rect x="{x}" y="{y}" width="{bw}" height="12" rx="6" fill="{rng.choice(palette)}" opacity=".85"/>')
+            x += bw + 14
+        lines.append(f'<text x="112" y="{y + 11}" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">{i + 1}</text>')
+        y += 34
+    checks = []
+    for i, (k, c) in enumerate([("Plan", "#3ddbd9"), ("Edge", "#4f9dff"), ("Trace", "#7b7bff"), ("Test", "#ffc24b")]):
+        cy = 250 + i * 104
+        checks.append(f"""<g transform="translate(790 {cy})">
+  <rect width="300" height="78" rx="20" fill="#121a30" stroke="{c}" stroke-opacity=".55"/>
+  <circle cx="40" cy="39" r="20" fill="{c}"/>
+  <path d="M31 39l7 7 13-14" fill="none" stroke="#0b1324" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="78" y="48" font-family="monospace" font-size="26" font-weight="700" fill="#e9eef7">{k}</text>
+</g>""")
+    body = f"""<defs>
+<linearGradient id="exg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0e1730"/><stop offset="1" stop-color="#070b14"/></linearGradient>
+<radialGradient id="exglow" cx=".8" cy=".15" r=".7"><stop offset="0" stop-color="#4f9dff" stop-opacity=".35"/><stop offset="1" stop-color="#4f9dff" stop-opacity="0"/></radialGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe29a"/><stop offset="1" stop-color="#e09a12"/></linearGradient>
+</defs>
+<rect width="{w}" height="{h}" rx="48" fill="url(#exg)"/>
+<rect width="{w}" height="{h}" rx="48" fill="url(#exglow)"/>
+<g transform="translate(60 120)">
+  <rect width="680" height="660" rx="26" fill="#0b1222" stroke="#25304d"/>
+  <rect width="680" height="56" rx="26" fill="#101a31"/>
+  <circle cx="34" cy="28" r="8" fill="#ff5f57"/><circle cx="60" cy="28" r="8" fill="#febc2e"/><circle cx="86" cy="28" r="8" fill="#28c840"/>
+  <text x="124" y="35" font-family="monospace" font-size="18" fill="#8d9ac0">solution.py</text>
+</g>
+<g transform="translate(-60 0)">{''.join(lines)}</g>
+{''.join(checks)}
+<g transform="translate(940 110)">
+  <circle r="58" fill="url(#gold)"/>
+  <circle r="44" fill="none" stroke="#fff6e0" stroke-width="3" opacity=".8"/>
+  <path d="M-16 -6l10 22 6-10 6 10 10-22" fill="none" stroke="#5a3a00" stroke-width="5" stroke-linejoin="round" opacity=".7"/>
+  <path d="M-34 44l-16 52 26-12 16 22 12-52M34 44l16 52-26-12-16 22-12-52" fill="#e09a12" opacity=".9"/>
+</g>"""
+    write("sections/exam-code.svg", body, w, h)
+
+
 def icons():
     """Line icons used in cards (24x24 viewBox, stroke = currentColor)."""
     base = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">{}</svg>\n'
@@ -560,5 +610,6 @@ if __name__ == "__main__":
     stem_lab()
     globe_network()
     swoosh()
+    exam_code()
     icons()
     print("Done.")

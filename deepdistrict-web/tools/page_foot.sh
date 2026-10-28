@@ -6,6 +6,9 @@ cat <<HTML
 
 <script src="${B}assets/data/content.js"></script>
 <script src="${B}assets/data/courses-details.js"></script>
+<script src="${B}assets/data/courses-more.js"></script>
+<script src="${B}assets/data/insights.js"></script>
+<script src="${B}assets/js/config.js"></script>
 <script src="${B}assets/data/si.js"></script>
 <script src="${B}assets/js/partials.js"></script>
 <script src="${B}assets/js/consent.js"></script>

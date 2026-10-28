@@ -15,9 +15,6 @@
   <link rel="icon" href="../assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="../assets/images/brand/apple-touch-icon.png">
   <script src="../assets/js/prefs.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Michroma&family=Noto+Sans+Thai:wght@400;500;600&family=Prompt:wght@500;600&family=Sora:wght@500;600&display=swap">
   <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body class="page-legal" data-base="../" data-page="legal" data-title-en="Privacy, Cookies & Terms | DeepDistrict.si" data-title-th="ความเป็นส่วนตัว คุกกี้ และข้อกำหนด | DeepDistrict.si">
@@ -26,6 +23,7 @@
 
   <section class="panel page-hero panel--short" aria-labelledby="page-title" style="min-height:52vh">
     <div class="panel__bg"><img src="../assets/images/sections/research-core.svg" alt=""></div>
+    <canvas class="hero-canvas" data-neural aria-hidden="true"></canvas>
     <div class="container">
       <div class="panel__content intro">
         <span class="eyebrow">PDPA</span>
@@ -39,7 +37,7 @@
   <section class="section" aria-label="Legal information">
     <div class="container">
       <div class="legal">
-        <p class="legal-note"><span lang="en"><strong>Draft for review.</strong> This notice is a template prepared for the website and must be reviewed by a qualified Thai legal adviser before publication. Last updated: 2026.</span><span lang="th"><strong>ฉบับร่างเพื่อการตรวจทาน</strong> ประกาศนี้เป็นแม่แบบที่จัดทำสำหรับเว็บไซต์ และต้องได้รับการตรวจทานจากที่ปรึกษากฎหมายไทยที่มีคุณวุฒิก่อนเผยแพร่ ปรับปรุงล่าสุด: 2569</span></p>
+        <p class="legal-note"><span lang="en"><strong>Draft for review.</strong> This notice is a template prepared for the website and must be reviewed by a qualified Thai legal adviser before publication. Last updated: October 2026 (policy version 3).</span><span lang="th"><strong>ฉบับร่างเพื่อการตรวจทาน</strong> ประกาศนี้เป็นแม่แบบที่จัดทำสำหรับเว็บไซต์ และต้องได้รับการตรวจทานจากที่ปรึกษากฎหมายไทยที่มีคุณวุฒิก่อนเผยแพร่ ปรับปรุงล่าสุด: ตุลาคม 2569 (นโยบายฉบับที่ 3)</span></p>
         <nav class="legal-toc" aria-label="On this page">
           <a class="badge" href="#privacy"><span lang="en">Privacy notice</span><span lang="th">ประกาศความเป็นส่วนตัว</span></a>
           <a class="badge" href="#cookies"><span lang="en">Cookies &amp; storage</span><span lang="th">คุกกี้และการจัดเก็บ</span></a>
@@ -91,11 +89,13 @@
           <tbody>
             <tr><td class="mono">dd-consent</td><td><span lang="en">Necessary</span><span lang="th">จำเป็น</span></td><td><span lang="en">Records your consent choice, date and policy version</span><span lang="th">บันทึกตัวเลือกความยินยอม วันที่ และฉบับของนโยบาย</span></td><td><span lang="en">12 months</span><span lang="th">12 เดือน</span></td></tr>
             <tr><td class="mono">dd-lang</td><td><span lang="en">Preferences</span><span lang="th">การตั้งค่าส่วนบุคคล</span></td><td><span lang="en">Remembers Thai or English</span><span lang="th">จดจำภาษาไทยหรืออังกฤษ</span></td><td><span lang="en">Until changed (with consent) or end of tab session</span><span lang="th">จนกว่าจะเปลี่ยน (เมื่อยินยอม) หรือจนปิดแท็บ</span></td></tr>
-            <tr><td class="mono">dd-theme</td><td><span lang="en">Preferences</span><span lang="th">การตั้งค่าส่วนบุคคล</span></td><td><span lang="en">Remembers light, dark or automatic theme</span><span lang="th">จดจำธีมสว่าง มืด หรืออัตโนมัติ</span></td><td><span lang="en">Until changed (with consent) or end of tab session</span><span lang="th">จนกว่าจะเปลี่ยน (เมื่อยินยอม) หรือจนปิดแท็บ</span></td></tr>
+            <tr><td class="mono">dd-theme</td><td><span lang="en">Preferences</span><span lang="th">การตั้งค่าส่วนบุคคล</span></td><td><span lang="en">Remembers light, dark or system theme</span><span lang="th">จดจำธีมสว่าง มืด หรือตามระบบ</span></td><td><span lang="en">Until changed (with consent) or end of tab session</span><span lang="th">จนกว่าจะเปลี่ยน (เมื่อยินยอม) หรือจนปิดแท็บ</span></td></tr>
           </tbody>
         </table>
-        <p lang="en"><strong>Third-party fonts:</strong> the site loads typefaces from Google Fonts, which receives your IP address to deliver them. We plan to host fonts ourselves before launch so that no data is sent to third parties.</p>
-        <p lang="th"><strong>ฟอนต์จากบุคคลที่สาม:</strong> เว็บไซต์โหลดแบบอักษรจาก Google Fonts ซึ่งจะได้รับหมายเลข IP ของคุณเพื่อส่งแบบอักษรมาให้ เราวางแผนจัดเก็บฟอนต์บนเซิร์ฟเวอร์ของเราเองก่อนเปิดใช้งานจริง เพื่อไม่ให้มีการส่งข้อมูลไปยังบุคคลที่สาม</p>
+        <p lang="en"><strong>Fonts:</strong> all typefaces (Inter, Sora, Michroma, IBM Plex Sans Thai, Anuphan — SIL Open Font License) are hosted on this website. No request is made to Google Fonts or any other third party.</p>
+        <p lang="th"><strong>ฟอนต์:</strong> แบบอักษรทั้งหมด (Inter, Sora, Michroma, IBM Plex Sans Thai, Anuphan — สัญญาอนุญาต SIL Open Font License) จัดเก็บบนเว็บไซต์นี้เอง ไม่มีการเรียกข้อมูลจาก Google Fonts หรือบุคคลที่สามใด ๆ</p>
+        <p lang="en"><strong>Contact form:</strong> by default, sending opens your own email app and nothing passes through this website. If we enable a form-delivery service, your message will be sent through it to info@deepdistrict.si; the provider acts only as our data processor, and we will name it here before it is switched on.</p>
+        <p lang="th"><strong>แบบฟอร์มติดต่อ:</strong> โดยค่าเริ่มต้น การกดส่งจะเปิดแอปอีเมลของคุณเอง และไม่มีข้อมูลผ่านเว็บไซต์นี้ หากเราเปิดใช้บริการส่งแบบฟอร์ม ข้อความของคุณจะถูกส่งผ่านบริการนั้นไปยัง info@deepdistrict.si โดยผู้ให้บริการทำหน้าที่เป็นผู้ประมวลผลข้อมูลแทนเราเท่านั้น และเราจะระบุชื่อผู้ให้บริการไว้ที่นี่ก่อนเปิดใช้งาน</p>
         <p lang="en">Analytics and marketing are currently not used. If they are added, they will run only after you consent, and this table will be updated. The banner will ask you again whenever this policy changes, and at least every 12 months.</p>
         <p lang="th">ปัจจุบันไม่มีการใช้ระบบวิเคราะห์และการตลาด หากมีการเพิ่มในอนาคต จะทำงานหลังได้รับความยินยอมจากคุณเท่านั้น และจะปรับปรุงตารางนี้ แถบแจ้งเตือนจะสอบถามคุณอีกครั้งทุกครั้งที่นโยบายเปลี่ยนแปลง และอย่างน้อยทุก 12 เดือน</p>
 
@@ -108,7 +108,7 @@
         <p lang="th">เรามุ่งให้เป็นไปตามมาตรฐาน WCAG 2.1 ระดับ AA ทั้งการใช้งานด้วยแป้นพิมพ์ โปรแกรมอ่านหน้าจอ การแสดงตำแหน่งโฟกัส ธีมสว่างและมืด การลดภาพเคลื่อนไหว และสองภาษา หากพบปัญหา กรุณาแจ้งเราที่ info@deepdistrict.si</p>
 
         <h2 id="copyright"><span lang="en">Copyright &amp; trademarks</span><span lang="th">ลิขสิทธิ์และเครื่องหมายการค้า</span></h2>
-        <p lang="en">&copy; 2026 DeepDistrict.si. All rights reserved. The DeepDistrict name and logo are trademarks of DeepDistrict.si. Third-party names such as Apple, Swift, NVIDIA, Jetson, Raspberry Pi, Arduino and Zoom are trademarks of their owners and are used only to describe course content; no affiliation or endorsement is implied.</p>
+        <p lang="en">&copy; 2026 DeepDistrict.si. All rights reserved. The DeepDistrict name and logo are trademarks of DeepDistrict.si. Third-party names such as Apple, Swift, NVIDIA, Jetson, Raspberry Pi, Arduino, Anthropic, Claude, OpenAI, Codex, Cursor, GitHub, React, Next.js, COMPAS, HKICO, Anthropic, Claude, OpenAI, Codex, Cursor, GitHub, React, Next.js, COMPAS, HKICO and Zoom are trademarks of their owners and are used only to describe course content; no affiliation or endorsement is implied.</p>
         <p lang="th">&copy; 2569 DeepDistrict.si สงวนลิขสิทธิ์ ชื่อและโลโก้ DeepDistrict เป็นเครื่องหมายการค้าของ DeepDistrict.si ส่วนชื่อของบุคคลที่สาม เช่น Apple, Swift, NVIDIA, Jetson, Raspberry Pi, Arduino และ Zoom เป็นเครื่องหมายการค้าของเจ้าของแต่ละราย ใช้เพื่ออธิบายเนื้อหาหลักสูตรเท่านั้น และไม่ได้แสดงถึงความเกี่ยวข้องหรือการรับรองใด ๆ</p>
       </div>
     </div>
@@ -118,6 +118,9 @@
 
 <script src="../assets/data/content.js"></script>
 <script src="../assets/data/courses-details.js"></script>
+<script src="../assets/data/courses-more.js"></script>
+<script src="../assets/data/insights.js"></script>
+<script src="../assets/js/config.js"></script>
 <script src="../assets/data/si.js"></script>
 <script src="../assets/js/partials.js"></script>
 <script src="../assets/js/consent.js"></script>

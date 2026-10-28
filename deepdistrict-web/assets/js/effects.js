@@ -118,7 +118,7 @@
     if (!ctx) return;
     var dpr = Math.min(window.devicePixelRatio || 1, 2), nodes = [], pulses = [], W = 0, H = 0, running = false, raf = 0;
     var mouse = { x: -9999, y: -9999 };
-    var COLORS = ["#22d3ee", "#3b82f6", "#8b5cf6", "#ec4899"];
+    var COLORS = ["#3ddbd9", "#4f9dff", "#7b7bff", "#ffc24b"];
     function resize() {
       var r = canvas.getBoundingClientRect();
       W = r.width; H = r.height;
@@ -137,7 +137,7 @@
         for (j = i + 1; j < nodes.length; j++) {
           b = nodes[j]; dx = a.x - b.x; dy = a.y - b.y; d = Math.sqrt(dx * dx + dy * dy);
           if (d < max) {
-            ctx.strokeStyle = "rgba(147,164,255," + (0.22 * (1 - d / max)).toFixed(3) + ")";
+            ctx.strokeStyle = "rgba(140,178,255," + (0.22 * (1 - d / max)).toFixed(3) + ")";
             ctx.lineWidth = 0.8; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
             if (!reduce && Math.random() < 0.0009 && pulses.length < 40) pulses.push({ a: a, b: b, p: 0, c: a.c });
           }
@@ -148,7 +148,7 @@
         var g = d < 170 ? 1 - d / 170 : 0;
         ctx.fillStyle = a.c; ctx.globalAlpha = 0.55 + g * 0.45;
         ctx.beginPath(); ctx.arc(a.x, a.y, a.r + g * 2.6, 0, Math.PI * 2); ctx.fill();
-        if (g > 0) { ctx.strokeStyle = "rgba(34,211,238," + (g * 0.5).toFixed(3) + ")"; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
+        if (g > 0) { ctx.strokeStyle = "rgba(61,219,217," + (g * 0.5).toFixed(3) + ")"; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(mouse.x, mouse.y); ctx.stroke(); }
       }
       ctx.globalAlpha = 1;
       pulses = pulses.filter(function (p) {

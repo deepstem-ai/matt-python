@@ -15,9 +15,6 @@
   <link rel="icon" href="../assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="../assets/images/brand/apple-touch-icon.png">
   <script src="../assets/js/prefs.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Michroma&family=Noto+Sans+Thai:wght@400;500;600&family=Prompt:wght@500;600&family=Sora:wght@500;600&display=swap">
   <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body class="page-research" data-base="../" data-page="research" data-title-en="Research | DeepDistrict.si" data-title-th="วิจัย | DeepDistrict.si">
@@ -27,6 +24,7 @@
 
   <section class="panel page-hero" aria-labelledby="page-title">
     <div class="panel__bg"><img src="../assets/images/sections/research-core.svg" alt="A glowing sphere of connected nodes circled by orbit rings"></div>
+    <canvas class="hero-canvas" data-neural aria-hidden="true"></canvas>
     <div class="container">
       <div class="panel__content intro">
         <span class="eyebrow"><span lang="en">Research</span><span lang="th">งานวิจัย</span></span>
@@ -53,6 +51,35 @@
         <p lang="th">กระบวนการเดียวกับที่นักวิจัยมืออาชีพใช้ ปรับให้เหมาะกับวัยและระดับของผู้เรียน โดยมีอาจารย์ที่ปรึกษาดูแลทุกขั้นตอน</p>
       </div>
       <ol class="steps" data-render="research-steps" role="list"></ol>
+    </div>
+  </section>
+
+  <!-- ============================================================ WHY RESEARCH -->
+  <section class="section section--alt" id="why" aria-labelledby="why-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal"><span lang="en">Why STEM + SI research</span><span lang="th">ทำไมต้องวิจัย STEM + SI</span></span>
+          <h2 id="why-title" data-split><span lang="en">Research turns learners into <span class="text-si">creators</span></span><span lang="th">งานวิจัยเปลี่ยนผู้เรียนให้เป็น<span class="text-si">ผู้สร้าง</span></span></h2>
+        </div>
+      </div>
+      <div class="grid grid--4" data-render="icon-cards" data-source="researchWhy"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ PROJECTS BY FIELD -->
+  <section class="section" id="fields" aria-labelledby="fields-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal"><span lang="en">Innovative research projects</span><span lang="th">โครงงานวิจัยเชิงนวัตกรรม</span></span>
+          <h2 id="fields-title" data-split><span lang="en">STEM + SI projects in <span class="text-si">the field you love</span></span><span lang="th">โครงงาน STEM + SI ใน<span class="text-si">สาขาที่คุณรัก</span></span></h2>
+        </div>
+        <p class="reveal" lang="en">Each ends in something real: a paper, a talk or a competition entry.</p>
+        <p class="reveal" lang="th">ทุกโครงงานจบด้วยผลงานจริง ทั้งบทความ การนำเสนอ หรือการส่งแข่งขัน</p>
+      </div>
+      <div class="grid grid--4" data-render="research-fields"></div>
+      <div class="btn-row reveal" style="justify-content:center;margin-top:36px"><a class="btn btn--primary" data-magnetic href="innovation.html"><span lang="en">Start a project with a mentor</span><span lang="th">เริ่มโครงงานกับอาจารย์ที่ปรึกษา</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
   </section>
 
@@ -161,6 +188,9 @@
 
 <script src="../assets/data/content.js"></script>
 <script src="../assets/data/courses-details.js"></script>
+<script src="../assets/data/courses-more.js"></script>
+<script src="../assets/data/insights.js"></script>
+<script src="../assets/js/config.js"></script>
 <script src="../assets/data/si.js"></script>
 <script src="../assets/js/partials.js"></script>
 <script src="../assets/js/consent.js"></script>

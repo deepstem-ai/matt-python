@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" preserveAspectRatio="xMidYMid slice">
+<defs>
+<linearGradient id="exg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0e1730"/><stop offset="1" stop-color="#070b14"/></linearGradient>
+<radialGradient id="exglow" cx=".8" cy=".15" r=".7"><stop offset="0" stop-color="#4f9dff" stop-opacity=".35"/><stop offset="1" stop-color="#4f9dff" stop-opacity="0"/></radialGradient>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe29a"/><stop offset="1" stop-color="#e09a12"/></linearGradient>
+</defs>
+<rect width="1200" height="900" rx="48" fill="url(#exg)"/>
+<rect width="1200" height="900" rx="48" fill="url(#exglow)"/>
+<g transform="translate(60 120)">
+  <rect width="680" height="660" rx="26" fill="#0b1222" stroke="#25304d"/>
+  <rect width="680" height="56" rx="26" fill="#101a31"/>
+  <circle cx="34" cy="28" r="8" fill="#ff5f57"/><circle cx="60" cy="28" r="8" fill="#febc2e"/><circle cx="86" cy="28" r="8" fill="#28c840"/>
+  <text x="124" y="35" font-family="monospace" font-size="18" fill="#8d9ac0">solution.py</text>
+</g>
+<g transform="translate(-60 0)"><rect x="150" y="250" width="157" height="12" rx="6" fill="#a9b8ff" opacity=".85"/><rect x="321" y="250" width="74" height="12" rx="6" fill="#ffc24b" opacity=".85"/><rect x="409" y="250" width="67" height="12" rx="6" fill="#3ddbd9" opacity=".85"/><text x="112" y="261" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">1</text><rect x="150" y="284" width="137" height="12" rx="6" fill="#3ddbd9" opacity=".85"/><rect x="301" y="284" width="142" height="12" rx="6" fill="#4f9dff" opacity=".85"/><rect x="457" y="284" width="169" height="12" rx="6" fill="#ffc24b" opacity=".85"/><text x="112" y="295" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">2</text><rect x="218" y="318" width="64" height="12" rx="6" fill="#4f9dff" opacity=".85"/><rect x="296" y="318" width="48" height="12" rx="6" fill="#a9b8ff" opacity=".85"/><rect x="358" y="318" width="128" height="12" rx="6" fill="#ffc24b" opacity=".85"/><rect x="500" y="318" width="74" height="12" rx="6" fill="#4f9dff" opacity=".85"/><text x="112" y="329" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">3</text><rect x="184" y="352" width="70" height="12" rx="6" fill="#a9b8ff" opacity=".85"/><rect x="268" y="352" width="56" height="12" rx="6" fill="#3ddbd9" opacity=".85"/><rect x="338" y="352" width="131" height="12" rx="6" fill="#7a86a8" opacity=".85"/><rect x="483" y="352" width="98" height="12" rx="6" fill="#7a86a8" opacity=".85"/><text x="112" y="363" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">4</text><rect x="150" y="386" width="140" height="12" rx="6" fill="#4f9dff" opacity=".85"/><text x="112" y="397" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">5</text><rect x="184" y="420" width="131" height="12" rx="6" fill="#4f9dff" opacity=".85"/><rect x="329" y="420" width="90" height="12" rx="6" fill="#3ddbd9" opacity=".85"/><text x="112" y="431" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">6</text><rect x="150" y="454" width="140" height="12" rx="6" fill="#4f9dff" opacity=".85"/><rect x="304" y="454" width="78" height="12" rx="6" fill="#a9b8ff" opacity=".85"/><rect x="396" y="454" width="150" height="12" rx="6" fill="#ffc24b" opacity=".85"/><text x="112" y="465" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">7</text><rect x="150" y="488" width="109" height="12" rx="6" fill="#ffc24b" opacity=".85"/><text x="112" y="499" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">8</text><rect x="150" y="522" width="69" height="12" rx="6" fill="#4f9dff" opacity=".85"/><rect x="233" y="522" width="158" height="12" rx="6" fill="#4f9dff" opacity=".85"/><text x="112" y="533" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">9</text><rect x="150" y="556" width="104" height="12" rx="6" fill="#4f9dff" opacity=".85"/><rect x="268" y="556" width="106" height="12" rx="6" fill="#4f9dff" opacity=".85"/><text x="112" y="567" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">10</text><rect x="218" y="590" width="56" height="12" rx="6" fill="#a9b8ff" opacity=".85"/><rect x="288" y="590" width="113" height="12" rx="6" fill="#4f9dff" opacity=".85"/><text x="112" y="601" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">11</text><rect x="150" y="624" width="121" height="12" rx="6" fill="#7a86a8" opacity=".85"/><rect x="285" y="624" width="76" height="12" rx="6" fill="#7a86a8" opacity=".85"/><rect x="375" y="624" width="106" height="12" rx="6" fill="#ffc24b" opacity=".85"/><rect x="495" y="624" width="49" height="12" rx="6" fill="#7a86a8" opacity=".85"/><text x="112" y="635" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">12</text><rect x="184" y="658" width="67" height="12" rx="6" fill="#7a86a8" opacity=".85"/><text x="112" y="669" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">13</text><rect x="150" y="692" width="147" height="12" rx="6" fill="#3ddbd9" opacity=".85"/><text x="112" y="703" font-family="monospace" font-size="13" fill="#4a5578" text-anchor="end">14</text></g>
+<g transform="translate(790 250)">
+  <rect width="300" height="78" rx="20" fill="#121a30" stroke="#3ddbd9" stroke-opacity=".55"/>
+  <circle cx="40" cy="39" r="20" fill="#3ddbd9"/>
+  <path d="M31 39l7 7 13-14" fill="none" stroke="#0b1324" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="78" y="48" font-family="monospace" font-size="26" font-weight="700" fill="#e9eef7">Plan</text>
+</g><g transform="translate(790 354)">
+  <rect width="300" height="78" rx="20" fill="#121a30" stroke="#4f9dff" stroke-opacity=".55"/>
+  <circle cx="40" cy="39" r="20" fill="#4f9dff"/>
+  <path d="M31 39l7 7 13-14" fill="none" stroke="#0b1324" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="78" y="48" font-family="monospace" font-size="26" font-weight="700" fill="#e9eef7">Edge</text>
+</g><g transform="translate(790 458)">
+  <rect width="300" height="78" rx="20" fill="#121a30" stroke="#7b7bff" stroke-opacity=".55"/>
+  <circle cx="40" cy="39" r="20" fill="#7b7bff"/>
+  <path d="M31 39l7 7 13-14" fill="none" stroke="#0b1324" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="78" y="48" font-family="monospace" font-size="26" font-weight="700" fill="#e9eef7">Trace</text>
+</g><g transform="translate(790 562)">
+  <rect width="300" height="78" rx="20" fill="#121a30" stroke="#ffc24b" stroke-opacity=".55"/>
+  <circle cx="40" cy="39" r="20" fill="#ffc24b"/>
+  <path d="M31 39l7 7 13-14" fill="none" stroke="#0b1324" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="78" y="48" font-family="monospace" font-size="26" font-weight="700" fill="#e9eef7">Test</text>
+</g>
+<g transform="translate(940 110)">
+  <circle r="58" fill="url(#gold)"/>
+  <circle r="44" fill="none" stroke="#fff6e0" stroke-width="3" opacity=".8"/>
+  <path d="M-16 -6l10 22 6-10 6 10 10-22" fill="none" stroke="#5a3a00" stroke-width="5" stroke-linejoin="round" opacity=".7"/>
+  <path d="M-34 44l-16 52 26-12 16 22 12-52M34 44l16 52-26-12-16 22-12-52" fill="#e09a12" opacity=".9"/>
+</g>
+</svg>

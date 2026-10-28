@@ -14,7 +14,7 @@
 (function () {
   "use strict";
 
-  var P = window.DD_PREFS || { CONSENT_KEY: "dd-consent", CONSENT_VERSION: 2 };
+  var P = window.DD_PREFS || { CONSENT_KEY: "dd-consent", CONSENT_VERSION: 3 };
   var YEAR = 365 * 24 * 60 * 60 * 1000;
   var CATS = ["necessary", "preferences", "analytics", "marketing"];
   var PREF_KEYS = ["dd-lang", "dd-theme"];

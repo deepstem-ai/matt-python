@@ -303,8 +303,10 @@ window.DD_CONTENT = {
       text: { en: "Thailand's national software development contest for students.", th: "การแข่งขันพัฒนาโปรแกรมคอมพิวเตอร์แห่งประเทศไทย สำหรับนักเรียนนักศึกษา" } },
     { name: "YSC · Young Scientist Competition", scope: { en: "Science projects · Thailand", th: "โครงงานวิทยาศาสตร์ · ประเทศไทย" },
       text: { en: "Science and technology project competition for secondary-school students.", th: "การประกวดโครงงานวิทยาศาสตร์และเทคโนโลยีสำหรับนักเรียนมัธยมศึกษา" } },
-    { name: "Regeneron ISEF", scope: { en: "Science & engineering · international", th: "วิทยาศาสตร์และวิศวกรรม · นานาชาติ" },
-      text: { en: "The world's largest pre-college science and engineering fair.", th: "มหกรรมโครงงานวิทยาศาสตร์และวิศวกรรมระดับก่อนมหาวิทยาลัยที่ใหญ่ที่สุดในโลก" } },
+    { name: "COMPAS-PY1 · COMPAS-CPP1", scope: { en: "Programming exams · Chulalongkorn Univ.", th: "สอบวัดทักษะโปรแกรม · จุฬาฯ" },
+      text: { en: "Python and C++ exams by Chula's Computer Engineering department. The AWARD of EXCELLENCE counts towards some TCAS70 portfolio admissions.", th: "การสอบ Python และ C++ โดยภาควิชาวิศวกรรมคอมพิวเตอร์ จุฬาฯ รางวัล AWARD of EXCELLENCE ใช้ประกอบการสมัคร TCAS70 รอบ Portfolio บางโครงการ" } },
+    { name: "HKICO", scope: { en: "Computational olympiad · international", th: "โอลิมปิกการคำนวณ · นานาชาติ" },
+      text: { en: "Hong Kong International Computational Olympiad, with Python and other language categories.", th: "Hong Kong International Computational Olympiad มีประเภท Python และภาษาอื่น ๆ" } },
     { name: "World Robot Olympiad", scope: { en: "Robotics · international", th: "หุ่นยนต์ · นานาชาติ" },
       text: { en: "International robotics competition with challenges for every age group.", th: "การแข่งขันหุ่นยนต์ระดับนานาชาติที่มีโจทย์สำหรับทุกช่วงวัย" } },
     { name: { en: "Hackathons & innovation challenges", th: "แฮกกาธอนและเวทีนวัตกรรม" }, scope: { en: "Prototypes · Thailand & global", th: "ต้นแบบ · ไทยและนานาชาติ" },
@@ -397,7 +399,7 @@ window.DD_CONTENT = {
   ],
 
   /* ------------------------------------------------------------ Misc */
-  tech: ["Python", "C/C++", "Java", "HTML · CSS · JavaScript", "TypeScript", "React", "Swift", "SwiftUI", "Core ML",
+  tech: ["Python", "C/C++", "Java", "HTML · CSS · JavaScript", "TypeScript", "React", "Swift", "SwiftUI", "Core ML", "Next.js", "Git", "Jetson Orin Nano", "Arduino UNO Q", "Claude Code", "Codex", "Cursor",
          "PyTorch", "Hugging Face", "LLMs & RAG", "NVIDIA Jetson", "CUDA", "TensorRT", "Raspberry Pi", "Arduino", "ROS 2", "LaTeX"],
 
   typewriter: ["Python", "C/C++", "Java", "Web Apps", "Swift & iOS", "Edge AI", "NVIDIA Jetson", "Research", "Super Intelligence"],
