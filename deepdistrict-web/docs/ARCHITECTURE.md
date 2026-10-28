@@ -28,15 +28,25 @@ Every page follows the same skeleton:
 `data-base` is the relative path to the site root (`""` for `index.html`, `"../"` for
 `pages/*`). `data-page` marks the active nav link.
 
+## Themes
+
+Sections opt into a colour theme with `theme-light` or `theme-dark`. Both set the same
+CSS variables (`--bg`, `--text`, `--text-dim`, `--line`, `--surface`, `--accent`), and
+components only read those variables, so any component works on either background.
+Image panels (`.panel`) are always dark. The header switches from the white logo to
+the full-colour logo when the page scrolls (`.is-solid`).
+
 ## Building blocks
 
 | Block | Markup | Notes |
 |---|---|---|
 | Full-screen panel | `section.panel > .panel__bg > img` + `.panel__content` | Copy bottom-left; `.panel--center` centres it; parallax via JS |
-| Plain section | `section.section` (`--alt`, `--line`) | With `.section-head` for title + intro |
-| Button | `a.btn` (`--accent`, `--solid`, `--sm`) | Fills from the bottom on hover |
+| Plain section | `section.section.theme-light` (`--tint`, `--tight`) | With `.section-head` for title + intro |
+| Button | `a.btn` (`--primary`, `--light`, `--sm`) | Pill shape; primary uses the brand gradient |
 | Card grid | `.grid.grid--3 > article.card` | Icons from `assets/images/icons/` |
-| Data blocks | `[data-render="stats|missions|nodes|programs|roadmap|ticker"]` | Filled by `main.js` from `content.js` |
+| Data blocks | `[data-render="stats|milestones|nodes|programs|roadmap|ticker"]` | Filled by `main.js` from `content.js` |
+| Trust pillar | `.pillar` | Icon + title + text |
+| Badge | `span.badge` | Small rounded label (footer commitments, hero) |
 | Reveal | `.reveal` (`.reveal-delay-1..3`) | Fades in on scroll |
 | Local form | `form[data-local-form="name"]` | Validates and saves to `localStorage` |
 

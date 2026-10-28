@@ -1,46 +1,101 @@
 /* ==========================================================================
-   DeepDistrict.si — base: design tokens, reset, typography
+   DeepDistrict.si — base: brand tokens, themes, reset, typography
+   Palette is taken from the DeepDistrict logo: deep navy -> electric blue -> cyan.
    ========================================================================== */
 
 :root {
-  /* Color */
-  --c-bg: #000;
-  --c-bg-2: #07090d;
-  --c-surface: #0e1117;
-  --c-line: rgba(255, 255, 255, 0.14);
-  --c-line-strong: rgba(255, 255, 255, 0.4);
-  --c-text: #f0f0fa;
-  --c-text-dim: rgba(240, 240, 250, 0.68);
-  --c-text-faint: rgba(240, 240, 250, 0.45);
-  --c-accent: #38c8ff;      /* SI cyan */
-  --c-accent-2: #ffb35c;    /* launch amber */
-  --c-ok: #4ade80;
-  --c-err: #ff6b6b;
+  /* Brand palette */
+  --navy-950: #030918;
+  --navy-900: #061433;
+  --navy-800: #071a4d;   /* logo navy */
+  --navy-700: #0d2a78;
+  --blue-600: #1747c9;
+  --blue-500: #1f6fff;   /* logo blue */
+  --blue-300: #8dbdff;
+  --cyan-400: #3fd0ff;   /* logo highlight */
+  --white: #ffffff;
+  --paper: #f5f8fe;
+  --ok: #16a34a;
+  --ok-on-dark: #4ade80;
+  --err: #e5484d;
+
+  --grad-brand: linear-gradient(120deg, var(--blue-600) 0%, var(--blue-500) 45%, var(--cyan-400) 100%);
+  --grad-ink: linear-gradient(120deg, var(--navy-800) 0%, var(--blue-500) 70%, var(--cyan-400) 100%);
 
   /* Type */
-  --f-sans: "Barlow", "D-DIN", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --f-display: "Barlow Condensed", "D-DIN", "Arial Narrow", Arial, sans-serif;
+  --f-sans: "Inter", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+  --f-display: "Sora", "Inter", "Segoe UI", system-ui, sans-serif;
+  --f-brand: "Michroma", "Eurostile", "Sora", system-ui, sans-serif;  /* echoes the logo wordmark */
   --f-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 
   --fs-xs: 0.75rem;
   --fs-sm: 0.875rem;
   --fs-md: 1rem;
-  --fs-lg: 1.25rem;
-  --fs-xl: clamp(1.75rem, 3vw, 2.5rem);
-  --fs-2xl: clamp(2.25rem, 5vw, 4rem);
-  --fs-hero: clamp(2.75rem, 7.5vw, 6.5rem);
+  --fs-lg: 1.125rem;
+  --fs-xl: clamp(1.5rem, 2.4vw, 2rem);
+  --fs-2xl: clamp(2rem, 4.2vw, 3.25rem);
+  --fs-hero: clamp(2.5rem, 6vw, 5rem);
 
   /* Space & layout */
-  --gutter: clamp(16px, 5vw, 80px);
-  --max: 1280px;
-  --header-h: 88px;
-  --radius: 2px;
+  --gutter: clamp(16px, 5vw, 72px);
+  --max: 1240px;
+  --header-h: 76px;
+  --r-sm: 10px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(6, 20, 51, 0.06), 0 2px 8px rgba(6, 20, 51, 0.05);
+  --shadow-lg: 0 12px 40px rgba(6, 20, 51, 0.14);
+  --glow: 0 10px 30px rgba(31, 111, 255, 0.35);
 
   /* Motion */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --t-fast: 180ms;
-  --t-med: 400ms;
+  --t-med: 380ms;
   --t-slow: 900ms;
+
+  /* Default theme = dark */
+  --bg: var(--navy-950);
+  --bg-2: var(--navy-900);
+  --surface: rgba(255, 255, 255, 0.045);
+  --surface-hover: rgba(255, 255, 255, 0.08);
+  --text: #eef3ff;
+  --text-dim: rgba(226, 234, 255, 0.74);
+  --text-faint: rgba(226, 234, 255, 0.5);
+  --line: rgba(141, 189, 255, 0.16);
+  --line-strong: rgba(141, 189, 255, 0.4);
+  --accent: var(--cyan-400);
+}
+
+/* Section themes: set on <section>/<footer>. Components read these variables. */
+.theme-dark {
+  --bg: var(--navy-950);
+  --bg-2: var(--navy-900);
+  --surface: rgba(255, 255, 255, 0.045);
+  --surface-hover: rgba(255, 255, 255, 0.08);
+  --text: #eef3ff;
+  --text-dim: rgba(226, 234, 255, 0.74);
+  --text-faint: rgba(226, 234, 255, 0.5);
+  --line: rgba(141, 189, 255, 0.16);
+  --line-strong: rgba(141, 189, 255, 0.4);
+  --accent: var(--cyan-400);
+  color: var(--text);
+  background-color: var(--bg);
+}
+.theme-light {
+  --bg: var(--white);
+  --bg-2: var(--paper);
+  --surface: var(--white);
+  --surface-hover: var(--white);
+  --text: #0b1736;
+  --text-dim: #44506b;
+  --text-faint: #6f7b96;
+  --line: rgba(11, 23, 54, 0.1);
+  --line-strong: rgba(11, 23, 54, 0.24);
+  --accent: var(--blue-500);
+  color: var(--text);
+  background-color: var(--bg);
 }
 
 *,
@@ -55,11 +110,11 @@ html {
 
 body {
   margin: 0;
-  background: var(--c-bg);
-  color: var(--c-text);
+  background: var(--navy-950);
+  color: var(--text);
   font-family: var(--f-sans);
   font-size: var(--fs-md);
-  line-height: 1.6;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
@@ -71,24 +126,34 @@ ul[role="list"], ol[role="list"] { list-style: none; margin: 0; padding: 0; }
 
 h1, h2, h3, h4 {
   font-family: var(--f-display);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
   margin: 0 0 0.5em;
+  color: var(--text);
 }
-h1 { font-size: var(--fs-hero); }
+h1 { font-size: var(--fs-hero); letter-spacing: -0.035em; }
 h2 { font-size: var(--fs-2xl); }
 h3 { font-size: var(--fs-xl); }
-h4 { font-size: var(--fs-lg); }
-p  { margin: 0 0 1em; color: var(--c-text-dim); }
+h4 { font-size: var(--fs-lg); letter-spacing: -0.01em; }
+p  { margin: 0 0 1em; color: var(--text-dim); }
 
-::selection { background: var(--c-accent); color: #000; }
+.text-grad {
+  background: var(--grad-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.theme-light .text-grad { background-image: var(--grad-ink); }
+
+::selection { background: var(--blue-500); color: #fff; }
 
 :focus-visible {
-  outline: 2px solid var(--c-accent);
+  outline: 2px solid var(--cyan-400);
   outline-offset: 3px;
+  border-radius: 4px;
 }
+.theme-light :focus-visible { outline-color: var(--blue-500); }
 
 .skip-link {
   position: absolute;
@@ -96,8 +161,9 @@ p  { margin: 0 0 1em; color: var(--c-text-dim); }
   top: -60px;
   z-index: 100;
   padding: 10px 16px;
-  background: var(--c-text);
-  color: #000;
+  border-radius: var(--r-sm);
+  background: var(--white);
+  color: var(--navy-800);
   font-weight: 600;
 }
 .skip-link:focus { top: 16px; }
@@ -114,6 +180,7 @@ p  { margin: 0 0 1em; color: var(--c-text-dim); }
   html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 1ms !important;
   }
 }

@@ -113,10 +113,10 @@ def hero_alps():
   <stop offset="0" stop-color="#02040a"/><stop offset=".55" stop-color="#0a1426"/><stop offset="1" stop-color="#1a2d4a"/>
 </linearGradient>
 <radialGradient id="aur" cx=".5" cy=".55" r=".6">
-  <stop offset="0" stop-color="#38e1ff" stop-opacity=".35"/><stop offset="1" stop-color="#38e1ff" stop-opacity="0"/>
+  <stop offset="0" stop-color="#2f7bff" stop-opacity=".35"/><stop offset="1" stop-color="#2f7bff" stop-opacity="0"/>
 </radialGradient>
 <linearGradient id="up" x1="0" y1="1" x2="0" y2="0">
-  <stop offset="0" stop-color="#7fe8ff" stop-opacity=".7"/><stop offset="1" stop-color="#7fe8ff" stop-opacity="0"/>
+  <stop offset="0" stop-color="#79b8ff" stop-opacity=".7"/><stop offset="1" stop-color="#79b8ff" stop-opacity="0"/>
 </linearGradient>
 <linearGradient id="snow" x1="0" y1="0" x2="0" y2="1">
   <stop offset="0" stop-color="#9fb4cc"/><stop offset=".25" stop-color="#2b3c55"/><stop offset="1" stop-color="#0b111c"/>
@@ -126,7 +126,7 @@ def hero_alps():
 <rect width="{W}" height="{H}" fill="url(#sky)"/>
 <g>{stars(rng, 900, 760)}</g>
 <ellipse cx="960" cy="640" rx="900" ry="260" fill="url(#aur)" filter="url(#blur40)"/>
-<g>{network(rng, nodes, 230, "#7fe8ff", 0.9, 2.4, 0.55)}</g>
+<g>{network(rng, nodes, 230, "#79b8ff", 0.9, 2.4, 0.55)}</g>
 <path d="{ridge_path(far)}" fill="#13213a" opacity=".9"/>
 <path d="{ridge_path(mid)}" fill="#0f1a2e"/>
 <path d="{ridge_path(front)}" fill="url(#snow)"/>
@@ -162,12 +162,12 @@ def research_core():
             d = math.hypot(x2 - x1, y2 - y1)
             if d < 62 and (z1 + z2) > -0.6:
                 o = 0.12 + 0.35 * ((z1 + z2) / 2 + 1) / 2
-                links.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#8fe9ff" stroke-width=".7" opacity="{o:.2f}"/>')
+                links.append(f'<line x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" stroke="#8dbdff" stroke-width=".7" opacity="{o:.2f}"/>')
         rr = 1.2 + 2.2 * (z1 + 1) / 2
-        dots.append(f'<circle cx="{x1:.1f}" cy="{y1:.1f}" r="{rr:.2f}" fill="#d9f8ff" opacity="{0.3 + 0.7 * (z1 + 1) / 2:.2f}"/>')
+        dots.append(f'<circle cx="{x1:.1f}" cy="{y1:.1f}" r="{rr:.2f}" fill="#e1ecff" opacity="{0.3 + 0.7 * (z1 + 1) / 2:.2f}"/>')
     rings = "\n".join(
         f'<ellipse cx="{cx}" cy="{cy}" rx="{R + 80 + k * 70}" ry="{(R + 80 + k * 70) * 0.28:.0f}" '
-        f'fill="none" stroke="#5fd4ff" stroke-width="{1.4 - k * 0.3:.1f}" opacity="{0.5 - k * 0.12:.2f}" '
+        f'fill="none" stroke="#4f8fff" stroke-width="{1.4 - k * 0.3:.1f}" opacity="{0.5 - k * 0.12:.2f}" '
         f'transform="rotate({-18 + k * 9} {cx} {cy})"/>'
         for k in range(4)
     )
@@ -176,7 +176,7 @@ def research_core():
   <stop offset="0" stop-color="#0d2236"/><stop offset=".6" stop-color="#050a12"/><stop offset="1" stop-color="#000"/>
 </radialGradient>
 <radialGradient id="core" cx=".5" cy=".5" r=".5">
-  <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/><stop offset=".2" stop-color="#7fe8ff" stop-opacity=".6"/><stop offset="1" stop-color="#0a3d5c" stop-opacity="0"/>
+  <stop offset="0" stop-color="#ffffff" stop-opacity=".95"/><stop offset=".2" stop-color="#79b8ff" stop-opacity=".6"/><stop offset="1" stop-color="#0a3d5c" stop-opacity="0"/>
 </radialGradient>
 {GLOW}
 </defs>
@@ -197,13 +197,13 @@ def academy_orbit():
     sats = []
     for k, (rx, ry, rot) in enumerate([(900, 430, -6), (1120, 540, 4), (1380, 640, -2)]):
         sats.append(
-            f'<ellipse cx="960" cy="1180" rx="{rx}" ry="{ry}" fill="none" stroke="#9ad7ff" '
+            f'<ellipse cx="960" cy="1180" rx="{rx}" ry="{ry}" fill="none" stroke="#9cc4ff" '
             f'stroke-width="1" stroke-dasharray="2 10" opacity=".45" transform="rotate({rot} 960 1180)"/>'
         )
         t = rng.uniform(math.pi * 1.25, math.pi * 1.75)
         x, y = 960 + rx * math.cos(t), 1180 + ry * math.sin(t)
         sats.append(f'<g transform="translate({x:.0f} {y:.0f}) rotate({rng.uniform(-30, 30):.0f})" filter="url(#glow)">'
-                    f'<rect x="-14" y="-3" width="10" height="6" fill="#5fb7ff"/><rect x="4" y="-3" width="10" height="6" fill="#5fb7ff"/>'
+                    f'<rect x="-14" y="-3" width="10" height="6" fill="#4f8fff"/><rect x="4" y="-3" width="10" height="6" fill="#4f8fff"/>'
                     f'<rect x="-4" y="-5" width="8" height="10" rx="1" fill="#e8f6ff"/></g>')
     body = f"""<defs>
 <linearGradient id="space" x1="0" y1="0" x2="0" y2="1">
@@ -243,7 +243,7 @@ def innovation_city():
         for wy in range(top + 12, 1070, 18):
             for wx in range(x + 8, x + bw - 8, 14):
                 if rng.random() < 0.18:
-                    c = rng.choice(["#ffd27a", "#ffe9b8", "#8fe9ff"])
+                    c = rng.choice(["#ffd27a", "#ffe9b8", "#8dbdff"])
                     wins.append(f'<rect x="{wx}" y="{wy}" width="5" height="7" fill="{c}" opacity="{rng.uniform(.4, .95):.2f}"/>')
         x += bw + rng.randint(0, 6)
     streams = []
@@ -256,7 +256,7 @@ def innovation_city():
   <stop offset="0" stop-color="#03050c"/><stop offset=".55" stop-color="#1b1838"/><stop offset=".8" stop-color="#5a2d4f"/><stop offset="1" stop-color="#d9784a"/>
 </linearGradient>
 <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0" stop-color="#7fe8ff" stop-opacity="0"/><stop offset=".5" stop-color="#7fe8ff" stop-opacity=".8"/><stop offset="1" stop-color="#7fe8ff" stop-opacity="0"/>
+  <stop offset="0" stop-color="#79b8ff" stop-opacity="0"/><stop offset=".5" stop-color="#79b8ff" stop-opacity=".8"/><stop offset="1" stop-color="#79b8ff" stop-opacity="0"/>
 </linearGradient>
 {GLOW}
 </defs>
@@ -293,7 +293,7 @@ def launch_beam():
   <stop offset="0" stop-color="#000"/><stop offset=".7" stop-color="#07101f"/><stop offset="1" stop-color="#13243d"/>
 </linearGradient>
 <linearGradient id="col" x1="0" y1="1" x2="0" y2="0">
-  <stop offset="0" stop-color="#fff"/><stop offset=".15" stop-color="#bff4ff"/><stop offset=".6" stop-color="#38c8ff" stop-opacity=".5"/><stop offset="1" stop-color="#38c8ff" stop-opacity="0"/>
+  <stop offset="0" stop-color="#fff"/><stop offset=".15" stop-color="#cfe2ff"/><stop offset=".6" stop-color="#3a8bff" stop-opacity=".5"/><stop offset="1" stop-color="#3a8bff" stop-opacity="0"/>
 </linearGradient>
 <radialGradient id="base" cx=".5" cy=".5" r=".5">
   <stop offset="0" stop-color="#fff6e0"/><stop offset=".3" stop-color="#ffb35c" stop-opacity=".8"/><stop offset="1" stop-color="#ff6a2a" stop-opacity="0"/>
@@ -353,27 +353,78 @@ def adriatic_coast():
     write("sections/adriatic-coast.svg", body)
 
 
-def brand():
-    logo_mark = """<g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round">
-  <path d="M14 10 H38 A26 26 0 0 1 38 62 H14 Z"/>
-  <path d="M30 26 H40 A10 10 0 0 1 40 46 H30 Z" stroke-width="4"/>
-</g>
-<circle cx="64" cy="14" r="5" fill="#38c8ff"/>"""
-    (IMG / "brand").mkdir(parents=True, exist_ok=True)
-    (IMG / "brand" / "logo-mark.svg").write_text(
-        f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 72" color="#fff">{logo_mark}</svg>\n'
-    )
-    (IMG / "brand" / "favicon.svg").write_text(
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 72"><rect width="76" height="72" rx="14" fill="#000"/>'
-        f'<g transform="translate(4 4) scale(.88)" color="#fff">{logo_mark}</g></svg>\n'
-    )
-    (IMG / "brand" / "logo-full.svg").write_text(
-        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 72" color="#fff">'
-        f'{logo_mark}<text x="92" y="50" font-family="Arial, Helvetica, sans-serif" font-size="34" '
-        'font-weight="700" letter-spacing="6" fill="#fff">DEEPDISTRICT</text>'
-        '<text x="380" y="50" font-family="Arial, Helvetica, sans-serif" font-size="34" fill="#38c8ff">.SI</text></svg>\n'
-    )
-    print("  wrote assets/images/brand/*.svg")
+def globe_network():
+    """Dotted globe with links from Slovenia to partner regions worldwide."""
+    rng = random.Random(386)
+    cx, cy, R = 1300, 560, 420
+    tilt = math.radians(24)
+
+    def project(lat, lon, rot=-25):
+        la, lo = math.radians(lat), math.radians(lon + rot)
+        x, y, z = math.cos(la) * math.sin(lo), math.sin(la), math.cos(la) * math.cos(lo)
+        y, z = y * math.cos(tilt) - z * math.sin(tilt), y * math.sin(tilt) + z * math.cos(tilt)
+        return cx + x * R, cy - y * R, z
+
+    dots = []
+    for lat in range(-80, 81, 6):
+        step = max(4, int(6 / max(math.cos(math.radians(lat)), 0.15)))
+        for lon in range(-180, 180, step):
+            x, y, z = project(lat, lon)
+            if z > 0:
+                dots.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{1.1 + 1.3 * z:.2f}" fill="#8dbdff" opacity="{0.12 + 0.5 * z:.2f}"/>')
+    hub = (46.1, 14.5)  # Slovenia
+    targets = [(51.5, -0.1), (40.7, -74.0), (1.35, 103.8), (35.7, 139.7), (-33.9, 151.2), (37.8, -122.4),
+               (52.5, 13.4), (48.9, 2.35), (59.3, 18.1), (-23.5, -46.6), (19.1, 72.9), (25.2, 55.3), (13.75, 100.5)]
+    hx, hy, _ = project(*hub)
+    arcs, pins = [], []
+    for lat, lon in targets:
+        x, y, z = project(lat, lon)
+        if z <= 0.05:
+            continue
+        mx, my = (hx + x) / 2, (hy + y) / 2
+        d = math.hypot(x - hx, y - hy)
+        nx, ny = (mx - cx), (my - cy)
+        n = math.hypot(nx, ny) or 1
+        lift = 0.35 * d
+        qx, qy = mx + nx / n * lift, my + ny / n * lift
+        arcs.append(f'<path d="M{hx:.1f},{hy:.1f} Q{qx:.1f},{qy:.1f} {x:.1f},{y:.1f}" fill="none" stroke="url(#arc)" stroke-width="1.6" opacity=".9"/>')
+        pins.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="4" fill="#cfe2ff" filter="url(#glow)"/>')
+    body = f"""<defs>
+<radialGradient id="bg" cx=".68" cy=".5" r=".8">
+  <stop offset="0" stop-color="#0b2a6e"/><stop offset=".55" stop-color="#061433"/><stop offset="1" stop-color="#030918"/>
+</radialGradient>
+<radialGradient id="sphere" cx=".4" cy=".35" r=".75">
+  <stop offset="0" stop-color="#1b4fd0" stop-opacity=".45"/><stop offset="1" stop-color="#061433" stop-opacity="0"/>
+</radialGradient>
+<linearGradient id="arc" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#3fd0ff"/><stop offset="1" stop-color="#4f8fff" stop-opacity=".5"/>
+</linearGradient>
+{GLOW}
+</defs>
+<rect width="{W}" height="{H}" fill="url(#bg)"/>
+<g>{stars(rng, 260)}</g>
+<circle cx="{cx}" cy="{cy}" r="{R}" fill="url(#sphere)"/>
+<circle cx="{cx}" cy="{cy}" r="{R}" fill="none" stroke="#4f8fff" stroke-opacity=".35"/>
+<circle cx="{cx}" cy="{cy}" r="{R + 30}" fill="none" stroke="#4f8fff" stroke-opacity=".12"/>
+<g>{''.join(dots)}</g>
+<g>{''.join(arcs)}</g>
+<g>{''.join(pins)}</g>
+<circle cx="{hx:.1f}" cy="{hy:.1f}" r="22" fill="#3fd0ff" opacity=".25" filter="url(#blur12)"/>
+<circle cx="{hx:.1f}" cy="{hy:.1f}" r="7" fill="#fff" filter="url(#glow)"/>
+{GRAIN}"""
+    write("sections/globe-network.svg", body)
+
+
+def swoosh():
+    """The orbit swoosh from the logo, as a reusable decorative stroke."""
+    body = """<defs>
+<linearGradient id="sw" x1="0" y1="1" x2="1" y2="0">
+  <stop offset="0" stop-color="#1b4fd0" stop-opacity="0"/><stop offset=".35" stop-color="#1f6fff" stop-opacity=".7"/>
+  <stop offset=".8" stop-color="#3fd0ff"/><stop offset="1" stop-color="#ffffff"/>
+</linearGradient>
+</defs>
+<path d="M0,300 C260,150 620,40 1000,0 C660,58 330,170 30,312 Z" fill="url(#sw)"/>"""
+    write("brand/swoosh.svg", body, 1000, 320)
 
 
 def icons():
@@ -389,6 +440,9 @@ def icons():
         "leaf": '<path d="M4 20c0-9 6-15 16-16-1 10-7 16-16 16z"/><path d="M4 20l8-8"/>',
         "health": '<path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-3 4.5 4.5 0 0 1 8 3c0 6-8 11-8 11z"/><path d="M7 12h3l1-2 2 4 1-2h3"/>',
         "arrow": '<path d="M5 12h14M13 6l6 6-6 6"/>',
+        "lock": '<rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.4"/>',
+        "review": '<circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/><path d="M8.5 11l1.8 1.8 3.4-3.6"/>',
+        "globe": '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/>',
     }
     for name, s in shapes.items():
         (IMG / "icons" / f"{name}.svg").write_text(base.format(s))
@@ -404,6 +458,7 @@ if __name__ == "__main__":
     innovation_city()
     launch_beam()
     adriatic_coast()
-    brand()
+    globe_network()
+    swoosh()
     icons()
     print("Done.")

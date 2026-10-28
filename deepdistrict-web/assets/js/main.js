@@ -21,17 +21,10 @@
     });
   }
 
-  /* ------------------------------------------------------------ Header: solid + hide on scroll */
+  /* ------------------------------------------------------------ Header: frosted white once scrolled */
   var header = $("#site-header");
-  var lastY = window.scrollY;
   function onScroll() {
-    var y = window.scrollY;
-    if (header) {
-      header.classList.toggle("is-solid", y > 40);
-      var menuOpen = doc.classList.contains("menu-open");
-      header.classList.toggle("is-hidden", !menuOpen && y > lastY && y > 300);
-    }
-    lastY = y;
+    if (header) header.classList.toggle("is-solid", window.scrollY > 40);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
@@ -59,7 +52,7 @@
   if (drawer) $$("a", drawer).forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
 
   /* ------------------------------------------------------------ Render data-driven blocks */
-  function statusLabel(s) { return { live: "Live", next: "Next", planned: "Planned" }[s] || s; }
+  function statusLabel(s) { return { live: "In progress", next: "Up next", planned: "Planned" }[s] || s; }
 
   var statsEl = $("[data-render='stats']");
   if (statsEl && DATA.stats) {
@@ -69,9 +62,9 @@
     }).join("");
   }
 
-  var manifestEl = $("[data-render='missions']");
-  if (manifestEl && DATA.missions) {
-    manifestEl.innerHTML = DATA.missions.map(function (m) {
+  var milestonesEl = $("[data-render='milestones']");
+  if (milestonesEl && DATA.milestones) {
+    milestonesEl.innerHTML = DATA.milestones.map(function (m) {
       return "<tr><td>" + esc(m.date) + "</td><td><strong>" + esc(m.name) + "</strong></td><td>" + esc(m.text) +
         '</td><td><span class="status status--' + esc(m.status) + '">' + statusLabel(m.status) + "</span></td></tr>";
     }).join("");
@@ -80,7 +73,7 @@
   var nodesEl = $("[data-render='nodes']");
   if (nodesEl && DATA.nodes) {
     nodesEl.innerHTML = DATA.nodes.map(function (n, i) {
-      return '<div class="node reveal reveal-delay-' + (i % 3) + '"><h4>' + esc(n.city) + "</h4><p>" + esc(n.role) +
+      return '<div class="node reveal reveal-delay-' + (i % 3) + '"><h3>' + esc(n.city) + "</h3><p>" + esc(n.role) +
         '</p><span class="status status--' + esc(n.status) + '">' + statusLabel(n.status) + "</span></div>";
     }).join("");
   }
@@ -92,7 +85,7 @@
     var list = DATA.programs.filter(function (p) { return !filter || filter === "all" || p.category === filter; });
     if (limit) list = list.slice(0, limit);
     programsEl.innerHTML = list.map(function (p) {
-      return '<article class="card reveal is-in"><span class="card__index">' + esc(p.id) + '</span>' +
+      return '<article class="card"><span class="card__index">' + esc(p.id) + '</span>' +
         '<div class="card__icon"><img src="' + base + "assets/images/icons/" + esc(p.icon) + '.svg" alt=""></div>' +
         "<h3>" + esc(p.title) + "</h3><p>" + esc(p.text) + '</p><span class="card__meta">' + esc(p.meta) + "</span></article>";
     }).join("");
@@ -203,6 +196,28 @@
 
       var success = $(".form-success", form);
       if (success) { success.classList.add("is-visible"); success.focus(); }
+      form.reset();
+    });
+  });
+
+  /* ------------------------------------------------------------ Footer newsletter (local only) */
+  $$("form[data-newsletter]").forEach(function (form) {
+    form.setAttribute("novalidate", "");
+    var note = form.parentElement.querySelector(".newsletter-note");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var input = $("input[type='email']", form);
+      var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
+      if (note) {
+        note.style.color = ok ? "" : "var(--err)";
+        note.textContent = ok ? "Thank you. You're on the list for DeepDistrict updates." : "Please enter a valid email address.";
+      }
+      if (!ok) { input.focus(); return; }
+      try {
+        var list = JSON.parse(localStorage.getItem("dd-newsletter") || "[]");
+        list.push({ email: input.value.trim(), at: new Date().toISOString() });
+        localStorage.setItem("dd-newsletter", JSON.stringify(list));
+      } catch (err) { /* storage unavailable */ }
       form.reset();
     });
   });
