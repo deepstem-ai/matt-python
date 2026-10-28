@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join · DeepDistrict.si</title>
+  <meta name="description" content="Join DeepDistrict.si: apply to the SI Academy, propose research, pitch a venture or become a partner.">
+  <meta name="theme-color" content="#000000">
+  <link rel="icon" href="../assets/images/brand/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body class="page-join" data-base="../" data-page="join">
+
+<main id="main">
+  <section class="panel page-hero panel--short" aria-labelledby="page-title">
+    <div class="panel__bg"><img src="../assets/images/sections/adriatic-coast.svg" alt="A moonlit coastal town with a bell tower reflected in the sea"></div>
+    <div class="container">
+      <div class="panel__content intro">
+        <span class="eyebrow">Join the district</span>
+        <h1 id="page-title">Take your seat</h1>
+        <p>Students, researchers, founders, companies and municipalities: tell us who you are and what you want to build.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="apply" aria-labelledby="apply-title">
+    <div class="container split" style="align-items:start">
+      <div class="reveal">
+        <span class="eyebrow">Pre-registration</span>
+        <h2 id="apply-title">Apply</h2>
+        <p>Pre-register for the Academy, propose a research collaboration or pitch a venture. We will contact you when the next intake opens.</p>
+        <dl class="contact-list" id="contact">
+          <div><dt>General</dt><dd>hello@deepdistrict.si</dd></div>
+          <div><dt>Academy</dt><dd>academy@deepdistrict.si</dd></div>
+          <div><dt>Headquarters</dt><dd>Ljubljana, Slovenia</dd></div>
+        </dl>
+      </div>
+
+      <form class="form reveal reveal-delay-1" data-local-form="apply" aria-label="Application form">
+        <div class="form-row">
+          <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required><span class="field__error" aria-live="polite"></span></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required><span class="field__error" aria-live="polite"></span></div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label for="f-type">I am applying as</label>
+            <select id="f-type" name="type" required>
+              <option value="">Select…</option>
+              <option>Academy · Ignite (school)</option>
+              <option>Academy · Orbit (university)</option>
+              <option>Academy · Deep Space (PhD / postdoc)</option>
+              <option>Academy · Mission Control (professional)</option>
+              <option>Research collaboration</option>
+              <option>Founder / venture</option>
+              <option>Company or public partner</option>
+            </select>
+            <span class="field__error" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="f-node">Preferred node</label>
+            <select id="f-node" name="node">
+              <option>Any</option><option>Ljubljana</option><option>Maribor</option><option>Koper</option><option>Kranj</option><option>Nova Gorica</option><option>Novo mesto</option>
+            </select>
+            <span class="field__error"></span>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">What do you want to build or learn?</label><textarea id="f-msg" name="message" required></textarea><span class="field__error" aria-live="polite"></span></div>
+        <label class="check"><input type="checkbox" name="consent" required> I agree that DeepDistrict.si may contact me about this application.</label>
+        <div><button class="btn btn--solid" type="submit">Submit application</button></div>
+        <p class="form-success" role="status" tabindex="-1">Thank you. Your application is saved on this computer. Online submission will be enabled when the site goes live.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script src="../assets/data/content.js"></script>
+<script src="../assets/js/partials.js"></script>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

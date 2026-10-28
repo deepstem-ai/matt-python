@@ -1,0 +1,36 @@
+/* ==========================================================================
+   DeepDistrict.si — page-specific tweaks (keep small; prefer components)
+   ========================================================================== */
+
+/* Home: hero headline is wider than standard panels */
+.page-home .hero .panel__content { max-width: 900px; }
+.page-home .hero h1 span { color: var(--c-accent); }
+
+/* Definition block on the mission page */
+.definition {
+  padding: 40px;
+  border: 1px solid var(--c-line);
+  border-left: 3px solid var(--c-accent);
+  background: var(--c-surface);
+}
+.definition dt { font-family: var(--f-display); font-size: 2rem; font-weight: 700; text-transform: uppercase; }
+.definition dt small { font-family: var(--f-mono); font-size: var(--fs-xs); color: var(--c-text-faint); margin-left: 12px; letter-spacing: 0.1em; text-transform: none; }
+.definition dd { margin: 12px 0 0; color: var(--c-text-dim); font-size: var(--fs-lg); }
+
+/* Steps on innovation page */
+.steps { counter-reset: step; }
+.steps .card::before {
+  counter-increment: step;
+  content: "0" counter(step);
+  font-family: var(--f-display);
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--c-accent);
+}
+
+/* Contact block */
+.contact-list { display: grid; gap: 28px; margin-top: 40px; }
+.contact-list dt { font-size: var(--fs-xs); letter-spacing: 0.2em; text-transform: uppercase; color: var(--c-text-faint); }
+.contact-list dd { margin: 6px 0 0; font-size: var(--fs-lg); }
