@@ -3,6 +3,9 @@
    --------------------------------------------------------------------------
    • Shows a consent banner until the visitor chooses, and again when the
      policy version changes or the choice is older than 12 months.
+   • The home page asks on every visit (once per browser session), showing
+     the current choice so it can be kept or changed with one click.
+   • "No thanks" and "OK" are equally prominent; nothing is pre-selected.
    • Categories: necessary (always on), preferences, analytics, marketing.
    • Records the choice with a timestamp, policy version and random ID.
    • DD.store saves preferences to localStorage only with consent;
@@ -14,7 +17,9 @@
 (function () {
   "use strict";
 
-  var P = window.DD_PREFS || { CONSENT_KEY: "dd-consent", CONSENT_VERSION: 3 };
+  var P = window.DD_PREFS || { CONSENT_KEY: "dd-consent", CONSENT_VERSION: 4 };
+  var ASKED_KEY = "dd-consent-asked";   // sessionStorage: already answered on this visit
+  var isHome = document.body.getAttribute("data-page") === "home";
   var YEAR = 365 * 24 * 60 * 60 * 1000;
   var CATS = ["necessary", "preferences", "analytics", "marketing"];
   var PREF_KEYS = ["dd-lang", "dd-theme"];
@@ -52,6 +57,7 @@
       if (choices.preferences) { if (v != null) ls("set", k, v); ss("remove", k); }
       else { if (v != null) ss("set", k, v); ls("remove", k); }
     });
+    ss("set", ASKED_KEY, "1");
     activateScripts();
     hideBanner();
     listeners.forEach(function (fn) { fn(record); });
@@ -74,21 +80,31 @@
     });
   }
 
-  /* ------------------------------------------------------------ Banner: one friendly sentence, two clear buttons */
+  /* ------------------------------------------------------------ Banner: one friendly sentence, two equal buttons */
   var banner = document.createElement("section");
   banner.className = "consent-banner";
   banner.setAttribute("role", "region");
   banner.setAttribute("aria-label", "Privacy");
   banner.hidden = true;
-  banner.innerHTML =
-    '<p><span class="consent-banner__emoji" aria-hidden="true">🍪</span>' + bi(
-      'No ads, no tracking. May we remember your language and theme on this device? <button type="button" class="consent-link" data-consent-act="settings">Details</button>',
-      'ไม่มีโฆษณา ไม่มีการติดตาม ให้เราจำภาษาและธีมที่คุณเลือกไว้ในอุปกรณ์นี้ได้ไหม? <button type="button" class="consent-link" data-consent-act="settings">รายละเอียด</button>'
-    ) + "</p>" +
-    '<div class="consent-actions">' +
-    '<button type="button" class="btn btn--sm" data-consent-act="reject">' + bi("No thanks", "ไม่ต้อง") + "</button>" +
-    '<button type="button" class="btn btn--sm btn--primary" data-consent-act="accept">' + bi("OK, remember", "ตกลง") + "</button>" +
-    "</div>";
+  function renderBanner() {
+    var remembered = record && record.choices && record.choices.preferences;
+    var text = record
+      ? bi("Your privacy choice: <strong>" + (remembered ? "language and theme are remembered on this device" : "nothing is remembered after you close the tab") + "</strong>. Keep it or change it. No ads, no tracking.",
+           "ตัวเลือกความเป็นส่วนตัวของคุณ: <strong>" + (remembered ? "จดจำภาษาและธีมไว้ในอุปกรณ์นี้" : "ไม่จดจำสิ่งใดหลังปิดแท็บ") + "</strong> ยืนยันหรือเปลี่ยนได้ ไม่มีโฆษณา ไม่มีการติดตาม")
+      : bi("No ads, no tracking. May we remember your language and theme on this device?",
+           "ไม่มีโฆษณา ไม่มีการติดตาม ให้เราจำภาษาและธีมที่คุณเลือกไว้ในอุปกรณ์นี้ได้ไหม?");
+    function choice(act, en, th, current) {
+      return '<button type="button" class="btn btn--sm consent-choice" data-consent-act="' + act + '"' + (record ? ' aria-pressed="' + current + '"' : "") + ">" + (current ? "✓ " : "") + bi(en, th) + "</button>";
+    }
+    banner.innerHTML =
+      '<p><span class="consent-banner__emoji" aria-hidden="true">🍪</span>' + text + ' <button type="button" class="consent-link" data-consent-act="settings">' + bi("Details", "รายละเอียด") + "</button> · " +
+      '<a class="consent-link" href="' + base + 'pages/legal.html#cookies">' + bi("Cookie policy", "นโยบายคุกกี้") + "</a></p>" +
+      '<div class="consent-actions">' +
+      choice("reject", "No thanks", "ไม่ต้องจำ", !!record && !remembered) +
+      choice("accept", "OK, remember", "ตกลง จดจำไว้", !!remembered) +
+      "</div>";
+  }
+  renderBanner();
 
   /* ------------------------------------------------------------ Settings dialog: only what is actually used */
   var dlg = document.createElement("dialog");
@@ -134,7 +150,7 @@
   function all(v) { var o = {}; CATS.forEach(function (c) { o[c] = v; }); return o; }
   function open() { syncSwitches(); if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", ""); }
   function close() { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
-  function showBanner() { banner.hidden = false; }
+  function showBanner() { renderBanner(); banner.hidden = false; }
   function hideBanner() { banner.hidden = true; }
 
   function onAct(e) {
@@ -157,7 +173,9 @@
 
   document.body.appendChild(banner);
   document.body.appendChild(dlg);
-  if (!record) showBanner(); else activateScripts();
+  if (record) activateScripts();
+  // ask until a choice is made; on the home page, ask again on every visit
+  if (!record || (isHome && !ss("get", ASKED_KEY))) showBanner();
 
   window.DD = window.DD || {};
   window.DD.consent = { has: has, get: function () { return record; }, open: open, onChange: function (fn) { listeners.push(fn); } };

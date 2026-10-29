@@ -7,7 +7,7 @@
    ========================================================================== */
 (function () {
   var CONSENT_KEY = "dd-consent";
-  var CONSENT_VERSION = 3;           // bump when the cookie policy changes -> visitors are asked again
+  var CONSENT_VERSION = 4;           // bump when the cookie policy changes -> visitors are asked again
   var doc = document.documentElement;
 
   function get(store, k) { try { return window[store].getItem(k); } catch (e) { return null; } }
@@ -27,5 +27,5 @@
   var dark = theme === "dark" || (theme === "auto" && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
   doc.setAttribute("data-theme", dark ? "dark" : "light");
 
-  window.DD_PREFS = { CONSENT_KEY: CONSENT_KEY, CONSENT_VERSION: CONSENT_VERSION, SITE_VERSION: "4.3 r1" };
+  window.DD_PREFS = { CONSENT_KEY: CONSENT_KEY, CONSENT_VERSION: CONSENT_VERSION, SITE_VERSION: "4.5 r1" };
 })();

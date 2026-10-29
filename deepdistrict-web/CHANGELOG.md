@@ -1,5 +1,29 @@
 # Changelog
 
+## 4.5 r1 — October 2026
+- New branch **DeepDistrict Admissions** (`pages/admissions.html`): preparation for IELTS
+  Academic, Digital SAT Math, Digital SAT Reading & Writing (EBRW), **TBAT**, CU-AAT Math and
+  CU-AAT Verbal, plus an admissions portfolio, personal statement and interview course.
+  - Test explorer: format, timing, scoring, key facts, official links, and the date the facts
+    were checked.
+  - "Where are you applying?" chooser: Thai international programmes, Thai international
+    medicine & health, UK/Europe/Australia, US.
+  - A note that the BMAT was discontinued and replaced by the TBAT, the portfolio building
+    blocks, a 6-step method, an M.4–M.6 timeline and an FAQ.
+  - A prominent **"rules change fast, ask us for the latest update"** notice, also shown in
+    every course dialog in this branch.
+  - New track and 7 courses (IEL200, SAT210, SAT220, TBT300, AAT210, AAT220, PFL200), also
+    available for enrolments in the back office.
+  - New contact topic "Admissions & test prep"; the request is pre-filled with the chosen goal
+    and courses.
+- **Cookie consent (PDPA)**:
+  - The home page asks on every visit (once per browser session) and shows the current choice.
+  - "No thanks" and "OK" now look the same; nothing is pre-selected.
+  - Policy version raised to 4, so everyone is asked again.
+  - Cookie policy updated: the session flag, free choice, withdrawal, and children under 10.
+- Header: the menu collapses below 1300 px and the header button shows from 1640 px, so the
+  navigation never overflows.
+
 ## 4.4 r1 — October 2026
 - **Notifications** in the app (bell + inbox), by **email** and by **LINE Official Account**
   (free plan): enrolment & schedule, receipt, new request (admins), request decided, lesson

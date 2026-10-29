@@ -2,13 +2,13 @@
    Makes the back office installable and lets it open without a connection.
    The app files are fetched fresh when online (network first) and come from the cache when offline.
    Nothing under /api/ is ever cached: personal data always comes from the server. */
-var CACHE = "dd-admin-v1";
+var CACHE = "dd-admin-v2";
 var SHELL = [
   "./", "./index.html", "./manifest.webmanifest", "./css/admin.css",
   "./js/core.js", "./js/schedule.js", "./js/app.js", "./js/calendar.js", "./js/reports.js", "./js/portal.js", "./js/docs.js", "./js/search.js", "./js/notify.js",
   "./vendor/html2canvas.min.js", "./vendor/jspdf.umd.min.js",
   "../assets/css/fonts.css", "../assets/css/tokens.css",
-  "../assets/data/content.js", "../assets/data/courses-details.js", "../assets/data/courses-more.js",
+  "../assets/data/content.js", "../assets/data/courses-details.js", "../assets/data/courses-more.js", "../assets/data/admissions.js",
   "../assets/images/brand/logo-mark.png", "../assets/images/brand/favicon-32.png", "../assets/images/brand/favicon-192.png"
 ];
 

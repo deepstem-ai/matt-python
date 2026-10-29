@@ -12,6 +12,7 @@
   var NAV = [
     { href: "pages/si.html", en: "What is SI?", th: "SI คืออะไร", cls: "nav-si" },
     { href: "pages/programs.html", en: "Programs", th: "หลักสูตร" },
+    { href: "pages/admissions.html", en: "Admissions", th: "สอบเข้ามหาลัย", cls: "nav-adm" },
     { href: "pages/innovation.html", en: "Innovation Lab", th: "แล็บนวัตกรรม" },
     { href: "pages/research.html", en: "Research", th: "วิจัย" },
     { href: "pages/stem.html", en: "Youth STEM", th: "STEM เยาวชน" },
@@ -24,6 +25,8 @@
       { href: "pages/programs.html#planner", en: "Plan my path", th: "ออกแบบเส้นทางเรียน" },
       { href: "pages/programs.html#catalog", en: "All courses", th: "รายวิชาทั้งหมด" },
       { href: "pages/programs.html#exams", en: "COMPAS & HKICO prep", th: "เตรียมสอบ COMPAS · HKICO" },
+      { href: "pages/admissions.html", en: "IELTS · SAT · TBAT · CU-AAT", th: "IELTS · SAT · TBAT · CU-AAT" },
+      { href: "pages/admissions.html#portfolio", en: "Admissions portfolio", th: "พอร์ตยื่นมหาวิทยาลัย" },
       { href: "pages/stem.html", en: "Youth STEM", th: "STEM เยาวชน" }
     ] },
     { en: "SI & research", th: "SI และวิจัย", links: [

@@ -179,7 +179,7 @@
   R.tracks = function (el) {
     el.innerHTML = (DATA.tracks || []).map(function (tr, i) {
       var n = courses.filter(function (c) { return c.track === tr.id; }).length;
-      return '<a class="card card--link reveal reveal-delay-' + (i % 3) + '" data-tilt href="' + base + "pages/programs.html?track=" + tr.id + '#catalog">' +
+      return '<a class="card card--link reveal reveal-delay-' + (i % 3) + '" data-tilt href="' + base + (tr.href || "pages/programs.html?track=" + tr.id + "#catalog") + '">' +
         '<div class="card__icon">' + icon(tr.icon) + "</div><h3>" + t(tr.name) + "</h3><p>" + t(tr.text) + "</p>" +
         '<div class="chips chips--tech">' + tr.tech.map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("") + "</div>" +
         '<span class="card__meta card__meta--row">' + t(L(n + " courses", n + " รายวิชา")) + ARROW + "</span></a>";
@@ -380,6 +380,76 @@
         '</ol><p class="note">' + t(tc.note) + "</p></div>" : "");
   };
 
+  /* ---------- Admissions & Test Prep branch ---------- */
+  function admTest(id) { return (DATA.admTests || []).filter(function (x) { return x.id === id; })[0]; }
+
+  // tabbed explorer: one panel per test with its format, scoring, key facts and prep course
+  R["adm-tests"] = function (el) {
+    var list = DATA.admTests || [];
+    el.innerHTML = '<div class="adm-tabs" role="tablist" aria-label="Tests">' + list.map(function (x, i) {
+      return '<button class="adm-tab" role="tab" type="button" id="adm-tab-' + x.id + '" aria-controls="adm-' + x.id + '" aria-selected="' + (i === 0) + '" tabindex="' + (i === 0 ? 0 : -1) + '">' + icon(x.icon) + "<span>" + esc(x.name) + "</span></button>";
+    }).join("") + "</div>" + list.map(function (x, i) {
+      return '<article class="adm-panel" role="tabpanel" id="adm-' + x.id + '" aria-labelledby="adm-tab-' + x.id + '"' + (i ? " hidden" : "") + ">" +
+        '<div class="adm-panel__head"><div><h3>' + esc(x.name) + (x.flag ? ' <span class="adm-flag">' + t(x.flag) + "</span>" : "") + '</h3><p class="adm-by">' + t(x.by) + "</p><p>" + t(x.what) + "</p></div>" +
+        '<div class="adm-prep"><span>' + t(L("Prep course", "หลักสูตรเตรียมสอบ")) + "</span>" + codeChip(x.code) + '<a class="adm-official" href="' + esc(x.url) + '" target="_blank" rel="noopener">' + t(L("Official site ↗", "เว็บไซต์ทางการ ↗")) + "</a></div></div>" +
+        '<div class="adm-grid"><table class="adm-format"><caption>' + t(L("Format", "รูปแบบข้อสอบ")) + "</caption><tbody>" +
+        x.parts.map(function (p) { return '<tr><th scope="row">' + t(p[0]) + "</th><td>" + t(p[1]) + "</td></tr>"; }).join("") +
+        '</tbody></table><div><p class="adm-score">' + icon("trophy") + t(x.score) + '</p><ul class="ticks">' + x.facts.map(function (f) { return "<li>" + t(f) + "</li>"; }).join("") + "</ul></div></div></article>";
+    }).join("") + '<p class="adm-checked">' + t(L("Checked: ", "ตรวจสอบล่าสุด: ")) + t(DATA.admChecked) + " · " + t(L("Official sources: ", "แหล่งข้อมูลทางการ: ")) +
+      (DATA.admSources || []).map(function (s) { return '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.name) + "</a>"; }).join(" · ") + "</p>";
+    var tabs = $$(".adm-tab", el);
+    function select(tab, focus) {
+      tabs.forEach(function (x) { var on = x === tab; x.setAttribute("aria-selected", String(on)); x.tabIndex = on ? 0 : -1; $("#" + x.getAttribute("aria-controls")).hidden = !on; });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { select(tab); });
+      tab.addEventListener("keydown", function (e) {
+        var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (d) select(tabs[(i + d + tabs.length) % tabs.length], true);
+      });
+    });
+    DD.admShowTest = function (id) { var tab = $("#adm-tab-" + id); if (tab) { select(tab); el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); } };
+  };
+
+  // "where are you applying?" picks the tests and courses that matter for that goal
+  R["adm-chooser"] = function (el) {
+    var list = DATA.admTargets || [];
+    el.innerHTML = '<div class="adm-goals" role="radiogroup" aria-label="' + esc(tx(L("Where are you applying?", "จะยื่นที่ไหน?"))) + '">' + list.map(function (g, i) {
+      return '<button type="button" class="adm-goal" role="radio" aria-checked="' + (i === 0) + '" data-goal="' + g.id + '">' + icon(g.icon) + "<strong>" + t(g.name) + "</strong><small>" + t(g.sub) + "</small></button>";
+    }).join("") + '</div><div class="adm-result" aria-live="polite"></div>';
+    var out = $(".adm-result", el);
+    function show(id) {
+      var g = list.filter(function (x) { return x.id === id; })[0];
+      $$(".adm-goal", el).forEach(function (b) { b.setAttribute("aria-checked", String(b.getAttribute("data-goal") === id)); });
+      out.innerHTML = '<div><h3>' + t(L("What you will need", "สิ่งที่ต้องเตรียม")) + '</h3><ul class="ticks">' + g.need.map(function (n) { return "<li>" + t(n) + "</li>"; }).join("") + "</ul></div>" +
+        '<div><h3>' + t(L("Tests to look at", "ข้อสอบที่เกี่ยวข้อง")) + '</h3><div class="adm-testchips">' + g.tests.map(function (id) {
+          var x = admTest(id); return x ? '<button type="button" class="chip-btn" data-adm-test="' + id + '">' + esc(x.name) + "</button>" : "";
+        }).join("") + "</div><h3>" + t(L("Suggested courses", "หลักสูตรที่แนะนำ")) + '</h3><div class="chips">' + g.courses.map(codeChip).join("") + "</div>" +
+        '<a class="btn btn--primary btn--sm" href="' + contactUrl({ topic: "admissions", goal: tx(g.name), plan: g.courses.join(", ") }) + '">' + t(L("Ask for the current requirements", "สอบถามเกณฑ์ล่าสุด")) + ARROW + "</a></div>";
+    }
+    el.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-goal]"); if (b) return show(b.getAttribute("data-goal"));
+      var c = e.target.closest("[data-adm-test]"); if (c && DD.admShowTest) DD.admShowTest(c.getAttribute("data-adm-test"));
+    });
+    el.addEventListener("keydown", function (e) {
+      var b = e.target.closest("[data-goal]"), d = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
+      if (!b || !d) return;
+      e.preventDefault();
+      var all = $$(".adm-goal", el), n = all[(all.indexOf(b) + d + all.length) % all.length];
+      n.focus(); show(n.getAttribute("data-goal"));
+    });
+    if (list.length) show(list[0].id);
+  };
+
+  R["adm-steps"] = function (el) { el.innerHTML = stepsHtml(DATA.admSteps || []); };
+
+  R["adm-timeline"] = function (el) {
+    el.innerHTML = (DATA.admTimeline || []).map(function (s, i, a) {
+      return '<li class="' + (i === a.length - 1 ? "is-si" : "") + '" style="--i:' + i + '"><span class="when">' + t(s.when) + "</span><h3>" + t(s.name) + "</h3><p>" + t(s.text) + "</p></li>";
+    }).join("");
+  };
+
   /* ---------- Course catalogue ---------- */
   R.courses = function (el) {
     var params = new URLSearchParams(location.search);
@@ -501,7 +571,7 @@
     }
     dlg.className = "dialog dialog--course lv-" + c.level;
     var modeNames = (d.modes || []).map(function (m) { return t(DATA.modes[m].name); }).join(" · ");
-    var notes = (c.track === "aieng" ? DATA.aiToolsNotice : null) || (c.track === "exam" && DATA.tcas ? DATA.tcas.note : null);
+    var notes = (c.track === "aieng" ? DATA.aiToolsNotice : null) || (c.track === "exam" && DATA.tcas ? DATA.tcas.note : null) || (c.track === "admit" ? DATA.admNotice : null);
     dlg.innerHTML =
       '<div class="dialog__head"><span class="course__top" style="justify-content:flex-start;gap:10px"><span class="course__code">' + c.code + "</span>" + lvlChip(c) + "</span>" +
       '<h2 id="course-dlg-title">' + t(c.title) + "</h2><p>" + t(c.text) + "</p>" +
@@ -535,7 +605,7 @@
   var params = new URLSearchParams(location.search);
   var cform = $("form[data-mailto-form]");
   if (cform) {
-    var topic = params.get("topic"), course = params.get("course"), plan = params.get("plan");
+    var topic = params.get("topic"), course = params.get("course"), plan = params.get("plan"), goal = params.get("goal");
     if (topic && cform.elements.topic) {
       var map = { plan: "plan", custom: "custom", courses: "courses" };
       cform.elements.topic.value = map[topic] || topic;
@@ -543,7 +613,10 @@
     if (course && byCode[course]) {
       var ci = cform.elements.course; if (ci) ci.value = course + " – " + byCode[course].title.en;
     }
-    if ((course || plan) && cform.elements.message && !cform.elements.message.value) {
+    if (goal && cform.elements.message && !cform.elements.message.value) {
+      cform.elements.message.value = (lang() === "th" ? "ขอข้อมูลเกณฑ์และกำหนดการล่าสุดสำหรับ: " : "Please send me the latest requirements and dates for: ") + goal +
+        (plan ? (lang() === "th" ? "\nหลักสูตรที่สนใจ: " : "\nCourses I am interested in: ") + plan : "") + "\n\n";
+    } else if ((course || plan) && cform.elements.message && !cform.elements.message.value) {
       cform.elements.message.value = plan
         ? (lang() === "th" ? "ฉันสนใจแผนการเรียนนี้: " : "I am interested in this learning plan: ") + plan + "\n\n"
         : (lang() === "th" ? "ฉันสนใจหลักสูตร " : "I am interested in the course ") + course + (topic === "custom" ? (lang() === "th" ? " และอยากให้ปรับให้เหมาะกับฉัน: " : " and would like it customised: ") : ". ") + "\n\n";

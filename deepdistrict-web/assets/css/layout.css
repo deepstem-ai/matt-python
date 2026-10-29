@@ -154,7 +154,7 @@
 .menu-open .scrim { opacity: 1; pointer-events: auto; }
 body.menu-open { overflow: hidden; }
 
-@media (max-width: 1180px) {
+@media (max-width: 1300px) {
   .nav-primary { display: none; }
   .nav-primary + .header-actions { margin-left: auto; }
 }
@@ -334,4 +334,4 @@ html[lang="th"] .footer-col h3 { font-family: var(--f-sans-th); font-size: var(-
 
 /* Keep header items on one line; drop the CTA before the nav gets crowded */
 .nav-primary a, .header-cta { white-space: nowrap; }
-@media (max-width: 1400px) { .header-actions .header-cta { display: none; } }
+@media (max-width: 1640px) { .header-actions .header-cta { display: none; } }
