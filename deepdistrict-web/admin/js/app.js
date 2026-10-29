@@ -18,6 +18,7 @@
     search: '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
     bell: '<path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/>',
     more: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+    promo: '<path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1zM15 9a3 3 0 0 1 0 6M18 6a7 7 0 0 1 0 12"/>',
     settings: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>'
   };
   A.ico = ico;
@@ -34,6 +35,7 @@
     ["people", "People", "ผู้ใช้และนักเรียน", "staff"],
     ["payments", "Payments", "การชำระเงิน", "admin"],
     ["courses", "Courses", "หลักสูตร", "admin"],
+    ["popups", "Pop-ups", "ป๊อปอัป", "admin", "promo"],
     ["search", "Search", "ค้นหา", "staff"],
     ["reports", "Reports & export", "รายงานและส่งออก", "all"],
     ["settings", "Settings", "ตั้งค่า", "all"]
@@ -607,7 +609,7 @@
     if (!$("#view")) shell();
     var h = location.hash.replace(/^#\/?/, "") || (A.isStaff() ? "dashboard" : "home");
     var parts = h.split("?"), path = parts[0].split("/"), q = new URLSearchParams(parts[1] || "");
-    var staffOnly = ["dashboard", "enrolments", "enrolment", "sessions", "people", "payments", "courses", "search"];
+    var staffOnly = ["dashboard", "enrolments", "enrolment", "sessions", "people", "payments", "courses", "search", "popups"];
     var name = path[0];
     if (!A.isStaff() && staffOnly.indexOf(name) !== -1) name = "home";
     if (A.isStaff() && name === "home") name = "dashboard";

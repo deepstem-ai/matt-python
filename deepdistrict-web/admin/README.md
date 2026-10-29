@@ -150,6 +150,36 @@ All · Accept All). Each choice is stored on the server as proof of consent, wit
 data: a random reference, the time, the policy version and the choices. Records are kept for
 3 years. **Settings → Cookie consent records → Download CSV**.
 
+## Pop-up promotions (admins)
+
+**Pop-ups** in the menu.
+
+- **Turn on** switches the feature on for the whole website. Each pop-up also has its own
+  switch.
+- **New pop-up** asks for:
+  - a title and message in Thai and English
+  - an optional picture (resized automatically)
+  - a button and link
+- **When it shows:**
+  - start and end (date and time, Bangkok)
+  - only on some weekdays
+  - only between two times each day; the window may cross midnight, e.g. 20:00–02:00
+- **Where and how often:**
+  - on which pages
+  - how often a visitor sees it: every visit, once a day or only once
+  - the delay after the page opens
+  - the priority; if several are live, the highest one is shown
+- The list shows each pop-up's status:
+  - Showing now
+  - Scheduled
+  - Outside its days / hours
+  - Ended
+  - Off
+- **Preview** shows it as visitors will see it.
+- Visitors see a pop-up only after answering the cookie bar, at most one per visit, never on
+  the privacy page. Pop-ups need the DeepDistrict server, so they don't show when the site is
+  opened as plain files.
+
 ## Search
 
 **Search** finds lessons (topics, notes, rooms), enrolments, people, payments (receipt numbers)

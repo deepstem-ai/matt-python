@@ -18,6 +18,9 @@
    empty values are simply not shown.
    ========================================================================== */
 window.DD_CONFIG = {
+  // pop-up promotions come from the DeepDistrict server (back office → Pop-ups).
+  // Set to false only if you host the public pages somewhere without that server.
+  popups: true,
   contact: {
     email: "info@deepdistrict.si",
     phone: "",          // e.g. "+66 81 234 5678"

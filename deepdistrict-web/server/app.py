@@ -37,6 +37,7 @@ from wsgiref.simple_server import WSGIRequestHandler, WSGIServer, make_server
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import notify  # noqa: E402
+import popups  # noqa: E402
 
 VERSION = (Path(__file__).resolve().parent.parent / "VERSION").read_text(encoding="utf-8").strip() if (Path(__file__).resolve().parent.parent / "VERSION").exists() else "dev"
 
@@ -549,6 +550,11 @@ def api(environ, start, path):
         if path == "status":
             return respond(start, "200 OK", {"ok": True, "setup": not has_admin, "signedIn": bool(me), "version": VERSION})
 
+        if path == "popups" and method == "GET":
+            # public: the pop-up promotions live right now for this page (no personal data involved)
+            page = (parse_qs(environ.get("QUERY_STRING", "")).get("page") or ["home"])[0][:20]
+            return respond(start, "200 OK", {"items": popups.active(get_kv(con, "popups", popups.default()), page)}, extra=[("Cache-Control", "no-store")])
+
         if path == "consent" and method == "POST":
             # proof of cookie consent (PDPA): random reference, time, policy version and choices only —
             # no name, email, IP address or other personal data. Kept for 3 years.
@@ -650,6 +656,38 @@ def api(environ, start, path):
         if me["role"] != "admin":
             return respond(start, "403 Forbidden", {"error": "admin only"})
 
+        if path == "popups-admin" and method == "GET":
+            store = get_kv(con, "popups", popups.default())
+            items = [dict(p, status=popups.status(p)) for p in store.get("items", [])]
+            return respond(start, "200 OK", {"enabled": bool(store.get("enabled")), "items": items, "pages": popups.PAGES,
+                                             "now": datetime.now(popups.TZ).strftime("%Y-%m-%dT%H:%M")})
+        if path == "popups-admin" and method == "POST":
+            store = get_kv(con, "popups", popups.default())
+            items = store.get("items", [])
+            try:
+                if "enabled" in body:
+                    store["enabled"] = bool(body["enabled"]); audit(con, me, "Pop-ups " + ("switched on" if store["enabled"] else "switched off"))
+                if isinstance(body.get("save"), dict):
+                    p = popups.clean(body["save"], now_iso())
+                    i = next((k for k, x in enumerate(items) if x["id"] == p["id"]), None)
+                    if i is None:
+                        items.append(p)
+                    else:
+                        items[i] = p
+                    audit(con, me, f"Saved pop-up '{p['name'] or p['title']['en'] or p['title']['th']}'")
+                if body.get("delete"):
+                    items = [x for x in items if x["id"] != body["delete"]]; audit(con, me, "Deleted a pop-up")
+                if isinstance(body.get("toggle"), dict):
+                    for x in items:
+                        if x["id"] == body["toggle"].get("id"):
+                            x["enabled"] = bool(body["toggle"].get("enabled")); x["updatedAt"] = now_iso()
+            except ValueError as e:
+                return respond(start, "400 Bad Request", {"error": str(e)})
+            if len(items) > 50:
+                return respond(start, "400 Bad Request", {"error": "at most 50 pop-ups"})
+            store["items"] = items
+            set_kv(con, "popups", store)
+            return respond(start, "200 OK", {"ok": True, "id": (body.get("save") and p["id"]) or None})
         if path == "consent-log" and method == "GET":
             rows = [dict(r) for r in con.execute("SELECT ref, at, received, version, choices, page FROM consent_log ORDER BY received DESC LIMIT 20000")]
             return respond(start, "200 OK", {"items": rows, "count": con.execute("SELECT COUNT(*) FROM consent_log").fetchone()[0]})
@@ -708,7 +746,8 @@ def api(environ, start, path):
 
         if path == "backup" and method == "GET":
             data = {"v": 1, "exportedAt": now_iso(), "org": get_kv(con, "org", DEFAULT_ORG),  # email password is not exported
-                    "courseOverrides": get_kv(con, "courseOverrides", {}), "customCourses": get_kv(con, "customCourses", [])}
+                    "courseOverrides": get_kv(con, "courseOverrides", {}), "customCourses": get_kv(con, "customCourses", []),
+                    "popups": get_kv(con, "popups", popups.default())}
             for col in COLLECTIONS:
                 data[col] = load_col(con, col)
             data["credentials"] = [dict(r) for r in con.execute("SELECT user_id, salt, hash FROM credentials")]
@@ -731,6 +770,14 @@ def api(environ, start, path):
             for key in KV_KEYS:
                 if key in body:
                     set_kv(con, key, body[key])
+            if isinstance(body.get("popups"), dict):   # re-check every pop-up from the file
+                kept = []
+                for item in body["popups"].get("items") or []:
+                    try:
+                        kept.append(popups.clean(item, now_iso()))
+                    except (ValueError, TypeError):
+                        pass
+                set_kv(con, "popups", {"enabled": bool(body["popups"].get("enabled")), "items": kept[:50]})
             con.execute("DELETE FROM auth_sessions WHERE user_id != ?", (me["id"],))
             audit(con, me, "Restored backup")
             return respond(start, "200 OK", {"ok": True})

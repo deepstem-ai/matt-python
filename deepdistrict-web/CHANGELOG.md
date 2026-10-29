@@ -1,5 +1,36 @@
 # Changelog
 
+## 4.9 r1 — October 2026
+- **Pop-up promotions on the public website** (`assets/js/popup.js`):
+  - Shows image, title, text and a button in Thai/English.
+  - Appears only after the visitor has answered the cookie bar, so the two never stack.
+  - At most one per visit; never on the privacy page.
+  - Esc, ✕ or a click outside closes it. Respects reduced motion and works on phones.
+- **Back office → Pop-ups** (`admin/js/popups.js`, admin only):
+  - Create, edit, duplicate, preview and delete pop-ups, with a picture upload that is resized
+    in the browser.
+  - A **global on/off switch** plus a switch per pop-up.
+  - **Scheduling:**
+    - start and end date/time (Bangkok)
+    - weekdays
+    - a daily time window, which may cross midnight
+  - Settings per pop-up:
+    - pages: all, or chosen pages
+    - frequency: every visit / once a day / only once
+    - delay
+    - priority
+  - Each pop-up shows its live status: showing now · scheduled · outside its days/hours ·
+    ended · off.
+- **Server** (`server/popups.py`):
+  - Validates every pop-up: links (no `javascript:`), images (PNG/JPEG/WebP or https),
+    times, at most 50 pop-ups.
+  - Decides what is live. `GET /api/popups?page=` is public and returns only display fields.
+  - `GET/POST /api/popups-admin` is for admins.
+  - Pop-ups are included in backup and restore, and re-checked on restore.
+- Form fields for the whole back office: image upload and multi-choice checkboxes.
+- Cookie policy table lists `dd-promo-…`. Without preference consent it lasts only until the
+  tab closes.
+
 ## 4.8 r1 — October 2026
 - **Short course summary on click:**
   - Each summary has the course in one line, a few key facts and a short list of what you

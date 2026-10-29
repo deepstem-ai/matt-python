@@ -242,6 +242,11 @@
       else if (f.type === "checkbox") return '<label class="mf-check' + (f.full ? " mf-full" : "") + '"><input type="checkbox" name="' + f.name + '"' + (v ? " checked" : "") + "> <span>" + A.esc(f.label) + "</span></label>";
       else if (f.type === "slots") return '<fieldset class="mf-slots mf-full" data-slots="' + f.name + '"><legend>' + A.esc(f.label) + "</legend>" + (f.hint ? "<small>" + A.esc(f.hint) + "</small>" : "") + '<div class="slots"></div><button type="button" class="btn btn--sm" data-add-slot>+ ' + A.L("Add a day/time", "เพิ่มวัน/เวลา") + "</button></fieldset>";
       else if (f.type === "days") return '<fieldset class="mf-days mf-full"><legend>' + A.esc(f.label) + "</legend>" + [1, 2, 3, 4, 5, 6, 0].map(function (d) { return '<label><input type="checkbox" name="' + f.name + '" value="' + d + '"' + ((v || []).indexOf(d) !== -1 ? " checked" : "") + "><span>" + A.dayName(d) + "</span></label>"; }).join("") + "</fieldset>";
+      else if (f.type === "checks") return '<fieldset class="mf-days mf-checks mf-full" data-checks="' + f.name + '"><legend>' + A.esc(f.label) + "</legend>" + (f.hint ? "<small>" + A.esc(f.hint) + "</small>" : "") + f.options.map(function (o) { return '<label><input type="checkbox" name="' + f.name + '" value="' + A.esc(o[0]) + '"' + ((v || []).indexOf(o[0]) !== -1 ? " checked" : "") + "><span>" + A.esc(o[1]) + "</span></label>"; }).join("") + "</fieldset>";
+      else if (f.type === "image") return '<div class="mf mf-full mf-image" data-image="' + f.name + '"><label>' + A.esc(f.label) + "</label>" +
+        '<div class="mf-image__row"><img alt="" data-image-preview' + (v ? ' src="' + A.esc(v) + '"' : " hidden") + '><div><input type="file" accept="image/png,image/jpeg,image/webp" data-image-file aria-label="' + A.esc(f.label) + '">' +
+        '<button type="button" class="btn btn--sm" data-image-clear' + (v ? "" : " hidden") + ">" + A.L("Remove image", "ลบรูป") + "</button>" + (f.hint ? "<small>" + A.esc(f.hint) + "</small>" : "") + "</div></div>" +
+        '<input type="hidden" name="' + f.name + '" value="' + A.esc(v) + '"></div>';
       else input = '<input id="' + id + '" name="' + f.name + '" type="' + (f.type || "text") + '" value="' + A.esc(v) + '"' + req + (f.step ? ' step="' + f.step + '"' : "") + (f.min != null ? ' min="' + f.min + '"' : "") + (f.autocomplete ? ' autocomplete="' + f.autocomplete + '"' : "") + ">";
       return '<div class="mf' + (f.full ? " mf-full" : "") + '"><label for="' + id + '">' + A.esc(f.label) + (f.required ? " *" : "") + "</label>" + input + (f.hint ? '<small>' + A.esc(f.hint) + "</small>" : "") + "</div>";
     }
@@ -266,6 +271,8 @@
         if (f.type === "checkbox") out[f.name] = form.elements[f.name].checked;
         else if (f.type === "slots") out[f.name] = A.$$('[data-slots="' + f.name + '"] .slot', form).map(function (r) { return { day: +r.querySelector("[data-k=day]").value, start: r.querySelector("[data-k=start]").value, end: r.querySelector("[data-k=end]").value, location: r.querySelector("[data-k=location]").value.trim() }; }).filter(function (x) { return x.start && x.end; });
         else if (f.type === "days") out[f.name] = A.$$('input[name="' + f.name + '"]:checked', form).map(function (i) { return +i.value; });
+        else if (f.type === "checks") out[f.name] = A.$$('input[name="' + f.name + '"]:checked', form).map(function (i) { return i.value; });
+        else if (f.type === "image") out[f.name] = form.elements[f.name].value;
         else if (f.type === "number") out[f.name] = form.elements[f.name].value === "" ? "" : +form.elements[f.name].value;
         else out[f.name] = form.elements[f.name].value.trim();
       });
@@ -273,6 +280,26 @@
       if (!err) A.$$("[required]", form).some(function (i) { if (!String(i.value).trim()) { err = A.L("Please fill in all required fields.", "กรุณากรอกข้อมูลที่จำเป็นให้ครบ"); i.focus(); return true; } });
       if (err) { form.querySelector(".mf-error").textContent = err; return; }
       Promise.resolve(opts.onSave(out)).then(function (keep) { if (keep !== false) close(); });
+    });
+    // image fields: shrink the picked file in the browser (max 1200 px, WebP/JPEG) and keep it as a data URL
+    opts.fields.filter(function (f) { return f.type === "image"; }).forEach(function (f) {
+      var box = form.querySelector('[data-image="' + f.name + '"]'), prev = box.querySelector("[data-image-preview]"), hidden = form.elements[f.name], clr = box.querySelector("[data-image-clear]");
+      box.querySelector("[data-image-file]").addEventListener("change", function (e) {
+        var file = e.target.files[0]; if (!file) return;
+        var img = new Image(), url = URL.createObjectURL(file);
+        img.onload = function () {
+          var sc = Math.min(1, 1200 / Math.max(img.width, img.height)), c = document.createElement("canvas");
+          c.width = Math.round(img.width * sc); c.height = Math.round(img.height * sc);
+          c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+          var data = c.toDataURL("image/webp", 0.85);
+          if (data.indexOf("data:image/webp") !== 0) data = c.toDataURL("image/jpeg", 0.85);
+          URL.revokeObjectURL(url);
+          hidden.value = data; prev.src = data; prev.hidden = false; clr.hidden = false;
+        };
+        img.onerror = function () { URL.revokeObjectURL(url); A.toast(A.L("This file is not an image.", "ไฟล์นี้ไม่ใช่รูปภาพ"), "err"); };
+        img.src = url;
+      });
+      clr.addEventListener("click", function () { hidden.value = ""; prev.removeAttribute("src"); prev.hidden = true; clr.hidden = true; });
     });
     opts.fields.filter(function (f) { return f.type === "slots"; }).forEach(function (f) {
       var box = form.querySelector('[data-slots="' + f.name + '"] .slots');
