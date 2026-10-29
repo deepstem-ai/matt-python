@@ -1,5 +1,24 @@
 # Changelog
 
+## 4.7 r1 — October 2026
+- **Cookie consent bar (PDPA):**
+  - A full-width bar at the bottom of the screen with a clear explanation, a link to the
+    cookie policy, and **Cookie Settings · Reject All · Accept All**. Reject All and Accept All
+    look identical, so refusing is as easy as agreeing.
+  - Nothing is pre-selected, and the site stays usable behind the bar (no cookie wall).
+  - Shown at the **start of every visit, on whichever page the visitor lands**, with the
+    current choice. It is not asked again on later pages of the same visit.
+  - The settings dialog also has Reject All / Accept All / Save my choices. Withdrawal is
+    always available from "Cookies" in the footer.
+- **Proof of consent:**
+  - Every choice is logged on the server (`POST /api/consent`, table `consent_log`): a random
+    reference, the time, the policy version and the choices. No name, email or IP address.
+  - Records are deleted after 3 years.
+  - Admins can download the log as CSV in Settings → Cookie consent records. "Erase all
+    data" clears it.
+- Consent policy version is now 5, so everyone is asked again. The privacy page and cookie
+  table are updated.
+
 ## 4.6 r2 — October 2026
 - **Always the current version in the browser.**
   - Every stylesheet and script link carries `?v=<version>`, so browsers cannot keep showing an

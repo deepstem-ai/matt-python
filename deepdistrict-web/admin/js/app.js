@@ -527,6 +527,8 @@
         '<dl class="dl"><dt>' + L("Name", "ชื่อ") + "</dt><dd>" + esc(o.name) + "</dd><dt>" + L("Address", "ที่อยู่") + "</dt><dd>" + esc(o.address) + "</dd><dt>" + L("Email / phone", "อีเมล / โทร") + "</dt><dd>" + esc([o.email, o.phone].filter(Boolean).join(" · ")) + "</dd><dt>" + L("Tax ID", "เลขประจำตัวผู้เสียภาษี") + "</dt><dd>" + esc(o.taxId || "–") + "</dd>" +
         "<dt>" + L("Default rate", "ราคามาตรฐาน") + "</dt><dd>" + A.money(o.rate) + " / " + L("h", "ชม.") + "</dd><dt>" + L("Low-hours alert", "แจ้งเตือนชั่วโมงใกล้หมด") + "</dt><dd>≤ " + A.hrs(o.lowHours) + "</dd><dt>" + L("No-show uses hours", "ขาดเรียนนับชั่วโมง") + "</dt><dd>" + (o.noShowCounts ? L("Yes", "ใช่") : L("No", "ไม่")) + "</dd><dt>" + L("Who approves requests", "ผู้อนุมัติคำขอ") + "</dt><dd>" + (o.teachersApprove ? L("Admins and teachers", "ผู้ดูแลระบบและครู") : L("Admins only", "เฉพาะผู้ดูแลระบบ")) + "</dd><dt>" + L("How to pay", "ช่องทางชำระเงิน") + "</dt><dd>" + esc(o.paymentInfo || "–") + "</dd></dl></section>" +
         '<section class="box"><header><h2>' + L("Email", "อีเมล") + '</h2><button class="btn" data-act="smtp">' + L("Set up", "ตั้งค่า") + '</button></header><p class="muted" data-smtp-status>' + L("Checking…", "กำลังตรวจสอบ…") + "</p></section>" +
+        '<section class="box"><header><h2>' + L("Cookie consent records (PDPA)", "บันทึกความยินยอมคุกกี้ (PDPA)") + '</h2><button class="btn" data-act="consent-log">' + L("Download CSV", "ดาวน์โหลด CSV") + "</button></header>" +
+        '<p class="muted" data-consent-count>' + L("Every Accept / Reject / Save on the public website is recorded here as proof of consent: a random reference, the time, the policy version and the choices. No names, emails or IP addresses. Kept for 3 years.", "ทุกครั้งที่ผู้เข้าชมกดยอมรับ ปฏิเสธ หรือบันทึกตัวเลือกบนเว็บไซต์ จะถูกบันทึกไว้ที่นี่เป็นหลักฐานความยินยอม ได้แก่ รหัสอ้างอิงแบบสุ่ม เวลา ฉบับนโยบาย และตัวเลือก โดยไม่มีชื่อ อีเมล หรือ IP เก็บไว้ 3 ปี") + "</p></section>" +
         '<section class="box"><header><h2>' + L("Backup & data", "สำรองและจัดการข้อมูล") + "</h2></header>" +
         '<p class="note">' + L("Data is stored on the DeepDistrict server in one database file (server/data/deepdistrict.db). The server also copies it every day to server/data/backups (last 30 days). Export a backup file regularly as well and keep it somewhere safe.", "ข้อมูลเก็บบนเซิร์ฟเวอร์ DeepDistrict ในไฟล์ฐานข้อมูล server/data/deepdistrict.db และระบบสำรองอัตโนมัติทุกวันไว้ที่ server/data/backups (ย้อนหลัง 30 วัน) ควรส่งออกไฟล์สำรองเก็บไว้ในที่ปลอดภัยเป็นประจำด้วย") + "</p>" +
         '<div class="btnrow"><button class="btn btn--primary" data-act="backup">' + L("Export backup (.json)", "ส่งออกไฟล์สำรอง (.json)") + '</button><label class="btn">' + L("Import backup…", "นำเข้าไฟล์สำรอง…") + '<input type="file" accept=".json,application/json" data-import hidden></label>' +
@@ -648,6 +650,15 @@
       else if (act === "backup") { A.api("GET", "backup").then(function (d) { A.download("deepdistrict-backup-" + A.today() + ".json", JSON.stringify(d, null, 2), "application/json"); }).catch(function (e) { A.toast(e.message, "err"); }); }
       else if (act === "demo") { if (confirm(L("Add demo students, lessons and payments? Existing data is kept.", "เพิ่มข้อมูลตัวอย่าง (นักเรียน คาบเรียน การชำระเงิน)? ข้อมูลเดิมยังอยู่"))) { A.demo(); A.save().then(function () { A.route("dashboard"); }); } }
       else if (act === "erase") { if (prompt(L("Type ERASE to delete ALL back-office data on the server (a backup copy is kept in server/data/backups).", "พิมพ์ ERASE เพื่อลบข้อมูลระบบหลังบ้านทั้งหมดบนเซิร์ฟเวอร์ (ระบบเก็บสำเนาไว้ใน server/data/backups)")) === "ERASE") A.api("POST", "erase", { confirm: "ERASE" }).then(function () { A.me = null; A.boot(); }); }
+      else if (act === "consent-log") {
+        A.api("GET", "consent-log").then(function (d) {
+          var rows = [["reference", "chosen_at", "received_at", "policy_version", "preferences", "analytics", "marketing", "page"]].concat(d.items.map(function (r) {
+            var c = JSON.parse(r.choices || "{}"); return [r.ref, r.at, r.received, r.version, c.preferences ? "yes" : "no", c.analytics ? "yes" : "no", c.marketing ? "yes" : "no", r.page || ""];
+          }));
+          A.download("cookie-consent-log-" + A.today() + ".csv", "\ufeff" + rows.map(function (r) { return r.map(function (x) { return '"' + String(x).replace(/"/g, '""') + '"'; }).join(","); }).join("\r\n"), "text/csv");
+          A.toast(L(d.count + " consent records", "บันทึกความยินยอม " + d.count + " รายการ"));
+        }).catch(function (e) { A.toast(e.message, "err"); });
+      }
       else if (act === "export-sessions") exportSessions();
       else if (act === "export-payments") exportPayments();
       else if (A.onAct) A.onAct(act, b, ev);

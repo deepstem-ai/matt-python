@@ -14,6 +14,7 @@ Hosting:       any WSGI host (e.g. PythonAnywhere) -> see server/wsgi.py and ser
 import hashlib
 import hmac
 import json
+import re
 import mimetypes
 import webbrowser
 import os
@@ -27,7 +28,7 @@ import sqlite3
 import sys
 import threading
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from http.cookies import SimpleCookie
 from pathlib import Path
 from socketserver import ThreadingMixIn
@@ -77,6 +78,7 @@ def init_db():
         CREATE TABLE IF NOT EXISTS credentials (user_id TEXT PRIMARY KEY, salt TEXT NOT NULL, hash TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS auth_sessions (token_hash TEXT PRIMARY KEY, user_id TEXT NOT NULL, expires REAL NOT NULL);
         CREATE TABLE IF NOT EXISTS audit (at TEXT NOT NULL, user_id TEXT, user_name TEXT, text TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS consent_log (ref TEXT NOT NULL, at TEXT NOT NULL, received TEXT NOT NULL, version INTEGER, choices TEXT NOT NULL, page TEXT);
         """)
         notify.init(con)
 
@@ -547,6 +549,21 @@ def api(environ, start, path):
         if path == "status":
             return respond(start, "200 OK", {"ok": True, "setup": not has_admin, "signedIn": bool(me), "version": VERSION})
 
+        if path == "consent" and method == "POST":
+            # proof of cookie consent (PDPA): random reference, time, policy version and choices only —
+            # no name, email, IP address or other personal data. Kept for 3 years.
+            ref = str(body.get("id") or "")
+            choices = body.get("choices") if isinstance(body.get("choices"), dict) else None
+            if not re.fullmatch(r"[a-z0-9]{6,32}", ref) or choices is None:
+                return respond(start, "400 Bad Request", {"error": "bad consent record"})
+            clean = {k: bool(choices.get(k)) for k in ("necessary", "preferences", "analytics", "marketing")}
+            if con.execute("SELECT COUNT(*) FROM consent_log").fetchone()[0] >= 500000:   # simple flood guard
+                return respond(start, "200 OK", {"ok": True})
+            con.execute("INSERT INTO consent_log (ref, at, received, version, choices, page) VALUES (?,?,?,?,?,?)",
+                        (ref, str(body.get("at") or "")[:30], now_iso(), int(body.get("v") or 0), json.dumps(clean), str(body.get("page") or "")[:60]))
+            con.execute("DELETE FROM consent_log WHERE received < ?", ((datetime.now(timezone.utc) - timedelta(days=3 * 365)).isoformat(timespec="seconds"),))
+            return respond(start, "200 OK", {"ok": True})
+
         if path == "setup" and method == "POST":
             if has_admin:
                 return respond(start, "409 Conflict", {"error": "already set up"})
@@ -633,6 +650,9 @@ def api(environ, start, path):
         if me["role"] != "admin":
             return respond(start, "403 Forbidden", {"error": "admin only"})
 
+        if path == "consent-log" and method == "GET":
+            rows = [dict(r) for r in con.execute("SELECT ref, at, received, version, choices, page FROM consent_log ORDER BY received DESC LIMIT 20000")]
+            return respond(start, "200 OK", {"items": rows, "count": con.execute("SELECT COUNT(*) FROM consent_log").fetchone()[0]})
         if path == "notify" and method == "GET":
             key = get_kv(con, "cron_key", None)
             if not key:
@@ -719,7 +739,7 @@ def api(environ, start, path):
             if body.get("confirm") != "ERASE":
                 return respond(start, "400 Bad Request", {"error": "confirmation missing"})
             daily_backup()
-            for t in ("records", "kv", "credentials", "auth_sessions", "audit", "notifications", "user_prefs", "line_users", "line_codes"):
+            for t in ("records", "kv", "credentials", "auth_sessions", "audit", "notifications", "user_prefs", "line_users", "line_codes", "consent_log"):
                 con.execute(f"DELETE FROM {t}")
             return respond(start, "200 OK", {"ok": True}, extra=[cookie(environ, "", clear=True)])
 

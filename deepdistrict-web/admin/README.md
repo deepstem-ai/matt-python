@@ -143,6 +143,13 @@ default hours, price per hour and open/closed there. A **custom course** asks fo
 older custom courses without one appear under "Other / custom". After editing the catalogue
 files, run `node tools/check_catalogue.js`.
 
+## Cookie consent records (PDPA)
+
+The public website asks about cookies at the start of every visit (Cookie Settings · Reject
+All · Accept All). Each choice is stored on the server as proof of consent, with no personal
+data: a random reference, the time, the policy version and the choices. Records are kept for
+3 years. **Settings → Cookie consent records → Download CSV**.
+
 ## Search
 
 **Search** finds lessons (topics, notes, rooms), enrolments, people, payments (receipt numbers)
