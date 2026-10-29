@@ -9,7 +9,7 @@ industry. Every course is **personalised** and offered **live on Zoom, onsite or
 
 Plain HTML, CSS and JavaScript. No build step and no dependencies. Works from disk.
 
-**Version 4.3 r1** (see `VERSION` and `CHANGELOG.md`).
+**Version 4.4 r1** (see `VERSION` and `CHANGELOG.md`).
 
 ## Run it on your computer
 
@@ -40,7 +40,7 @@ See `admin/README.md` (features) and `server/DEPLOY.md` (LAN use and free hostin
 | Partners | `pages/partners.html` | Partner types, engagement models, example projects |
 | About | `pages/about.html` | Mission, vision, values, SI teaser, principles, learning-to-working path, logo meaning |
 | Contact | `pages/contact.html` | Form with required PDPA consent on every submission; prefilled from course and plan links |
-| Back office & portal | `admin/index.html` (via `start.sh`) | Sign-in for admins, teachers, students and parents; hours total/learned/remaining/booked/to schedule; move lessons with make-ups; change requests; payments; calendar (.ics); reports as PDF / PNG / TXT / CSV — see `admin/README.md` |
+| Back office & portal | `admin/index.html` (via `start.sh`) | Sign-in for admins, teachers, students and parents; hours total/learned/remaining/booked/to schedule; move lessons with make-ups; change requests; payments; calendar (.ics); reports as PDF / PNG / TXT / CSV; notifications in the app, by email and LINE; installable on phones — see `admin/README.md` |
 | Legal | `pages/legal.html` | PDPA privacy notice, cookie and storage table, terms, accessibility, copyright |
 
 ## Key features

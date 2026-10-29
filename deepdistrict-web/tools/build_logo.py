@@ -221,6 +221,8 @@ def main():
     save(icon(mark, 32, white_tile, 0.02), "favicon-32.png")
     save(icon(mark, 192, white_tile, 0.06), "favicon-192.png")
     save(icon(mark, 180, white_tile, 0.06), "apple-touch-icon.png")
+    save(icon(mark, 512, white_tile, 0.1), "app-icon-512.png")                       # installed back-office app (PWA)
+    save(icon(mark_light, 512, (*NAVY, 255), 0.22), "app-icon-maskable-512.png")    # Android adaptive icon: keep inside the safe circle
 
     og = Image.new("RGBA", (1200, 630), (*NAVY, 255))
     full = stack(mark_light, word_white, gap)

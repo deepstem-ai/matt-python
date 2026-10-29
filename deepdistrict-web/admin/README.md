@@ -107,6 +107,33 @@ Each can be saved as **PDF or PNG**, printed, or **emailed** (with the PDF/PNG a
 email once in **Settings → Email** (e.g. Gmail / Google Workspace with an app password). Without
 it, "Email" downloads the file and opens your mail app, or uses the phone's share sheet.
 
+## Notifications: in the app, email and LINE
+
+The **bell** (and *Notifications* in the menu) shows what happened, e.g. a new enrolment and its
+schedule, a payment receipt, a new change request (for admins), a decision on a request, a moved
+or cancelled lesson, a completed lesson with the hours left, a reminder the day before a
+lesson, or hours running low.
+
+- **My settings & LINE**: each person chooses the topics, the channels (email, LINE) and the
+  language (Thai/English) of their messages; **Connect LINE** gives a 6-digit code to send to the
+  DeepDistrict LINE Official Account (one minute, no app to install).
+- **Admin: notifications & LINE**: switch topics on/off for everyone, the reminder time, the
+  monthly LINE limit (free plan ≈ 300 pushes), LINE account setup, a test message, and a sent
+  log (✓ sent, ✗ failed, ⛔ monthly limit). When the LINE limit is reached, email and the
+  in-app inbox still work.
+- In the LINE chat, people can type **"ตาราง / schedule"** or **"ชั่วโมง / hours"** for their next
+  lessons and hours left; these replies are free.
+
+Setup steps are in `server/DEPLOY.md` → *LINE notifications*.
+
+## Install it as an app on phones (no app store)
+
+The back office is an installable web app (PWA). **Android / Chrome / Edge**: *Install the app*
+button (Settings or the menu), or the browser menu → *Install app*. **iPhone / iPad**: open it in
+Safari → Share → *Add to Home Screen*. It then opens full-screen with its own icon, has a bottom
+tab bar on phones, and still opens without a connection (data needs the connection; nothing
+personal is stored offline).
+
 ## Search
 
 **Search** finds lessons (topics, notes, rooms), enrolments, people, payments (receipt numbers)
@@ -126,6 +153,7 @@ Dashboard alerts (low hours, past lessons not updated, unpaid fees, waiting requ
 weekly lesson series · month/week/list calendar with `.ics` export · payments & balances ·
 course prices/availability · activity log · backup export/restore · auto sign-out after 30
 minutes idle · screens refresh every 30 s so everyone sees updates.
+News to email / LINE / Facebook / TikTok from the portal: see `docs/NEWS-POSTING-PLAN.md`.
 
 ## Security notes
 
@@ -146,5 +174,8 @@ admin/js/app.js      layout, router, dashboard, people, enrolments, lessons, pay
 admin/js/calendar.js calendar views, .ics export, demo data
 admin/js/portal.js   moving lessons, make-ups, change requests, learner/parent home
 admin/js/reports.js  reports and exports (PDF / PNG / TXT / CSV / print)
+admin/js/notify.js   notifications inbox, my settings, Connect LINE, admin LINE settings, install app
+admin/sw.js          offline app shell (never caches /api/)
+server/notify.py     notification events, email/LINE sending, LINE webhook, reminders
 admin/vendor/        html2canvas 1.4.1, jsPDF 4.2.1 (MIT)
 ```

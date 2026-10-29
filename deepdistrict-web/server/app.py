@@ -30,7 +30,11 @@ from datetime import datetime, timezone
 from http.cookies import SimpleCookie
 from pathlib import Path
 from socketserver import ThreadingMixIn
+from urllib.parse import parse_qs
 from wsgiref.simple_server import WSGIRequestHandler, WSGIServer, make_server
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import notify  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent          # deepdistrict-web/
 DATA_DIR = Path(os.environ.get("DD_DATA_DIR", Path(__file__).resolve().parent / "data"))
@@ -71,6 +75,7 @@ def init_db():
         CREATE TABLE IF NOT EXISTS auth_sessions (token_hash TEXT PRIMARY KEY, user_id TEXT NOT NULL, expires REAL NOT NULL);
         CREATE TABLE IF NOT EXISTS audit (at TEXT NOT NULL, user_id TEXT, user_name TEXT, text TEXT NOT NULL);
         """)
+        notify.init(con)
 
 
 def now_iso():
@@ -296,6 +301,7 @@ def can_write(con, me, col, new, old):
 def apply_sync(con, me, body):
     """Apply a batch of changes from the browser after checking every one of them."""
     changed = 0
+    changes = []
     for col in COLLECTIONS:
         for rec in (body.get("upserts", {}).get(col) or []):
             if not isinstance(rec, dict) or not rec.get("id"):
@@ -325,6 +331,7 @@ def apply_sync(con, me, body):
             if col == "users" and rec.get("active") is False:
                 con.execute("DELETE FROM auth_sessions WHERE user_id=?", (rec["id"],))
             put_rec(con, col, rec, me["id"])
+            changes.append((col, old, rec))
             changed += 1
         for rid in (body.get("deletes", {}).get(col) or []):
             old = get_rec(con, col, rid)
@@ -344,6 +351,7 @@ def apply_sync(con, me, body):
             changed += 1
     for text in (body.get("log") or [])[:50]:
         audit(con, me, text)
+    notify.on_changes(con, changes, bool(get_kv(con, "smtp", {}).get("host")))
     return changed
 
 
@@ -353,7 +361,11 @@ def bootstrap(con, me):
     data["courseOverrides"] = get_kv(con, "courseOverrides", {})
     data["customCourses"] = get_kv(con, "customCourses", [])
     data["log"] = [dict(r) for r in con.execute("SELECT at, user_name AS by, text FROM audit ORDER BY rowid DESC LIMIT 200")] if me["role"] == "admin" else []
-    data["me"] = dict(public_user(me), hasLogin=True)
+    data["me"] = dict(public_user(me), hasLogin=True, prefs=notify.prefs(con, me["id"]), lineLinked=bool(notify.line_user(con, me["id"])))
+    lc, ns = notify.line_config(con), notify.settings(con)
+    data["notify"] = {"events": ns["events"], "line": {"configured": bool(lc.get("token")), "basicId": lc.get("basicId", ""), "liffId": lc.get("liffId", "")},
+                      "smtp": bool(get_kv(con, "smtp", {}).get("host"))}
+    data["inboxUnread"] = con.execute("SELECT COUNT(*) FROM notifications WHERE user_id=? AND read=0", (me["id"],)).fetchone()[0]
     data["v"] = 1
     data["serverTime"] = now_iso()
     return data
@@ -383,6 +395,11 @@ def send_mail(con, me, body):
         data = base64.b64decode(a.get("data") or "")
         maintype, _, subtype = (a.get("mime") or "application/octet-stream").partition("/")
         msg.add_attachment(data, maintype=maintype, subtype=subtype or "octet-stream", filename=(a.get("filename") or "document")[:120])
+    smtp_send(cfg, msg)
+    audit(con, me, "Emailed '" + msg["Subject"] + "' to " + ", ".join(to))
+
+
+def smtp_send(cfg, msg):
     port, sec = int(cfg.get("port") or 587), cfg.get("security") or "starttls"
     try:
         if sec == "ssl":
@@ -397,7 +414,49 @@ def send_mail(con, me, body):
         server.quit()
     except (OSError, smtplib.SMTPException) as e:
         raise MailError("could not send: " + str(e)[:200])
-    audit(con, me, "Emailed '" + msg["Subject"] + "' to " + ", ".join(to))
+
+
+def text_mail(cfg, to, subject, text):
+    """Plain notification email; returns an error string or None."""
+    if not cfg.get("host") or not to:
+        return "email not set up"
+    msg = EmailMessage()
+    msg["From"], msg["To"], msg["Subject"] = cfg.get("sender") or cfg.get("user"), to, subject[:200]
+    msg.set_content(text + "\n\n— DeepDistrict")
+    try:
+        smtp_send(cfg, msg)
+    except MailError as e:
+        return str(e)
+    return None
+
+
+# ---------------------------------------------------------------- notification worker
+_work_lock = threading.Lock()
+
+
+def run_notifications(with_reminders=False, force=False):
+    """Send queued notifications: collect under the DB lock, send without it, then record results."""
+    if not _work_lock.acquire(blocking=False):
+        return
+    try:
+        with _lock, db() as con:
+            smtp = get_kv(con, "smtp", {})
+            if with_reminders:
+                notify.reminders(con, bool(smtp.get("host")), force)
+            jobs, cfg, st, used = notify.collect(con)
+        if not jobs:
+            return
+        updates, pushes = notify.deliver(jobs, cfg, st, used, lambda to, subj, text: text_mail(smtp, to, subj, text))
+        with _lock, db() as con:
+            notify.apply_updates(con, updates, pushes)
+    except Exception as e:  # keep the server alive whatever happens
+        print("notify error", repr(e), file=sys.stderr)
+    finally:
+        _work_lock.release()
+
+
+def kick():
+    threading.Thread(target=run_notifications, daemon=True).start()
 
 
 # ---------------------------------------------------------------- HTTP
@@ -436,8 +495,42 @@ def read_json(environ):
     return json.loads(raw or b"{}")
 
 
+def line_webhook(environ, start):
+    try:
+        n = min(int(environ.get("CONTENT_LENGTH") or 0), MAX_BODY)
+    except ValueError:
+        n = 0
+    raw = environ["wsgi.input"].read(n) if n else b""
+    with _lock, db() as con:
+        cfg = notify.line_config(con)
+        if not cfg.get("secret") or not notify.verify_signature(cfg["secret"], raw, environ.get("HTTP_X_LINE_SIGNATURE")):
+            return respond(start, "401 Unauthorized", {"error": "bad signature"})
+        try:
+            events = json.loads(raw or b"{}").get("events", [])
+        except json.JSONDecodeError:
+            return respond(start, "400 Bad Request", {"error": "bad json"})
+        replies = notify.webhook(con, events, cfg)
+    for token, text in replies:   # reply messages are free on LINE OA
+        notify.line_request(cfg["token"], "/v2/bot/message/reply", {"replyToken": token, "messages": [{"type": "text", "text": text[:4900]}]})
+    return respond(start, "200 OK", {"ok": True})
+
+
+def cron(environ, start):
+    q = parse_qs(environ.get("QUERY_STRING", ""))
+    with _lock, db() as con:
+        key = get_kv(con, "cron_key", None)
+    if not key or not hmac.compare_digest((q.get("key") or [""])[0], key):
+        return respond(start, "403 Forbidden", {"error": "bad key"})
+    run_notifications(with_reminders=True)
+    return respond(start, "200 OK", {"ok": True})
+
+
 def api(environ, start, path):
     method = environ["REQUEST_METHOD"]
+    if path == "line/webhook" and method == "POST":
+        return line_webhook(environ, start)
+    if path == "cron":
+        return cron(environ, start)
     if method == "POST" and environ.get("HTTP_X_DD") != "1":       # blocks cross-site form posts (CSRF)
         return respond(start, "403 Forbidden", {"error": "missing header"})
     try:
@@ -494,6 +587,7 @@ def api(environ, start, path):
             except Denied as e:
                 con.rollback()
                 return respond(start, "403 Forbidden", {"error": str(e)})
+            kick()
             return respond(start, "200 OK", {"ok": True, "changed": n})
 
         if path == "password" and method == "POST":
@@ -503,6 +597,22 @@ def api(environ, start, path):
                 return respond(start, "400 Bad Request", {"error": "password too short"})
             set_password(con, me["id"], body["new"]); audit(con, me, "Changed own password")
             return respond(start, "200 OK", {"ok": True}, extra=[cookie(environ, new_session(con, me["id"]))])
+
+        if path == "inbox" and method == "GET":
+            rows = con.execute("SELECT id, at, event, text_th, text_en, read FROM notifications WHERE user_id=? ORDER BY at DESC LIMIT 60", (me["id"],)).fetchall()
+            return respond(start, "200 OK", {"items": [dict(r) for r in rows]})
+        if path == "inbox/read" and method == "POST":
+            con.execute("UPDATE notifications SET read=1 WHERE user_id=?", (me["id"],))
+            return respond(start, "200 OK", {"ok": True})
+        if path == "prefs" and method == "POST":
+            return respond(start, "200 OK", {"prefs": notify.set_prefs(con, me["id"], body)})
+        if path == "line/code" and method == "POST":
+            if not notify.line_config(con).get("token"):
+                return respond(start, "400 Bad Request", {"error": "LINE is not set up yet"})
+            return respond(start, "200 OK", {"code": notify.new_code(con, me["id"]), "basicId": notify.line_config(con).get("basicId", "")})
+        if path == "line/unlink" and method == "POST":
+            con.execute("DELETE FROM line_users WHERE user_id=?", (me["id"],))
+            return respond(start, "200 OK", {"ok": True})
 
         if path == "email" and method == "POST":
             if me["role"] not in STAFF:
@@ -519,6 +629,47 @@ def api(environ, start, path):
 
         if me["role"] != "admin":
             return respond(start, "403 Forbidden", {"error": "admin only"})
+
+        if path == "notify" and method == "GET":
+            key = get_kv(con, "cron_key", None)
+            if not key:
+                key = secrets.token_urlsafe(18); set_kv(con, "cron_key", key)
+            host = (environ.get("HTTP_X_FORWARDED_PROTO") or environ.get("wsgi.url_scheme", "http")) + "://" + environ.get("HTTP_HOST", "localhost")
+            lc = notify.line_config(con)
+            log = [dict(r) for r in con.execute("SELECT n.id, n.at, n.user_id, n.event, n.text_th, n.text_en, n.email, n.line, n.error FROM notifications n ORDER BY at DESC LIMIT 300")]
+            linked = [r["user_id"] for r in con.execute("SELECT user_id FROM line_users")]
+            return respond(start, "200 OK", {"settings": notify.settings(con), "line": {"configured": bool(lc.get("token")), "hasSecret": bool(lc.get("secret")), "basicId": lc.get("basicId", ""), "liffId": lc.get("liffId", "")},
+                                             "used": notify.line_used(con), "month": notify.month_key(), "webhook": host + "/api/line/webhook", "cron": host + "/api/cron?key=" + key, "log": log, "linked": linked})
+        if path == "notify" and method == "POST":
+            st = notify.settings(con)
+            st["events"].update({k: bool(v) for k, v in (body.get("events") or {}).items() if k in notify.EVENTS})
+            for k in ("quota", "reminderHour"):
+                if k in body:
+                    st[k] = max(0, int(body[k]))
+            set_kv(con, "notify", st); audit(con, me, "Updated notification settings")
+            return respond(start, "200 OK", {"ok": True})
+        if path == "line/config" and method == "POST":
+            lc = notify.line_config(con)
+            for k in ("token", "secret"):
+                if body.get(k):
+                    lc[k] = body[k].strip()
+            for k in ("basicId", "liffId"):
+                if k in body:
+                    lc[k] = (body[k] or "").strip()
+            if body.get("clear"):
+                lc = {}
+            set_kv(con, "line", lc); audit(con, me, "Updated LINE settings")
+            return respond(start, "200 OK", {"ok": True})
+        if path == "line/test" and method == "POST":
+            if not notify.line_user(con, me["id"]):
+                return respond(start, "400 Bad Request", {"error": "link your own LINE first (Settings → Connect LINE)"})
+            notify.queue(con, me["id"], "test", "ทดสอบการแจ้งเตือนจาก DeepDistrict ✅", "DeepDistrict test notification ✅", None, False)
+            con.commit(); kick()
+            return respond(start, "200 OK", {"ok": True})
+        if path == "notify/run" and method == "POST":
+            con.commit()
+            threading.Thread(target=run_notifications, kwargs={"with_reminders": True, "force": bool(body.get("force"))}, daemon=True).start()
+            return respond(start, "200 OK", {"ok": True})
 
         if path == "smtp" and method == "POST":
             cfg = get_kv(con, "smtp", {})
@@ -565,7 +716,7 @@ def api(environ, start, path):
             if body.get("confirm") != "ERASE":
                 return respond(start, "400 Bad Request", {"error": "confirmation missing"})
             daily_backup()
-            for t in ("records", "kv", "credentials", "auth_sessions", "audit"):
+            for t in ("records", "kv", "credentials", "auth_sessions", "audit", "notifications", "user_prefs", "line_users", "line_codes"):
                 con.execute(f"DELETE FROM {t}")
             return respond(start, "200 OK", {"ok": True}, extra=[cookie(environ, "", clear=True)])
 
@@ -586,9 +737,9 @@ def static(environ, start, path):
     if not target.is_file():
         return respond(start, "404 Not Found", "Not found", "text/plain; charset=utf-8")
     ctype = mimetypes.guess_type(target.name)[0] or "application/octet-stream"
-    if ctype.startswith("text/") or ctype in ("application/javascript", "image/svg+xml", "application/json"):
+    if ctype.startswith("text/") or ctype in ("application/javascript", "image/svg+xml", "application/json", "application/manifest+json"):
         ctype += "; charset=utf-8"
-    cache = [("Cache-Control", "no-cache")] if target.suffix in (".html", ".js", ".css") else [("Cache-Control", "public, max-age=86400")]
+    cache = [("Cache-Control", "no-cache")] if target.suffix in (".html", ".js", ".css", ".webmanifest") else [("Cache-Control", "public, max-age=86400")]
     return respond(start, "200 OK", target.read_bytes(), ctype, cache)
 
 
@@ -607,6 +758,7 @@ def application(environ, start):
 
 mimetypes.add_type("application/javascript", ".js")
 mimetypes.add_type("font/woff2", ".woff2")
+mimetypes.add_type("application/manifest+json", ".webmanifest")
 init_db()
 
 
@@ -625,6 +777,12 @@ def main():
     port = int(next((a for a in sys.argv[1:] if a.isdigit()), os.environ.get("PORT", 8000)))
     host = "0.0.0.0" if lan else "127.0.0.1"
     daily_backup()
+
+    def loop():
+        while True:
+            time.sleep(20)
+            run_notifications(with_reminders=True)
+    threading.Thread(target=loop, daemon=True).start()
     httpd = make_server(host, port, application, server_class=ThreadingServer, handler_class=QuietHandler)
     print(f"DeepDistrict running:  website  http://localhost:{port}/   back office  http://localhost:{port}/admin/")
     print(f"Data: {DB_PATH}")

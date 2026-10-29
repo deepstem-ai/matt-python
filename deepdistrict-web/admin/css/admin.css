@@ -396,3 +396,36 @@ html[lang="th"] .tbl th { text-transform: none; letter-spacing: 0; font-size: 0.
   body.printing-doc .docview { position: static; width: auto; max-height: none; overflow: visible; }
   body.printing-doc .docview__body { padding: 0; }
 }
+
+/* ---------------------------------------------------------------- notifications, LINE, installable app */
+.bell { position: relative; color: var(--text-dim); }
+.bell svg { width: 18px; height: 18px; }
+.bell b { position: absolute; top: -6px; right: -6px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 99px; background: var(--err); color: #fff; font-size: 0.68rem; line-height: 18px; text-align: center; }
+.inbox { list-style: none; margin: 0; padding: 0; }
+.inbox__item { display: flex; gap: 12px; padding: 12px 6px; border-bottom: 1px solid var(--line); }
+.inbox__item:last-child { border-bottom: 0; }
+.inbox__item p { margin: 0 0 2px; white-space: pre-line; }
+.inbox__item.is-new { background: color-mix(in srgb, var(--accent) 7%, transparent); border-radius: 10px; }
+.inbox__item.is-new p { font-weight: 600; }
+.inbox__ico { flex: none; width: 28px; font-size: 1.2rem; text-align: center; }
+.checks { display: grid; gap: 8px; margin: 6px 0 14px; }
+.checks label { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.box h3 { margin: 14px 0 4px; font-size: 0.95rem; }
+.meter { display: inline-block; vertical-align: middle; width: 120px; height: 8px; margin-left: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.meter i { display: block; height: 100%; background: var(--accent); }
+.steps { display: grid; gap: 12px; margin: 0 0 8px; padding-left: 22px; }
+.code-big { margin: 8px 0; font-family: var(--f-mono); font-size: 2rem; font-weight: 700; letter-spacing: 0.25em; }
+.tbl td.ctr { text-align: center; }
+.txt-err { color: var(--err); }
+.side__foot { display: grid; gap: 10px; }
+.tabbar { display: none; }
+@media (max-width: 700px) {
+  .tabbar { position: fixed; z-index: 30; left: 0; right: 0; bottom: 0; display: grid; grid-template-columns: repeat(5, 1fr); padding: 4px 4px calc(4px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: var(--glass); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+  .tabbar a, .tabbar button { display: grid; justify-items: center; gap: 2px; padding: 6px 2px; border: 0; background: none; color: var(--text-faint); font: inherit; font-size: 0.68rem; text-decoration: none !important; cursor: pointer; }
+  .tabbar svg { width: 22px; height: 22px; }
+  .tabbar a.is-on { color: var(--accent); font-weight: 600; }
+  #view { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+  .toast { bottom: calc(80px + env(safe-area-inset-bottom)) !important; }
+}
+.is-app .top { padding-top: max(14px, env(safe-area-inset-top)); }
+@media print { .tabbar { display: none !important; } }

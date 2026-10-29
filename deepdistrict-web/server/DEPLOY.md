@@ -49,6 +49,35 @@ Settings → Email in the back office. With Gmail / Google Workspace: host `smtp
 App passwords). Hosting providers may restrict outgoing email on free plans; if sending fails the
 back office falls back to downloading the file and opening the mail app.
 
+## LINE notifications (LINE Official Account, free plan)
+
+1. Create a LINE Official Account (free plan ≈ 300 push messages a month) and, in its settings,
+   enable the **Messaging API**. This creates a channel in LINE Developers.
+2. In LINE Developers → the channel → *Messaging API*: issue a **Channel access token
+   (long-lived)**; copy the **Channel secret** from *Basic settings*.
+3. Back office → Notifications → *Admin: notifications & LINE* → **Set up**: paste the token,
+   the secret and the account's LINE ID (e.g. `@123abcde`).
+4. Copy the **Webhook URL** shown there (`https://<your-site>/api/line/webhook`) into LINE
+   Developers → *Webhook URL*, press *Verify*, and switch **Use webhook** on. In the OA Manager,
+   switch auto-reply messages off so only DeepDistrict answers. The webhook needs HTTPS, so it
+   works once the site is online (PythonAnywhere), not on `localhost`.
+5. Everyone connects their own LINE in *Notifications → My settings & LINE → Connect LINE*: they
+   add the account as a friend and send the 6-digit code. Replies in the chat ("schedule",
+   "hours") are free; only pushed notifications count against the monthly limit, and several
+   notifications for one person are sent together as one message.
+
+**Background sending.** `start.sh` sends notifications straight away and checks for reminders
+every 20 seconds. Under WSGI hosting (PythonAnywhere) there is no background loop, so use the
+**Online hosting timer** link shown on the same page: call it every 10–15 minutes from a free
+cron service (e.g. cron-job.org) or a PythonAnywhere scheduled task, so that reminders go out.
+Keep this link private.
+
+**Free-plan note.** PythonAnywhere's free plan only allows outgoing connections to an allowlist
+of sites. If LINE messages fail with a connection error, check whether `api.line.me` is on the
+allowlist (or ask PythonAnywhere to add it), or use the cheapest paid plan, which has
+unrestricted internet access. The same applies to email: on the free plan only Gmail's SMTP
+server is reachable.
+
 ## Security checklist before real use
 
 - Use strong admin passwords; give teachers their own accounts.

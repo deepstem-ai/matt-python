@@ -1,5 +1,19 @@
 # Changelog
 
+## 4.4 r1 — October 2026
+- **Notifications** in the app (bell + inbox), by **email** and by **LINE Official Account**
+  (free plan): enrolment & schedule, receipt, new request (admins), request decided, lesson
+  moved/cancelled, lesson completed with hours left, reminder the day before, hours running low.
+- Personal settings: topics, channels, Thai/English. **Connect LINE** with a 6-digit code; the
+  LINE chat answers "schedule" and "hours" for free.
+- Admin: topics on/off, reminder time, monthly LINE limit with usage meter (several messages to
+  one person are grouped into one push), LINE setup, test message, sent log, a timer link for
+  hosts without background jobs.
+- **Installable app (PWA)** for Android and iPhone: manifest, app icons, offline app shell,
+  bottom tab bar on phones. No app store needed.
+- New transparent **horizon logo** (`logo-horizon*.png`) for dark and light backgrounds.
+- Plan for posting news from the portal: `docs/NEWS-POSTING-PLAN.md`.
+
 ## 4.3 r1 — October 2026
 - Enrolment form with **regular days & times per day** (different time/room each day) that
   creates all lessons automatically until the hours are used, records a payment, and opens an

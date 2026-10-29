@@ -2,10 +2,18 @@
 <html lang="th" data-theme="light">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
   <title>DeepDistrict · Back office</title>
   <link rel="icon" href="../assets/images/brand/favicon-32.png">
+  <!-- installable app (PWA): Android "Install app", iPhone "Add to Home Screen" -->
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="../assets/images/brand/apple-touch-icon.png">
+  <meta name="theme-color" content="#0b1324">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="DeepDistrict">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="stylesheet" href="../assets/css/fonts.css">
   <link rel="stylesheet" href="../assets/css/tokens.css">
   <link rel="stylesheet" href="css/admin.css">
@@ -30,6 +38,7 @@
   <script src="js/portal.js"></script>
   <script src="js/docs.js"></script>
   <script src="js/search.js"></script>
+  <script src="js/notify.js"></script>
   <script>DDA.boot();</script>
 </body>
 </html>

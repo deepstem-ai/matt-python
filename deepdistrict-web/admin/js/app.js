@@ -16,8 +16,11 @@
     courses: '<path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6a2 2 0 0 0-2 2zM20 19v3H6"/>',
     reports: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h8M8 9h2"/>',
     search: '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
+    bell: '<path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/>',
+    more: '<path d="M4 6h16M4 12h16M4 18h16"/>',
     settings: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>'
   };
+  A.ico = ico;
   function ico(n) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICON[n] + "</svg>"; }
 
   var NAV = [
@@ -25,6 +28,7 @@
     ["dashboard", "Dashboard", "ภาพรวม", "staff"],
     ["calendar", "Calendar", "ปฏิทิน", "all"],
     ["requests", "Change requests", "คำขอเปลี่ยนแปลง", "all", "sessions"],
+    ["inbox", "Notifications", "การแจ้งเตือน", "all", "bell"],
     ["enrolments", "Enrolments", "การลงทะเบียน", "staff", "enrol"],
     ["sessions", "Lessons log", "บันทึกการสอน", "staff"],
     ["people", "People", "ผู้ใช้และนักเรียน", "staff"],
@@ -507,6 +511,10 @@
     used = JSON.stringify(A.db).length;
     var html =
       '<section class="box"><header><h2>' + L("My account", "บัญชีของฉัน") + "</h2></header><p>" + esc(A.me.name) + " · " + esc(A.me.email) + " · " + esc(A.roleName(A.me.role)) + '</p><button class="btn" data-act="my-password">' + L("Change my password", "เปลี่ยนรหัสผ่าน") + "</button></section>" +
+      '<section class="box"><header><h2>' + L("Notifications & app", "การแจ้งเตือนและแอป") + '</h2></header><p class="muted">' + L("Choose what you are told about and how (in the app, email, LINE).", "เลือกเรื่องที่ต้องการรับแจ้งและช่องทาง (ในระบบ อีเมล LINE)") +
+        (A.db.me && A.db.me.lineLinked ? " · LINE ✓" : "") + '</p><div class="btnrow"><a class="btn" href="#/inbox?tab=prefs">' + L("My notifications", "การแจ้งเตือนของฉัน") + "</a>" +
+        (A.isAdmin() ? '<a class="btn" href="#/notify">' + L("Notifications & LINE (admin)", "ตั้งค่าแจ้งเตือนและ LINE (ผู้ดูแล)") + "</a>" : "") +
+        '<button class="btn" type="button" data-act="install" hidden>' + L("Install the app", "ติดตั้งแอป") + "</button></div><p class=\"note\" data-ios-tip hidden></p></section>" +
       (A.isAdmin() ? '<section class="box"><header><h2>' + L("Organisation & rules", "ข้อมูลองค์กรและกติกา") + '</h2><button class="btn" data-act="org">' + L("Edit", "แก้ไข") + "</button></header>" +
         '<dl class="dl"><dt>' + L("Name", "ชื่อ") + "</dt><dd>" + esc(o.name) + "</dd><dt>" + L("Address", "ที่อยู่") + "</dt><dd>" + esc(o.address) + "</dd><dt>" + L("Email / phone", "อีเมล / โทร") + "</dt><dd>" + esc([o.email, o.phone].filter(Boolean).join(" · ")) + "</dd><dt>" + L("Tax ID", "เลขประจำตัวผู้เสียภาษี") + "</dt><dd>" + esc(o.taxId || "–") + "</dd>" +
         "<dt>" + L("Default rate", "ราคามาตรฐาน") + "</dt><dd>" + A.money(o.rate) + " / " + L("h", "ชม.") + "</dd><dt>" + L("Low-hours alert", "แจ้งเตือนชั่วโมงใกล้หมด") + "</dt><dd>≤ " + A.hrs(o.lowHours) + "</dd><dt>" + L("No-show uses hours", "ขาดเรียนนับชั่วโมง") + "</dt><dd>" + (o.noShowCounts ? L("Yes", "ใช่") : L("No", "ไม่")) + "</dd><dt>" + L("Who approves requests", "ผู้อนุมัติคำขอ") + "</dt><dd>" + (o.teachersApprove ? L("Admins and teachers", "ผู้ดูแลระบบและครู") : L("Admins only", "เฉพาะผู้ดูแลระบบ")) + "</dd><dt>" + L("How to pay", "ช่องทางชำระเงิน") + "</dt><dd>" + esc(o.paymentInfo || "–") + "</dd></dl></section>" +
@@ -565,16 +573,21 @@
     root.innerHTML =
       '<aside class="side" id="side"><a class="side__brand" href="#/dashboard"><img src="../assets/images/brand/logo-mark.png" alt=""><span>DeepDistrict<small>' + L("Back office", "ระบบหลังบ้าน") + "</small></span></a><nav>" +
       NAV.filter(function (n) { return n[3] === "all" || (n[3] === "staff" && A.isStaff()) || (n[3] === "learner" && !A.isStaff()) || A.isAdmin() && n[3] === "admin"; }).map(function (n) {
-        var badge = n[0] === "requests" ? A.pendingRequests().length : 0;
-        return '<a href="#/' + n[0] + '" data-nav="' + n[0] + '">' + ico(n[4] || n[0]) + "<span>" + L(n[1], n[2]) + "</span>" + (badge ? '<b class="nav-badge">' + badge + "</b>" : "") + "</a>";
+        var badge = n[0] === "requests" ? A.pendingRequests().length : n[0] === "inbox" ? A.db.inboxUnread || 0 : 0;
+        return '<a href="#/' + n[0] + '" data-nav="' + n[0] + '">' + ico(n[4] || n[0]) + "<span>" + L(n[1], n[2]) + "</span>" + (badge ? '<b class="nav-badge"' + (n[0] === "inbox" ? " data-unread" : "") + ">" + badge + "</b>" : "") + "</a>";
       }).join("") +
-      '</nav><div class="side__foot"><a href="../index.html">← ' + L("Public website", "เว็บไซต์หลัก") + "</a></div></aside>" +
+      '</nav><div class="side__foot"><button class="btn btn--sm" type="button" data-act="install" hidden>' + L("Install the app", "ติดตั้งแอป") + '</button><a href="../index.html">← ' + L("Public website", "เว็บไซต์หลัก") + "</a></div></aside>" +
       '<div class="main"><header class="top"><button class="ibtn menu" type="button" data-act="menu" aria-label="Menu">☰</button><h1 id="page-title"></h1><div class="top__act" id="page-actions"></div>' +
       '<div class="top__tools"><div class="seg"><button type="button" data-lang="th"' + (A.lang === "th" ? ' aria-pressed="true"' : "") + '>TH</button><button type="button" data-lang="en"' + (A.lang === "en" ? ' aria-pressed="true"' : "") + ">EN</button></div>" +
       '<button class="ibtn" type="button" data-act="theme" aria-label="Light / dark" title="Light / dark"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>' +
+      '<a class="ibtn bell" href="#/inbox" aria-label="' + L("Notifications", "การแจ้งเตือน") + '">' + ico("bell") + '<b data-bell' + (A.db.inboxUnread ? "" : " hidden") + ">" + (A.db.inboxUnread || "") + "</b></a>" +
       '<span class="sync" id="sync" aria-live="polite"></span><span class="me" title="' + esc(A.me.email) + '">' + esc(A.me.nick || A.me.name.split(" ")[0]) + " · " + esc(A.roleName(A.me.role)) + "</span>" +
       '<button class="btn btn--sm" type="button" data-act="logout">' + L("Sign out", "ออกจากระบบ") + "</button></div></header>" +
-      '<main id="view" tabindex="-1"></main></div>';
+      '<main id="view" tabindex="-1"></main></div>' +
+      // phones: the most used pages as a bottom tab bar, the rest stay in the ☰ menu
+      '<nav class="tabbar" aria-label="' + L("Main", "เมนูหลัก") + '">' + [[A.isStaff() ? "dashboard" : "home", "Home", "หน้าหลัก", "dashboard"], ["calendar", "Calendar", "ปฏิทิน", "calendar"], ["requests", "Requests", "คำขอ", "sessions"], ["inbox", "Alerts", "แจ้งเตือน", "bell"]].map(function (n) {
+        return '<a href="#/' + n[0] + '" data-nav="' + n[0] + '">' + ico(n[3]) + "<span>" + L(n[1], n[2]) + "</span></a>";
+      }).join("") + '<button type="button" data-act="menu">' + ico("more") + "<span>" + L("More", "เพิ่มเติม") + "</span></button></nav>";
   }
 
   A.route = function (to) {
