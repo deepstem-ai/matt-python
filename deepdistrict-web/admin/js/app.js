@@ -63,7 +63,7 @@
   A.opts = opts;
   function peopleOpts(role) { return A.people(role).filter(function (u) { return u.active !== false; }).map(function (u) { return [u.id, u.name + (u.nick ? " (" + u.nick + ")" : "")]; }); }
   A.peopleOpts = peopleOpts;
-  function courseOpts() { return A.courses().filter(function (c) { return c.active; }).map(function (c) { return [c.code, c.code + " · " + A.tx(c.title)]; }); }
+  function courseOpts() { return A.coursesByGroup(A.courses().filter(function (c) { return c.active; })).map(function (c) { return [c.code, c.code + " · " + A.tx(c.title), A.groupName(c.group)]; }); }
   function enrolmentOpts() { return A.visibleEnrolments().filter(function (e) { return e.status !== "cancelled"; }).map(function (e) { return [e.id, A.enrolmentLabel(e)]; }); }
   A.enrolmentOpts = enrolmentOpts;
   var MODES = function () { return [["online", "Zoom"], ["onsite", L("Onsite", "ที่แล็บ")], ["hybrid", L("Hybrid", "ไฮบริด")]]; };
@@ -471,12 +471,19 @@
   P.courses = function (q) {
     if (!A.isAdmin()) return P.dashboard(q);
     var term = (q.get("q") || "").toLowerCase();
-    var list = A.courses().filter(function (c) { return !term || (c.code + " " + A.tx(c.title)).toLowerCase().indexOf(term) !== -1; });
+    var list = A.courses().filter(function (c) { return !term || (c.code + " " + A.tx(c.title) + " " + A.groupName(c.group)).toLowerCase().indexOf(term) !== -1; });
+    var head = [L("Code", "รหัส"), L("Course", "หลักสูตร"), L("Default hours", "ชั่วโมงมาตรฐาน"), L("Rate / h", "ราคา/ชม."), L("Enrolled", "ผู้ลงทะเบียน"), L("Status", "สถานะ")];
+    function row(c) {
+      var n = A.db.enrolments.filter(function (e) { return e.courseCode === c.code && e.status === "active"; }).length;
+      return { attrs: ' data-course-code="' + esc(c.code) + '"', cells: ['<b class="mono">' + esc(c.code) + "</b>", esc(A.tx(c.title)) + (c.source === "custom" ? ' <span class="badge">' + L("custom", "เพิ่มเอง") + "</span>" : ""), A.num(c.hours), A.money(c.rate), n || "–", c.active ? A.badge("done", L("Open", "เปิดสอน")) : A.badge("cancelled", L("Closed", "ปิด"))] };
+    }
+    // one table per course group, in catalogue order
+    var sections = A.groups().map(function (g) {
+      var gl = list.filter(function (c) { return c.group === g.id; });
+      return gl.length ? '<section class="box course-group-box"><header><h2>' + esc(A.tx(g.name)) + ' <span class="muted">· ' + gl.length + "</span></h2></header>" + table(head, gl.map(row), "tbl--click") + "</section>" : "";
+    }).join("");
     var html = '<div class="toolbar"><p class="muted">' + L("Courses come from the public website. Set your own hours, price and availability here — the website text does not change.", "รายวิชามาจากเว็บไซต์ กำหนดจำนวนชั่วโมง ราคา และการเปิดสอนได้ที่นี่ โดยข้อความบนเว็บไซต์ไม่เปลี่ยน") + '</p><input type="search" class="search" data-search placeholder="' + esc(L("Search courses…", "ค้นหาหลักสูตร…")) + '" value="' + esc(q.get("q") || "") + '"></div>' +
-      table([L("Code", "รหัส"), L("Course", "หลักสูตร"), L("Default hours", "ชั่วโมงมาตรฐาน"), L("Rate / h", "ราคา/ชม."), L("Enrolled", "ผู้ลงทะเบียน"), L("Status", "สถานะ")], list.map(function (c) {
-        var n = A.db.enrolments.filter(function (e) { return e.courseCode === c.code && e.status === "active"; }).length;
-        return { attrs: ' data-course-code="' + esc(c.code) + '"', cells: ['<b class="mono">' + esc(c.code) + "</b>", esc(A.tx(c.title)) + (c.source === "custom" ? ' <span class="badge">' + L("custom", "เพิ่มเอง") + "</span>" : ""), A.num(c.hours), A.money(c.rate), n || "–", c.active ? A.badge("done", L("Open", "เปิดสอน")) : A.badge("cancelled", L("Closed", "ปิด"))] };
-      }), "tbl--click");
+      (sections || A.empty("No course matches.", "ไม่พบหลักสูตรที่ตรงกัน"));
     return { title: L("Courses", "หลักสูตร"), actions: '<button class="btn btn--primary" data-act="new-course">+ ' + L("Custom course", "เพิ่มหลักสูตรเอง") + "</button>", html: html };
   };
   function editCourse(code) {
@@ -487,7 +494,8 @@
       fields: (custom ? [
         { name: "code", label: L("Code", "รหัส"), value: c.code, required: true },
         { name: "en", label: L("Title (English)", "ชื่อ (อังกฤษ)"), value: c.title.en, required: true },
-        { name: "th", label: L("Title (Thai)", "ชื่อ (ไทย)"), value: c.title.th }
+        { name: "th", label: L("Title (Thai)", "ชื่อ (ไทย)"), value: c.title.th },
+        { name: "group", label: L("Group", "กลุ่มหลักสูตร"), type: "select", options: A.groups().map(function (g) { return [g.id, A.tx(g.name)]; }), value: c.group || "custom" }
       ] : []).concat([
         { name: "hours", label: L("Default hours", "ชั่วโมงมาตรฐาน"), type: "number", step: "0.5", min: 0, value: c.hours, required: true },
         { name: "rate", label: L("Rate per hour", "ราคาต่อชั่วโมง") + " (" + A.db.org.currency + ")", type: "number", step: "1", min: 0, value: c.rate, required: true },
@@ -497,7 +505,7 @@
       validate: function (v) { if (custom && v.code !== code && A.course(v.code)) return L("This code already exists.", "รหัสนี้มีอยู่แล้ว"); },
       onSave: function (v) {
         if (custom) {
-          var rec = { code: v.code.toUpperCase(), title: { en: v.en, th: v.th || v.en }, hours: v.hours, rate: v.rate, active: v.active, track: "custom", level: 0 };
+          var rec = { code: v.code.toUpperCase(), title: { en: v.en, th: v.th || v.en }, group: v.group || "custom", hours: v.hours, rate: v.rate, active: v.active, track: "custom", level: 0 };
           var i = A.db.customCourses.findIndex(function (x) { return x.code === code; });
           if (i === -1) A.db.customCourses.push(rec); else A.db.customCourses[i] = rec;
         } else A.db.courseOverrides[code] = { hours: v.hours, rate: v.rate, active: v.active };

@@ -892,3 +892,45 @@ html[lang="th"] .punchline p { font-family: var(--f-display-th); }
 .steps--6 { --cols: 3; }
 @media (max-width: 1000px) { .ladder--4 { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .ladder--4 { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   Course groups (v4.6): group chips, grouped catalogue, group cards, new-era picks
+   ========================================================================== */
+.chip-row button img { width: 16px; height: 16px; margin-right: 6px; vertical-align: -3px; filter: var(--icon-filter); }
+.chip-row button[aria-pressed="true"] img { filter: brightness(0) invert(1); }
+:root[data-theme="dark"] .chip-row button[aria-pressed="true"] img { filter: brightness(0); }
+.chip-row .chip-pick { border-color: color-mix(in srgb, #ffc24b 60%, transparent); color: var(--text); font-weight: 600; }
+.chip-row--tracks { margin-top: -2px; }
+.chip-row--tracks button { padding: 6px 12px; font-size: var(--fs-xs); }
+.chip-row[hidden] { display: none; }
+
+.course-group { grid-column: 1 / -1; min-width: 0; margin-bottom: 26px; }
+.picks > *, .course-group__list > * { min-width: 0; }
+.course-group__head { display: flex; align-items: center; gap: 16px; margin-bottom: 14px; }
+.course-group__head > div { flex: 1; min-width: 0; }
+.course-group__head h3 { margin: 0 0 2px; font-size: 1.25rem; }
+.course-group__head p { margin: 0; font-size: var(--fs-sm); color: var(--text-dim); }
+.course-group__icon { flex: none; display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; background: var(--grad-si-deep); color: #fff; font-size: 1.3rem; }
+.course-group__icon img { width: 24px; height: 24px; filter: brightness(0) invert(1); }
+.course-group--picks .course-group__icon { background: linear-gradient(135deg, #ffc24b, #e09a12); color: #3a2600; }
+.course-group__list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 1040px) { .course-group__list { grid-template-columns: 1fr 1fr; } .course-group__list > :nth-child(3) { display: none; } }
+@media (max-width: 640px) { .course-group__list { grid-template-columns: 1fr; } .course-group__head { flex-wrap: wrap; } .course-group__head .btn { width: 100%; justify-content: center; } }
+
+.picks { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media (max-width: 1100px) { .picks { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .picks { grid-template-columns: 1fr; } }
+.pick { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 20px; border: 1.5px solid transparent; border-radius: var(--r-md); background: linear-gradient(var(--surface), var(--surface)) padding-box, linear-gradient(135deg, #3ddbd9, #3b82f6 50%, #ffc24b) border-box; box-shadow: var(--shadow-sm); cursor: pointer; transition: transform var(--t-med) var(--ease), box-shadow var(--t-med) var(--ease); }
+.pick:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.pick h3 { margin: 0; font-size: 1.02rem; }
+.pick p { margin: 0; font-size: var(--fs-sm); color: var(--text-dim); }
+.pick .course__go { margin-top: auto; color: var(--accent); }
+.pick .course__go svg { width: 18px; height: 18px; }
+.pick__tag { align-self: flex-start; padding: 3px 10px; border-radius: var(--r-pill); background: color-mix(in srgb, #ffc24b 22%, transparent); color: var(--text); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em; }
+.pick__tag--sm { margin-left: auto; margin-right: 6px; padding: 2px 8px; font-size: 0.66rem; white-space: nowrap; }
+
+.group-card .chips--tech a { padding: 3px 10px; border: 1px solid var(--line); border-radius: var(--r-pill); background: var(--surface-2); font-size: 0.75rem; color: var(--text-dim); text-decoration: none; }
+.group-card .chips--tech a:hover { border-color: var(--accent); color: var(--accent); }
+.group-card .card__meta--row { margin-top: auto; padding-top: 14px; text-decoration: none; }
+.course__top { flex-wrap: wrap; row-gap: 6px; }
+.course__top .lvl { white-space: nowrap; }

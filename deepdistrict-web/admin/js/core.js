@@ -141,11 +141,23 @@
   A.courses = function () {
     var pub = ((window.DD_CONTENT || {}).courses || []).map(function (c) {
       var o = A.db.courseOverrides[c.code] || {};
-      return { code: c.code, title: c.title, track: c.track, level: c.level, source: "site",
+      return { code: c.code, title: c.title, track: c.track, level: c.level, group: c.group || "programming", source: "site",
                hours: o.hours != null ? o.hours : (typeof c.hours === "number" ? c.hours : 20),
                rate: o.rate != null ? o.rate : A.db.org.rate, active: o.active !== false };
     });
-    return pub.concat(A.db.customCourses.map(function (c) { return Object.assign({ source: "custom", rate: A.db.org.rate, active: true }, c); }));
+    return pub.concat(A.db.customCourses.map(function (c) { return Object.assign({ source: "custom", rate: A.db.org.rate, active: true, group: "custom" }, c); }));
+  };
+  // course groups from the public catalogue, plus "custom" for courses added here without a group
+  A.groups = function () {
+    return ((window.DD_CONTENT || {}).groups || []).map(function (g) { return { id: g.id, name: g.name }; })
+      .concat([{ id: "custom", name: { en: "Other / custom", th: "อื่น ๆ / เพิ่มเอง" } }]);
+  };
+  A.groupName = function (id) { var g = A.groups().filter(function (x) { return x.id === id; })[0]; return g ? A.tx(g.name) : id; };
+  // courses ordered by group (catalogue order inside each group)
+  A.coursesByGroup = function (list) {
+    var order = A.groups().map(function (g) { return g.id; });
+    return (list || A.courses()).map(function (c, i) { return { c: c, i: i }; })
+      .sort(function (a, b) { return (order.indexOf(a.c.group) - order.indexOf(b.c.group)) || (a.i - b.i); }).map(function (x) { return x.c; });
   };
   A.course = function (code) { return A.courses().filter(function (c) { return c.code === code; })[0]; };
   A.courseName = function (code) { var c = A.course(code); return c ? code + " · " + A.tx(c.title) : code || "–"; };
@@ -217,7 +229,15 @@
     function field(f) {
       var v = f.value == null ? "" : f.value, id = "f-" + f.name, req = f.required ? " required" : "";
       var input;
-      if (f.type === "select") input = '<select id="' + id + '" name="' + f.name + '"' + req + ">" + f.options.map(function (o) { return '<option value="' + A.esc(o[0]) + '"' + (String(o[0]) === String(v) ? " selected" : "") + ">" + A.esc(o[1]) + "</option>"; }).join("") + "</select>";
+      if (f.type === "select") {
+        // options: [value, label] or [value, label, group label] → consecutive groups become <optgroup>
+        var html = "", open = null;
+        f.options.forEach(function (o) {
+          if (o[2] !== open) { if (open) html += "</optgroup>"; open = o[2] || null; if (open) html += '<optgroup label="' + A.esc(open) + '">'; }
+          html += '<option value="' + A.esc(o[0]) + '"' + (String(o[0]) === String(v) ? " selected" : "") + ">" + A.esc(o[1]) + "</option>";
+        });
+        input = '<select id="' + id + '" name="' + f.name + '"' + req + ">" + html + (open ? "</optgroup>" : "") + "</select>";
+      }
       else if (f.type === "textarea") input = '<textarea id="' + id + '" name="' + f.name + '" rows="3"' + req + ">" + A.esc(v) + "</textarea>";
       else if (f.type === "checkbox") return '<label class="mf-check' + (f.full ? " mf-full" : "") + '"><input type="checkbox" name="' + f.name + '"' + (v ? " checked" : "") + "> <span>" + A.esc(f.label) + "</span></label>";
       else if (f.type === "slots") return '<fieldset class="mf-slots mf-full" data-slots="' + f.name + '"><legend>' + A.esc(f.label) + "</legend>" + (f.hint ? "<small>" + A.esc(f.hint) + "</small>" : "") + '<div class="slots"></div><button type="button" class="btn btn--sm" data-add-slot>+ ' + A.L("Add a day/time", "เพิ่มวัน/เวลา") + "</button></fieldset>";

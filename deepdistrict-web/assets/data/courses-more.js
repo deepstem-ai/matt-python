@@ -25,14 +25,14 @@
 
   /* ------------------------------------------------------------ New tracks */
   D.tracks.push(
-    { id: "aieng", icon: "core", name: L("AI Co-Engineering", "วิศวกรรมซอฟต์แวร์ร่วมกับ AI"),
+    { id: "aieng", icon: "core", name: L("Vibe Coding & AI Co-Engineering", "Vibe Coding และวิศวกรรมซอฟต์แวร์ร่วมกับ AI"),
       text: L("Build real software with AI coding agents — and stay the engineer in charge: specify, verify, test and ship.",
               "สร้างซอฟต์แวร์จริงร่วมกับ AI Coding Agent โดยที่คุณยังเป็นวิศวกรผู้ควบคุม ตั้งแต่กำหนดสเปก ตรวจสอบ ทดสอบ จนส่งมอบ"),
       tech: ["Claude Code", "Codex", "Cursor", "Copilot"] },
     { id: "exam", icon: "trophy", name: L("Exams & Olympiads", "สอบมาตรฐานและโอลิมปิก"),
-      text: L("Focused preparation for COMPAS-PY1, COMPAS-CPP1 and HKICO, with timed mocks and a clear exam method.",
-              "เตรียมสอบ COMPAS-PY1, COMPAS-CPP1 และ HKICO แบบเจาะจง พร้อมข้อสอบจำลองจับเวลาและวิธีทำข้อสอบที่เป็นระบบ"),
-      tech: ["Python", "C++", "Mock exams", "TCAS portfolio"] }
+      text: L("Focused preparation for COMPAS-PY1, COMPAS-CPP1, HKICO and the POSN computer olympiad, with timed mocks and a clear exam method.",
+              "เตรียมสอบ COMPAS-PY1, COMPAS-CPP1, HKICO และโอลิมปิกคอมพิวเตอร์ สอวน. แบบเจาะจง พร้อมข้อสอบจำลองจับเวลาและวิธีทำข้อสอบที่เป็นระบบ"),
+      tech: ["Python", "C++", "POSN", "Mock exams"] }
   );
 
   /* ------------------------------------------------------------ New courses */
@@ -47,8 +47,8 @@
       text: L("Learn to code with puzzles and characters on iPad or Mac, then build a first tiny app.", "เรียนเขียนโค้ดผ่านปริศนาและตัวละครบน iPad หรือ Mac แล้วสร้างแอปเล็ก ๆ แอปแรก"),
       tools: ["Swift Playgrounds", "iPad", "Mac"] },
     { code: "ACE110", track: "aieng", level: 1, hours: 18,
-      title: L("AI Co-Engineering I: Build with AI Assistants", "AI Co-Engineering 1: สร้างงานร่วมกับผู้ช่วย AI"),
-      text: L("Turn an idea into a working app with an AI assistant — and learn to read, question and fix what it writes.", "เปลี่ยนไอเดียเป็นแอปที่ใช้งานได้ด้วยผู้ช่วย AI พร้อมฝึกอ่าน ตั้งคำถาม และแก้โค้ดที่ AI เขียน"),
+      title: L("Vibe Coding: Build Real Apps with AI", "Vibe Coding: สร้างแอปจริงด้วย AI"),
+      text: L("Describe it, build it, ship it: turn an idea into a working app with AI assistants — and learn to read, question and fix what the AI writes.", "อธิบาย สร้าง และใช้งานจริง เปลี่ยนไอเดียเป็นแอปที่ใช้งานได้ด้วยผู้ช่วย AI พร้อมฝึกอ่าน ตั้งคำถาม และแก้โค้ดที่ AI เขียน"),
       tools: ["Claude", "ChatGPT", "GitHub Copilot", "Git"] },
     { code: "EXM110", track: "exam", level: 1, hours: 20,
       title: L("HKICO Python Preparation", "เตรียมสอบ HKICO (Python)"),

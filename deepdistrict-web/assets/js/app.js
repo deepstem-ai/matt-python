@@ -40,6 +40,7 @@
   courses.forEach(function (c) { byCode[c.code] = c; });
   function level(id) { return (DATA.levels || [])[id - 1]; }
   function track(id) { return (DATA.tracks || []).filter(function (x) { return x.id === id; })[0]; }
+  function group(id) { return (DATA.groups || []).filter(function (x) { return x.id === id; })[0]; }
   function lvlChip(c) {
     return c.anyLevel ? '<span class="lvl lvl--any">' + t(L("All levels · custom", "ทุกระดับ · ออกแบบเฉพาะ")) + "</span>"
       : '<span class="lvl lv-' + c.level + '">' + t(level(c.level).short) + "</span>";
@@ -173,6 +174,24 @@
         '<div class="path__body"><span class="path__tag">' + t(l.tag) + "</span><h3>" + t(l.short) + "</h3><p>" + t(l.text) + "</p>" +
         (compact ? "" : '<p class="path__outcome">' + CHECK + t(l.outcome) + "</p>") +
         '<div class="chips">' + chips + (compact && list.length > 4 ? '<a class="code-chip code-chip--more" href="' + base + "pages/programs.html?level=" + l.id + '#catalog">+' + (list.length - 4) + "</a>" : "") + "</div></div></li>";
+    }).join("");
+  };
+
+  // new-era highlights: a short, curated list (DATA.highlights)
+  function highlightCard(h, i, plainCard) {
+    var c = byCode[h.code]; if (!c) return "";
+    return '<article role="button" tabindex="0" class="pick' + (plainCard ? "" : " reveal reveal-delay-" + (i % 4)) + '" data-course="' + c.code + '" aria-haspopup="dialog"><span class="pick__tag">★ ' + t(h.tag) + "</span>" +
+      '<span class="course__top"><span class="course__code">' + c.code + "</span>" + lvlChip(c) + "</span><h3>" + t(c.title) + "</h3><p>" + t(h.why) + '</p><span class="course__go" aria-hidden="true">' + ARROW + "</span></article>";
+  }
+  R.highlights = function (el) { el.innerHTML = (DATA.highlights || []).map(highlightCard).join(""); };
+
+  // home: one card per course group, listing its tracks
+  R.groups = function (el) {
+    el.innerHTML = (DATA.groups || []).map(function (g, i) {
+      var n = courses.filter(function (c) { return c.group === g.id; }).length;
+      return '<article class="card group-card reveal reveal-delay-' + (i % 3) + '" data-tilt><div class="card__icon">' + icon(g.icon) + "</div><h3>" + t(g.name) + "</h3><p>" + t(g.text) + "</p>" +
+        '<div class="chips chips--tech">' + g.tracks.map(function (id) { var tr = track(id); return tr ? '<a href="' + base + "pages/programs.html?track=" + id + '#catalog">' + t(tr.name) + "</a>" : ""; }).join("") + "</div>" +
+        '<a class="card__meta card__meta--row" href="' + base + (g.href || "pages/programs.html?group=" + g.id + "#catalog") + '">' + t(L(n + " courses", n + " รายวิชา")) + ARROW + "</a></article>";
     }).join("");
   };
 
@@ -453,13 +472,17 @@
   /* ---------- Course catalogue ---------- */
   R.courses = function (el) {
     var params = new URLSearchParams(location.search);
-    var state = { track: params.get("track") || "all", level: params.get("level") || "all", mode: params.get("mode") || "all", q: params.get("q") || "", all: false };
+    var state = { group: params.get("group") || "all", track: params.get("track") || "all", level: params.get("level") || "all", mode: params.get("mode") || "all", q: params.get("q") || "", all: false };
+    if (state.track !== "all" && DATA.groupOf && DATA.groupOf(state.track)) state.group = DATA.groupOf(state.track).id;
+    if (state.group !== "all" && state.group !== "picks" && !group(state.group)) state.group = "all";
     var filters = $("[data-course-filters]"), countEl = $("[data-course-count]");
     var PAGE = 12;
     if (filters) {
       filters.innerHTML =
-        '<div class="chip-row" role="group" aria-label="Track"><button type="button" data-f-track="all">' + t(L("All", "ทั้งหมด")) + "</button>" +
-        (DATA.tracks || []).map(function (tr) { return '<button type="button" data-f-track="' + tr.id + '">' + t(tr.name) + "</button>"; }).join("") + "</div>" +
+        '<div class="chip-row chip-row--groups" role="group" aria-label="Course group"><button type="button" data-f-group="all">' + t(L("All groups", "ทุกกลุ่ม")) + "</button>" +
+        (DATA.highlights ? '<button type="button" class="chip-pick" data-f-group="picks">★ ' + t(L("New-era picks", "คอร์สเด่นยุคใหม่")) + "</button>" : "") +
+        (DATA.groups || []).map(function (g) { return '<button type="button" data-f-group="' + g.id + '">' + icon(g.icon) + t(g.name) + "</button>"; }).join("") + "</div>" +
+        '<div class="chip-row chip-row--tracks" role="group" aria-label="Track" data-track-row></div>' +
         '<div class="filter-line">' +
         '<label class="search"><img src="' + base + 'assets/images/icons/search.svg" alt=""><span class="visually-hidden">Search</span>' +
         '<input type="search" data-f-q data-i18n-attrs="placeholder" data-en-placeholder="Search, e.g. Python, Jetson, exam" data-th-placeholder="ค้นหา เช่น Python, Jetson, สอบ" value="' + esc(state.q) + '"></label>' +
@@ -467,13 +490,31 @@
         '<select data-f-mode aria-label="Mode"><option value="all" data-en="Any format" data-th="ทุกรูปแบบ"></option>' + ["online", "onsite", "hybrid"].map(function (k) { return '<option value="' + k + '" data-en="' + esc(DATA.modes[k].name.en) + '" data-th="' + esc(DATA.modes[k].name.th) + '"></option>'; }).join("") + "</select></div>";
       $$("option[data-en]", filters).forEach(function (o) { o.textContent = o.getAttribute("data-" + lang()); });
     }
-    function filtered() { return state.track !== "all" || state.level !== "all" || state.mode !== "all" || state.q.trim(); }
+    function filtered() { return state.group !== "all" || state.track !== "all" || state.level !== "all" || state.mode !== "all" || state.q.trim(); }
+    // the track row only lists the tracks of the chosen group
+    function trackRow() {
+      var row = $("[data-track-row]"); if (!row) return;
+      var g = group(state.group), ids = g ? g.tracks : [];
+      row.hidden = !g || ids.length < 2;
+      row.innerHTML = '<button type="button" data-f-track="all">' + t(L("All in this group", "ทั้งหมดในกลุ่มนี้")) + "</button>" +
+        ids.map(function (id) { var tr = track(id); return tr ? '<button type="button" data-f-track="' + id + '">' + t(tr.name) + "</button>" : ""; }).join("");
+      $$("[data-f-track]", row).forEach(function (b) { b.addEventListener("click", function () { state.track = b.getAttribute("data-f-track"); state.all = false; sync(); }); });
+    }
+    function card(c) {
+      return '<article role="button" tabindex="0" class="course lv-' + c.level + (c.featured ? " course--featured" : "") + '" data-course="' + c.code + '" id="course-' + c.code + '" aria-haspopup="dialog">' +
+        '<span class="course__top"><span class="course__code">' + c.code + "</span>" + (c.highlight ? '<span class="pick__tag pick__tag--sm">★ ' + t(c.highlight) + "</span>" : "") + lvlChip(c) + "</span>" +
+        "<h3>" + t(c.title) + "</h3><p>" + t(c.text) + "</p>" +
+        '<span class="course__meta"><span>' + t(track(c.track).name) + "</span>" + modesIcons(c.code) + '<span class="course__go" aria-hidden="true">' + ARROW + "</span></span></article>";
+    }
     function sync() {
+      $$("[data-f-group]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-f-group") === state.group)); });
       $$("[data-f-track]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-f-track") === state.track)); });
       var ls = $("[data-f-level]"), ms = $("[data-f-mode]");
       if (ls) ls.value = state.level; if (ms) ms.value = state.mode;
       var q = state.q.trim().toLowerCase();
       var list = courses.filter(function (c) {
+        if (state.group === "picks") { if (!c.highlight) return false; }
+        else if (state.group !== "all" && c.group !== state.group) return false;
         if (state.track !== "all" && c.track !== state.track) return false;
         if (state.level !== "all" && !c.anyLevel && String(c.level) !== String(state.level)) return false;
         if (state.mode !== "all" && ((details[c.code] && details[c.code].modes) || []).indexOf(state.mode) === -1) return false;
@@ -484,25 +525,34 @@
         }
         return true;
       });
+      if (!filtered() && !state.all && DATA.groups) {
+        // overview: every group with its first courses and a way into the whole group
+        el.innerHTML = (DATA.highlights ? '<section class="course-group course-group--picks" aria-label="' + esc(tx(L("New-era picks", "คอร์สเด่นยุคใหม่"))) + '"><header class="course-group__head"><span class="course-group__icon">★</span><div><h3>' + t(L("New-era picks", "คอร์สเด่นยุคใหม่")) + "</h3><p>" +
+          t(L("Start here: the few courses that matter most for AI, STEM, research and competitions now.", "เริ่มที่นี่ คอร์สไม่กี่ตัวที่สำคัญที่สุดสำหรับ AI, STEM งานวิจัย และการแข่งขันในยุคนี้")) + '</p></div></header><div class="picks">' + DATA.highlights.map(function (h, i) { return highlightCard(h, i, true); }).join("") + "</div></section>" : "") +
+          DATA.groups.map(function (g) {
+          var gl = list.filter(function (c) { return c.group === g.id; });
+          return '<section class="course-group" aria-label="' + esc(tx(g.name)) + '"><header class="course-group__head">' + '<span class="course-group__icon">' + icon(g.icon) + "</span><div><h3>" + t(g.name) + "</h3><p>" + t(g.text) + "</p></div>" +
+            '<button type="button" class="btn btn--sm" data-open-group="' + g.id + '">' + t(L("All " + gl.length + " courses", "ดูทั้ง " + gl.length + " รายวิชา")) + ARROW + "</button></header>" +
+            '<div class="course-group__list">' + gl.slice(0, 3).map(card).join("") + "</div></section>";
+        }).join("") + '<button type="button" class="btn courses__more" data-show-all>' + t(L("Show all " + list.length + " courses", "ดูทั้งหมด " + list.length + " รายวิชา")) + "</button>";
+        $$("[data-open-group]", el).forEach(function (b) { b.addEventListener("click", function () { state.group = b.getAttribute("data-open-group"); state.track = "all"; trackRow(); sync(); var f = $("[data-course-filters]"); if (f) f.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); }); });
+      } else {
       var shown = filtered() || state.all ? list : list.slice(0, PAGE);
-      el.innerHTML = shown.length ? shown.map(function (c) {
-        return '<article role="button" tabindex="0" class="course lv-' + c.level + (c.featured ? " course--featured" : "") + '" data-course="' + c.code + '" id="course-' + c.code + '" aria-haspopup="dialog">' +
-          '<span class="course__top"><span class="course__code">' + c.code + "</span>" + lvlChip(c) + "</span>" +
-          "<h3>" + t(c.title) + "</h3><p>" + t(c.text) + "</p>" +
-          '<span class="course__meta"><span>' + t(track(c.track).name) + "</span>" + modesIcons(c.code) + '<span class="course__go" aria-hidden="true">' + ARROW + "</span></span></article>";
-      }).join("") + (shown.length < list.length ? '<button type="button" class="btn courses__more" data-show-all>' + t(L("Show all " + list.length + " courses", "ดูทั้งหมด " + list.length + " รายวิชา")) + "</button>" : "")
+      el.innerHTML = shown.length ? shown.map(card).join("") + (shown.length < list.length ? '<button type="button" class="btn courses__more" data-show-all>' + t(L("Show all " + list.length + " courses", "ดูทั้งหมด " + list.length + " รายวิชา")) + "</button>" : "")
         : '<p class="empty">' + t(L("No course matches yet, but we can design one for you. Ask us below.", "ยังไม่พบรายวิชาที่ตรงกัน แต่เราออกแบบให้คุณได้ สอบถามได้ด้านล่าง")) + "</p>";
+      }
       var more = $("[data-show-all]", el);
       if (more) more.addEventListener("click", function () { state.all = true; sync(); });
       if (countEl) countEl.innerHTML = filtered() ? t(L(list.length + " of " + courses.length + " courses", list.length + " จาก " + courses.length + " รายวิชา")) + ' <button type="button" class="linkish" data-f-clear>' + t(L("Clear filters", "ล้างตัวกรอง")) + "</button>" : t(L(courses.length + " courses · tap any course for a quick overview", courses.length + " รายวิชา · แตะที่รายวิชาเพื่อดูภาพรวมสั้น ๆ"));
       var clr = $("[data-f-clear]");
-      if (clr) clr.addEventListener("click", function () { state.track = state.level = state.mode = "all"; state.q = ""; var qi2 = $("[data-f-q]"); if (qi2) qi2.value = ""; sync(); });
+      if (clr) clr.addEventListener("click", function () { state.group = state.track = state.level = state.mode = "all"; state.q = ""; var qi2 = $("[data-f-q]"); if (qi2) qi2.value = ""; trackRow(); sync(); });
       var p = new URLSearchParams();
-      ["track", "level", "mode"].forEach(function (k) { if (state[k] !== "all") p.set(k, state[k]); });
+      ["group", "track", "level", "mode"].forEach(function (k) { if (state[k] !== "all" && !(k === "group" && state.track !== "all")) p.set(k, state[k]); });
       if (state.q) p.set("q", state.q);
       try { history.replaceState(null, "", location.pathname + (p.toString() ? "?" + p : "") + (location.hash.indexOf("#course-") === 0 ? "#catalog" : location.hash)); } catch (e) { /* file:// may refuse */ }
     }
-    $$("[data-f-track]").forEach(function (b) { b.addEventListener("click", function () { state.track = b.getAttribute("data-f-track"); sync(); }); });
+    $$("[data-f-group]").forEach(function (b) { b.addEventListener("click", function () { state.group = b.getAttribute("data-f-group"); state.track = "all"; state.all = false; trackRow(); sync(); }); });
+    trackRow();
     ["level", "mode"].forEach(function (k) { var sel = $("[data-f-" + k + "]"); if (sel) sel.addEventListener("change", function () { state[k] = sel.value; sync(); }); });
     var qi = $("[data-f-q]");
     if (qi) qi.addEventListener("input", function () { state.q = qi.value; sync(); });

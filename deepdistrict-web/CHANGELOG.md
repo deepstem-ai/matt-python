@@ -1,5 +1,43 @@
 # Changelog
 
+## 4.6 r1 — October 2026
+- **Course groups** above tracks, used in the catalogue, the home page and the back office:
+  - Foundation Programming
+  - Software & App Development
+  - AI & Data Science
+  - Hardware, Robotics & Edge AI
+  - Research & Innovation
+  - Standard Tests & Admissions
+- **12 new-era picks**, shown first on the home page and in the catalogue (★ filter):
+  - Vibe Coding (ACE110), AI agents for code (ACE220)
+  - STEM AI on Raspberry Pi 5 (EDG220), frontier AI agents (SI410)
+  - Swift & SwiftUI Playgrounds (SWF110), Swift Student Challenge (SSC250)
+  - Apple Intelligence & on-device AI (IOS340), Apple Vision Pro & visionOS (VOS350)
+  - Innovation Lab (INNO), competitions (RES330)
+  - POSN computer olympiad (EXM230), COMPAS-PY1 (EXM210)
+- **11 new courses** and a new track, "Cloud, Security & DevOps":
+  - SCR090 Scratch & creative coding, CP230 competitive programming
+  - SQL120 databases & SQL, GEN120 generative AI for students, RL340 reinforcement learning
+  - SEC220 cybersecurity & CTF, CLD230 cloud/Linux/DevOps
+  - INN120 design thinking, ENT230 tech entrepreneurship
+  - EXM230 POSN (สอวน.) prep, VOS350 Apple Vision Pro & visionOS
+- **Updated courses**:
+  - ACE110 is now "Vibe Coding: Build Real Apps with AI"
+  - SWF110 is now "Swift & SwiftUI Playgrounds"
+  - IOS340 now covers Apple's Foundation Models framework, the Vision framework and Core ML
+  - the Apple track covers Apple Intelligence and visionOS
+  - the plan builder suggests the new courses
+- **Catalogue**:
+  - The overview groups the courses: the picks first, then each group.
+  - Group chips lead to that group's track chips.
+  - Links such as `?group=` and `?track=` select the right group.
+- **Back office**:
+  - The Courses page shows one table per group.
+  - Course drop-downs are grouped.
+  - Custom courses have a "Group" field, saved in the database (records without one show
+    under "Other / custom").
+- `tools/check_catalogue.js` checks every course, track, group and course-code reference.
+
 ## 4.5 r1 — October 2026
 - New branch **DeepDistrict Admissions** (`pages/admissions.html`): preparation for IELTS
   Academic, Digital SAT Math, Digital SAT Reading & Writing (EBRW), **TBAT**, CU-AAT Math and

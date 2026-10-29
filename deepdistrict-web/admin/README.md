@@ -134,6 +134,15 @@ Safari → Share → *Add to Home Screen*. It then opens full-screen with its ow
 tab bar on phones, and still opens without a connection (data needs the connection; nothing
 personal is stored offline).
 
+## Courses and groups
+
+Courses come from the public catalogue and are shown in six groups (Foundation Programming,
+Software & App Development, AI & Data Science, Hardware/Robotics/Edge AI, Research &
+Innovation, Standard Tests & Admissions). **Courses** lists one table per group; set your own
+default hours, price per hour and open/closed there. A **custom course** asks for its group;
+older custom courses without one appear under "Other / custom". After editing the catalogue
+files, run `node tools/check_catalogue.js`.
+
 ## Search
 
 **Search** finds lessons (topics, notes, rooms), enrolments, people, payments (receipt numbers)
