@@ -39,6 +39,14 @@ with HTTPS.
    (or sign in and use **Settings → Import backup** to bring your local data over).
 6. Download a backup regularly (Settings → Export backup).
 
+**Plans in 2026 (check PythonAnywhere's current terms):** the paid tiers were merged into one
+**Developer** plan (about $10/month) with unrestricted internet access and scheduled tasks.
+Free accounts created from mid-January 2026 have **no scheduled tasks and no MySQL**, and
+internet access is restricted to an allowlist. This app needs neither: it uses its own SQLite
+file, and reminders can be driven by the *Online hosting timer* URL from any free external cron
+service. It runs as a normal **WSGI** app, so it does not depend on PythonAnywhere's ASGI
+support, which is still in beta.
+
 Free-plan limits to know (check PythonAnywhere's current terms): one web app, about
 512 MB disk, a monthly click to keep the free app running, and community support only.
 For a custom domain (e.g. `portal.deepdistrict.si`) a paid plan is needed.

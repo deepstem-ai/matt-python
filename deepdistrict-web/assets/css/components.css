@@ -1138,3 +1138,21 @@ html[lang="th"] .punchline p { font-family: var(--f-display-th); }
 .cd-status--cancelled { background: color-mix(in srgb, #ef4444 10%, var(--surface)); border: 1px solid color-mix(in srgb, #ef4444 35%, var(--line)); }
 .finder__more { margin: 16px 0 0; padding: 12px 16px; border: 1px dashed var(--line-strong); border-radius: var(--r-md); font-size: var(--fs-sm); color: var(--text-dim); }
 .finder__more a { font-weight: 600; }
+
+/* v5.2 — minimum vs. winning score */
+.sg-kinds { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.sg-kind { display: flex; flex-direction: column; gap: 8px; padding: 22px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-sm); }
+.sg-kind h3 { margin: 0; font-size: 1.1rem; }
+.sg-kind p { margin: 0; font-size: var(--fs-sm); color: var(--text-dim); }
+.sg-read, .sg-targets { margin-top: 22px; padding: clamp(18px, 3vw, 28px); border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); }
+.sg-read h3, .sg-targets h3 { margin: 0 0 12px; font-size: 1.05rem; }
+.sg-systems { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+.sg-sys { padding: 18px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
+.sg-sys h3 { margin: 0 0 4px; font-size: 1rem; }
+.sg-sys p { margin: 0; font-size: var(--fs-sm); color: var(--text-dim); }
+.sg-sys__how { margin: 0 0 8px !important; font-weight: 700; color: var(--accent) !important; }
+.sg-advice { margin: 14px 0 0; padding: 12px 16px; border-left: 4px solid #ffc24b; border-radius: 8px; background: color-mix(in srgb, #ffc24b 10%, var(--surface)); font-size: var(--fs-sm); }
+.tbl-scroll { overflow-x: auto; }
+.cd-test__note--score { padding: 8px 12px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 8%, transparent); color: var(--text) !important; }
+@media (max-width: 1000px) { .sg-kinds, .sg-systems { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .sg-kinds, .sg-systems { grid-template-columns: 1fr; } }

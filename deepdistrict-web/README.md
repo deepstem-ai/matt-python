@@ -9,7 +9,7 @@ industry. Every course is **personalised** and offered **live on Zoom, onsite or
 
 Plain HTML, CSS and JavaScript. No build step and no dependencies. Works from disk.
 
-**Version 5.1 r1** (see `VERSION` and `CHANGELOG.md`).
+**Version 5.2 r1** (see `VERSION` and `CHANGELOG.md`).
 
 ## Run it on your computer
 

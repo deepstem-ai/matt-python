@@ -288,8 +288,48 @@
       text: L("TCAS Round 1 portfolio, UCAS and Common App deadlines, interviews and MMI.", "ยื่นพอร์ต TCAS รอบ 1 กำหนดส่ง UCAS และ Common App การสัมภาษณ์และ MMI") }
   ];
 
+  /* ------------------------------------------------------------ minimum score vs. the score that gets you in */
+  D.scoreGuide = {
+    kinds: [
+      { icon: "shield", name: L("The entry ticket", "บัตรผ่านเข้าสนาม"), tag: L("Minimum / qualification", "คะแนนขั้นต่ำ / คุณสมบัติ"),
+        text: L("Reach it and your application is read. Everyone above the line is simply \u201cin the race\u201d — it does not rank you.", "ถึงเกณฑ์แล้วใบสมัครของคุณจะถูกพิจารณา ทุกคนที่ผ่านเส้นนี้แค่ \u201cได้ลงสนาม\u201d ยังไม่ได้ถูกจัดอันดับ") },
+      { icon: "chart", name: L("The ranking score", "คะแนนที่ใช้จัดอันดับ"), tag: L("Weighting % / composite", "สัดส่วน % / คะแนนรวม"),
+        text: L("Scores are turned into points by weight and applicants are ranked until the seats are full — here every extra point counts.", "คะแนนถูกแปลงเป็นแต้มตามสัดส่วน แล้วเรียงลำดับจนเต็มจำนวนที่นั่ง ตรงนี้ทุกแต้มที่เพิ่มมีผลจริง") },
+      { icon: "users", name: L("The whole person", "มองทั้งตัวตน"), tag: L("Holistic review", "พิจารณาแบบองค์รวม"),
+        text: L("Scores are one part next to grades, essays, activities and interviews. A published range describes past admits; it is not a cut-off.", "คะแนนเป็นเพียงส่วนหนึ่ง ควบคู่กับผลการเรียน เรียงความ กิจกรรม และการสัมภาษณ์ ช่วงคะแนนที่ประกาศคือภาพของผู้ที่เคยได้รับเลือก ไม่ใช่เส้นตัด") }
+    ],
+    read: [
+      [L("“Qualifications”, “eligibility”, “minimum score”", "“คุณสมบัติผู้สมัคร” “คะแนนขั้นต่ำ”"), L("Pass or fail. 6.5 and 8.5 both pass — the higher score adds nothing at this step.", "ผ่านหรือไม่ผ่าน ได้ 6.5 หรือ 8.5 ก็ผ่านเท่ากัน คะแนนที่สูงกว่าไม่ได้เพิ่มอะไรในขั้นนี้")],
+      [L("“Selection criteria”, a table of weights (%)", "“เกณฑ์การพิจารณา” ตารางสัดส่วน (%)"), L("Ranked. A higher score earns more points and moves you up.", "จัดอันดับ คะแนนสูงกว่าได้แต้มมากกว่าและขยับอันดับขึ้น")],
+      [L("Both appear for the same test", "ข้อสอบเดียวกันอยู่ทั้งสองส่วน"), L("Reach the minimum first, then compete on the same score.", "ต้องถึงขั้นต่ำก่อน แล้วจึงแข่งกันด้วยคะแนนเดียวกันนั้น")]
+    ],
+    systems: [
+      { name: L("International programmes in Thailand", "หลักสูตรนานาชาติในไทย"), how: L("Minimum first, then ranking (often with an interview).", "ผ่านขั้นต่ำก่อน แล้วจัดอันดับ (มักมีสัมภาษณ์ร่วม)"),
+        text: L("Example: Chula BBTECH/BISTECH 2027 counts English 20%, Maths 20%, Science 20% and the interview 40% after the minimums are met. Chula BBA's SAT minimum is 1,270, yet the lowest admitted scores reported for recent years were far higher (about 1,340 in 2018 rising to about 1,430 in 2025).", "ตัวอย่าง: BBTECH/BISTECH จุฬาฯ ปี 2570 เมื่อผ่านขั้นต่ำแล้ว คิดคะแนนอังกฤษ 20% คณิต 20% วิทย์ 20% และสัมภาษณ์ 40% ส่วน BBA จุฬาฯ กำหนด SAT ขั้นต่ำ 1,270 แต่มีรายงานว่าคะแนนต่ำสุดของผู้ที่ได้รับเลือกในช่วงหลังสูงกว่านั้นมาก (ประมาณ 1,340 ในปี 2018 และเพิ่มเป็นประมาณ 1,430 ในปี 2025)") },
+      { name: L("TCAS Round 3 (Thai track, incl. กสพท)", "TCAS รอบ 3 (ภาคไทย รวม กสพท)"), how: L("Pure ranking by weighted composite.", "จัดอันดับด้วยคะแนนรวมถ่วงน้ำหนักล้วน"),
+        text: L("Each subject is scaled and multiplied by the faculty's weights; applicants are ranked until seats are filled. Subject minimums only let you enter. Last year's lowest score is history, not a promise — it moves with the paper and the competition.", "แต่ละวิชาถูกปรับเป็นสัดส่วนแล้วคูณค่าน้ำหนักของคณะ จากนั้นเรียงลำดับจนเต็มที่นั่ง คะแนนขั้นต่ำรายวิชาแค่ให้มีสิทธิ์ลงสนาม คะแนนต่ำสุดของปีก่อนเป็นสถิติ ไม่ใช่คำสัญญา และเปลี่ยนไปตามความยากของข้อสอบและคู่แข่ง") },
+      { name: L("United Kingdom", "สหราชอาณาจักร"), how: L("English is a threshold; subject tests compete.", "ภาษาอังกฤษเป็นเกณฑ์ผ่าน ข้อสอบวิชาคือการแข่งขัน"),
+        text: L("Meeting the IELTS requirement (often including a minimum in every skill) is what matters; going far above it rarely adds weight, but it opens universities with higher requirements. Grades, UCAT, TMUA or ESAT are where you compete.", "สิ่งสำคัญคือผ่านเกณฑ์ IELTS (มักรวมขั้นต่ำรายทักษะด้วย) การได้สูงกว่าเกณฑ์มากมักไม่เพิ่มน้ำหนัก แต่เปิดทางสู่มหาวิทยาลัยที่ตั้งเกณฑ์สูงกว่า ส่วนที่ต้องแข่งขันคือผลการเรียน UCAT, TMUA หรือ ESAT") },
+      { name: L("United States", "สหรัฐอเมริกา"), how: L("Holistic review.", "พิจารณาแบบองค์รวม"),
+        text: L("Most universities publish no cut-off. The \u201cmiddle 50%\u201d is the range of the middle half of admitted students — scoring inside it is normal, not a guarantee. English tests are usually minimums.", "มหาวิทยาลัยส่วนใหญ่ไม่มีเส้นตัด ช่วง \u201cmiddle 50%\u201d คือช่วงคะแนนของครึ่งกลางของผู้ที่ได้รับเลือก การอยู่ในช่วงนี้เป็นเรื่องปกติ ไม่ใช่การรับประกัน ส่วนข้อสอบภาษาอังกฤษมักเป็นเกณฑ์ขั้นต่ำ") },
+      { name: L("Singapore", "สิงคโปร์"), how: L("Minimum to apply; competitive above it.", "ขั้นต่ำเพื่อยื่น แข่งขันที่คะแนนสูงกว่า"),
+        text: L("A figure such as NTU's SAT 1250 lets you apply; students admitted to the most selective courses usually score well above it.", "ตัวเลขอย่าง SAT 1250 ของ NTU ทำให้ยื่นสมัครได้ ส่วนผู้ที่ได้รับเลือกในสาขาที่แข่งขันสูงมักได้คะแนนสูงกว่านั้นมาก") }
+    ],
+    targets: [
+      [L("Chula BBA", "BBA จุฬาฯ"), L("IELTS 6.5 · SAT 1,270", "IELTS 6.5 · SAT 1,270"), L("IELTS 7.5+ · SAT around 1,430 or higher", "IELTS 7.5 ขึ้นไป · SAT ประมาณ 1,430 หรือสูงกว่า")],
+      [L("Chula ISE", "ISE จุฬาฯ"), L("SAT Math 620 (or CU-AAT Math 480)", "SAT Math 620 (หรือ CU-AAT Math 480)"), L("SAT Math in the high 700s", "SAT Math ช่วงปลาย 700")],
+      [L("Chula Dentistry (Portfolio)", "ทันตแพทย์ จุฬาฯ (Portfolio)"), L("TBAT 1,500 · CU-AAT 1,000", "TBAT 1,500 · CU-AAT 1,000"), L("Clearly above both, with strong Biology and Chemistry", "สูงกว่าเกณฑ์ทั้งสองอย่างชัดเจน โดยเฉพาะชีววิทยาและเคมี")],
+      [L("TCAS Round 3 programmes", "หลักสูตรรอบ 3 TCAS"), L("Subject minimums (e.g. 30 per subject for กสพท)", "ขั้นต่ำรายวิชา (เช่น วิชาละ 30 สำหรับ กสพท)"), L("Above last year's lowest admitted score, with a buffer", "สูงกว่าคะแนนต่ำสุดของผู้ที่ได้รับเลือกปีก่อน โดยเผื่อระยะไว้")],
+      [L("UK universities", "มหาวิทยาลัยในสหราชอาณาจักร"), L("IELTS 6.5–7.5, often with a band minimum", "IELTS 6.5–7.5 มักมีขั้นต่ำรายทักษะ"), L("Meet every band on the first try; put the extra effort into UCAT / TMUA / ESAT and grades", "ผ่านทุกทักษะตั้งแต่ครั้งแรก แล้วทุ่มเวลาที่เหลือให้ UCAT / TMUA / ESAT และผลการเรียน")]
+    ],
+    advice: L("Our rule of thumb: treat the minimum as the start line. We plan towards the score that wins seats, keep a buffer for a harder paper, and remember that interviews and portfolios often carry real weight too.", "หลักของเรา: มองคะแนนขั้นต่ำเป็นเส้นออกตัว เราวางแผนไปที่คะแนนที่ชนะที่นั่ง เผื่อระยะไว้สำหรับข้อสอบที่ยากขึ้น และอย่าลืมว่าการสัมภาษณ์และพอร์ตโฟลิโอมักมีน้ำหนักจริงด้วย")
+  };
+  D.testScoreNote = L("A minimum score lets you apply; it is not a promise of a place. Where a programme ranks by weighted scores, every point above the minimum helps — so we aim for the competitive score, not the minimum.", "คะแนนขั้นต่ำทำให้คุณยื่นสมัครได้ แต่ไม่ได้รับประกันที่นั่ง หากหลักสูตรจัดอันดับด้วยคะแนนถ่วงน้ำหนัก ทุกแต้มที่เกินขั้นต่ำมีผล เราจึงตั้งเป้าที่คะแนนที่แข่งขันได้ ไม่ใช่แค่ขั้นต่ำ");
+
   /* ------------------------------------------------------------ FAQ */
   D.admFaq = [
+    { q: L("If the requirement is IELTS 6.5, does everyone with 6.5 get in?", "ถ้าเกณฑ์คือ IELTS 6.5 ทุกคนที่ได้ 6.5 จะได้เข้าไหม?"),
+      a: L("No. A minimum only lets you apply. If English is part of the programme's weighting, 8.0 earns more points than 6.5; if it is only a qualification (as in most UK offers), 6.5 and 8.0 pass the same way — and the competition happens on grades, other tests, the portfolio and the interview. See \u201cMinimum score or winning score?\u201d above.", "ไม่ คะแนนขั้นต่ำแค่ทำให้ยื่นสมัครได้ ถ้าภาษาอังกฤษอยู่ในสัดส่วนคะแนนของหลักสูตร ได้ 8.0 จะได้แต้มมากกว่า 6.5 แต่ถ้าเป็นแค่คุณสมบัติ (เช่นการรับเข้าในสหราชอาณาจักรส่วนใหญ่) 6.5 กับ 8.0 ผ่านเหมือนกัน และการแข่งขันอยู่ที่ผลการเรียน ข้อสอบอื่น พอร์ตโฟลิโอ และการสัมภาษณ์ ดูหัวข้อ \u201cคะแนนขั้นต่ำหรือคะแนนที่ชนะ?\u201d ด้านบน") },
     { q: L("Thai track or international programme — which should we aim for?", "ภาคไทยหรือหลักสูตรนานาชาติ ควรเลือกแบบไหน?"),
       a: L("They use different tests: the Thai track goes through TCAS with TGAT, TPAT and A-Level (and กสพท for medicine), while international programmes use SAT or CU-AAT, IELTS/TOEFL and subject tests such as TBAT or UCAT. Many students keep both doors open: the same strong Maths, Physics and English serve both. Use the finder above, then ask us for a plan.",
            "ใช้ข้อสอบต่างกัน ภาคไทยผ่าน TCAS ด้วย TGAT, TPAT และ A-Level (และ กสพท สำหรับแพทย์) ส่วนหลักสูตรนานาชาติใช้ SAT หรือ CU-AAT, IELTS/TOEFL และข้อสอบเฉพาะ เช่น TBAT หรือ UCAT นักเรียนจำนวนมากเปิดทางไว้ทั้งสองทาง เพราะคณิต ฟิสิกส์ และอังกฤษที่แข็งแรงชุดเดียวใช้ได้กับทั้งสองแบบ ลองใช้ตัวค้นหาด้านบน แล้วขอแผนจากเรา") },

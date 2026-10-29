@@ -72,6 +72,7 @@
         x.where.map(function (r) { return "<tr><td>" + t(r[0]) + "</td><td>" + t(r[1]) + "</td><td>" + t(r[2]) + "</td></tr>"; }).join("") + "</tbody></table>" : "") +
       '<table class="cd-test__scores"><caption>' + t(L("Which score for which target (examples)", "ต้องใช้คะแนนเท่าไรเพื่อเข้าที่ไหน (ตัวอย่าง)")) + "</caption><thead><tr><th>" + t(L("Target", "เป้าหมาย")) + "</th><th>" + t(L("Score / requirement", "คะแนน / เงื่อนไข")) + "</th></tr></thead><tbody>" +
       x.targets.map(function (r) { return "<tr><td>" + t(r[0]) + "</td><td>" + t(r[1]) + "</td></tr>"; }).join("") + "</tbody></table>" +
+      (DATA.testScoreNote ? '<p class="cd-test__note cd-test__note--score">' + t(DATA.testScoreNote) + "</p>" : "") +
       '<p class="cd-test__note">' + t(DATA.testCheckedNote) + ' <a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + t(L("Official site ↗", "เว็บไซต์ทางการ ↗")) + "</a></p></section>";
   }
   function modesIcons(code) {
@@ -568,6 +569,21 @@
           return '<li><a href="' + href + '"' + (linked ? ' data-course="' + esc(x.course) + '"' : "") + ' title="' + esc(tx(x.note)) + '"><span class="prep-cat__name">' + esc(x.name) + "</span>" + st + '<small>' + t(x.note) + "</small></a></li>";
         }).join("") + "</ul></article>";
     }).join("");
+  };
+
+  // minimum score vs. the score that wins a seat
+  R["adm-scores"] = function (el) {
+    var g = DATA.scoreGuide; if (!g) return;
+    el.innerHTML = '<div class="sg-kinds">' + g.kinds.map(function (k, i) {
+      return '<article class="sg-kind reveal reveal-delay-' + i + '"><div class="card__icon">' + icon(k.icon) + '</div><span class="card__tag">' + t(k.tag) + "</span><h3>" + t(k.name) + "</h3><p>" + t(k.text) + "</p></article>";
+    }).join("") + "</div>" +
+      '<div class="sg-read reveal"><h3>' + t(L("How to read an admission announcement", "อ่านประกาศรับสมัครอย่างไร")) + '</h3><table class="adm-format"><tbody>' +
+      g.read.map(function (r) { return '<tr><th scope="row">' + t(r[0]) + "</th><td>" + t(r[1]) + "</td></tr>"; }).join("") + "</tbody></table></div>" +
+      '<div class="sg-systems">' + g.systems.map(function (x, i) {
+        return '<article class="sg-sys reveal reveal-delay-' + (i % 3) + '"><h3>' + t(x.name) + '</h3><p class="sg-sys__how">' + t(x.how) + "</p><p>" + t(x.text) + "</p></article>";
+      }).join("") + "</div>" +
+      '<div class="sg-targets reveal"><h3>' + t(L("Minimum vs. the score we aim for", "ขั้นต่ำ เทียบกับคะแนนที่เราตั้งเป้า")) + '</h3><div class="tbl-scroll"><table class="cd-test__scores"><thead><tr><th>' + t(L("Programme", "หลักสูตร")) + "</th><th>" + t(L("Published minimum", "ขั้นต่ำที่ประกาศ")) + "</th><th>" + t(L("Our target", "เป้าหมายของเรา")) + "</th></tr></thead><tbody>" +
+      g.targets.map(function (r) { return "<tr><td>" + t(r[0]) + "</td><td>" + t(r[1]) + "</td><td><b>" + t(r[2]) + "</b></td></tr>"; }).join("") + '</tbody></table></div><p class="sg-advice">' + t(g.advice) + "</p></div>";
   };
 
   R["adm-steps"] = function (el) { el.innerHTML = stepsHtml(DATA.admSteps || []); };

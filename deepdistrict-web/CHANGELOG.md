@@ -1,5 +1,20 @@
 # Changelog
 
+## 5.2 r1 — October 2026
+- **"Minimum score or winning score?"** (Admissions page), in our own words:
+  - the three ways scores are used: entry ticket, ranking score, whole-person review
+  - how to read an admission announcement
+  - how each system uses scores: Thai international programmes, TCAS Round 3, UK, US,
+    Singapore
+  - a table of published minimums vs. our target scores, and our rule of thumb
+- Every test-prep course summary now says that a minimum lets you apply but does not
+  guarantee a place. New FAQ on "IELTS 6.5 — does everyone with 6.5 get in?".
+- `server/DEPLOY.md`: PythonAnywhere 2026 plans:
+  - the Developer plan is about $10
+  - new free accounts have no scheduled tasks or MySQL
+  - this app is a WSGI app, so it does not depend on the ASGI beta
+- `docs/TECH-REVIEW-2026-10.md`: review of the React/Next.js/Vercel vs. Django/PythonAnywhere advice.
+
 ## 5.1 r1 — October 2026
 - **Test prep by category** (Admissions page, `assets/data/prep.js`), six categories as briefed:
   - **International High School Equivalency:** GED, IGCSE, A-Level (Cambridge/Edexcel), IB
