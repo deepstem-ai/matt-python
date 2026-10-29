@@ -460,3 +460,5 @@ html[lang="th"] .tbl th { text-transform: none; letter-spacing: 0; font-size: 0.
 .promo-prev__body p { margin: 0; white-space: pre-line; }
 .promo-prev__tag { justify-self: start; padding: 3px 10px; border-radius: 99px; background: color-mix(in srgb, var(--amber) 25%, transparent); font-size: .72rem; font-weight: 700; text-transform: uppercase; }
 .promo-prev__note { font-size: .78rem; }
+.nowrap { white-space: nowrap; }
+.content-cat .btnrow { flex-wrap: wrap; justify-content: flex-end; }
