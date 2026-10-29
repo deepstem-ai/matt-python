@@ -1,5 +1,18 @@
 # Changelog
 
+## 4.6 r2 — October 2026
+- **Always the current version in the browser.**
+  - Every stylesheet and script link carries `?v=<version>`, so browsers cannot keep showing an
+    older release from cache.
+  - `tools/set_version.py "x.y rN"` updates VERSION, the footer and all links in one step.
+- **Start-up fixes.**
+  - `start.sh` / `start.bat` used to open the browser before the server started. If an older
+    DeepDistrict was still running on port 8000, the browser showed that old site.
+  - Now the server opens the browser itself, once it is listening.
+  - If 8000 is busy, it says so and uses the next free port (8001, …).
+  - On Windows a second server can no longer share the same port.
+  - The start-up message and `/api/status` show the version.
+
 ## 4.6 r1 — October 2026
 - **Course groups** above tracks, used in the catalogue, the home page and the back office:
   - Foundation Programming

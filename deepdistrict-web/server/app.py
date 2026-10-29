@@ -15,6 +15,7 @@ import hashlib
 import hmac
 import json
 import mimetypes
+import webbrowser
 import os
 import secrets
 import base64
@@ -35,6 +36,8 @@ from wsgiref.simple_server import WSGIRequestHandler, WSGIServer, make_server
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import notify  # noqa: E402
+
+VERSION = (Path(__file__).resolve().parent.parent / "VERSION").read_text(encoding="utf-8").strip() if (Path(__file__).resolve().parent.parent / "VERSION").exists() else "dev"
 
 ROOT = Path(__file__).resolve().parent.parent          # deepdistrict-web/
 DATA_DIR = Path(os.environ.get("DD_DATA_DIR", Path(__file__).resolve().parent / "data"))
@@ -542,7 +545,7 @@ def api(environ, start, path):
         has_admin = any(u.get("role") == "admin" for u in load_col(con, "users"))
 
         if path == "status":
-            return respond(start, "200 OK", {"ok": True, "setup": not has_admin, "signedIn": bool(me)})
+            return respond(start, "200 OK", {"ok": True, "setup": not has_admin, "signedIn": bool(me), "version": VERSION})
 
         if path == "setup" and method == "POST":
             if has_admin:
@@ -764,6 +767,9 @@ init_db()
 
 class ThreadingServer(ThreadingMixIn, WSGIServer):
     daemon_threads = True
+    # Never share a port with another server. (On Windows "reuse address" lets two servers
+    # bind the same port, so an old DeepDistrict could keep answering the browser.)
+    allow_reuse_address = os.name != "nt"
 
 
 class QuietHandler(WSGIRequestHandler):
@@ -783,8 +789,21 @@ def main():
             time.sleep(20)
             run_notifications(with_reminders=True)
     threading.Thread(target=loop, daemon=True).start()
-    httpd = make_server(host, port, application, server_class=ThreadingServer, handler_class=QuietHandler)
-    print(f"DeepDistrict running:  website  http://localhost:{port}/   back office  http://localhost:{port}/admin/")
+    # if the port is taken (often an older DeepDistrict still running), use the next free one
+    httpd = None
+    for p in range(port, port + 20):
+        try:
+            httpd = make_server(host, p, application, server_class=ThreadingServer, handler_class=QuietHandler)
+            break
+        except OSError:
+            if p == port:
+                print(f"Port {port} is already in use — probably an older DeepDistrict window is still open. Close it to free the port. Using the next free port instead.")
+    if not httpd:
+        sys.exit(f"No free port between {port} and {port + 19}. Close other DeepDistrict windows and try again.")
+    port = httpd.server_port
+    print(f"DeepDistrict {VERSION} running:  website  http://localhost:{port}/   back office  http://localhost:{port}/admin/")
+    if "--open" in sys.argv:   # open the browser only once this server is really listening
+        webbrowser.open(f"http://localhost:{port}/")
     print(f"Data: {DB_PATH}")
     if lan:
         print("LAN mode: other devices on this network can open http://<this computer's IP>:%d/ — traffic is not encrypted." % port)

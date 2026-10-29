@@ -10,6 +10,7 @@ python.org and tick "Add Python to PATH"). No other installs.
 ```
 
 - Website: <http://localhost:8000/> · Back office: <http://localhost:8000/admin/>
+- The browser opens by itself. If port 8000 is busy (often an older DeepDistrict window still open), the server says so and uses 8001, 8002, …; close old windows first. The footer and the start-up message show the version (e.g. 4.6 r2).
 - First visit: create the admin account.
 - Data: `server/data/deepdistrict.db` (one file). A copy is made every day in
   `server/data/backups/` (last 30 days). **Never commit or share this folder** — it holds
