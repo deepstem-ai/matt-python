@@ -1,5 +1,23 @@
 # Changelog
 
+## 4.3 r1 — October 2026
+- Enrolment form with **regular days & times per day** (different time/room each day) that
+  creates all lessons automatically until the hours are used, records a payment, and opens an
+  **enrolment confirmation** (schedule + fees + receipts).
+- **Clash detection** (same teacher, learner or room) with a confirm-or-go-back pop-up on every
+  create / edit / move / generate / approve.
+- Calendar **week time-grid**: colour per teacher, overlapping lessons side by side with
+  start–end, course, learner, teacher, mode and room; red outline for same-teacher overlaps;
+  teachers see other teachers' slots without learner details.
+- **Requests approved by DeepDistrict** (admins; optional for teachers); new **time off**
+  request with postpone/cancel; stored result shown to parents; requests report.
+- **Documents with logo + official stamp**: receipt (Thai/English amount in words, numbered),
+  learning schedule, enrolment confirmation, reports, search results.
+- **Email** documents as PDF/PNG via SMTP (Settings → Email), with share/mail-app fallback.
+- **Search** across lessons, enrolments, people, payments and requests with export.
+- Fix: changes made while a previous save was still running could be skipped; screens now also
+  refresh when moving between pages.
+
 ## 4.2 r1 — October 2026
 - **Server** (`server/app.py`, Python standard library + SQLite): sign-in for admins, teachers,
   students and parents; role-based data access enforced on the server; HttpOnly session cookie,

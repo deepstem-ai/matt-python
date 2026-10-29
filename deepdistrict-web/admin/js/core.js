@@ -62,7 +62,7 @@
   var snap = {}, pendingLog = [], syncing = null, again = false;
   function blank() {
     return { v: 1, org: { name: "DeepDistrict.si", address: "", email: "", phone: "", taxId: "", currency: "THB", rate: 800, lowHours: 2, noShowCounts: true },
-      users: [], courseOverrides: {}, customCourses: [], enrolments: [], sessions: [], payments: [], requests: [], log: [] };
+      users: [], courseOverrides: {}, customCourses: [], enrolments: [], sessions: [], payments: [], requests: [], busy: [], log: [] };
   }
   A.db = blank();
   function snapshot() {
@@ -80,29 +80,36 @@
       return A.db;
     });
   };
+  // Returns the changes since the last successful sync, plus how to update the
+  // snapshot once *exactly these* changes are confirmed (later edits stay pending).
   function diff() {
-    var body = { upserts: {}, deletes: {} }, n = 0;
+    var body = { upserts: {}, deletes: {} }, n = 0, after = [];
     COLS.forEach(function (c) {
       var seen = {};
       A.db[c].forEach(function (r) {
         seen[r.id] = 1;
         var j = JSON.stringify(r);
-        if (snap[c][r.id] !== j || r.password) { (body.upserts[c] = body.upserts[c] || []).push(r); n++; }
+        if (snap[c][r.id] !== j || r.password) {
+          var copy = JSON.parse(j);
+          (body.upserts[c] = body.upserts[c] || []).push(copy); n++;
+          after.push(function () { var x = JSON.parse(j); delete x.password; snap[c][r.id] = JSON.stringify(x); });
+        }
       });
-      Object.keys(snap[c]).forEach(function (id) { if (!seen[id]) { (body.deletes[c] = body.deletes[c] || []).push(id); n++; } });
+      Object.keys(snap[c]).forEach(function (id) { if (!seen[id]) { (body.deletes[c] = body.deletes[c] || []).push(id); n++; after.push(function () { delete snap[c][id]; }); } });
     });
-    KVS.forEach(function (k) { if (JSON.stringify(A.db[k]) !== snap[k]) { body[k] = A.db[k]; n++; } });
+    KVS.forEach(function (k) { var j = JSON.stringify(A.db[k]); if (j !== snap[k]) { body[k] = JSON.parse(j); n++; after.push(function () { snap[k] = j; }); } });
     if (pendingLog.length) { body.log = pendingLog.splice(0); n++; }
-    return n ? body : null;
+    return n ? { body: body, after: after } : null;
   }
   A.save = function () {
     if (syncing) { again = true; return syncing; }
-    var body = diff();
-    if (!body) return Promise.resolve(true);
+    var d = diff();
+    if (!d) return Promise.resolve(true);
     A.setSync("saving");
-    syncing = A.api("POST", "sync", body).then(function () {
-      COLS.forEach(function (c) { A.db[c].forEach(function (r) { if (r.password) delete r.password; }); });
-      snapshot(); A.setSync("saved"); return true;
+    syncing = A.api("POST", "sync", d.body).then(function () {
+      (d.body.upserts.users || []).forEach(function (u) { if (u.password) { var live = A.byId("users", u.id); if (live) delete live.password; } });
+      d.after.forEach(function (f) { f(); });
+      A.setSync("saved"); return true;
     }).catch(function (e) {
       A.setSync("error");
       if (e.status === 401) { A.toast(A.L("Your session ended — please sign in again.", "หมดเวลาการเข้าระบบ กรุณาเข้าสู่ระบบอีกครั้ง"), "err"); A.me = null; A.boot(); return false; }
@@ -213,6 +220,7 @@
       if (f.type === "select") input = '<select id="' + id + '" name="' + f.name + '"' + req + ">" + f.options.map(function (o) { return '<option value="' + A.esc(o[0]) + '"' + (String(o[0]) === String(v) ? " selected" : "") + ">" + A.esc(o[1]) + "</option>"; }).join("") + "</select>";
       else if (f.type === "textarea") input = '<textarea id="' + id + '" name="' + f.name + '" rows="3"' + req + ">" + A.esc(v) + "</textarea>";
       else if (f.type === "checkbox") return '<label class="mf-check' + (f.full ? " mf-full" : "") + '"><input type="checkbox" name="' + f.name + '"' + (v ? " checked" : "") + "> <span>" + A.esc(f.label) + "</span></label>";
+      else if (f.type === "slots") return '<fieldset class="mf-slots mf-full" data-slots="' + f.name + '"><legend>' + A.esc(f.label) + "</legend>" + (f.hint ? "<small>" + A.esc(f.hint) + "</small>" : "") + '<div class="slots"></div><button type="button" class="btn btn--sm" data-add-slot>+ ' + A.L("Add a day/time", "เพิ่มวัน/เวลา") + "</button></fieldset>";
       else if (f.type === "days") return '<fieldset class="mf-days mf-full"><legend>' + A.esc(f.label) + "</legend>" + [1, 2, 3, 4, 5, 6, 0].map(function (d) { return '<label><input type="checkbox" name="' + f.name + '" value="' + d + '"' + ((v || []).indexOf(d) !== -1 ? " checked" : "") + "><span>" + A.dayName(d) + "</span></label>"; }).join("") + "</fieldset>";
       else input = '<input id="' + id + '" name="' + f.name + '" type="' + (f.type || "text") + '" value="' + A.esc(v) + '"' + req + (f.step ? ' step="' + f.step + '"' : "") + (f.min != null ? ' min="' + f.min + '"' : "") + (f.autocomplete ? ' autocomplete="' + f.autocomplete + '"' : "") + ">";
       return '<div class="mf' + (f.full ? " mf-full" : "") + '"><label for="' + id + '">' + A.esc(f.label) + (f.required ? " *" : "") + "</label>" + input + (f.hint ? '<small>' + A.esc(f.hint) + "</small>" : "") + "</div>";
@@ -236,6 +244,7 @@
       var out = {};
       opts.fields.forEach(function (f) {
         if (f.type === "checkbox") out[f.name] = form.elements[f.name].checked;
+        else if (f.type === "slots") out[f.name] = A.$$('[data-slots="' + f.name + '"] .slot', form).map(function (r) { return { day: +r.querySelector("[data-k=day]").value, start: r.querySelector("[data-k=start]").value, end: r.querySelector("[data-k=end]").value, location: r.querySelector("[data-k=location]").value.trim() }; }).filter(function (x) { return x.start && x.end; });
         else if (f.type === "days") out[f.name] = A.$$('input[name="' + f.name + '"]:checked', form).map(function (i) { return +i.value; });
         else if (f.type === "number") out[f.name] = form.elements[f.name].value === "" ? "" : +form.elements[f.name].value;
         else out[f.name] = form.elements[f.name].value.trim();
@@ -245,12 +254,72 @@
       if (err) { form.querySelector(".mf-error").textContent = err; return; }
       Promise.resolve(opts.onSave(out)).then(function (keep) { if (keep !== false) close(); });
     });
+    opts.fields.filter(function (f) { return f.type === "slots"; }).forEach(function (f) {
+      var box = form.querySelector('[data-slots="' + f.name + '"] .slots');
+      function row(sl) {
+        var d = document.createElement("div"); d.className = "slot";
+        d.innerHTML = '<select data-k="day" aria-label="Day">' + [1, 2, 3, 4, 5, 6, 0].map(function (n) { return '<option value="' + n + '"' + (+sl.day === n ? " selected" : "") + ">" + A.dayName(n, true) + "</option>"; }).join("") + "</select>" +
+          '<input type="time" data-k="start" aria-label="Start" value="' + A.esc(sl.start || "18:00") + '"><span>–</span><input type="time" data-k="end" aria-label="End" value="' + A.esc(sl.end || "19:00") + '">' +
+          '<input data-k="location" placeholder="' + A.esc(A.L("Room / place (optional)", "ห้อง / สถานที่ (ไม่บังคับ)")) + '" value="' + A.esc(sl.location || "") + '">' +
+          '<button type="button" class="ibtn" data-del-slot aria-label="Remove">✕</button>';
+        d.querySelector("[data-del-slot]").addEventListener("click", function () { d.remove(); form.dispatchEvent(new Event("input")); });
+        box.appendChild(d);
+      }
+      (f.value && f.value.length ? f.value : [{ day: 2, start: "18:00", end: "19:00" }]).forEach(row);
+      form.querySelector('[data-slots="' + f.name + '"] [data-add-slot]').addEventListener("click", function () {
+        var last = A.$$(".slot", box).pop();
+        row(last ? { day: (+last.querySelector("[data-k=day]").value + 1) % 7, start: last.querySelector("[data-k=start]").value, end: last.querySelector("[data-k=end]").value } : {});
+        form.dispatchEvent(new Event("input"));
+      });
+    });
     if (opts.onReady) opts.onReady(form, dlg);
     dlg.showModal();
     var first = form.querySelector("input:not([type=hidden]), select, textarea");
     if (first) first.focus();
     return dlg;
   };
+  /* Amount in words: Thai (บาทถ้วน) and English */
+  A.bahtText = function (n) {
+    var D = ["", "หนึ่ง", "สอง", "สาม", "สี่", "ห้า", "หก", "เจ็ด", "แปด", "เก้า"], P = ["", "สิบ", "ร้อย", "พัน", "หมื่น", "แสน"];
+    function chunk(x) {
+      var s = String(x), out = "";
+      for (var i = 0; i < s.length; i++) {
+        var d = +s[i], pos = s.length - i - 1;
+        if (!d) continue;
+        if (pos === 1 && d === 1) out += "สิบ";
+        else if (pos === 1 && d === 2) out += "ยี่สิบ";
+        else if (pos === 0 && d === 1 && s.length > 1) out += "เอ็ด";
+        else out += D[d] + P[pos];
+      }
+      return out;
+    }
+    function words(x) { if (x >= 1e6) return words(Math.floor(x / 1e6)) + "ล้าน" + chunk(x % 1e6); return chunk(x); }
+    n = Math.round((+n || 0) * 100);
+    var baht = Math.floor(n / 100), satang = n % 100;
+    if (!baht && !satang) return "ศูนย์บาทถ้วน";
+    return (baht ? words(baht) + "บาท" : "") + (satang ? words(satang) + "สตางค์" : "ถ้วน");
+  };
+  A.moneyWords = function (n) {
+    var ones = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
+    var tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+    function w(x) {
+      if (x < 20) return ones[x];
+      if (x < 100) return tens[Math.floor(x / 10)] + (x % 10 ? "-" + ones[x % 10] : "");
+      if (x < 1000) return ones[Math.floor(x / 100)] + " hundred" + (x % 100 ? " " + w(x % 100) : "");
+      if (x < 1e6) return w(Math.floor(x / 1000)) + " thousand" + (x % 1000 ? " " + w(x % 1000) : "");
+      return w(Math.floor(x / 1e6)) + " million" + (x % 1e6 ? " " + w(x % 1e6) : "");
+    }
+    n = Math.round((+n || 0) * 100);
+    var b = Math.floor(n / 100), s = n % 100, cur = A.db.org.currency || "THB";
+    var t = (b ? w(b) : "zero") + " " + (cur === "THB" ? "baht" : cur) + (s ? " and " + w(s) + " satang" : " only");
+    return t.charAt(0).toUpperCase() + t.slice(1);
+  };
+  A.nextReceiptNo = function () {
+    var y = new Date().getFullYear(), pre = "RC" + y + "-", max = 0;
+    A.db.payments.forEach(function (p) { if ((p.ref || "").indexOf(pre) === 0) max = Math.max(max, +(p.ref.slice(pre.length)) || 0); });
+    return pre + ("000" + (max + 1)).slice(-4);
+  };
+
   A.dayName = function (d, long) {
     var base = new Date(2024, 0, 7 + d); // 7 Jan 2024 is a Sunday
     return base.toLocaleDateString(A.lang === "th" ? "th-TH" : "en-GB", { weekday: long ? "long" : "short" });

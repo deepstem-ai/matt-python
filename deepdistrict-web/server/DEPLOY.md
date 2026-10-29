@@ -42,6 +42,13 @@ Free-plan limits to know (check PythonAnywhere's current terms): one web app, ab
 512 MB disk, a monthly click to keep the free app running, and community support only.
 For a custom domain (e.g. `portal.deepdistrict.si`) a paid plan is needed.
 
+## Email
+
+Settings → Email in the back office. With Gmail / Google Workspace: host `smtp.gmail.com`, port
+587, STARTTLS, your address as username and an **app password** (Google account → Security →
+App passwords). Hosting providers may restrict outgoing email on free plans; if sending fails the
+back office falls back to downloading the file and opening the mail app.
+
 ## Security checklist before real use
 
 - Use strong admin passwords; give teachers their own accounts.

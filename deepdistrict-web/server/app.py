@@ -17,7 +17,11 @@ import json
 import mimetypes
 import os
 import secrets
+import base64
 import shutil
+import smtplib
+import ssl
+from email.message import EmailMessage
 import sqlite3
 import sys
 import threading
@@ -38,10 +42,10 @@ COLLECTIONS = ("users", "enrolments", "sessions", "payments", "requests")
 KV_KEYS = ("org", "courseOverrides", "customCourses")
 STATIC_DIRS = ("assets", "pages", "admin")
 STAFF = ("admin", "teacher")
-MAX_BODY = 5 * 1024 * 1024
+MAX_BODY = 15 * 1024 * 1024
 
 DEFAULT_ORG = {"name": "DeepDistrict.si", "address": "Bangkok, Thailand", "email": "info@deepdistrict.si", "phone": "",
-               "taxId": "", "currency": "THB", "rate": 800, "lowHours": 2, "noShowCounts": True}
+               "taxId": "", "currency": "THB", "rate": 800, "lowHours": 2, "noShowCounts": True, "teachersApprove": False}
 
 _lock = threading.Lock()
 _login_fail = {}   # key -> [count, first_ts]
@@ -223,6 +227,14 @@ def scope(con, me):
             name_ids |= {u["id"] for u in users.values() if u.get("role") in STAFF}
         visible = [u for uid, u in users.items() if uid in full_ids or uid in name_ids]
     out["users"] = [dict(public_user(u, u["id"] in full_ids), hasLogin=u["id"] in has_login) for u in visible]
+    if role == "teacher":
+        # other teachers' timetable without learner details, to spot clashes
+        own = {s["id"] for s in out["sessions"]}
+        by_enr = {e["id"]: e for e in enrs}
+        out["busy"] = [{"id": s["id"], "date": s.get("date"), "start": s.get("start"), "hours": s.get("hours"), "status": s.get("status"),
+                        "teacherId": s.get("teacherId") or by_enr.get(s.get("enrolmentId"), {}).get("teacherId"),
+                        "courseCode": by_enr.get(s.get("enrolmentId"), {}).get("courseCode"), "mode": s.get("mode"), "location": s.get("location")}
+                       for s in load_col(con, "sessions") if s["id"] not in own and s.get("status") == "scheduled"]
     return out
 
 
@@ -264,6 +276,9 @@ def can_write(con, me, col, new, old):
         if role == "teacher":
             if e.get("teacherId") != me["id"]:
                 raise Denied("not your student")
+            org = get_kv(con, "org", DEFAULT_ORG)
+            if old and new and old.get("status") != new.get("status") and not org.get("teachersApprove"):
+                raise Denied("requests are approved by the admin")
             return True
         mine = e.get("studentId") == me["id"] or (role == "parent" and (get_rec(con, "users", e.get("studentId")) or {}).get("guardianId") == me["id"])
         if not mine:
@@ -342,6 +357,47 @@ def bootstrap(con, me):
     data["v"] = 1
     data["serverTime"] = now_iso()
     return data
+
+
+# ---------------------------------------------------------------- email (SMTP configured by the admin)
+class MailError(Exception):
+    pass
+
+
+def send_mail(con, me, body):
+    cfg = get_kv(con, "smtp", {})
+    if not cfg.get("host"):
+        raise MailError("email is not set up — Settings → Email")
+    to = [t.strip() for t in (body.get("to") or []) if isinstance(t, str) and "@" in t][:10]
+    if not to:
+        raise MailError("no valid recipient")
+    msg = EmailMessage()
+    msg["From"] = cfg.get("sender") or cfg.get("user")
+    msg["To"] = ", ".join(to)
+    msg["Subject"] = (body.get("subject") or "DeepDistrict")[:200]
+    org = get_kv(con, "org", DEFAULT_ORG)
+    if org.get("email"):
+        msg["Reply-To"] = org["email"]
+    msg.set_content((body.get("text") or "")[:20000])
+    for a in (body.get("attachments") or [])[:5]:
+        data = base64.b64decode(a.get("data") or "")
+        maintype, _, subtype = (a.get("mime") or "application/octet-stream").partition("/")
+        msg.add_attachment(data, maintype=maintype, subtype=subtype or "octet-stream", filename=(a.get("filename") or "document")[:120])
+    port, sec = int(cfg.get("port") or 587), cfg.get("security") or "starttls"
+    try:
+        if sec == "ssl":
+            server = smtplib.SMTP_SSL(cfg["host"], port, timeout=20, context=ssl.create_default_context())
+        else:
+            server = smtplib.SMTP(cfg["host"], port, timeout=20)
+            if sec == "starttls":
+                server.starttls(context=ssl.create_default_context())
+        if cfg.get("user") and cfg.get("password"):
+            server.login(cfg["user"], cfg["password"])
+        server.send_message(msg)
+        server.quit()
+    except (OSError, smtplib.SMTPException) as e:
+        raise MailError("could not send: " + str(e)[:200])
+    audit(con, me, "Emailed '" + msg["Subject"] + "' to " + ", ".join(to))
 
 
 # ---------------------------------------------------------------- HTTP
@@ -448,11 +504,36 @@ def api(environ, start, path):
             set_password(con, me["id"], body["new"]); audit(con, me, "Changed own password")
             return respond(start, "200 OK", {"ok": True}, extra=[cookie(environ, new_session(con, me["id"]))])
 
+        if path == "email" and method == "POST":
+            if me["role"] not in STAFF:
+                return respond(start, "403 Forbidden", {"error": "staff only"})
+            try:
+                send_mail(con, me, body)
+            except MailError as e:
+                return respond(start, "400 Bad Request", {"error": str(e)})
+            return respond(start, "200 OK", {"ok": True})
+
+        if path == "smtp" and method == "GET":
+            cfg = get_kv(con, "smtp", {})
+            return respond(start, "200 OK", {"configured": bool(cfg.get("host")), **{k: cfg.get(k) for k in ("host", "port", "user", "sender", "security")}})
+
         if me["role"] != "admin":
             return respond(start, "403 Forbidden", {"error": "admin only"})
 
+        if path == "smtp" and method == "POST":
+            cfg = get_kv(con, "smtp", {})
+            for k in ("host", "port", "user", "sender", "security"):
+                if k in body:
+                    cfg[k] = body[k]
+            if body.get("password"):
+                cfg["password"] = body["password"]
+            if body.get("clear"):
+                cfg = {}
+            set_kv(con, "smtp", cfg); audit(con, me, "Updated email settings")
+            return respond(start, "200 OK", {"ok": True})
+
         if path == "backup" and method == "GET":
-            data = {"v": 1, "exportedAt": now_iso(), "org": get_kv(con, "org", DEFAULT_ORG),
+            data = {"v": 1, "exportedAt": now_iso(), "org": get_kv(con, "org", DEFAULT_ORG),  # email password is not exported
                     "courseOverrides": get_kv(con, "courseOverrides", {}), "customCourses": get_kv(con, "customCourses", [])}
             for col in COLLECTIONS:
                 data[col] = load_col(con, col)

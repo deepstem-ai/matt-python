@@ -17,16 +17,29 @@
       return true;
     });
   }
-  function chip(s) {
+  function teacherOf(s) { var e = s.enrolmentId && A.byId("enrolments", s.enrolmentId); return s.teacherId || (e && e.teacherId) || ""; }
+  function clashIds(list) {
+    var bad = {};
+    var live = list.filter(function (s) { return s.status === "scheduled" || s.status === "done"; });
+    live.forEach(function (a, i) { live.slice(i + 1).forEach(function (b) {
+      if (a.date !== b.date || !teacherOf(a) || teacherOf(a) !== teacherOf(b)) return;
+      var a1 = A.toMin(a.start), b1 = A.toMin(b.start);
+      if (a1 < b1 + b.hours * 60 && b1 < a1 + a.hours * 60) { bad[a.id] = bad[b.id] = 1; }
+    }); });
+    return bad;
+  }
+  function chip(s, bad) {
     var e = A.byId("enrolments", s.enrolmentId), u = A.byId("users", e.studentId) || {};
-    return '<button type="button" class="ev ev--' + s.status + '" data-session="' + s.id + '" title="' + esc(A.enrolmentLabel(e) + " · " + A.statusName(s.status) + (s.topic ? " · " + s.topic : "")) + '">' +
-      "<b>" + esc(s.start || "") + "</b> " + esc(u.nick || (u.name || "").split(" ")[0]) + ' <span>' + esc(e.courseCode) + "</span></button>";
+    return '<button type="button" class="ev ev--' + s.status + (bad && bad[s.id] ? " is-clash" : "") + '" style="--tc:' + A.teacherColor(teacherOf(s)) + '" data-session="' + s.id + '" title="' + esc(A.describe(s) + " · " + A.statusName(s.status)) + '">' +
+      (bad && bad[s.id] ? "⚠ " : "") + "<b>" + esc(A.span(s)) + "</b> " + esc(u.nick || (u.name || "").split(" ")[0]) + ' <span>' + esc(e.courseCode) + "</span></button>";
   }
 
   A.pages.calendar = function (q) {
     var view = q.get("view") || (window.innerWidth < 760 ? "list" : "month");
     var cur = q.get("d") ? A.parse(q.get("d")) : new Date();
     var all = visibleSessions(q), byDate = {};
+    var busy = A.isStaff() && !q.get("student") ? (A.db.busy || []).filter(function (b) { return !q.get("teacher") || b.teacherId === q.get("teacher"); }) : [];
+    var bad = clashIds(all.concat(busy));
     all.forEach(function (s) { (byDate[s.date] = byDate[s.date] || []).push(s); });
     Object.keys(byDate).forEach(function (k) { byDate[k].sort(function (a, b) { return (a.start || "").localeCompare(b.start || ""); }); });
     var payDates = {};
@@ -45,7 +58,7 @@
         var ds = A.iso(d), list = byDate[ds] || [], out = d.getMonth() !== cur.getMonth();
         html += '<div class="cal__day' + (out ? " is-out" : "") + (ds === today ? " is-today" : "") + '" data-day="' + ds + '"><span class="cal__n">' + d.getDate() + "</span>" +
           (payDates[ds] ? '<span class="cal__pay" title="' + esc(L("Payments", "การชำระเงิน")) + '">฿ ' + A.num(payDates[ds], 0) + "</span>" : "") +
-          list.slice(0, 4).map(chip).join("") + (list.length > 4 ? '<a class="cal__more" href="#/calendar?view=list&d=' + ds + '">+' + (list.length - 4) + "</a>" : "") + "</div>";
+          list.slice(0, 4).map(function (x) { return chip(x, bad); }).join("") + (list.length > 4 ? '<a class="cal__more" href="#/calendar?view=list&d=' + ds + '">+' + (list.length - 4) + "</a>" : "") + "</div>";
         if (i === 34 && new Date(start.getTime() + 35 * 864e5).getMonth() !== cur.getMonth()) break;
       }
       html += "</div></div>";
@@ -54,16 +67,45 @@
       var we = new Date(ws); we.setDate(ws.getDate() + 6);
       label = ws.toLocaleDateString(loc, { day: "numeric", month: "short" }) + " – " + we.toLocaleDateString(loc, { day: "numeric", month: "short", year: "numeric" });
       prev = A.addDays(A.iso(ws), -7); next = A.addDays(A.iso(ws), 7);
-      html += '<div class="week">';
-      for (var j = 0; j < 7; j++) {
-        var dd = new Date(ws); dd.setDate(ws.getDate() + j);
-        var dk = A.iso(dd), ls = byDate[dk] || [];
-        html += '<div class="week__col' + (dk === today ? " is-today" : "") + '" data-day="' + dk + '"><h3>' + esc(dd.toLocaleDateString(loc, { weekday: "short", day: "numeric" })) + "</h3>" +
-          ls.map(function (s) {
-            var e = A.byId("enrolments", s.enrolmentId);
-            return '<button type="button" class="wev ev--' + s.status + '" data-session="' + s.id + '"><b>' + esc(s.start || "") + " · " + A.num(s.hours) + L("h", "ชม.") + "</b><span>" + esc(A.userName(e.studentId)) + "</span><small>" + esc(e.courseCode) + (s.topic ? " · " + esc(s.topic) : "") + "</small></button>";
-          }).join("") + "</div>";
-      }
+      var days = [], lo = 8 * 60, hi = 20 * 60;
+      for (var j = 0; j < 7; j++) { var dd = new Date(ws); dd.setDate(ws.getDate() + j); days.push(A.iso(dd)); }
+      var weekItems = all.concat(busy.map(function (x) { return Object.assign({ busy: true }, x); })).filter(function (x) { return days.indexOf(x.date) !== -1 && x.status !== "rescheduled"; });
+      weekItems.forEach(function (x) { lo = Math.min(lo, Math.floor(A.toMin(x.start) / 60) * 60); hi = Math.max(hi, Math.ceil((A.toMin(x.start) + x.hours * 60) / 60) * 60); });
+      var PX = 0.9; // pixels per minute
+      html += '<div class="tgrid" data-lo="' + lo + '" data-px="' + PX + '" style="--h:' + Math.round((hi - lo) * PX) + 'px"><div class="tgrid__hours">';
+      for (var m = lo; m < hi; m += 60) html += '<span style="top:' + Math.round((m - lo) * PX) + 'px">' + A.fromMin(m) + "</span>";
+      html += "</div>";
+      days.forEach(function (dk) {
+        var items = weekItems.filter(function (x) { return x.date === dk; }).sort(function (a, b) { return A.toMin(a.start) - A.toMin(b.start); });
+        // side-by-side lanes, only within each group of lessons that actually overlap
+        var cluster = [], clusterEnd = -1;
+        function flush() {
+          var lanes = [];
+          cluster.forEach(function (x) {
+            var st = A.toMin(x.start), placed = false;
+            for (var li = 0; li < lanes.length && !placed; li++) { if (lanes[li] <= st) { x._lane = li; lanes[li] = st + x.hours * 60; placed = true; } }
+            if (!placed) { x._lane = lanes.length; lanes.push(st + x.hours * 60); }
+          });
+          cluster.forEach(function (x) { x._n = Math.max(1, lanes.length); });
+          cluster = []; clusterEnd = -1;
+        }
+        items.forEach(function (x) {
+          var st = A.toMin(x.start);
+          if (cluster.length && st >= clusterEnd) flush();
+          cluster.push(x); clusterEnd = Math.max(clusterEnd, st + x.hours * 60);
+        });
+        flush();
+        html += '<div class="tgrid__col' + (dk === today ? " is-today" : "") + '" data-day="' + dk + '"><h3>' + esc(A.parse(dk).toLocaleDateString(loc, { weekday: "short", day: "numeric" })) + '</h3><div class="tgrid__body">';
+        items.forEach(function (x) {
+          var top = Math.round((A.toMin(x.start) - lo) * PX), h = Math.max(22, Math.round(x.hours * 60 * PX) - 2);
+          var style = "top:" + top + "px;height:" + h + "px;left:calc(" + (x._lane * 100 / x._n) + "% + 2px);width:calc(" + (100 / x._n) + "% - 4px);--tc:" + A.teacherColor(teacherOf(x));
+          var e = x.enrolmentId && A.byId("enrolments", x.enrolmentId), stu = e && A.byId("users", e.studentId);
+          var where = A.modeName(x.mode) + (x.location ? " · " + x.location : "");
+          html += (x.busy ? '<div class="tev tev--busy' : '<button type="button" class="tev tev--' + x.status) + (bad[x.id] ? " is-clash" : "") + '" style="' + style + '"' + (x.busy ? "" : ' data-session="' + x.id + '"') + ' title="' + esc(A.describe(x)) + '">' +
+            "<b>" + (bad[x.id] ? "⚠ " : "") + esc(A.span(x)) + "</b><span>" + esc((x.courseCode || (e && e.courseCode) || "") + (stu ? " · " + (stu.nick || stu.name) : "")) + "</span><span>" + esc(A.userName(teacherOf(x))) + "</span><small>" + esc(where) + "</small>" + (x.busy ? "</div>" : "</button>");
+        });
+        html += "</div></div>";
+      });
       html += "</div>";
     } else {
       var from = q.get("d") || today, to = A.addDays(from, 30);
@@ -88,7 +130,8 @@
       '<form class="filters" data-filters><input type="hidden" name="view" value="' + view + '">' + (q.get("d") ? '<input type="hidden" name="d" value="' + esc(q.get("d")) + '">' : "") +
       (A.isAdmin() ? '<select name="teacher" aria-label="Teacher">' + A.opts(A.peopleOpts("staff"), q.get("teacher"), L("All teachers", "ครูทุกคน")) + "</select>" : "") +
       '<select name="student" aria-label="Student">' + A.opts(A.peopleOpts("student"), q.get("student"), L("All students", "นักเรียนทุกคน")) + "</select></form></div>" +
-      '<div class="legend">' + Object.keys(A.STATUS).map(function (k) { return '<span class="ev--' + k + '"><i></i>' + A.statusName(k) + "</span>"; }).join("") + (A.isAdmin() ? '<span class="lg-pay"><i></i>' + L("Payment received", "รับชำระเงิน") + "</span>" : "") + '<span class="muted">' + (A.isStaff() ? L("Click a day to add a lesson, or a lesson to update or move it.", "คลิกวันที่เพื่อเพิ่มคาบ หรือคลิกคาบเพื่ออัปเดตหรือเลื่อน") : L("Click a lesson for details or to request a change.", "คลิกคาบเพื่อดูรายละเอียดหรือขอเปลี่ยนแปลง")) + "</span></div>";
+      '<div class="legend">' + A.people("staff").filter(function (t) { return all.concat(busy).some(function (x) { return teacherOf(x) === t.id; }); }).map(function (t) { return '<span class="lg-t" style="--tc:' + A.teacherColor(t.id) + '"><i></i>' + esc(t.nick || t.name) + "</span>"; }).join("") +
+      '<span class="lg-s">✓ ' + A.statusName("done") + '</span><span class="lg-s"><s>' + A.statusName("cancelled") + '</s></span><span class="lg-s is-clash-lg">⚠ ' + L("same teacher, same time", "ครูคนเดียวกันเวลาชน") + "</span>" + (A.isAdmin() ? '<span class="lg-pay"><i></i>' + L("Payment received", "รับชำระเงิน") + "</span>" : "") + '<span class="muted">' + (A.isStaff() ? L("Click a day to add a lesson, or a lesson to update or move it.", "คลิกวันที่เพื่อเพิ่มคาบ หรือคลิกคาบเพื่ออัปเดตหรือเลื่อน") : L("Click a lesson for details or to request a change.", "คลิกคาบเพื่อดูรายละเอียดหรือขอเปลี่ยนแปลง")) + "</span></div>";
     A._calSessions = all;
     return {
       title: L("Calendar", "ปฏิทิน"),
@@ -107,7 +150,12 @@
     if (!A.me) return;
     var day = ev.target.closest("[data-day]");
     if (!day || !A.isStaff() || ev.target.closest("[data-session], a, button")) return;
-    A.editSession(null, { date: day.getAttribute("data-day") });
+    var pre = { date: day.getAttribute("data-day") }, body = ev.target.closest(".tgrid__body"), grid = ev.target.closest(".tgrid");
+    if (body && grid) {
+      var y = ev.clientY - body.getBoundingClientRect().top, mins = +grid.getAttribute("data-lo") + y / +grid.getAttribute("data-px");
+      pre.start = A.fromMin(Math.floor(mins / 30) * 30);
+    }
+    A.editSession(null, pre);
   });
 
   function icsEsc(s) { return String(s || "").replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\n/g, "\\n"); }
@@ -151,13 +199,16 @@
     var e1 = enrol(s1, "PY101", t2, 12, 800, A.addDays(now, -22), "hybrid", "Build a quiz game for a school project");
     var e2 = enrol(s2, "EXM210", t1, 24, 900, A.addDays(now, -28), "online", "COMPAS-PY1 AWARD of EXCELLENCE for TCAS70 portfolio");
     var e3 = enrol(s3, "EDG320", t1, 30, 1200, A.addDays(now, -14), "onsite", "Offline voice assistant on Jetson for a hackathon");
+    e1.pattern = [{ day: 1, start: "16:30", end: "18:00", location: "Room A" }, { day: 3, start: "16:30", end: "18:00", location: "Room A" }]; e1.location = "Room A";
+    e2.pattern = [{ day: 2, start: "18:00", end: "20:00" }, { day: 5, start: "18:00", end: "20:00" }]; e2.location = "Zoom";
+    e3.pattern = [{ day: 1, start: "09:00", end: "12:00", location: "Jetson Lab" }, { day: 4, start: "13:00", end: "16:00", location: "Jetson Lab" }]; e3.location = "Jetson Lab";
     var topics = {
       PY101: ["Setup & first program", "Variables & input", "if / elif / else", "for and while loops", "Functions", "Lists & dictionaries", "Files & mini project", "Quiz game polish"],
       EXM210: ["Exam format & timing", "Strings drill", "Lists & dict patterns", "Plan · Edge practice", "Recursion basics", "Timed mock #1 review", "Edge-case hunting", "Timed mock #2 review"],
       EDG320: ["JetPack setup", "Running a small LLM", "Quantisation & speed", "Speech to text", "Wake word & TTS", "Integration test"]
     };
     function add(e, date, start, hours, i) {
-      var past = date < now, s = { id: A.uid("s"), enrolmentId: e.id, date: date, start: start, hours: hours, status: past ? "done" : "scheduled", mode: e.mode, teacherId: e.teacherId,
+      var past = date < now, s = { id: A.uid("s"), enrolmentId: e.id, date: date, start: start, hours: hours, status: past ? "done" : "scheduled", mode: e.mode, location: e.location, teacherId: e.teacherId,
         topic: past ? (topics[e.courseCode] || [])[i] || "" : "", notes: past && i % 2 ? "Good progress; homework set." : "", createdAt: new Date().toISOString() };
       D.sessions.push(s); return s;
     }
@@ -177,6 +228,9 @@
     D.payments.push({ id: A.uid("p"), enrolmentId: e1.id, date: e1.start, amount: 9600, method: "transfer", ref: "RC-DEMO-001", createdAt: new Date().toISOString() });
     D.payments.push({ id: A.uid("p"), enrolmentId: e2.id, date: A.addDays(now, -28), amount: 10800, method: "promptpay", ref: "RC-DEMO-002", note: "Deposit 50%", createdAt: new Date().toISOString() });
     D.payments.push({ id: A.uid("p"), enrolmentId: e3.id, date: A.addDays(now, -14), amount: 18000, method: "card", ref: "RC-DEMO-003", note: "Deposit 50%", createdAt: new Date().toISOString() });
+    // a waiting "time off" request from Pim's parent (two weeks, starting next week)
+    var nextMon = A.parse(now); nextMon.setDate(nextMon.getDate() + ((8 - nextMon.getDay()) % 7 || 7));
+    D.requests.push({ id: A.uid("r"), enrolmentId: e1.id, type: "pause", from: A.iso(nextMon), to: A.addDays(A.iso(nextMon), 13), note: "Family trip / ไปต่างจังหวัดกับครอบครัว", status: "pending", createdAt: new Date().toISOString() });
     // demo sign-ins (change or remove before real use)
     p1.email = "parent@demo.test"; p1.password = "demo-parent-1";
     s1.email = "student@demo.test"; s1.password = "demo-student-1";

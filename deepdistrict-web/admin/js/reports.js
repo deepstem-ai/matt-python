@@ -58,7 +58,7 @@
           (x.pays.length ? '<table class="rp-tbl"><thead><tr><th>' + L("Date", "วันที่") + "</th><th>" + L("Reference", "อ้างอิง") + "</th><th>" + L("Amount", "จำนวนเงิน") + "</th></tr></thead><tbody>" + x.pays.map(function (p) { return "<tr><td>" + esc(A.fmtDate(p.date)) + "</td><td>" + esc(p.ref || "") + "</td><td>" + A.money(p.amount) + "</td></tr>"; }).join("") + "</tbody></table>" : "") : "") +
         "</section>";
     });
-    h += '<footer class="rp-foot">' + esc(o.name) + " · " + L("This report summarises lessons recorded by the lab. Please contact us if anything looks wrong.", "รายงานนี้สรุปจากบันทึกการสอนของแล็บ หากข้อมูลไม่ถูกต้องกรุณาติดต่อเรา") + "</footer></article>";
+    h += '<p class="rp-small">' + L("This report summarises lessons recorded by the lab. Please contact us if anything looks wrong.", "รายงานนี้สรุปจากบันทึกการสอนของแล็บ หากข้อมูลไม่ถูกต้องกรุณาติดต่อเรา") + "</p>" + A.docFoot(m.issued) + "</article>";
     return h;
   }
 
@@ -106,68 +106,45 @@
     var tabs = '<div class="tabs"><a class="tab' + (type === "student" ? " is-on" : "") + '" href="#/reports?type=student' + (sid ? "&student=" + sid : "") + '">' + L("Learner report", "รายงานรายบุคคล") + '</a><a class="tab' + (type === "summary" ? " is-on" : "") + '" href="#/reports?type=summary">' + L("All learners summary", "สรุปผู้เรียนทั้งหมด") + "</a></div>";
     if (type === "summary") {
       var rows = summaryRows();
+      A._report = null; A._docBase = null;
       A._summary = rows;
       return { title: L("Reports & export", "รายงานและส่งออก"), html: tabs +
-        '<div class="btnrow"><button class="btn btn--primary" data-act="sum-csv">CSV / Excel</button><button class="btn" data-act="sum-txt">TXT</button><button class="btn" data-act="sum-pdf">PDF</button><button class="btn" data-act="sum-png">PNG</button><button class="btn" data-act="print">' + L("Print", "พิมพ์") + "</button></div>" +
-        '<div class="report report--wide" id="report"><h1 class="rp-title">' + L("Learners summary", "สรุปผู้เรียนทั้งหมด") + " · " + esc(A.fmtDate(A.today())) + "</h1>" +
+        A.exportBar('<button class="btn" data-act="sum-csv">CSV / Excel</button><button class="btn" data-act="sum-txt">TXT</button>') +
+        '<div class="report report--wide" id="report">' + A.docHead(L("Learners summary", "สรุปผู้เรียนทั้งหมด"), "", "SUM-" + A.today().replace(/-/g, ""), A.today()) +
         '<table class="rp-tbl"><thead><tr>' + rows[0].map(function (h) { return "<th>" + esc(h) + "</th>"; }).join("") + "</tr></thead><tbody>" +
-        rows.slice(1).map(function (r) { return "<tr>" + r.map(function (c, i) { return "<td>" + (i >= 4 && typeof c === "number" ? (i >= 8 ? A.money(c) : A.num(c)) : esc(c)) + "</td>"; }).join("") + "</tr>"; }).join("") + "</tbody></table></div>" };
+        rows.slice(1).map(function (r) { return "<tr>" + r.map(function (c, i) { return "<td>" + (i >= 4 && typeof c === "number" ? (i >= 8 ? A.money(c) : A.num(c)) : esc(c)) + "</td>"; }).join("") + "</tr>"; }).join("") + "</tbody></table>" + A.docFoot(A.today()) + "</div>" };
     }
     var m = sid ? model(q) : null;
-    A._report = m;
+    A._report = m; A._docBase = null;
     var form = '<form class="filters" data-filters><input type="hidden" name="type" value="student">' +
       "<label>" + L("Learner", "ผู้เรียน") + '<select name="student">' + A.opts(students.map(function (s) { return [s.id, s.name + (s.nick ? " (" + s.nick + ")" : "")]; }), sid, L("Choose…", "เลือก…")) + "</select></label>" +
       (sid ? "<label>" + L("Course", "หลักสูตร") + '<select name="enrolment">' + A.opts(scope(sid).map(function (e) { return [e.id, A.courseName(e.courseCode)]; }), q.get("enrolment"), L("All courses", "ทุกหลักสูตร")) + "</select></label>" : "") +
       "<label>" + L("From", "ตั้งแต่") + '<input type="date" name="from" value="' + esc(q.get("from") || "") + '"></label><label>' + L("To", "ถึง") + '<input type="date" name="to" value="' + esc(q.get("to") || "") + '"></label>' +
       (A.isAdmin() || !A.isStaff() ? "<label>" + L("Fees", "ค่าเรียน") + '<select name="fees">' + A.opts([["1", L("Show", "แสดง")], ["0", L("Hide", "ซ่อน")]], q.get("fees") || "1") + "</select></label>" : "") + "</form>";
-    var html = tabs + form + (m ? '<div class="btnrow export"><span class="muted">' + L("Export:", "ส่งออก:") + '</span><button class="btn btn--primary" data-act="rp-pdf">PDF</button><button class="btn" data-act="rp-png">' + L("Image (PNG)", "รูปภาพ (PNG)") + '</button><button class="btn" data-act="rp-txt">' + L("Text (TXT)", "ข้อความ (TXT)") + '</button><button class="btn" data-act="rp-csv">CSV</button><button class="btn" data-act="print">' + L("Print", "พิมพ์") + "</button></div>" + reportHTML(m)
+    var html = tabs + form + (m ? A.exportBar('<button class="btn" data-act="rp-txt">' + L("Text (TXT)", "ข้อความ (TXT)") + '</button><button class="btn" data-act="rp-csv">CSV</button>') + reportHTML(m)
       : A.empty("Choose a learner to see their report: lessons learned, hours used and left, upcoming lessons and fees.", "เลือกผู้เรียนเพื่อดูรายงาน: สิ่งที่เรียน ชั่วโมงที่ใช้และคงเหลือ คาบถัดไป และค่าเรียน"));
     return { title: L("Reports & export", "รายงานและส่งออก"), html: html };
   };
 
   /* ------------------------------------------------------------ exporters */
   function fileBase() { return A._report ? "report-" + A.slug(A._report.stu.nick || A._report.stu.name) + "-" + A.today() : "summary-" + A.today(); }
-  function canvasOf(el) {
-    if (!window.html2canvas) { A.toast(L("Export library missing (admin/vendor).", "ไม่พบไลบรารีสำหรับส่งออก (admin/vendor)"), "err"); return Promise.reject(); }
-    document.body.classList.add("is-exporting");
-    return document.fonts.ready.then(function () { return html2canvas(el, { scale: 2, backgroundColor: "#ffffff", useCORS: true, logging: false,
-      // opened as a file, images would block the export, so leave the logo out
-      ignoreElements: function (n) { return location.protocol === "file:" && n.tagName === "IMG"; } }); })
-      .finally(function () { document.body.classList.remove("is-exporting"); });
-  }
-  function toPNG() {
-    var el = $("#report"); if (!el) return;
-    canvasOf(el).then(function (c) { c.toBlob(function (b) { A.download(fileBase() + ".png", b); }, "image/png"); }).catch(function (e) { if (e) A.toast(L("Export failed. Open the back office through http://localhost (start.sh) rather than as a file, then try again.", "ส่งออกไม่สำเร็จ กรุณาเปิดระบบผ่าน http://localhost (start.sh) แทนการเปิดไฟล์โดยตรง แล้วลองใหม่"), "err"); });
-  }
-  function toPDF() {
-    var el = $("#report"); if (!el) return;
-    if (!window.jspdf) return A.toast(L("Export library missing (admin/vendor).", "ไม่พบไลบรารีสำหรับส่งออก (admin/vendor)"), "err");
-    canvasOf(el).then(function (c) {
-      var wide = el.classList.contains("report--wide");
-      var pdf = new window.jspdf.jsPDF({ orientation: wide ? "landscape" : "portrait", unit: "mm", format: "a4" });
-      var pw = pdf.internal.pageSize.getWidth(), ph = pdf.internal.pageSize.getHeight(), margin = 10;
-      var iw = pw - margin * 2, scale = iw / c.width, pageH = Math.floor((ph - margin * 2) / scale);
-      for (var y = 0, page = 0; y < c.height; y += pageH, page++) {
-        var h = Math.min(pageH, c.height - y), part = document.createElement("canvas");
-        part.width = c.width; part.height = h;
-        part.getContext("2d").drawImage(c, 0, y, c.width, h, 0, 0, c.width, h);
-        if (page) pdf.addPage();
-        pdf.addImage(part.toDataURL("image/jpeg", 0.92), "JPEG", margin, margin, iw, h * scale);
-      }
-      pdf.save(fileBase() + ".pdf");
-      A.logAct("Exported PDF " + fileBase()); A.save();
-    }).catch(function (e) { if (e) A.toast(L("Export failed. Open the back office through http://localhost (start.sh) rather than as a file, then try again.", "ส่งออกไม่สำเร็จ กรุณาเปิดระบบผ่าน http://localhost (start.sh) แทนการเปิดไฟล์โดยตรง แล้วลองใหม่"), "err"); });
-  }
   var prev = A.onAct;
   A.onAct = function (act, b, ev) {
-    if (act === "rp-pdf" || act === "sum-pdf") return toPDF();
-    if (act === "rp-png" || act === "sum-png") return toPNG();
+
     if (act === "rp-txt" && A._report) return A.download(fileBase() + ".txt", reportText(A._report));
     if (act === "rp-csv" && A._report) return A.download(fileBase() + ".csv", reportCSV(A._report), "text/csv;charset=utf-8");
     if (act === "sum-csv") return A.download(fileBase() + ".csv", A.csv(A._summary), "text/csv;charset=utf-8");
     if (act === "sum-txt") return A.download(fileBase() + ".txt", A._summary.map(function (r) { return r.join("\t"); }).join("\n"));
-    if (act === "print") return window.print();
+
     if (prev) prev(act, b, ev);
   };
   A.reportText = reportText; A.reportModel = model;
+  // export buttons on the reports / search pages ([data-doc] outside the document viewer)
+  document.addEventListener("click", function (ev) {
+    var b = ev.target.closest("[data-doc]");
+    if (!b || b.closest(".docview") || !A.me) return;
+    var m = A._report, to = [];
+    if (m) { if (m.guardian && m.guardian.email) to.push(m.guardian.email); if (m.stu.email) to.push(m.stu.email); }
+    A.docExport(b.getAttribute("data-doc"), document.getElementById("report"), A._docBase || fileBase(), { to: to, subject: (m ? L("Progress report · ", "รายงานความก้าวหน้า · ") + m.stu.name : L("Report", "รายงาน")) + " · " + A.db.org.name });
+  });
 })();

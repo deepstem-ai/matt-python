@@ -44,7 +44,7 @@
           : '<button class="btn btn--primary btn--sm" data-act="gap-next" data-enr="' + e.id + '">' + L("Add " + A.num(gap) + " h to the next lesson", "เพิ่ม " + A.num(gap) + " ชม. ในคาบถัดไป") + "</button>" +
             '<button class="btn btn--sm" data-act="gap-makeup" data-enr="' + e.id + '">' + L("Book a make-up lesson", "นัดคาบชดเชย") + "</button>") + "</div>";
     } else if (!A.isStaff() && gap > 0.001 && active && st.used + st.planned > 0) {
-      h += '<p class="note">' + L(A.hrs(gap) + " still to be booked — your teacher will arrange it.", "ยังมี " + A.hrs(gap) + " ที่รอนัดเพิ่ม ครูจะนัดให้") + "</p>";
+      h += '<p class="note">' + L(A.hrs(gap) + " still to be booked — DeepDistrict will arrange it.", "ยังมี " + A.hrs(gap) + " ที่รอนัดเพิ่ม DeepDistrict จะนัดให้") + "</p>";
     }
     if (overBooked > 0.001 && A.isStaff()) h += '<p class="alert">' + L("Booked " + A.hrs(overBooked) + " more than the package. Remove a lesson or add hours to the enrolment.", "นัดเกินแพ็กเกจ " + A.hrs(overBooked) + " กรุณาลบคาบหรือเพิ่มชั่วโมงในการลงทะเบียน") + "</p>";
     return h + "</div>";
@@ -58,6 +58,8 @@
     if (s.status === "rescheduled") parts.push('<span class="moved">→ ' + L("moved to ", "ย้ายไป ") + (to ? esc(when(to)) + " · " + A.hrs(to.hours) : "–") + (s.reason ? " · " + esc(s.reason) : "") + "</span>");
     if (from) parts.push('<span class="moved">← ' + L("moved from ", "ย้ายมาจาก ") + esc(when(from)) + " (" + A.hrs(from.hours) + ")</span>");
     if (mk) parts.push('<span class="moved">↺ ' + L("make-up for ", "ชดเชยคาบ ") + esc(when(mk)) + "</span>");
+    if (s.afterPause) parts.push('<span class="moved">↻ ' + L("rebooked after time off", "นัดใหม่หลังหยุดเรียน") + "</span>");
+    if (s.status === "cancelled" && s.reason) parts.push('<span class="moved">' + esc(s.reason) + "</span>");
     if (s.extraHours) parts.push('<span class="moved">+' + A.hrs(s.extraHours) + " " + L("added (make-up)", "เพิ่ม (ชดเชย)") + "</span>");
     return parts.join("<br>");
   };
@@ -100,8 +102,14 @@
         if (+v.hours < +s.hours && v.gap === "makeup" && !v.mdate) return L("Choose a date for the make-up lesson.", "กรุณาเลือกวันเรียนชดเชย");
       },
       onSave: function (v) {
+        var probe = Object.assign({}, s, { id: "probe", date: v.date, start: v.start, hours: +v.hours, status: "scheduled" });
+        return A.clashOK([probe], [s.id]).then(function (ok) { if (!ok) return false; return doMove(v); });
+      }
+    });
+    function doMove(v) {
+      {
         var diff = Math.round(((+s.hours || 0) - (+v.hours || 0)) * 100) / 100;
-        var ns = { id: A.uid("s"), enrolmentId: s.enrolmentId, date: v.date, start: v.start, hours: +v.hours, status: "scheduled", mode: s.mode, teacherId: s.teacherId, movedFrom: s.id, createdAt: new Date().toISOString() };
+        var ns = { id: A.uid("s"), enrolmentId: s.enrolmentId, date: v.date, start: v.start, hours: +v.hours, status: "scheduled", mode: s.mode, location: s.location, teacherId: s.teacherId, movedFrom: s.id, createdAt: new Date().toISOString() };
         A.db.sessions.push(ns);
         Object.assign(s, { status: "rescheduled", movedTo: ns.id, reason: v.reason });
         var note = "";
@@ -115,12 +123,12 @@
         } else if (diff > 0.001) note = L(" · " + A.num(diff) + " h left to schedule", " · เหลือ " + A.num(diff) + " ชม. รอนัด");
         if (preset.requestId) {
           var r = A.byId("requests", preset.requestId);
-          if (r) Object.assign(r, { status: "approved", decidedBy: A.me.id, decidedAt: new Date().toISOString(), result: ns.id });
+          if (r) Object.assign(r, { status: "approved", decidedBy: A.me.id, decidedAt: new Date().toISOString(), result: ns.id, resultText: L("Moved to ", "ย้ายไป ") + A.fmtDate(ns.date) + " " + A.span(ns) + note.replace(/^ · /, " · ") });
         }
         A.logAct("Moved lesson " + s.date + " → " + v.date + " (" + v.hours + " h) · " + A.enrolmentLabel(enr) + note.replace(/<[^>]+>/g, ""));
         return A.save().then(function (ok) { if (ok) { A.toast(L("Lesson moved", "ย้ายคาบแล้ว") + note); A.route(); } });
       }
-    });
+    }
     return dlg;
   };
 
@@ -152,50 +160,133 @@
     dlg.showModal();
   };
 
+  A.canApprove = function (e) { return A.isAdmin() || (A.me.role === "teacher" && A.db.org.teachersApprove && e && e.teacherId === A.me.id); };
+  var REQ_TYPES = function () { return { reschedule: L("Move a lesson", "ย้ายคาบเรียน"), cancel: L("Cancel a lesson", "ยกเลิกคาบเรียน"), pause: L("Pause (time off)", "ขอหยุดเรียนช่วงหนึ่ง"), other: L("Other", "อื่น ๆ") }; };
+  A.reqTypeName = function (t) { return REQ_TYPES()[t] || t; };
+
   A.requestChange = function (s) {
+    var enrs = A.visibleEnrolments().filter(function (e) { return e.status === "active" || e.status === "paused"; });
+    if (!enrs.length) return A.toast(L("There is no active course.", "ยังไม่มีหลักสูตรที่กำลังเรียน"), "warn");
     var upcoming = [];
-    A.visibleEnrolments().forEach(function (e) { A.sessionsOf(e.id).forEach(function (x) { if (x.status === "scheduled" && x.date >= A.today()) upcoming.push(x); }); });
-    if (!upcoming.length) return A.toast(L("There are no upcoming lessons to change.", "ไม่มีคาบเรียนที่จะถึงให้เปลี่ยนแปลง"), "warn");
-    s = s || upcoming[0];
+    enrs.forEach(function (e) { A.sessionsOf(e.id).forEach(function (x) { if (x.status === "scheduled" && x.date >= A.today()) upcoming.push(x); }); });
+    s = s || upcoming[0] || {};
+    function enrLabel(e) { return A.courseName(e.courseCode) + (A.me.role !== "student" ? " · " + A.userName(e.studentId) : ""); }
     A.form({
-      title: L("Request a change", "ขอเปลี่ยนแปลงคาบเรียน"),
-      intro: L("Your teacher will confirm. Nothing changes until it is approved.", "ครูจะยืนยันให้ คาบเรียนจะยังไม่เปลี่ยนจนกว่าจะได้รับการอนุมัติ"),
+      title: L("Request a change", "ขอเปลี่ยนแปลง"),
+      intro: L("DeepDistrict will review and confirm. Nothing changes until it is approved.", "DeepDistrict จะพิจารณาและยืนยันให้ ตารางจะยังไม่เปลี่ยนจนกว่าจะได้รับการอนุมัติ"),
       submit: L("Send request", "ส่งคำขอ"),
       fields: [
-        { name: "sessionId", label: L("Lesson", "คาบเรียน"), type: "select", full: true, value: s.id, required: true, options: upcoming.map(function (x) { var e = A.byId("enrolments", x.enrolmentId); return [x.id, when(x) + " · " + e.courseCode + " · " + A.hrs(x.hours) + (A.me.role === "parent" ? " · " + A.userName(e.studentId) : "")]; }) },
-        { name: "type", label: L("I would like to", "ต้องการ"), type: "select", value: "reschedule", options: [["reschedule", L("Move it to another day/time", "ย้ายไปวัน/เวลาอื่น")], ["cancel", L("Cancel it", "ยกเลิกคาบนี้")]] },
+        { name: "type", label: L("I would like to", "ต้องการ"), type: "select", full: true, value: upcoming.length ? "reschedule" : "pause", options: Object.keys(REQ_TYPES()).map(function (k) { return [k, A.reqTypeName(k)]; }) },
+        { name: "sessionId", label: L("Lesson", "คาบเรียน"), type: "select", full: true, value: s.id, options: upcoming.map(function (x) { var e = A.byId("enrolments", x.enrolmentId); return [x.id, when(x) + "–" + A.endOf(x) + " · " + e.courseCode + " · " + A.hrs(x.hours) + (A.me.role !== "student" ? " · " + A.userName(e.studentId) : "")]; }) },
+        { name: "enrolmentId", label: L("Course", "หลักสูตร"), type: "select", full: true, value: s.enrolmentId || enrs[0].id, options: enrs.map(function (e) { return [e.id, enrLabel(e)]; }) },
         { name: "date", label: L("Preferred new date", "วันที่ที่สะดวก"), type: "date", value: "" },
-        { name: "start", label: L("Preferred time", "เวลาที่สะดวก"), type: "time", value: s.start },
-        { name: "hours", label: L("Hours", "จำนวนชั่วโมง"), type: "number", step: "0.25", min: 0.25, value: s.hours },
-        { name: "note", label: L("Message to the teacher", "ข้อความถึงครู"), type: "textarea", full: true, value: "" }
+        { name: "start", label: L("Preferred time", "เวลาที่สะดวก"), type: "time", value: s.start || "" },
+        { name: "hours", label: L("Hours", "จำนวนชั่วโมง"), type: "number", step: "0.25", min: 0.25, value: s.hours || 1 },
+        { name: "from", label: L("Time off from", "หยุดตั้งแต่วันที่"), type: "date", value: "" },
+        { name: "to", label: L("until (inclusive)", "ถึงวันที่ (รวมวันนี้)"), type: "date", value: "" },
+        { name: "note", label: L("Message", "ข้อความ"), type: "textarea", full: true, value: "" }
       ],
-      validate: function (v) { if (v.type === "reschedule" && !v.date) return L("Choose the new date you would like.", "กรุณาเลือกวันที่ที่สะดวก"); },
+      onReady: function (form) {
+        function vis() {
+          var t = form.elements.type.value;
+          var show = { sessionId: t === "reschedule" || t === "cancel", enrolmentId: t === "pause" || t === "other", date: t === "reschedule", start: t === "reschedule", hours: t === "reschedule", from: t === "pause", to: t === "pause" };
+          Object.keys(show).forEach(function (k) { form.elements[k].closest(".mf").hidden = !show[k]; });
+        }
+        form.elements.type.addEventListener("change", vis); vis();
+      },
+      validate: function (v) {
+        if ((v.type === "reschedule" || v.type === "cancel") && !v.sessionId) return L("There is no upcoming lesson to change.", "ไม่มีคาบเรียนที่จะถึงให้เปลี่ยนแปลง");
+        if (v.type === "reschedule" && !v.date) return L("Choose the new date you would like.", "กรุณาเลือกวันที่ที่สะดวก");
+        if (v.type === "pause" && (!v.from || !v.to || v.to < v.from)) return L("Choose the first and last day of the time off.", "กรุณาเลือกวันแรกและวันสุดท้ายที่ต้องการหยุด");
+        if (v.type === "other" && !v.note) return L("Please write what you need.", "กรุณาระบุสิ่งที่ต้องการ");
+      },
       onSave: function (v) {
-        var x = A.byId("sessions", v.sessionId);
-        A.db.requests.push({ id: A.uid("r"), enrolmentId: x.enrolmentId, sessionId: x.id, type: v.type, date: v.date, start: v.start, hours: +v.hours, note: v.note, status: "pending", createdBy: A.me.id, createdAt: new Date().toISOString() });
-        A.logAct("Requested " + v.type + " of lesson " + x.date);
-        return A.save().then(function (ok) { if (ok) { A.toast(L("Request sent", "ส่งคำขอแล้ว")); location.hash = "#/requests"; A.route(); } });
+        var x = v.sessionId && A.byId("sessions", v.sessionId);
+        var r = { id: A.uid("r"), type: v.type, note: v.note, status: "pending", createdBy: A.me.id, createdAt: new Date().toISOString() };
+        if (v.type === "reschedule" || v.type === "cancel") Object.assign(r, { enrolmentId: x.enrolmentId, sessionId: x.id });
+        else r.enrolmentId = v.enrolmentId;
+        if (v.type === "reschedule") Object.assign(r, { date: v.date, start: v.start, hours: +v.hours });
+        if (v.type === "pause") Object.assign(r, { from: v.from, to: v.to });
+        A.db.requests.push(r);
+        A.logAct("Request: " + v.type + (x ? " lesson " + x.date : v.from ? " " + v.from + "–" + v.to : ""));
+        return A.save().then(function (ok) { if (ok) { A.toast(L("Request sent — DeepDistrict will confirm.", "ส่งคำขอแล้ว — DeepDistrict จะยืนยันให้")); location.hash = "#/requests"; A.route(); } });
+      }
+    });
+  };
+
+  /* Approving a pause: lessons inside the period are cancelled and, by default, the same
+     number of hours is booked again after the last lesson using the learner's regular times. */
+  A.approvePause = function (r) {
+    var e = A.byId("enrolments", r.enrolmentId);
+    var inside = A.sessionsOf(e.id).filter(function (x) { return x.status === "scheduled" && x.date >= r.from && x.date <= r.to; });
+    var hrs = inside.reduce(function (t, x) { return t + (+x.hours || 0); }, 0);
+    var pattern = e.pattern && e.pattern.length ? e.pattern : inside.map(function (x) { return { day: A.parse(x.date).getDay(), start: x.start, end: A.endOf(x), location: x.location }; })
+      .filter(function (p, i, arr) { return arr.findIndex(function (q) { return q.day === p.day && q.start === p.start; }) === i; });
+    var last = A.sessionsOf(e.id).filter(function (x) { return x.status === "scheduled"; }).map(function (x) { return x.date; }).sort().pop() || r.to;
+    A.form({
+      title: L("Approve time off", "อนุมัติการหยุดเรียน") + " · " + A.fmtDate(r.from) + " – " + A.fmtDate(r.to),
+      intro: esc(A.enrolmentLabel(e)) + "<br>" + L(inside.length + " lesson(s), " + A.num(hrs) + " h fall in this period.", "มี " + inside.length + " คาบ รวม " + A.num(hrs) + " ชม. อยู่ในช่วงนี้"),
+      submit: L("Approve", "อนุมัติ"),
+      fields: [
+        { name: "how", label: L("What happens to those lessons", "คาบเรียนในช่วงนี้"), type: "select", full: true, value: "postpone", options: [["postpone", L("Postpone: add the same hours after the last lesson", "เลื่อนไปต่อท้าย: เพิ่มชั่วโมงเท่าเดิมหลังคาบสุดท้าย")], ["cancel", L("Cancel only (hours go back to 'to schedule')", "ยกเลิกอย่างเดียว (ชั่วโมงกลับไปเป็น 'ยังต้องนัด')")]] },
+        { name: "from", label: L("Book again from", "นัดใหม่ตั้งแต่วันที่"), type: "date", value: A.addDays(last > r.to ? last : r.to, 1) },
+        { name: "pattern", label: L("Days & times for the new lessons", "วันและเวลาของคาบใหม่"), type: "slots", value: pattern },
+        { name: "reply", label: L("Reply to the learner / parent", "ข้อความตอบกลับผู้เรียน / ผู้ปกครอง"), type: "textarea", full: true, value: "" }
+      ],
+      onReady: function (form) { function vis() { var p = form.elements.how.value === "postpone"; form.elements.from.closest(".mf").hidden = !p; form.querySelector("[data-slots]").hidden = !p; } form.elements.how.addEventListener("change", vis); vis(); },
+      onSave: function (v) {
+        var made = v.how === "postpone" && hrs > 0 ? A.generateLessons(e, { pattern: v.pattern, from: v.from, hours: hrs }) : [];
+        return A.clashOK(made, inside.map(function (x) { return x.id; })).then(function (ok) {
+          if (!ok) return false;
+          inside.forEach(function (x) { x.status = "cancelled"; x.reason = L("Time off ", "หยุดเรียน ") + r.from + "–" + r.to; x.pauseOf = r.id; });
+          made.forEach(function (x) { x.afterPause = r.id; });
+          Array.prototype.push.apply(A.db.sessions, made);
+          var result = L(inside.length + " lesson(s) (" + A.num(hrs) + " h) cancelled", "ยกเลิก " + inside.length + " คาบ (" + A.num(hrs) + " ชม.)") +
+            (made.length ? L("; " + made.length + " lesson(s) booked " + A.fmtDate(made[0].date) + " – " + A.fmtDate(made[made.length - 1].date), "; นัดใหม่ " + made.length + " คาบ " + A.fmtDate(made[0].date) + " – " + A.fmtDate(made[made.length - 1].date)) : "");
+          Object.assign(r, { status: "approved", decidedBy: A.me.id, decidedAt: new Date().toISOString(), reply: v.reply, resultText: result });
+          A.logAct("Approved time off " + r.from + "–" + r.to + " · " + A.enrolmentLabel(e) + " · " + result);
+          return A.save().then(function () { A.toast(L("Approved: ", "อนุมัติแล้ว: ") + result); A.route(); });
+        });
       }
     });
   };
 
   A.pages.requests = function (q) {
-    var show = q.get("show") || "pending";
-    var list = (A.db.requests || []).filter(function (r) { return show === "all" || r.status === "pending"; }).sort(function (a, b) { return (b.createdAt || "").localeCompare(a.createdAt || ""); });
+    var show = q.get("show") || (A.isStaff() ? "pending" : "all"), type = q.get("type") || "", from = q.get("from") || "", to = q.get("to") || "";
+    var list = (A.db.requests || []).filter(function (r) {
+      var d = (r.createdAt || "").slice(0, 10);
+      return (show === "all" || r.status === show) && (!type || r.type === type) && (!from || d >= from) && (!to || d <= to);
+    }).sort(function (a, b) { return (b.createdAt || "").localeCompare(a.createdAt || ""); });
     var REQ = { pending: L("Waiting", "รอพิจารณา"), approved: L("Approved", "อนุมัติแล้ว"), declined: L("Declined", "ไม่อนุมัติ"), withdrawn: L("Withdrawn", "ถอนคำขอ") };
+    function asked(r) {
+      if (r.type === "reschedule") return r.date ? A.fmtDate(r.date, { weekday: "short", day: "numeric", month: "short" }) + " " + (r.start || "") + " · " + A.hrs(r.hours) : "–";
+      if (r.type === "pause") return A.fmtDate(r.from) + " – " + A.fmtDate(r.to);
+      return "";
+    }
     var rows = list.map(function (r) {
       var s = A.byId("sessions", r.sessionId), e = A.byId("enrolments", r.enrolmentId) || {};
-      var asked = r.type === "cancel" ? L("Cancel", "ยกเลิก") : (r.date ? A.fmtDate(r.date, { weekday: "short", day: "numeric", month: "short" }) + " " + (r.start || "") + " · " + A.hrs(r.hours) : "–");
       var act = "";
-      if (r.status === "pending" && A.isStaff() && A.canEditEnrolment(e)) act = '<button class="btn btn--xs btn--primary" data-act="req-approve" data-id="' + r.id + '">' + L("Approve…", "อนุมัติ…") + '</button> <button class="btn btn--xs" data-act="req-decline" data-id="' + r.id + '">' + L("Decline", "ไม่อนุมัติ") + "</button>";
+      if (r.status === "pending" && A.canApprove(e)) act = '<button class="btn btn--xs btn--primary" data-act="req-approve" data-id="' + r.id + '">' + L("Approve…", "อนุมัติ…") + '</button> <button class="btn btn--xs" data-act="req-decline" data-id="' + r.id + '">' + L("Decline", "ไม่อนุมัติ") + "</button>";
+      else if (r.status === "pending" && A.isStaff()) act = '<span class="muted">' + L("Admin approves", "รอผู้ดูแลระบบอนุมัติ") + "</span>";
       if (r.status === "pending" && r.createdBy === A.me.id && !A.isStaff()) act = '<button class="btn btn--xs" data-act="req-withdraw" data-id="' + r.id + '">' + L("Withdraw", "ถอนคำขอ") + "</button>";
-      return { cells: [esc(A.userName(e.studentId)) + "<br><span class=muted>" + esc(e.courseCode || "") + " · " + L("by ", "โดย ") + esc(A.userName(r.createdBy)) + "</span>",
-        s ? esc(when(s)) + " · " + A.hrs(s.hours) : "–", "<b>" + esc(asked) + "</b>" + (r.note ? "<br><span class=muted>" + esc(r.note) + "</span>" : "") + (r.reply ? '<br><span class="moved">' + esc(r.reply) + "</span>" : ""),
-        '<span class="badge badge--' + (r.status === "approved" ? "done" : r.status === "pending" ? "scheduled" : "cancelled") + '">' + esc(REQ[r.status] || r.status) + "</span>", act] };
+      return { cells: [esc(A.fmtDate((r.createdAt || "").slice(0, 10))), esc(A.userName(e.studentId)) + "<br><span class=muted>" + esc(e.courseCode || "") + " · " + L("by ", "โดย ") + esc(A.userName(r.createdBy)) + "</span>",
+        "<b>" + esc(A.reqTypeName(r.type)) + "</b>" + (s ? "<br><span class=muted>" + esc(when(s)) + " · " + A.hrs(s.hours) + "</span>" : ""),
+        esc(asked(r)) + (r.note ? "<br><span class=muted>" + esc(r.note) + "</span>" : ""),
+        '<span class="badge badge--' + (r.status === "approved" ? "done" : r.status === "pending" ? "scheduled" : "cancelled") + '">' + esc(REQ[r.status] || r.status) + "</span>" +
+          (r.resultText ? '<br><span class="moved">' + esc(r.resultText) + "</span>" : "") + (r.reply ? '<br><span class="muted">“' + esc(r.reply) + "”</span>" : "") + (r.decidedBy ? '<br><span class="muted">' + esc(A.userName(r.decidedBy)) + "</span>" : ""),
+        act ? '<span class="no-export">' + act + "</span>" : ""] };
     });
-    var html = '<div class="tabs"><a class="tab' + (show === "pending" ? " is-on" : "") + '" href="#/requests">' + L("Waiting", "รอพิจารณา") + " <span>" + A.pendingRequests().length + '</span></a><a class="tab' + (show === "all" ? " is-on" : "") + '" href="#/requests?show=all">' + L("All", "ทั้งหมด") + "</a></div>" +
-      (rows.length ? A.table([L("Learner", "ผู้เรียน"), L("Lesson", "คาบเรียน"), L("Asked for", "ขอเปลี่ยนเป็น"), L("Status", "สถานะ"), ""], rows) : A.empty("No requests here.", "ไม่มีคำขอในหมวดนี้"));
-    return { title: L("Change requests", "คำขอเปลี่ยนแปลง"), actions: A.isStaff() ? "" : '<button class="btn btn--primary" data-act="req-new">+ ' + L("Request a change", "ขอเปลี่ยนแปลงคาบเรียน") + "</button>", html: html };
+    var counts = {}; list.forEach(function (r) { counts[r.status] = (counts[r.status] || 0) + 1; });
+    A._docBase = "requests-" + A.today(); A._report = null;
+    var html = '<form class="filters" data-filters><label>' + L("Status", "สถานะ") + '<select name="show">' + A.opts([["pending", REQ.pending], ["approved", REQ.approved], ["declined", REQ.declined], ["withdrawn", REQ.withdrawn], ["all", L("All", "ทั้งหมด")]], show) + "</select></label>" +
+      "<label>" + L("Type", "ประเภท") + '<select name="type">' + A.opts(Object.keys(REQ_TYPES()).map(function (k) { return [k, A.reqTypeName(k)]; }), type, L("All", "ทั้งหมด")) + "</select></label>" +
+      "<label>" + L("From", "ตั้งแต่") + '<input type="date" name="from" value="' + esc(from) + '"></label><label>' + L("To", "ถึง") + '<input type="date" name="to" value="' + esc(to) + '"></label></form>' +
+      (A.isStaff() ? A.exportBar('<button class="btn" data-act="req-csv">CSV</button>') : "") +
+      '<div class="report report--wide report--inline" id="report">' + A.docHead(L("Change requests", "สรุปคำขอเปลี่ยนแปลง"), L(list.length + " request(s)", "ทั้งหมด " + list.length + " รายการ") + " · " + Object.keys(counts).map(function (k) { return (REQ[k] || k) + " " + counts[k]; }).join(" · "), "", "") +
+      (rows.length ? A.table([L("Sent", "วันที่ส่ง"), L("Learner", "ผู้เรียน"), L("Request", "คำขอ"), L("Details", "รายละเอียด"), L("Result", "ผลการพิจารณา"), ""], rows) : A.empty("No requests here.", "ไม่มีคำขอในหมวดนี้")) +
+      A.docFoot(A.today()) + "</div>";
+    A._reqRows = list;
+    return { title: L("Change requests", "คำขอเปลี่ยนแปลง"), actions: A.isStaff() ? "" : '<button class="btn btn--primary" data-act="req-new">+ ' + L("Request a change", "ขอเปลี่ยนแปลง") + "</button>", html: html };
   };
 
   /* ------------------------------------------------------------ learner / parent home */
@@ -213,9 +304,9 @@
         var learned = st.sessions.filter(function (s) { return s.status === "done"; }).slice(-3).reverse();
         var reqs = (A.db.requests || []).filter(function (r) { return r.enrolmentId === e.id && r.status === "pending"; });
         html += '<article class="box course-card"><header><div><h3>' + esc(A.courseName(e.courseCode)) + '</h3><p class="muted">' + L("Teacher: ", "ครู: ") + esc(A.userName(e.teacherId)) + " · " + esc(A.enrStatusName(e.status)) + "</p></div>" +
-          '<div class="btnrow"><a class="btn btn--sm" href="#/reports?student=' + u.id + "&enrolment=" + e.id + '">' + L("Report · PDF / image", "รายงาน · PDF / รูปภาพ") + "</a>" + (next.length ? '<button class="btn btn--sm" data-act="req-new">' + L("Request a change", "ขอเปลี่ยนแปลง") + "</button>" : "") + "</div></header>" +
+          '<div class="btnrow"><a class="btn btn--sm" href="#/reports?student=' + u.id + "&enrolment=" + e.id + '">' + L("Report · PDF / image", "รายงาน · PDF / รูปภาพ") + "</a>" + '<button class="btn btn--sm" data-act="req-new">' + L("Request a change / time off", "ขอเปลี่ยนแปลง / ขอหยุดเรียน") + "</button>" + '<button class="btn btn--sm" data-act="doc-schedule" data-enr="' + e.id + '">' + L("Schedule", "ตารางเรียน") + "</button>" + "</div></header>" +
           A.hoursPanel(e, st) +
-          (reqs.length ? '<p class="note">' + L(reqs.length + " change request(s) waiting for the teacher.", "มีคำขอเปลี่ยนแปลง " + reqs.length + " รายการ รอครูยืนยัน") + ' <a href="#/requests">' + L("View", "ดู") + "</a></p>" : "") +
+          (reqs.length ? '<p class="note">' + L(reqs.length + " request(s) waiting for DeepDistrict to confirm.", "มีคำขอ " + reqs.length + " รายการ รอ DeepDistrict ยืนยัน") + ' <a href="#/requests">' + L("View", "ดู") + "</a></p>" : "") +
           '<div class="grid2"><div><h4>' + L("Next lessons", "คาบเรียนถัดไป") + "</h4>" + (next.length ? '<ul class="list">' + next.map(function (s) { return '<li><button type="button" class="linkish" data-session="' + s.id + '"><b>' + esc(when(s)) + "</b> · " + A.hrs(s.hours) + "</button>" + (s.movedFrom || s.makeUpFor ? '<span class="moved">' + (s.makeUpFor ? L("make-up", "ชดเชย") : L("moved", "เลื่อนมา")) + "</span>" : "") + "</li>"; }).join("") + "</ul>" : '<p class="muted">' + L("None booked yet.", "ยังไม่มีการนัด") + "</p>") + "</div>" +
           "<div><h4>" + L("Recently learned", "เรียนล่าสุด") + "</h4>" + (learned.length ? '<ul class="list">' + learned.map(function (s) { return "<li><span><b>" + esc(A.fmtDate(s.date, { day: "numeric", month: "short" })) + "</b> · " + esc(s.topic || "–") + "</span></li>"; }).join("") + "</ul>" : '<p class="muted">' + L("Nothing yet.", "ยังไม่มี") + "</p>") + "</div></div>" +
           (st.fee ? '<p class="fees">' + L("Fees: ", "ค่าเรียน: ") + A.money(st.fee) + " · " + L("paid ", "ชำระแล้ว ") + A.money(st.paid) + (st.balance > 0.009 ? ' · <b class="neg">' + L("due ", "คงค้าง ") + A.money(st.balance) + "</b>" : ' · <span class="pos">' + L("fully paid", "ชำระครบ") + "</span>") + "</p>" : "") +
@@ -234,16 +325,29 @@
     if (act === "gap-makeup" && enr) return A.editSession(null, { enrolmentId: enr.id, hours: A.stats(enr).unscheduled, date: A.addDays(A.today(), 1), start: "16:00" });
     if (act === "req-new") return A.requestChange();
     if (act === "req-approve") {
-      var r = A.byId("requests", id), s = r && A.byId("sessions", r.sessionId);
-      if (!s) return A.toast(L("The lesson no longer exists.", "ไม่พบคาบเรียนนี้แล้ว"), "err");
+      var r = A.byId("requests", id), s = r && r.sessionId && A.byId("sessions", r.sessionId);
+      if (!r) return;
+      if (r.type === "pause") return A.approvePause(r);
+      if (r.type === "other") {
+        var rep = prompt(L("Reply (what was agreed):", "ข้อความตอบกลับ (สิ่งที่ตกลงกัน):"), "");
+        if (rep === null) return;
+        Object.assign(r, { status: "approved", reply: rep, decidedBy: A.me.id, decidedAt: new Date().toISOString(), resultText: rep });
+        return A.save().then(function () { A.route(); });
+      }
+      if (!s || s.status !== "scheduled") return A.toast(L("The lesson is no longer scheduled.", "คาบเรียนนี้ไม่ได้อยู่ในสถานะนัดเรียนแล้ว"), "err");
       if (r.type === "cancel") {
         if (!confirm(L("Cancel the lesson on " + when(s) + "? Its hours go back to 'to schedule'.", "ยกเลิกคาบวันที่ " + when(s) + "? ชั่วโมงจะกลับไปเป็น 'ยังต้องนัด'"))) return;
         s.status = "cancelled"; s.reason = r.note || "";
-        Object.assign(r, { status: "approved", decidedBy: A.me.id, decidedAt: new Date().toISOString() });
+        Object.assign(r, { status: "approved", decidedBy: A.me.id, decidedAt: new Date().toISOString(), resultText: L("Lesson cancelled; " + A.num(s.hours) + " h to schedule", "ยกเลิกคาบแล้ว; " + A.num(s.hours) + " ชม. รอนัดใหม่") });
         A.logAct("Approved cancellation of lesson " + s.date);
         return A.save().then(function () { A.route(); });
       }
       return A.reschedule(s, { date: r.date, start: r.start, hours: r.hours, reason: r.note, requestId: r.id });
+    }
+    if (act === "req-csv") {
+      var rows = [["sent", "learner", "course", "type", "lesson", "requested", "from", "to", "note", "status", "result", "reply", "decided by"]];
+      (A._reqRows || []).forEach(function (r) { var e = A.byId("enrolments", r.enrolmentId) || {}, s2 = A.byId("sessions", r.sessionId); rows.push([(r.createdAt || "").slice(0, 10), A.userName(e.studentId), e.courseCode, r.type, s2 ? s2.date + " " + s2.start : "", r.date ? r.date + " " + (r.start || "") + " " + (r.hours || "") + "h" : "", r.from, r.to, r.note, r.status, r.resultText, r.reply, A.userName(r.decidedBy)]); });
+      return A.download("requests-" + A.today() + ".csv", A.csv(rows), "text/csv;charset=utf-8");
     }
     if (act === "req-decline") {
       var rd = A.byId("requests", id), why = prompt(L("Reply to the learner (optional):", "ข้อความตอบกลับ (ไม่บังคับ):"), "");

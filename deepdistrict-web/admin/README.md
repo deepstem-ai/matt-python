@@ -25,10 +25,10 @@ Demo sign-ins: `parent@demo.test` / `demo-parent-1`, `student@demo.test` / `demo
 
 | Role | Sees | Can change |
 | --- | --- | --- |
-| **Admin** | everything | everything, incl. passwords, fees, settings, backups |
-| **Teacher** | own students' enrolments, lessons, requests and parents | lessons of own students (log, move, make-ups), approve/decline their requests, add students/parents; **no fees** |
-| **Parent** | own children's courses, lessons, hours, fees, reports | send change requests; change own password |
-| **Student** | own courses, lessons, hours, fees, reports | send change requests; change own password |
+| **Admin** | everything | everything, incl. **approving requests**, passwords, fees, receipts, settings, email, backups |
+| **Teacher** | own students' enrolments, lessons, requests and parents; other teachers' time slots | lessons of own students (log, move, make-ups), email documents, add students/parents; approve requests only if the admin allows it; **no fees** |
+| **Parent** | own children's courses, lessons, hours, fees, schedule, reports | request a move / cancel / time off; change own password |
+| **Student** | own courses, lessons, hours, fees, schedule, reports | request a move / cancel / time off; change own password |
 
 Students and parents get a login only when an admin sets an email + password on them.
 
@@ -59,6 +59,59 @@ Pim's Monday lesson moves to **Tuesday for 1 h**. Open the lesson → **Move / r
 Students and parents can also **request** a change (new day/time/hours or cancel). The teacher
 or admin sees it on the dashboard and under **Change requests**; *Approve…* opens the move form
 already filled in, *Decline* sends a short reply.
+
+## Enrolling: lessons, receipt and schedule in one step
+
+New enrolment → choose learner, course, teacher, hours and **regular days & times**. Each day can
+have its own time and room, e.g. *Mon 09:00–10:30 (Room A), Tue 14:00–15:00, Wed 19:00–20:30*.
+With "Create the lessons in the calendar now" ticked, the system books every lesson from the
+chosen first date until the purchased hours are used up (the last lesson is shortened if needed).
+
+Example: enrolled Wed 4 Nov, 12 h, Tue + Wed 18:00–19:00 → 12 lessons, Tue 10 Nov … Wed 16 Dec.
+If a payment was received it gets the next receipt number (`RC2026-0001`, …). The **enrolment
+confirmation** (schedule + fees + receipts) opens straight away to download, print or email.
+
+## Time clashes
+
+Every time a lesson is created, moved, generated or approved, the system checks for the same
+**teacher**, the same **learner** or the same **room** at an overlapping time. If it finds one, a
+pop-up lists both lessons — *Go back and change* or *Confirm anyway*.
+
+The **week view** is a time grid: each teacher has a colour; lessons at the same time sit side
+by side showing *start–end · course · learner · teacher · online/onsite/hybrid · room*. Lessons
+of the same teacher that overlap get a red outline. Teachers also see other teachers' lessons
+(hatched, without learner details) so they can avoid clashes.
+
+## Change requests and time off — DeepDistrict decides
+
+Students and parents can ask to **move a lesson, cancel a lesson, take time off (e.g. two weeks)
+or something else**. Only admins approve by default (Settings → *Teachers may also approve*).
+
+- *Move* → the move form opens with the requested date/time; hours are balanced as above.
+- *Time off* → shows the lessons in that period; **postpone** cancels them and books the same
+  hours again after the last lesson using the regular times (editable), or **cancel only**.
+- Every decision stores a result ("4 lessons cancelled; 4 booked 22 Dec – 30 Dec") that the
+  parent sees; the requests page is a report you can export (PDF, PNG, CSV, email).
+
+## Documents (all with logo and official stamp)
+
+| Document | Where |
+| --- | --- |
+| Enrolment confirmation (schedule + fees + receipts) | after enrolling; enrolment page |
+| Receipt with amount in Thai and English words | after recording a payment; payments lists |
+| Learning schedule | enrolment page; parent's "My learning" |
+| Progress report | Reports |
+| Search results, requests summary, learners summary | Search, Change requests, Reports |
+
+Each can be saved as **PDF or PNG**, printed, or **emailed** (with the PDF/PNG attached). Set up
+email once in **Settings → Email** (e.g. Gmail / Google Workspace with an app password). Without
+it, "Email" downloads the file and opens your mail app, or uses the phone's share sheet.
+
+## Search
+
+**Search** finds lessons (topics, notes, rooms), enrolments, people, payments (receipt numbers)
+and requests, filtered by date range, teacher, learner and status. Results export as CSV/Excel,
+PDF, PNG, print or email.
 
 ## Reports for parents
 
