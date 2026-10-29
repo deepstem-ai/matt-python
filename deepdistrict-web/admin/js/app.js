@@ -20,11 +20,13 @@
   function ico(n) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICON[n] + "</svg>"; }
 
   var NAV = [
-    ["dashboard", "Dashboard", "ภาพรวม", "all"],
+    ["home", "My learning", "การเรียนของฉัน", "learner", "dashboard"],
+    ["dashboard", "Dashboard", "ภาพรวม", "staff"],
     ["calendar", "Calendar", "ปฏิทิน", "all"],
-    ["enrolments", "Enrolments", "การลงทะเบียน", "all", "enrol"],
-    ["sessions", "Lessons log", "บันทึกการสอน", "all"],
-    ["people", "People", "ผู้ใช้และนักเรียน", "all"],
+    ["requests", "Change requests", "คำขอเปลี่ยนแปลง", "all", "sessions"],
+    ["enrolments", "Enrolments", "การลงทะเบียน", "staff", "enrol"],
+    ["sessions", "Lessons log", "บันทึกการสอน", "staff"],
+    ["people", "People", "ผู้ใช้และนักเรียน", "staff"],
     ["payments", "Payments", "การชำระเงิน", "admin"],
     ["courses", "Courses", "หลักสูตร", "admin"],
     ["reports", "Reports & export", "รายงานและส่งออก", "all"],
@@ -33,9 +35,9 @@
 
   /* ------------------------------------------------------------ scoping for teachers */
   A.visibleEnrolments = function () {
-    return A.db.enrolments.filter(function (e) { return A.isAdmin() || e.teacherId === A.me.id; });
+    return A.db.enrolments.filter(function (e) { return A.me.role !== "teacher" || e.teacherId === A.me.id; });
   };
-  A.canEditEnrolment = function (e) { return A.isAdmin() || (e && e.teacherId === A.me.id); };
+  A.canEditEnrolment = function (e) { return A.isAdmin() || (A.me.role === "teacher" && e && e.teacherId === A.me.id); };
 
   /* ------------------------------------------------------------ small widgets */
   A.badge = function (status, label) { return '<span class="badge badge--' + esc(status) + '">' + esc(label || A.statusName(status)) + "</span>"; };
@@ -79,10 +81,12 @@
         { name: "grade", label: L("Grade or age", "ชั้นเรียนหรืออายุ"), value: u.grade },
         { name: "guardianId", label: L("Parent / guardian (students)", "ผู้ปกครอง (สำหรับนักเรียน)"), type: "select", options: [["", "–"]].concat(peopleOpts("parent")), value: u.guardianId },
         { name: "consentDate", label: L("PDPA consent received on", "วันที่ได้รับความยินยอม PDPA"), type: "date", value: u.consentDate, hint: L("Record when the learner (or guardian for under-20s) agreed to data use.", "บันทึกวันที่ผู้เรียน (หรือผู้ปกครองกรณีอายุต่ำกว่า 20 ปี) ให้ความยินยอม") },
-        { name: "password", label: L("Sign-in password (staff only)", "รหัสผ่านเข้าระบบ (เฉพาะเจ้าหน้าที่)"), type: "password", autocomplete: "new-password", hint: isNew ? L("At least 8 characters. Leave empty for learners.", "อย่างน้อย 8 ตัวอักษร เว้นว่างสำหรับผู้เรียน") : L("Leave empty to keep the current password.", "เว้นว่างเพื่อใช้รหัสผ่านเดิม") },
+      ].concat(A.isAdmin() ? [
+        { name: "password", label: L("Sign-in password", "รหัสผ่านเข้าระบบ"), type: "password", autocomplete: "new-password", hint: u.hasLogin ? L("This person can sign in. Leave empty to keep the password.", "บุคคลนี้เข้าระบบได้แล้ว เว้นว่างเพื่อใช้รหัสผ่านเดิม") : L("Optional for students and parents: set one (8+ characters, needs an email) so they can sign in and follow progress.", "ไม่บังคับสำหรับนักเรียนและผู้ปกครอง: ตั้งรหัสผ่าน (8 ตัวขึ้นไป และต้องมีอีเมล) เพื่อให้เข้ามาดูความก้าวหน้าได้") }
+      ] : []).concat([
         { name: "active", label: L("Active", "ใช้งานอยู่"), type: "checkbox", value: u.active !== false },
         { name: "notes", label: L("Notes", "บันทึก"), type: "textarea", value: u.notes, full: true }
-      ],
+      ]),
       onDelete: !isNew && A.isAdmin() && u.id !== A.me.id ? function () {
         var linked = A.db.enrolments.filter(function (e) { return e.studentId === u.id || e.teacherId === u.id; }).length;
         if (linked && !confirm(L("This person has " + linked + " enrolment(s). Delete the person and all their enrolments, lessons and payments?", "บุคคลนี้มีการลงทะเบียน " + linked + " รายการ ต้องการลบบุคคลนี้พร้อมการลงทะเบียน บันทึกการสอน และการชำระเงินทั้งหมดหรือไม่?"))) return;
@@ -93,19 +97,17 @@
       validate: function (v) {
         if (v.email && A.db.users.some(function (x) { return x.id !== u.id && (x.email || "").toLowerCase() === v.email.toLowerCase(); })) return L("This email is already used.", "อีเมลนี้มีผู้ใช้แล้ว");
         if (staff(v.role) && !v.email) return L("Staff need an email to sign in.", "เจ้าหน้าที่ต้องมีอีเมลเพื่อเข้าระบบ");
-        if (staff(v.role) && !u.pass && !v.password) return L("Set a password for this staff account.", "กรุณาตั้งรหัสผ่านสำหรับบัญชีเจ้าหน้าที่");
+        if (staff(v.role) && !u.hasLogin && !v.password) return L("Set a password for this staff account.", "กรุณาตั้งรหัสผ่านสำหรับบัญชีเจ้าหน้าที่");
+        if (v.password && !v.email) return L("An email is needed to sign in.", "ต้องมีอีเมลเพื่อใช้เข้าระบบ");
         if (v.password && v.password.length < 8) return L("Password must be at least 8 characters.", "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร");
         if (u.id === A.me.id && v.role !== "admin" && A.me.role === "admin" && A.people("admin").length < 2) return L("Keep at least one admin.", "ต้องมีผู้ดูแลระบบอย่างน้อย 1 คน");
       },
       onSave: function (v) {
         var pw = v.password; delete v.password;
         var rec = Object.assign(u, v);
-        var p = pw && staff(v.role) ? A.hashPassword(pw).then(function (h) { rec.pass = h; }) : Promise.resolve();
-        if (!staff(v.role)) delete rec.pass;
-        return p.then(function () {
-          A.upsert("users", rec); A.logAct((isNew ? "Added " : "Updated ") + A.roleName(rec.role) + " " + rec.name); A.save();
-          A.toast(L("Saved", "บันทึกแล้ว")); A.route();
-        });
+        if (pw) rec.password = pw;   // sent once over the API, hashed on the server, never stored in the browser
+        A.upsert("users", rec); A.logAct((isNew ? "Added " : "Updated ") + A.roleName(rec.role) + " " + rec.name);
+        return A.save().then(function (ok) { if (ok) { if (pw) rec.hasLogin = true; A.toast(L("Saved", "บันทึกแล้ว")); A.route(); } });
       }
     });
   };
@@ -163,6 +165,7 @@
     var eopts = enrolmentOpts();
     if (!eopts.length) return A.toast(L("Create an enrolment first.", "กรุณาสร้างการลงทะเบียนก่อน"), "err");
     var enr = A.byId("enrolments", s.enrolmentId);
+    if (!A.isStaff()) return A.viewLesson(s);
     if (enr && !A.canEditEnrolment(enr)) return A.toast(L("You can only edit your own students' lessons.", "แก้ไขได้เฉพาะบันทึกการสอนของนักเรียนที่คุณสอน"), "err");
     A.form({
       title: isNew ? L("Add lesson", "เพิ่มคาบเรียน") : L("Lesson", "คาบเรียน") + " · " + A.fmtDate(s.date),
@@ -171,13 +174,15 @@
         { name: "date", label: L("Date", "วันที่"), type: "date", value: s.date, required: true },
         { name: "start", label: L("Start time", "เวลาเริ่ม"), type: "time", value: s.start },
         { name: "hours", label: L("Hours", "จำนวนชั่วโมง"), type: "number", step: "0.25", min: 0.25, value: s.hours, required: true },
-        { name: "status", label: L("Status", "สถานะ"), type: "select", options: Object.keys(A.STATUS).map(function (k) { return [k, A.statusName(k)]; }), value: s.status },
+        { name: "status", label: L("Status", "สถานะ"), type: "select", options: Object.keys(A.STATUS).filter(function (k) { return k !== "rescheduled" || s.status === k; }).map(function (k) { return [k, A.statusName(k)]; }), value: s.status },
         { name: "mode", label: L("Mode", "รูปแบบ"), type: "select", options: MODES(), value: s.mode || (enr && enr.mode) || "online" },
         { name: "teacherId", label: L("Teacher", "ครูผู้สอน"), type: "select", options: [["", "–"]].concat(peopleOpts("staff")), value: s.teacherId || (enr && enr.teacherId) || (A.me.role === "teacher" ? A.me.id : "") },
         { name: "topic", label: L("What was learned (topics)", "สิ่งที่เรียน (หัวข้อ)"), type: "textarea", value: s.topic, full: true },
         { name: "notes", label: L("Progress notes & homework", "บันทึกความก้าวหน้าและการบ้าน"), type: "textarea", value: s.notes, full: true }
       ],
       onDelete: isNew ? null : function () { A.remove("sessions", s.id); A.logAct("Deleted lesson " + s.date); A.save(); A.route(); },
+      extra: !isNew && s.status === "scheduled" ? '<button type="button" class="btn" data-move>' + L("Move / reschedule…", "เลื่อน / ย้ายคาบ…") + "</button>" : "",
+      onReady: function (form, dlg) { var m = form.querySelector("[data-move]"); if (m) m.addEventListener("click", function () { dlg.close(); dlg.remove(); A.reschedule(s); }); },
       onSave: function (v) {
         var rec = A.upsert("sessions", Object.assign(s, v));
         var e2 = A.byId("enrolments", rec.enrolmentId), st = A.stats(e2);
@@ -264,6 +269,8 @@
       (A.isAdmin() ? kpi(L("Outstanding fees", "ค่าเรียนค้างชำระ"), A.money(owed), owing.length + " " + L("enrolments", "รายการ"), owed > 0 ? "warn" : "") : "") +
       kpi(L("Low on hours", "ชั่วโมงใกล้หมด"), low.length, L("≤ " + A.db.org.lowHours + " h left", "เหลือ ≤ " + A.db.org.lowHours + " ชม."), low.length ? "warn" : "") +
       "</div>";
+    var reqs = A.pendingRequests();
+    if (reqs.length) html += '<div class="alert alert--info">' + esc(L(reqs.length + " change request(s) from learners or parents are waiting.", "มีคำขอเปลี่ยนแปลงจากผู้เรียนหรือผู้ปกครอง " + reqs.length + " รายการรอพิจารณา")) + ' <a href="#/requests">' + L("Review", "พิจารณา") + "</a></div>";
     if (overdue.length) html += '<div class="alert">' + esc(L(overdue.length + " past lesson(s) are still marked as scheduled. Update them so hours stay correct.", "มี " + overdue.length + " คาบที่ผ่านไปแล้วแต่ยังเป็นสถานะนัดเรียน กรุณาอัปเดตเพื่อให้ชั่วโมงถูกต้อง")) + ' <a href="#/sessions?status=overdue">' + L("Review", "ตรวจสอบ") + "</a></div>";
     html += '<div class="grid2">' +
       '<section class="box"><header><h2>' + L("Upcoming lessons", "คาบเรียนที่จะถึง") + '</h2><a href="#/calendar">' + L("Calendar", "ปฏิทิน") + " →</a></header>" +
@@ -336,13 +343,8 @@
     var st = A.stats(e), c = A.course(e.courseCode), stu = A.byId("users", e.studentId);
     var html = '<p class="crumbs"><a href="#/enrolments">← ' + L("Enrolments", "การลงทะเบียน") + "</a></p>" +
       '<div class="enr-head"><div><h2>' + esc(A.userName(e.studentId)) + "</h2><p>" + esc(A.courseName(e.courseCode)) + " · " + esc(A.L("Teacher: ", "ครู: ") + A.userName(e.teacherId)) + " · " + esc(A.MODES().filter(function (m) { return m[0] === e.mode; }).map(function (m) { return m[1]; })[0] || "") + " · " + L("since ", "เริ่ม ") + esc(A.fmtDate(e.start)) + "</p></div>" + A.badge(e.status, A.enrStatusName(e.status)) + "</div>" +
-      '<div class="kpis">' +
-      kpi(L("Hours purchased", "ชั่วโมงที่ซื้อ"), A.num(st.total)) +
-      kpi(L("Hours used", "ชั่วโมงที่ใช้"), A.num(st.used), st.pct + "%") +
-      kpi(L("Hours left", "ชั่วโมงคงเหลือ"), A.num(st.remaining), st.over ? L("over by ", "เกิน ") + A.num(st.over) : "", st.remaining <= A.db.org.lowHours ? "warn" : "good") +
-      kpi(L("Booked ahead", "นัดล่วงหน้า"), A.num(st.planned), L("unscheduled ", "ยังไม่นัด ") + A.num(st.unscheduled)) +
-      (A.isAdmin() ? kpi(L("Fee / paid", "ค่าเรียน / ชำระแล้ว"), A.money(st.fee), L("paid ", "ชำระ ") + A.money(st.paid)) + kpi(L("Balance", "ยอดค้าง"), A.money(st.balance), "", st.balance > 0.009 ? "warn" : "good") : "") +
-      "</div>" + A.bar(st) +
+      A.hoursPanel(e, st) +
+      (A.isAdmin() ? '<div class="kpis kpis--money">' + kpi(L("Fee", "ค่าเรียน"), A.money(st.fee)) + kpi(L("Paid", "ชำระแล้ว"), A.money(st.paid)) + kpi(L("Balance", "ยอดค้าง"), A.money(st.balance), "", st.balance > 0.009 ? "warn" : "good") + "</div>" : "") +
       (e.goal ? '<p class="note">🎯 ' + esc(e.goal) + "</p>" : "") +
       '<div class="btnrow">' +
       '<button class="btn btn--primary" data-act="new-session" data-enr="' + e.id + '">+ ' + L("Add lesson", "เพิ่มคาบเรียน") + "</button>" +
@@ -353,7 +355,7 @@
       "</div>" +
       '<section class="box"><header><h2>' + L("Lessons", "คาบเรียน") + " (" + st.sessions.length + ")</h2></header>" +
       (st.sessions.length ? table([L("Date", "วันที่"), L("Hours", "ชม."), L("Status", "สถานะ"), L("What was learned", "สิ่งที่เรียน"), ""], st.sessions.map(function (s) {
-        return { attrs: ' data-session="' + s.id + '"', cells: [esc(A.fmtDate(s.date, { weekday: "short", day: "numeric", month: "short", year: "2-digit" })) + "<br><span class=muted>" + esc(s.start || "") + "</span>", A.num(s.hours), A.badge(s.status), esc(s.topic || "") + (s.notes ? '<br><span class="muted">' + esc(s.notes) + "</span>" : ""),
+        return { attrs: ' data-session="' + s.id + '"', cells: [esc(A.fmtDate(s.date, { weekday: "short", day: "numeric", month: "short", year: "2-digit" })) + "<br><span class=muted>" + esc(s.start || "") + "</span>", A.num(s.hours), A.badge(s.status), A.lessonNote(s),
           s.status === "scheduled" ? '<button type="button" class="btn btn--xs" data-done="' + s.id + '">' + L("Mark done", "เรียนแล้ว") + "</button>" : ""] };
       }), "tbl--click") : A.empty("No lessons yet. Add one or schedule weekly lessons.", "ยังไม่มีคาบเรียน เพิ่มคาบเรียนหรือนัดรายสัปดาห์ได้เลย")) + "</section>" +
       (A.isAdmin() ? '<section class="box"><header><h2>' + L("Payments", "การชำระเงิน") + "</h2></header>" +
@@ -456,14 +458,14 @@
 
   P.settings = function () {
     var o = A.db.org, used = 0;
-    try { used = (localStorage.getItem("dd-admin-v1") || "").length * 2; } catch (e) {}
+    used = JSON.stringify(A.db).length;
     var html =
       '<section class="box"><header><h2>' + L("My account", "บัญชีของฉัน") + "</h2></header><p>" + esc(A.me.name) + " · " + esc(A.me.email) + " · " + esc(A.roleName(A.me.role)) + '</p><button class="btn" data-act="my-password">' + L("Change my password", "เปลี่ยนรหัสผ่าน") + "</button></section>" +
       (A.isAdmin() ? '<section class="box"><header><h2>' + L("Organisation & rules", "ข้อมูลองค์กรและกติกา") + '</h2><button class="btn" data-act="org">' + L("Edit", "แก้ไข") + "</button></header>" +
         '<dl class="dl"><dt>' + L("Name", "ชื่อ") + "</dt><dd>" + esc(o.name) + "</dd><dt>" + L("Address", "ที่อยู่") + "</dt><dd>" + esc(o.address) + "</dd><dt>" + L("Email / phone", "อีเมล / โทร") + "</dt><dd>" + esc([o.email, o.phone].filter(Boolean).join(" · ")) + "</dd><dt>" + L("Tax ID", "เลขประจำตัวผู้เสียภาษี") + "</dt><dd>" + esc(o.taxId || "–") + "</dd>" +
         "<dt>" + L("Default rate", "ราคามาตรฐาน") + "</dt><dd>" + A.money(o.rate) + " / " + L("h", "ชม.") + "</dd><dt>" + L("Low-hours alert", "แจ้งเตือนชั่วโมงใกล้หมด") + "</dt><dd>≤ " + A.hrs(o.lowHours) + "</dd><dt>" + L("No-show uses hours", "ขาดเรียนนับชั่วโมง") + "</dt><dd>" + (o.noShowCounts ? L("Yes", "ใช่") : L("No", "ไม่")) + "</dd></dl></section>" +
         '<section class="box"><header><h2>' + L("Backup & data", "สำรองและจัดการข้อมูล") + "</h2></header>" +
-        '<p class="note">' + L("All data is stored only in this browser on this computer (about " + Math.round(used / 1024) + " KB). Export a backup regularly and keep it somewhere safe — clearing the browser deletes the data. To share data between several computers, a server database is needed (see admin/README.md).", "ข้อมูลทั้งหมดเก็บไว้ในเบราว์เซอร์ของเครื่องนี้เท่านั้น (ประมาณ " + Math.round(used / 1024) + " KB) กรุณาส่งออกไฟล์สำรองเป็นประจำและเก็บไว้ในที่ปลอดภัย การล้างข้อมูลเบราว์เซอร์จะทำให้ข้อมูลหายไป หากต้องการใช้ข้อมูลร่วมกันหลายเครื่อง ต้องใช้ฐานข้อมูลบนเซิร์ฟเวอร์ (ดู admin/README.md)") + "</p>" +
+        '<p class="note">' + L("Data is stored on the DeepDistrict server in one database file (server/data/deepdistrict.db). The server also copies it every day to server/data/backups (last 30 days). Export a backup file regularly as well and keep it somewhere safe.", "ข้อมูลเก็บบนเซิร์ฟเวอร์ DeepDistrict ในไฟล์ฐานข้อมูล server/data/deepdistrict.db และระบบสำรองอัตโนมัติทุกวันไว้ที่ server/data/backups (ย้อนหลัง 30 วัน) ควรส่งออกไฟล์สำรองเก็บไว้ในที่ปลอดภัยเป็นประจำด้วย") + "</p>" +
         '<div class="btnrow"><button class="btn btn--primary" data-act="backup">' + L("Export backup (.json)", "ส่งออกไฟล์สำรอง (.json)") + '</button><label class="btn">' + L("Import backup…", "นำเข้าไฟล์สำรอง…") + '<input type="file" accept=".json,application/json" data-import hidden></label>' +
         '<button class="btn" data-act="demo">' + L("Load demo data", "โหลดข้อมูลตัวอย่าง") + '</button><button class="btn btn--danger" data-act="erase">' + L("Erase all data", "ลบข้อมูลทั้งหมด") + "</button></div></section>" +
         '<section class="box"><header><h2>' + L("Activity log", "บันทึกการใช้งาน") + "</h2></header>" + (A.db.log.length ? '<ul class="list list--log">' + A.db.log.slice(0, 60).map(function (l) { return "<li><span>" + esc(l.text) + '</span><span class="muted">' + esc(l.by) + " · " + esc(new Date(l.at).toLocaleString(A.lang === "th" ? "th-TH" : "en-GB")) + "</span></li>"; }).join("") + "</ul>" : A.empty("No activity yet.", "ยังไม่มีความเคลื่อนไหว")) + "</section>"
@@ -498,10 +500,8 @@
       ],
       validate: function (v) { if (v.pw.length < 8) return L("At least 8 characters.", "อย่างน้อย 8 ตัวอักษร"); if (v.pw !== v.pw2) return L("Passwords do not match.", "รหัสผ่านไม่ตรงกัน"); },
       onSave: function (v) {
-        return A.hashPassword(v.old, A.me.pass.salt).then(function (r) {
-          if (r.hash !== A.me.pass.hash) { A.toast(L("Current password is wrong.", "รหัสผ่านปัจจุบันไม่ถูกต้อง"), "err"); return false; }
-          return A.hashPassword(v.pw).then(function (h) { A.me.pass = h; A.upsert("users", A.me); A.logAct("Changed own password"); A.save(); A.toast(L("Password changed", "เปลี่ยนรหัสผ่านแล้ว")); });
-        });
+        return A.api("POST", "password", { old: v.old, new: v.pw }).then(function () { A.toast(L("Password changed", "เปลี่ยนรหัสผ่านแล้ว")); })
+          .catch(function (e) { A.toast(e.message, "err"); return false; });
       }
     });
   }
@@ -510,12 +510,15 @@
   function shell() {
     root.innerHTML =
       '<aside class="side" id="side"><a class="side__brand" href="#/dashboard"><img src="../assets/images/brand/logo-mark.png" alt=""><span>DeepDistrict<small>' + L("Back office", "ระบบหลังบ้าน") + "</small></span></a><nav>" +
-      NAV.filter(function (n) { return n[3] === "all" || A.isAdmin(); }).map(function (n) { return '<a href="#/' + n[0] + '" data-nav="' + n[0] + '">' + ico(n[4] || n[0]) + "<span>" + L(n[1], n[2]) + "</span></a>"; }).join("") +
+      NAV.filter(function (n) { return n[3] === "all" || (n[3] === "staff" && A.isStaff()) || (n[3] === "learner" && !A.isStaff()) || A.isAdmin() && n[3] === "admin"; }).map(function (n) {
+        var badge = n[0] === "requests" ? A.pendingRequests().length : 0;
+        return '<a href="#/' + n[0] + '" data-nav="' + n[0] + '">' + ico(n[4] || n[0]) + "<span>" + L(n[1], n[2]) + "</span>" + (badge ? '<b class="nav-badge">' + badge + "</b>" : "") + "</a>";
+      }).join("") +
       '</nav><div class="side__foot"><a href="../index.html">← ' + L("Public website", "เว็บไซต์หลัก") + "</a></div></aside>" +
       '<div class="main"><header class="top"><button class="ibtn menu" type="button" data-act="menu" aria-label="Menu">☰</button><h1 id="page-title"></h1><div class="top__act" id="page-actions"></div>' +
       '<div class="top__tools"><div class="seg"><button type="button" data-lang="th"' + (A.lang === "th" ? ' aria-pressed="true"' : "") + '>TH</button><button type="button" data-lang="en"' + (A.lang === "en" ? ' aria-pressed="true"' : "") + ">EN</button></div>" +
       '<button class="ibtn" type="button" data-act="theme" aria-label="Light / dark" title="Light / dark"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>' +
-      '<span class="me" title="' + esc(A.me.email) + '">' + esc(A.me.nick || A.me.name.split(" ")[0]) + " · " + esc(A.roleName(A.me.role)) + "</span>" +
+      '<span class="sync" id="sync" aria-live="polite"></span><span class="me" title="' + esc(A.me.email) + '">' + esc(A.me.nick || A.me.name.split(" ")[0]) + " · " + esc(A.roleName(A.me.role)) + "</span>" +
       '<button class="btn btn--sm" type="button" data-act="logout">' + L("Sign out", "ออกจากระบบ") + "</button></div></header>" +
       '<main id="view" tabindex="-1"></main></div>';
   }
@@ -523,10 +526,15 @@
   A.route = function (to) {
     if (to) { location.hash = "#/" + to; return; }
     if (!A.me) return;
+    if (!$("#view") || !A._navRole || A._navRole !== A.me.role) { root.innerHTML = ""; A._navRole = A.me.role; }
     if (!$("#view")) shell();
-    var h = location.hash.replace(/^#\/?/, "") || "dashboard";
+    var h = location.hash.replace(/^#\/?/, "") || (A.isStaff() ? "dashboard" : "home");
     var parts = h.split("?"), path = parts[0].split("/"), q = new URLSearchParams(parts[1] || "");
-    var name = path[0], page = P[name] || P.dashboard;
+    var staffOnly = ["dashboard", "enrolments", "enrolment", "sessions", "people", "payments", "courses"];
+    var name = path[0];
+    if (!A.isStaff() && staffOnly.indexOf(name) !== -1) name = "home";
+    if (A.isStaff() && name === "home") name = "dashboard";
+    var page = P[name] || (A.isStaff() ? P.dashboard : P.home);
     var out = page(q, path[1]);
     $("#page-title").textContent = out.title;
     $("#page-actions").innerHTML = out.actions || "";
@@ -552,7 +560,7 @@
       var act = b.getAttribute("data-act"), enrId = b.getAttribute("data-enr");
       if (act === "menu") document.body.classList.toggle("nav-open");
       else if (act === "theme") A.applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
-      else if (act === "logout") { A.logout(); A.boot(); }
+      else if (act === "logout") { A.logout().then(A.boot); }
       else if (act === "new-person") A.editPerson(null, b.getAttribute("data-role"));
       else if (act === "new-enrolment") A.editEnrolment();
       else if (act === "edit-enrolment") A.editEnrolment(A.byId("enrolments", enrId));
@@ -562,9 +570,9 @@
       else if (act === "new-course") editCourse(null);
       else if (act === "org") editOrg();
       else if (act === "my-password") changePassword();
-      else if (act === "backup") { A.download("deepdistrict-backup-" + A.today() + ".json", A.exportJSON(), "application/json"); A.logAct("Exported backup"); A.save(); }
-      else if (act === "demo") { if (confirm(L("Add demo students, lessons and payments? Existing data is kept.", "เพิ่มข้อมูลตัวอย่าง (นักเรียน คาบเรียน การชำระเงิน)? ข้อมูลเดิมยังอยู่"))) { A.demo(); A.route("dashboard"); } }
-      else if (act === "erase") { if (prompt(L('Type ERASE to delete all back-office data in this browser.', 'พิมพ์ ERASE เพื่อลบข้อมูลระบบหลังบ้านทั้งหมดในเบราว์เซอร์นี้')) === "ERASE") { A.reset(); A.logout(); A.boot(); } }
+      else if (act === "backup") { A.api("GET", "backup").then(function (d) { A.download("deepdistrict-backup-" + A.today() + ".json", JSON.stringify(d, null, 2), "application/json"); }).catch(function (e) { A.toast(e.message, "err"); }); }
+      else if (act === "demo") { if (confirm(L("Add demo students, lessons and payments? Existing data is kept.", "เพิ่มข้อมูลตัวอย่าง (นักเรียน คาบเรียน การชำระเงิน)? ข้อมูลเดิมยังอยู่"))) { A.demo(); A.save().then(function () { A.route("dashboard"); }); } }
+      else if (act === "erase") { if (prompt(L("Type ERASE to delete ALL back-office data on the server (a backup copy is kept in server/data/backups).", "พิมพ์ ERASE เพื่อลบข้อมูลระบบหลังบ้านทั้งหมดบนเซิร์ฟเวอร์ (ระบบเก็บสำเนาไว้ใน server/data/backups)")) === "ERASE") A.api("POST", "erase", { confirm: "ERASE" }).then(function () { A.me = null; A.boot(); }); }
       else if (act === "export-sessions") exportSessions();
       else if (act === "export-payments") exportPayments();
       else if (A.onAct) A.onAct(act, b, ev);
@@ -586,8 +594,9 @@
     if (ev.target.matches("[data-import]")) {
       var file = ev.target.files[0]; if (!file) return;
       if (!confirm(L("Replace ALL current data with this backup?", "แทนที่ข้อมูลปัจจุบันทั้งหมดด้วยไฟล์สำรองนี้?"))) return;
-      file.text().then(function (txt) { A.importJSON(txt); A.logAct("Imported backup " + file.name); A.save(); A.toast(L("Backup restored", "กู้คืนข้อมูลแล้ว")); if (!A.restore()) A.boot(); else A.route(); })
-        .catch(function () { A.toast(L("This is not a valid backup file.", "ไฟล์นี้ไม่ใช่ไฟล์สำรองที่ถูกต้อง"), "err"); });
+      file.text().then(function (txt) { return A.api("POST", "restore", JSON.parse(txt)); })
+        .then(function () { A.toast(L("Backup restored", "กู้คืนข้อมูลแล้ว")); return A.load(); }).then(function () { root.innerHTML = ""; A.route(); })
+        .catch(function (e) { A.toast(L("Could not restore: ", "กู้คืนไม่สำเร็จ: ") + e.message, "err"); });
     }
   });
   var searchTimer;
@@ -604,7 +613,7 @@
   });
   window.addEventListener("hashchange", function () { A.route(); });
   ["keydown", "pointerdown"].forEach(function (e) { document.addEventListener(e, A.touch, { passive: true }); });
-  setInterval(function () { if (A.me && Date.now() - (A.lastActive || 0) > A.IDLE_MS) { A.logout(); A.boot(); A.toast(L("Signed out after 30 minutes of inactivity.", "ออกจากระบบอัตโนมัติหลังไม่มีการใช้งาน 30 นาที")); } }, 60000);
+  setInterval(function () { if (A.me && Date.now() - (A.lastActive || 0) > A.IDLE_MS) { A.logout().then(A.boot); A.toast(L("Signed out after 30 minutes of inactivity.", "ออกจากระบบอัตโนมัติหลังไม่มีการใช้งาน 30 นาที")); } }, 60000);
 
   function exportSessions() {
     var rows = [["date", "start", "hours", "status", "student", "course", "teacher", "mode", "topic", "notes"]];
@@ -618,42 +627,60 @@
   }
 
   /* ------------------------------------------------------------ sign-in / first-run setup */
-  A.boot = function () {
-    document.body.classList.remove("nav-open");
-    if (A.restore()) { A.touch(); root.innerHTML = ""; return A.route(); }
-    var setup = !A.db.users.some(function (u) { return u.role === "admin" && u.pass; });
+  function authScreen(mode, msg) {
+    var setup = mode === "setup", offline = mode === "offline";
     root.innerHTML = '<div class="auth"><form class="auth__box" data-auth>' +
       '<img src="../assets/images/brand/logo-horizontal.png" class="on-light" alt="DeepDistrict"><img src="../assets/images/brand/logo-horizontal-white.png" class="on-dark" alt="DeepDistrict">' +
-      "<h1>" + (setup ? L("Set up the back office", "ตั้งค่าระบบหลังบ้าน") : L("Staff sign-in", "เข้าสู่ระบบสำหรับเจ้าหน้าที่")) + "</h1>" +
-      (setup ? '<p class="muted">' + L("Create the first admin account. Data is stored only in this browser.", "สร้างบัญชีผู้ดูแลระบบคนแรก ข้อมูลจะเก็บไว้ในเบราว์เซอร์นี้เท่านั้น") + '</p><label>' + L("Full name", "ชื่อ-นามสกุล") + '<input name="name" required autocomplete="name"></label>' : "") +
+      "<h1>" + (offline ? L("Start the DeepDistrict server", "กรุณาเปิดเซิร์ฟเวอร์ DeepDistrict") : setup ? L("Set up the back office", "ตั้งค่าระบบหลังบ้าน") : L("Sign in", "เข้าสู่ระบบ")) + "</h1>" +
+      (offline ? '<p class="muted">' + L("The back office needs its server. On this computer run start.sh (Mac/Linux) or start.bat (Windows), then open", "ระบบหลังบ้านต้องใช้เซิร์ฟเวอร์ บนเครื่องนี้ให้รัน start.sh (Mac/Linux) หรือ start.bat (Windows) แล้วเปิด") + ' <a href="http://localhost:8000/admin/">http://localhost:8000/admin/</a></p><pre class="cmd">python3 server/app.py</pre><button class="btn btn--primary" type="button" data-retry>' + L("Try again", "ลองอีกครั้ง") + "</button>" :
+      (setup ? '<p class="muted">' + L("Create the first admin account.", "สร้างบัญชีผู้ดูแลระบบคนแรก") + '</p><label>' + L("Full name", "ชื่อ-นามสกุล") + '<input name="name" required autocomplete="name"></label>' :
+        '<p class="muted">' + L("For staff, students and parents.", "สำหรับเจ้าหน้าที่ นักเรียน และผู้ปกครอง") + "</p>") +
       "<label>" + L("Email", "อีเมล") + '<input name="email" type="email" required autocomplete="username"></label>' +
       "<label>" + L("Password", "รหัสผ่าน") + '<input name="password" type="password" required minlength="' + (setup ? 8 : 1) + '" autocomplete="' + (setup ? "new-password" : "current-password") + '"></label>' +
       (setup ? '<label class="mf-check"><input type="checkbox" name="demo" checked> <span>' + L("Add demo data so I can try it", "เพิ่มข้อมูลตัวอย่างเพื่อทดลองใช้") + "</span></label>" : "") +
-      '<p class="mf-error" role="alert"></p><button class="btn btn--primary" type="submit">' + (setup ? L("Create admin & start", "สร้างผู้ดูแลระบบและเริ่มใช้งาน") : L("Sign in", "เข้าสู่ระบบ")) + "</button>" +
+      '<p class="mf-error" role="alert">' + esc(msg || "") + '</p><button class="btn btn--primary" type="submit">' + (setup ? L("Create admin & start", "สร้างผู้ดูแลระบบและเริ่มใช้งาน") : L("Sign in", "เข้าสู่ระบบ")) + "</button>" +
+      (setup ? "" : '<p class="muted small">' + L("Forgot your password? Ask the DeepDistrict admin to set a new one.", "ลืมรหัสผ่าน? ติดต่อผู้ดูแลระบบ DeepDistrict เพื่อตั้งรหัสผ่านใหม่") + "</p>")) +
       '<div class="auth__foot"><div class="seg"><button type="button" data-auth-lang="th">TH</button><button type="button" data-auth-lang="en">EN</button></div><a href="../index.html">← ' + L("Public website", "เว็บไซต์หลัก") + "</a></div></form></div>";
     document.title = L("Sign in", "เข้าสู่ระบบ") + " · DeepDistrict";
     var f = $("[data-auth]");
-    $$("[data-auth-lang]", f).forEach(function (b) { b.addEventListener("click", function () { A.setLang(b.getAttribute("data-auth-lang")); A.boot(); }); });
+    $$("[data-auth-lang]", f).forEach(function (b) { b.addEventListener("click", function () { A.setLang(b.getAttribute("data-auth-lang")); authScreen(mode); }); });
+    if (offline) { $("[data-retry]", f).addEventListener("click", A.boot); return; }
     f.addEventListener("submit", function (e) {
       e.preventDefault();
-      var err = $(".mf-error", f), email = f.elements.email.value.trim(), pw = f.elements.password.value;
-      if (setup) {
-        if (pw.length < 8) { err.textContent = L("Password must be at least 8 characters.", "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร"); return; }
-        A.hashPassword(pw).then(function (h) {
-          var u = A.upsert("users", { role: "admin", name: f.elements.name.value.trim(), email: email, pass: h, active: true });
-          A.me = u;
-          if (f.elements.demo.checked) A.demo();
-          A.logAct("Back office set up"); A.save();
-          return A.login(email, pw);
-        }).then(function () { root.innerHTML = ""; location.hash = "#/dashboard"; A.route(); })
-          .catch(function () { err.textContent = L("This browser cannot create secure passwords here. Open the back office via http://localhost (run start.sh) or a recent browser.", "เบราว์เซอร์นี้สร้างรหัสผ่านแบบปลอดภัยไม่ได้ กรุณาเปิดผ่าน http://localhost (รัน start.sh) หรือใช้เบราว์เซอร์รุ่นใหม่"); });
-      } else {
-        A.login(email, pw).then(function (u) {
-          if (!u) { err.textContent = L("Email or password is incorrect.", "อีเมลหรือรหัสผ่านไม่ถูกต้อง"); return; }
-          A.logAct("Signed in"); A.save(); root.innerHTML = ""; A.route();
-        }).catch(function () { err.textContent = L("Sign-in needs a secure browser context (http://localhost or https).", "การเข้าสู่ระบบต้องเปิดผ่าน http://localhost หรือ https"); });
-      }
+      var err = $(".mf-error", f), email = f.elements.email.value.trim(), pw = f.elements.password.value, btn = $("button[type=submit]", f);
+      btn.disabled = true;
+      var go = setup
+        ? A.api("POST", "setup", { name: f.elements.name.value.trim(), email: email, password: pw }).then(A.load).then(function () {
+            if (f.elements.demo.checked) { A.demo(); return A.save(); }
+          })
+        : A.login(email, pw);
+      go.then(function () { A.touch(); root.innerHTML = ""; location.hash = A.isStaff() ? "#/dashboard" : "#/home"; A.route(); })
+        .catch(function (x) {
+          btn.disabled = false;
+          err.textContent = x.status === 401 ? L("Email or password is incorrect.", "อีเมลหรือรหัสผ่านไม่ถูกต้อง") : x.status === 429 ? L("Too many attempts. Wait 15 minutes and try again.", "ลองหลายครั้งเกินไป กรุณารอ 15 นาทีแล้วลองใหม่") : x.message;
+        });
     });
     f.elements[setup ? "name" : "email"].focus();
+  }
+
+  A.boot = function () {
+    document.body.classList.remove("nav-open");
+    if (location.protocol === "file:") return authScreen("offline");
+    A.api("GET", "status").then(function (st) {
+      if (st.setup) return authScreen("setup");
+      if (!st.signedIn) return authScreen("login");
+      return A.load().then(function () { A.touch(); root.innerHTML = ""; A.route(); });
+    }).catch(function () { authScreen("offline"); });
   };
+
+  /* keep everyone's screen up to date: refresh every 30 s and when the tab regains focus */
+  function refresh() {
+    if (!A.me || document.hidden || $("dialog[open]") || A.dirty()) return;
+    var before = JSON.stringify([A.db.users, A.db.enrolments, A.db.sessions, A.db.payments, A.db.requests]);
+    A.load().then(function () {
+      if (JSON.stringify([A.db.users, A.db.enrolments, A.db.sessions, A.db.payments, A.db.requests]) !== before) { root.innerHTML = ""; A.route(); }
+    }).catch(function (e) { if (e.status === 401) { A.me = null; A.boot(); } });
+  }
+  setInterval(refresh, 30000);
+  window.addEventListener("focus", refresh);
 })();

@@ -1,13 +1,13 @@
 /* ==========================================================================
-   DeepDistrict back office — core: i18n, helpers, data store, calculations,
-   authentication. Data lives only in this browser (localStorage) and can be
-   exported / imported as a JSON backup from Settings.
+   DeepDistrict back office — core: i18n, helpers, server data store,
+   calculations, sign-in. Data lives on the DeepDistrict server
+   (server/app.py, SQLite); each person only receives what their role allows.
    ========================================================================== */
 (function () {
   "use strict";
 
   var A = window.DDA = {};
-  var KEY = "dd-admin-v1", LANG_KEY = "dd-admin-lang", THEME_KEY = "dd-admin-theme", SESSION_KEY = "dd-admin-session";
+  var LANG_KEY = "dd-admin-lang", THEME_KEY = "dd-admin-theme";
 
   /* ------------------------------------------------------------ i18n */
   A.lang = (function () { try { return localStorage.getItem(LANG_KEY) || ((navigator.language || "").indexOf("th") === 0 ? "th" : "en"); } catch (e) { return "en"; } })();
@@ -41,42 +41,83 @@
   A.money = function (n) { return A.num(n, 2) + " " + (A.db && A.db.org.currency || "THB"); };
   A.hrs = function (n) { return A.num(n, 2) + " " + A.L("h", "ชม."); };
 
-  /* ------------------------------------------------------------ data store */
+  /* ------------------------------------------------------------ server API */
+  A.api = function (method, path, body) {
+    return fetch("../api/" + path, {
+      method: method, credentials: "same-origin",
+      headers: method === "POST" ? { "Content-Type": "application/json", "X-DD": "1" } : {},
+      body: method === "POST" ? JSON.stringify(body || {}) : undefined
+    }).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (j) {
+        if (!r.ok) { var e = new Error(j.error || ("HTTP " + r.status)); e.status = r.status; throw e; }
+        return j;
+      });
+    });
+  };
+
+  /* ------------------------------------------------------------ data store
+     A.db holds what the server sent for this person. Pages change A.db and call
+     A.save(); save() sends only what changed since the last sync.            */
+  var COLS = ["users", "enrolments", "sessions", "payments", "requests"], KVS = ["org", "courseOverrides", "customCourses"];
+  var snap = {}, pendingLog = [], syncing = null, again = false;
   function blank() {
-    return {
-      v: 1,
-      org: { name: "DeepDistrict.si", address: "Bangkok, Thailand", email: "info@deepdistrict.si", phone: "", taxId: "",
-             currency: "THB", rate: 800, lowHours: 2, noShowCounts: true },
-      users: [], courseOverrides: {}, customCourses: [], enrolments: [], sessions: [], payments: [], log: []
-    };
+    return { v: 1, org: { name: "DeepDistrict.si", address: "", email: "", phone: "", taxId: "", currency: "THB", rate: 800, lowHours: 2, noShowCounts: true },
+      users: [], courseOverrides: {}, customCourses: [], enrolments: [], sessions: [], payments: [], requests: [], log: [] };
+  }
+  A.db = blank();
+  function snapshot() {
+    snap = {};
+    COLS.forEach(function (c) { snap[c] = {}; A.db[c].forEach(function (r) { snap[c][r.id] = JSON.stringify(r); }); });
+    KVS.forEach(function (k) { snap[k] = JSON.stringify(A.db[k]); });
   }
   A.load = function () {
-    var d = null;
-    try { d = JSON.parse(localStorage.getItem(KEY) || "null"); } catch (e) { d = null; }
-    A.db = d && d.v === 1 ? d : blank();
-    var b = blank();
-    Object.keys(b).forEach(function (k) { if (A.db[k] == null) A.db[k] = b[k]; });
-    Object.keys(b.org).forEach(function (k) { if (A.db.org[k] == null) A.db.org[k] = b.org[k]; });
-    return A.db;
+    return A.api("GET", "bootstrap").then(function (d) {
+      var b = blank();
+      Object.keys(b).forEach(function (k) { if (d[k] == null) d[k] = b[k]; });
+      Object.keys(b.org).forEach(function (k) { if (d.org[k] == null) d.org[k] = b.org[k]; });
+      A.db = d; A.me = A.byId("users", d.me.id) || d.me;
+      snapshot();
+      return A.db;
+    });
   };
+  function diff() {
+    var body = { upserts: {}, deletes: {} }, n = 0;
+    COLS.forEach(function (c) {
+      var seen = {};
+      A.db[c].forEach(function (r) {
+        seen[r.id] = 1;
+        var j = JSON.stringify(r);
+        if (snap[c][r.id] !== j || r.password) { (body.upserts[c] = body.upserts[c] || []).push(r); n++; }
+      });
+      Object.keys(snap[c]).forEach(function (id) { if (!seen[id]) { (body.deletes[c] = body.deletes[c] || []).push(id); n++; } });
+    });
+    KVS.forEach(function (k) { if (JSON.stringify(A.db[k]) !== snap[k]) { body[k] = A.db[k]; n++; } });
+    if (pendingLog.length) { body.log = pendingLog.splice(0); n++; }
+    return n ? body : null;
+  }
   A.save = function () {
-    try { localStorage.setItem(KEY, JSON.stringify(A.db)); return true; }
-    catch (e) { A.toast(A.L("Could not save — browser storage is full or blocked. Export a backup now.", "บันทึกไม่ได้ — พื้นที่เก็บข้อมูลของเบราว์เซอร์เต็มหรือถูกปิดกั้น กรุณาส่งออกไฟล์สำรองทันที"), "err"); return false; }
+    if (syncing) { again = true; return syncing; }
+    var body = diff();
+    if (!body) return Promise.resolve(true);
+    A.setSync("saving");
+    syncing = A.api("POST", "sync", body).then(function () {
+      COLS.forEach(function (c) { A.db[c].forEach(function (r) { if (r.password) delete r.password; }); });
+      snapshot(); A.setSync("saved"); return true;
+    }).catch(function (e) {
+      A.setSync("error");
+      if (e.status === 401) { A.toast(A.L("Your session ended — please sign in again.", "หมดเวลาการเข้าระบบ กรุณาเข้าสู่ระบบอีกครั้ง"), "err"); A.me = null; A.boot(); return false; }
+      A.toast(A.L("Not saved: ", "บันทึกไม่สำเร็จ: ") + e.message, "err");
+      return A.load().then(function () { A.route(); return false; });
+    }).then(function (ok) { syncing = null; if (again) { again = false; return A.save(); } return ok; });
+    return syncing;
   };
+  A.setSync = function (state) { var el = document.getElementById("sync"); if (el) { el.setAttribute("data-state", state); el.textContent = { saving: A.L("Saving…", "กำลังบันทึก…"), saved: A.L("Saved", "บันทึกแล้ว"), error: A.L("Not saved", "ยังไม่บันทึก") }[state] || ""; } };
   A.logAct = function (text) {
+    pendingLog.push(text);
     A.db.log.unshift({ at: new Date().toISOString(), by: A.me ? A.me.name : "system", text: text });
-    if (A.db.log.length > 300) A.db.log.length = 300;
   };
-  A.reset = function () { A.db = blank(); A.save(); };
-  A.exportJSON = function () { return JSON.stringify(A.db, null, 2); };
-  A.importJSON = function (text) {
-    var d = JSON.parse(text);
-    if (!d || d.v !== 1 || !Array.isArray(d.users)) throw new Error("bad file");
-    A.db = d;
-    if (!A.save()) throw new Error("save failed");
-    A.load(); // normalise missing fields
-    A.save();
-  };
+  A.dirty = function () { return !!syncing || !!diff_peek(); };
+  function diff_peek() { var keep = pendingLog.slice(); var d = diff(); pendingLog = keep; return d; }
 
   /* collections */
   A.byId = function (col, id) { return A.db[col].filter(function (x) { return x.id === id; })[0]; };
@@ -110,7 +151,7 @@
 
   /* ------------------------------------------------------------ calculations */
   A.STATUS = {
-    scheduled: ["Scheduled", "นัดเรียน"], done: ["Completed", "เรียนแล้ว"], cancelled: ["Cancelled", "ยกเลิก"], noshow: ["No-show", "ขาดเรียน"]
+    scheduled: ["Scheduled", "นัดเรียน"], done: ["Completed", "เรียนแล้ว"], rescheduled: ["Moved", "เลื่อนแล้ว"], cancelled: ["Cancelled", "ยกเลิก"], noshow: ["No-show", "ขาดเรียน"]
   };
   A.statusName = function (s) { var x = A.STATUS[s]; return x ? A.L(x[0], x[1]) : s; };
   A.ENR_STATUS = { active: ["Active", "กำลังเรียน"], paused: ["Paused", "พักการเรียน"], completed: ["Completed", "จบแล้ว"], cancelled: ["Cancelled", "ยกเลิก"] };
@@ -131,33 +172,13 @@
   A.methodName = function (m) { var x = A.METHODS[m]; return x ? A.L(x[0], x[1]) : m || "–"; };
   A.enrolmentLabel = function (e) { return A.userName(e.studentId) + " — " + A.courseName(e.courseCode); };
 
-  /* ------------------------------------------------------------ authentication (local) */
-  function hex(buf) { return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ("0" + b.toString(16)).slice(-2); }).join(""); }
-  A.hashPassword = function (password, salt) {
-    salt = salt || hex(crypto.getRandomValues(new Uint8Array(16)));
-    if (!window.crypto || !crypto.subtle) return Promise.reject(new Error("WebCrypto unavailable"));
-    var enc = new TextEncoder();
-    return crypto.subtle.importKey("raw", enc.encode(password), "PBKDF2", false, ["deriveBits"]).then(function (key) {
-      return crypto.subtle.deriveBits({ name: "PBKDF2", salt: enc.encode(salt), iterations: 150000, hash: "SHA-256" }, key, 256);
-    }).then(function (bits) { return { salt: salt, hash: hex(bits) }; });
-  };
+  /* ------------------------------------------------------------ sign-in (server sessions, HttpOnly cookie) */
   A.login = function (email, password) {
-    var u = A.db.users.filter(function (x) { return x.pass && x.active !== false && (x.email || "").toLowerCase() === String(email).trim().toLowerCase(); })[0];
-    if (!u) return Promise.resolve(null);
-    return A.hashPassword(password, u.pass.salt).then(function (r) {
-      if (r.hash !== u.pass.hash) return null;
-      A.me = u; try { sessionStorage.setItem(SESSION_KEY, u.id); } catch (e) {}
-      A.touch(); return u;
-    });
+    return A.api("POST", "login", { email: email, password: password }).then(function () { return A.load(); }).then(function () { A.touch(); return A.me; });
   };
-  A.restore = function () {
-    var id = null; try { id = sessionStorage.getItem(SESSION_KEY); } catch (e) {}
-    var u = id && A.byId("users", id);
-    A.me = u && u.pass && u.active !== false ? u : null;
-    return A.me;
-  };
-  A.logout = function () { A.me = null; try { sessionStorage.removeItem(SESSION_KEY); } catch (e) {} };
+  A.logout = function () { A.me = null; A.db = blank(); snapshot(); return A.api("POST", "logout").catch(function () {}); };
   A.isAdmin = function () { return A.me && A.me.role === "admin"; };
+  A.isStaff = function () { return A.me && (A.me.role === "admin" || A.me.role === "teacher"); };
   A.touch = function () { A.lastActive = Date.now(); };
   A.IDLE_MS = 30 * 60 * 1000;
 
@@ -235,7 +256,7 @@
     return base.toLocaleDateString(A.lang === "th" ? "th-TH" : "en-GB", { weekday: long ? "long" : "short" });
   };
 
-  A.load();
+  snapshot();
   A.applyTheme();
   document.documentElement.lang = A.lang;
 })();

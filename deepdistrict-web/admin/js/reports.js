@@ -15,13 +15,14 @@
   function model(q) {
     var stu = A.byId("users", q.get("student"));
     if (!stu) return null;
-    var from = q.get("from") || "", to = q.get("to") || "", fees = A.isAdmin() && q.get("fees") !== "0";
+    var from = q.get("from") || "", to = q.get("to") || "", fees = (A.isAdmin() || !A.isStaff()) && q.get("fees") !== "0";
     var enrs = scope(stu.id, q.get("enrolment")).map(function (e) {
       var st = A.stats(e);
       var done = st.sessions.filter(function (s) { return A.counts(s) && inRange(s.date, from, to); });
       var upcoming = st.sessions.filter(function (s) { return s.status === "scheduled" && s.date >= A.today(); }).slice(0, 6);
       var pays = A.paymentsOf(e.id).filter(function (p) { return inRange(p.date, from, to); });
-      return { e: e, st: st, done: done, upcoming: upcoming, pays: pays, periodHours: done.reduce(function (t, s) { return t + (+s.hours || 0); }, 0) };
+      var moved = st.sessions.filter(function (s) { return (s.status === "rescheduled" || s.status === "cancelled" || s.makeUpFor || s.extraHours) && inRange(s.date, from, to); });
+      return { e: e, st: st, done: done, upcoming: upcoming, pays: pays, moved: moved, periodHours: done.reduce(function (t, s) { return t + (+s.hours || 0); }, 0) };
     });
     return { stu: stu, guardian: A.byId("users", stu.guardianId), from: from, to: to, fees: fees, enrs: enrs, issued: A.today() };
   }
@@ -42,7 +43,8 @@
       h += '<section class="rp-course"><h2>' + esc(A.courseName(e.courseCode)) + "</h2>" +
         '<p class="rp-sub">' + L("Teacher: ", "ครูผู้สอน: ") + esc(A.userName(e.teacherId)) + " · " + L("started ", "เริ่ม ") + esc(A.fmtDate(e.start)) + " · " + esc(A.enrStatusName(e.status)) + "</p>" +
         '<div class="rp-stats"><div><span>' + L("Hours purchased", "ชั่วโมงที่ซื้อ") + "</span><b>" + A.num(st.total) + "</b></div><div><span>" + L("Hours learned", "ชั่วโมงที่เรียนแล้ว") + "</span><b>" + A.num(st.used) + "</b></div>" +
-        '<div class="rp-hi"><span>' + L("Hours remaining", "ชั่วโมงคงเหลือ") + "</span><b>" + A.num(st.remaining) + "</b></div><div><span>" + L("Booked ahead", "นัดไว้แล้ว") + "</span><b>" + A.num(st.planned) + "</b></div></div>" +
+        '<div class="rp-hi"><span>' + L("Hours remaining", "ชั่วโมงคงเหลือ") + "</span><b>" + A.num(st.remaining) + "</b></div><div><span>" + L("Booked ahead", "นัดไว้แล้ว") + "</span><b>" + A.num(st.planned) + "</b></div>" +
+        (st.unscheduled > 0.001 && st.used + st.planned > 0 ? '<div class="rp-due"><span>' + L("Still to book", "รอนัดเพิ่ม") + "</span><b>" + A.num(st.unscheduled) + "</b></div>" : "") + "</div>" +
         '<div class="rp-bar"><i style="width:' + st.pct + '%"></i></div><p class="rp-small">' + st.pct + "% " + L("of the package completed", "ของแพ็กเกจเรียนแล้ว") + (st.over ? " · " + L("over by ", "เกิน ") + A.hrs(st.over) : "") + "</p>" +
         (e.goal ? '<p class="rp-goal"><b>' + L("Goal: ", "เป้าหมาย: ") + "</b>" + esc(e.goal) + "</p>" : "") +
         "<h3>" + L("What was learned", "สิ่งที่ได้เรียน") + (m.from || m.to ? " · " + A.hrs(x.periodHours) + " " + L("in this period", "ในช่วงนี้") : "") + "</h3>" +
@@ -51,6 +53,7 @@
           (x.done.some(function (s) { return s.status === "noshow"; }) ? '<p class="rp-small">* ' + L("Missed without notice; hours counted under the lab's policy.", "ขาดเรียนโดยไม่แจ้ง นับชั่วโมงตามนโยบายของแล็บ") + "</p>" : "")
           : '<p class="rp-small">' + L("No completed lessons in this period.", "ไม่มีคาบที่เรียนแล้วในช่วงนี้") + "</p>") +
         (x.upcoming.length ? "<h3>" + L("Next lessons", "คาบเรียนถัดไป") + '</h3><ul class="rp-next">' + x.upcoming.map(function (s) { return "<li>" + esc(A.fmtDate(s.date, { weekday: "short", day: "numeric", month: "short" })) + " · " + esc(s.start || "") + " · " + A.hrs(s.hours) + "</li>"; }).join("") + "</ul>" : "") +
+        (x.moved.length ? "<h3>" + L("Schedule changes", "การเปลี่ยนแปลงตารางเรียน") + '</h3><ul class="rp-next">' + x.moved.map(function (s) { return "<li>" + esc(A.fmtDate(s.date)) + " · " + A.statusName(s.status) + " · " + A.lessonNote(s).replace(/<br>/g, " · ") + "</li>"; }).join("") + "</ul>" : "") +
         (m.fees ? "<h3>" + L("Fees", "ค่าเรียน") + '</h3><div class="rp-stats rp-stats--3"><div><span>' + L("Course fee", "ค่าเรียนทั้งหมด") + "</span><b>" + A.money(st.fee) + "</b></div><div><span>" + L("Paid", "ชำระแล้ว") + "</span><b>" + A.money(st.paid) + '</b></div><div class="' + (st.balance > 0.009 ? "rp-due" : "rp-hi") + '"><span>' + L("Balance due", "ยอดคงค้าง") + "</span><b>" + A.money(Math.max(0, st.balance)) + "</b></div></div>" +
           (x.pays.length ? '<table class="rp-tbl"><thead><tr><th>' + L("Date", "วันที่") + "</th><th>" + L("Reference", "อ้างอิง") + "</th><th>" + L("Amount", "จำนวนเงิน") + "</th></tr></thead><tbody>" + x.pays.map(function (p) { return "<tr><td>" + esc(A.fmtDate(p.date)) + "</td><td>" + esc(p.ref || "") + "</td><td>" + A.money(p.amount) + "</td></tr>"; }).join("") + "</tbody></table>" : "") : "") +
         "</section>";
@@ -72,6 +75,8 @@
       t.push(L("What was learned:", "สิ่งที่ได้เรียน:"));
       x.done.forEach(function (s) { t.push("  " + s.date + "  " + A.num(s.hours) + "h  " + (s.status === "noshow" ? "[" + A.statusName("noshow") + "] " : "") + (s.topic || "-") + (s.notes ? "  — " + s.notes : "")); });
       if (!x.done.length) t.push("  –");
+      if (st.unscheduled > 0.001 && st.used + st.planned > 0) t.push(L("Still to book    : ", "รอนัดเพิ่ม        : ") + A.num(st.unscheduled));
+      if (x.moved.length) { t.push("", L("Schedule changes:", "การเปลี่ยนแปลงตารางเรียน:")); x.moved.forEach(function (s) { t.push("  " + s.date + "  " + A.statusName(s.status) + "  " + A.lessonNote(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim()); }); }
       if (x.upcoming.length) { t.push("", L("Next lessons:", "คาบเรียนถัดไป:")); x.upcoming.forEach(function (s) { t.push("  " + s.date + " " + (s.start || "") + "  " + A.num(s.hours) + "h"); }); }
       if (m.fees) t.push("", L("Fee: ", "ค่าเรียน: ") + A.money(st.fee) + " · " + L("Paid: ", "ชำระแล้ว: ") + A.money(st.paid) + " · " + L("Balance: ", "คงค้าง: ") + A.money(Math.max(0, st.balance)));
       t.push("");
@@ -114,7 +119,7 @@
       "<label>" + L("Learner", "ผู้เรียน") + '<select name="student">' + A.opts(students.map(function (s) { return [s.id, s.name + (s.nick ? " (" + s.nick + ")" : "")]; }), sid, L("Choose…", "เลือก…")) + "</select></label>" +
       (sid ? "<label>" + L("Course", "หลักสูตร") + '<select name="enrolment">' + A.opts(scope(sid).map(function (e) { return [e.id, A.courseName(e.courseCode)]; }), q.get("enrolment"), L("All courses", "ทุกหลักสูตร")) + "</select></label>" : "") +
       "<label>" + L("From", "ตั้งแต่") + '<input type="date" name="from" value="' + esc(q.get("from") || "") + '"></label><label>' + L("To", "ถึง") + '<input type="date" name="to" value="' + esc(q.get("to") || "") + '"></label>' +
-      (A.isAdmin() ? "<label>" + L("Fees", "ค่าเรียน") + '<select name="fees">' + A.opts([["1", L("Show", "แสดง")], ["0", L("Hide", "ซ่อน")]], q.get("fees") || "1") + "</select></label>" : "") + "</form>";
+      (A.isAdmin() || !A.isStaff() ? "<label>" + L("Fees", "ค่าเรียน") + '<select name="fees">' + A.opts([["1", L("Show", "แสดง")], ["0", L("Hide", "ซ่อน")]], q.get("fees") || "1") + "</select></label>" : "") + "</form>";
     var html = tabs + form + (m ? '<div class="btnrow export"><span class="muted">' + L("Export:", "ส่งออก:") + '</span><button class="btn btn--primary" data-act="rp-pdf">PDF</button><button class="btn" data-act="rp-png">' + L("Image (PNG)", "รูปภาพ (PNG)") + '</button><button class="btn" data-act="rp-txt">' + L("Text (TXT)", "ข้อความ (TXT)") + '</button><button class="btn" data-act="rp-csv">CSV</button><button class="btn" data-act="print">' + L("Print", "พิมพ์") + "</button></div>" + reportHTML(m)
       : A.empty("Choose a learner to see their report: lessons learned, hours used and left, upcoming lessons and fees.", "เลือกผู้เรียนเพื่อดูรายงาน: สิ่งที่เรียน ชั่วโมงที่ใช้และคงเหลือ คาบถัดไป และค่าเรียน"));
     return { title: L("Reports & export", "รายงานและส่งออก"), html: html };

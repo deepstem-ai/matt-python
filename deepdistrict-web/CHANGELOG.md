@@ -1,5 +1,21 @@
 # Changelog
 
+## 4.2 r1 — October 2026
+- **Server** (`server/app.py`, Python standard library + SQLite): sign-in for admins, teachers,
+  students and parents; role-based data access enforced on the server; HttpOnly session cookie,
+  PBKDF2 passwords, login throttling, CSRF header; daily database backups; backup/restore API;
+  WSGI entry point for free hosting (PythonAnywhere). `start.sh` / `start.bat` now start it.
+- **Hours** shown everywhere as Total · Learned · Remaining · Booked · To schedule, with a
+  two-part progress bar and a "hours without a lesson" alert.
+- **Move / reschedule lessons**: original kept as "Moved", new lesson linked; a shorter lesson's
+  missing hours can go to the next regular lesson, a make-up lesson, or stay "to schedule".
+- **Change requests** from students and parents; teachers/admins approve (move form pre-filled)
+  or decline with a reply.
+- **Learner / parent portal** ("My learning"): hours, next lessons, recently learned, fees,
+  reports as PDF/PNG, requests, calendar.
+- Reports include "Still to book" and "Schedule changes".
+- Demo data reproduces the Monday→Tuesday (1 h) case.
+
 ## 4.1 r2 — October 2026
 - No fixed course hours on the public site: cards show the track, the course overview says
   "Length: tailored to you", the plan builder shows levels, the fees FAQ and the curriculum

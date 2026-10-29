@@ -267,3 +267,48 @@ html[lang="th"] .tbl th { text-transform: none; letter-spacing: 0; font-size: 0.
   #view { padding: 0; }
   .report { max-width: none; margin: 0; padding: 0; box-shadow: none; }
 }
+
+/* ---------------------------------------------------------------- v4.2: hours panel, moves, portal */
+.hours { margin: 0 0 18px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+.hours__grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 700px) { .hours__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.hours__grid div { padding: 10px 12px; border-radius: 12px; background: var(--surface-2); }
+.hours__grid span { display: block; font-size: 0.78rem; color: var(--text-faint); }
+.hours__grid b { font-family: var(--f-display); font-size: 1.5rem; font-weight: 600; }
+.hours__grid .is-done b { color: var(--ok); }
+.hours__grid .is-left { background: color-mix(in srgb, var(--accent) 10%, var(--surface-2)); }
+.hours__grid .is-left b { color: var(--accent); }
+.hours__grid .is-gap { background: color-mix(in srgb, var(--amber) 16%, var(--surface-2)); }
+.hours__grid .is-gap b { color: #9a6200; }
+:root[data-theme="dark"] .hours__grid .is-gap b { color: var(--amber); }
+.hbar { display: flex; height: 12px; margin: 14px 0 6px; border-radius: 99px; background: repeating-linear-gradient(135deg, color-mix(in srgb, var(--amber) 22%, var(--surface-2)) 0 6px, var(--surface-2) 6px 12px); overflow: hidden; }
+.hbar i { display: block; height: 100%; }
+.hbar__done { background: var(--ok); }
+.hbar__booked { background: color-mix(in srgb, var(--accent) 55%, var(--surface)); }
+.hours__legend { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin: 0; font-size: 0.76rem; color: var(--text-faint); }
+.hours__legend span { display: inline-block; width: 10px; height: 10px; margin-left: 8px; border-radius: 3px; }
+.lg-done { background: var(--ok); } .lg-booked { background: color-mix(in srgb, var(--accent) 55%, var(--surface)); } .lg-gap { background: color-mix(in srgb, var(--amber) 40%, var(--surface)); }
+.gap-alert { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-top: 12px; padding: 10px 12px; border: 1px solid color-mix(in srgb, var(--amber) 50%, transparent); border-radius: 12px; background: color-mix(in srgb, var(--amber) 8%, var(--surface)); }
+.gap-alert p { flex: 1 1 260px; margin: 0; font-size: 0.9rem; }
+.moved { display: inline-block; margin-top: 2px; font-size: 0.8rem; color: #8a5a00; }
+:root[data-theme="dark"] .moved { color: var(--amber); }
+.badge--rescheduled { color: var(--text-faint); background: var(--surface-2); }
+.ev--rescheduled { --ev: var(--text-faint); opacity: .6; text-decoration: line-through; }
+.mf-diff { margin: 0; padding: 8px 12px; border-radius: 10px; background: var(--surface-2); font-size: 0.88rem; font-weight: 600; }
+.kpis--money { margin-top: -6px; }
+.nav-badge { margin-left: auto; min-width: 20px; padding: 0 6px; border-radius: 99px; background: var(--amber); color: #3a2600; font-size: 0.72rem; text-align: center; }
+.sync { font-size: 0.78rem; color: var(--text-faint); }
+.sync[data-state="error"] { color: var(--err); font-weight: 600; }
+.alert--info { border-color: color-mix(in srgb, var(--accent) 40%, transparent); background: color-mix(in srgb, var(--accent) 7%, var(--surface)); }
+.lead { margin: 0 0 18px; font-size: 1.15rem; font-weight: 600; }
+.learner { margin-bottom: 28px; }
+.learner > h2 { margin-bottom: 12px; font-size: 1.3rem; }
+.course-card > header { flex-wrap: wrap; align-items: flex-start; }
+.course-card h3 { font-size: 1.1rem; }
+.course-card header p { margin: 4px 0 0; }
+.course-card .btnrow { margin: 0; }
+.course-card h4 { margin: 0 0 6px; font-size: 0.92rem; }
+.course-card .grid2 { gap: 18px; }
+.fees { margin: 10px 0 0; font-size: 0.9rem; }
+.cmd { padding: 10px 12px; border-radius: 10px; background: #0b1324; color: #cfe2ff; font-family: var(--f-mono); font-size: 0.85rem; }
+.small { font-size: 0.8rem; }

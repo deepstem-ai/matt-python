@@ -88,11 +88,11 @@
       '<form class="filters" data-filters><input type="hidden" name="view" value="' + view + '">' + (q.get("d") ? '<input type="hidden" name="d" value="' + esc(q.get("d")) + '">' : "") +
       (A.isAdmin() ? '<select name="teacher" aria-label="Teacher">' + A.opts(A.peopleOpts("staff"), q.get("teacher"), L("All teachers", "ครูทุกคน")) + "</select>" : "") +
       '<select name="student" aria-label="Student">' + A.opts(A.peopleOpts("student"), q.get("student"), L("All students", "นักเรียนทุกคน")) + "</select></form></div>" +
-      '<div class="legend">' + Object.keys(A.STATUS).map(function (k) { return '<span class="ev--' + k + '"><i></i>' + A.statusName(k) + "</span>"; }).join("") + (A.isAdmin() ? '<span class="lg-pay"><i></i>' + L("Payment received", "รับชำระเงิน") + "</span>" : "") + '<span class="muted">' + L("Click a day to add a lesson.", "คลิกวันที่เพื่อเพิ่มคาบเรียน") + "</span></div>";
+      '<div class="legend">' + Object.keys(A.STATUS).map(function (k) { return '<span class="ev--' + k + '"><i></i>' + A.statusName(k) + "</span>"; }).join("") + (A.isAdmin() ? '<span class="lg-pay"><i></i>' + L("Payment received", "รับชำระเงิน") + "</span>" : "") + '<span class="muted">' + (A.isStaff() ? L("Click a day to add a lesson, or a lesson to update or move it.", "คลิกวันที่เพื่อเพิ่มคาบ หรือคลิกคาบเพื่ออัปเดตหรือเลื่อน") : L("Click a lesson for details or to request a change.", "คลิกคาบเพื่อดูรายละเอียดหรือขอเปลี่ยนแปลง")) + "</span></div>";
     A._calSessions = all;
     return {
       title: L("Calendar", "ปฏิทิน"),
-      actions: '<button class="btn" data-act="ics">' + L("Export .ics", "ส่งออก .ics") + '</button><button class="btn btn--primary" data-act="new-session">+ ' + L("Add lesson", "เพิ่มคาบเรียน") + "</button>",
+      actions: '<button class="btn" data-act="ics">' + L("Export .ics", "ส่งออก .ics") + "</button>" + (A.isStaff() ? '<button class="btn btn--primary" data-act="new-session">+ ' + L("Add lesson", "เพิ่มคาบเรียน") + "</button>" : '<button class="btn btn--primary" data-act="req-new">' + L("Request a change", "ขอเปลี่ยนแปลง") + "</button>"),
       html: bar + html
     };
   };
@@ -106,7 +106,7 @@
   document.addEventListener("click", function (ev) {
     if (!A.me) return;
     var day = ev.target.closest("[data-day]");
-    if (!day || ev.target.closest("[data-session], a, button")) return;
+    if (!day || !A.isStaff() || ev.target.closest("[data-session], a, button")) return;
     A.editSession(null, { date: day.getAttribute("data-day") });
   });
 
@@ -118,7 +118,7 @@
     return d.getFullYear() + A.pad(d.getMonth() + 1) + A.pad(d.getDate()) + "T" + A.pad(d.getHours()) + A.pad(d.getMinutes()) + "00";
   }
   function exportICS() {
-    var list = (A._calSessions || []).filter(function (s) { return s.status !== "cancelled"; });
+    var list = (A._calSessions || []).filter(function (s) { return s.status !== "cancelled" && s.status !== "rescheduled"; });
     var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//DeepDistrict.si//Back office//EN", "CALSCALE:GREGORIAN", "X-WR-CALNAME:DeepDistrict lessons", "X-WR-TIMEZONE:Asia/Bangkok"];
     list.forEach(function (s) {
       var e = A.byId("enrolments", s.enrolmentId);
@@ -147,7 +147,8 @@
       var e = { id: A.uid("e"), studentId: stu.id, courseCode: code, teacherId: teacher.id, hours: hours, rate: rate, discount: 0, fee: hours * rate, start: start, mode: mode, status: "active", goal: goal, createdAt: new Date().toISOString() };
       D.enrolments.push(e); return e;
     }
-    var e1 = enrol(s1, "PY101", t2, 20, 800, A.addDays(now, -35), "hybrid", "Build a quiz game for a school project");
+    // Pim: 12 h, Mondays and Wednesdays, 1.5 h each (8 lessons)
+    var e1 = enrol(s1, "PY101", t2, 12, 800, A.addDays(now, -22), "hybrid", "Build a quiz game for a school project");
     var e2 = enrol(s2, "EXM210", t1, 24, 900, A.addDays(now, -28), "online", "COMPAS-PY1 AWARD of EXCELLENCE for TCAS70 portfolio");
     var e3 = enrol(s3, "EDG320", t1, 30, 1200, A.addDays(now, -14), "onsite", "Offline voice assistant on Jetson for a hackathon");
     var topics = {
@@ -155,20 +156,31 @@
       EXM210: ["Exam format & timing", "Strings drill", "Lists & dict patterns", "Plan · Edge practice", "Recursion basics", "Timed mock #1 review", "Edge-case hunting", "Timed mock #2 review"],
       EDG320: ["JetPack setup", "Running a small LLM", "Quantisation & speed", "Speech to text", "Wake word & TTS", "Integration test"]
     };
-    function series(e, startOffset, every, count, hours, start) {
-      for (var i = 0; i < count; i++) {
-        var date = A.addDays(now, startOffset + i * every), past = date < now;
-        var topic = (topics[e.courseCode] || [])[i] || "";
-        D.sessions.push({ id: A.uid("s"), enrolmentId: e.id, date: date, start: start, hours: hours, status: past ? (i === 2 && e === e1 ? "noshow" : "done") : "scheduled", mode: e.mode, teacherId: e.teacherId,
-          topic: past ? topic : "", notes: past && i % 2 ? "Good progress; homework set." : "", createdAt: new Date().toISOString() });
-      }
+    function add(e, date, start, hours, i) {
+      var past = date < now, s = { id: A.uid("s"), enrolmentId: e.id, date: date, start: start, hours: hours, status: past ? "done" : "scheduled", mode: e.mode, teacherId: e.teacherId,
+        topic: past ? (topics[e.courseCode] || [])[i] || "" : "", notes: past && i % 2 ? "Good progress; homework set." : "", createdAt: new Date().toISOString() };
+      D.sessions.push(s); return s;
     }
-    series(e1, -33, 7, 8, 2, "16:30");
+    // Mon/Wed series for Pim starting on the Monday on or after the enrolment date
+    var d = A.parse(e1.start); while (d.getDay() !== 1) d.setDate(d.getDate() + 1);
+    var pim = [];
+    for (var k = 0; pim.length < 8 && k < 60; k++) { if (d.getDay() === 1 || d.getDay() === 3) pim.push(add(e1, A.iso(d), "16:30", 1.5, pim.length)); d.setDate(d.getDate() + 1); }
+    // the next upcoming Monday lesson was moved to Tuesday for 1 h -> 0.5 h left to schedule
+    var mon = pim.filter(function (s) { return s.status === "scheduled" && A.parse(s.date).getDay() === 1; })[0];
+    if (mon) {
+      var tue = { id: A.uid("s"), enrolmentId: e1.id, date: A.addDays(mon.date, 1), start: "17:00", hours: 1, status: "scheduled", mode: e1.mode, teacherId: e1.teacherId, movedFrom: mon.id, createdAt: new Date().toISOString() };
+      D.sessions.push(tue); Object.assign(mon, { status: "rescheduled", movedTo: tue.id, reason: "School activity on Monday" });
+    }
+    function series(e, startOffset, every, count, hours, start) { for (var i = 0; i < count; i++) add(e, A.addDays(now, startOffset + i * every), start, hours, i); }
     series(e2, -27, 4, 10, 2, "18:00");
     series(e3, -12, 3, 8, 3, "13:00");
-    D.payments.push({ id: A.uid("p"), enrolmentId: e1.id, date: A.addDays(now, -35), amount: 16000, method: "transfer", ref: "RC-DEMO-001", createdAt: new Date().toISOString() });
+    D.payments.push({ id: A.uid("p"), enrolmentId: e1.id, date: e1.start, amount: 9600, method: "transfer", ref: "RC-DEMO-001", createdAt: new Date().toISOString() });
     D.payments.push({ id: A.uid("p"), enrolmentId: e2.id, date: A.addDays(now, -28), amount: 10800, method: "promptpay", ref: "RC-DEMO-002", note: "Deposit 50%", createdAt: new Date().toISOString() });
     D.payments.push({ id: A.uid("p"), enrolmentId: e3.id, date: A.addDays(now, -14), amount: 18000, method: "card", ref: "RC-DEMO-003", note: "Deposit 50%", createdAt: new Date().toISOString() });
-    A.logAct("Loaded demo data"); A.save();
+    // demo sign-ins (change or remove before real use)
+    p1.email = "parent@demo.test"; p1.password = "demo-parent-1";
+    s1.email = "student@demo.test"; s1.password = "demo-student-1";
+    t2.password = "demo-teacher-1";
+    A.logAct("Loaded demo data");
   };
 })();
