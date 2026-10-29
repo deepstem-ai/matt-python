@@ -384,22 +384,25 @@
   /* ---------- Course catalogue ---------- */
   R.courses = function (el) {
     var params = new URLSearchParams(location.search);
-    var state = { track: params.get("track") || "all", level: params.get("level") || "all", mode: params.get("mode") || "all", q: params.get("q") || "" };
+    var state = { track: params.get("track") || "all", level: params.get("level") || "all", mode: params.get("mode") || "all", q: params.get("q") || "", all: false };
     var filters = $("[data-course-filters]"), countEl = $("[data-course-count]");
-    function seg(name, label, items) {
-      return '<div class="filter-row"><span class="filter-label">' + t(label) + '</span><div class="seg" role="group">' +
-        '<button type="button" data-f-' + name + '="all">' + t(L("All", "ทั้งหมด")) + "</button>" + items + "</div></div>";
-    }
+    var PAGE = 12;
     if (filters) {
       filters.innerHTML =
-        seg("track", L("Track", "สาย"), (DATA.tracks || []).map(function (tr) { return '<button type="button" data-f-track="' + tr.id + '">' + t(tr.name) + "</button>"; }).join("")) +
-        seg("level", L("Level", "ระดับ"), (DATA.levels || []).map(function (l) { return '<button type="button" class="lv-' + l.id + '" data-f-level="' + l.id + '">' + t(l.short) + "</button>"; }).join("")) +
-        seg("mode", L("Mode", "รูปแบบ"), ["online", "onsite", "hybrid"].map(function (k) { return '<button type="button" data-f-mode="' + k + '">' + t(DATA.modes[k].name) + "</button>"; }).join("")) +
+        '<div class="chip-row" role="group" aria-label="Track"><button type="button" data-f-track="all">' + t(L("All", "ทั้งหมด")) + "</button>" +
+        (DATA.tracks || []).map(function (tr) { return '<button type="button" data-f-track="' + tr.id + '">' + t(tr.name) + "</button>"; }).join("") + "</div>" +
+        '<div class="filter-line">' +
         '<label class="search"><img src="' + base + 'assets/images/icons/search.svg" alt=""><span class="visually-hidden">Search</span>' +
-        '<input type="search" data-f-q data-i18n-attrs="placeholder" data-en-placeholder="Search courses, e.g. Python, Jetson, SwiftUI, medical" data-th-placeholder="ค้นหารายวิชา เช่น Python, Jetson, SwiftUI, การแพทย์" value="' + esc(state.q) + '"></label>';
+        '<input type="search" data-f-q data-i18n-attrs="placeholder" data-en-placeholder="Search, e.g. Python, Jetson, exam" data-th-placeholder="ค้นหา เช่น Python, Jetson, สอบ" value="' + esc(state.q) + '"></label>' +
+        '<select data-f-level aria-label="Level"><option value="all" data-en="All levels" data-th="ทุกระดับ"></option>' + (DATA.levels || []).map(function (l) { return '<option value="' + l.id + '" data-en="' + esc(l.short.en) + '" data-th="' + esc(l.short.th) + '"></option>'; }).join("") + "</select>" +
+        '<select data-f-mode aria-label="Mode"><option value="all" data-en="Any format" data-th="ทุกรูปแบบ"></option>' + ["online", "onsite", "hybrid"].map(function (k) { return '<option value="' + k + '" data-en="' + esc(DATA.modes[k].name.en) + '" data-th="' + esc(DATA.modes[k].name.th) + '"></option>'; }).join("") + "</select></div>";
+      $$("option[data-en]", filters).forEach(function (o) { o.textContent = o.getAttribute("data-" + lang()); });
     }
+    function filtered() { return state.track !== "all" || state.level !== "all" || state.mode !== "all" || state.q.trim(); }
     function sync() {
-      ["track", "level", "mode"].forEach(function (k) { $$("[data-f-" + k + "]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-f-" + k) === String(state[k]))); }); });
+      $$("[data-f-track]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-f-track") === state.track)); });
+      var ls = $("[data-f-level]"), ms = $("[data-f-mode]");
+      if (ls) ls.value = state.level; if (ms) ms.value = state.mode;
       var q = state.q.trim().toLowerCase();
       var list = courses.filter(function (c) {
         if (state.track !== "all" && c.track !== state.track) return false;
@@ -412,25 +415,29 @@
         }
         return true;
       });
-      el.innerHTML = list.length ? list.map(function (c) {
-        var tr = track(c.track);
-        return '<article role="button" tabindex="0" class="course lv-' + c.level + (c.featured ? " course--featured glow-border" : "") + '" data-course="' + c.code + '" id="course-' + c.code + '" aria-haspopup="dialog">' +
+      var shown = filtered() || state.all ? list : list.slice(0, PAGE);
+      el.innerHTML = shown.length ? shown.map(function (c) {
+        return '<article role="button" tabindex="0" class="course lv-' + c.level + (c.featured ? " course--featured" : "") + '" data-course="' + c.code + '" id="course-' + c.code + '" aria-haspopup="dialog">' +
           '<span class="course__top"><span class="course__code">' + c.code + "</span>" + lvlChip(c) + "</span>" +
           "<h3>" + t(c.title) + "</h3><p>" + t(c.text) + "</p>" +
-          '<span class="course__meta"><span>' + hours(c) + " · " + t(tr.name) + "</span>" + modesIcons(c.code) + "</span>" +
-          '<span class="course__more">' + t(L("Full details & ask", "ดูรายละเอียดและสอบถาม")) + ARROW + "</span></article>";
-      }).join("") : '<p class="empty">' + t(L("No course matches yet, but we can design one for you. Ask us below.", "ยังไม่พบรายวิชาที่ตรงกัน แต่เราออกแบบให้คุณได้ สอบถามได้ด้านล่าง")) + "</p>";
-      if (countEl) countEl.innerHTML = t(L("Showing " + list.length + " of " + courses.length + " courses", "แสดง " + list.length + " จาก " + courses.length + " รายวิชา"));
+          '<span class="course__meta"><span>' + hours(c) + "</span>" + modesIcons(c.code) + '<span class="course__go" aria-hidden="true">' + ARROW + "</span></span></article>";
+      }).join("") + (shown.length < list.length ? '<button type="button" class="btn courses__more" data-show-all>' + t(L("Show all " + list.length + " courses", "ดูทั้งหมด " + list.length + " รายวิชา")) + "</button>" : "")
+        : '<p class="empty">' + t(L("No course matches yet, but we can design one for you. Ask us below.", "ยังไม่พบรายวิชาที่ตรงกัน แต่เราออกแบบให้คุณได้ สอบถามได้ด้านล่าง")) + "</p>";
+      var more = $("[data-show-all]", el);
+      if (more) more.addEventListener("click", function () { state.all = true; sync(); });
+      if (countEl) countEl.innerHTML = filtered() ? t(L(list.length + " of " + courses.length + " courses", list.length + " จาก " + courses.length + " รายวิชา")) + ' <button type="button" class="linkish" data-f-clear>' + t(L("Clear filters", "ล้างตัวกรอง")) + "</button>" : t(L(courses.length + " courses · tap any course for a quick overview", courses.length + " รายวิชา · แตะที่รายวิชาเพื่อดูภาพรวมสั้น ๆ"));
+      var clr = $("[data-f-clear]");
+      if (clr) clr.addEventListener("click", function () { state.track = state.level = state.mode = "all"; state.q = ""; var qi2 = $("[data-f-q]"); if (qi2) qi2.value = ""; sync(); });
       var p = new URLSearchParams();
       ["track", "level", "mode"].forEach(function (k) { if (state[k] !== "all") p.set(k, state[k]); });
       if (state.q) p.set("q", state.q);
       try { history.replaceState(null, "", location.pathname + (p.toString() ? "?" + p : "") + (location.hash.indexOf("#course-") === 0 ? "#catalog" : location.hash)); } catch (e) { /* file:// may refuse */ }
     }
-    ["track", "level", "mode"].forEach(function (k) {
-      $$("[data-f-" + k + "]").forEach(function (b) { b.addEventListener("click", function () { state[k] = b.getAttribute("data-f-" + k); sync(); }); });
-    });
+    $$("[data-f-track]").forEach(function (b) { b.addEventListener("click", function () { state.track = b.getAttribute("data-f-track"); sync(); }); });
+    ["level", "mode"].forEach(function (k) { var sel = $("[data-f-" + k + "]"); if (sel) sel.addEventListener("change", function () { state[k] = sel.value; sync(); }); });
     var qi = $("[data-f-q]");
     if (qi) qi.addEventListener("input", function () { state.q = qi.value; sync(); });
+    document.addEventListener("dd:lang", function () { if (filters) $$("option[data-en]", filters).forEach(function (o) { o.textContent = o.getAttribute("data-" + lang()); }); });
     sync();
   };
 
@@ -493,24 +500,23 @@
       document.body.appendChild(dlg);
       dlg.addEventListener("click", function (e) { if (e.target === dlg || e.target.closest("[data-dlg-close]")) dlg.close(); });
     }
-    dlg.className = "dialog lv-" + c.level;
+    dlg.className = "dialog dialog--course lv-" + c.level;
+    var modeNames = (d.modes || []).map(function (m) { return t(DATA.modes[m].name); }).join(" · ");
+    var notes = (c.track === "aieng" ? DATA.aiToolsNotice : null) || (c.track === "exam" && DATA.tcas ? DATA.tcas.note : null);
     dlg.innerHTML =
       '<div class="dialog__head"><span class="course__top" style="justify-content:flex-start;gap:10px"><span class="course__code">' + c.code + "</span>" + lvlChip(c) + "</span>" +
       '<h2 id="course-dlg-title">' + t(c.title) + "</h2><p>" + t(c.text) + "</p>" +
-      '<button type="button" class="icon-btn dialog__close" data-dlg-close aria-label="Close">' + CLOSE + "</button></div>" +
+      '<button type="button" class="icon-btn dialog__close" data-dlg-close aria-label="Close">' + CLOSE + "</button>" +
+      '<ul class="qfacts" role="list"><li>' + icon("academy") + hours(c) + "</li><li>" + icon("video") + modeNames + "</li><li>" + icon("book") + t(L("Start: ", "พื้นฐาน: ")) + t(d.prereq || L("ask us", "สอบถามเรา")) + "</li></ul></div>" +
       '<div class="dialog__body">' +
-      '<dl class="facts"><div class="fact"><dt>' + t(L("Duration", "ระยะเวลา")) + "</dt><dd>" + hours(c) + '</dd></div><div class="fact"><dt>' + t(L("Track", "สาย")) + "</dt><dd>" + t(tr.name) + '</dd></div><div class="fact"><dt>' + t(L("Prerequisite", "พื้นฐานที่ควรมี")) + "</dt><dd>" + t(d.prereq || L("Ask us", "สอบถามเรา")) + "</dd></div></dl>" +
-      '<div class="dlist">' +
-      "<h3>" + t(L("Study modes", "รูปแบบการเรียน")) + '</h3><div class="chips">' + (d.modes || []).map(function (m) { return '<span class="badge">' + icon(DATA.modes[m].icon) + t(DATA.modes[m].name) + "</span>"; }).join("") + "</div>" +
-      "<h3>" + t(L("What you will learn", "สิ่งที่จะได้เรียน")) + '</h3><ol class="modules" role="list">' + (d.modules || []).map(function (m) { return "<li>" + t(m) + "</li>"; }).join("") + "</ol>" +
-      "<h3>" + t(L("Outcomes", "ผลลัพธ์ที่ได้")) + '</h3><ul class="ticks">' + (d.outcomes || []).map(function (o) { return "<li>" + t(o) + "</li>"; }).join("") + "</ul>" +
-      "<h3>" + t(L("Final project", "โปรเจกต์ปลายภาค")) + "</h3><p>" + t(d.project) + "</p>" +
-      "<h3>" + t(L("Tools", "เครื่องมือ")) + '</h3><div class="chips chips--tech">' + c.tools.map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("") + "</div>" +
-      "<h3>" + t(L("Shaped around you", "ปรับให้เหมาะกับคุณ")) + '</h3><p class="note">' + t(DATA.courseNotice) + "</p>" +
-      (c.track === "aieng" ? '<p class="note">' + t(DATA.aiToolsNotice) + "</p>" : "") +
-      (c.track === "exam" && DATA.tcas ? '<p class="note">' + t(DATA.tcas.note) + "</p>" : "") +
-      "</div></div>" +
-      '<div class="dialog__foot"><a class="btn btn--sm" href="' + contactUrl({ topic: "custom", course: c.code }) + '">' + t(L("Customise this course", "ขอปรับหลักสูตรนี้")) + "</a>" +
+      '<div class="cd-grid"><section><h3>' + t(L("You'll learn", "สิ่งที่จะได้เรียน")) + '</h3><ul class="pills" role="list">' + (d.modules || []).map(function (m) { return "<li>" + t(m) + "</li>"; }).join("") + "</ul></section>" +
+      "<section><h3>" + t(L("You'll be able to", "เรียนจบแล้วทำได้")) + '</h3><ul class="ticks">' + (d.outcomes || []).map(function (o) { return "<li>" + t(o) + "</li>"; }).join("") + "</ul>" +
+      '<h3>' + t(L("You'll build", "ผลงานที่จะได้สร้าง")) + '</h3><p class="cd-project">' + t(d.project) + "</p></section></div>" +
+      '<p class="cd-tools">' + t(L("Tools", "เครื่องมือ")) + ": " + c.tools.map(esc).join(" · ") + "</p>" +
+      '<p class="cd-adapt">✨ ' + t(L("This outline is a starting guide — we shape pace, hours and project around you.", "เนื้อหานี้เป็นแนวทางเริ่มต้น เราปรับความเร็ว ชั่วโมง และโปรเจกต์ให้เหมาะกับคุณ")) + "</p>" +
+      (notes ? '<details class="cd-notes"><summary>' + t(L("Good to know", "ข้อควรทราบ")) + "</summary><p>" + t(notes) + "</p></details>" : "") +
+      "</div>" +
+      '<div class="dialog__foot"><a class="btn btn--sm" href="' + contactUrl({ topic: "custom", course: c.code }) + '">' + t(L("Customise it", "ขอปรับหลักสูตร")) + "</a>" +
       '<a class="btn btn--sm btn--primary" href="' + contactUrl({ topic: "courses", course: c.code }) + '">' + t(L("Ask about this course", "สอบถามหลักสูตรนี้")) + ARROW + "</a></div>";
     if (dlg.showModal) { if (!dlg.open) dlg.showModal(); } else dlg.setAttribute("open", "");
   }
@@ -570,7 +576,7 @@
       var tEl = form.elements.topic;
       var topicTxt = tEl ? tEl.options[tEl.selectedIndex].text : "";
       var now = new Date();
-      var consentLine = "PDPA consent: given on " + now.toISOString() + " (privacy policy v" + ((window.DD_PREFS || {}).CONSENT_VERSION || 1) + ")" +
+      var consentLine = "PDPA consent (incl. guardian awareness if under 20): given on " + now.toISOString() + " (privacy policy v" + ((window.DD_PREFS || {}).CONSENT_VERSION || 1) + ")" +
         (form.elements.marketing && form.elements.marketing.checked ? " · news & updates: yes" : " · news & updates: no");
       var bodyText = "Name / ชื่อ: " + g("name") + "\nEmail / อีเมล: " + g("email") + "\nOrganisation / หน่วยงาน: " + (g("org") || "-") +
         "\nTopic / เรื่อง: " + topicTxt + (g("course") ? "\nCourse / หลักสูตร: " + g("course") : "") +

@@ -15,8 +15,8 @@
 
   /* ------------------------------------------------------------ Shown on every course listing and dialog */
   D.courseNotice = L(
-    "Course outlines are a starting guide, not a fixed syllabus. Topics, pace, hours and projects are adjusted to each learner's level, goals and way of learning.",
-    "รายละเอียดหลักสูตรเป็นแนวทางเบื้องต้น ไม่ใช่หลักสูตรตายตัว เนื้อหา ความเร็ว จำนวนชั่วโมง และโปรเจกต์ จะปรับตามระดับ เป้าหมาย และแนวทางการเรียนของผู้เรียนแต่ละคน"
+    "Outlines are a starting guide — every course is tailored to your level, goals and way of learning.",
+    "รายละเอียดเป็นแนวทางเริ่มต้น ทุกหลักสูตรปรับให้เหมาะกับระดับ เป้าหมาย และวิธีเรียนของคุณ"
   );
   D.aiToolsNotice = L(
     "Claude Code (Anthropic), Codex (OpenAI), Cursor (Anysphere) and GitHub Copilot (GitHub) are named only to describe what we teach. We are not affiliated with these companies. Learners use their own accounts under each provider's terms, including age limits; under-18s join with a guardian's consent. Tools change quickly, so we teach methods that outlast any one product.",

@@ -126,6 +126,7 @@
     '        <a href="' + base + 'pages/legal.html#privacy">' + bi("Privacy", "ความเป็นส่วนตัว") + "</a>" +
     '        <button type="button" data-open-consent>' + bi("Cookies", "คุกกี้") + "</button>" +
     '        <a href="' + base + 'pages/legal.html#terms">' + bi("Terms", "ข้อกำหนด") + "</a>" +
+    '        <a href="' + base + 'admin/index.html" rel="nofollow">' + bi("Staff", "เจ้าหน้าที่") + "</a>" +
     "      </div>" +
     '      <div class="footer-tools">' +
     '        <div class="theme-seg" role="group" aria-label="Theme / ธีม">' +

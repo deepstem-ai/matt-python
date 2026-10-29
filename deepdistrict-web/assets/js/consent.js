@@ -74,58 +74,55 @@
     });
   }
 
-  /* ------------------------------------------------------------ Banner */
+  /* ------------------------------------------------------------ Banner: one friendly sentence, two clear buttons */
   var banner = document.createElement("section");
   banner.className = "consent-banner";
   banner.setAttribute("role", "region");
-  banner.setAttribute("aria-label", "Cookie consent");
+  banner.setAttribute("aria-label", "Privacy");
   banner.hidden = true;
   banner.innerHTML =
-    '<div class="consent-banner__icon"><img src="' + base + 'assets/images/icons/cookie.svg" alt=""></div>' +
-    "<div><h2>" + bi("Your privacy, your choice", "ความเป็นส่วนตัวของคุณ คุณเป็นผู้เลือก") + "</h2>" +
-    "<p>" + bi(
-      'We use only what is necessary to run this site. With your consent we also remember your language and theme. We do not use advertising or tracking cookies. <a href="' + base + 'pages/legal.html#cookies">Cookie policy</a>',
-      'เราใช้เฉพาะสิ่งที่จำเป็นต่อการทำงานของเว็บไซต์ และหากคุณยินยอม เราจะจดจำภาษาและธีมที่คุณเลือก เราไม่ใช้คุกกี้เพื่อการโฆษณาหรือติดตาม <a href="' + base + 'pages/legal.html#cookies">นโยบายคุกกี้</a>'
-    ) + "</p></div>" +
+    '<p><span class="consent-banner__emoji" aria-hidden="true">🍪</span>' + bi(
+      'No ads, no tracking. May we remember your language and theme on this device? <button type="button" class="consent-link" data-consent-act="settings">Details</button>',
+      'ไม่มีโฆษณา ไม่มีการติดตาม ให้เราจำภาษาและธีมที่คุณเลือกไว้ในอุปกรณ์นี้ได้ไหม? <button type="button" class="consent-link" data-consent-act="settings">รายละเอียด</button>'
+    ) + "</p>" +
     '<div class="consent-actions">' +
-    '<button type="button" class="btn btn--sm" data-consent-act="settings">' + bi("Settings", "ตั้งค่า") + "</button>" +
-    '<button type="button" class="btn btn--sm" data-consent-act="reject">' + bi("Necessary only", "เฉพาะที่จำเป็น") + "</button>" +
-    '<button type="button" class="btn btn--sm btn--primary" data-consent-act="accept">' + bi("Accept all", "ยอมรับทั้งหมด") + "</button>" +
+    '<button type="button" class="btn btn--sm" data-consent-act="reject">' + bi("No thanks", "ไม่ต้อง") + "</button>" +
+    '<button type="button" class="btn btn--sm btn--primary" data-consent-act="accept">' + bi("OK, remember", "ตกลง") + "</button>" +
     "</div>";
 
-  /* ------------------------------------------------------------ Settings dialog */
+  /* ------------------------------------------------------------ Settings dialog: only what is actually used */
   var dlg = document.createElement("dialog");
-  dlg.className = "dialog";
+  dlg.className = "dialog dialog--consent";
   dlg.setAttribute("aria-labelledby", "consent-title");
   function cat(id, en, th, den, dth, locked) {
-    return '<div class="consent-cat"><h3>' + bi(en, th) + "</h3>" +
-      '<label class="switch"><input type="checkbox" data-cat="' + id + '"' + (locked ? " checked disabled" : "") + ' aria-label="' + en + '"><span></span></label>' +
-      "<p>" + bi(den, dth) + "</p></div>";
+    return '<div class="consent-cat"><div><h3>' + bi(en, th) + "</h3><p>" + bi(den, dth) + "</p></div>" +
+      '<label class="switch"><input type="checkbox" data-cat="' + id + '"' + (locked ? " checked disabled" : "") + ' aria-label="' + en + '"><span></span></label></div>';
   }
+  // analytics / marketing switches appear only once such scripts exist on the page
+  var gated = {};
+  Array.prototype.forEach.call(document.querySelectorAll('script[type="text/plain"][data-consent]'), function (s) { gated[s.getAttribute("data-consent")] = true; });
   dlg.innerHTML =
-    '<div class="dialog__head"><span class="eyebrow">PDPA</span><h2 id="consent-title">' + bi("Privacy & cookie settings", "ตั้งค่าความเป็นส่วนตัวและคุกกี้") + "</h2>" +
-    "<p>" + bi("Choose what this website may store on your device. You can change this at any time from the footer.", "เลือกสิ่งที่เว็บไซต์นี้จัดเก็บบนอุปกรณ์ของคุณได้ และเปลี่ยนการตั้งค่าได้ทุกเมื่อจากส่วนท้ายของเว็บไซต์") + "</p>" +
+    '<div class="dialog__head"><h2 id="consent-title">' + bi("Privacy settings", "ตั้งค่าความเป็นส่วนตัว") + "</h2>" +
+    "<p>" + bi("We keep this simple: nothing is shared with advertisers, and you can change your mind any time from the footer.", "เราทำให้เรียบง่าย: ไม่มีการส่งข้อมูลให้ผู้โฆษณา และเปลี่ยนใจได้ทุกเมื่อจากส่วนท้ายของเว็บไซต์") + "</p>" +
     '<button type="button" class="icon-btn dialog__close" data-consent-act="close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>' +
     '<div class="dialog__body">' +
-    cat("necessary", "Strictly necessary", "จำเป็นอย่างยิ่ง", "Needed for the site to work, including remembering this consent choice. Always on.", "จำเป็นต่อการทำงานของเว็บไซต์ รวมถึงการจดจำตัวเลือกความยินยอมนี้ เปิดใช้งานเสมอ", true) +
-    cat("preferences", "Preferences", "การตั้งค่าส่วนบุคคล", "Remember your language (TH/EN) and light/dark theme on future visits. If off, they are kept only until you close this tab.", "จดจำภาษา (ไทย/อังกฤษ) และธีมสว่าง/มืดสำหรับการเข้าชมครั้งถัดไป หากปิดไว้ ระบบจะจำไว้เฉพาะจนกว่าคุณจะปิดแท็บนี้") +
-    cat("analytics", "Analytics", "การวิเคราะห์การใช้งาน", "Anonymous statistics to improve the site. We do not use any analytics today; if we add them, they will run only with your consent.", "สถิติแบบไม่ระบุตัวตนเพื่อปรับปรุงเว็บไซต์ ปัจจุบันเราไม่ได้ใช้ระบบวิเคราะห์ใด ๆ หากเพิ่มในอนาคต จะทำงานเฉพาะเมื่อคุณยินยอมเท่านั้น") +
-    cat("marketing", "Marketing", "การตลาด", "Personalised content or advertising. Not used today, and never without your consent.", "เนื้อหาหรือโฆษณาเฉพาะบุคคล ปัจจุบันไม่ได้ใช้ และจะไม่ใช้โดยไม่ได้รับความยินยอมจากคุณ") +
-    '<p class="consent-meta" data-consent-meta></p></div>' +
+    cat("necessary", "Essential", "จำเป็น", "Remembers this choice so we don't ask again. Always on.", "จดจำตัวเลือกนี้เพื่อไม่ต้องถามซ้ำ เปิดเสมอ", true) +
+    cat("preferences", "Remember my settings", "จดจำการตั้งค่าของฉัน", "Language and light/dark theme. If off, they reset when you close the tab.", "ภาษาและธีมสว่าง/มืด หากปิดไว้ จะรีเซ็ตเมื่อปิดแท็บ") +
+    (gated.analytics ? cat("analytics", "Anonymous statistics", "สถิติแบบไม่ระบุตัวตน", "Helps us improve the site.", "ช่วยให้เราปรับปรุงเว็บไซต์") : "") +
+    (gated.marketing ? cat("marketing", "Marketing", "การตลาด", "Personalised content.", "เนื้อหาเฉพาะบุคคล") : "") +
+    '<p class="consent-meta"><a href="' + base + 'pages/legal.html#cookies">' + bi("Full cookie & privacy policy", "นโยบายคุกกี้และความเป็นส่วนตัวฉบับเต็ม") + '</a><br><span data-consent-meta></span></p></div>' +
     '<div class="dialog__foot">' +
-    '<button type="button" class="btn btn--sm" data-consent-act="reject">' + bi("Necessary only", "เฉพาะที่จำเป็น") + "</button>" +
-    '<button type="button" class="btn btn--sm" data-consent-act="save">' + bi("Save my choices", "บันทึกตัวเลือก") + "</button>" +
-    '<button type="button" class="btn btn--sm btn--primary" data-consent-act="accept">' + bi("Accept all", "ยอมรับทั้งหมด") + "</button>" +
+    '<button type="button" class="btn btn--sm" data-consent-act="save">' + bi("Save", "บันทึก") + "</button>" +
+    '<button type="button" class="btn btn--sm btn--primary" data-consent-act="accept">' + bi("Allow all", "อนุญาตทั้งหมด") + "</button>" +
     "</div>";
 
   function renderMeta() {
     var m = dlg.querySelector("[data-consent-meta]");
     if (!m) return;
-    if (!record) { m.innerHTML = bi("No choice recorded yet.", "ยังไม่มีการบันทึกตัวเลือก"); return; }
+    if (!record) { m.innerHTML = ""; return; }
     var d = new Date(record.at);
     var ds = d.toLocaleDateString("en-GB") + " " + d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" });
-    m.innerHTML = bi("Consent ID " + record.id + " · recorded " + ds + " · policy v" + record.v,
-                     "รหัสความยินยอม " + record.id + " · บันทึกเมื่อ " + ds + " · นโยบายฉบับที่ " + record.v);
+    m.innerHTML = bi("Your choice was saved on " + ds + " (ref. " + record.id + ")", "บันทึกตัวเลือกเมื่อ " + ds + " (อ้างอิง " + record.id + ")");
   }
   function syncSwitches() {
     Array.prototype.forEach.call(dlg.querySelectorAll("[data-cat]"), function (i) {

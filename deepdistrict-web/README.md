@@ -9,7 +9,7 @@ industry. Every course is **personalised** and offered **live on Zoom, onsite or
 
 Plain HTML, CSS and JavaScript. No build step and no dependencies. Works from disk.
 
-**Version 4.0 r1** (see `VERSION` and `CHANGELOG.md`).
+**Version 4.1 r1** (see `VERSION` and `CHANGELOG.md`).
 
 ## Run it on your computer
 
@@ -38,6 +38,7 @@ start.bat             :: Windows
 | Partners | `pages/partners.html` | Partner types, engagement models, example projects |
 | About | `pages/about.html` | Mission, vision, values, SI teaser, principles, learning-to-working path, logo meaning |
 | Contact | `pages/contact.html` | Form with required PDPA consent on every submission; prefilled from course and plan links |
+| Back office | `admin/index.html` | Staff sign-in; people, enrolments, lesson log, hours used/left, payments, calendar (.ics), learner reports as PDF / PNG / TXT / CSV — see `admin/README.md` |
 | Legal | `pages/legal.html` | PDPA privacy notice, cookie and storage table, terms, accessibility, copyright |
 
 ## Key features
@@ -50,8 +51,9 @@ start.bat             :: Windows
 - **Contact form:** opens the visitor's email app by default; set an endpoint in
   `assets/js/config.js` (e.g. Web3Forms, Formspree or your own server) to send directly, with an
   automatic email-app fallback.
-- **PDPA consent:** a banner offers *Accept all*, *Necessary only* or *Settings*, with categories
-  for necessary, preferences, analytics and marketing. Each choice is recorded with an ID,
+- **PDPA consent:** a small, friendly card (*OK, remember* / *No thanks* / *Details*). The settings
+  dialog lists only what is actually used (essential + remembered settings); analytics or marketing
+  switches appear automatically once such scripts are added. Each choice is recorded with an ID,
   date and policy version. Visitors are asked again when the policy version changes or after
   12 months, and can reopen the settings from **Cookie settings** in the footer. Language and
   theme are remembered across visits only with *preferences* consent. The contact form asks
@@ -71,6 +73,7 @@ start.bat             :: Windows
 deepdistrict-web/
 ├── index.html
 ├── pages/                     si, programs, innovation, research, stem, partners, about, contact, legal
+├── admin/                     Staff back office (see admin/README.md)
 ├── assets/
 │   ├── css/
 │   │   ├── main.css           Imports the files below in order

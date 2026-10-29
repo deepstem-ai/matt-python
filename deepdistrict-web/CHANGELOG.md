@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.1 r1 — October 2026
+- **Back office** (`admin/`): staff sign-in with roles (admin, teacher), people, enrolments with
+  hours purchased / used / left / booked, lessons log with what was learned, weekly scheduling,
+  payments and balances, course prices and availability, dashboard alerts, month/week/list
+  calendar with `.ics` export, learner reports exported as PDF, PNG, TXT, CSV or print, backup
+  export/import, Thai/English, light/dark.
+- Course catalogue simplified: one row of track chips, one filter line (search + level + format),
+  cleaner cards, first 12 courses with "Show all", and a one-screen course overview.
+- Consent made friendly: a small card with one sentence and two buttons; settings list only what
+  is used. Contact form needs a single consent tick.
+- Privacy notice: learner records section. Footer: Staff link.
+
 ## 4.0 r1 — October 2026
 - New palette "Sapphire & Saffron" (sapphire/indigo, aqua, saffron-gold accent) for both themes.
 - Light/dark fixed: header button flips light ↔ dark; footer offers System / Light / Dark; former
