@@ -8,6 +8,8 @@ Output:  assets/images/brand/*.png  (transparent backgrounds)
     logo-stacked-white.png    full logo, white wordmark     (dark backgrounds)
     logo-horizontal.png       mark + wordmark in one row    (light backgrounds)
     logo-horizontal-white.png same, for dark backgrounds
+    logo-horizon-white.png    "DEEP [D]ISTRICT" with the glowing horizon (dark backgrounds)
+    logo-horizon.png          same, navy wordmark                        (light backgrounds)
     logo-mark.png             symbol only, original colours
     logo-mark-light.png       symbol only, brightened for dark backgrounds
     favicon-32.png, favicon-192.png, apple-touch-icon.png, og-image.png
@@ -17,9 +19,10 @@ Usage:            python3 tools/build_logo.py
 """
 
 import colorsys
+import math
 from pathlib import Path
 
-from PIL import Image
+from PIL import Image, ImageChops, ImageDraw, ImageFilter
 
 ROOT = Path(__file__).resolve().parent.parent
 BRAND = ROOT / "assets" / "images" / "brand"
@@ -106,6 +109,80 @@ def row(mark, word, height=160, gap_ratio=0.10):
     return out
 
 
+def letters(word):
+    """Column ranges of the glyphs in the wordmark."""
+    a = word.getchannel("A")
+    cols = [a.crop((x, 0, x + 1, word.height)).getbbox() is not None for x in range(word.width)]
+    segs, start = [], None
+    for x, v in enumerate(cols + [0]):
+        if v and start is None:
+            start = x
+        elif not v and start is not None:
+            segs.append((start, x)); start = None
+    return segs
+
+
+def horizon(mark, word, glow_rgb=(90, 170, 255), core_rgb=(225, 240, 255), height=440):
+    """"DEEP [D-mark]ISTRICT" under a glowing horizon arc, on a transparent background."""
+    segs = letters(word)
+    d2 = segs[4]                                     # the D of DISTRICT
+    left, right = word.crop((0, 0, segs[3][1], word.height)), word.crop((segs[5][0], 0, word.width, word.height))
+    th = 70                                          # letter height in the output
+    sc = th / word.height
+    left = left.resize((round(left.width * sc), th), Image.LANCZOS)
+    right = right.resize((round(right.width * sc), th), Image.LANCZOS)
+    mh = round(th * 2.05)
+    m = mark.resize((round(mark.width * mh / mark.height), mh), Image.LANCZOS)
+    gap = round(th * 0.32)
+    tuck = -round(th * 0.62)                         # the D glyph sits left inside the mark's box
+    text_w = left.width + gap + m.width + tuck + right.width
+    W = text_w + 2 * round(th * 1.4)
+    H = height
+    out = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+
+    # --- horizon: a very wide ellipse whose top edge crosses the image; glow brightest near the mark
+    base_y = round(H * 0.62)                         # letters' bottom line
+    mark_top = base_y - mh + round(th * 0.12)
+    apex_y = mark_top - 10                           # the horizon just clears the top of the D
+    rx, ry = W * 1.5, W * 0.5
+    cx = W / 2
+    peak_x = (W - text_w) / 2 + left.width + gap + m.width * 0.62
+
+    def arc_layer(width, blur, alpha):
+        lay = Image.new("L", (W, H), 0)
+        ImageDraw.Draw(lay).ellipse((cx - rx, apex_y, cx + rx, apex_y + 2 * ry), outline=255, width=width)
+        return lay.filter(ImageFilter.GaussianBlur(blur)).point(lambda v: round(v * alpha))
+
+    # fade the arc out towards both ends, strongest around the mark
+    fade = Image.new("L", (W, 1))
+    for x in range(W):
+        d = (x - peak_x) / (W * 0.48)
+        fade.putpixel((x, 0), round(255 * math.exp(-d * d * 1.7)))
+    fade = fade.resize((W, H))
+    glow = ImageChops.add(arc_layer(26, 22, 0.55), arc_layer(8, 6, 0.9))
+    core = arc_layer(3, 0.6, 1.0)
+    # bright flare where the light "rises"
+    flare = Image.new("L", (W, H), 0)
+    fy = apex_y + ry - math.sqrt(max(0.0, ry * ry * (1 - ((peak_x - cx) / rx) ** 2)))
+    ImageDraw.Draw(flare).ellipse((peak_x - 70, fy - 9, peak_x + 70, fy + 9), fill=255)
+    flare = flare.filter(ImageFilter.GaussianBlur(16))
+    glow = ImageChops.multiply(ImageChops.add(glow, flare), fade)
+    core = ImageChops.multiply(core, fade)
+    for rgb, a in ((glow_rgb, glow), (core_rgb, core)):   # alpha-composite (paste would darken the edges)
+        lay = Image.new("RGBA", (W, H), (*rgb, 0))
+        lay.putalpha(a)
+        out.alpha_composite(lay)
+
+    # --- wordmark with the symbol as the D
+    x = (W - text_w) // 2
+    out.alpha_composite(left, (x, base_y - th))
+    x += left.width + gap
+    out.alpha_composite(m, (x, mark_top))
+    x += m.width + tuck
+    out.alpha_composite(right, (x, base_y - th))
+    return trim(out, 8)
+
+
 def icon(mark, size, bg=None, pad_ratio=0.12):
     canvas = Image.new("RGBA", (size, size), bg or (0, 0, 0, 0))
     inner = round(size * (1 - 2 * pad_ratio))
@@ -135,6 +212,8 @@ def main():
     save(trim(stack(mark_light, word_white, gap), 24), "logo-stacked-white.png", 1200)
     save(row(mark, word), "logo-horizontal.png")
     save(row(mark_light, word_white), "logo-horizontal-white.png")
+    save(horizon(mark_light, word_white), "logo-horizon-white.png", 1400)
+    save(horizon(mark, word, glow_rgb=(40, 110, 240), core_rgb=(30, 90, 230)), "logo-horizon.png", 1400)
     save(mark, "logo-mark.png", 600)
     save(mark_light, "logo-mark-light.png", 600)
 
