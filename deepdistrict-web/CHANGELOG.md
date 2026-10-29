@@ -1,5 +1,10 @@
 # Changelog
 
+## 4.1 r2 — October 2026
+- No fixed course hours on the public site: cards show the track, the course overview says
+  "Length: tailored to you", the plan builder shows levels, the fees FAQ and the curriculum
+  document no longer list hours. Default hours stay in the back office for building packages.
+
 ## 4.1 r1 — October 2026
 - **Back office** (`admin/`): staff sign-in with roles (admin, teacher), people, enrolments with
   hours purchased / used / left / booked, lessons log with what was learned, weekly scheduling,

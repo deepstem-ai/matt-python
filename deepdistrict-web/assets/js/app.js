@@ -40,7 +40,6 @@
   courses.forEach(function (c) { byCode[c.code] = c; });
   function level(id) { return (DATA.levels || [])[id - 1]; }
   function track(id) { return (DATA.tracks || []).filter(function (x) { return x.id === id; })[0]; }
-  function hours(c) { return typeof c.hours === "number" ? t(L(c.hours + " h", c.hours + " ชม.")) : t(c.hours); }
   function lvlChip(c) {
     return c.anyLevel ? '<span class="lvl lvl--any">' + t(L("All levels · custom", "ทุกระดับ · ออกแบบเฉพาะ")) + "</span>"
       : '<span class="lvl lv-' + c.level + '">' + t(level(c.level).short) + "</span>";
@@ -420,7 +419,7 @@
         return '<article role="button" tabindex="0" class="course lv-' + c.level + (c.featured ? " course--featured" : "") + '" data-course="' + c.code + '" id="course-' + c.code + '" aria-haspopup="dialog">' +
           '<span class="course__top"><span class="course__code">' + c.code + "</span>" + lvlChip(c) + "</span>" +
           "<h3>" + t(c.title) + "</h3><p>" + t(c.text) + "</p>" +
-          '<span class="course__meta"><span>' + hours(c) + "</span>" + modesIcons(c.code) + '<span class="course__go" aria-hidden="true">' + ARROW + "</span></span></article>";
+          '<span class="course__meta"><span>' + t(track(c.track).name) + "</span>" + modesIcons(c.code) + '<span class="course__go" aria-hidden="true">' + ARROW + "</span></span></article>";
       }).join("") + (shown.length < list.length ? '<button type="button" class="btn courses__more" data-show-all>' + t(L("Show all " + list.length + " courses", "ดูทั้งหมด " + list.length + " รายวิชา")) + "</button>" : "")
         : '<p class="empty">' + t(L("No course matches yet, but we can design one for you. Ask us below.", "ยังไม่พบรายวิชาที่ตรงกัน แต่เราออกแบบให้คุณได้ สอบถามได้ด้านล่าง")) + "</p>";
       var more = $("[data-show-all]", el);
@@ -475,7 +474,7 @@
         '<div class="plan-meta">' + summary.slice(4).map(function (s) { return "<span>" + t(s) + "</span>"; }).join("") + "<span>" + t(L("Thai / English", "ไทย / อังกฤษ")) + "</span></div>" +
         '<ol class="plan-seq" role="list">' + seq.map(function (c, i) {
           var co = byCode[c];
-          return '<li class="lv-' + co.level + '" style="animation-delay:' + i * 70 + 'ms"><span><strong>' + t(co.title) + "</strong><small>" + c + " · " + hours(co) + "</small></span></li>";
+          return '<li class="lv-' + co.level + '" style="animation-delay:' + i * 70 + 'ms"><span><strong>' + t(co.title) + "</strong><small>" + c + " · " + t(level(co.level).short) + "</small></span></li>";
         }).join("") + "</ol>" +
         "<p>" + t(L("This is a starting point. In a free consultation we adjust modules, pace and your project topic.", "นี่คือจุดเริ่มต้น ในการปรึกษาฟรี เราจะปรับบทเรียน ความเร็ว และหัวข้อโปรเจกต์ให้เหมาะกับคุณ")) + "</p>" +
         '<a class="btn btn--light" data-magnetic href="' + contactUrl({ topic: "plan", plan: summary.map(function (s) { return s.en; }).join(" · ") + " | " + seq.join(" → ") }) + '">' + t(L("Request this plan", "ขอรับแผนนี้")) + ARROW + "</a>";
@@ -507,7 +506,7 @@
       '<div class="dialog__head"><span class="course__top" style="justify-content:flex-start;gap:10px"><span class="course__code">' + c.code + "</span>" + lvlChip(c) + "</span>" +
       '<h2 id="course-dlg-title">' + t(c.title) + "</h2><p>" + t(c.text) + "</p>" +
       '<button type="button" class="icon-btn dialog__close" data-dlg-close aria-label="Close">' + CLOSE + "</button>" +
-      '<ul class="qfacts" role="list"><li>' + icon("academy") + hours(c) + "</li><li>" + icon("video") + modeNames + "</li><li>" + icon("book") + t(L("Start: ", "พื้นฐาน: ")) + t(d.prereq || L("ask us", "สอบถามเรา")) + "</li></ul></div>" +
+      '<ul class="qfacts" role="list"><li>' + icon("academy") + t(L("Length: tailored to you", "ระยะเวลา: ปรับตามผู้เรียน")) + "</li><li>" + icon("video") + modeNames + "</li><li>" + icon("book") + t(L("Start: ", "พื้นฐาน: ")) + t(d.prereq || L("ask us", "สอบถามเรา")) + "</li></ul></div>" +
       '<div class="dialog__body">' +
       '<div class="cd-grid"><section><h3>' + t(L("You'll learn", "สิ่งที่จะได้เรียน")) + '</h3><ul class="pills" role="list">' + (d.modules || []).map(function (m) { return "<li>" + t(m) + "</li>"; }).join("") + "</ul></section>" +
       "<section><h3>" + t(L("You'll be able to", "เรียนจบแล้วทำได้")) + '</h3><ul class="ticks">' + (d.outcomes || []).map(function (o) { return "<li>" + t(o) + "</li>"; }).join("") + "</ul>" +

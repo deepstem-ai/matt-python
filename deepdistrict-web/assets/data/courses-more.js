@@ -15,8 +15,8 @@
 
   /* ------------------------------------------------------------ Shown on every course listing and dialog */
   D.courseNotice = L(
-    "Outlines are a starting guide — every course is tailored to your level, goals and way of learning.",
-    "รายละเอียดเป็นแนวทางเริ่มต้น ทุกหลักสูตรปรับให้เหมาะกับระดับ เป้าหมาย และวิธีเรียนของคุณ"
+    "Outlines are a starting guide. There are no fixed hours: content, pace and length are tailored to each learner's level and potential.",
+    "รายละเอียดเป็นแนวทางเริ่มต้น ไม่มีจำนวนชั่วโมงตายตัว เนื้อหา ความเร็ว และระยะเวลาเรียนปรับตามระดับและศักยภาพของผู้เรียนแต่ละคน"
   );
   D.aiToolsNotice = L(
     "Claude Code (Anthropic), Codex (OpenAI), Cursor (Anysphere) and GitHub Copilot (GitHub) are named only to describe what we teach. We are not affiliated with these companies. Learners use their own accounts under each provider's terms, including age limits; under-18s join with a guardian's consent. Tools change quickly, so we teach methods that outlast any one product.",
