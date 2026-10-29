@@ -39,6 +39,15 @@ for (const c of D.courses) {
   bi(d.prereq, `${c.code} prerequisite`); bi(d.project, `${c.code} project`);
 }
 for (const code of Object.keys(D.details)) if (!codes.has(code)) err(`details for unknown course ${code}`);
+for (const [code, x] of Object.entries(D.testInfo || {})) {
+  if (!codes.has(code)) err(`testInfo for unknown course ${code}`);
+  ["measures", "validity"].forEach((k) => bi(x[k], `${code} test ${k}`));
+  (x.where || []).forEach((r, i) => r.forEach((c, j) => bi(c, `${code} where ${i + 1}.${j + 1}`)));
+  if (!(x.where || []).length) err(`${code}: test info needs "where" (university · faculty · round)`);
+  (x.targets || []).forEach((r, i) => { bi(r[0], `${code} target ${i + 1}`); bi(r[1], `${code} score ${i + 1}`); });
+  if (!x.url || !(x.targets || []).length) err(`${code}: test info needs url and targets`);
+}
+for (const c of D.courses.filter((c) => c.track === "exam" || c.track === "admit")) if (c.code !== "PFL200" && !(D.testInfo || {})[c.code]) err(`${c.code}: test-prep course without test info`);
 
 for (const t of D.tracks) {
   const owners = D.groups.filter((g) => g.tracks.includes(t.id));

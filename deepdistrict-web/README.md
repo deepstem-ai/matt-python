@@ -9,7 +9,7 @@ industry. Every course is **personalised** and offered **live on Zoom, onsite or
 
 Plain HTML, CSS and JavaScript. No build step and no dependencies. Works from disk.
 
-**Version 4.7 r1** (see `VERSION` and `CHANGELOG.md`).
+**Version 4.8 r1** (see `VERSION` and `CHANGELOG.md`).
 
 ## Run it on your computer
 
@@ -33,8 +33,8 @@ See `admin/README.md` (features) and `server/DEPLOY.md` (LAN use and free hostin
 |---|---|---|
 | Home | `index.html` | Neural-network hero, what SI is (animated SI orb, Bostrom definition), interactive AI↔SI comparison, "Isn't today's AI enough?", personalisation flow, study modes, learning path, Innovation Lab, tracks, audiences |
 | What is SI? | `pages/si.html` | Definition, SI in plain words, "Isn't today's AI enough?", why start now, AI vs SI toggle, ladder from narrow AI to SI, building blocks mapped to courses, our stance, myth/fact flip cards, FAQ |
-| Admissions (branch) | `pages/admissions.html` | IELTS, SAT Math, SAT Reading & Writing (EBRW), TBAT (replaces BMAT), CU-AAT Math & Verbal and portfolio prep: goal chooser, test explorer with official links and a "checked on" date, portfolio, method, M.4–M.6 timeline, FAQ, "ask us for the latest update" notice. Data: `assets/data/admissions.js` |
-| Programs | `pages/programs.html` | How personalisation works, Zoom/onsite/hybrid, **plan builder**, learning path, **catalogue of 68 courses in 6 groups and 10 tracks, with 12 new-era picks and a details dialog for each**, **COMPAS / HKICO exam prep with TCAS70 info**, the **Plan · Edge · Trace · Test** exam method, "ask about an unlisted course", domain paths, FAQ |
+| Admissions (branch) | `pages/admissions.html` | IELTS, SAT Math, SAT Reading & Writing (EBRW), TBAT (replaces BMAT), CU-AAT Math & Verbal, COMPAS/HKICO/POSN exam prep and the exam method, and portfolio prep: goal chooser, test explorer with official links and a "checked on" date, portfolio, method, M.4–M.6 timeline, FAQ, "ask us for the latest update" notice. Data: `assets/data/admissions.js` |
+| Programs | `pages/programs.html` | Short page: catalogue (12 new-era picks, 8 essential foundations, compact directory of all 68 courses by group, filters), how we teach, study modes, plan builder, FAQ. Tap a course for a one-screen summary: length as a range, what you learn, outcomes, project, test information for exam courses, and "contact our staff" |
 | Innovation Lab | `pages/innovation.html` | Fully personalised course: from finding a topic to publication or competition |
 | Research | `pages/research.html` | Why STEM + SI research matters, projects by field (publish · present · compete), research pathway, mentoring model, lab research areas, venues, integrity |
 | Youth STEM | `pages/stem.html` | Six future skills, ages 8–18, student journey, information for parents |

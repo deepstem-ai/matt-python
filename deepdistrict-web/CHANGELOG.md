@@ -1,5 +1,35 @@
 # Changelog
 
+## 4.8 r1 — October 2026
+- **Short course summary on click:**
+  - Each summary has the course in one line, a few key facts and a short list of what you
+    will learn.
+  - Key facts: **approximate length as a range** (hours and weeks; it depends on level and
+    pace), level and starting point, and how you can study.
+  - Then what you'll be able to do and the final project.
+  - A **"Want the details? Contact our staff."** box links to the contact form and email,
+    plus phone and LINE once they are set in `assets/js/config.js` → `contact`.
+- **Standard-test courses** also show "About the test", checked October 2026:
+  - what the test measures and its format
+  - a table of **where you can use it** (university · faculty/programme · admission round),
+    e.g. TBAT → Chula Medicine and Dentistry and Khon Kaen Medicine, TCAS70 Round 1 Portfolio
+  - **how long the result lasts**
+  - **which score for which target**, e.g. IELTS 6.0–7.5 for TU/Chula BBA, Melbourne and the
+    UK; SAT/CU-AAT minimums for Chula ISE, BBA and BBTECH; TBAT/CU-AAT for Chula Dentistry;
+    COMPAS pass and AWARD rules; POSN camps and quotas
+  - each with a note to ask our staff for the current announcement, and the official site
+- **Essential foundations** (PY101, AI100, MTH110, DSA210, WEB101, SQL120, GIT110, SCR090) are
+  shown right after the new-era picks.
+- **Programs page simplified** from 11 sections to 6:
+  - hero → catalogue → how we teach → study modes → plan builder → FAQ
+  - the catalogue overview is now a compact directory of all courses by group, not 18 big
+    cards; the format filter is removed
+  - COMPAS/HKICO exams and the exam method moved to the Admissions page; domain paths moved
+    to the Research page
+- Fix: switching theme during a page change no longer throws an unhandled error.
+- `tools/check_catalogue.js` also checks that every test-prep course has complete test
+  information.
+
 ## 4.7 r1 — October 2026
 - **Cookie consent bar (PDPA):**
   - A full-width bar at the bottom of the screen with a clear explanation, a link to the

@@ -12,8 +12,17 @@
    Then update the privacy notice (pages/legal.html#privacy) to name the
    provider as a data processor. If sending fails, the form falls back to
    the email app automatically.
+
+   STAFF CONTACT (shown in every course summary: "Contact our staff")
+   Fill in a phone number and the LINE Official Account ID when you have them;
+   empty values are simply not shown.
    ========================================================================== */
 window.DD_CONFIG = {
+  contact: {
+    email: "info@deepdistrict.si",
+    phone: "",          // e.g. "+66 81 234 5678"
+    lineId: ""          // e.g. "@deepdistrict"
+  },
   form: {
     endpoint: "",
     accessKey: "",

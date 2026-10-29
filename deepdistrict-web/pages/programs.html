@@ -14,8 +14,8 @@
   <link rel="icon" href="../assets/images/brand/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="../assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="../assets/images/brand/apple-touch-icon.png">
-  <script src="../assets/js/prefs.js?v=4.7r1"></script>
-  <link rel="stylesheet" href="../assets/css/main.css?v=4.7r1">
+  <script src="../assets/js/prefs.js?v=4.8r1"></script>
+  <link rel="stylesheet" href="../assets/css/main.css?v=4.8r1">
 </head>
 <body class="page-programs" data-base="../" data-page="programs" data-title-en="Programs & Courses | DeepDistrict.si" data-title-th="หลักสูตร | DeepDistrict.si">
 
@@ -31,8 +31,8 @@
         <p lang="en">From the programming essentials to advanced AI and SI research. Every course is customised to your goals, level and schedule, live on Zoom, onsite in Bangkok or hybrid.</p>
         <p lang="th">ตั้งแต่พื้นฐานการเขียนโปรแกรมที่สำคัญ จนถึง AI ขั้นสูงและงานวิจัยด้าน SI ทุกหลักสูตรปรับให้ตรงกับเป้าหมาย ระดับ และตารางเวลาของคุณ เรียนสดผ่าน Zoom ที่แล็บในกรุงเทพฯ หรือแบบไฮบริด</p>
         <div class="btn-row">
-          <a class="btn btn--primary" data-magnetic href="#planner"><span lang="en">Build my plan</span><span lang="th">ออกแบบแผนของฉัน</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a class="btn" href="#catalog"><span lang="en">Browse all courses</span><span lang="th">ดูรายวิชาทั้งหมด</span></a>
+          <a class="btn btn--primary" data-magnetic href="#catalog"><span lang="en">Browse courses</span><span lang="th">ดูคอร์สทั้งหมด</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn" href="#planner"><span lang="en">Build my plan</span><span lang="th">ออกแบบแผนของฉัน</span></a>
         </div>
         <div class="hero-badges">
           <span class="badge"><img src="../assets/images/icons/video.svg" alt=""><span lang="en">Live on Zoom</span><span lang="th">เรียนสดผ่าน Zoom</span></span>
@@ -43,7 +43,35 @@
     </div>
   </section>
 
-  <!-- ============================================================ PERSONALISATION -->
+  <!-- ============================================================ CATALOGUE -->
+  <section class="section" id="catalog" aria-labelledby="catalog-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal"><span lang="en">Course catalogue</span><span lang="th">รายวิชาทั้งหมด</span></span>
+          <h2 id="catalog-title" data-split><span lang="en">Find a course that fits</span><span lang="th">ค้นหาคอร์สที่ใช่สำหรับคุณ</span></h2>
+        </div>
+        <p class="reveal" lang="en">Start with the picks, or open a group. Tap any course for a short summary.</p>
+        <p class="reveal" lang="th">เริ่มจากคอร์สเด่น หรือเปิดดูทีละกลุ่ม แตะที่คอร์สเพื่อดูสรุปสั้น ๆ ในหน้าเดียว</p>
+      </div>
+      <div class="notice reveal" data-render="notice" data-source="courseNotice"></div>
+      <div class="catalog-tools" data-course-filters></div>
+      <p class="catalog-count" data-course-count aria-live="polite"></p>
+      <div class="courses" data-render="courses"></div>
+
+      <p class="reveal adm-pointer"><span lang="en">Preparing for COMPAS, HKICO, POSN, IELTS, SAT, TBAT or CU-AAT? See </span><span lang="th">กำลังเตรียมสอบ COMPAS, HKICO, สอวน., IELTS, SAT, TBAT หรือ CU-AAT? ดูที่ </span><a href="admissions.html"><span lang="en">Standard Tests &amp; Admissions →</span><span lang="th">สอบมาตรฐานและเข้ามหาวิทยาลัย →</span></a></p>
+      <div class="ask-banner reveal">
+        <div>
+          <h3><span lang="en">Don't see the course you need?</span><span lang="th">ไม่พบหลักสูตรที่ต้องการใช่ไหม?</span></h3>
+          <p lang="en">We teach more than what is listed here, and we design new courses for individuals, schools and companies. Ask us about any topic.</p>
+          <p lang="th">เราสอนมากกว่าที่แสดงไว้บนเว็บไซต์ และออกแบบหลักสูตรใหม่ให้ทั้งบุคคล โรงเรียน และองค์กร สอบถามเราได้ทุกหัวข้อ</p>
+        </div>
+        <a class="btn btn--primary" data-magnetic href="contact.html?topic=unlisted#form"><span lang="en">Ask about another course</span><span lang="th">สอบถามหลักสูตรอื่น</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ HOW WE TEACH -->
   <section class="section grid-bg" id="custom" aria-labelledby="custom-title">
     <div class="container">
       <div class="section-head">
@@ -55,8 +83,6 @@
         <p class="reveal" lang="th">เราไม่จับคุณใส่ห้องเรียนแบบตายตัว แต่เริ่มจากตัวคุณ แล้วออกแบบเนื้อหา ความเร็ว และโปรเจกต์ให้เหมาะกับคุณ</p>
       </div>
       <ol class="flow" data-render="flow" data-source="personalSteps" role="list"></ol>
-      <h3 class="reveal" style="margin:64px 0 20px;font-size:1.3rem"><span lang="en">What you can customise</span><span lang="th">สิ่งที่คุณปรับได้</span></h3>
-      <div class="grid grid--3" data-render="custom-options"></div>
     </div>
   </section>
 
@@ -87,108 +113,6 @@
         <p class="reveal" lang="th">เลือกตัวเลือกเพียงไม่กี่ข้อ แล้วรับลำดับรายวิชาที่แนะนำ ส่งให้เรา แล้วเราจะปรับให้ละเอียดขึ้นร่วมกับคุณในการปรึกษาฟรี</p>
       </div>
       <div class="planner reveal" data-render="planner"></div>
-    </div>
-  </section>
-
-  <!-- ============================================================ PATH -->
-  <section class="section section--alt" id="path" aria-labelledby="path-title">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow reveal"><span lang="en">Learning path</span><span lang="th">เส้นทางการเรียนรู้</span></span>
-          <h2 id="path-title" data-split><span lang="en">Four levels from foundation to <span class="text-si">SI research</span></span><span lang="th">สี่ระดับ จากพื้นฐานสู่<span class="text-si">งานวิจัย SI</span></span></h2>
-        </div>
-        <p class="reveal" lang="en">Click any course code to see its full details.</p>
-        <p class="reveal" lang="th">คลิกรหัสวิชาเพื่อดูรายละเอียดทั้งหมด</p>
-      </div>
-      <ol class="path" data-render="levels" role="list"></ol>
-    </div>
-  </section>
-
-  <!-- ============================================================ CATALOGUE -->
-  <section class="section" id="catalog" aria-labelledby="catalog-title">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow reveal"><span lang="en">Course catalogue</span><span lang="th">รายวิชาทั้งหมด</span></span>
-          <h2 id="catalog-title" data-split><span lang="en">Find a course that fits</span><span lang="th">ค้นหาคอร์สที่ใช่สำหรับคุณ</span></h2>
-        </div>
-        <p class="reveal" lang="en">Pick a track or search. Tap a course for a one-screen overview.</p>
-        <p class="reveal" lang="th">เลือกสายที่สนใจหรือค้นหา แตะที่รายวิชาเพื่อดูภาพรวมในหน้าเดียว</p>
-      </div>
-      <div class="notice reveal" data-render="notice" data-source="courseNotice"></div>
-      <div class="catalog-tools" data-course-filters></div>
-      <p class="catalog-count" data-course-count aria-live="polite"></p>
-      <div class="courses" data-render="courses"></div>
-      <div class="ask-banner reveal">
-        <div>
-          <h3><span lang="en">Don't see the course you need?</span><span lang="th">ไม่พบหลักสูตรที่ต้องการใช่ไหม?</span></h3>
-          <p lang="en">We teach more than what is listed here, and we design new courses for individuals, schools and companies. Ask us about any topic.</p>
-          <p lang="th">เราสอนมากกว่าที่แสดงไว้บนเว็บไซต์ และออกแบบหลักสูตรใหม่ให้ทั้งบุคคล โรงเรียน และองค์กร สอบถามเราได้ทุกหัวข้อ</p>
-        </div>
-        <a class="btn btn--primary" data-magnetic href="contact.html?topic=unlisted#form"><span lang="en">Ask about another course</span><span lang="th">สอบถามหลักสูตรอื่น</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================ EXAMS & OLYMPIADS -->
-  <section class="section section--alt" id="exams" aria-labelledby="exams-title">
-    <div class="container">
-      <div class="split exam-intro">
-        <div>
-          <span class="eyebrow reveal"><span lang="en">Standard exams & olympiads</span><span lang="th">สอบมาตรฐานและโอลิมปิก</span></span>
-          <h2 id="exams-title" data-split><span lang="en">COMPAS & HKICO, <span class="text-si">prepared properly</span></span><span lang="th">COMPAS และ HKICO <span class="text-si">เตรียมอย่างเป็นระบบ</span></span></h2>
-          <p class="reveal" lang="en">Timed mock exams, a personal error log and a method that holds up under pressure. A COMPAS AWARD of EXCELLENCE can also support a TCAS70 portfolio.</p>
-          <p class="reveal" lang="th">ข้อสอบจำลองจับเวลา บันทึกจุดพลาดส่วนตัว และวิธีทำข้อสอบที่ใช้ได้แม้อยู่ภายใต้ความกดดัน รางวัล AWARD of EXCELLENCE จาก COMPAS ยังช่วยเสริมพอร์ตโฟลิโอ TCAS70 ได้ด้วย</p>
-          <div class="btn-row reveal"><a class="btn btn--primary" href="?track=exam#catalog"><span lang="en">See exam courses</span><span lang="th">ดูหลักสูตรเตรียมสอบ</span></a><a class="btn" href="#exam-method">Plan · Edge · Trace · Test</a></div>
-        </div>
-        <figure class="art reveal reveal-delay-1"><img src="../assets/images/sections/exam-code.svg" alt="A code editor beside four ticked checkpoints, Plan, Edge, Trace and Test, and a gold award badge" width="1200" height="900" loading="lazy"></figure>
-      </div>
-      <div data-render="exams"></div>
-    </div>
-  </section>
-
-  <!-- ============================================================ EXAM METHOD -->
-  <section class="section grid-bg" id="exam-method" aria-labelledby="method-title">
-    <div class="container">
-      <div class="section-head section-head--center">
-        <span class="eyebrow reveal"><span lang="en">Where exam points are lost</span><span lang="th">คะแนนสอบเขียนโปรแกรมหายไปไหน</span></span>
-        <h2 id="method-title" data-split><span lang="en">Four checkpoints: <span class="text-si">Plan · Edge · Trace · Test</span></span><span lang="th">สี่จุดตรวจ: <span class="text-si">Plan · Edge · Trace · Test</span></span></h2>
-        <p class="reveal" lang="en">Most lost marks come from skipping a step, not from hard questions.</p>
-        <p class="reveal" lang="th">คะแนนส่วนใหญ่หายเพราะข้ามขั้นตอน ไม่ใช่เพราะโจทย์ยาก</p>
-      </div>
-      <ol class="tips" data-render="exam-tips" role="list"></ol>
-      <div class="punchline reveal" data-render="notice" data-source="examTipsNote"></div>
-    </div>
-  </section>
-
-  <!-- ============================================================ DOMAINS -->
-  <section class="section section--alt" id="domains" aria-labelledby="domains-title">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow reveal"><span lang="en">Domain learning paths</span><span lang="th">เส้นทางเฉพาะสาขา</span></span>
-          <h2 id="domains-title" data-split><span lang="en">Research and innovation paths for your field</span><span lang="th">เส้นทางวิจัยและนวัตกรรมสำหรับสาขาของคุณ</span></h2>
-        </div>
-        <p class="reveal" lang="en">Suggested sequences for medicine, bioengineering, business, computing and more. We adapt every path to you.</p>
-        <p class="reveal" lang="th">ลำดับรายวิชาที่แนะนำสำหรับการแพทย์ วิศวกรรมชีวการแพทย์ ธุรกิจ คอมพิวเตอร์ และสาขาอื่น ๆ โดยเราปรับทุกเส้นทางให้เหมาะกับคุณ</p>
-      </div>
-      <div class="grid grid--4" data-render="domains"></div>
-    </div>
-  </section>
-
-  <!-- ============================================================ TRACKS -->
-  <section class="section" id="tracks" aria-labelledby="tracks-title">
-    <div class="container">
-      <div class="section-head">
-        <div>
-          <span class="eyebrow reveal"><span lang="en">Course groups</span><span lang="th">กลุ่มหลักสูตร</span></span>
-          <h2 id="tracks-title" data-split><span lang="en">Six groups that work together</span><span lang="th">หกกลุ่มหลักสูตรที่เสริมกัน</span></h2>
-        </div>
-        <p class="reveal" lang="en">Each group holds one or more tracks. Tap a track to filter the catalogue.</p>
-        <p class="reveal" lang="th">แต่ละกลุ่มมีสายการเรียนรู้ย่อย แตะชื่อสายเพื่อกรองรายวิชา</p>
-      </div>
-      <div class="grid grid--3" data-render="groups"></div>
     </div>
   </section>
 
@@ -223,17 +147,17 @@
 
 </main>
 
-<script src="../assets/data/content.js?v=4.7r1"></script>
-<script src="../assets/data/courses-details.js?v=4.7r1"></script>
-<script src="../assets/data/courses-more.js?v=4.7r1"></script>
-<script src="../assets/data/admissions.js?v=4.7r1"></script>
-<script src="../assets/data/catalogue.js?v=4.7r1"></script>
-<script src="../assets/data/insights.js?v=4.7r1"></script>
-<script src="../assets/js/config.js?v=4.7r1"></script>
-<script src="../assets/data/si.js?v=4.7r1"></script>
-<script src="../assets/js/partials.js?v=4.7r1"></script>
-<script src="../assets/js/consent.js?v=4.7r1"></script>
-<script src="../assets/js/app.js?v=4.7r1"></script>
-<script src="../assets/js/effects.js?v=4.7r1"></script>
+<script src="../assets/data/content.js?v=4.8r1"></script>
+<script src="../assets/data/courses-details.js?v=4.8r1"></script>
+<script src="../assets/data/courses-more.js?v=4.8r1"></script>
+<script src="../assets/data/admissions.js?v=4.8r1"></script>
+<script src="../assets/data/catalogue.js?v=4.8r1"></script>
+<script src="../assets/data/insights.js?v=4.8r1"></script>
+<script src="../assets/js/config.js?v=4.8r1"></script>
+<script src="../assets/data/si.js?v=4.8r1"></script>
+<script src="../assets/js/partials.js?v=4.8r1"></script>
+<script src="../assets/js/consent.js?v=4.8r1"></script>
+<script src="../assets/js/app.js?v=4.8r1"></script>
+<script src="../assets/js/effects.js?v=4.8r1"></script>
 </body>
 </html>

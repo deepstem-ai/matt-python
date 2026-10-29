@@ -45,6 +45,29 @@
     return c.anyLevel ? '<span class="lvl lvl--any">' + t(L("All levels · custom", "ทุกระดับ · ออกแบบเฉพาะ")) + "</span>"
       : '<span class="lvl lv-' + c.level + '">' + t(level(c.level).short) + "</span>";
   }
+  // approximate length as a range: the catalogue hours are a midpoint, real length depends on the learner
+  function duration(c) {
+    if (typeof c.hours !== "number") return { main: t(c.hours), sub: t(L("Depends on your goal", "ขึ้นอยู่กับเป้าหมายของคุณ")) };
+    var lo = Math.max(6, Math.round(c.hours * 0.75 / 2) * 2), hi = Math.max(lo + 4, Math.round(c.hours * 1.25 / 2) * 2);
+    var wLo = Math.max(2, Math.ceil(lo / 3)), wHi = Math.max(wLo + 2, Math.ceil(hi / 2));
+    return { main: t(L("About " + lo + "–" + hi + " hours", "ประมาณ " + lo + "–" + hi + " ชั่วโมง")),
+             sub: t(L("Usually " + wLo + "–" + wHi + " weeks with 1–2 lessons a week; depends on your level and pace", "โดยทั่วไป " + wLo + "–" + wHi + " สัปดาห์ เรียนสัปดาห์ละ 1–2 ครั้ง ขึ้นกับพื้นฐานและความเร็วของผู้เรียน")) };
+  }
+  DD.duration = duration;
+
+  // standard tests: what it measures, where it is used, how long the result lasts, which score for which target
+  function testBlock(code) {
+    var x = (DATA.testInfo || {})[code];
+    if (!x) return "";
+    return '<section class="cd-test"><h3>' + icon("trophy") + t(L("About the test: ", "ข้อมูลการสอบ: ")) + esc(x.name) + "</h3>" +
+      '<dl class="cd-test__dl"><dt>' + t(L("What it measures", "วัดอะไร")) + "</dt><dd>" + t(x.measures) + (x.format ? "<br><small>" + t(x.format) + "</small>" : "") + "</dd>" +
+      "<dt>" + t(L("How long the result lasts", "ผลสอบมีอายุ")) + "</dt><dd>" + t(x.validity) + "</dd></dl>" +
+      (x.where ? '<table class="cd-test__scores cd-test__where"><caption>' + t(L("Where you can use it: university · faculty / programme · admission round", "ใช้ยื่นที่ไหนได้บ้าง: มหาวิทยาลัย · คณะ / หลักสูตร · รอบ")) + "</caption><thead><tr><th>" + t(L("University", "มหาวิทยาลัย")) + "</th><th>" + t(L("Faculty / programme", "คณะ / หลักสูตร")) + "</th><th>" + t(L("Round", "รอบ")) + "</th></tr></thead><tbody>" +
+        x.where.map(function (r) { return "<tr><td>" + t(r[0]) + "</td><td>" + t(r[1]) + "</td><td>" + t(r[2]) + "</td></tr>"; }).join("") + "</tbody></table>" : "") +
+      '<table class="cd-test__scores"><caption>' + t(L("Which score for which target (examples)", "ต้องใช้คะแนนเท่าไรเพื่อเข้าที่ไหน (ตัวอย่าง)")) + "</caption><thead><tr><th>" + t(L("Target", "เป้าหมาย")) + "</th><th>" + t(L("Score / requirement", "คะแนน / เงื่อนไข")) + "</th></tr></thead><tbody>" +
+      x.targets.map(function (r) { return "<tr><td>" + t(r[0]) + "</td><td>" + t(r[1]) + "</td></tr>"; }).join("") + "</tbody></table>" +
+      '<p class="cd-test__note">' + t(DATA.testCheckedNote) + ' <a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + t(L("Official site ↗", "เว็บไซต์ทางการ ↗")) + "</a></p></section>";
+  }
   function modesIcons(code) {
     var m = (details[code] && details[code].modes) || ["online", "onsite", "hybrid"];
     return '<span class="modes">' + m.map(function (k) {
@@ -111,6 +134,7 @@
       var vt = document.startViewTransition(function () { applyTheme(pref); });
       var clear = function () { doc.classList.remove("theme-anim"); };
       vt.ready.catch(clear);
+      if (vt.updateCallbackDone) vt.updateCallbackDone.catch(function () {});   // an aborted transition is harmless
       vt.finished.then(clear, clear);
     } else applyTheme(pref);
   }
@@ -180,7 +204,7 @@
   // new-era highlights: a short, curated list (DATA.highlights)
   function highlightCard(h, i, plainCard) {
     var c = byCode[h.code]; if (!c) return "";
-    return '<article role="button" tabindex="0" class="pick' + (plainCard ? "" : " reveal reveal-delay-" + (i % 4)) + '" data-course="' + c.code + '" aria-haspopup="dialog"><span class="pick__tag">★ ' + t(h.tag) + "</span>" +
+    return '<article role="button" tabindex="0" class="pick' + (plainCard ? "" : " reveal reveal-delay-" + (i % 4)) + '" data-course="' + c.code + '" aria-haspopup="dialog"><span class="pick__tag">' + (h.mark || "★") + " " + t(h.tag) + "</span>" +
       '<span class="course__top"><span class="course__code">' + c.code + "</span>" + lvlChip(c) + "</span><h3>" + t(c.title) + "</h3><p>" + t(h.why) + '</p><span class="course__go" aria-hidden="true">' + ARROW + "</span></article>";
   }
   R.highlights = function (el) { el.innerHTML = (DATA.highlights || []).map(highlightCard).join(""); };
@@ -486,8 +510,7 @@
         '<div class="filter-line">' +
         '<label class="search"><img src="' + base + 'assets/images/icons/search.svg" alt=""><span class="visually-hidden">Search</span>' +
         '<input type="search" data-f-q data-i18n-attrs="placeholder" data-en-placeholder="Search, e.g. Python, Jetson, exam" data-th-placeholder="ค้นหา เช่น Python, Jetson, สอบ" value="' + esc(state.q) + '"></label>' +
-        '<select data-f-level aria-label="Level"><option value="all" data-en="All levels" data-th="ทุกระดับ"></option>' + (DATA.levels || []).map(function (l) { return '<option value="' + l.id + '" data-en="' + esc(l.short.en) + '" data-th="' + esc(l.short.th) + '"></option>'; }).join("") + "</select>" +
-        '<select data-f-mode aria-label="Mode"><option value="all" data-en="Any format" data-th="ทุกรูปแบบ"></option>' + ["online", "onsite", "hybrid"].map(function (k) { return '<option value="' + k + '" data-en="' + esc(DATA.modes[k].name.en) + '" data-th="' + esc(DATA.modes[k].name.th) + '"></option>'; }).join("") + "</select></div>";
+        '<select data-f-level aria-label="Level"><option value="all" data-en="All levels" data-th="ทุกระดับ"></option>' + (DATA.levels || []).map(function (l) { return '<option value="' + l.id + '" data-en="' + esc(l.short.en) + '" data-th="' + esc(l.short.th) + '"></option>'; }).join("") + "</select></div>";
       $$("option[data-en]", filters).forEach(function (o) { o.textContent = o.getAttribute("data-" + lang()); });
     }
     function filtered() { return state.group !== "all" || state.track !== "all" || state.level !== "all" || state.mode !== "all" || state.q.trim(); }
@@ -529,12 +552,17 @@
         // overview: every group with its first courses and a way into the whole group
         el.innerHTML = (DATA.highlights ? '<section class="course-group course-group--picks" aria-label="' + esc(tx(L("New-era picks", "คอร์สเด่นยุคใหม่"))) + '"><header class="course-group__head"><span class="course-group__icon">★</span><div><h3>' + t(L("New-era picks", "คอร์สเด่นยุคใหม่")) + "</h3><p>" +
           t(L("Start here: the few courses that matter most for AI, STEM, research and competitions now.", "เริ่มที่นี่ คอร์สไม่กี่ตัวที่สำคัญที่สุดสำหรับ AI, STEM งานวิจัย และการแข่งขันในยุคนี้")) + '</p></div></header><div class="picks">' + DATA.highlights.map(function (h, i) { return highlightCard(h, i, true); }).join("") + "</div></section>" : "") +
-          DATA.groups.map(function (g) {
-          var gl = list.filter(function (c) { return c.group === g.id; });
-          return '<section class="course-group" aria-label="' + esc(tx(g.name)) + '"><header class="course-group__head">' + '<span class="course-group__icon">' + icon(g.icon) + "</span><div><h3>" + t(g.name) + "</h3><p>" + t(g.text) + "</p></div>" +
-            '<button type="button" class="btn btn--sm" data-open-group="' + g.id + '">' + t(L("All " + gl.length + " courses", "ดูทั้ง " + gl.length + " รายวิชา")) + ARROW + "</button></header>" +
-            '<div class="course-group__list">' + gl.slice(0, 3).map(card).join("") + "</div></section>";
-        }).join("") + '<button type="button" class="btn courses__more" data-show-all>' + t(L("Show all " + list.length + " courses", "ดูทั้งหมด " + list.length + " รายวิชา")) + "</button>";
+          (DATA.essentials ? '<section class="course-group course-group--ess" aria-label="' + esc(tx(L("Essential foundations", "พื้นฐานที่จำเป็น"))) + '"><header class="course-group__head"><span class="course-group__icon">' + icon("book") + "</span><div><h3>" + t(L("Essential foundations", "พื้นฐานที่จำเป็น")) + "</h3><p>" +
+            t(L("The modern basics every later course builds on. Start here if you are new.", "พื้นฐานยุคใหม่ที่ทุกคอร์สต่อยอดจากตรงนี้ ถ้าเพิ่งเริ่มต้น เริ่มที่นี่")) + '</p></div></header><div class="picks picks--ess">' +
+            DATA.essentials.map(function (h, i) { return highlightCard({ code: h.code, mark: "◆", tag: L("Essential", "พื้นฐานสำคัญ"), why: h.why }, i, true); }).join("") + "</div></section>" : "") +
+          '<section class="course-group course-dir" aria-label="' + esc(tx(L("All courses by group", "คอร์สทั้งหมดตามกลุ่ม"))) + '"><header class="course-group__head"><span class="course-group__icon">' + icon("book") + "</span><div><h3>" + t(L("All courses by group", "คอร์สทั้งหมดตามกลุ่ม")) + "</h3><p>" +
+            t(L("A quick list. Tap a course for its summary, or a group to see its courses as cards.", "รายการแบบย่อ แตะชื่อคอร์สเพื่อดูสรุป หรือแตะชื่อกลุ่มเพื่อดูแบบการ์ด")) + '</p></div></header><div class="dir">' +
+            DATA.groups.map(function (g) {
+              var gl = list.filter(function (c) { return c.group === g.id; });
+              return '<div class="dir__group"><button type="button" class="dir__head" data-open-group="' + g.id + '">' + icon(g.icon) + "<span>" + t(g.name) + '</span><b>' + gl.length + "</b></button><ul>" +
+                gl.map(function (c) { return '<li><a href="#course-' + c.code + '" data-course="' + c.code + '" class="lv-' + c.level + '"><span class="dir__code">' + c.code + "</span><span>" + t(c.title) + "</span>" + (c.highlight ? '<span class="dir__star" title="' + esc(tx(c.highlight)) + '">★</span>' : "") + "</a></li>"; }).join("") + "</ul></div>";
+            }).join("") + "</div></section>" +
+          '<button type="button" class="btn courses__more" data-show-all>' + t(L("Show all " + list.length + " courses as cards", "ดูทั้ง " + list.length + " คอร์สแบบการ์ด")) + "</button>";
         $$("[data-open-group]", el).forEach(function (b) { b.addEventListener("click", function () { state.group = b.getAttribute("data-open-group"); state.track = "all"; trackRow(); sync(); var f = $("[data-course-filters]"); if (f) f.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); }); });
       } else {
       var shown = filtered() || state.all ? list : list.slice(0, PAGE);
@@ -622,21 +650,30 @@
     dlg.className = "dialog dialog--course lv-" + c.level;
     var modeNames = (d.modes || []).map(function (m) { return t(DATA.modes[m].name); }).join(" · ");
     var notes = (c.track === "aieng" ? DATA.aiToolsNotice : null) || (c.track === "exam" && DATA.tcas ? DATA.tcas.note : null) || (c.track === "admit" ? DATA.admNotice : null);
+    var dur = duration(c), lv = c.anyLevel ? L("All levels", "ทุกระดับ") : level(c.level).short, g = DATA.groupOf ? DATA.groupOf(c.track) : null;
+    var cfg = (window.DD_CONFIG && window.DD_CONFIG.contact) || {};
+    function fact(ic, label, value, sub) { return '<li><span class="cd-fact__ico">' + icon(ic) + '</span><div><span class="cd-fact__label">' + t(label) + "</span><strong>" + value + "</strong>" + (sub ? "<small>" + sub + "</small>" : "") + "</div></li>"; }
     dlg.innerHTML =
-      '<div class="dialog__head"><span class="course__top" style="justify-content:flex-start;gap:10px"><span class="course__code">' + c.code + "</span>" + lvlChip(c) + "</span>" +
-      '<h2 id="course-dlg-title">' + t(c.title) + "</h2><p>" + t(c.text) + "</p>" +
-      '<button type="button" class="icon-btn dialog__close" data-dlg-close aria-label="Close">' + CLOSE + "</button>" +
-      '<ul class="qfacts" role="list"><li>' + icon("academy") + t(L("Length: tailored to you", "ระยะเวลา: ปรับตามผู้เรียน")) + "</li><li>" + icon("video") + modeNames + "</li><li>" + icon("book") + t(L("Start: ", "พื้นฐาน: ")) + t(d.prereq || L("ask us", "สอบถามเรา")) + "</li></ul></div>" +
+      '<div class="dialog__head"><span class="course__top" style="justify-content:flex-start;gap:10px"><span class="course__code">' + c.code + "</span>" + lvlChip(c) + (g ? '<span class="cd-group">' + t(g.name) + "</span>" : "") + "</span>" +
+      '<h2 id="course-dlg-title">' + t(c.title) + '</h2><p class="cd-summary">' + t(c.text) + "</p>" +
+      '<button type="button" class="icon-btn dialog__close" data-dlg-close aria-label="Close">' + CLOSE + "</button></div>" +
       '<div class="dialog__body">' +
-      '<div class="cd-grid"><section><h3>' + t(L("You'll learn", "สิ่งที่จะได้เรียน")) + '</h3><ul class="pills" role="list">' + (d.modules || []).map(function (m) { return "<li>" + t(m) + "</li>"; }).join("") + "</ul></section>" +
-      "<section><h3>" + t(L("You'll be able to", "เรียนจบแล้วทำได้")) + '</h3><ul class="ticks">' + (d.outcomes || []).map(function (o) { return "<li>" + t(o) + "</li>"; }).join("") + "</ul>" +
-      '<h3>' + t(L("You'll build", "ผลงานที่จะได้สร้าง")) + '</h3><p class="cd-project">' + t(d.project) + "</p></section></div>" +
-      '<p class="cd-tools">' + t(L("Tools", "เครื่องมือ")) + ": " + c.tools.map(esc).join(" · ") + "</p>" +
-      '<p class="cd-adapt">✨ ' + t(L("This outline is a starting guide — we shape pace, hours and project around you.", "เนื้อหานี้เป็นแนวทางเริ่มต้น เราปรับความเร็ว ชั่วโมง และโปรเจกต์ให้เหมาะกับคุณ")) + "</p>" +
+      '<ul class="cd-facts" role="list">' +
+        fact("academy", L("Approximate length", "ระยะเวลาโดยประมาณ"), dur.main, dur.sub) +
+        fact("book", L("Level & starting point", "ระดับและพื้นฐานที่ควรมี"), t(lv), t(d.prereq || L("Ask us", "สอบถามเรา"))) +
+        fact("video", L("How you can study", "รูปแบบการเรียน"), (d.modes || []).map(function (m) { return t({ online: L("Online", "ออนไลน์"), onsite: L("Onsite", "ที่แล็บ"), hybrid: L("Hybrid", "ไฮบริด") }[m]); }).join(" · "), t(L("Live on Zoom or at our Bangkok lab · one-to-one or small groups", "เรียนสดผ่าน Zoom หรือที่แล็บกรุงเทพฯ · ตัวต่อตัวหรือกลุ่มเล็ก"))) +
+      "</ul>" + testBlock(code) +
+      '<div class="cd-grid"><section><h3>' + t(L("What you'll learn (overview)", "เรียนอะไรบ้าง (โดยสรุป)")) + '</h3><ul class="cd-learn">' + (d.modules || []).slice(0, 6).map(function (m) { return "<li>" + t(m) + "</li>"; }).join("") + "</ul></section>" +
+      "<section><h3>" + t(L("By the end you can", "เมื่อเรียนจบจะทำได้")) + '</h3><ul class="ticks">' + (d.outcomes || []).map(function (o) { return "<li>" + t(o) + "</li>"; }).join("") + "</ul>" +
+      '<h3>' + t(L("Final project", "ผลงานท้ายคอร์ส")) + '</h3><p class="cd-project">' + t(d.project) + "</p></section></div>" +
       (notes ? '<details class="cd-notes"><summary>' + t(L("Good to know", "ข้อควรทราบ")) + "</summary><p>" + t(notes) + "</p></details>" : "") +
-      "</div>" +
-      '<div class="dialog__foot"><a class="btn btn--sm" href="' + contactUrl({ topic: "custom", course: c.code }) + '">' + t(L("Customise it", "ขอปรับหลักสูตร")) + "</a>" +
-      '<a class="btn btn--sm btn--primary" href="' + contactUrl({ topic: "courses", course: c.code }) + '">' + t(L("Ask about this course", "สอบถามหลักสูตรนี้")) + ARROW + "</a></div>";
+      '<div class="cd-contact"><div><strong>' + t(L("Want the details? Contact our staff.", "ต้องการรายละเอียดเพิ่มเติม? ติดต่อเจ้าหน้าที่")) + "</strong><p>" +
+        t(L("Ask about the exact schedule, fees, a free level check, and how we can shape this course around you.", "สอบถามตารางเรียน ค่าเรียน การวัดระดับฟรี และการปรับหลักสูตรนี้ให้เหมาะกับคุณ")) + "</p>" +
+        '<p class="cd-contact__ways">' + '<a href="mailto:' + esc(cfg.email || EMAIL) + "?subject=" + encodeURIComponent(c.code + " – " + c.title.en) + '">' + esc(cfg.email || EMAIL) + "</a>" +
+        (cfg.phone ? ' · <a href="tel:' + esc(cfg.phone.replace(/[^+\d]/g, "")) + '">' + esc(cfg.phone) + "</a>" : "") +
+        (cfg.lineId ? ' · LINE <a href="https://line.me/R/ti/p/' + encodeURIComponent(cfg.lineId) + '" target="_blank" rel="noopener">' + esc(cfg.lineId) + "</a>" : "") + "</p></div>" +
+        '<a class="btn btn--primary" href="' + contactUrl({ topic: "courses", course: c.code }) + '">' + t(L("Contact staff", "ติดต่อเจ้าหน้าที่")) + ARROW + "</a></div>" +
+      "</div>";
     if (dlg.showModal) { if (!dlg.open) dlg.showModal(); } else dlg.setAttribute("open", "");
   }
   document.addEventListener("click", function (e) {
