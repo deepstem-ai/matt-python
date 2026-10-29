@@ -14,8 +14,8 @@
   <link rel="icon" href="../assets/images/brand/favicon-32.png" sizes="32x32" type="image/png">
   <link rel="icon" href="../assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
   <link rel="apple-touch-icon" href="../assets/images/brand/apple-touch-icon.png">
-  <script src="../assets/js/prefs.js?v=4.9r1"></script>
-  <link rel="stylesheet" href="../assets/css/main.css?v=4.9r1">
+  <script src="../assets/js/prefs.js?v=5.0r1"></script>
+  <link rel="stylesheet" href="../assets/css/main.css?v=5.0r1">
 </head>
 <body class="page-admissions" data-base="../" data-page="admissions" data-title-en="Admissions & Test Prep: IELTS, SAT, TBAT, CU-AAT | DeepDistrict.si" data-title-th="เตรียมสอบและยื่นเข้ามหาวิทยาลัย: IELTS, SAT, TBAT, CU-AAT | DeepDistrict.si">
 
@@ -27,13 +27,13 @@
       <div class="panel__content intro">
         <span class="adm-badge"><span lang="en">A DeepDistrict branch · Admissions</span><span lang="th">อีกหนึ่งสาขาของ DeepDistrict · Admissions</span></span>
         <h1 id="page-title" data-split><span lang="en">Scores that open doors. <span class="text-si">A portfolio that gets you in.</span></span><span lang="th">คะแนนที่เปิดประตู <span class="text-si">พอร์ตที่พาคุณเข้าไปได้จริง</span></span></h1>
-        <p lang="en">Preparation for the standard tests that international and Thai universities ask for, plus the projects, essays and interviews that make a portfolio strong.</p>
-        <p lang="th">เตรียมสอบมาตรฐานที่มหาวิทยาลัยนานาชาติและมหาวิทยาลัยไทยกำหนด พร้อมสร้างผลงาน เรียงความ และทักษะสัมภาษณ์ ที่ทำให้พอร์ตโฟลิโอแข็งแรง</p>
+        <p lang="en">Thai track, international programmes or universities abroad: we map the tests each programme asks for, teach the Maths, Physics and English underneath them, and build the portfolio on real STEM &amp; AI projects.</p>
+        <p lang="th">ภาคไทย หลักสูตรนานาชาติ หรือมหาวิทยาลัยต่างประเทศ เราสรุปให้ว่าแต่ละหลักสูตรใช้ข้อสอบอะไร สอนคณิต ฟิสิกส์ และอังกฤษที่เป็นฐานของข้อสอบเหล่านั้น และสร้างพอร์ตจากโครงงาน STEM และ AI จริง</p>
         <ul class="adm-strip" role="list" aria-label="Tests">
-          <li>IELTS</li><li>SAT Math</li><li>SAT EBRW</li><li class="is-new">TBAT</li><li>CU-AAT Math</li><li>CU-AAT Verbal</li><li>Portfolio</li>
+          <li>TGAT · TPAT</li><li>A-Level</li><li>TPAT1 กสพท</li><li>IELTS</li><li>SAT</li><li>CU-AAT</li><li class="is-new">TBAT</li><li class="is-new">UCAT</li><li>TMUA · ESAT</li><li>Portfolio</li>
         </ul>
         <div class="btn-row">
-          <a class="btn btn--primary" data-magnetic href="#goal"><span lang="en">Where are you applying?</span><span lang="th">คุณจะยื่นที่ไหน?</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn--primary" data-magnetic href="#finder"><span lang="en">Where are you applying?</span><span lang="th">คุณจะยื่นที่ไหน?</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           <a class="btn" href="#tests"><span lang="en">Explore the tests</span><span lang="th">ดูรายละเอียดข้อสอบ</span></a>
         </div>
       </div>
@@ -50,18 +50,46 @@
     </div>
   </section>
 
-  <!-- ============================================================ GOAL CHOOSER -->
-  <section class="section section--alt" id="goal" aria-labelledby="goal-title">
+  <!-- ============================================================ ONE PATH -->
+  <section class="section section--alt" id="path" aria-labelledby="path-title">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow reveal"><span lang="en">One path, two strengths</span><span lang="th">เส้นทางเดียว สองจุดแข็ง</span></span>
+        <h2 id="path-title" data-split><span lang="en">From strong foundations to <span class="text-si">the university you choose</span></span><span lang="th">จากพื้นฐานที่แน่น สู่<span class="text-si">มหาวิทยาลัยที่คุณเลือก</span></span></h2>
+        <p class="reveal" lang="en">Test prep and STEM &amp; AI are not separate worlds here: the same Maths, Physics and English carry your scores, and your projects carry your portfolio.</p>
+        <p class="reveal" lang="th">การเตรียมสอบกับ STEM และ AI ไม่ใช่สองโลกที่แยกกัน คณิต ฟิสิกส์ และอังกฤษชุดเดียวกันพาคะแนนสอบของคุณ และโครงงานของคุณคือพอร์ตของคุณ</p>
+      </div>
+      <ol class="journey" data-render="journey" role="list"></ol>
+    </div>
+  </section>
+
+  <!-- ============================================================ FINDER -->
+  <section class="section" id="finder" aria-labelledby="finder-title">
     <div class="container">
       <div class="section-head">
         <div>
-          <span class="eyebrow reveal"><span lang="en">Start with your goal</span><span lang="th">เริ่มจากเป้าหมาย</span></span>
-          <h2 id="goal-title" data-split><span lang="en">Where are you <span class="text-si">applying?</span></span><span lang="th">คุณจะยื่น<span class="text-si">ที่ไหน?</span></span></h2>
+          <span class="eyebrow reveal"><span lang="en">University &amp; test finder</span><span lang="th">ค้นหามหาวิทยาลัยและข้อสอบ</span></span>
+          <h2 id="finder-title" data-split><span lang="en">Which tests does <span class="text-si">your programme</span> need?</span><span lang="th"><span class="text-si">หลักสูตรของคุณ</span>ใช้ข้อสอบอะไร?</span></h2>
         </div>
-        <p class="reveal" lang="en">Choose a destination to see which tests and courses matter. Every programme sets its own rules, so we confirm the details for your exact list.</p>
-        <p class="reveal" lang="th">เลือกปลายทางเพื่อดูว่าต้องใช้ข้อสอบและหลักสูตรใด แต่ละหลักสูตรมีเกณฑ์ของตนเอง เราจึงช่วยยืนยันรายละเอียดตามรายชื่อหลักสูตรที่คุณเลือก</p>
+        <p class="reveal" lang="en">Medicine, dentistry and pharmacy, biomedical engineering, computer engineering and ISE, BBA and economics, integrated innovation — Thai track, international programmes and abroad. Researched October 2026; tap a course code to see how we prepare you.</p>
+        <p class="reveal" lang="th">แพทย์ ทันตะและเภสัช วิศวกรรมชีวการแพทย์ วิศวกรรมคอมพิวเตอร์และ ISE, BBA และเศรษฐศาสตร์ นวัตกรรมบูรณาการ ทั้งภาคไทย หลักสูตรนานาชาติ และต่างประเทศ ข้อมูล ณ ตุลาคม 2569 แตะรหัสคอร์สเพื่อดูว่าเราเตรียมคุณอย่างไร</p>
       </div>
-      <div data-render="adm-chooser"></div>
+      <div class="finder" data-render="adm-finder"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ TCAS -->
+  <section class="section section--alt" id="tcas" aria-labelledby="tcas-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal"><span lang="en">The Thai system in brief</span><span lang="th">ระบบไทยแบบสั้น ๆ</span></span>
+          <h2 id="tcas-title" data-split><span lang="en">TCAS: four rounds, <span class="text-si">three kinds of test</span></span><span lang="th">TCAS: สี่รอบ <span class="text-si">ข้อสอบสามแบบ</span></span></h2>
+        </div>
+        <p class="reveal" lang="en">Dates are for TCAS70 (entry in 2027) as announced by October 2026.</p>
+        <p class="reveal" lang="th">วันที่เป็นของ TCAS70 (เข้าเรียนปี 2570) ตามประกาศ ณ ตุลาคม 2569</p>
+      </div>
+      <div data-render="adm-system"></div>
     </div>
   </section>
 
@@ -93,6 +121,51 @@
         <div class="btn-row reveal"><a class="btn btn--primary" data-course="TBT300" href="programs.html#course-TBT300"><span lang="en">TBAT course outline</span><span lang="th">รายละเอียดหลักสูตร TBAT</span></a><a class="btn" href="contact.html?topic=admissions&amp;goal=Thai%20international%20medicine%20%26%20health&amp;plan=TBT300#form"><span lang="en">Check my programmes</span><span lang="th">ตรวจเกณฑ์หลักสูตรของฉัน</span></a></div>
       </div>
       <figure class="art reveal reveal-delay-1"><img src="../assets/images/sections/research-core.svg" alt="A glowing sphere of connected nodes circled by orbit rings" width="1200" height="900" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- ============================================================ COURSES -->
+  <section class="section" id="courses" aria-labelledby="courses-title">
+    <div class="container split">
+      <div>
+        <span class="eyebrow reveal"><span lang="en">Courses in this branch</span><span lang="th">หลักสูตรในสาขานี้</span></span>
+        <h2 id="courses-title" data-split><span lang="en">Every course in this branch, <span class="text-si">by goal</span></span><span lang="th">ทุกคอร์สในสาขานี้ <span class="text-si">แยกตามเป้าหมาย</span></span></h2>
+        <p class="reveal" lang="en">One-to-one or small groups, live online, onsite in Bangkok or hybrid. There are no fixed hours: pace and length follow your starting level and target score.</p>
+        <p class="reveal" lang="th">เรียนตัวต่อตัวหรือกลุ่มเล็ก ออนไลน์สด ที่แล็บกรุงเทพฯ หรือไฮบริด ไม่มีจำนวนชั่วโมงตายตัว ความเร็วและระยะเวลาเป็นไปตามระดับเริ่มต้นและคะแนนเป้าหมายของคุณ</p>
+        <div class="btn-row reveal"><a class="btn btn--primary" href="programs.html?track=admit#catalog"><span lang="en">See them in the catalogue</span><span lang="th">ดูในรายการหลักสูตร</span></a><a class="btn" href="contact.html?topic=admissions#form"><span lang="en">Book a free diagnostic</span><span lang="th">นัดวัดระดับฟรี</span></a></div>
+      </div>
+      <div class="adm-courses reveal" data-render="adm-courses"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ COMPUTER EXAMS & OLYMPIADS -->
+  <section class="section section--alt" id="exams" aria-labelledby="exams-title">
+    <div class="container">
+      <div class="split exam-intro">
+        <div>
+          <span class="eyebrow reveal"><span lang="en">Standard exams & olympiads</span><span lang="th">สอบมาตรฐานและโอลิมปิก</span></span>
+          <h2 id="exams-title" data-split><span lang="en">COMPAS & HKICO, <span class="text-si">prepared properly</span></span><span lang="th">COMPAS และ HKICO <span class="text-si">เตรียมอย่างเป็นระบบ</span></span></h2>
+          <p class="reveal" lang="en">Timed mock exams, a personal error log and a method that holds up under pressure. A COMPAS AWARD of EXCELLENCE can also support a TCAS70 portfolio.</p>
+          <p class="reveal" lang="th">ข้อสอบจำลองจับเวลา บันทึกจุดพลาดส่วนตัว และวิธีทำข้อสอบที่ใช้ได้แม้อยู่ภายใต้ความกดดัน รางวัล AWARD of EXCELLENCE จาก COMPAS ยังช่วยเสริมพอร์ตโฟลิโอ TCAS70 ได้ด้วย</p>
+          <div class="btn-row reveal"><a class="btn btn--primary" href="programs.html?track=exam#catalog"><span lang="en">See exam courses</span><span lang="th">ดูหลักสูตรเตรียมสอบ</span></a><a class="btn" href="#exam-method">Plan · Edge · Trace · Test</a></div>
+        </div>
+        <figure class="art reveal reveal-delay-1"><img src="../assets/images/sections/exam-code.svg" alt="A code editor beside four ticked checkpoints, Plan, Edge, Trace and Test, and a gold award badge" width="1200" height="900" loading="lazy"></figure>
+      </div>
+      <div data-render="exams"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ EXAM METHOD -->
+  <section class="section grid-bg" id="exam-method" aria-labelledby="exam-method-title">
+    <div class="container">
+      <div class="section-head section-head--center">
+        <span class="eyebrow reveal"><span lang="en">Where exam points are lost</span><span lang="th">คะแนนสอบเขียนโปรแกรมหายไปไหน</span></span>
+        <h2 id="exam-method-title" data-split><span lang="en">Four checkpoints: <span class="text-si">Plan · Edge · Trace · Test</span></span><span lang="th">สี่จุดตรวจ: <span class="text-si">Plan · Edge · Trace · Test</span></span></h2>
+        <p class="reveal" lang="en">Most lost marks come from skipping a step, not from hard questions.</p>
+        <p class="reveal" lang="th">คะแนนส่วนใหญ่หายเพราะข้ามขั้นตอน ไม่ใช่เพราะโจทย์ยาก</p>
+      </div>
+      <ol class="tips" data-render="exam-tips" role="list"></ol>
+      <div class="punchline reveal" data-render="notice" data-source="examTipsNote"></div>
     </div>
   </section>
 
@@ -140,52 +213,6 @@
     </div>
   </section>
 
-  <!-- ============================================================ COURSES -->
-  <section class="section" id="courses" aria-labelledby="courses-title">
-    <div class="container split">
-      <div>
-        <span class="eyebrow reveal"><span lang="en">Courses in this branch</span><span lang="th">หลักสูตรในสาขานี้</span></span>
-        <h2 id="courses-title" data-split><span lang="en">Seven courses, <span class="text-si">shaped around you</span></span><span lang="th">เจ็ดหลักสูตร <span class="text-si">ปรับตามตัวคุณ</span></span></h2>
-        <p class="reveal" lang="en">One-to-one or small groups, live online, onsite in Bangkok or hybrid. There are no fixed hours: pace and length follow your starting level and target score.</p>
-        <p class="reveal" lang="th">เรียนตัวต่อตัวหรือกลุ่มเล็ก ออนไลน์สด ที่แล็บกรุงเทพฯ หรือไฮบริด ไม่มีจำนวนชั่วโมงตายตัว ความเร็วและระยะเวลาเป็นไปตามระดับเริ่มต้นและคะแนนเป้าหมายของคุณ</p>
-        <div class="chips reveal" style="margin-top:18px"><a class="code-chip lv-2" data-course="IEL200" href="programs.html#course-IEL200">IEL200</a><a class="code-chip lv-2" data-course="SAT210" href="programs.html#course-SAT210">SAT210</a><a class="code-chip lv-2" data-course="SAT220" href="programs.html#course-SAT220">SAT220</a><a class="code-chip lv-3" data-course="TBT300" href="programs.html#course-TBT300">TBT300</a><a class="code-chip lv-2" data-course="AAT210" href="programs.html#course-AAT210">AAT210</a><a class="code-chip lv-2" data-course="AAT220" href="programs.html#course-AAT220">AAT220</a><a class="code-chip lv-2" data-course="PFL200" href="programs.html#course-PFL200">PFL200</a></div>
-        <div class="btn-row reveal"><a class="btn btn--primary" href="programs.html?track=admit#catalog"><span lang="en">See them in the catalogue</span><span lang="th">ดูในรายการหลักสูตร</span></a><a class="btn" href="contact.html?topic=admissions#form"><span lang="en">Book a free diagnostic</span><span lang="th">นัดวัดระดับฟรี</span></a></div>
-      </div>
-      <figure class="art reveal reveal-delay-1"><img src="../assets/images/sections/exam-code.svg" alt="A code editor beside four ticked checkpoints and a gold award badge" width="1200" height="900" loading="lazy"></figure>
-    </div>
-  </section>
-
-  <!-- ============================================================ COMPUTER EXAMS & OLYMPIADS -->
-  <section class="section section--alt" id="exams" aria-labelledby="exams-title">
-    <div class="container">
-      <div class="split exam-intro">
-        <div>
-          <span class="eyebrow reveal"><span lang="en">Standard exams & olympiads</span><span lang="th">สอบมาตรฐานและโอลิมปิก</span></span>
-          <h2 id="exams-title" data-split><span lang="en">COMPAS & HKICO, <span class="text-si">prepared properly</span></span><span lang="th">COMPAS และ HKICO <span class="text-si">เตรียมอย่างเป็นระบบ</span></span></h2>
-          <p class="reveal" lang="en">Timed mock exams, a personal error log and a method that holds up under pressure. A COMPAS AWARD of EXCELLENCE can also support a TCAS70 portfolio.</p>
-          <p class="reveal" lang="th">ข้อสอบจำลองจับเวลา บันทึกจุดพลาดส่วนตัว และวิธีทำข้อสอบที่ใช้ได้แม้อยู่ภายใต้ความกดดัน รางวัล AWARD of EXCELLENCE จาก COMPAS ยังช่วยเสริมพอร์ตโฟลิโอ TCAS70 ได้ด้วย</p>
-          <div class="btn-row reveal"><a class="btn btn--primary" href="programs.html?track=exam#catalog"><span lang="en">See exam courses</span><span lang="th">ดูหลักสูตรเตรียมสอบ</span></a><a class="btn" href="#exam-method">Plan · Edge · Trace · Test</a></div>
-        </div>
-        <figure class="art reveal reveal-delay-1"><img src="../assets/images/sections/exam-code.svg" alt="A code editor beside four ticked checkpoints, Plan, Edge, Trace and Test, and a gold award badge" width="1200" height="900" loading="lazy"></figure>
-      </div>
-      <div data-render="exams"></div>
-    </div>
-  </section>
-
-  <!-- ============================================================ EXAM METHOD -->
-  <section class="section grid-bg" id="exam-method" aria-labelledby="method-title">
-    <div class="container">
-      <div class="section-head section-head--center">
-        <span class="eyebrow reveal"><span lang="en">Where exam points are lost</span><span lang="th">คะแนนสอบเขียนโปรแกรมหายไปไหน</span></span>
-        <h2 id="method-title" data-split><span lang="en">Four checkpoints: <span class="text-si">Plan · Edge · Trace · Test</span></span><span lang="th">สี่จุดตรวจ: <span class="text-si">Plan · Edge · Trace · Test</span></span></h2>
-        <p class="reveal" lang="en">Most lost marks come from skipping a step, not from hard questions.</p>
-        <p class="reveal" lang="th">คะแนนส่วนใหญ่หายเพราะข้ามขั้นตอน ไม่ใช่เพราะโจทย์ยาก</p>
-      </div>
-      <ol class="tips" data-render="exam-tips" role="list"></ol>
-      <div class="punchline reveal" data-render="notice" data-source="examTipsNote"></div>
-    </div>
-  </section>
-
   <!-- ============================================================ FAQ -->
   <section class="section section--alt" aria-labelledby="faq-title">
     <div class="container split split--top">
@@ -208,17 +235,18 @@
 
 </main>
 
-<script src="../assets/data/content.js?v=4.9r1"></script>
-<script src="../assets/data/courses-details.js?v=4.9r1"></script>
-<script src="../assets/data/courses-more.js?v=4.9r1"></script>
-<script src="../assets/data/admissions.js?v=4.9r1"></script>
-<script src="../assets/data/catalogue.js?v=4.9r1"></script>
-<script src="../assets/data/insights.js?v=4.9r1"></script>
-<script src="../assets/js/config.js?v=4.9r1"></script>
-<script src="../assets/js/partials.js?v=4.9r1"></script>
-<script src="../assets/js/consent.js?v=4.9r1"></script>
-<script src="../assets/js/popup.js?v=4.9r1"></script>
-<script src="../assets/js/app.js?v=4.9r1"></script>
-<script src="../assets/js/effects.js?v=4.9r1"></script>
+<script src="../assets/data/content.js?v=5.0r1"></script>
+<script src="../assets/data/courses-details.js?v=5.0r1"></script>
+<script src="../assets/data/courses-more.js?v=5.0r1"></script>
+<script src="../assets/data/admissions.js?v=5.0r1"></script>
+<script src="../assets/data/catalogue.js?v=5.0r1"></script>
+<script src="../assets/data/pathways.js?v=5.0r1"></script>
+<script src="../assets/data/insights.js?v=5.0r1"></script>
+<script src="../assets/js/config.js?v=5.0r1"></script>
+<script src="../assets/js/partials.js?v=5.0r1"></script>
+<script src="../assets/js/consent.js?v=5.0r1"></script>
+<script src="../assets/js/popup.js?v=5.0r1"></script>
+<script src="../assets/js/app.js?v=5.0r1"></script>
+<script src="../assets/js/effects.js?v=5.0r1"></script>
 </body>
 </html>

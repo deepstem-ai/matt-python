@@ -9,7 +9,7 @@ industry. Every course is **personalised** and offered **live on Zoom, onsite or
 
 Plain HTML, CSS and JavaScript. No build step and no dependencies. Works from disk.
 
-**Version 4.9 r1** (see `VERSION` and `CHANGELOG.md`).
+**Version 5.0 r1** (see `VERSION` and `CHANGELOG.md`).
 
 ## Run it on your computer
 
@@ -100,6 +100,7 @@ deepdistrict-web/
 │   │   ├── courses-more.js    v4 tracks/courses (AI Co-Engineering, exams, NVIDIA, Jetson, Pi 5, UNO Q…) + notices
 │   │   ├── admissions.js      Admissions branch: IELTS, SAT, TBAT, CU-AAT, portfolio (tests, chooser, FAQ)
 │   │   ├── catalogue.js       course groups, new-era picks, v4.6 courses (check with tools/check_catalogue.js)
+│   │   ├── pathways.js        core academics (Maths·Physics·English), Thai/UK test courses, university & test finder, TCAS brief
 │   │   ├── insights.js        SI in plain words, why start, research by field, future skills, exam method, COMPAS/TCAS
 │   │   └── si.js              SI explainer data, personalisation steps, plan-builder rules
 │   ├── fonts/                 woff2 files + licences (OFL)

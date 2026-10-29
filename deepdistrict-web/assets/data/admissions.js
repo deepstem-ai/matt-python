@@ -290,6 +290,11 @@
 
   /* ------------------------------------------------------------ FAQ */
   D.admFaq = [
+    { q: L("Thai track or international programme — which should we aim for?", "ภาคไทยหรือหลักสูตรนานาชาติ ควรเลือกแบบไหน?"),
+      a: L("They use different tests: the Thai track goes through TCAS with TGAT, TPAT and A-Level (and กสพท for medicine), while international programmes use SAT or CU-AAT, IELTS/TOEFL and subject tests such as TBAT or UCAT. Many students keep both doors open: the same strong Maths, Physics and English serve both. Use the finder above, then ask us for a plan.",
+           "ใช้ข้อสอบต่างกัน ภาคไทยผ่าน TCAS ด้วย TGAT, TPAT และ A-Level (และ กสพท สำหรับแพทย์) ส่วนหลักสูตรนานาชาติใช้ SAT หรือ CU-AAT, IELTS/TOEFL และข้อสอบเฉพาะ เช่น TBAT หรือ UCAT นักเรียนจำนวนมากเปิดทางไว้ทั้งสองทาง เพราะคณิต ฟิสิกส์ และอังกฤษที่แข็งแรงชุดเดียวใช้ได้กับทั้งสองแบบ ลองใช้ตัวค้นหาด้านบน แล้วขอแผนจากเรา") },
+    { q: L("When should we start?", "ควรเริ่มเมื่อไร?"),
+      a: L("Core Maths, Physics and English from M.1–M.3 make everything later easier. Test-specific preparation usually starts in M.4–M.5, and Portfolio-round tests (TBAT, CU-AAT, UCAT, SAT, IELTS) are mostly taken before or early in M.6.", "คณิต ฟิสิกส์ และอังกฤษช่วง ม.1–ม.3 ทำให้ทุกอย่างหลังจากนั้นง่ายขึ้น การเตรียมสอบเฉพาะทางมักเริ่ม ม.4–ม.5 และข้อสอบสำหรับรอบ Portfolio (TBAT, CU-AAT, UCAT, SAT, IELTS) ส่วนใหญ่สอบก่อนหรือช่วงต้น ม.6") },
     { q: L("Is the BMAT still available?", "ยังสอบ BMAT ได้อยู่หรือไม่?"),
       a: L("No. Cambridge discontinued the BMAT. UK medical schools moved to the UCAT, and Thai international medicine programmes now use the TBAT (with CU-AAT or SAT) or, at some universities, the UCAT or their own test such as AKAT. Our TBT300 course prepares you for the TBAT.",
            "ไม่ได้แล้ว Cambridge ยกเลิกการสอบ BMAT โรงเรียนแพทย์ในสหราชอาณาจักรเปลี่ยนไปใช้ UCAT ส่วนหลักสูตรนานาชาติแพทย์ในไทยใช้ TBAT (ร่วมกับ CU-AAT หรือ SAT) และบางมหาวิทยาลัยใช้ UCAT หรือข้อสอบของตนเอง เช่น AKAT หลักสูตร TBT300 ของเราเตรียมสอบ TBAT โดยตรง") },

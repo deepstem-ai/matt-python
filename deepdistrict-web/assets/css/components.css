@@ -1042,3 +1042,69 @@ html[lang="th"] .punchline p { font-family: var(--f-display-th); }
 .promo p { margin: 0; color: var(--text-dim); white-space: pre-line; }
 .promo__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
 .promo__actions .btn { flex: 1 1 auto; justify-content: center; }
+
+/* ==========================================================================
+   v5.0 — one path, university & test finder, TCAS brief, branch course list
+   ========================================================================== */
+.journey { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 0; padding: 0; list-style: none; counter-reset: j; }
+.journey__step { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 22px 20px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-sm); }
+.journey__step:not(:last-child)::after { content: ""; position: absolute; top: 46px; right: -12px; width: 8px; height: 8px; border-top: 2px solid var(--accent); border-right: 2px solid var(--accent); transform: rotate(45deg); }
+.journey__n { position: absolute; top: 14px; right: 16px; font-family: var(--f-mono); font-size: 0.8rem; color: var(--text-faint); }
+.journey__ico { display: grid; place-items: center; width: 46px; height: 46px; border-radius: 14px; background: var(--grad-si-deep); }
+.journey__ico img { width: 24px; height: 24px; filter: brightness(0) invert(1); }
+.journey__step h3 { margin: 4px 0 0; font-size: 1.1rem; }
+.journey__step p { margin: 0; font-size: var(--fs-sm); color: var(--text-dim); }
+.journey__step .link-arrow { margin-top: auto; padding-top: 6px; }
+@media (max-width: 1000px) { .journey { grid-template-columns: 1fr 1fr; } .journey__step::after { display: none; } }
+@media (max-width: 560px) { .journey { grid-template-columns: 1fr; } }
+
+.finder__fields { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.finder__field { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border: 1px solid var(--line); border-radius: var(--r-pill); background: var(--surface); color: var(--text-dim); font: inherit; font-size: var(--fs-sm); font-weight: 600; cursor: pointer; }
+.finder__field img { width: 18px; height: 18px; filter: var(--icon-filter); }
+.finder__field[aria-selected="true"] { border-color: transparent; background: var(--grad-si-deep); color: #fff; }
+.finder__field[aria-selected="true"] img { filter: brightness(0) invert(1); }
+.finder__types { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+.finder__types button { padding: 6px 12px; border: 1px solid var(--line); border-radius: var(--r-pill); background: transparent; color: var(--text-dim); font: inherit; font-size: var(--fs-xs); cursor: pointer; }
+.finder__types button[aria-pressed="true"] { border-color: var(--text); background: var(--text); color: var(--bg); }
+.finder__types button[hidden] { display: none; }
+.finder__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 860px) { .finder__list { grid-template-columns: minmax(0, 1fr); } }
+.finder__card { display: flex; flex-direction: column; gap: 10px; padding: 20px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--surface); box-shadow: var(--shadow-sm); }
+.finder__card header { display: grid; gap: 4px; }
+.finder__card h3 { margin: 4px 0 0; font-size: 1.08rem; }
+.finder__card p { margin: 0; font-size: var(--fs-sm); color: var(--text-dim); }
+.finder__prog { color: var(--text) !important; font-weight: 600; }
+.finder__route { display: flex; align-items: center; gap: 6px; font-size: var(--fs-xs) !important; }
+.finder__route img { width: 14px; height: 14px; filter: var(--icon-filter); }
+.finder__type { justify-self: start; padding: 2px 10px; border-radius: var(--r-pill); font-size: 0.7rem; font-weight: 700; letter-spacing: .03em; }
+.finder__type--thai { background: color-mix(in srgb, #3ddbd9 22%, transparent); }
+.finder__type--intl { background: color-mix(in srgb, #3b82f6 20%, transparent); }
+.finder__type--abroad { background: color-mix(in srgb, #ffc24b 26%, transparent); }
+.finder__tests { display: flex; flex-wrap: wrap; gap: 6px; }
+.finder__tests span { padding: 3px 10px; border-radius: 8px; background: var(--surface-2); border: 1px solid var(--line); font-family: var(--f-mono); font-size: 0.75rem; font-weight: 600; color: var(--text); }
+.finder__card footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); }
+.finder__src { font-size: var(--fs-xs); font-weight: 600; }
+
+.tcas-rounds { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0 0 18px; padding: 0; list-style: none; }
+.tcas-rounds li { display: flex; gap: 12px; padding: 16px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
+.tcas-rounds__n { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--grad-si-deep); color: #fff; font-weight: 700; }
+.tcas-rounds h3 { margin: 0 0 4px; font-size: 0.98rem; }
+.tcas-rounds p { margin: 0; font-size: var(--fs-xs); color: var(--text-dim); }
+.tcas-tests { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.tcas-test { display: flex; flex-direction: column; gap: 8px; padding: 18px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface); }
+.tcas-test h3 { margin: 0; font-family: var(--f-mono); font-size: 1.05rem; }
+.tcas-test p { margin: 0; font-size: var(--fs-sm); color: var(--text-dim); }
+.tcas-test__when { display: flex; align-items: center; gap: 6px; font-weight: 600; color: var(--text) !important; }
+.tcas-test__when img { width: 16px; height: 16px; filter: var(--icon-filter); }
+@media (max-width: 1000px) { .tcas-rounds { grid-template-columns: 1fr 1fr; } .tcas-tests { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .tcas-rounds { grid-template-columns: 1fr; } }
+
+.adm-courses { display: grid; gap: 14px; }
+.adm-cgroup h3 { margin: 0 0 6px; font-size: 0.95rem; }
+.adm-clist { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
+.adm-clist a { display: flex; align-items: baseline; gap: 10px; padding: 6px 8px; border-left: 3px solid var(--lv); border-radius: 8px; color: var(--text); font-size: var(--fs-sm); text-decoration: none; }
+.adm-clist a:hover { background: var(--surface-2); color: var(--accent); }
+@media (max-width: 640px) {
+  .finder__fields, .finder__types { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; -webkit-mask-image: linear-gradient(90deg, #000 90%, transparent); mask-image: linear-gradient(90deg, #000 90%, transparent); }
+  .finder__field, .finder__types button { flex: none; white-space: nowrap; }
+}

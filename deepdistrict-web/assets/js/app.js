@@ -485,6 +485,69 @@
     if (list.length) show(list[0].id);
   };
 
+  // one path: core academics → STEM & AI → tests → university
+  R.journey = function (el) {
+    el.innerHTML = (DATA.journey || []).map(function (j, i) {
+      return '<li class="journey__step reveal reveal-delay-' + (i % 4) + '"><span class="journey__n">' + (i + 1) + '</span><span class="journey__ico">' + icon(j.icon) + "</span><h3>" + t(j.name) + "</h3><p>" + t(j.text) + '</p><a class="link-arrow" href="' + base + j.href + '">' + t(j.cta) + ARROW + "</a></li>";
+    }).join("");
+  };
+
+  // the Thai entrance system in brief (TCAS rounds + TGAT/TPAT/A-Level)
+  R["adm-system"] = function (el) {
+    var x = DATA.tcasSystem; if (!x) return;
+    el.innerHTML = '<ol class="tcas-rounds" role="list">' + x.rounds.map(function (r) {
+      return '<li><span class="tcas-rounds__n">' + esc(r.n) + "</span><div><h3>" + t(L("Round ", "รอบ ")) + esc(r.n) + " · " + t(r.name) + "</h3><p>" + t(r.text) + "</p></div></li>";
+    }).join("") + '</ol><div class="tcas-tests">' + x.tests.map(function (k) {
+      return '<article class="tcas-test"><h3>' + esc(k.name) + "</h3><p>" + t(k.text) + '</p><p class="tcas-test__when">' + icon("academy") + t(k.when) + '</p><div class="chips">' + codeChip(k.code) + "</div></article>";
+    }).join("") + "</div>";
+  };
+
+  // university & test finder: field × track (Thai / international / abroad)
+  R["adm-finder"] = function (el) {
+    var fields = DATA.pathFields || [], list = DATA.pathways || [];
+    var types = [["all", L("All", "ทั้งหมด")], ["thai", L("Thai track (TCAS)", "ภาคไทย (TCAS)")], ["intl", L("International programmes in Thailand", "หลักสูตรนานาชาติในไทย")], ["abroad", L("Abroad", "ต่างประเทศ")]];
+    var st = { field: fields.length ? fields[0].id : "", type: "all" };
+    el.innerHTML = '<div class="finder__fields" role="tablist" aria-label="' + esc(tx(L("Field", "สาขา"))) + '">' + fields.map(function (f) {
+      return '<button type="button" role="tab" class="finder__field" data-ff="' + f.id + '">' + icon(f.icon) + "<span>" + t(f.name) + "</span></button>";
+    }).join("") + '</div><div class="finder__types" role="group" aria-label="Track">' + types.map(function (k) {
+      return '<button type="button" data-ft="' + k[0] + '">' + t(k[1]) + "</button>";
+    }).join("") + '</div><div class="finder__list" aria-live="polite"></div>';
+    var out = $(".finder__list", el);
+    function badge(type) { return '<span class="finder__type finder__type--' + type + '">' + t(type === "thai" ? L("Thai track", "ภาคไทย") : type === "intl" ? L("International", "นานาชาติ") : L("Abroad", "ต่างประเทศ")) + "</span>"; }
+    function draw() {
+      $$("[data-ff]", el).forEach(function (b) { b.setAttribute("aria-selected", String(b.getAttribute("data-ff") === st.field)); });
+      $$("[data-ft]", el).forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-ft") === st.type)); b.hidden = st.field === "abroad" && b.getAttribute("data-ft") !== "all"; });
+      var rows = list.filter(function (p) { return p.field === st.field && (st.type === "all" || p.type === st.type); });
+      out.innerHTML = rows.length ? rows.map(function (p) {
+        return '<article class="finder__card"><header>' + badge(p.type) + "<h3>" + t(p.uni) + '</h3><p class="finder__prog">' + t(p.prog) + '</p><p class="finder__route">' + icon("pin") + t(p.route) + '</p></header><div class="finder__tests">' +
+          p.tests.map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("") + "</div><p>" + t(p.req) + '</p><footer><div class="chips">' + p.courses.map(codeChip).join("") + '</div><a class="finder__src" href="' + esc(p.url) + '" target="_blank" rel="noopener">' + t(L("Official / source ↗", "เว็บไซต์ / แหล่งข้อมูล ↗")) + "</a></footer></article>";
+      }).join("") : '<p class="empty">' + t(L("No programme in this view yet — ask us, we track many more.", "ยังไม่มีหลักสูตรในมุมมองนี้ สอบถามเราได้ เราติดตามหลักสูตรอื่นอีกมาก")) + "</p>";
+    }
+    el.addEventListener("click", function (e) {
+      var f = e.target.closest("[data-ff]"), k = e.target.closest("[data-ft]");
+      if (f) { st.field = f.getAttribute("data-ff"); if (st.field === "abroad") st.type = "all"; draw(); }
+      if (k) { st.type = k.getAttribute("data-ft"); draw(); }
+    });
+    draw();
+  };
+
+  // all courses of the branch, grouped by what they prepare for
+  R["adm-courses"] = function (el) {
+    var groups = [
+      [L("Core academics (M.1–M.6)", "วิชาแกน (ม.1–ม.6)"), ["MTH130", "PHY130", "ENG130", "MTH230", "PHY230", "ENG230"]],
+      [L("Thai entrance exams (TCAS)", "สอบเข้ามหาวิทยาลัยไทย (TCAS)"), ["TGT220", "ALV240", "TPT310"]],
+      [L("International programmes in Thailand", "หลักสูตรนานาชาติในไทย"), ["IEL200", "SAT210", "SAT220", "AAT210", "AAT220", "TBT300"]],
+      [L("Medicine & universities abroad", "แพทย์และมหาวิทยาลัยต่างประเทศ"), ["UCT300", "UKT320"]],
+      [L("Computing exams & olympiads", "สอบและโอลิมปิกคอมพิวเตอร์"), ["EXM110", "EXM210", "EXM220", "EXM230"]],
+      [L("Portfolio & interview", "พอร์ตและการสัมภาษณ์"), ["PFL200"]]
+    ];
+    el.innerHTML = groups.map(function (g) {
+      return '<div class="adm-cgroup"><h3>' + t(g[0]) + '</h3><ul class="adm-clist">' + g[1].filter(function (c) { return byCode[c]; }).map(function (c) {
+        return '<li><a href="' + base + "pages/programs.html#course-" + c + '" data-course="' + c + '" class="lv-' + byCode[c].level + '"><span class="dir__code">' + c + "</span><span>" + t(byCode[c].title) + "</span></a></li>";
+      }).join("") + "</ul></div>";
+    }).join("");
+  };
+
   R["adm-steps"] = function (el) { el.innerHTML = stepsHtml(DATA.admSteps || []); };
 
   R["adm-timeline"] = function (el) {

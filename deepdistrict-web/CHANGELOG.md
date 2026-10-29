@@ -1,5 +1,34 @@
 # Changelog
 
+## 5.0 r1 — October 2026
+- **One path, two strengths.** STEM & AI and test prep are shown as one plan:
+  core academics → STEM & AI → tests & competitions → university. This appears on the home
+  page and the Admissions page (`D.journey`).
+- **New group: Core Academics — Maths · Physics · English** (intensive, level by level):
+  - MTH130, PHY130, ENG130 for M.1–M.3
+  - MTH230, PHY230, ENG230 for M.4–M.6, aimed at A-Level Maths 1 and Physics, SAT/CU-AAT,
+    TPAT3, TBAT, TGAT1 and the IELTS/SAT bridge
+- **New test courses**, each with test facts (where it is used, round, validity, scores):
+  - TGT220 TGAT & TPAT3
+  - ALV240 A-Level intensive
+  - TPT310 TPAT1 (กสพท) & MMI
+  - UCT300 UCAT, for Ramathibodi Portfolio, CICM and UK/ANZ medicine
+  - UKT320 TMUA & ESAT for Cambridge, Imperial and Oxford
+- **University & test finder** on the Admissions page:
+  - 7 fields × Thai track / international programmes / abroad
+  - Thai programmes: Chula, Mahidol (Ramathibodi, MUIC, pharmacy), Thammasat (CICM, BBA,
+    SIIT), KMITL, KMUTT, Chiang Mai, Chulabhorn Royal Academy (PSCM), Phramongkutklao, the
+    กสพท route, CU-MEDi (graduate entry)
+  - Abroad: the USA, UK, Australia and Singapore
+  - Each card shows the tests, key requirements, the courses that prepare for them, and a
+    source link
+- **TCAS in brief:** the 4 rounds and TGAT, TPAT1–5 and A-Level, with the TCAS70 dates.
+- The Admissions page is reorganised: path → finder → TCAS → test details → TBAT → all branch
+  courses grouped by goal → computing exams → portfolio → method → timeline → FAQ. The old goal
+  chooser is replaced by the finder, and two FAQs are added.
+- `tools/check_catalogue.js` also loads `pathways.js`: 79 courses, 11 tracks, 7 groups and
+  298 course references are checked.
+
 ## 4.9 r1 — October 2026
 - **Pop-up promotions on the public website** (`assets/js/popup.js`):
   - Shows image, title, text and a button in Thai/English.
