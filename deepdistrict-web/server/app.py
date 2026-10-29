@@ -48,7 +48,7 @@ BACKUP_DIR = DATA_DIR / "backups"
 SESSION_HOURS = 12
 PBKDF2_ROUNDS = 200_000
 COLLECTIONS = ("users", "enrolments", "sessions", "payments", "requests")
-KV_KEYS = ("org", "courseOverrides", "customCourses")
+KV_KEYS = ("org", "courseOverrides", "customCourses", "prepCatalog", "pathways")   # prepCatalog/pathways: None = website defaults
 STATIC_DIRS = ("assets", "pages", "admin")
 STAFF = ("admin", "teacher")
 MAX_BODY = 15 * 1024 * 1024
@@ -361,11 +361,51 @@ def apply_sync(con, me, body):
     return changed
 
 
+STATUSES = ("open", "closed", "cancelled")
+
+
+def _bi(v, n=600):
+    v = v if isinstance(v, dict) else {}
+    return {"en": str(v.get("en") or "")[:n], "th": str(v.get("th") or "")[:n]}
+
+
+def _url(v):
+    v = str(v or "")
+    return v[:300] if re.match(r"^https?://[^\s\"'<>]+$", v) else ""
+
+
+def public_catalog(con):
+    """Only the fields the website displays; hidden courses, categories, items and pathways are left out."""
+    courses = {}
+    for code, o in (get_kv(con, "courseOverrides", {}) or {}).items():
+        st = o.get("status") if o.get("status") in STATUSES else ("open" if o.get("active", True) else "closed")
+        vis = o.get("visible", True) is not False
+        if st != "open" or not vis:
+            courses[str(code)[:12]] = {"status": st, "visible": vis}
+    out = {"courses": courses, "prepCatalog": None, "pathways": None}
+    pc = get_kv(con, "prepCatalog", None)
+    if isinstance(pc, list):
+        out["prepCatalog"] = [{"id": str(c.get("id"))[:24], "icon": str(c.get("icon") or "spark")[:20], "name": _bi(c.get("name"), 120), "text": _bi(c.get("text"), 300),
+                               "items": [{"id": str(i.get("id"))[:24], "name": str(i.get("name") or "")[:80], "course": str(i.get("course") or "")[:12], "note": _bi(i.get("note")),
+                                          "status": i.get("status") if i.get("status") in STATUSES else "open"}
+                                         for i in (c.get("items") or []) if isinstance(i, dict) and i.get("visible", True) is not False]}
+                              for c in pc[:20] if isinstance(c, dict) and c.get("visible", True) is not False]
+    pw = get_kv(con, "pathways", None)
+    if isinstance(pw, list):
+        out["pathways"] = [{"id": str(p.get("id"))[:24], "field": str(p.get("field") or "")[:20], "type": p.get("type") if p.get("type") in ("thai", "intl", "abroad") else "thai",
+                            "uni": _bi(p.get("uni"), 160), "prog": _bi(p.get("prog"), 200), "route": _bi(p.get("route"), 160), "req": _bi(p.get("req"), 700),
+                            "tests": [str(x)[:30] for x in (p.get("tests") or [])][:10], "courses": [str(x)[:12] for x in (p.get("courses") or [])][:10], "url": _url(p.get("url"))}
+                           for p in pw[:300] if isinstance(p, dict) and p.get("visible", True) is not False]
+    return out
+
+
 def bootstrap(con, me):
     data = scope(con, me)
     data["org"] = get_kv(con, "org", DEFAULT_ORG)
     data["courseOverrides"] = get_kv(con, "courseOverrides", {})
     data["customCourses"] = get_kv(con, "customCourses", [])
+    data["prepCatalog"] = get_kv(con, "prepCatalog", None)
+    data["pathways"] = get_kv(con, "pathways", None)
     data["log"] = [dict(r) for r in con.execute("SELECT at, user_name AS by, text FROM audit ORDER BY rowid DESC LIMIT 200")] if me["role"] == "admin" else []
     data["me"] = dict(public_user(me), hasLogin=True, prefs=notify.prefs(con, me["id"]), lineLinked=bool(notify.line_user(con, me["id"])))
     lc, ns = notify.line_config(con), notify.settings(con)
@@ -554,6 +594,11 @@ def api(environ, start, path):
             # public: the pop-up promotions live right now for this page (no personal data involved)
             page = (parse_qs(environ.get("QUERY_STRING", "")).get("page") or ["home"])[0][:20]
             return respond(start, "200 OK", {"items": popups.active(get_kv(con, "popups", popups.default()), page)}, extra=[("Cache-Control", "no-store")])
+
+        if path == "catalog" and method == "GET":
+            # public: what the website should show — course status/visibility and the edited
+            # test-prep catalogue and university finder (hidden entries are never sent)
+            return respond(start, "200 OK", public_catalog(con), extra=[("Cache-Control", "no-store")])
 
         if path == "consent" and method == "POST":
             # proof of cookie consent (PDPA): random reference, time, policy version and choices only —
@@ -747,7 +792,8 @@ def api(environ, start, path):
         if path == "backup" and method == "GET":
             data = {"v": 1, "exportedAt": now_iso(), "org": get_kv(con, "org", DEFAULT_ORG),  # email password is not exported
                     "courseOverrides": get_kv(con, "courseOverrides", {}), "customCourses": get_kv(con, "customCourses", []),
-                    "popups": get_kv(con, "popups", popups.default())}
+                    "popups": get_kv(con, "popups", popups.default()),
+                    "prepCatalog": get_kv(con, "prepCatalog", None), "pathways": get_kv(con, "pathways", None)}
             for col in COLLECTIONS:
                 data[col] = load_col(con, col)
             data["credentials"] = [dict(r) for r in con.execute("SELECT user_id, salt, hash FROM credentials")]

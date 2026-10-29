@@ -55,6 +55,12 @@
   }
   DD.duration = duration;
 
+  // course status from the back office (live data): closed for now / cancelled
+  function statusBadge(c) {
+    return c.status === "cancelled" ? '<span class="st-badge st-badge--cancelled">' + t(L("Cancelled", "ยกเลิก")) + "</span>"
+      : c.status === "closed" ? '<span class="st-badge st-badge--closed">' + t(L("Closed for now", "ปิดรับชั่วคราว")) + "</span>" : "";
+  }
+
   // standard tests: what it measures, where it is used, how long the result lasts, which score for which target
   function testBlock(code) {
     var x = (DATA.testInfo || {})[code];
@@ -205,7 +211,7 @@
   function highlightCard(h, i, plainCard) {
     var c = byCode[h.code]; if (!c) return "";
     return '<article role="button" tabindex="0" class="pick' + (plainCard ? "" : " reveal reveal-delay-" + (i % 4)) + '" data-course="' + c.code + '" aria-haspopup="dialog"><span class="pick__tag">' + (h.mark || "★") + " " + t(h.tag) + "</span>" +
-      '<span class="course__top"><span class="course__code">' + c.code + "</span>" + lvlChip(c) + "</span><h3>" + t(c.title) + "</h3><p>" + t(h.why) + '</p><span class="course__go" aria-hidden="true">' + ARROW + "</span></article>";
+      '<span class="course__top"><span class="course__code">' + c.code + "</span>" + statusBadge(c) + lvlChip(c) + "</span><h3>" + t(c.title) + "</h3><p>" + t(h.why) + '</p><span class="course__go" aria-hidden="true">' + ARROW + "</span></article>";
   }
   R.highlights = function (el) { el.innerHTML = (DATA.highlights || []).map(highlightCard).join(""); };
 
@@ -513,14 +519,16 @@
       return '<button type="button" data-ft="' + k[0] + '">' + t(k[1]) + "</button>";
     }).join("") + '</div><div class="finder__list" aria-live="polite"></div>';
     var out = $(".finder__list", el);
+    el.insertAdjacentHTML("beforeend", '<p class="finder__more">' + t(L("These are examples of popular programmes, not the full list — we prepare students for every Thai university and international programme, and for universities abroad. Ask us about yours.", "รายการนี้เป็นเพียงตัวอย่างหลักสูตรยอดนิยม ไม่ใช่ทั้งหมด เราเตรียมนักเรียนสำหรับทุกมหาวิทยาลัยไทย หลักสูตรนานาชาติ และมหาวิทยาลัยต่างประเทศ สอบถามหลักสูตรของคุณได้")) + ' <a href="' + contactUrl({ topic: "admissions" }) + '">' + t(L("Ask about another programme →", "สอบถามหลักสูตรอื่น →")) + "</a></p>");
     function badge(type) { return '<span class="finder__type finder__type--' + type + '">' + t(type === "thai" ? L("Thai track", "ภาคไทย") : type === "intl" ? L("International", "นานาชาติ") : L("Abroad", "ต่างประเทศ")) + "</span>"; }
     function draw() {
       $$("[data-ff]", el).forEach(function (b) { b.setAttribute("aria-selected", String(b.getAttribute("data-ff") === st.field)); });
       $$("[data-ft]", el).forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-ft") === st.type)); b.hidden = st.field === "abroad" && b.getAttribute("data-ft") !== "all"; });
-      var rows = list.filter(function (p) { return p.field === st.field && (st.type === "all" || p.type === st.type); });
+      list = DATA.pathways || [];
+      var rows = list.filter(function (p) { return p.visible !== false && p.field === st.field && (st.type === "all" || p.type === st.type); });
       out.innerHTML = rows.length ? rows.map(function (p) {
         return '<article class="finder__card"><header>' + badge(p.type) + "<h3>" + t(p.uni) + '</h3><p class="finder__prog">' + t(p.prog) + '</p><p class="finder__route">' + icon("pin") + t(p.route) + '</p></header><div class="finder__tests">' +
-          p.tests.map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("") + "</div><p>" + t(p.req) + '</p><footer><div class="chips">' + p.courses.map(codeChip).join("") + '</div><a class="finder__src" href="' + esc(p.url) + '" target="_blank" rel="noopener">' + t(L("Official / source ↗", "เว็บไซต์ / แหล่งข้อมูล ↗")) + "</a></footer></article>";
+          (p.tests || []).map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("") + "</div><p>" + t(p.req) + '</p><footer><div class="chips">' + (p.courses || []).map(codeChip).join("") + "</div>" + (/^https?:\/\//.test(p.url || "") ? '<a class="finder__src" href="' + esc(p.url) + '" target="_blank" rel="noopener">' + t(L("Official / source ↗", "เว็บไซต์ / แหล่งข้อมูล ↗")) + "</a>" : "") + "</footer></article>";
       }).join("") : '<p class="empty">' + t(L("No programme in this view yet — ask us, we track many more.", "ยังไม่มีหลักสูตรในมุมมองนี้ สอบถามเราได้ เราติดตามหลักสูตรอื่นอีกมาก")) + "</p>";
     }
     el.addEventListener("click", function (e) {
@@ -545,6 +553,20 @@
       return '<div class="adm-cgroup"><h3>' + t(g[0]) + '</h3><ul class="adm-clist">' + g[1].filter(function (c) { return byCode[c]; }).map(function (c) {
         return '<li><a href="' + base + "pages/programs.html#course-" + c + '" data-course="' + c + '" class="lv-' + byCode[c].level + '"><span class="dir__code">' + c + "</span><span>" + t(byCode[c].title) + "</span></a></li>";
       }).join("") + "</ul></div>";
+    }).join("");
+  };
+
+  // test-prep catalogue by category (back office: Website content → Test-prep catalogue)
+  R["adm-prep"] = function (el) {
+    el.innerHTML = (DATA.prepCatalog || []).filter(function (c) { return c.visible !== false; }).map(function (c, i) {
+      var items = (c.items || []).filter(function (x) { return x.visible !== false; });
+      return '<article class="prep-cat reveal reveal-delay-' + (i % 3) + '"><header><span class="prep-cat__chev" aria-hidden="true">›</span><h3>' + t(c.name) + "</h3></header>" +
+        (c.text ? '<p class="prep-cat__text">' + t(c.text) + "</p>" : "") + '<ul class="prep-cat__list' + (items.length > 6 ? " prep-cat__list--2" : "") + '">' + items.map(function (x) {
+          var linked = x.course && byCode[x.course];
+          var st = x.status === "cancelled" ? '<span class="st-badge st-badge--cancelled">' + t(L("Cancelled", "ยกเลิก")) + "</span>" : x.status === "closed" ? '<span class="st-badge st-badge--closed">' + t(L("Closed for now", "ปิดรับชั่วคราว")) + "</span>" : "";
+          var href = linked ? base + "pages/programs.html#course-" + x.course : contactUrl({ topic: "admissions", goal: x.name });
+          return '<li><a href="' + href + '"' + (linked ? ' data-course="' + esc(x.course) + '"' : "") + ' title="' + esc(tx(x.note)) + '"><span class="prep-cat__name">' + esc(x.name) + "</span>" + st + '<small>' + t(x.note) + "</small></a></li>";
+        }).join("") + "</ul></article>";
     }).join("");
   };
 
@@ -588,7 +610,7 @@
     }
     function card(c) {
       return '<article role="button" tabindex="0" class="course lv-' + c.level + (c.featured ? " course--featured" : "") + '" data-course="' + c.code + '" id="course-' + c.code + '" aria-haspopup="dialog">' +
-        '<span class="course__top"><span class="course__code">' + c.code + "</span>" + (c.highlight ? '<span class="pick__tag pick__tag--sm">★ ' + t(c.highlight) + "</span>" : "") + lvlChip(c) + "</span>" +
+        '<span class="course__top"><span class="course__code">' + c.code + "</span>" + statusBadge(c) + (c.highlight ? '<span class="pick__tag pick__tag--sm">★ ' + t(c.highlight) + "</span>" : "") + lvlChip(c) + "</span>" +
         "<h3>" + t(c.title) + "</h3><p>" + t(c.text) + "</p>" +
         '<span class="course__meta"><span>' + t(track(c.track).name) + "</span>" + modesIcons(c.code) + '<span class="course__go" aria-hidden="true">' + ARROW + "</span></span></article>";
     }
@@ -623,7 +645,7 @@
             DATA.groups.map(function (g) {
               var gl = list.filter(function (c) { return c.group === g.id; });
               return '<div class="dir__group"><button type="button" class="dir__head" data-open-group="' + g.id + '">' + icon(g.icon) + "<span>" + t(g.name) + '</span><b>' + gl.length + "</b></button><ul>" +
-                gl.map(function (c) { return '<li><a href="#course-' + c.code + '" data-course="' + c.code + '" class="lv-' + c.level + '"><span class="dir__code">' + c.code + "</span><span>" + t(c.title) + "</span>" + (c.highlight ? '<span class="dir__star" title="' + esc(tx(c.highlight)) + '">★</span>' : "") + "</a></li>"; }).join("") + "</ul></div>";
+                gl.map(function (c) { return '<li><a href="#course-' + c.code + '" data-course="' + c.code + '" class="lv-' + c.level + '"><span class="dir__code">' + c.code + "</span><span>" + t(c.title) + "</span>" + statusBadge(c) + (c.highlight ? '<span class="dir__star" title="' + esc(tx(c.highlight)) + '">★</span>' : "") + "</a></li>"; }).join("") + "</ul></div>";
             }).join("") + "</div></section>" +
           '<button type="button" class="btn courses__more" data-show-all>' + t(L("Show all " + list.length + " courses as cards", "ดูทั้ง " + list.length + " คอร์สแบบการ์ด")) + "</button>";
         $$("[data-open-group]", el).forEach(function (b) { b.addEventListener("click", function () { state.group = b.getAttribute("data-open-group"); state.track = "all"; trackRow(); sync(); var f = $("[data-course-filters]"); if (f) f.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); }); });
@@ -696,6 +718,30 @@
 
   $$("[data-render]").forEach(function (el) { var fn = R[el.getAttribute("data-render")]; if (fn) fn(el); });
 
+  /* ------------------------------------------------------------ live catalogue from the back office
+     Course status and visibility, the edited test-prep catalogue and the university finder. When the
+     server is not there (opened as files / static hosting), the built-in content stays as it is. */
+  var LIVE = ["courses", "highlights", "groups", "tracks", "adm-courses", "adm-finder", "adm-prep"];
+  function applyLive(d) {
+    var changed = false;
+    Object.keys(d.courses || {}).forEach(function (code) {
+      var c = byCode[code], s = d.courses[code];
+      if (!c) return;
+      if (s.visible === false) { courses.splice(courses.indexOf(c), 1); delete byCode[code]; changed = true; }
+      else if (s.status && s.status !== "open") { c.status = s.status; changed = true; }
+    });
+    if (Array.isArray(d.prepCatalog)) { DATA.prepCatalog = d.prepCatalog; changed = true; }
+    if (Array.isArray(d.pathways)) { DATA.pathways = d.pathways; changed = true; }
+    if (!changed) return;
+    $$("[data-render]").forEach(function (el) {
+      var n = el.getAttribute("data-render");
+      if (LIVE.indexOf(n) !== -1 && R[n]) { R[n](el); $$(".reveal", el).forEach(function (x) { x.classList.add("is-in"); }); }
+    });
+  }
+  if (/^https?:$/.test(location.protocol) && window.fetch && !(window.DD_CONFIG && window.DD_CONFIG.live === false)) {
+    fetch(base + "api/catalog", { credentials: "omit", cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) { if (d) applyLive(d); }).catch(function () {});
+  }
+
   /* ------------------------------------------------------------ Course dialog */
   var dlg = null;
   function courseDialog(code) {
@@ -730,6 +776,8 @@
       "<section><h3>" + t(L("By the end you can", "เมื่อเรียนจบจะทำได้")) + '</h3><ul class="ticks">' + (d.outcomes || []).map(function (o) { return "<li>" + t(o) + "</li>"; }).join("") + "</ul>" +
       '<h3>' + t(L("Final project", "ผลงานท้ายคอร์ส")) + '</h3><p class="cd-project">' + t(d.project) + "</p></section></div>" +
       (notes ? '<details class="cd-notes"><summary>' + t(L("Good to know", "ข้อควรทราบ")) + "</summary><p>" + t(notes) + "</p></details>" : "") +
+      (c.status === "closed" ? '<p class="cd-status cd-status--closed">' + t(L("This course is not taking new students right now. Contact us to join the waiting list or for a similar course.", "คอร์สนี้ปิดรับผู้เรียนใหม่ชั่วคราว ติดต่อเราเพื่อลงชื่อรอ หรือขอคอร์สที่ใกล้เคียง")) + "</p>"
+        : c.status === "cancelled" ? '<p class="cd-status cd-status--cancelled">' + t(L("This course has been cancelled. Contact us and we will suggest the best alternative.", "คอร์สนี้ถูกยกเลิกแล้ว ติดต่อเราเพื่อรับคำแนะนำคอร์สทดแทนที่เหมาะสม")) + "</p>" : "") +
       '<div class="cd-contact"><div><strong>' + t(L("Want the details? Contact our staff.", "ต้องการรายละเอียดเพิ่มเติม? ติดต่อเจ้าหน้าที่")) + "</strong><p>" +
         t(L("Ask about the exact schedule, fees, a free level check, and how we can shape this course around you.", "สอบถามตารางเรียน ค่าเรียน การวัดระดับฟรี และการปรับหลักสูตรนี้ให้เหมาะกับคุณ")) + "</p>" +
         '<p class="cd-contact__ways">' + '<a href="mailto:' + esc(cfg.email || EMAIL) + "?subject=" + encodeURIComponent(c.code + " – " + c.title.en) + '">' + esc(cfg.email || EMAIL) + "</a>" +

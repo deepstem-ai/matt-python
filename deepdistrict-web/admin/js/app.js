@@ -35,6 +35,7 @@
     ["people", "People", "ผู้ใช้และนักเรียน", "staff"],
     ["payments", "Payments", "การชำระเงิน", "admin"],
     ["courses", "Courses", "หลักสูตร", "admin"],
+    ["content", "Website content", "เนื้อหาเว็บไซต์", "admin", "reports"],
     ["popups", "Pop-ups", "ป๊อปอัป", "admin", "promo"],
     ["search", "Search", "ค้นหา", "staff"],
     ["reports", "Reports & export", "รายงานและส่งออก", "all"],
@@ -48,6 +49,9 @@
   A.canEditEnrolment = function (e) { return A.isAdmin() || (A.me.role === "teacher" && e && e.teacherId === A.me.id); };
 
   /* ------------------------------------------------------------ small widgets */
+  A.courseStatusBadge = function (st) {
+    return st === "cancelled" ? A.badge("cancelled", L("Cancelled", "ยกเลิก")) : st === "closed" ? A.badge("paused", L("Closed for now", "ปิดรับชั่วคราว")) : A.badge("done", L("Open", "เปิด"));
+  };
   A.badge = function (status, label) { return '<span class="badge badge--' + esc(status) + '">' + esc(label || A.statusName(status)) + "</span>"; };
   A.bar = function (st) {
     var cls = st.remaining <= A.db.org.lowHours && st.total ? " bar--low" : "";
@@ -474,10 +478,10 @@
     if (!A.isAdmin()) return P.dashboard(q);
     var term = (q.get("q") || "").toLowerCase();
     var list = A.courses().filter(function (c) { return !term || (c.code + " " + A.tx(c.title) + " " + A.groupName(c.group)).toLowerCase().indexOf(term) !== -1; });
-    var head = [L("Code", "รหัส"), L("Course", "หลักสูตร"), L("Default hours", "ชั่วโมงมาตรฐาน"), L("Rate / h", "ราคา/ชม."), L("Enrolled", "ผู้ลงทะเบียน"), L("Status", "สถานะ")];
+    var head = [L("Code", "รหัส"), L("Course", "หลักสูตร"), L("Default hours", "ชั่วโมงมาตรฐาน"), L("Rate / h", "ราคา/ชม."), L("Enrolled", "ผู้ลงทะเบียน"), L("Status", "สถานะ"), L("Website", "บนเว็บไซต์")];
     function row(c) {
       var n = A.db.enrolments.filter(function (e) { return e.courseCode === c.code && e.status === "active"; }).length;
-      return { attrs: ' data-course-code="' + esc(c.code) + '"', cells: ['<b class="mono">' + esc(c.code) + "</b>", esc(A.tx(c.title)) + (c.source === "custom" ? ' <span class="badge">' + L("custom", "เพิ่มเอง") + "</span>" : ""), A.num(c.hours), A.money(c.rate), n || "–", c.active ? A.badge("done", L("Open", "เปิดสอน")) : A.badge("cancelled", L("Closed", "ปิด"))] };
+      return { attrs: ' data-course-code="' + esc(c.code) + '"', cells: ['<b class="mono">' + esc(c.code) + "</b>", esc(A.tx(c.title)) + (c.source === "custom" ? ' <span class="badge">' + L("custom", "เพิ่มเอง") + "</span>" : ""), A.num(c.hours), A.money(c.rate), n || "–", A.courseStatusBadge(c.status), c.source === "custom" ? '<span class="muted">' + L("Back office only", "เฉพาะหลังบ้าน") + "</span>" : c.visible ? A.badge("done", L("Shown", "แสดง")) : A.badge("paused", L("Hidden", "ไม่แสดง"))] };
     }
     // one table per course group, in catalogue order
     var sections = A.groups().map(function (g) {
@@ -501,16 +505,16 @@
       ] : []).concat([
         { name: "hours", label: L("Default hours", "ชั่วโมงมาตรฐาน"), type: "number", step: "0.5", min: 0, value: c.hours, required: true },
         { name: "rate", label: L("Rate per hour", "ราคาต่อชั่วโมง") + " (" + A.db.org.currency + ")", type: "number", step: "1", min: 0, value: c.rate, required: true },
-        { name: "active", label: L("Open for enrolment", "เปิดรับลงทะเบียน"), type: "checkbox", value: c.active }
-      ]),
+        { name: "status", label: L("Status", "สถานะ"), type: "select", value: c.status || "open", options: [["open", L("Open — taking students", "เปิด — รับผู้เรียน")], ["closed", L("Closed for now (full / paused)", "ปิดรับชั่วคราว (เต็ม / พัก)")], ["cancelled", L("Cancelled — no longer offered", "ยกเลิก — ไม่เปิดสอนแล้ว")]], hint: L("Only open courses can take new enrolments. The website shows a badge for closed or cancelled courses.", "รับลงทะเบียนใหม่ได้เฉพาะคอร์สที่เปิด เว็บไซต์จะแสดงป้ายสำหรับคอร์สที่ปิดหรือยกเลิก") }
+      ]).concat(custom ? [] : [{ name: "visible", label: L("Show on the website", "แสดงบนเว็บไซต์"), type: "checkbox", value: c.visible !== false, full: true }]),
       onDelete: custom && code ? function () { A.db.customCourses = A.db.customCourses.filter(function (x) { return x.code !== code; }); A.save(); A.route(); } : null,
       validate: function (v) { if (custom && v.code !== code && A.course(v.code)) return L("This code already exists.", "รหัสนี้มีอยู่แล้ว"); },
       onSave: function (v) {
         if (custom) {
-          var rec = { code: v.code.toUpperCase(), title: { en: v.en, th: v.th || v.en }, group: v.group || "custom", hours: v.hours, rate: v.rate, active: v.active, track: "custom", level: 0 };
+          var rec = { code: v.code.toUpperCase(), title: { en: v.en, th: v.th || v.en }, group: v.group || "custom", hours: v.hours, rate: v.rate, status: v.status, active: v.status === "open", track: "custom", level: 0 };
           var i = A.db.customCourses.findIndex(function (x) { return x.code === code; });
           if (i === -1) A.db.customCourses.push(rec); else A.db.customCourses[i] = rec;
-        } else A.db.courseOverrides[code] = { hours: v.hours, rate: v.rate, active: v.active };
+        } else A.db.courseOverrides[code] = { hours: v.hours, rate: v.rate, status: v.status, active: v.status === "open", visible: v.visible };
         A.logAct("Updated course " + (v.code || code)); A.save(); A.toast(L("Saved", "บันทึกแล้ว")); A.route();
       }
     });
@@ -609,7 +613,7 @@
     if (!$("#view")) shell();
     var h = location.hash.replace(/^#\/?/, "") || (A.isStaff() ? "dashboard" : "home");
     var parts = h.split("?"), path = parts[0].split("/"), q = new URLSearchParams(parts[1] || "");
-    var staffOnly = ["dashboard", "enrolments", "enrolment", "sessions", "people", "payments", "courses", "search", "popups"];
+    var staffOnly = ["dashboard", "enrolments", "enrolment", "sessions", "people", "payments", "courses", "search", "popups", "content"];
     var name = path[0];
     if (!A.isStaff() && staffOnly.indexOf(name) !== -1) name = "home";
     if (A.isStaff() && name === "home") name = "dashboard";

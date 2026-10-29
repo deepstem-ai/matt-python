@@ -21,6 +21,9 @@ window.DD_CONFIG = {
   // pop-up promotions come from the DeepDistrict server (back office → Pop-ups).
   // Set to false only if you host the public pages somewhere without that server.
   popups: true,
+  // course status (open / closed / cancelled, shown / hidden), the test-prep catalogue and the
+  // university finder are read live from the server (back office). false = built-in content only.
+  live: true,
   contact: {
     email: "info@deepdistrict.si",
     phone: "",          // e.g. "+66 81 234 5678"

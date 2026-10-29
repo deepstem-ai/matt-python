@@ -150,6 +150,24 @@ All · Accept All). Each choice is stored on the server as proof of consent, wit
 data: a random reference, the time, the policy version and the choices. Records are kept for
 3 years. **Settings → Cookie consent records → Download CSV**.
 
+## Course status and website content (admins)
+
+- **Courses:** each course has a **status**:
+  - **Open:** taking students
+  - **Closed for now:** full or paused
+  - **Cancelled:** no longer offered
+
+  It also has **Show on the website** on or off. Only open courses appear in new
+  enrolments. The website marks closed and cancelled courses, and leaves hidden ones out.
+- **Website content → Test-prep catalogue:** the categories on the Admissions page (e.g.
+  Medical Prep, Engineering / Science). Each item has a name, an optional linked course, a
+  short note, a status and shown/hidden. Categories can be hidden or reordered.
+- **Website content → University finder:** add any university or programme with its tests,
+  requirements, admission round, our courses and an official link. Hide entries you may
+  use again.
+- Until the first edit the website shows the built-in content. **Reset to the built-in
+  content** brings it back.
+
 ## Pop-up promotions (admins)
 
 **Pop-ups** in the menu.

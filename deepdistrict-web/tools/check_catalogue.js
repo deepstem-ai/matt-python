@@ -7,7 +7,7 @@
 "use strict";
 const fs = require("fs"), path = require("path"), vm = require("vm");
 const root = path.join(__dirname, "..");
-const FILES = ["content.js", "courses-details.js", "courses-more.js", "admissions.js", "catalogue.js", "pathways.js", "insights.js", "si.js"];
+const FILES = ["content.js", "courses-details.js", "courses-more.js", "admissions.js", "catalogue.js", "pathways.js", "prep.js", "insights.js", "si.js"];
 const ctx = { window: {}, console };
 vm.createContext(ctx);
 for (const f of FILES) {

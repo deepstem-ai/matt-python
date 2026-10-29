@@ -1,5 +1,32 @@
 # Changelog
 
+## 5.1 r1 — October 2026
+- **Test prep by category** (Admissions page, `assets/data/prep.js`), six categories as briefed:
+  - **International High School Equivalency:** GED, IGCSE, A-Level (Cambridge/Edexcel), IB
+  - **University Admission Requirements:** SAT, ACT, CU-ATS, CU-AAT, MUIC entrance, IELTS,
+    TOEFL, Duolingo, CU-TEP, TU-GET
+  - **International Demonstration Schools:** MUIDS, SPIP, KMIDS
+  - **Medical Prep:** TBAT, UCAT, AKAT, TPAT1, IELTS, CU-AAT, Portfolio & MMI
+  - **Engineering / Science:** SAT, ACT, CU-ATS, IELTS, TGAT·TPAT3, A-Level (TCAS),
+    TMUA·ESAT, COMPAS·POSN
+  - **Others:** Art & Design, ASEAN Scholarship, AFS, General English/Maths, TOEIC, Interview
+  - Each item opens its course summary, or the contact form when there is no fixed course.
+- **Everything is stored in the database with a status.**
+  - **Courses:**
+    - status Open / Closed for now / Cancelled
+    - Shown or Hidden on the website
+    - only open courses can take new enrolments
+    - the website shows badges, a waiting-list note in the summary, and hides hidden courses
+  - **Test-prep catalogue** (back office → Website content): categories and items with
+    status and shown/hidden; add, edit, reorder, delete; reset to the built-in content.
+  - **University finder** (back office → Website content → University finder): add any
+    university or programme, edit, hide or delete. The website states that the list is a
+    sample of popular programmes, not the full list.
+  - Public `GET /api/catalog` sends only what is shown. Hidden entries never leave the
+    server, and links are checked. Writes are admin only, and everything is included in
+    backup and restore.
+- `config.js` `live` switch for hosting without the server; the checker loads `prep.js`.
+
 ## 5.0 r1 — October 2026
 - **One path, two strengths.** STEM & AI and test prep are shown as one plan:
   core academics → STEM & AI → tests & competitions → university. This appears on the home

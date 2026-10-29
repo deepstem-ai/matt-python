@@ -58,11 +58,11 @@
   /* ------------------------------------------------------------ data store
      A.db holds what the server sent for this person. Pages change A.db and call
      A.save(); save() sends only what changed since the last sync.            */
-  var COLS = ["users", "enrolments", "sessions", "payments", "requests"], KVS = ["org", "courseOverrides", "customCourses"];
+  var COLS = ["users", "enrolments", "sessions", "payments", "requests"], KVS = ["org", "courseOverrides", "customCourses", "prepCatalog", "pathways"];
   var snap = {}, pendingLog = [], syncing = null, again = false;
   function blank() {
     return { v: 1, org: { name: "DeepDistrict.si", address: "", email: "", phone: "", taxId: "", currency: "THB", rate: 800, lowHours: 2, noShowCounts: true },
-      users: [], courseOverrides: {}, customCourses: [], enrolments: [], sessions: [], payments: [], requests: [], busy: [], log: [] };
+      users: [], courseOverrides: {}, customCourses: [], prepCatalog: null, pathways: null, enrolments: [], sessions: [], payments: [], requests: [], busy: [], log: [] };
   }
   A.db = blank();
   function snapshot() {
@@ -143,9 +143,12 @@
       var o = A.db.courseOverrides[c.code] || {};
       return { code: c.code, title: c.title, track: c.track, level: c.level, group: c.group || "programming", source: "site",
                hours: o.hours != null ? o.hours : (typeof c.hours === "number" ? c.hours : 20),
-               rate: o.rate != null ? o.rate : A.db.org.rate, active: o.active !== false };
+               rate: o.rate != null ? o.rate : A.db.org.rate,
+               status: ["open", "closed", "cancelled"].indexOf(o.status) !== -1 ? o.status : (o.active === false ? "closed" : "open"),
+               visible: o.visible !== false };
     });
-    return pub.concat(A.db.customCourses.map(function (c) { return Object.assign({ source: "custom", rate: A.db.org.rate, active: true, group: "custom" }, c); }));
+    return pub.concat(A.db.customCourses.map(function (c) { return Object.assign({ source: "custom", rate: A.db.org.rate, status: c.active === false ? "closed" : "open", visible: true, group: "custom" }, c); }))
+      .map(function (c) { c.active = c.status === "open"; return c; });   // only open courses take new enrolments
   };
   // course groups from the public catalogue, plus "custom" for courses added here without a group
   A.groups = function () {
