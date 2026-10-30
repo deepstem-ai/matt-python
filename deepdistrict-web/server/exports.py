@@ -96,8 +96,8 @@ def create_paper(con, me, body, learner=False):
         chosen = []
     if not chosen:
         raise ValueError("choose at least one approved item")
-    if len(chosen) > 60:
-        raise ValueError("at most 60 items in one paper")
+    if len(chosen) > 200:
+        raise ValueError("at most 200 items in one paper")
     code = new_code(con)
     title = str(body.get("title") or "").strip()[:120] or (qset and qset["title"]) or {"sat": "SAT Reading and Writing practice", "ielts-r": "IELTS Academic Reading practice", "ielts-w": "IELTS Academic Writing practice", "m1": "M.1 entrance practice"}[kind]
     data = {"kind": "paper", "exam": kind, "title": title, "note": str(body.get("note") or (qset or {}).get("note") or "").strip()[:200], "withKey": bool(body.get("withKey")),
