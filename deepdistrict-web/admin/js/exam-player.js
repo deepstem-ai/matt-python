@@ -10,6 +10,7 @@
    ========================================================================== */
 (function () {
   "use strict";
+  function uline(h) { return String(h).replace(/\[\[([^\]]+)\]\]/g, "<u class=\"ul-part\">$1</u>"); }   // [[text]] = underlined part (error identification)
   var lang = (function () { try { return localStorage.getItem("dd-admin-lang") || "th"; } catch (e) { return "th"; } })();
   var L = function (en, th) { return lang === "th" ? th : en; };
   try { var th = localStorage.getItem("dd-admin-theme"); document.documentElement.setAttribute("data-theme", th === "dark" || (!th && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light"); } catch (e) {}
@@ -130,6 +131,8 @@
   /* ---------------------------------------------------------------- shell */
   var KN = { sat: "SAT Reading and Writing", "ielts-r": "IELTS Academic Reading", "ielts-w": "IELTS Academic Writing", m1: "Suankularb M.1 entrance" };
   var SUBJ = { math: ["Mathematics", "คณิตศาสตร์"], sci: ["Science", "วิทยาศาสตร์"], eng: ["English", "ภาษาอังกฤษ"], thai: ["Thai", "ภาษาไทย"] };
+  var PARTS = { conversation: ["A", "Conversation", "บทสนทนา"], vocabulary: ["B", "Vocabulary", "คำศัพท์"], grammar: ["C", "Grammar", "ไวยากรณ์"], error: ["D", "Error identification", "หาจุดผิด"], cloze: ["E", "Cloze", "เติมคำในบทความ"], reading: ["F", "Reading", "การอ่าน"] };
+  function partLabel(k) { var x = PARTS[k]; return x ? L("Part " + x[0] + " · " + x[1], "ตอน " + x[0] + " · " + x[2]) : ""; }
   function choiceKind() { return A.kind === "sat" || A.kind === "m1"; }
   function m1Name() { var it = ((A.sections[0] || {}).items || [])[0] || {}; return it.program === "ep" ? "Suankularb M.1 · English Program (EPLUS+)" : it.program === "gate" ? L("Suankularb M.1 · GATE Program", "สวนกุหลาบ ม.1 · GATE Program") : KN.m1; }
   function shell(main, foot) {
@@ -166,8 +169,8 @@
     var it = items[idx], ans = answers()[it.id], marked = !!sec().marked[it.id], struck = sec().struck[it.id] || [];
     var hasPassage = !!(it.passage || (it.table && it.table.rows) || it.image);
     shell((hasPassage ? '<section class="ex-pane ex-passage">' + passageText(it.passage || "") + table(it.table) + (it.image ? '<img class="ex-diagram" src="' + esc(it.image) + '" alt="">' : "") + "</section>" : "") +
-      '<section class="ex-pane ex-q' + (hasPassage ? "" : " ex-q--solo") + '">' + subTabs(items, it) + '<div class="ex-qhead"><span class="ex-num">' + (idx + 1) + '</span>' + (it.subject && SUBJ[it.subject] ? '<span class="ex-subj ex-subj--' + it.subject + '">' + L(SUBJ[it.subject][0], SUBJ[it.subject][1]) + (it.format === "fill" ? " · " + L("written answer", "อัตนัย") : "") + "</span>" : "") + '<button type="button" class="ex-mark' + (marked ? " on" : "") + '" data-flag>⚑ ' + L("Mark for review", "ทำเครื่องหมายทบทวน") + "</button>" +
-      '<button type="button" class="ex-link" data-elim title="' + esc(L("Cross out choices you think are wrong", "ขีดฆ่าตัวเลือกที่คิดว่าผิด")) + '">A̶B̶C̶</button></div><p class="ex-stem">' + esc(it.stem) + "</p>" +
+      '<section class="ex-pane ex-q' + (hasPassage ? "" : " ex-q--solo") + '">' + subTabs(items, it) + '<div class="ex-qhead"><span class="ex-num">' + (idx + 1) + '</span>' + (it.part && PARTS[it.part] ? '<span class="ex-subj ex-subj--eng">' + partLabel(it.part) + "</span>" : it.subject && SUBJ[it.subject] ? '<span class="ex-subj ex-subj--' + it.subject + '">' + L(SUBJ[it.subject][0], SUBJ[it.subject][1]) + (it.format === "fill" ? " · " + L("written answer", "อัตนัย") : "") + "</span>" : "") + '<button type="button" class="ex-mark' + (marked ? " on" : "") + '" data-flag>⚑ ' + L("Mark for review", "ทำเครื่องหมายทบทวน") + "</button>" +
+      '<button type="button" class="ex-link" data-elim title="' + esc(L("Cross out choices you think are wrong", "ขีดฆ่าตัวเลือกที่คิดว่าผิด")) + '">A̶B̶C̶</button></div><p class="ex-stem">' + uline(esc(it.stem)) + "</p>" +
       (it.format === "fill" ? '<div class="ex-fill"><input data-fill inputmode="text" autocomplete="off" aria-label="' + esc(L("Your answer", "คำตอบ")) + '" value="' + esc(ans || "") + '">' + (it.unit ? "<span>" + esc(it.unit) + "</span>" : "") + "</div>" : "") +
       '<div class="ex-choices">' + it.choices.map(function (c, i) {
         return '<div class="ex-choice' + (String(i) === ans ? " sel" : "") + (struck.indexOf(String(i)) !== -1 ? " struck" : "") + '"><button type="button" data-choice="' + i + '"><b>' + LET[i] + "</b><span>" + esc(c) + "</span></button>" +
@@ -186,23 +189,25 @@
     $("[data-nav-open]").addEventListener("click", function () { var pop = $(".ex-navpop"); pop.hidden = !pop.hidden; });
     bindNav();
   }
-  function subTabs(items, it) {           // M.1 papers: jump straight to a subject
-    if (!it.subject) return "";
+  function subTabs(items, it) {           // school papers: jump straight to a part (English papers) or a subject
+    var key = function (x) { return x.part || x.subject; };
+    if (!key(it)) return "";
     var first = {};
-    items.forEach(function (x, i) { if (x.subject && first[x.subject] == null) first[x.subject] = i; });
+    items.forEach(function (x, i) { var k = key(x); if (k && first[k] == null) first[k] = i; });
     var keys = Object.keys(first);
     if (keys.length < 2) return "";
     return '<div class="ex-subtabs">' + keys.map(function (k) {
-      var n = items.filter(function (x) { return x.subject === k; }), done = n.filter(function (x) { var v = answers()[x.id]; return v != null && v !== ""; }).length;
-      return '<button type="button" data-subtab="' + first[k] + '" class="' + (k === it.subject ? "on" : "") + '">' + L(SUBJ[k][0], SUBJ[k][1]) + " " + done + "/" + n.length + "</button>";
+      var n = items.filter(function (x) { return key(x) === k; }), done = n.filter(function (x) { var v = answers()[x.id]; return v != null && v !== ""; }).length;
+      return '<button type="button" data-subtab="' + first[k] + '" class="' + (k === key(it) ? "on" : "") + '">' + (PARTS[k] ? partLabel(k) : L(SUBJ[k][0], SUBJ[k][1])) + " " + done + "/" + n.length + "</button>";
     }).join("") + "</div>";
   }
   function navGrid() {
     var last = null;
     return '<div class="ex-grid">' + sec().items.map(function (it, i) {
       var a = answers()[it.id] != null && answers()[it.id] !== "", m = sec().marked[it.id];
-      var head = it.subject && it.subject !== last && SUBJ[it.subject] ? "<h4>" + L(SUBJ[it.subject][0], SUBJ[it.subject][1]) + "</h4>" : "";
-      last = it.subject;
+      var gk = it.part || it.subject;
+      var head = gk && gk !== last && (PARTS[gk] || SUBJ[gk]) ? "<h4>" + (PARTS[gk] ? partLabel(gk) : L(SUBJ[gk][0], SUBJ[gk][1])) + "</h4>" : "";
+      last = gk;
       return head + '<button type="button" data-go="' + i + '" class="' + (a ? "ans" : "unans") + (m ? " flag" : "") + (i === idx && view === "q" ? " cur" : "") + '">' + (m ? "⚑" : "") + (i + 1) + "</button>";
     }).join("") + '</div><p class="ex-legend"><span class="ans"></span>' + L("answered", "ตอบแล้ว") + ' <span class="unans"></span>' + L("unanswered", "ยังไม่ตอบ") + " ⚑ " + L("for review", "ทบทวน") + "</p>";
   }
@@ -299,13 +304,14 @@
       }).join("");
       html = '<div class="ex-summary"><div class="ex-kpi"><b>' + r.percent + "%</b><span>" + r.correct + " / " + r.total + " " + L("correct", "ข้อที่ถูก") + "</span></div>" + tg + "</div>" +
         (tg ? '<p class="ex-note">' + L("Targets are DeepDistrict practice guidance, not school cut-offs. GATE and English Program applicants take the same Suankularb paper; EP applicants need a higher English score.", "เป้าหมายเป็นแนวทางฝึกของ DeepDistrict ไม่ใช่เกณฑ์ของโรงเรียน ผู้สมัคร GATE และ English Program ใช้ข้อสอบชุดเดียวกัน ผู้สมัคร EP ต้องได้คะแนนภาษาอังกฤษสูงกว่า") + "</p>" : "") +
-        "<h2>" + L("By subject", "แยกตามวิชา") + '</h2><div class="ex-doms">' + Object.keys(r.bySubject || {}).map(function (k) { var x = r.bySubject[k]; return "<div><span>" + esc(SUBJ[k] ? L(SUBJ[k][0], SUBJ[k][1]) : k) + "</span><b>" + x.c + "/" + x.t + " (" + Math.round(x.c / x.t * 100) + '%)</b><i style="width:' + Math.round(x.c / x.t * 100) + '%"></i></div>'; }).join("") + "</div>" +
+        ((r.byPart || []).length ? "<h2>" + L("By part", "แยกตามตอน") + '</h2><div class="ex-doms">' + r.byPart.map(function (x) { return "<div><span>" + esc(partLabel(x.part)) + "</span><b>" + x.c + "/" + x.t + " (" + Math.round(x.c / x.t * 100) + '%)</b><i style="width:' + Math.round(x.c / x.t * 100) + '%"></i></div>'; }).join("") + "</div>" : "") +
+        ((r.byPart || []).length ? "" : "<h2>" + L("By subject", "แยกตามวิชา") + '</h2><div class="ex-doms">' + Object.keys(r.bySubject || {}).map(function (k) { var x = r.bySubject[k]; return "<div><span>" + esc(SUBJ[k] ? L(SUBJ[k][0], SUBJ[k][1]) : k) + "</span><b>" + x.c + "/" + x.t + " (" + Math.round(x.c / x.t * 100) + '%)</b><i style="width:' + Math.round(x.c / x.t * 100) + '%"></i></div>'; }).join("") + "</div>") +
         ((r.byTopic || []).length ? "<h2>" + L("By topic — weakest first", "แยกตามเรื่อง — เรียงจากเรื่องที่ควรฝึกเพิ่ม") + '</h2><div class="tbl-wrap"><table class="ex-rowtbl"><tr><th>' + L("Subject", "วิชา") + "</th><th>" + L("Topic", "เรื่อง") + "</th><th>" + L("Correct", "ถูก") + "</th><th></th></tr>" +
           r.byTopic.slice().sort(function (a, b) { return a.c / a.t - b.c / b.t; }).map(function (x) { var pc = Math.round(x.c / x.t * 100); return "<tr><td>" + esc(SUBJ[x.subject] ? L(SUBJ[x.subject][0], SUBJ[x.subject][1]) : x.subject) + "</td><td>" + esc(L(x.topic.en, x.topic.th)) + "</td><td>" + x.c + "/" + x.t + '</td><td><div class="ex-bar"><i style="width:' + pc + '%"></i></div></td></tr>'; }).join("") + "</table></div>" : "");
       if (A.review) html += rowTable() + "<h2>" + L("Answers and explanations", "เฉลยและคำอธิบาย") + "</h2>" + A.sections.map(function (s) {
         return (s.items || []).map(function (it, i) {
           var a = s.answers[it.id], ok = (s.correct || {})[it.id];
-          return '<details class="ex-rev ' + (ok ? "ok" : "bad") + '"><summary><b>' + (i + 1) + "</b> " + (ok ? "✓" : "✗") + " " + esc(it.stem) + "</summary>" + (it.passage ? passageText(it.passage) : "") + table(it.table) + (it.image ? '<img class="ex-diagram" src="' + esc(it.image) + '" alt="">' : "") +
+          return '<details class="ex-rev ' + (ok ? "ok" : "bad") + '"><summary><b>' + (i + 1) + "</b> " + (ok ? "✓" : "✗") + " " + uline(esc(it.stem)) + "</summary>" + (it.passage ? passageText(it.passage) : "") + table(it.table) + (it.image ? '<img class="ex-diagram" src="' + esc(it.image) + '" alt="">' : "") +
             (it.format === "fill" ? "<p>" + L("Your answer: ", "คำตอบของคุณ: ") + "<b>" + esc(a || "–") + "</b> · " + L("Accepted: ", "คำตอบที่ถูก: ") + "<b>" + esc((it.accept || []).join(" / ")) + "</b> " + esc(it.unit || "") + "</p>"
               : "<ol type=A>" + it.choices.map(function (c, k) { return '<li class="' + (k === it.answer ? "right" : String(k) === a ? "wrong" : "") + '">' + esc(c) + "</li>"; }).join("") + "</ol>") +
             '<p class="ex-note">' + L("Measures: ", "วัด: ") + esc(L((it.skill || {}).en || "", (it.skill || {}).th || "")) + " · " + L("Topic: ", "เรื่อง: ") + esc(L((it.topic || {}).en || "", (it.topic || {}).th || "")) + "</p>" +
@@ -323,7 +329,7 @@
       if (A.review) html += errorLog() + rowTable() + A.sections.map(function (s, si) {
         return "<h2>" + esc(s.title) + "</h2>" + (s.items || []).map(function (it, i) {
           var a = s.answers[it.id], ok = a === String(it.answer);
-          return '<details class="ex-rev ' + (ok ? "ok" : "bad") + '"><summary><b>' + (i + 1) + "</b> " + (ok ? "✓" : "✗") + " " + esc(it.stem) + (it.pretest ? ' <small>(pretest)</small>' : "") + "</summary>" + passageText(it.passage) + table(it.table) + (it.image ? '<img class="ex-diagram" src="' + esc(it.image) + '" alt="">' : "") +
+          return '<details class="ex-rev ' + (ok ? "ok" : "bad") + '"><summary><b>' + (i + 1) + "</b> " + (ok ? "✓" : "✗") + " " + uline(esc(it.stem)) + (it.pretest ? ' <small>(pretest)</small>' : "") + "</summary>" + passageText(it.passage) + table(it.table) + (it.image ? '<img class="ex-diagram" src="' + esc(it.image) + '" alt="">' : "") +
             (!ok && !A.staff ? '<p class="ex-tag-row">' + L("Why did I miss it? ", "พลาดเพราะอะไร? ") + '<select data-tag="' + esc(it.id) + '">' + '<option value="">–</option>' + CAUSES.map(function (c) { return '<option value="' + c[0] + '"' + ((A.tags || {})[it.id] === c[0] ? " selected" : "") + ">" + L(c[1], c[2]) + "</option>"; }).join("") + "</select></p>" : "") +
             "<ol type=A>" + it.choices.map(function (c, k) { return '<li class="' + (k === it.answer ? "right" : String(k) === a ? "wrong" : "") + '">' + esc(c) + "</li>"; }).join("") + "</ol><p>" + esc(lang === "th" ? it.explanation.th || it.explanation.en : it.explanation.en || it.explanation.th) + "</p></details>";
         }).join("");

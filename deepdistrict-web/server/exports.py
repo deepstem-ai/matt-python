@@ -150,7 +150,7 @@ def report_view(a):
     out = {"id": a["id"], "kind": a["kind"], "mode": a["mode"], "status": a["status"], "startedAt": bkk(a["createdAt"]),
            "finishedAt": bkk(a["finishedAt"]) if a.get("finishedAt") else None}
     if a["kind"] == "m1":
-        out.update({k: r.get(k) for k in ("correct", "total", "percent", "bySubject", "byTopic", "targets", "program")})
+        out.update({k: r.get(k) for k in ("correct", "total", "percent", "bySubject", "byTopic", "byPart", "targets", "program")})
     elif a["kind"] == "sat":
         out.update({k: r.get(k) for k in ("estimate", "ceiling", "correct", "total", "route", "modules", "byDomain", "bySkill", "percentile")})
     elif a["kind"] == "ielts-r":

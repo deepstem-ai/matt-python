@@ -20,7 +20,7 @@ python3 tools/check_sets.py
 ## File format
 
 ```json
-{"exam": "sat" | "ielts" | "gate" | "satit", "set": 1,
+{"exam": "sat" | "ielts" | "gate" | "satit" | "sk4" | "tu4" | "top4", "set": 1,
  "title": {"en": "…", "th": "…"}, "minutes": 32,
  "note": {"en": "…", "th": "…"},
  "items": [ … ]}
@@ -34,8 +34,15 @@ must be checked against each year's announcement).
 |-------|-------|------|-----|
 | sat   | 54 × `sat`: items 1–27 = Module 1, 28–54 = Module 2 (harder) | 2 × 32 min | each module cs 7 · ii 7 · sec 7 · eoi 6 |
 | ielts | 3 × `ielts-r` (40 marks, 2,150–2,750 words) + `ielts-w` Task 1 and Task 2 | 60 + 60 min | — |
-| gate  | 120 × `m1` `"program": "gate"` — one Suankularb paper for GATE **and** English Program applicants (EP needs a higher English score) | 180 min | math 40 (10 written) · sci 40 (5 written) · eng 20 · thai 20 |
-| satit | 185 × `m1` `"program": "satit"` | 240 min | math 25 (20 Thai + 5 English) · sci 50 (40 Thai + 10 English) · thai 60 · eng 50 |
+| gate  | 60 × `m1` English, `"program": "gate"` — Suankularb **M.1**, one paper for GATE and EP (EP needs a higher score) | 60 min | A conversation 8 · B vocabulary 10 · C grammar 12 · D error 6 · E cloze 8 · F reading 16 |
+| satit | 60 × `m1` English, `"program": "satit"` — Satit Prasarnmit **M.1** | 60 min | 10 · 10 · 12 · 6 · 7 · 15 |
+| sk4   | 60 × `m1` English, `"program": "sk4"` — Suankularb **M.4**, GATE and EP on one paper | 75 min | 6 · 10 · 12 · 8 · 8 · 16 |
+| tu4   | 60 × `m1` English, `"program": "tu4"` — Triam Udom Suksa **M.4** (cloze, reading, error weighted) | 75 min | 4 · 8 · 10 · 10 · 12 · 16 |
+| top4  | 60 × `m1` English, `"program": "top4"` — top schools **M.4** (general) | 75 min | 8 · 10 · 12 · 8 · 8 · 14 |
+
+M.1 and M.4 entrance papers are **English only** (60 questions, six parts, `"part"` on every item, in order A–F).
+Error-identification items mark exactly four parts of the sentence as `[[text]]`; their `choices` are those four
+texts in order (they are not shuffled).
 
 Every item says **what it measures** and **what it is about** — `skill` and `topic` for M.1 items,
 `topic` for SAT items and IELTS passages — so results show strengths and weaknesses by skill and topic.

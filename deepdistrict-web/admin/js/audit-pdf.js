@@ -10,6 +10,7 @@
    ========================================================================== */
 (function () {
   "use strict";
+  function uline(h) { return String(h).replace(/\[\[([^\]]+)\]\]/g, "<u class=\"ul-part\">$1</u>"); }   // [[text]] = underlined part (error identification)
   var esc = function (s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); };
   var LET = ["A", "B", "C", "D"];
   var NAME = { sat: "SAT Reading and Writing", "ielts-r": "IELTS Academic Reading", "ielts-w": "IELTS Academic Writing" };
@@ -134,7 +135,7 @@
     p.items.forEach(function (it) {
       if (it.kind === "sat" || it.kind === "m1") {
         n++;
-        out.push(block(noted(p, '<div class="ap-q"><div class="n">' + n + "</div><div>" + lines(it.passage) + tbl(it.table) + (it.image ? '<img src="' + esc(it.image) + '" style="max-width:100%;margin:6px 0" alt="">' : "") + '<p class="ap-stem">' + esc(it.stem) + "</p>" +
+        out.push(block(noted(p, '<div class="ap-q"><div class="n">' + n + "</div><div>" + lines(it.passage) + tbl(it.table) + (it.image ? '<img src="' + esc(it.image) + '" style="max-width:100%;margin:6px 0" alt="">' : "") + '<p class="ap-stem">' + uline(esc(it.stem)) + "</p>" +
           (it.format === "fill" ? '<div class="ap-ch">Answer · คำตอบ: ______________________ ' + esc(it.unit || "") + "</div>" : "") +
           (it.choices || []).map(function (c, i) { return '<div class="ap-ch"><b>' + LET[i] + ")</b>" + esc(c) + "</div>"; }).join("") + "</div></div>", wc(it.passage) + 30)));
       } else if (it.kind === "ielts-r") {
@@ -188,6 +189,8 @@
     if ((a.targets || []).length) out.push(block('<table class="ap-tbl" style="width:100%"><tr><th>Target · เป้าหมาย</th><th>Result · ผล</th></tr>' + a.targets.map(function (g) {
       return "<tr><td>" + esc(g.en) + " — overall ≥ " + g.overall + "%" + Object.keys(g.subjects).map(function (k) { return ", " + esc(k) + " ≥ " + g.subjects[k] + "%"; }).join("") + "</td><td><b>" + (g.met ? "On target · ถึงเป้าหมาย" : "Not yet · ยังไม่ถึง") + "</b></td></tr>";
     }).join("") + '</table><p><small>Practice guidance, not school cut-offs. GATE and English Program applicants take the same Suankularb paper; EP applicants need a higher English score. · เป็นแนวทางฝึก ไม่ใช่เกณฑ์ของโรงเรียน</small></p>'));
+    var PRT = { conversation: "A · Conversation · บทสนทนา", vocabulary: "B · Vocabulary · คำศัพท์", grammar: "C · Grammar · ไวยากรณ์", error: "D · Error identification · หาจุดผิด", cloze: "E · Cloze · เติมคำในบทความ", reading: "F · Reading · การอ่าน" };
+    if ((a.byPart || []).length) out.push(block('<h2 class="ap-h2">By part · แยกตามตอน</h2><table class="ap-tbl" style="width:100%"><tr><th>Part · ตอน</th><th>Correct</th></tr>' + a.byPart.map(function (x) { return "<tr><td>" + esc(PRT[x.part] || x.part) + "</td><td>" + x.c + " / " + x.t + " (" + Math.round(x.c / x.t * 100) + "%)</td></tr>"; }).join("") + "</table>"));
     if ((a.byTopic || []).length) {
       var tops = a.byTopic.slice().sort(function (x, y) { return x.c / x.t - y.c / y.t; });
       for (var i = 0; i < tops.length; i += 18) out.push(block((i ? "" : '<h2 class="ap-h2">By topic (weakest first) · แยกตามเรื่อง</h2>') + '<table class="ap-tbl" style="width:100%"><tr><th>Subject</th><th>Topic · เรื่อง</th><th>Correct</th></tr>' +

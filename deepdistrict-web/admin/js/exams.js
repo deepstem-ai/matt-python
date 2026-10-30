@@ -9,7 +9,8 @@
   var home = null, bank = null;
 
   var KIND = { sat: ["SAT Reading & Writing", "SAT Reading & Writing"], "ielts-r": ["IELTS Academic Reading", "IELTS Academic Reading"], "ielts-w": ["IELTS Academic Writing", "IELTS Academic Writing"], m1: ["M.1 entrance (Suankularb GATE / EP)", "สอบเข้า ม.1 (สวนกุหลาบ GATE / EP)"] };
-  var EXAM = { sat: ["SAT Reading & Writing", "SAT Reading & Writing"], ielts: ["IELTS Academic", "IELTS Academic"], gate: ["Suankularb M.1 · GATE Program and English Program (one paper)", "สวนกุหลาบ ม.1 · GATE และ English Program (ข้อสอบชุดเดียวกัน)"], satit: ["Satit Prasarnmit M.1 · Trilingual Plus+", "สาธิตประสานมิตร ม.1 · Trilingual Plus+"], ep: ["Suankularb M.1 · English Program (older sets)", "สวนกุหลาบ ม.1 · English Program (ชุดเดิม)"], other: ["Teacher sets", "ชุดข้อสอบจากครู"] };
+  var EXAM = { sat: ["SAT Reading & Writing", "SAT Reading & Writing"], ielts: ["IELTS Academic", "IELTS Academic"], gate: ["M.1 English · Suankularb (GATE + EP, one paper)", "อังกฤษ ม.1 · สวนกุหลาบ (GATE + EP ชุดเดียวกัน)"], satit: ["M.1 English · Satit Prasarnmit", "อังกฤษ ม.1 · สาธิตประสานมิตร"],
+    sk4: ["M.4 English · Suankularb (GATE + EP, one paper)", "อังกฤษ ม.4 · สวนกุหลาบ (GATE + EP ชุดเดียวกัน)"], tu4: ["M.4 English · Triam Udom Suksa", "อังกฤษ ม.4 · เตรียมอุดมศึกษา"], top4: ["M.4 English · Top schools", "อังกฤษ ม.4 · โรงเรียนดัง"], ep: ["Suankularb M.1 · English Program (older sets)", "สวนกุหลาบ ม.1 · English Program (ชุดเดิม)"], other: ["Teacher sets", "ชุดข้อสอบจากครู"] };
   var SUBJ = { math: ["Mathematics", "คณิตศาสตร์"], sci: ["Science", "วิทยาศาสตร์"], eng: ["English", "ภาษาอังกฤษ"], thai: ["Thai", "ภาษาไทย"] };
   function setTitle(x) { return A.lang === "th" && x.titleTh ? x.titleTh : x.title; }
   function modeName(a) { return a.mode === "set" ? (a.setTitle || L("Test set", "ชุดข้อสอบ")) : a.mode === "mock" ? L("Full test", "ข้อสอบเต็ม") : L("Practice", "ฝึกทำ"); }
@@ -59,8 +60,10 @@
       '<section class="box test-card"><h2>IELTS Academic Writing</h2><p>' + L("Task 1 (150+ words) and Task 2 (250+ words) in 60 minutes. Your teacher confirms the band.", "Task 1 (150 คำขึ้นไป) และ Task 2 (250 คำขึ้นไป) ใน 60 นาที ครูเป็นผู้ยืนยันคะแนน") + "</p>" +
       '<div class="btnrow">' + btn("ielts-w", "mock", L("Full test (60 min)", "ข้อสอบเต็ม (60 นาที)"), r["ielts-w"].mock) + btn("ielts-w", "practice", L("Task 1 (20 min)", "Task 1 (20 นาที)"), r["ielts-w"].task1 > 0, ' data-task="1"') +
       btn("ielts-w", "practice", L("Task 2 (40 min)", "Task 2 (40 นาที)"), r["ielts-w"].task2 > 0, ' data-task="2"') + "</div></section>" +
-      '<section class="box test-card"><h2>' + L("M.1 entrance: Suankularb and Satit Prasarnmit", "สอบเข้า ม.1: สวนกุหลาบ และ สาธิตประสานมิตร") + "</h2><p>" + L("Suankularb: one paper for GATE and English Program applicants (EP needs a higher English score). Satit Prasarnmit: Maths, Science, Thai and English. Practise any mix of subjects.", "สวนกุหลาบ: ข้อสอบชุดเดียวกันสำหรับ GATE และ EP (EP ต้องได้คะแนนอังกฤษสูงกว่า) · สาธิตประสานมิตร: คณิต วิทย์ ไทย อังกฤษ เลือกฝึกวิชาที่ต้องการได้") + "</p>" +
-      '<div class="btnrow">' + btn("m1", "practice", L("Suankularb (GATE + EP)", "สวนกุหลาบ (GATE + EP)") + " · " + L("practice", "ฝึกทำ"), m1n("gate") >= 5, ' data-program="gate"') + btn("m1", "practice", L("Satit Prasarnmit", "สาธิตประสานมิตร") + " · " + L("practice", "ฝึกทำ"), m1n("satit") >= 5, ' data-program="satit"') + "</div></section></div>" +
+      '<section class="box test-card"><h2>' + L("English entrance tests: M.1 and M.4", "ภาษาอังกฤษสอบเข้า ม.1 และ ม.4") + "</h2><p>" + L("Short practice from the six parts (conversation, vocabulary, grammar, error identification, cloze, reading). Full 60-question papers are in the sets above.", "ฝึกสั้น ๆ จาก 6 ตอน (บทสนทนา คำศัพท์ ไวยากรณ์ หาจุดผิด เติมคำ การอ่าน) ชุดเต็ม 60 ข้อดูด้านบน") + "</p>" +
+      '<div class="btnrow">' + [["gate", "M.1 Suankularb", "ม.1 สวนกุหลาบ"], ["satit", "M.1 Satit", "ม.1 สาธิต"], ["sk4", "M.4 Suankularb", "ม.4 สวนกุหลาบ"], ["tu4", "M.4 Triam Udom", "ม.4 เตรียมอุดม"], ["top4", "M.4 top schools", "ม.4 โรงเรียนดัง"]].map(function (p) {
+        return btn("m1", "practice", L(p[1], p[2]), m1n(p[0]) >= 5, ' data-program="' + p[0] + '"');
+      }).join("") + "</div></section></div>" +
       '<p class="muted small">' + L("Questions are written by DeepDistrict and scores are practice estimates, not official scores. SAT is a trademark of the College Board; IELTS belongs to the British Council, IDP and Cambridge. We are not affiliated with them.",
         "ข้อสอบเขียนโดย DeepDistrict และคะแนนเป็นค่าประมาณเพื่อการฝึก ไม่ใช่คะแนนทางการ SAT เป็นเครื่องหมายการค้าของ College Board ส่วน IELTS เป็นของ British Council, IDP และ Cambridge เราไม่มีส่วนเกี่ยวข้องกับองค์กรเหล่านี้") + "</p>";
     var list = home.attempts;
@@ -140,7 +143,7 @@
 
   function summary(it) {
     if (it.kind === "sat") return esc((bank.domains[it.domain] || {}).en || it.domain) + " · " + esc(it.skill) + " · " + L(DIFF[it.difficulty][0], DIFF[it.difficulty][1]) + (it.pretest ? " · <i>pretest</i>" : "") + '<br><small class="muted">' + esc((it.stem || "").slice(0, 110)) + "</small>";
-    if (it.kind === "m1") return esc(it.program.toUpperCase()) + " · " + L(SUBJ[it.subject][0], SUBJ[it.subject][1]) + " · " + L(DIFF[it.difficulty][0], DIFF[it.difficulty][1]) + '<br><small class="muted">' + esc((it.stem || "").slice(0, 110)) + "</small>";
+    if (it.kind === "m1") return esc(it.program.toUpperCase()) + (it.part ? " · " + esc(it.part) : "") + " · " + L(SUBJ[it.subject][0], SUBJ[it.subject][1]) + " · " + L(DIFF[it.difficulty][0], DIFF[it.difficulty][1]) + '<br><small class="muted">' + esc((it.stem || "").slice(0, 110)) + "</small>";
     if (it.kind === "ielts-r") return "<b>" + esc(it.title) + "</b> · " + it.words + L(" words", " คำ") + '<br><small class="muted">' + it.groups.map(function (g) { return esc(g.type) + " ×" + g.n; }).join(" · ") + "</small>";
     return "Task " + it.task + (it.essayType ? " · " + esc(it.essayType) : "") + '<br><small class="muted">' + esc((it.prompt || "").slice(0, 110)) + "</small>";
   }
@@ -155,7 +158,7 @@
       '<br><small class="muted">' + L("Aim for about 250+ so students rarely see the same question twice. Pretest (unscored) items: ", "ควรมี 250 ข้อขึ้นไปเพื่อไม่ให้นักเรียนเจอข้อซ้ำบ่อย ข้อ pretest (ไม่นับคะแนน): ") + r.sat.pretest + "</small></p>" +
       "<p><b>IELTS Reading</b> " + (r["ielts-r"].mock ? "✅" : "⏳") + " " + r["ielts-r"].sets + L(" approved passages · a full test needs 3 that add up to exactly 40 questions and 2,150–2,750 words", " บทอ่านที่อนุมัติ · ข้อสอบเต็มต้องมี 3 บทที่รวมกันได้ 40 ข้อพอดี และ 2,150–2,750 คำ") + "</p>" +
       "<p><b>IELTS Writing</b> " + (r["ielts-w"].mock ? "✅" : "⏳") + " Task 1: " + r["ielts-w"].task1 + " · Task 2: " + r["ielts-w"].task2 + "</p>" +
-      ["gate", "satit"].map(function (p) { var x = (r.m1 || {})[p] || {}; return "<p><b>M.1 " + p.toUpperCase() + "</b> " + Object.keys(x).map(function (k) { return L(SUBJ[k][0], SUBJ[k][1]) + ": " + x[k]; }).join(" · ") + "</p>"; }).join("") +
+      ["gate", "satit", "sk4", "tu4", "top4"].map(function (p) { var x = (r.m1 || {})[p] || {}; return "<p><b>M.1 " + p.toUpperCase() + "</b> " + Object.keys(x).map(function (k) { return L(SUBJ[k][0], SUBJ[k][1]) + ": " + x[k]; }).join(" · ") + "</p>"; }).join("") +
       '<p><button class="btn" data-act="bank-ready">' + L("Load ready-made sets (SAT, IELTS, GATE, EP)", "โหลดชุดข้อสอบสำเร็จรูป (SAT, IELTS, GATE, EP)") + '</button> <small class="muted">' + L("Adds anything missing; never overwrites your edits.", "เพิ่มเฉพาะที่ยังไม่มี ไม่เขียนทับที่แก้ไขไว้") + "</small></p>" +
       (bank.items.length ? "" : '<button class="btn" data-act="bank-samples">' + L("Load sample items to try the system", "โหลดข้อสอบตัวอย่างเพื่อทดลองระบบ") + "</button>") + "</section>" +
       '<div class="filters" data-filters><select name="kind"><option value="">' + L("All types", "ทุกประเภท") + "</option>" + Object.keys(KIND).map(function (k) { return '<option value="' + k + '"' + (k === kind ? " selected" : "") + ">" + kname(k) + "</option>"; }).join("") + "</select>" +
@@ -231,7 +234,8 @@
           { name: "expTh", label: L("Explanation (Thai)", "คำอธิบาย (ไทย)"), type: "textarea", value: (it.explanation || {}).th, full: true }];
       } else if (it.kind === "m1") {
         var prog = it.program || "gate";
-        f = [{ name: "program", label: L("Programme", "โครงการ"), type: "select", value: prog, options: [["gate", L("Suankularb (GATE + English Program)", "สวนกุหลาบ (GATE + English Program)")], ["satit", L("Satit Prasarnmit", "สาธิตประสานมิตร")], ["ep", L("Suankularb EP (older items)", "สวนกุหลาบ EP (ข้อเดิม)")]] },
+        f = [{ name: "program", label: L("Programme", "โครงการ"), type: "select", value: prog, options: [["gate", L("M.1 Suankularb (GATE + EP)", "ม.1 สวนกุหลาบ (GATE + EP)")], ["satit", L("M.1 Satit Prasarnmit", "ม.1 สาธิตประสานมิตร")], ["sk4", L("M.4 Suankularb (GATE + EP)", "ม.4 สวนกุหลาบ (GATE + EP)")], ["tu4", L("M.4 Triam Udom", "ม.4 เตรียมอุดม")], ["top4", L("M.4 top schools", "ม.4 โรงเรียนดัง")], ["ep", L("Suankularb EP (older items)", "สวนกุหลาบ EP (ข้อเดิม)")]] },
+          { name: "part", label: L("Part (English papers)", "ตอน (ข้อสอบอังกฤษ)"), type: "select", value: it.part || "", options: [["", "–"], ["conversation", "A · Conversation"], ["vocabulary", "B · Vocabulary"], ["grammar", "C · Grammar"], ["error", L("D · Error identification — mark the 4 parts as [[text]]", "D · หาจุดผิด — ใส่ 4 ส่วนเป็น [[ข้อความ]]")], ["cloze", "E · Cloze"], ["reading", "F · Reading"]] },
           { name: "format", label: L("Answer type", "รูปแบบคำตอบ"), type: "select", value: it.format || "mcq", options: [["mcq", L("4 choices", "ปรนัย 4 ตัวเลือก")], ["fill", L("Written answer (number / word)", "อัตนัย เติมคำตอบ")]] },
           { name: "accept", label: L("Written answer: accepted answers, separated by |", "อัตนัย: คำตอบที่ยอมรับ คั่นด้วย |"), value: (it.accept || []).join(" | ") },
           { name: "unit", label: L("Unit (optional)", "หน่วย (ถ้ามี)"), value: it.unit },
@@ -272,7 +276,7 @@
           if (it.kind === "sat") Object.assign(out, { domain: v.domain, skill: v.skill, difficulty: v.difficulty, pretest: v.pretest, passage: v.passage, table: textToTable(v.table), image: v.image, stem: v.stem,
             choices: [v.c0, v.c1, v.c2, v.c3], answer: +v.answer, explanation: { en: v.expEn, th: v.expTh } });
           else if (it.kind === "m1") Object.assign(out, { program: v.program, subject: v.subject, difficulty: v.difficulty, passage: v.passage, table: textToTable(v.table), image: v.image, stem: v.stem,
-            format: v.format, accept: String(v.accept || "").split("|").map(function (x) { return x.trim(); }).filter(Boolean), unit: v.unit, lang: it.lang,
+            part: v.part, format: v.format, accept: String(v.accept || "").split("|").map(function (x) { return x.trim(); }).filter(Boolean), unit: v.unit, lang: it.lang,
             skill: { en: v.skillEn, th: v.skillTh }, topic: { en: v.topicEn, th: v.topicTh },
             choices: [v.c0, v.c1, v.c2, v.c3], answer: +v.answer, explanation: { en: v.expEn, th: v.expTh } });
           else if (it.kind === "ielts-r") Object.assign(out, { title: v.title, difficulty: +v.difficulty, labelled: true, paragraphs: v.paragraphs.split(/\n\s*\n/).map(function (p) { return p.replace(/\s*\n\s*/g, " ").trim(); }).filter(Boolean),

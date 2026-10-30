@@ -13,6 +13,7 @@
    ========================================================================== */
 (function () {
   "use strict";
+  function uline(h) { return String(h).replace(/\[\[([^\]]+)\]\]/g, "<u class=\"ul-part\">$1</u>"); }   // [[text]] = underlined part (error identification)
   var root = document.querySelector("[data-tests]");
   var T = window.DD_TESTS;
   if (!root || !T) return;
@@ -32,17 +33,28 @@
       desc: bi("Digital SAT format · full test 54 questions: Module 1 and the harder Module 2, 32 minutes each.", "รูปแบบ Digital SAT · ข้อสอบเต็ม 54 ข้อ: โมดูล 1 และโมดูล 2 (ยากขึ้น) โมดูลละ 32 นาที") },
     ielts: { name: bi("IELTS Academic", "IELTS Academic"), cls: "ielts", glyph: "IELTS",
       desc: bi("Reading: 3 passages, 40 questions, 60 minutes · Writing: Task 1 + Task 2, 60 minutes.", "Reading 3 บทความ 40 ข้อ 60 นาที · Writing Task 1 + Task 2 60 นาที") },
-    gate: { name: bi("Suankularb M.1 · GATE and English Program", "สวนกุหลาบ ม.1 · GATE และ English Program"), cls: "gate", glyph: "สก.",
-      desc: bi("One paper for GATE and EP applicants (EP needs a higher English score): Maths, Science, English, Thai — including written answers.", "ข้อสอบชุดเดียวกันสำหรับ GATE และ EP (EP ต้องได้คะแนนอังกฤษสูงกว่า): คณิต วิทย์ อังกฤษ ไทย มีทั้งปรนัยและอัตนัย") },
-    satit: { name: bi("Satit Prasarnmit M.1 · Trilingual Plus+", "สาธิตประสานมิตร ม.1 · Trilingual Plus+"), cls: "satit", glyph: "สาธิต",
-      desc: bi("Maths and Science in Thai and English, Thai and English — the full number of questions.", "คณิตและวิทย์ (ภาษาไทยและอังกฤษ) ภาษาไทย ภาษาอังกฤษ จำนวนข้อเต็มตามรูปแบบ") }
+    gate: { name: bi("M.1 English · Suankularb (GATE + EP)", "อังกฤษ ม.1 · สวนกุหลาบ (GATE + EP)"), cls: "gate", glyph: "ม.1",
+      desc: bi("60 questions, 60 minutes, six parts. GATE and EP applicants take the same paper; EP needs a higher score.", "60 ข้อ 60 นาที 6 ตอน ผู้สมัคร GATE และ EP ใช้ข้อสอบชุดเดียวกัน EP ต้องได้คะแนนสูงกว่า") },
+    satit: { name: bi("M.1 English · Satit Prasarnmit", "อังกฤษ ม.1 · สาธิตประสานมิตร"), cls: "satit", glyph: "ม.1",
+      desc: bi("60 questions, 60 minutes, six parts: conversation, vocabulary, grammar, error identification, cloze, reading.", "60 ข้อ 60 นาที 6 ตอน: บทสนทนา คำศัพท์ ไวยากรณ์ หาจุดผิด เติมคำ การอ่าน") },
+    sk4: { name: bi("M.4 English · Suankularb (GATE + EP)", "อังกฤษ ม.4 · สวนกุหลาบ (GATE + EP)"), cls: "sk4", glyph: "ม.4",
+      desc: bi("60 questions, 75 minutes, six parts. One paper for GATE and EP; EP needs a higher score.", "60 ข้อ 75 นาที 6 ตอน ข้อสอบชุดเดียวกันทั้ง GATE และ EP โดย EP ต้องได้คะแนนสูงกว่า") },
+    tu4: { name: bi("M.4 English · Triam Udom Suksa", "อังกฤษ ม.4 · เตรียมอุดมศึกษา"), cls: "tu4", glyph: "ม.4",
+      desc: bi("60 questions, 75 minutes, weighted towards cloze, reading and error identification.", "60 ข้อ 75 นาที เน้นเติมคำในบทความ การอ่าน และหาจุดผิด") },
+    top4: { name: bi("M.4 English · Top schools", "อังกฤษ ม.4 · โรงเรียนดัง"), cls: "top4", glyph: "ม.4",
+      desc: bi("60 questions, 75 minutes, the six parts most top schools use.", "60 ข้อ 75 นาที 6 ตอนตามแนวที่โรงเรียนดังส่วนใหญ่ใช้") }
   };
   var SUBJ = { math: ["Mathematics", "คณิตศาสตร์"], sci: ["Science", "วิทยาศาสตร์"], eng: ["English", "ภาษาอังกฤษ"], thai: ["Thai", "ภาษาไทย"], RW: ["Reading and Writing", "Reading and Writing"], read: ["Reading", "Reading"] };
   function subj(k) { var x = SUBJ[k] || [k, k]; return bi(x[0], x[1]); }
   function subjTxt(k) { var x = SUBJ[k] || [k, k]; return th() ? x[1] : x[0]; }
   var DOM = { cs: "Craft and Structure", ii: "Information and Ideas", sec: "Standard English Conventions", eoi: "Expression of Ideas" };
-  var TARGETS = { gate: [{ en: "GATE Program", th: "GATE Program", overall: 70, subjects: { math: 70, sci: 70 } }, { en: "English Program (EPLUS+)", th: "English Program (EPLUS+)", overall: 60, subjects: { eng: 80 } }],
-    satit: [{ en: "Satit Prasarnmit", th: "สาธิตประสานมิตร", overall: 70, subjects: {} }] };
+  var TARGETS = { gate: [{ en: "GATE Program", th: "GATE Program", overall: 65, subjects: {} }, { en: "English Program (EPLUS+)", th: "English Program (EPLUS+)", overall: 80, subjects: {} }],
+    sk4: [{ en: "GATE / regular", th: "GATE / ห้องทั่วไป", overall: 65, subjects: {} }, { en: "English Program", th: "English Program", overall: 80, subjects: {} }],
+    satit: [{ en: "Satit Prasarnmit", th: "สาธิตประสานมิตร", overall: 70, subjects: {} }], tu4: [{ en: "Triam Udom Suksa", th: "เตรียมอุดมศึกษา", overall: 75, subjects: {} }],
+    top4: [{ en: "Top schools", th: "โรงเรียนดัง", overall: 70, subjects: {} }] };
+  var PARTS = { conversation: ["A", "Conversation", "บทสนทนา"], vocabulary: ["B", "Vocabulary", "คำศัพท์"], grammar: ["C", "Grammar and structure", "ไวยากรณ์และโครงสร้าง"],
+    error: ["D", "Error identification", "หาจุดผิด"], cloze: ["E", "Cloze test", "เติมคำในบทความ"], reading: ["F", "Reading comprehension", "การอ่านจับใจความ"] };
+  function partName(k) { var x = PARTS[k]; return x ? bi("Part " + x[0] + ": " + x[1], "ตอน " + x[0] + ": " + x[2]) : ""; }
   var FIXED = { tfng: ["TRUE", "FALSE", "NOT GIVEN"], ynng: ["YES", "NO", "NOT GIVEN"] };
   var TEXT = { "sentence-completion": 1, "summary-completion": 1, "note-completion": 1, "table-completion": 1, "flowchart-completion": 1, "diagram-label": 1, "short-answer": 1 };
   var TYPES = { tfng: "True / False / Not Given", ynng: "Yes / No / Not Given", mcq: "Multiple choice", "mcq-multi": "Multiple choice (choose 2–3)", headings: "Matching headings", "matching-info": "Matching information", "matching-features": "Matching features", "sentence-endings": "Sentence endings", "summary-box": "Summary (word box)", "sentence-completion": "Sentence completion", "summary-completion": "Summary completion", "note-completion": "Note completion", "table-completion": "Table completion", "flowchart-completion": "Flow-chart completion", "diagram-label": "Diagram labels", "short-answer": "Short answers" };
@@ -154,24 +166,24 @@
   }
   function subjectTabs(qs) {
     var first = {}, order = [];
-    qs.forEach(function (q, i) { var k = q.subject || (q.domain ? "RW" : ""); if (k && first[k] == null) { first[k] = i; order.push(k); } });
+    qs.forEach(function (q, i) { var k = q.part || q.subject || (q.domain ? "RW" : ""); if (k && first[k] == null) { first[k] = i; order.push(k); } });
     if (order.length < 2) return "";
-    return '<nav class="pt-tabs">' + order.map(function (k) { return '<a href="#pt-q-' + S.cur + "-" + first[k] + '" class="pt-tab pt-tab--' + k + '">' + subj(k) + "</a>"; }).join("") + "</nav>";
+    return '<nav class="pt-tabs">' + order.map(function (k) { return '<a href="#pt-q-' + S.cur + "-" + first[k] + '" class="pt-tab pt-tab--' + (PARTS[k] ? "part" : k) + '">' + (PARTS[k] ? bi(PARTS[k][0] + " " + PARTS[k][1], PARTS[k][0] + " " + PARTS[k][2]) : subj(k)) + "</a>"; }).join("") + "</nav>";
   }
   function choiceList(qs, si) {
     var last = null, lastPassage = null, n0 = S.sections.slice(0, si).reduce(function (t, s) { return t + (s.qs ? s.qs.length : 0); }, 0);
     return qs.map(function (it, i) {
-      var k = it.subject || "RW", head = "";
-      if (k !== last && it.subject) head = '<h2 class="pt-subhead pt-subhead--' + k + '">' + subj(k) + "</h2>";
+      var k = it.part || it.subject || "RW", head = "";
+      if (k !== last && (it.part || it.subject)) head = '<h2 class="pt-subhead pt-subhead--' + (it.part ? "part" : k) + '">' + (it.part ? partName(it.part) : subj(k)) + "</h2>";
       last = k;
       var showPassage = it.passage && it.passage !== lastPassage;
       lastPassage = it.passage || null;
       var id = qid(si, i), input;
       if (it.format === "fill") input = '<div class="pt-fill"><input name="' + id + '" data-q="' + id + '" autocomplete="off" aria-label="Answer">' + (it.unit ? "<span>" + esc(it.unit) + "</span>" : "") + "</div>";
       else input = '<div class="pt-choices">' + it.choices.map(function (c, j) { return '<label class="pt-choice"><input type="radio" name="' + id + '" value="' + j + '" data-q="' + id + '"><b>' + LET[j] + "</b><span>" + esc(c) + "</span></label>"; }).join("") + "</div>";
-      return head + '<article class="pt-q card" id="pt-q-' + si + "-" + i + '"><div class="pt-q__head"><span class="pt-num">' + (n0 + i + 1) + '</span><span class="pt-tag">' + (it.subject ? subj(it.subject) : esc(DOM[it.domain] || "")) + (it.format === "fill" ? " · " + bi("written answer", "อัตนัย เติมคำตอบ") : "") + "</span></div>" +
+      return head + '<article class="pt-q card" id="pt-q-' + si + "-" + i + '"><div class="pt-q__head"><span class="pt-num">' + (n0 + i + 1) + '</span><span class="pt-tag">' + (it.part ? partName(it.part) : it.subject ? subj(it.subject) : esc(DOM[it.domain] || "")) + (it.format === "fill" ? " · " + bi("written answer", "อัตนัย เติมคำตอบ") : "") + "</span></div>" +
         (showPassage ? '<div class="pt-passage">' + passage(it.passage) + "</div>" : it.passage ? '<p class="pt-same">' + bi("(Use the same text as the question above.)", "(ใช้บทอ่านเดียวกับข้อก่อนหน้า)") + "</p>" : "") +
-        table(it.table) + '<p class="pt-stem">' + esc(it.stem) + "</p>" + input + "</article>";
+        table(it.table) + '<p class="pt-stem">' + uline(esc(it.stem)) + "</p>" + input + "</article>";
     }).join("");
   }
   function qid(si, i) { return "s" + si + "q" + i; }
@@ -240,7 +252,7 @@
       if (s.qs) s.qs.forEach(function (it, i) {
         n++;
         var v = S.answers[qid(si, i)], ok = it.format === "fill" ? fillOk(v, it.accept) : String(v) === String(it.answer);
-        rows.push({ n: n, subject: it.subject || "RW", skill: it.skill || (it.domain ? { en: DOM[it.domain] + " · " + String(it.skill || "").replace(/-/g, " ") } : {}), skillKey: it.domain ? it.domain + "|" + it.skill : null,
+        rows.push({ n: n, part: it.part, subject: it.subject || "RW", skill: it.skill || (it.domain ? { en: DOM[it.domain] + " · " + String(it.skill || "").replace(/-/g, " ") } : {}), skillKey: it.domain ? it.domain + "|" + it.skill : null,
           domain: it.domain, rawSkill: it.domain ? it.skill : null, topic: it.topic || {}, mine: it.format === "fill" ? (v || "–") : v != null && v !== "" ? LET[+v] : "–",
           key: it.format === "fill" ? (it.accept || []).join(" / ") : LET[it.answer], ok: ok, it: it, diff: it.difficulty });
       });
@@ -276,6 +288,7 @@
   function results() {
     var rows = mark(), c = rows.filter(function (r) { return r.ok; }).length, t = rows.length, pct = t ? Math.round(c / t * 100) : 0, m = S.meta;
     var bySub = group(rows, function (r) { return r.subject; }, function (r) { return subj(r.subject); });
+    var byPart = group(rows, function (r) { return r.part; }, function (r) { return partName(r.part); });
     var byTopic = group(rows, function (r) { return r.subject + "|" + (r.skillKey && m.exam === "sat" ? r.skillKey : one(r.topic)); }, function (r) { return m.exam === "sat" ? esc(DOM[r.domain] + " · " + String(r.rawSkill || "").replace(/-/g, " ")) : both(r.topic); })
       .sort(function (a, b) { return a.c / a.t - b.c / b.t; });
     var byType = m.exam === "ielts" ? group(rows, function (r) { return r.skillKey; }, function (r) { return esc(r.skill.en); }) : [];
@@ -292,7 +305,7 @@
       '<div class="pt-actions pt-actions--static"><button class="btn btn--primary" data-pdf="results">⬇ ' + bi("PDF results summary", "PDF สรุปผล") + '</button><button class="btn" data-pdf="key">⬇ ' + bi("PDF paper with answer key", "PDF ข้อสอบพร้อมเฉลย") + '</button><button class="btn" data-again>' + bi("Try again", "ทำใหม่") + "</button></div>" +
       '<div class="pt-kpis"><div class="pt-kpi pt-kpi--main"><b>' + big + "</b><span>" + sub + "</span></div>" + tg + "</div>" +
       (tg ? '<p class="pt-note">' + bi("Targets are DeepDistrict practice guidance, not school cut-offs. GATE and English Program applicants take the same Suankularb paper; EP applicants need a higher English score.", "เป้าหมายเป็นแนวทางฝึกของ DeepDistrict ไม่ใช่เกณฑ์ของโรงเรียน ผู้สมัคร GATE และ EP สวนกุหลาบใช้ข้อสอบชุดเดียวกัน ผู้สมัคร EP ต้องได้คะแนนอังกฤษสูงกว่า") + "</p>" : "") +
-      "<h2>" + bi("By subject", "แยกตามวิชา") + "</h2>" + barTable(bySub) +
+      (byPart.length ? "<h2>" + bi("By part", "แยกตามตอน") + "</h2>" + barTable(byPart) : "<h2>" + bi("By subject", "แยกตามวิชา") + "</h2>" + barTable(bySub)) +
       (byType.length ? "<h2>" + bi("By question type", "แยกตามประเภทคำถาม") + "</h2>" + barTable(byType) : "") +
       "<h2>" + (m.exam === "sat" ? bi("By skill — weakest first", "แยกตามทักษะ — เรียงจากที่ควรฝึกเพิ่ม") : bi("By topic — weakest first", "แยกตามเรื่อง — เรียงจากที่ควรฝึกเพิ่ม")) + "</h2>" + barTable(byTopic, true) +
       "<h2>" + bi("Every question: what it measures and what it is about", "สรุปรายข้อ: แต่ละข้อวัดอะไร เรื่องอะไร") + "</h2>" + rowTable(rows) +
@@ -315,7 +328,7 @@
   function explanations(rows) {
     return rows.filter(function (r) { return r.it; }).map(function (r) {
       var it = r.it;
-      return '<details class="pt-exp2 ' + (r.ok ? "ok" : "bad") + '"' + (r.ok ? "" : " open") + "><summary><b>" + r.n + "</b> " + (r.ok ? "✓" : "✗") + " " + esc(it.stem).slice(0, 160) + "</summary>" +
+      return '<details class="pt-exp2 ' + (r.ok ? "ok" : "bad") + '"' + (r.ok ? "" : " open") + "><summary><b>" + r.n + "</b> " + (r.ok ? "✓" : "✗") + " " + uline(esc(it.stem)).slice(0, 160) + "</summary>" +
         (it.format === "fill" ? "<p>" + bi("Your answer: ", "คำตอบของคุณ: ") + "<b>" + esc(r.mine) + "</b> · " + bi("Accepted: ", "คำตอบที่ถูก: ") + "<b>" + esc(r.key) + "</b> " + esc(it.unit || "") + "</p>"
           : "<ol type=A>" + it.choices.map(function (c, k) { return '<li class="' + (k === it.answer ? "right" : LET[k] === r.mine ? "wrong" : "") + '">' + esc(c) + "</li>"; }).join("") + "</ol>") +
         '<p class="pt-muted">' + bi("Measures: ", "วัด: ") + both(r.skill) + " · " + bi("Topic: ", "เรื่อง: ") + both(r.topic) + "</p><p>" + both(it.explanation) + "</p></details>";
@@ -352,11 +365,12 @@
       if (s.qs) { var lastP = null, lastS = null; s.qs.forEach(function (it) {
         n++;
         var h = "";
-        if (it.subject && it.subject !== lastS) h += '<div style="font-size:17px;font-weight:700;color:#1d3fb8;margin:6px 0">' + esc(SUBJ[it.subject][0] + " · " + SUBJ[it.subject][1]) + "</div>";
-        lastS = it.subject;
+        var sk = it.part || it.subject;
+        if (sk && sk !== lastS) h += '<div style="font-size:17px;font-weight:700;color:#1d3fb8;margin:6px 0">' + (it.part ? esc("Part " + PARTS[it.part][0] + ": " + PARTS[it.part][1] + " · ตอน " + PARTS[it.part][0] + " " + PARTS[it.part][2]) : esc(SUBJ[it.subject][0] + " · " + SUBJ[it.subject][1])) + "</div>";
+        lastS = sk;
         if (it.passage && it.passage !== lastP) h += '<div style="background:#f3f5fb;border-left:3px solid #94a3b8;padding:6px 10px;margin:4px 0">' + passage(it.passage) + "</div>";
         lastP = it.passage || null;
-        h += table(it.table) + "<div><b>" + n + ".</b> " + esc(it.stem) + "</div>" + (it.format === "fill" ? "<div style='margin:6px 0 0 18px'>Answer · คำตอบ: ______________________ " + esc(it.unit || "") + "</div>"
+        h += table(it.table) + "<div><b>" + n + ".</b> " + uline(esc(it.stem)) + "</div>" + (it.format === "fill" ? "<div style='margin:6px 0 0 18px'>Answer · คำตอบ: ______________________ " + esc(it.unit || "") + "</div>"
           : it.choices.map(function (c, j) { return "<div style='margin-left:18px'>" + LET[j] + ") " + esc(c) + "</div>"; }).join(""));
         if (withKey) h += '<div style="margin:4px 0 0 18px;color:#166534"><b>Key · เฉลย: ' + esc(it.format === "fill" ? (it.accept || []).join(" / ") : LET[it.answer]) + "</b> — " + esc(one(it.explanation)) + "</div>";
         out.push(h);

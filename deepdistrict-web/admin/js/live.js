@@ -10,6 +10,7 @@
    ========================================================================== */
 (function () {
   "use strict";
+  function uline(h) { return String(h).replace(/\[\[([^\]]+)\]\]/g, "<u class=\"ul-part\">$1</u>"); }   // [[text]] = underlined part (error identification)
   var lang = (function () { try { return localStorage.getItem("dd-admin-lang") || "th"; } catch (e) { return "th"; } })();
   var L = function (en, th) { return lang === "th" ? th : en; };
   try { var th = localStorage.getItem("dd-admin-theme"); document.documentElement.setAttribute("data-theme", th === "dark" || (!th && matchMedia("(prefers-color-scheme: dark)").matches) ? "dark" : "light"); } catch (e) {}
@@ -90,7 +91,7 @@
     o = o || {};
     var showKey = o.key && Q.answer != null, counts = o.counts || {}, total = o.answered || 0, html = "";
     if (Q.type === "sat") {
-      html = '<p class="ex-stem">' + esc(Q.stem) + '</p><div class="ex-choices">' + Q.choices.map(function (c, i) {
+      html = '<p class="ex-stem">' + uline(esc(Q.stem)) + '</p><div class="ex-choices">' + Q.choices.map(function (c, i) {
         var n = counts[String(i)] || 0, pct = total ? Math.round(n / total * 100) : 0;
         return '<div class="ex-choice' + (String(i) === o.mine ? " sel" : "") + (showKey && Q.answer === i ? " lv-right" : "") + '"><button type="button" data-pick="' + i + '" data-q="' + esc(Q.key) + '"' + (o.canAnswer ? "" : " disabled") + "><b>" + LET[i] + "</b><span>" + esc(c) + "</span>" +
           (o.bars ? '<i class="lv-bar" style="width:' + pct + '%"></i><em class="lv-n">' + n + "</em>" : "") + "</button></div>";

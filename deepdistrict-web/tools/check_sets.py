@@ -7,6 +7,7 @@ Each file: {"exam": "sat"|"ielts"|"gate"|"ep", "set": 1, "title": {"en","th"}, "
 Prints every problem; exit code 1 if any.
 """
 import glob
+import re
 import json
 import os
 import sys
@@ -14,13 +15,17 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "server"))
 import exams  # noqa: E402
 
-EXPECT = {"sat": {"sat": 54}, "gate": {"m1": 120}, "ep": {"m1": 130}, "satit": {"m1": 185}, "ielts": {"ielts-r": 3, "ielts-w": 2}}
-# full-length practice formats (see server/exam_sets/README.md)
-M1_MIX = {"gate": {"math": 40, "sci": 40, "eng": 20, "thai": 20},
-          "ep": {"eng": 50, "math": 40, "sci": 40},
-          "satit": {"math": 25, "sci": 50, "thai": 60, "eng": 50}}
-M1_FILL = {"gate": {"math": 10, "sci": 5}, "ep": {"math": 10, "sci": 5}, "satit": {}}
-M1_EN = {"satit": {"math": 5, "sci": 10}}
+EXPECT = {"sat": {"sat": 54}, "ielts": {"ielts-r": 3, "ielts-w": 2},
+          "gate": {"m1": 60}, "satit": {"m1": 60}, "sk4": {"m1": 60}, "tu4": {"m1": 60}, "top4": {"m1": 60}}
+# English entrance papers (M.1 and M.4): 60 questions in six parts, weighted per school
+PART_MIX = {"gate": {"conversation": 8, "vocabulary": 10, "grammar": 12, "error": 6, "cloze": 8, "reading": 16},
+            "satit": {"conversation": 10, "vocabulary": 10, "grammar": 12, "error": 6, "cloze": 7, "reading": 15},
+            "sk4": {"conversation": 6, "vocabulary": 10, "grammar": 12, "error": 8, "cloze": 8, "reading": 16},
+            "tu4": {"conversation": 4, "vocabulary": 8, "grammar": 10, "error": 10, "cloze": 12, "reading": 16},
+            "top4": {"conversation": 8, "vocabulary": 10, "grammar": 12, "error": 8, "cloze": 8, "reading": 14}}
+M1_MIX = {k: {"eng": 60} for k in PART_MIX}
+M1_FILL = {k: {} for k in PART_MIX}
+M1_EN = {}
 
 
 def check(path):
@@ -75,6 +80,19 @@ def check(path):
             bad.append(f"{path}: subject mix must be {M1_MIX[d['exam']]} (now {subj})")
         if fill != M1_FILL[d["exam"]]:
             bad.append(f"{path}: written-answer (fill) questions must be {M1_FILL[d['exam']]} (now {fill})")
+        parts = {}
+        for r in d["items"]:
+            parts[r.get("part")] = parts.get(r.get("part"), 0) + 1
+        if d["exam"] in PART_MIX and parts != PART_MIX[d["exam"]]:
+            bad.append(f"{path}: parts must be {PART_MIX[d['exam']]} (now {parts})")
+        order = [r.get("part") for r in d["items"]]
+        if order != sorted(order, key=lambda k: list(PART_MIX["gate"]).index(k) if k in PART_MIX["gate"] else 9):
+            bad.append(f"{path}: keep the parts in order A conversation · B vocabulary · C grammar · D error · E cloze · F reading")
+        for n, r in enumerate(d["items"], 1):
+            if r.get("part") == "error" and len(re.findall(r"\[\[[^\]]+\]\]", r.get("stem", ""))) != 4:
+                bad.append(f"{path} item {n}: error identification needs exactly four [[underlined]] parts in the stem")
+            if r.get("part") == "error" and [x for x in re.findall(r"\[\[([^\]]+)\]\]", r.get("stem", ""))] != list(r.get("choices") or []):
+                bad.append(f"{path} item {n}: error identification choices must be the four [[underlined]] parts, in order")
         if d["exam"] in M1_EN and en != M1_EN[d["exam"]]:
             bad.append(f"{path}: English-language questions must be {M1_EN[d['exam']]} (now {en})")
         ans = [r.get("answer") for r in d["items"] if r.get("format") != "fill"]

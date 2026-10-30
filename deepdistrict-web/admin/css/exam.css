@@ -234,3 +234,4 @@ mark.ex-hl { background: #fde68a; color: inherit; cursor: pointer; border-radius
 .ex-actions .btn { font-size: 1rem; padding: 12px 18px; }
 .ex-result__title { font-size: 1.6rem; margin: 6px 0 4px; }
 @media print { .ex-top, .ex-actions, .ex-tools { display: none !important; } .ex-result details { break-inside: avoid; } }
+u.ul-part { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; font-weight: 600; }

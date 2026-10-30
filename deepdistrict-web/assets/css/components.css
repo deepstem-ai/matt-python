@@ -1355,3 +1355,8 @@ html[lang="th"] .punchline p { font-family: var(--f-display-th); }
 .pt-exp2 li.right { color: #166534; font-weight: 700; } .pt-exp2 li.wrong { color: #b91c1c; text-decoration: line-through; }
 @media (max-width: 700px) { .pt-bar { top: 56px; } .pt-timer { font-size: 1.5rem; } .pt-intro { flex-direction: column; } }
 @media print { .pt-bar, .pt-actions, .site-header, .site-footer { display: none !important; } }
+u.ul-part { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; font-weight: 600; }
+.pt-subhead--part, .pt-tab--part { background: linear-gradient(90deg, #1d3fb8, #7c3aed); }
+.pt-card--sk4 .pt-glyph { background: linear-gradient(135deg, #1d3fb8, #0e8fa8); }
+.pt-card--tu4 .pt-glyph { background: linear-gradient(135deg, #be185d, #f472b6); }
+.pt-card--top4 .pt-glyph { background: linear-gradient(135deg, #0f766e, #22c55e); }

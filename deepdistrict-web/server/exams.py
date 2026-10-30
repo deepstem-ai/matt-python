@@ -40,15 +40,30 @@ CHOICE_KINDS = ("sat", "m1")      # one passage/stem + four answer choices
 # most of the weight); English Program (EPLUS+) tests Mathematics, Science and English in English, plus an
 # interview that is not part of this bank. Items here are DeepDistrict originals in a 4-choice format.
 M1_PROGRAMS = {
-    "gate": {"en": "Suankularb M.1 (GATE Program and English Program)", "th": "สวนกุหลาบ ม.1 (GATE และ English Program)", "subjects": ["math", "sci", "eng", "thai"]},
-    "ep": {"en": "Suankularb M.1 English Program (older items)", "th": "สวนกุหลาบ ม.1 English Program (ข้อเดิม)", "subjects": ["math", "sci", "eng"], "legacy": True},
-    "satit": {"en": "Satit Prasarnmit M.1 (Trilingual Plus+)", "th": "สาธิตประสานมิตร ม.1 (Trilingual Plus+)", "subjects": ["math", "sci", "thai", "eng"]},
+    # School entrance papers. Since v5.9 the ready-made ones are English papers (M.1 and M.4): 60 questions
+    # in six parts. Kind "m1" = a school-entrance item (four choices or a written answer).
+    "gate": {"en": "Suankularb M.1 English (GATE and English Program)", "th": "ภาษาอังกฤษ สอบเข้า ม.1 สวนกุหลาบ (GATE และ EP)", "subjects": ["eng", "math", "sci", "thai"], "grade": 1},
+    "satit": {"en": "Satit Prasarnmit M.1 English", "th": "ภาษาอังกฤษ สอบเข้า ม.1 สาธิตประสานมิตร", "subjects": ["eng", "math", "sci", "thai"], "grade": 1},
+    "sk4": {"en": "Suankularb M.4 English (GATE and English Program)", "th": "ภาษาอังกฤษ สอบเข้า ม.4 สวนกุหลาบ (GATE และ EP)", "subjects": ["eng"], "grade": 4},
+    "tu4": {"en": "Triam Udom Suksa M.4 English", "th": "ภาษาอังกฤษ สอบเข้า ม.4 เตรียมอุดมศึกษา", "subjects": ["eng"], "grade": 4},
+    "top4": {"en": "Top schools M.4 English (general)", "th": "ภาษาอังกฤษ สอบเข้า ม.4 โรงเรียนดัง (ทั่วไป)", "subjects": ["eng"], "grade": 4},
+    "ep": {"en": "Suankularb M.1 English Program (older items)", "th": "สวนกุหลาบ ม.1 English Program (ข้อเดิม)", "subjects": ["math", "sci", "eng"], "legacy": True, "grade": 1},
 }
+# The six parts of an English entrance paper (tutor summaries: conversation, vocabulary, grammar,
+# error identification, cloze and reading); each school weights them differently.
+M1_PARTS = {"conversation": {"en": "Conversation", "th": "บทสนทนา"}, "vocabulary": {"en": "Vocabulary", "th": "คำศัพท์"},
+            "grammar": {"en": "Grammar and structure", "th": "ไวยากรณ์และโครงสร้าง"}, "error": {"en": "Error identification", "th": "หาจุดผิด"},
+            "cloze": {"en": "Cloze test", "th": "เติมคำในบทความ (Cloze)"}, "reading": {"en": "Reading comprehension", "th": "การอ่านจับใจความ"}}
+PART_ORDER = list(M1_PARTS)
 # Practice targets shown with results (DeepDistrict guidance, not school cut-offs). GATE and EP applicants
-# take the same Suankularb paper; EP applicants need a higher English score.
-M1_TARGETS = {"gate": [{"key": "gate", "en": "GATE Program", "th": "GATE Program", "overall": 70, "subjects": {"math": 70, "sci": 70}},
-                       {"key": "ep", "en": "English Program (EPLUS+)", "th": "English Program (EPLUS+)", "overall": 60, "subjects": {"eng": 80}}],
-              "satit": [{"key": "satit", "en": "Satit Prasarnmit", "th": "สาธิตประสานมิตร", "overall": 70, "subjects": {}}]}
+# take the same paper; EP applicants need a higher score.
+M1_TARGETS = {"gate": [{"key": "gate", "en": "GATE Program", "th": "GATE Program", "overall": 65, "subjects": {}},
+                       {"key": "ep", "en": "English Program (EPLUS+)", "th": "English Program (EPLUS+)", "overall": 80, "subjects": {}}],
+              "sk4": [{"key": "gate", "en": "GATE / regular", "th": "GATE / ห้องทั่วไป", "overall": 65, "subjects": {}},
+                      {"key": "ep", "en": "English Program", "th": "English Program", "overall": 80, "subjects": {}}],
+              "satit": [{"key": "satit", "en": "Satit Prasarnmit", "th": "สาธิตประสานมิตร", "overall": 70, "subjects": {}}],
+              "tu4": [{"key": "tu4", "en": "Triam Udom Suksa", "th": "เตรียมอุดมศึกษา", "overall": 75, "subjects": {}}],
+              "top4": [{"key": "top4", "en": "Top schools", "th": "โรงเรียนดัง", "overall": 70, "subjects": {}}]}
 M1_FORMATS = ("mcq", "fill")       # four choices, or a short written answer (number / word) — อัตนัยแบบเติมคำตอบ
 M1_SUBJECTS = {"math": {"en": "Mathematics", "th": "คณิตศาสตร์"}, "sci": {"en": "Science", "th": "วิทยาศาสตร์"},
                "eng": {"en": "English", "th": "ภาษาอังกฤษ"}, "thai": {"en": "Thai", "th": "ภาษาไทย"}}
@@ -158,7 +173,7 @@ def shuffle_item(it, rng):
     features and sentence endings (relabelled i, ii… / A, B…). True/False/Not Given, paragraph letters
     and completion answers keep their fixed order because their order is part of the task."""
     it = json.loads(json.dumps(it))
-    if it["kind"] in CHOICE_KINDS and len(it.get("choices") or []) == 4:
+    if it["kind"] in CHOICE_KINDS and len(it.get("choices") or []) == 4 and it.get("part") != "error":   # error-identification choices follow the sentence
         perm = list(range(4))
         rng.shuffle(perm)
         it["choices"] = [it["choices"][p] for p in perm]
@@ -303,7 +318,7 @@ def clean_item(raw, old=None):
                    "choices": choices if fmt == "mcq" else [], "answer": int(raw.get("answer")) if fmt == "mcq" and str(raw.get("answer", "")).lstrip("-").isdigit() else -1,
                    "accept": [_s(a, 60) for a in (raw.get("accept") or []) if _s(a, 60)][:8] if fmt == "fill" else [],
                    "unit": _s(raw.get("unit"), 30) if fmt == "fill" else "",
-                   "skill": _bi(raw.get("skill"), 160), "topic": _bi(raw.get("topic"), 160), "lang": "en" if raw.get("lang") == "en" else "th" if raw.get("lang") == "th" else "",
+                   "skill": _bi(raw.get("skill"), 160), "topic": _bi(raw.get("topic"), 160), "part": raw.get("part") if raw.get("part") in M1_PARTS else "", "lang": "en" if raw.get("lang") == "en" else "th" if raw.get("lang") == "th" else "",
                    "explanation": _bi(raw.get("explanation"), 2000)})
         if it["image"] and not re.match(r"^(data:image/(png|jpeg|webp);base64,|https://)", it["image"]):
             raise ValueError("picture must be a PNG/JPEG/WebP upload or https:// address")
@@ -615,7 +630,7 @@ def start(con, me, body, cfg):
             raise ValueError(f"only {len(cand)} approved questions match — choose fewer or more subjects")
         fresh = [i for i in cand if i["id"] not in seen]
         chosen = rng.sample(fresh, n) if len(fresh) >= n else fresh + rng.sample([i for i in cand if i["id"] in seen], n - len(fresh))
-        chosen.sort(key=lambda i: (M1_PROGRAMS[prog]["subjects"].index(i["subject"]), DIFF.index(i["difficulty"])))
+        chosen.sort(key=lambda i: (M1_PROGRAMS[prog]["subjects"].index(i["subject"]), PART_ORDER.index(i["part"]) if i.get("part") in PART_ORDER else 9, DIFF.index(i["difficulty"])))
         sections.append(_section("p", M1_PROGRAMS[prog]["en"] + " · Practice", n * 135, [i["id"] for i in chosen], t0))
         snap.update({i["id"]: i for i in arrange(chosen, rng.random(), cfg["shuffle"])})
     elif kind == "sat":
@@ -840,7 +855,7 @@ def check_text(ans, accepted, wl):
 
 def score(a, cfg):
     if a["kind"] == "m1":
-        by, topics, c, t, prog = {}, {}, 0, 0, None
+        by, topics, parts, c, t, prog = {}, {}, {}, 0, 0, None
         for sec in a["sections"]:
             for iid in sec["items"]:
                 it = a["snap"][iid]
@@ -848,13 +863,17 @@ def score(a, cfg):
                 ok = is_correct(it, sec["answers"].get(iid, ""))
                 b = by.setdefault(it["subject"], {"c": 0, "t": 0})
                 b["c"] += ok; b["t"] += 1; c += ok; t += 1
+                if it.get("part"):
+                    bp = parts.setdefault(it["part"], {"part": it["part"], "name": M1_PARTS[it["part"]], "c": 0, "t": 0})
+                    bp["c"] += ok; bp["t"] += 1
                 tp = (it.get("topic") or {}).get("en") or ""
                 if tp:
                     x = topics.setdefault(it["subject"] + "|" + tp, {"subject": it["subject"], "topic": it.get("topic"), "c": 0, "t": 0})
                     x["c"] += ok; x["t"] += 1
         pct = round(100 * c / t) if t else 0
-        res = {"correct": c, "total": t, "percent": pct, "bySubject": by, "byTopic": sorted(topics.values(), key=lambda x: (x["subject"], x["c"] / x["t"])), "program": prog}
-        if a.get("mode") == "set" or t >= 40:
+        res = {"correct": c, "total": t, "percent": pct, "bySubject": by, "byTopic": sorted(topics.values(), key=lambda x: (x["subject"], x["c"] / x["t"])), "program": prog,
+               "byPart": [parts[k] for k in PART_ORDER if k in parts]}
+        if a.get("mode") == "set" or t >= 30:
             res["targets"] = [dict(g, met=pct >= g["overall"] and all(by.get(k) and 100 * by[k]["c"] / by[k]["t"] >= v for k, v in g["subjects"].items()))
                               for g in M1_TARGETS.get(prog, [])]
         return res
@@ -1014,7 +1033,7 @@ def writing_view(a, cfg, staff):
 
 def _public_item(it, review):
     if it["kind"] == "m1":
-        out = {k: it.get(k) for k in ("id", "passage", "table", "image", "stem", "choices", "subject", "program", "format", "unit", "lang")}
+        out = {k: it.get(k) for k in ("id", "passage", "table", "image", "stem", "choices", "subject", "program", "format", "unit", "lang", "part")}
         if review:
             out.update({"answer": it["answer"], "accept": it.get("accept"), "explanation": it["explanation"], "difficulty": it["difficulty"], "skill": it.get("skill"), "topic": it.get("topic")})
         return out

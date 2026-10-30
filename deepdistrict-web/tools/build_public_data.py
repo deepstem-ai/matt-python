@@ -63,10 +63,10 @@ def sample_items(d):
         return {"questions": [clean(x) for x in spread(its, 10)]}
     by = {}
     for x in its:
-        by.setdefault(x["subject"], []).append(x)
+        by.setdefault(x.get("part") or x["subject"], []).append(x)
     out = []
     for sub, lst in by.items():
-        out += spread(lst, 3)
+        out += spread(lst, 2 if len(by) >= 5 else 3)
     return {"questions": [clean(x) for x in out]}
 
 
