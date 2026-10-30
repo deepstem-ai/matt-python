@@ -378,7 +378,7 @@
    "lang": "en",
    "format": "mcq",
    "part": "grammar",
-   "difficulty": "m",
+   "difficulty": "e",
    "skill": {
     "en": "Inversion: little did …",
     "th": "การสลับที่: Little did …"
@@ -438,7 +438,7 @@
    "lang": "en",
    "format": "mcq",
    "part": "grammar",
-   "difficulty": "m",
+   "difficulty": "e",
    "skill": {
     "en": "Past participle clause",
     "th": "อนุประโยค past participle"
@@ -648,7 +648,7 @@
    "lang": "en",
    "format": "mcq",
    "part": "grammar",
-   "difficulty": "h",
+   "difficulty": "m",
    "skill": {
     "en": "would sooner … than + bare infinitive",
     "th": "would sooner … than + infinitive ไม่มี to"
@@ -798,7 +798,7 @@
    "lang": "en",
    "format": "mcq",
    "part": "error",
-   "difficulty": "h",
+   "difficulty": "m",
    "skill": {
     "en": "fewer vs less",
     "th": "fewer กับ less"
@@ -858,7 +858,7 @@
    "lang": "en",
    "format": "mcq",
    "part": "error",
-   "difficulty": "m",
+   "difficulty": "e",
    "skill": {
     "en": "Plural after 'a number of'",
     "th": "คำนามพหูพจน์หลัง a number of"
@@ -978,7 +978,7 @@
    "lang": "en",
    "format": "mcq",
    "part": "cloze",
-   "difficulty": "m",
+   "difficulty": "e",
    "skill": {
     "en": "Fixed phrase: in danger of",
     "th": "วลีตายตัว in danger of"
@@ -1140,8 +1140,8 @@
    "passage": "Of the roughly 7,000 languages spoken in the world today, linguists estimate that around half are (1) ______ danger of disappearing by the end of this century. A language rarely dies suddenly. (2) ______, it fades over several generations, as parents who speak it at home decide that their children's future lies in a more widely used language. The children grow up understanding their grandparents' speech but no longer using it, and their own children may not understand it at all. When the last fluent speaker dies, much more is lost than a set of words. Languages (3) ______ knowledge that is often found nowhere else: names for local plants and their medical uses, ways of describing the landscape, and stories that record events from centuries ago. Efforts to (4) ______ endangered languages have had mixed results. Some, such as Welsh and Hawaiian, have recovered remarkably, largely because they were introduced into schools and given official status. Others survive only in recordings and dictionaries, (5) ______ they are studied by researchers but spoken by no one. The lesson from the successful cases is that documentation, however valuable, is not enough. A language stays alive only if people have reasons to speak it in their daily lives — and that depends (6) ______ on linguists than on the choices of ordinary families.",
    "stem": "Which choice best fits blank (6)?",
    "explanation": {
-    "en": "The paragraph argues that documentation (the linguists' work) is not enough and daily use matters most, so survival depends 'less on linguists than on … families'. 'More' reverses the argument, 'fewer' is for countable nouns, and 'rather on' would need 'than' immediately after 'rather' to make sense.",
-    "th": "ย่อหน้านี้บอกว่าการบันทึกของนักภาษาศาสตร์ไม่พอ การใช้ในชีวิตประจำวันสำคัญที่สุด จึงขึ้นอยู่กับนักภาษาศาสตร์น้อยกว่าครอบครัว (less … than) ส่วน more ทำให้ความหมายกลับกัน fewer ใช้กับคำนามนับได้ และ rather ไม่เข้ากับโครงสร้าง"
+    "en": "The paragraph argues that documentation (the linguists' work) is not enough and daily use matters most, so survival depends 'less on linguists than on … families'. 'More' and 'rather … than' would both say it depends mainly on linguists, reversing the argument, and 'fewer' is for countable nouns.",
+    "th": "ย่อหน้านี้บอกว่าการบันทึกของนักภาษาศาสตร์ไม่พอ การใช้ในชีวิตประจำวันสำคัญที่สุด จึงขึ้นอยู่กับนักภาษาศาสตร์น้อยกว่าครอบครัว (less … than) ส่วน more และ rather … than จะแปลว่าขึ้นอยู่กับนักภาษาศาสตร์มากกว่า ทำให้ความหมายกลับกัน และ fewer ใช้กับคำนามนับได้"
    },
    "choices": [
     "more",

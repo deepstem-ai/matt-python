@@ -30,13 +30,13 @@
    "passage": "",
    "stem": "A: I'm afraid I can't make it to the study group tonight — my grandmother is visiting.\nB: ______ We'll fill you in tomorrow.",
    "explanation": {
-    "en": "'No worries' is a friendly way to accept someone's excuse, and B then offers to update them. 'You're welcome' answers thanks, not an apology; 'It doesn't matter for me' is a common error (we say 'to me'); 'Never mind me' means 'don't pay attention to me'.",
-    "th": "'No worries' ใช้ตอบรับเมื่ออีกฝ่ายขอโทษหรือบอกว่ามาไม่ได้ แล้ว B ก็เสนอจะเล่าให้ฟังพรุ่งนี้ ส่วน 'You're welcome' ใช้ตอบคำขอบคุณ 'It doesn't matter for me' ผิด (ต้องเป็น to me) และ 'Never mind me' แปลว่าไม่ต้องสนใจฉัน"
+    "en": "'No worries' is a friendly way to accept someone's excuse, and B then offers to update them. 'You're welcome' and 'Don't mention it' answer thanks, not an apology; 'It doesn't matter for me' is a common error (we say 'to me').",
+    "th": "'No worries' ใช้ตอบรับเมื่ออีกฝ่ายขอโทษหรือบอกว่ามาไม่ได้ แล้ว B ก็เสนอจะเล่าให้ฟังพรุ่งนี้ ส่วน 'You're welcome' และ 'Don't mention it' ใช้ตอบคำขอบคุณ ไม่ใช่ตอบคำขอโทษ และ 'It doesn't matter for me' ผิด (ต้องเป็น to me)"
    },
    "choices": [
     "No worries.",
     "You're welcome.",
-    "Never mind me.",
+    "Don't mention it.",
     "It doesn't matter for me."
    ],
    "answer": 0
