@@ -198,7 +198,8 @@ def seed(con):
         row = con.execute("SELECT data FROM blog_posts WHERE slug=?", (x["slug"],)).fetchone()
         if row:                                   # upgrade only an untouched starter post
             p = json.loads(row["data"])
-            if not p.get("seed") or p.get("seedHash") != _hash(p):
+            untouched = p.get("seedHash") == _hash(p) if p.get("seedHash") else all(h.get("by") == "DeepDistrict" for h in p.get("history", []))
+            if not p.get("seed") or not untouched:     # a post staff have edited is left as it is
                 continue
         elif x["slug"] in done["slugs"]:
             continue                              # deleted by staff: keep it deleted
