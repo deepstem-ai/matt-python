@@ -2,890 +2,3645 @@
  "exam": "gate",
  "set": 3,
  "title": {
-  "en": "Suankularb M.1 GATE Program — Practice set 3",
-  "th": "สวนกุหลาบ ม.1 GATE Program — ชุดฝึก 3"
+  "en": "Suankularb M.1 (GATE Program and English Program) — Full practice paper 3",
+  "th": "สวนกุหลาบ ม.1 (GATE และ English Program) — ข้อสอบเสมือนจริงชุดที่ 3"
  },
- "minutes": 90,
+ "minutes": 180,
  "note": {
-  "en": "40 questions: Mathematics 15, Science 15, English 5, Thai 5. DeepDistrict practice format based on the school's published subjects — not an official or past paper.",
-  "th": "40 ข้อ: คณิตศาสตร์ 15 วิทยาศาสตร์ 15 ภาษาอังกฤษ 5 ภาษาไทย 5 — แบบฝึกของ DeepDistrict ตามวิชาที่โรงเรียนประกาศ ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+  "en": "120 questions in 3 hours: Mathematics 40 (incl. 10 written answers), Science 40 (incl. 5 written answers), English 20, Thai 20. Maths and Science carry most weight. GATE and English Program (EPLUS+) applicants take the same paper; EP applicants need a higher English score. DeepDistrict practice format based on public descriptions — not an official or past paper; check the school's announcement each year.",
+  "th": "120 ข้อ 3 ชั่วโมง: คณิตศาสตร์ 40 (อัตนัยเติมคำตอบ 10) วิทยาศาสตร์ 40 (อัตนัย 5) ภาษาอังกฤษ 20 ภาษาไทย 20 คณิตและวิทย์มีน้ำหนักมากที่สุด ผู้สมัคร GATE และ English Program (EPLUS+) ใช้ข้อสอบชุดเดียวกัน แต่ผู้สมัคร EP ต้องได้คะแนนภาษาอังกฤษสูงกว่า — แบบฝึกของ DeepDistrict ตามข้อมูลที่เผยแพร่ ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า ควรตรวจประกาศโรงเรียนทุกปี"
  },
  "items": [
   {
    "kind": "m1",
    "program": "gate",
    "subject": "math",
+   "format": "mcq",
    "difficulty": "e",
+   "skill": {
+    "en": "Applying LCM to remainder conditions",
+    "th": "การใช้ ค.ร.น. กับเงื่อนไขเศษเหลือ"
+   },
+   "topic": {
+    "en": "Number theory",
+    "th": "ทฤษฎีจำนวน"
+   },
    "passage": "",
    "table": null,
-   "stem": "48 ÷ 4 × 3 − 2² × 5 มีค่าเท่าใด",
-   "choices": [
-    "4",
-    "160",
-    "16",
-    "26"
-   ],
-   "answer": 2,
+   "lang": "th",
+   "stem": "จำนวนนับที่น้อยที่สุดซึ่งมากกว่า 100 และเมื่อหารด้วย 4, 6 และ 9 จะเหลือเศษ 1 ทุกครั้ง คือจำนวนใด",
    "explanation": {
-    "en": "Powers first: 2² = 4. Then × and ÷ from left to right: 48 ÷ 4 × 3 = 36 and 4 × 5 = 20. Finally 36 − 20 = 16. (Doing 4 × 3 first gives 48 ÷ 12 and leads to a wrong answer.)",
-    "th": "คิดเลขยกกำลังก่อน 2² = 4 แล้วคูณหารจากซ้ายไปขวา 48 ÷ 4 × 3 = 36 และ 4 × 5 = 20 สุดท้าย 36 − 20 = 16 (ถ้าคูณ 4 × 3 ก่อนจะได้ 48 ÷ 12 ซึ่งผิดลำดับ)"
-   }
+    "en": "A number that leaves remainder 1 when divided by 4, 6 and 9 is 1 more than a common multiple of them. LCM(4, 6, 9) = 36, so the numbers are 37, 73, 109, 145, … The smallest one above 100 is 109.",
+    "th": "จำนวนที่หารด้วย 4, 6, 9 เหลือเศษ 1 คือ (พหุคูณร่วมของ 4, 6, 9) + 1 ค.ร.น. ของ 4, 6, 9 คือ 36 จึงได้ 37, 73, 109, 145, … จำนวนที่น้อยที่สุดที่มากกว่า 100 คือ 109"
+   },
+   "choices": [
+    "145",
+    "109",
+    "73",
+    "217"
+   ],
+   "answer": 1
   },
   {
    "kind": "m1",
    "program": "gate",
    "subject": "math",
-   "difficulty": "e",
-   "passage": "",
-   "table": null,
-   "stem": "ห้องเรียนหนึ่งมีนักเรียน 40 คน เป็นนักเรียนชาย 45% มีนักเรียนหญิงกี่คน",
-   "choices": [
-    "18",
-    "22",
-    "25",
-    "20"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "Boys = 45% of 40 = 18, so girls = 40 − 18 = 22 (that is 55% of 40).",
-    "th": "นักเรียนชาย = 45% ของ 40 = 18 คน นักเรียนหญิง = 40 − 18 = 22 คน (คิดเป็น 55%)"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "math",
+   "format": "mcq",
    "difficulty": "m",
+   "skill": {
+    "en": "Finding cyclic patterns in remainders",
+    "th": "การหาแบบรูปซ้ำของเศษ"
+   },
+   "topic": {
+    "en": "Number theory",
+    "th": "ทฤษฎีจำนวน"
+   },
    "passage": "",
    "table": null,
-   "stem": "2⁵⁰ หารด้วย 7 เหลือเศษเท่าใด",
+   "lang": "th",
+   "stem": "เมื่อนำ 2¹⁰⁰ ไปหารด้วย 7 จะเหลือเศษเท่าใด",
+   "explanation": {
+    "en": "Powers of 2 divided by 7 leave remainders 2, 4, 1, 2, 4, 1, … repeating every 3 because 2³ = 8 leaves remainder 1. Since 100 = 3 × 33 + 1, 2¹⁰⁰ = (2³)³³ × 2 leaves the same remainder as 2, which is 2.",
+    "th": "เศษจากการหาร 2¹, 2², 2³, … ด้วย 7 คือ 2, 4, 1 แล้ววนซ้ำทุก 3 ตัว เพราะ 2³ = 8 หารด้วย 7 เหลือเศษ 1 เนื่องจาก 100 = 3 × 33 + 1 ดังนั้น 2¹⁰⁰ = (2³)³³ × 2 เหลือเศษเท่ากับ 2 คือ 2"
+   },
    "choices": [
-    "6",
     "1",
     "2",
-    "4"
+    "4",
+    "6"
    ],
-   "answer": 3,
-   "explanation": {
-    "en": "Powers of 2 divided by 7 leave remainders 2, 4, 1, 2, 4, 1, … repeating every 3. 50 = 3 × 16 + 2, so 2⁵⁰ leaves the same remainder as 2², which is 4.",
-    "th": "เศษจากการหาร 2¹, 2², 2³, … ด้วย 7 คือ 2, 4, 1, 2, 4, 1, … ซ้ำทุก 3 ตัว 50 = 3 × 16 + 2 จึงเหลือเศษเท่ากับ 2² คือ 4"
-   }
+   "answer": 1
   },
   {
    "kind": "m1",
    "program": "gate",
    "subject": "math",
-   "difficulty": "m",
-   "passage": "",
-   "table": null,
-   "stem": "ต้องการปูพื้นห้องขนาด 84 ซม. × 120 ซม. ด้วยแผ่นกระเบื้องรูปสี่เหลี่ยมจัตุรัสขนาดเท่ากันที่ใหญ่ที่สุดโดยไม่ต้องตัดกระเบื้อง ต้องใช้กระเบื้องกี่แผ่น",
-   "choices": [
-    "70",
-    "140",
-    "35",
-    "12"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "The largest tile side is HCF(84, 120) = 12 cm. Tiles needed = (84 ÷ 12) × (120 ÷ 12) = 7 × 10 = 70. (12 is the tile size, not the number of tiles.)",
-    "th": "ด้านของกระเบื้องที่ใหญ่ที่สุด = ห.ร.ม.(84, 120) = 12 ซม. จำนวนแผ่น = (84 ÷ 12) × (120 ÷ 12) = 7 × 10 = 70 แผ่น (12 คือขนาดกระเบื้อง ไม่ใช่จำนวนแผ่น)"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "math",
-   "difficulty": "m",
-   "passage": "",
-   "table": null,
-   "stem": "เดิมเงินของต้นกับต่ายมีอัตราส่วน 5 : 3 ต่อมาต้นให้เงินต่าย 60 บาท ทำให้ทั้งสองมีเงินเท่ากัน ทั้งสองคนมีเงินรวมกันกี่บาท",
-   "choices": [
-    "600",
-    "240",
-    "360",
-    "480"
-   ],
-   "answer": 3,
-   "explanation": {
-    "en": "Let them have 5k and 3k baht. After the gift, 5k − 60 = 3k + 60, so 2k = 120 and k = 60. Total = 8k = 480 baht (the total does not change).",
-    "th": "ให้ต้นมี 5k บาท ต่ายมี 3k บาท หลังให้เงิน 5k − 60 = 3k + 60 ได้ 2k = 120, k = 60 เงินรวม = 8k = 480 บาท (เงินรวมไม่เปลี่ยน)"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "math",
-   "difficulty": "m",
-   "passage": "",
-   "table": null,
-   "stem": "ชายสองคนอยู่ห่างกัน 36 กิโลเมตร เดินเข้าหากันด้วยอัตราเร็ว 5 และ 7 กิโลเมตรต่อชั่วโมง สุนัขตัวหนึ่งวิ่งกลับไปกลับมาระหว่างชายทั้งสองด้วยอัตราเร็ว 15 กิโลเมตรต่อชั่วโมง ตั้งแต่เริ่มเดินจนทั้งสองพบกัน สุนัขวิ่งได้ระยะทางทั้งหมดกี่กิโลเมตร",
-   "choices": [
-    "45",
-    "30",
-    "36",
-    "54"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "The men close the gap at 5 + 7 = 12 km/h, so they meet after 36 ÷ 12 = 3 hours. The dog runs for those same 3 hours: 15 × 3 = 45 km. No need to follow each back-and-forth trip.",
-    "th": "ทั้งสองเดินเข้าหากันด้วยอัตราเร็วรวม 5 + 7 = 12 กม./ชม. จึงพบกันหลัง 36 ÷ 12 = 3 ชั่วโมง สุนัขวิ่งตลอด 3 ชั่วโมงนั้น ระยะทาง = 15 × 3 = 45 กม. ไม่ต้องคิดทีละเที่ยว"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "math",
-   "difficulty": "m",
-   "passage": "",
-   "table": null,
-   "stem": "3 + 7 + 11 + 15 + … + 199 มีค่าเท่าใด",
-   "choices": [
-    "5150",
-    "5050",
-    "4950",
-    "5000"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "The terms go up by 4, so there are (199 − 3) ÷ 4 + 1 = 50 terms. Sum = number of terms × (first + last) ÷ 2 = 50 × 202 ÷ 2 = 5,050.",
-    "th": "พจน์เพิ่มทีละ 4 มีจำนวนพจน์ (199 − 3) ÷ 4 + 1 = 50 พจน์ ผลบวก = จำนวนพจน์ × (พจน์แรก + พจน์สุดท้าย) ÷ 2 = 50 × 202 ÷ 2 = 5,050"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "math",
-   "difficulty": "m",
-   "passage": "",
-   "table": null,
-   "stem": "รูปสามเหลี่ยม ABC มี AB = AC และมุม A = 40° ลากเส้นแบ่งครึ่งมุม B ไปพบด้าน AC ที่จุด D มุม BDC มีขนาดกี่องศา",
-   "choices": [
-    "70",
-    "75",
-    "35",
-    "105"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "Base angles: B = C = (180° − 40°) ÷ 2 = 70°, so angle ABD = 35°. In triangle ABD, angle ADB = 180° − 40° − 35° = 105°. Angle BDC is on a straight line with it: 180° − 105° = 75°.",
-    "th": "มุมที่ฐาน B = C = (180° − 40°) ÷ 2 = 70° มุม ABD = 35° ในสามเหลี่ยม ABD มุม ADB = 180° − 40° − 35° = 105° มุม BDC อยู่บนเส้นตรงเดียวกัน = 180° − 105° = 75°"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "math",
+   "format": "mcq",
    "difficulty": "h",
+   "skill": {
+    "en": "Counting prime factors in a factorial",
+    "th": "การนับตัวประกอบเฉพาะในแฟกทอเรียล"
+   },
+   "topic": {
+    "en": "Number theory",
+    "th": "ทฤษฎีจำนวน"
+   },
    "passage": "",
    "table": null,
-   "stem": "ถุงใบหนึ่งมีลูกแก้วสีแดง 3 ลูก และสีน้ำเงิน 5 ลูก หยิบลูกแก้ว 2 ลูกพร้อมกัน (ไม่ใส่คืน) ความน่าจะเป็นที่ได้ลูกแก้วสีเดียวกันเท่ากับเท่าใด",
+   "lang": "th",
+   "stem": "ผลคูณ 1 × 2 × 3 × … × 100 มีเลข 0 ต่อท้ายติดกันกี่ตัว",
+   "explanation": {
+    "en": "Each trailing zero needs a factor 10 = 2 × 5, and there are far more 2s than 5s, so count the 5s. Multiples of 5 up to 100 give 20 fives, and multiples of 25 (25, 50, 75, 100) each give one extra five: 20 + 4 = 24 zeros.",
+    "th": "เลข 0 ท้ายแต่ละตัวมาจากตัวประกอบ 10 = 2 × 5 และตัวประกอบ 2 มีมากกว่า 5 เสมอ จึงนับจำนวนตัวประกอบ 5 พหุคูณของ 5 ถึง 100 มี 20 จำนวน และพหุคูณของ 25 (25, 50, 75, 100) ให้ตัวประกอบ 5 เพิ่มอีกตัวละ 1 รวม 20 + 4 = 24 ตัว"
+   },
+   "choices": [
+    "20",
+    "25",
+    "24",
+    "30"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inclusion–exclusion counting",
+    "th": "การนับโดยหลักการเพิ่มเข้า–ตัดออก"
+   },
+   "topic": {
+    "en": "Number theory",
+    "th": "ทฤษฎีจำนวน"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "จำนวนนับตั้งแต่ 1 ถึง 1,000 ที่หารด้วย 3 หรือ 5 ลงตัว แต่หารด้วย 7 ไม่ลงตัว มีทั้งหมดกี่จำนวน",
+   "explanation": {
+    "en": "Divisible by 3 or 5: 333 + 200 − 66 = 467. Among these, those also divisible by 7 are multiples of 21 or 35: 47 + 28 − 9 (multiples of 105) = 66. So 467 − 66 = 401. Forgetting to add back the 9 multiples of 105 gives 392.",
+    "th": "หารด้วย 3 หรือ 5 ลงตัว: 333 + 200 − 66 = 467 จำนวน ในนี้ที่หารด้วย 7 ลงตัวด้วยคือพหุคูณของ 21 หรือ 35: 47 + 28 − 9 (พหุคูณของ 105) = 66 จำนวน ดังนั้นคำตอบคือ 467 − 66 = 401 ถ้าลืมบวกพหุคูณของ 105 กลับคืนจะได้ 392 ซึ่งผิด"
+   },
+   "choices": [
+    "467",
+    "392",
+    "533",
+    "401"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Applying HCF to a tiling problem",
+    "th": "การใช้ ห.ร.ม. กับโจทย์ปูพื้น"
+   },
+   "topic": {
+    "en": "Number theory",
+    "th": "ทฤษฎีจำนวน"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ห้องรูปสี่เหลี่ยมผืนผ้ากว้าง 180 ซม. ยาว 252 ซม. ต้องการปูด้วยกระเบื้องรูปสี่เหลี่ยมจัตุรัสขนาดเท่ากันทุกแผ่นให้เต็มพอดีโดยไม่ตัดกระเบื้อง และใช้กระเบื้องขนาดใหญ่ที่สุดเท่าที่ทำได้ จะต้องใช้กระเบื้องกี่แผ่น",
+   "explanation": {
+    "en": "The tile side must divide both 252 and 180, and be as large as possible, so it is HCF(252, 180) = 36 cm. That gives 252 ÷ 36 = 7 tiles along the length and 180 ÷ 36 = 5 along the width: 7 × 5 = 35 tiles.",
+    "th": "ด้านของกระเบื้องต้องหารทั้ง 252 และ 180 ลงตัวและใหญ่ที่สุด จึงเท่ากับ ห.ร.ม. ของ 252 กับ 180 คือ 36 ซม. ด้านยาววางได้ 252 ÷ 36 = 7 แผ่น ด้านกว้างวางได้ 180 ÷ 36 = 5 แผ่น รวม 7 × 5 = 35 แผ่น"
+   },
+   "choices": [
+    "140",
+    "315",
+    "70",
+    "35"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Simplifying a telescoping sum",
+    "th": "การหาผลบวกแบบหักล้างกัน"
+   },
+   "topic": {
+    "en": "Fractions, decimals and percent",
+    "th": "เศษส่วน ทศนิยม และร้อยละ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "1/(1×2) + 1/(2×3) + 1/(3×4) + … + 1/(19×20) มีค่าเท่าใด",
+   "explanation": {
+    "en": "Each term splits as 1/(k(k+1)) = 1/k − 1/(k+1). Adding them, the middle parts cancel: (1 − 1/2) + (1/2 − 1/3) + … + (1/19 − 1/20) = 1 − 1/20 = 19/20.",
+    "th": "แยกแต่ละพจน์ได้ 1/(k(k+1)) = 1/k − 1/(k+1) เมื่อบวกกัน พจน์ตรงกลางจะหักล้างกันหมด: (1 − 1/2) + (1/2 − 1/3) + … + (1/19 − 1/20) = 1 − 1/20 = 19/20"
+   },
+   "choices": [
+    "19/20",
+    "20/21",
+    "1/20",
+    "19/21"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Spotting structure in a fraction product",
+    "th": "การมองโครงสร้างผลคูณเศษส่วน"
+   },
+   "topic": {
+    "en": "Fractions, decimals and percent",
+    "th": "เศษส่วน ทศนิยม และร้อยละ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "(1 − 1/2²) × (1 − 1/3²) × (1 − 1/4²) × … × (1 − 1/10²) มีค่าเท่าใด",
+   "explanation": {
+    "en": "Write 1 − 1/k² = (k − 1)(k + 1)/k² = (k − 1)/k × (k + 1)/k. The product becomes (1/2 × 2/3 × … × 9/10) × (3/2 × 4/3 × … × 11/10) = 1/10 × 11/2 = 11/20.",
+    "th": "เขียน 1 − 1/k² = (k − 1)(k + 1)/k² = (k − 1)/k × (k + 1)/k ผลคูณจึงเป็น (1/2 × 2/3 × … × 9/10) × (3/2 × 4/3 × … × 11/10) = 1/10 × 11/2 = 11/20"
+   },
    "choices": [
     "1/2",
-    "17/32",
-    "13/28",
-    "15/28"
+    "11/20",
+    "9/20",
+    "99/100"
    ],
-   "answer": 2,
-   "explanation": {
-    "en": "Both red: 3/8 × 2/7 = 6/56. Both blue: 5/8 × 4/7 = 20/56. Same colour = 26/56 = 13/28. (17/32 is what you get if the first marble is put back; 15/28 is the chance of different colours.)",
-    "th": "แดงทั้งคู่: 3/8 × 2/7 = 6/56 น้ำเงินทั้งคู่: 5/8 × 4/7 = 20/56 รวมสีเดียวกัน = 26/56 = 13/28 (17/32 เกิดจากคิดแบบใส่คืน ส่วน 15/28 คือความน่าจะเป็นที่ได้คนละสี)"
-   }
+   "answer": 1
   },
   {
    "kind": "m1",
    "program": "gate",
    "subject": "math",
-   "difficulty": "h",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Successive percentage changes",
+    "th": "การเปลี่ยนแปลงร้อยละต่อเนื่อง"
+   },
+   "topic": {
+    "en": "Fractions, decimals and percent",
+    "th": "เศษส่วน ทศนิยม และร้อยละ"
+   },
    "passage": "",
    "table": null,
-   "stem": "รูปสี่เหลี่ยมจัตุรัสแนบในวงกลมรัศมี 14 ซม. (มุมทั้งสี่ของจัตุรัสอยู่บนเส้นรอบวง) พื้นที่ส่วนของวงกลมที่อยู่นอกรูปสี่เหลี่ยมจัตุรัสเป็นกี่ตารางเซนติเมตร (ใช้ π ≈ 22/7)",
+   "lang": "th",
+   "stem": "ร้านค้าขึ้นราคาสินค้าจากเดิม 20% ต่อมาจัดโปรโมชันลดราคาจากราคาที่ขึ้นแล้ว x% ทำให้ราคาสุดท้ายต่ำกว่าราคาเดิม 4% พอดี x มีค่าเท่าใด",
+   "explanation": {
+    "en": "Let the original price be 100. After the rise it is 120. The final price is 96, so the discount is 120 − 96 = 24 baht out of 120, which is 24/120 = 20%. (24 is the baht amount, not the percentage.)",
+    "th": "ให้ราคาเดิม 100 บาท ขึ้นราคาแล้วเป็น 120 บาท ราคาสุดท้าย 96 บาท จึงลดไป 24 บาทจาก 120 บาท คิดเป็น 24/120 = 20% (24 เป็นจำนวนบาท ไม่ใช่ร้อยละ)"
+   },
    "choices": [
-    "168",
-    "224",
+    "16",
+    "24",
+    "20",
+    "4"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Combining two ratios",
+    "th": "การรวมอัตราส่วนสองชุด"
+   },
+   "topic": {
+    "en": "Ratio and proportion",
+    "th": "อัตราส่วนและสัดส่วน"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "เงินจำนวน 465 บาทแบ่งให้ ก ข และ ค โดย เงินของ ก : เงินของ ข = 3 : 4 และ เงินของ ข : เงินของ ค = 6 : 5 ค ได้เงินกี่บาท",
+   "explanation": {
+    "en": "Make B the same in both ratios: 3 : 4 = 9 : 12 and 6 : 5 = 12 : 10, so A : B : C = 9 : 12 : 10, 31 parts in all. One part is 465 ÷ 31 = 15 baht, so C gets 10 × 15 = 150 baht.",
+    "th": "ทำให้ส่วนของ ข เท่ากัน: 3 : 4 = 9 : 12 และ 6 : 5 = 12 : 10 จึงได้ ก : ข : ค = 9 : 12 : 10 รวม 31 ส่วน ส่วนละ 465 ÷ 31 = 15 บาท ค ได้ 10 × 15 = 150 บาท"
+   },
+   "choices": [
+    "150",
+    "135",
+    "180",
+    "155"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Ratio problems with a transfer",
+    "th": "โจทย์อัตราส่วนที่มีการโอนย้าย"
+   },
+   "topic": {
+    "en": "Ratio and proportion",
+    "th": "อัตราส่วนและสัดส่วน"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ลูกแก้วของมะลิ : ลูกแก้วของแก้ว = 5 : 3 เมื่อมะลิให้ลูกแก้วแก่แก้ว 12 ลูก อัตราส่วนกลายเป็น 7 : 5 ทั้งสองคนมีลูกแก้วรวมกันกี่ลูก",
+   "explanation": {
+    "en": "Let them have 5k and 3k marbles. After the transfer: (5k − 12) : (3k + 12) = 7 : 5, so 5(5k − 12) = 7(3k + 12), 25k − 60 = 21k + 84, 4k = 144, k = 36. The total stays 8k = 288 marbles (check: 168 : 120 = 7 : 5).",
+    "th": "ให้มะลิมี 5k ลูก แก้วมี 3k ลูก หลังให้กัน (5k − 12) : (3k + 12) = 7 : 5 ได้ 25k − 60 = 21k + 84 จึง 4k = 144, k = 36 ผลรวมไม่เปลี่ยนคือ 8k = 288 ลูก (ตรวจ: 168 : 120 = 7 : 5)"
+   },
+   "choices": [
+    "144",
+    "192",
+    "240",
+    "288"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Average speed over a round trip",
+    "th": "อัตราเร็วเฉลี่ยของการเดินทางไปกลับ"
+   },
+   "topic": {
+    "en": "Speed, distance and time",
+    "th": "อัตราเร็ว ระยะทาง และเวลา"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "พ่อขับรถจากบ้านไปต่างจังหวัดด้วยอัตราเร็วเฉลี่ย 60 กม./ชม. และขับกลับทางเดิมด้วยอัตราเร็วเฉลี่ย 40 กม./ชม. อัตราเร็วเฉลี่ยตลอดการเดินทางไปกลับเป็นเท่าใด",
+   "explanation": {
+    "en": "Average speed = total distance ÷ total time, not the average of the two speeds. Take the distance as 120 km: going takes 2 h, returning takes 3 h, so 240 km ÷ 5 h = 48 km/h.",
+    "th": "อัตราเร็วเฉลี่ย = ระยะทางรวม ÷ เวลารวม ไม่ใช่ค่าเฉลี่ยของอัตราเร็วทั้งสอง สมมติระยะทาง 120 กม. ขาไปใช้ 2 ชม. ขากลับใช้ 3 ชม. จึงได้ 240 ÷ 5 = 48 กม./ชม."
+   },
+   "choices": [
+    "50 กม./ชม.",
+    "45 กม./ชม.",
+    "48 กม./ชม.",
+    "52 กม./ชม."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Speed problems involving length of a moving object",
+    "th": "โจทย์อัตราเร็วที่คิดความยาวของวัตถุ"
+   },
+   "topic": {
+    "en": "Speed, distance and time",
+    "th": "อัตราเร็ว ระยะทาง และเวลา"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "รถไฟยาว 180 เมตร วิ่งผ่านเสาไฟต้นหนึ่งหมดขบวนในเวลา 9 วินาที และวิ่งข้ามสะพานจนพ้นสะพานทั้งขบวนในเวลา 30 วินาที ด้วยอัตราเร็วคงที่ สะพานยาวกี่เมตร",
+   "explanation": {
+    "en": "Passing a pole, the train moves its own length: 180 m in 9 s, so 20 m/s. Crossing the bridge completely it moves bridge + train = 20 × 30 = 600 m, so the bridge is 600 − 180 = 420 m.",
+    "th": "การผ่านเสาไฟ รถไฟเคลื่อนที่เท่ากับความยาวขบวน 180 ม. ใน 9 วินาที อัตราเร็ว 20 ม./วินาที การข้ามสะพานจนพ้น เคลื่อนที่ ความยาวสะพาน + ความยาวขบวน = 20 × 30 = 600 ม. สะพานยาว 600 − 180 = 420 ม."
+   },
+   "choices": [
+    "600",
+    "780",
     "420",
-    "196"
+    "400"
    ],
-   "answer": 1,
-   "explanation": {
-    "en": "Circle area = 22/7 × 14 × 14 = 616 cm². The square's diagonal is the diameter, 28 cm, so its area = 28 × 28 ÷ 2 = 392 cm². Outside the square = 616 − 392 = 224 cm². (Taking the side as 28 cm would be wrong.)",
-    "th": "พื้นที่วงกลม = 22/7 × 14 × 14 = 616 ตร.ซม. เส้นทแยงมุมของจัตุรัสเท่ากับเส้นผ่านศูนย์กลาง 28 ซม. พื้นที่จัตุรัส = 28 × 28 ÷ 2 = 392 ตร.ซม. ส่วนที่อยู่นอกจัตุรัส = 616 − 392 = 224 ตร.ซม."
-   }
+   "answer": 2
   },
   {
    "kind": "m1",
    "program": "gate",
    "subject": "math",
+   "format": "mcq",
    "difficulty": "h",
+   "skill": {
+    "en": "Using time to avoid an infinite process",
+    "th": "การใช้เวลาแทนการคิดทีละรอบ"
+   },
+   "topic": {
+    "en": "Speed, distance and time",
+    "th": "อัตราเร็ว ระยะทาง และเวลา"
+   },
    "passage": "",
    "table": null,
-   "stem": "ลูกบาศก์ไม้ยาวด้านละ 6 ซม. ทาสีแดงทุกด้าน แล้วตัดเป็นลูกบาศก์เล็กยาวด้านละ 1 ซม. ทั้งหมด จะมีลูกบาศก์เล็กที่ถูกทาสีแดงเพียง 2 ด้านกี่ลูก",
+   "lang": "th",
+   "stem": "นิดกับหน่อยยืนห่างกัน 3.6 กม. แล้วเดินเข้าหากันพร้อมกันด้วยอัตราเร็ว 4 กม./ชม. และ 5 กม./ชม. ตามลำดับ ขณะเริ่มเดิน สุนัขของนิดวิ่งจากนิดไปหาหน่อยด้วยอัตราเร็ว 12 กม./ชม. พอถึงหน่อยก็วิ่งกลับมาหานิด วนไปมาเช่นนี้จนทั้งสองคนพบกัน สุนัขวิ่งได้ระยะทางรวมกี่กิโลเมตร",
+   "explanation": {
+    "en": "Don't follow every trip. The two walkers close the gap at 4 + 5 = 9 km/h, so they meet after 3.6 ÷ 9 = 0.4 h. The dog runs the whole time at 12 km/h: 12 × 0.4 = 4.8 km.",
+    "th": "ไม่ต้องคิดทีละเที่ยว ทั้งสองคนเดินเข้าหากันด้วยอัตราเร็วรวม 4 + 5 = 9 กม./ชม. จึงพบกันหลัง 3.6 ÷ 9 = 0.4 ชม. ตลอดเวลานั้นสุนัขวิ่ง 12 กม./ชม. ได้ระยะ 12 × 0.4 = 4.8 กม."
+   },
    "choices": [
-    "48",
-    "96",
+    "3.6",
+    "6.0",
+    "2.4",
+    "4.8"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Angles between clock hands",
+    "th": "มุมระหว่างเข็มนาฬิกา"
+   },
+   "topic": {
+    "en": "Speed, distance and time",
+    "th": "อัตราเร็ว ระยะทาง และเวลา"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "เวลา 3 นาฬิกา 40 นาที เข็มสั้นและเข็มยาวของนาฬิกาทำมุมกันเท่าใด (มุมที่เล็กกว่า 180°)",
+   "explanation": {
+    "en": "The minute hand is at 40 × 6° = 240° from 12. The hour hand moves 0.5° per minute, so it is at 3 × 30° + 40 × 0.5° = 110°. The angle is 240° − 110° = 130°. (Forgetting that the hour hand has moved past 3 gives 150°.)",
+    "th": "เข็มยาวอยู่ที่ 40 × 6° = 240° จากเลข 12 เข็มสั้นเดิน 0.5° ต่อนาที จึงอยู่ที่ 3 × 30° + 40 × 0.5° = 110° มุมระหว่างเข็มคือ 240° − 110° = 130° (ถ้าลืมว่าเข็มสั้นเลื่อนเลยเลข 3 ไปแล้วจะได้ 150°)"
+   },
+   "choices": [
+    "130°",
+    "150°",
+    "140°",
+    "120°"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Combined work rates",
+    "th": "อัตราการทำงานร่วมกัน"
+   },
+   "topic": {
+    "en": "Work and rates",
+    "th": "งานและอัตราการทำงาน"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ช่างเอทาสีรั้วคนเดียวเสร็จใน 12 วัน ช่างบีทาคนเดียวเสร็จใน 18 วัน ทั้งสองช่วยกันทา 4 วัน แล้วช่างเอลาออก ช่างบีต้องทาต่อคนเดียวอีกกี่วันจึงเสร็จ",
+   "explanation": {
+    "en": "Per day A does 1/12 and B does 1/18 of the fence; together 5/36. In 4 days they do 20/36, leaving 16/36 = 4/9. B alone needs (4/9) ÷ (1/18) = 8 days.",
+    "th": "ต่อวัน ช่างเอทาได้ 1/12 ช่างบีทาได้ 1/18 ของรั้ว รวม 5/36 ช่วยกัน 4 วันได้ 20/36 เหลือ 16/36 = 4/9 ช่างบีทาคนเดียวต้องใช้ (4/9) ÷ (1/18) = 8 วัน"
+   },
+   "choices": [
     "8",
-    "64"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "Cubes with exactly two red faces lie along the 12 edges but not at the corners: each edge has 6 − 2 = 4 such cubes, so 12 × 4 = 48. (96 have one red face, 64 have none, 8 corners have three.)",
-    "th": "ลูกบาศก์เล็กที่มีสีสองด้านอยู่ตามขอบ 12 เส้น ยกเว้นที่มุม ขอบละ 6 − 2 = 4 ลูก รวม 12 × 4 = 48 ลูก (สีด้านเดียวมี 96 ลูก ไม่มีสีเลย 64 ลูก และที่มุมมีสีสามด้าน 8 ลูก)"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "math",
-   "difficulty": "h",
-   "passage": "",
-   "table": null,
-   "stem": "จำนวนนับ n ที่น้อยที่สุดซึ่งทำให้ 1260 × n เป็นกำลังสองสมบูรณ์ คือจำนวนใด",
-   "choices": [
-    "35",
-    "70",
-    "7",
-    "5"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "1260 = 2² × 3² × 5 × 7. For a perfect square every prime needs an even power, so we must multiply by 5 × 7 = 35. Then 1260 × 35 = 44,100 = 210².",
-    "th": "1260 = 2² × 3² × 5 × 7 กำลังสองสมบูรณ์ต้องมีเลขชี้กำลังของจำนวนเฉพาะทุกตัวเป็นจำนวนคู่ จึงต้องคูณด้วย 5 × 7 = 35 ได้ 1260 × 35 = 44,100 = 210²"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "math",
-   "difficulty": "h",
-   "passage": "",
-   "table": null,
-   "stem": "คนงาน 6 คนก่อกำแพงเสร็จใน 10 วัน (ทุกคนทำงานเร็วเท่ากัน) ทำไปได้ 4 วัน มีคนงานเพิ่มมาอีก 3 คน งานนี้จะเสร็จภายในกี่วันนับจากวันเริ่มงาน",
-   "choices": [
-    "8",
-    "7",
-    "6 2/3",
-    "9"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "The job is 6 × 10 = 60 worker-days. After 4 days, 6 × 4 = 24 are done, leaving 36. Nine workers finish 36 in 36 ÷ 9 = 4 days. Total = 4 + 4 = 8 days.",
-    "th": "งานทั้งหมด = 6 × 10 = 60 คน-วัน ทำไป 4 วันได้ 6 × 4 = 24 คน-วัน เหลือ 36 คน-วัน คนงาน 9 คนใช้ 36 ÷ 9 = 4 วัน รวมทั้งหมด 4 + 4 = 8 วัน"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "math",
-   "difficulty": "h",
-   "passage": "",
-   "table": null,
-   "stem": "ถนนในเมืองหนึ่งตัดกันเป็นตาราง จากสี่แยก A ต้องการเดินไปสี่แยก B ซึ่งอยู่ไปทางตะวันออก 4 ช่วงตึก และทางเหนือ 3 ช่วงตึก โดยเดินไปทางตะวันออกหรือทางเหนือเท่านั้น ถ้าสี่แยก P ซึ่งอยู่ทางตะวันออกของ A 2 ช่วงตึกและทางเหนือ 1 ช่วงตึกปิดซ่อม จะมีเส้นทางเดินทั้งหมดกี่เส้นทาง",
-   "choices": [
-    "18",
-    "12",
-    "35",
-    "17"
-   ],
-   "answer": 3,
-   "explanation": {
-    "en": "Without the closure: choose which 3 of the 7 moves go north, C(7,3) = 35. Routes through P: A to P is C(3,1) = 3 and P to B is C(4,2) = 6, so 18. Routes avoiding P = 35 − 18 = 17.",
-    "th": "ถ้าไม่มีการปิด: เลือกว่าใน 7 ก้าวจะเดินขึ้นเหนือ 3 ก้าว ได้ 35 เส้นทาง เส้นทางที่ผ่าน P: A ไป P มี 3 แบบ P ไป B มี 6 แบบ รวม 18 เส้นทาง จึงเหลือเส้นทางที่ไม่ผ่าน P = 35 − 18 = 17 เส้นทาง"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "math",
-   "difficulty": "h",
-   "passage": "",
-   "table": null,
-   "stem": "จำนวนสามหลักที่หารด้วย 7 เหลือเศษ 3 และหารด้วย 11 เหลือเศษ 5 มีทั้งหมดกี่จำนวน",
-   "choices": [
-    "11",
-    "13",
-    "9",
+    "10",
+    "6",
     "12"
    ],
-   "answer": 3,
-   "explanation": {
-    "en": "The smallest such three-digit number is 115 (115 = 7×16 + 3 = 11×10 + 5). The next ones come every LCM(7, 11) = 77: 115, 192, …, 115 + 77 × 11 = 962. 115 + 77 × 12 = 1,039 is too big, so there are 12.",
-    "th": "จำนวนสามหลักที่น้อยที่สุดคือ 115 (115 = 7×16 + 3 = 11×10 + 5) จำนวนถัดไปห่างกันทุก ค.ร.น.(7, 11) = 77 คือ 115, 192, …, 115 + 77 × 11 = 962 ส่วน 115 + 77 × 12 = 1,039 เกินสามหลัก จึงมีทั้งหมด 12 จำนวน"
-   }
+   "answer": 0
   },
   {
    "kind": "m1",
    "program": "gate",
-   "subject": "sci",
-   "difficulty": "e",
-   "passage": "",
-   "table": null,
-   "stem": "ส่วนใดของเซลล์ทำหน้าที่ควบคุมการทำงานของเซลล์และเก็บสารพันธุกรรม",
-   "choices": [
-    "แวคิวโอล",
-    "นิวเคลียส",
-    "เยื่อหุ้มเซลล์",
-    "ไซโทพลาซึม"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "The nucleus contains the genetic material (DNA) and controls the cell's activities. The cell membrane controls what enters and leaves; the cytoplasm and vacuole do not control the cell.",
-    "th": "นิวเคลียสเก็บสารพันธุกรรม (DNA) และควบคุมการทำงานของเซลล์ เยื่อหุ้มเซลล์ควบคุมการเข้าออกของสาร ส่วนไซโทพลาซึมและแวคิวโอลไม่ได้ทำหน้าที่ควบคุมเซลล์"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "sci",
-   "difficulty": "e",
-   "passage": "",
-   "table": null,
-   "stem": "เครื่องมือใดใช้วัดความชื้นในอากาศ",
-   "choices": [
-    "ไฮโกรมิเตอร์",
-    "แอนนิโมมิเตอร์",
-    "บารอมิเตอร์",
-    "เทอร์โมมิเตอร์"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "A hygrometer measures humidity. A barometer measures air pressure, an anemometer measures wind speed and a thermometer measures temperature.",
-    "th": "ไฮโกรมิเตอร์ใช้วัดความชื้นในอากาศ บารอมิเตอร์วัดความกดอากาศ แอนนิโมมิเตอร์วัดอัตราเร็วลม และเทอร์โมมิเตอร์วัดอุณหภูมิ"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "sci",
-   "difficulty": "m",
-   "passage": "",
-   "table": null,
-   "stem": "นำก้านขึ้นฉ่ายแช่ในน้ำผสมสีผสมอาหารสีแดงทิ้งไว้ 1 วัน เมื่อตัดก้านตามขวางพบจุดสีแดงเป็นวง ๆ จุดสีแดงนั้นคือเนื้อเยื่อใด และทำหน้าที่อะไร",
-   "choices": [
-    "ปากใบ คายน้ำออกจากต้น",
-    "โฟลเอ็ม ลำเลียงอาหารจากใบไปส่วนต่าง ๆ",
-    "โฟลเอ็ม ลำเลียงน้ำและแร่ธาตุจากรากขึ้นสู่ใบ",
-    "ไซเล็ม ลำเลียงน้ำและแร่ธาตุจากรากขึ้นสู่ลำต้นและใบ"
-   ],
-   "answer": 3,
-   "explanation": {
-    "en": "The red dye travels with the water, and water moves up through the xylem. Phloem carries food made in the leaves; stomata are on the leaves, not in the stem's cross-section.",
-    "th": "สีแดงเคลื่อนที่ไปพร้อมกับน้ำ และน้ำลำเลียงขึ้นทางไซเล็ม จุดสีแดงจึงเป็นไซเล็ม ส่วนโฟลเอ็มลำเลียงอาหารที่สร้างจากใบ และปากใบอยู่ที่ใบ ไม่ใช่ในลำต้น"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "sci",
-   "difficulty": "m",
-   "passage": "",
-   "table": null,
-   "stem": "เมื่อเคี้ยวข้าวสวยในปากนาน ๆ จะรู้สึกว่ามีรสหวานขึ้น เพราะเหตุใด",
-   "choices": [
-    "น้ำลายมีน้ำตาลผสมอยู่",
-    "เอนไซม์ในน้ำลายย่อยโปรตีนในข้าวให้เป็นน้ำตาล",
-    "ฟันบดข้าวจนกลายเป็นน้ำตาลโดยไม่ต้องใช้เอนไซม์",
-    "เอนไซม์ในน้ำลายย่อยแป้งให้เป็นน้ำตาล"
-   ],
-   "answer": 3,
-   "explanation": {
-    "en": "Saliva contains the enzyme amylase, which breaks starch in rice into sugar (maltose), so it tastes sweet. Chewing only breaks food into smaller pieces; the change to sugar is chemical digestion.",
-    "th": "น้ำลายมีเอนไซม์อะไมเลส ซึ่งย่อยแป้งในข้าวให้เป็นน้ำตาล (มอลโทส) จึงรู้สึกหวาน การบดเคี้ยวเป็นเพียงการทำให้อาหารชิ้นเล็กลง ส่วนการเปลี่ยนแป้งเป็นน้ำตาลเป็นการย่อยทางเคมีด้วยเอนไซม์"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "sci",
-   "difficulty": "m",
-   "passage": "",
-   "table": null,
-   "stem": "วิธีที่เหมาะสมที่สุดในการแยกเอทานอลออกจากสารละลายเอทานอลในน้ำคือข้อใด",
-   "choices": [
-    "การกลั่น โดยอาศัยจุดเดือดที่ต่างกัน",
-    "การกรอง โดยอาศัยขนาดอนุภาคที่ต่างกัน",
-    "การใช้กรวยแยก โดยอาศัยการไม่ละลายกัน",
-    "การตกตะกอน โดยอาศัยความหนาแน่นที่ต่างกัน"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "Ethanol and water mix completely, so filtering, a separating funnel or settling cannot separate them. Ethanol boils at about 78 °C and water at 100 °C, so distillation separates them.",
-    "th": "เอทานอลกับน้ำละลายเข้ากันได้หมด จึงแยกด้วยการกรอง กรวยแยก หรือการตกตะกอนไม่ได้ แต่เอทานอลเดือดที่ประมาณ 78 °C ส่วนน้ำเดือดที่ 100 °C จึงแยกได้ด้วยการกลั่น"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "sci",
-   "difficulty": "m",
-   "passage": "",
-   "table": null,
-   "stem": "ตะโกนหน้าหน้าผาแล้วได้ยินเสียงสะท้อนกลับมาหลังจากตะโกน 4 วินาที ถ้าอัตราเร็วเสียงในอากาศเท่ากับ 340 เมตรต่อวินาที หน้าผาอยู่ห่างออกไปกี่เมตร",
-   "choices": [
-    "1360",
-    "340",
-    "680",
-    "85"
-   ],
-   "answer": 2,
-   "explanation": {
-    "en": "In 4 s the sound goes to the cliff and back: 340 × 4 = 1,360 m in total. The cliff is half of that, 680 m away.",
-    "th": "ใน 4 วินาที เสียงเดินทางไปถึงหน้าผาแล้วสะท้อนกลับ รวม 340 × 4 = 1,360 เมตร หน้าผาจึงอยู่ห่างครึ่งหนึ่ง คือ 680 เมตร"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "sci",
-   "difficulty": "m",
-   "passage": "",
-   "table": null,
-   "stem": "จันทรุปราคาเกิดขึ้นเมื่อใด",
-   "choices": [
-    "ดวงจันทร์อยู่ระหว่างดวงอาทิตย์กับโลก ซึ่งตรงกับวันแรม 15 ค่ำ",
-    "โลกอยู่ระหว่างดวงอาทิตย์กับดวงจันทร์ในแนวเส้นตรง ซึ่งตรงกับคืนดวงจันทร์เต็มดวง",
-    "ดวงจันทร์อยู่ระหว่างดวงอาทิตย์กับโลก ซึ่งตรงกับวันดวงจันทร์เต็มดวง",
-    "โลกอยู่ระหว่างดวงอาทิตย์กับดวงจันทร์ ซึ่งตรงกับวันขึ้น 8 ค่ำ"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "A lunar eclipse happens when Earth lies between the Sun and Moon in a line, so Earth's shadow falls on the Moon. That arrangement only occurs at full moon. The Moon between the Sun and Earth (new moon) gives a solar eclipse.",
-    "th": "จันทรุปราคาเกิดเมื่อโลกอยู่ระหว่างดวงอาทิตย์กับดวงจันทร์ในแนวเส้นตรง เงาของโลกจึงทอดไปบังดวงจันทร์ ตำแหน่งนี้ตรงกับคืนดวงจันทร์เต็มดวงเท่านั้น ถ้าดวงจันทร์อยู่ระหว่างดวงอาทิตย์กับโลก (ข้างแรม 15 ค่ำ) จะเกิดสุริยุปราคา"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "sci",
-   "difficulty": "m",
-   "passage": "",
-   "table": null,
-   "stem": "โซ่อาหาร พืช → หนอน → นก → เหยี่ยว ถ้าพืชได้รับพลังงาน 10,000 กิโลจูล และพลังงานถ่ายทอดไปยังลำดับถัดไปได้ประมาณ 10% เหยี่ยวจะได้รับพลังงานประมาณกี่กิโลจูล",
-   "choices": [
-    "1000",
-    "10",
-    "100",
-    "1"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "About 10% passes on at each step: plants 10,000 → caterpillars 1,000 → birds 100 → hawks 10 kJ.",
-    "th": "พลังงานถ่ายทอดได้ประมาณ 10% ต่อลำดับ: พืช 10,000 → หนอน 1,000 → นก 100 → เหยี่ยว 10 กิโลจูล"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "sci",
+   "subject": "math",
+   "format": "mcq",
    "difficulty": "h",
+   "skill": {
+    "en": "Rates with filling and draining",
+    "th": "อัตราการเติมและการระบาย"
+   },
+   "topic": {
+    "en": "Work and rates",
+    "th": "งานและอัตราการทำงาน"
+   },
    "passage": "",
    "table": null,
-   "stem": "ต่อตัวต้านทาน 4 โอห์ม และ 6 โอห์ม แบบอนุกรมกับแบตเตอรี่ 12 โวลต์ ความต่างศักย์คร่อมตัวต้านทาน 6 โอห์มเท่ากับกี่โวลต์",
+   "lang": "th",
+   "stem": "ถังน้ำใบหนึ่งมีท่อ ก เติมน้ำเต็มถังได้ใน 6 ชั่วโมง ท่อ ข เติมเต็มได้ใน 8 ชั่วโมง และท่อ ค ระบายน้ำเต็มถังออกหมดใน 12 ชั่วโมง ถ้าเปิดทั้งสามท่อพร้อมกันขณะถังว่าง จะใช้เวลาเท่าใดน้ำจึงเต็มถัง",
+   "explanation": {
+    "en": "Per hour the tank gains 1/6 + 1/8 − 1/12 = (4 + 3 − 2)/24 = 5/24. Filling takes 24/5 h = 4.8 h = 4 hours 48 minutes. Adding the drain instead of subtracting gives 2 h 40 min.",
+    "th": "ใน 1 ชั่วโมงน้ำเพิ่ม 1/6 + 1/8 − 1/12 = (4 + 3 − 2)/24 = 5/24 ถัง จึงใช้เวลา 24/5 = 4.8 ชั่วโมง = 4 ชั่วโมง 48 นาที ถ้าบวกท่อระบายแทนการลบจะได้ 2 ชั่วโมง 40 นาที ซึ่งผิด"
+   },
+   "choices": [
+    "2 ชั่วโมง 40 นาที",
+    "3 ชั่วโมง 26 นาที",
+    "4 ชั่วโมง 48 นาที",
+    "5 ชั่วโมง 20 นาที"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Finding the general term of a sequence",
+    "th": "การหาพจน์ทั่วไปของลำดับ"
+   },
+   "topic": {
+    "en": "Patterns and sequences",
+    "th": "แบบรูปและลำดับ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ลำดับ 2, 5, 10, 17, 26, … พจน์ที่ 50 คือจำนวนใด",
+   "explanation": {
+    "en": "The differences are 3, 5, 7, 9, …, and each term is one more than a square: 1² + 1, 2² + 1, 3² + 1, … So the 50th term is 50² + 1 = 2501.",
+    "th": "ผลต่างคือ 3, 5, 7, 9, … และแต่ละพจน์เท่ากับกำลังสองบวก 1: 1² + 1, 2² + 1, 3² + 1, … พจน์ที่ 50 จึงเป็น 50² + 1 = 2501"
+   },
+   "choices": [
+    "2500",
+    "2551",
+    "2501",
+    "2401"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Counting pairings in a tournament",
+    "th": "การนับคู่การแข่งขัน"
+   },
+   "topic": {
+    "en": "Counting and probability",
+    "th": "การนับและความน่าจะเป็น"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ในการแข่งขันฟุตบอลลีกหนึ่ง ทุกทีมต้องพบกับทุกทีมอื่นทีมละ 2 นัด (เหย้าและเยือน) ถ้ามีการแข่งขันทั้งหมด 90 นัด ลีกนี้มีกี่ทีม",
+   "explanation": {
+    "en": "With n teams there are n(n − 1)/2 pairs, and each pair plays twice, so there are n(n − 1) matches. n(n − 1) = 90 = 10 × 9, so n = 10.",
+    "th": "ถ้ามี n ทีม จะมีคู่ทีม n(n − 1)/2 คู่ แต่ละคู่แข่ง 2 นัด จึงมี n(n − 1) นัด n(n − 1) = 90 = 10 × 9 ได้ n = 10 ทีม"
+   },
+   "choices": [
+    "9",
+    "10",
+    "12",
+    "15"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Probability with two dice",
+    "th": "ความน่าจะเป็นของการทอดลูกเต๋าสองลูก"
+   },
+   "topic": {
+    "en": "Counting and probability",
+    "th": "การนับและความน่าจะเป็น"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ทอดลูกเต๋าที่เที่ยงตรง 2 ลูกพร้อมกัน ความน่าจะเป็นที่ผลรวมของแต้มเท่ากับ 8 คือเท่าใด",
+   "explanation": {
+    "en": "There are 6 × 6 = 36 equally likely outcomes. A sum of 8 comes from (2,6), (3,5), (4,4), (5,3), (6,2): 5 outcomes, so the probability is 5/36.",
+    "th": "ผลลัพธ์ที่เป็นไปได้เท่า ๆ กันมี 6 × 6 = 36 แบบ ผลรวม 8 ได้จาก (2,6), (3,5), (4,4), (5,3), (6,2) รวม 5 แบบ ความน่าจะเป็นจึงเท่ากับ 5/36"
+   },
+   "choices": [
+    "1/6",
+    "5/36",
+    "7/36",
+    "1/9"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Probability without replacement",
+    "th": "ความน่าจะเป็นแบบหยิบไม่ใส่คืน"
+   },
+   "topic": {
+    "en": "Counting and probability",
+    "th": "การนับและความน่าจะเป็น"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ในถุงมีลูกบอลสีแดง 3 ลูก และสีน้ำเงิน 2 ลูก หยิบลูกบอลออกมา 2 ลูกพร้อมกัน ความน่าจะเป็นที่ได้ลูกบอลสีเดียวกันคือเท่าใด",
+   "explanation": {
+    "en": "There are C(5,2) = 10 equally likely pairs. Two reds: C(3,2) = 3 pairs; two blues: 1 pair. So the probability is 4/10 = 2/5. (13/25 would be the answer if the first ball were put back.)",
+    "th": "เลือก 2 ลูกจาก 5 ลูกได้ 10 แบบ ได้แดงทั้งคู่ 3 แบบ น้ำเงินทั้งคู่ 1 แบบ ความน่าจะเป็น = 4/10 = 2/5 (13/25 เป็นคำตอบเมื่อหยิบแล้วใส่คืน ซึ่งไม่ใช่กรณีนี้)"
+   },
+   "choices": [
+    "13/25",
+    "3/10",
+    "2/5",
+    "3/5"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Counting with restrictions (casework)",
+    "th": "การนับที่มีเงื่อนไข (แยกกรณี)"
+   },
+   "topic": {
+    "en": "Counting and probability",
+    "th": "การนับและความน่าจะเป็น"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ใช้เลขโดด 0, 1, 2, 3, 4 สร้างจำนวนคู่สามหลักที่มีเลขโดดไม่ซ้ำกันเลย ได้ทั้งหมดกี่จำนวน",
+   "explanation": {
+    "en": "Split by the last digit. Last digit 0: hundreds 4 ways, tens 3 ways = 12. Last digit 2 or 4: hundreds cannot be 0 or the last digit, 3 ways, tens 3 ways = 9 each, 18 together. Total 12 + 18 = 30.",
+    "th": "แยกกรณีตามหลักหน่วย หลักหน่วยเป็น 0: หลักร้อยเลือกได้ 4 แบบ หลักสิบ 3 แบบ = 12 จำนวน หลักหน่วยเป็น 2 หรือ 4: หลักร้อยห้ามเป็น 0 และห้ามซ้ำหลักหน่วย เหลือ 3 แบบ หลักสิบ 3 แบบ = 9 จำนวนต่อกรณี รวม 18 จำนวน ทั้งหมด 12 + 18 = 30 จำนวน"
+   },
+   "choices": [
+    "36",
+    "30",
+    "24",
+    "48"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Deduction from true/false statements",
+    "th": "การอนุมานจากข้อความจริงเท็จ"
+   },
+   "topic": {
+    "en": "Logical reasoning",
+    "th": "การให้เหตุผลเชิงตรรกะ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "แจกันในห้องเรียนแตก ครูรู้ว่ามีนักเรียนคนเดียวในสามคนนี้ทำแตก จึงถาม\nกาย: \"บีมเป็นคนทำ\"\nบีม: \"ผมไม่ได้ทำ\"\nเจ: \"ผมไม่ได้ทำ\"\nถ้ามีเพียงคนเดียวที่พูดความจริง ใครทำแจกันแตก",
+   "explanation": {
+    "en": "Test each case. If Guy did it, Beam and J both tell the truth (2 truths). If Beam did it, Guy and J tell the truth (2). If J did it, only Beam's statement is true (1). So J broke the vase.",
+    "th": "ลองทีละกรณี ถ้ากายทำ บีมและเจพูดจริง 2 คน ถ้าบีมทำ กายและเจพูดจริง 2 คน ถ้าเจทำ มีเพียงบีมที่พูดจริงคนเดียว ตรงเงื่อนไข ดังนั้นเจเป็นคนทำแจกันแตก"
+   },
+   "choices": [
+    "เจ",
+    "กาย",
+    "บีม",
+    "สรุปไม่ได้จากข้อมูลนี้"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Ordering with constraints",
+    "th": "การจัดลำดับตามเงื่อนไข"
+   },
+   "topic": {
+    "en": "Logical reasoning",
+    "th": "การให้เหตุผลเชิงตรรกะ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "นักวิ่ง 5 คน คือ ป๊อป ขวัญ แรม ส้ม และต้า เข้าเส้นชัยไม่พร้อมกันเลย ทราบว่า\n1) ป๊อปเข้าเส้นชัยหลังแรม แต่ก่อนขวัญ\n2) ส้มเข้าเส้นชัยถัดจากขวัญทันที\n3) ต้าไม่ได้เข้าเส้นชัยเป็นคนแรกและไม่ใช่คนสุดท้าย\nข้อใดสรุปได้แน่นอน",
+   "explanation": {
+    "en": "Ram must be first (Pop, Khwan and Som all come after someone, and Ta cannot be first). Khwan–Som are consecutive and after Pop, and Ta cannot be last, so the only orders are Ram, Ta, Pop, Khwan, Som or Ram, Pop, Ta, Khwan, Som. Som is last in both; Ta and Pop could each be 2nd or 3rd, and Khwan is always 4th.",
+    "th": "แรมต้องเข้าเป็นคนแรก (ป๊อป ขวัญ ส้ม ต่างเข้าหลังคนอื่น และต้าห้ามเป็นคนแรก) ขวัญกับส้มเข้าติดกันและอยู่หลังป๊อป ต้าห้ามเป็นคนสุดท้าย จึงเป็นไปได้เพียง แรม ต้า ป๊อป ขวัญ ส้ม หรือ แรม ป๊อป ต้า ขวัญ ส้ม ทั้งสองแบบส้มเป็นคนสุดท้ายแน่นอน ส่วนต้าและป๊อปอาจเป็นที่ 2 หรือ 3 และขวัญเป็นที่ 4 เสมอ"
+   },
+   "choices": [
+    "ส้มเข้าเส้นชัยเป็นคนสุดท้าย",
+    "ต้าเข้าเส้นชัยเป็นอันดับ 2",
+    "ป๊อปเข้าเส้นชัยเป็นอันดับ 3",
+    "ขวัญเข้าเส้นชัยเป็นอันดับ 3"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Angles and diagonals of polygons",
+    "th": "มุมและเส้นทแยงมุมของรูปหลายเหลี่ยม"
+   },
+   "topic": {
+    "en": "Plane geometry",
+    "th": "เรขาคณิตระนาบ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "รูปหลายเหลี่ยมด้านเท่ามุมเท่ารูปหนึ่งมีมุมภายนอกแต่ละมุมขนาด 24° รูปหลายเหลี่ยมนี้มีเส้นทแยงมุมทั้งหมดกี่เส้น",
+   "explanation": {
+    "en": "Exterior angles add up to 360°, so there are 360 ÷ 24 = 15 sides. From each vertex you can draw 15 − 3 = 12 diagonals, and each diagonal is counted twice: 15 × 12 ÷ 2 = 90. (105 counts all segments, including the 15 sides.)",
+    "th": "ผลรวมมุมภายนอกเท่ากับ 360° จึงมี 360 ÷ 24 = 15 ด้าน แต่ละจุดยอดลากเส้นทแยงมุมได้ 15 − 3 = 12 เส้น และแต่ละเส้นถูกนับซ้ำ 2 ครั้ง ได้ 15 × 12 ÷ 2 = 90 เส้น (105 คือนับรวมด้านทั้ง 15 ด้านด้วย)"
+   },
+   "choices": [
+    "90",
+    "105",
+    "180",
+    "75"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Area of composite shapes",
+    "th": "พื้นที่รูปประกอบ"
+   },
+   "topic": {
+    "en": "Plane geometry",
+    "th": "เรขาคณิตระนาบ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "รูปสี่เหลี่ยมจัตุรัสยาวด้านละ 10 ซม. วาดส่วนโค้งหนึ่งในสี่ของวงกลมรัศมี 10 ซม. โดยมีจุดศูนย์กลางที่มุมหนึ่งของสี่เหลี่ยม ส่วนโค้งเชื่อมมุมที่อยู่ติดกันสองมุม พื้นที่ส่วนของสี่เหลี่ยมที่อยู่นอกส่วนโค้งเป็นกี่ตารางเซนติเมตร (ใช้ π ≈ 3.14)",
+   "explanation": {
+    "en": "The square has area 10 × 10 = 100 cm². The quarter circle inside it has area ¼ × 3.14 × 10² = 78.5 cm². The part outside the arc is 100 − 78.5 = 21.5 cm².",
+    "th": "พื้นที่สี่เหลี่ยมจัตุรัส 10 × 10 = 100 ตร.ซม. พื้นที่หนึ่งในสี่วงกลม ¼ × 3.14 × 10² = 78.5 ตร.ซม. ส่วนที่อยู่นอกส่วนโค้งคือ 100 − 78.5 = 21.5 ตร.ซม."
+   },
+   "choices": [
+    "78.5",
+    "31.4",
+    "50",
+    "21.5"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Using two expressions for one area",
+    "th": "การใช้พื้นที่เดียวกันคิดได้สองแบบ"
+   },
+   "topic": {
+    "en": "Plane geometry",
+    "th": "เรขาคณิตระนาบ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "สามเหลี่ยมมุมฉากรูปหนึ่งมีด้านประกอบมุมฉากยาว 6 ซม. และ 8 ซม. ด้านตรงข้ามมุมฉากยาว 10 ซม. ส่วนสูงที่ลากจากจุดยอดมุมฉากมาตั้งฉากกับด้านตรงข้ามมุมฉากยาวกี่เซนติเมตร",
+   "explanation": {
+    "en": "Area using the two legs: ½ × 6 × 8 = 24 cm². Using the hypotenuse as base: ½ × 10 × h = 24, so h = 4.8 cm.",
+    "th": "พื้นที่จากด้านประกอบมุมฉาก ½ × 6 × 8 = 24 ตร.ซม. ถ้าใช้ด้านตรงข้ามมุมฉากเป็นฐาน ½ × 10 × h = 24 ได้ h = 4.8 ซม."
+   },
    "choices": [
     "4.8",
-    "6",
-    "7.2",
-    "12"
+    "5",
+    "4",
+    "7"
    ],
-   "answer": 2,
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Visualising a painted cube",
+    "th": "การนึกภาพลูกบาศก์ทาสี"
+   },
+   "topic": {
+    "en": "Solids and volume",
+    "th": "ทรงสามมิติและปริมาตร"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "นำลูกบาศก์ขนาด 5 × 5 × 5 ซม. ไปทาสีทุกด้าน แล้วตัดเป็นลูกบาศก์เล็กขนาด 1 × 1 × 1 ซม. ทั้งหมด 125 ลูก ลูกบาศก์เล็กที่มีสีเพียงด้านเดียวมีกี่ลูก",
    "explanation": {
-    "en": "Series resistance = 4 + 6 = 10 Ω, so the current is 12 ÷ 10 = 1.2 A everywhere. Voltage across 6 Ω = 1.2 × 6 = 7.2 V (and 4.8 V across 4 Ω; together 12 V).",
-    "th": "ความต้านทานรวมแบบอนุกรม = 4 + 6 = 10 โอห์ม กระแส = 12 ÷ 10 = 1.2 แอมแปร์ เท่ากันทุกจุด ความต่างศักย์คร่อม 6 โอห์ม = 1.2 × 6 = 7.2 โวลต์ (คร่อม 4 โอห์ม = 4.8 โวลต์ รวมกันได้ 12 โวลต์)"
+    "en": "A small cube with exactly one painted face lies in the middle of a big face, not on an edge. Each face has a 3 × 3 = 9 such cubes, and there are 6 faces: 6 × 9 = 54. (36 is the number with exactly two painted faces; 27 are unpainted.)",
+    "th": "ลูกบาศก์เล็กที่มีสีด้านเดียวอยู่ตรงกลางหน้าของลูกบาศก์ใหญ่ ไม่อยู่บนขอบ แต่ละหน้ามี 3 × 3 = 9 ลูก มี 6 หน้า จึงได้ 6 × 9 = 54 ลูก (36 คือจำนวนที่มีสีสองด้าน และ 27 คือไม่มีสีเลย)"
+   },
+   "choices": [
+    "36",
+    "27",
+    "150",
+    "54"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Solving linear equations with brackets",
+    "th": "การแก้สมการที่มีวงเล็บ"
+   },
+   "topic": {
+    "en": "Algebra and equations",
+    "th": "พีชคณิตและสมการ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ถ้า 3(x − 2) − 2(x + 1) = 7 แล้ว x มีค่าเท่าใด",
+   "explanation": {
+    "en": "Expand carefully: 3x − 6 − 2x − 2 = 7, so x − 8 = 7 and x = 15. A common slip is −2 × (+1) = +2, which gives 11.",
+    "th": "กระจายวงเล็บ: 3x − 6 − 2x − 2 = 7 ได้ x − 8 = 7 จึง x = 15 ข้อผิดพลาดที่พบบ่อยคือคิด −2 × (+1) เป็น +2 ซึ่งจะได้ 11"
+   },
+   "choices": [
+    "15",
+    "11",
+    "14",
+    "5"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Setting up equations from a word problem",
+    "th": "การสร้างสมการจากโจทย์ปัญหา"
+   },
+   "topic": {
+    "en": "Algebra and equations",
+    "th": "พีชคณิตและสมการ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ร้านให้เช่าจักรยานมีจักรยานสองล้อและสามล้อรวม 40 คัน นับล้อได้ทั้งหมด 97 ล้อ มีจักรยานสามล้อกี่คัน",
+   "explanation": {
+    "en": "If all 40 were bicycles there would be 80 wheels. Each tricycle adds one extra wheel, and there are 97 − 80 = 17 extra wheels, so there are 17 tricycles (and 23 bicycles: 46 + 51 = 97).",
+    "th": "ถ้าเป็นสองล้อทั้งหมด 40 คันจะมี 80 ล้อ สามล้อแต่ละคันเพิ่มล้อ 1 ล้อ ล้อเกินมา 97 − 80 = 17 ล้อ จึงมีสามล้อ 17 คัน (สองล้อ 23 คัน: 46 + 51 = 97)"
+   },
+   "choices": [
+    "23",
+    "17",
+    "13",
+    "20"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Using totals to work with averages",
+    "th": "การใช้ผลรวมคิดค่าเฉลี่ย"
+   },
+   "topic": {
+    "en": "Statistics and averages",
+    "th": "สถิติและค่าเฉลี่ย"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "จำนวน 5 จำนวนมีค่าเฉลี่ย 18 เมื่อตัดจำนวนหนึ่งออก ค่าเฉลี่ยของจำนวนที่เหลือเป็น 16 จำนวนที่ถูกตัดออกคือจำนวนใด",
+   "explanation": {
+    "en": "The five numbers add to 5 × 18 = 90. The remaining four add to 4 × 16 = 64. The removed number is 90 − 64 = 26.",
+    "th": "ผลรวมของ 5 จำนวนคือ 5 × 18 = 90 ผลรวมของ 4 จำนวนที่เหลือคือ 4 × 16 = 64 จำนวนที่ถูกตัดออกคือ 90 − 64 = 26"
+   },
+   "choices": [
+    "2",
+    "26",
+    "18",
+    "20"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "fill",
+   "difficulty": "m",
+   "skill": {
+    "en": "Concentration problems",
+    "th": "โจทย์ความเข้มข้นของสารละลาย"
+   },
+   "topic": {
+    "en": "Fractions, decimals and percent",
+    "th": "เศษส่วน ทศนิยม และร้อยละ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "น้ำเกลือ 300 กรัม มีเกลือละลายอยู่ 12% ของมวลทั้งหมด ต้องทำให้น้ำระเหยออกไปกี่กรัม น้ำเกลือที่เหลือจึงมีเกลือ 20% (เกลือไม่ระเหย)",
+   "accept": [
+    "120"
+   ],
+   "unit": "กรัม",
+   "explanation": {
+    "en": "Salt = 12% of 300 = 36 g and it stays the same. For 36 g to be 20% of the solution, the solution must weigh 36 ÷ 0.20 = 180 g. So 300 − 180 = 120 g of water must evaporate.",
+    "th": "เกลือมี 12% ของ 300 = 36 กรัม ซึ่งไม่เปลี่ยน ถ้า 36 กรัมเป็น 20% ของน้ำเกลือ น้ำเกลือต้องหนัก 36 ÷ 0.20 = 180 กรัม จึงต้องระเหยน้ำออก 300 − 180 = 120 กรัม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "fill",
+   "difficulty": "h",
+   "skill": {
+    "en": "Working backwards with fractions of a remainder",
+    "th": "การคิดย้อนกลับกับเศษส่วนของส่วนที่เหลือ"
+   },
+   "topic": {
+    "en": "Fractions, decimals and percent",
+    "th": "เศษส่วน ทศนิยม และร้อยละ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ฝนใช้เงิน 1/3 ของเงินที่มีซื้อรองเท้า จากนั้นใช้ 1/4 ของเงินที่เหลือซื้ออาหาร แล้วจ่ายค่าหนังสืออีก 150 บาท ปรากฏว่าเหลือเงินเท่ากับ 1/5 ของเงินที่มีตอนแรกพอดี ตอนแรกฝนมีเงินกี่บาท",
+   "accept": [
+    "500"
+   ],
+   "unit": "บาท",
+   "explanation": {
+    "en": "Let the money be x. After the shoes 2x/3 is left; after food, 3/4 of that = x/2 is left. Then x/2 − 150 = x/5, so 3x/10 = 150 and x = 500 baht. Check: 500 × 2/3 × 3/4 = 250, 250 − 150 = 100 = 500/5.",
+    "th": "ให้มีเงิน x บาท หลังซื้อรองเท้าเหลือ 2x/3 หลังซื้ออาหารเหลือ 3/4 ของนั้น = x/2 แล้วจ่าย 150 บาท: x/2 − 150 = x/5 ได้ 3x/10 = 150 จึง x = 500 บาท ตรวจ: 500 × 2/3 × 3/4 = 250, 250 − 150 = 100 = 500/5"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "fill",
+   "difficulty": "h",
+   "skill": {
+    "en": "Generalising a growing pattern",
+    "th": "การหาหลักการของแบบรูปที่เติบโต"
+   },
+   "topic": {
+    "en": "Patterns and sequences",
+    "th": "แบบรูปและลำดับ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "จัดจุดเป็นรูปสามเหลี่ยม รูปที่ 1 มี 1 จุด รูปที่ 2 มี 3 จุด (แถวละ 1 และ 2 จุด) รูปที่ 3 มี 6 จุด (แถวละ 1, 2 และ 3 จุด) และเพิ่มเช่นนี้ไปเรื่อย ๆ รูปที่เท่าใดเป็นรูปแรกที่มีจุดมากกว่า 500 จุด",
+   "accept": [
+    "32"
+   ],
+   "unit": "",
+   "explanation": {
+    "en": "Figure n has 1 + 2 + … + n = n(n + 1)/2 dots. Figure 31 has 31 × 32 ÷ 2 = 496 dots (not enough), and figure 32 has 32 × 33 ÷ 2 = 528 dots. So the answer is figure 32.",
+    "th": "รูปที่ n มีจุด 1 + 2 + … + n = n(n + 1)/2 จุด รูปที่ 31 มี 31 × 32 ÷ 2 = 496 จุด ยังไม่ถึง รูปที่ 32 มี 32 × 33 ÷ 2 = 528 จุด จึงเป็นรูปที่ 32"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "fill",
+   "difficulty": "h",
+   "skill": {
+    "en": "Counting digits in a list of numbers",
+    "th": "การนับจำนวนเลขโดดในการเขียนจำนวน"
+   },
+   "topic": {
+    "en": "Patterns and sequences",
+    "th": "แบบรูปและลำดับ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ถ้าเขียนจำนวนนับตั้งแต่ 1 ถึง 200 เรียงติดกันเป็นแถวยาว (123456789101112…200) จะต้องเขียนเลขโดดทั้งหมดกี่ตัว",
+   "accept": [
+    "492"
+   ],
+   "unit": "ตัว",
+   "explanation": {
+    "en": "1–9: 9 numbers × 1 digit = 9. 10–99: 90 numbers × 2 digits = 180. 100–200: 101 numbers × 3 digits = 303. Total 9 + 180 + 303 = 492 digits.",
+    "th": "1–9 มี 9 จำนวน × 1 หลัก = 9 ตัว, 10–99 มี 90 จำนวน × 2 หลัก = 180 ตัว, 100–200 มี 101 จำนวน × 3 หลัก = 303 ตัว รวม 9 + 180 + 303 = 492 ตัว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "fill",
+   "difficulty": "h",
+   "skill": {
+    "en": "Systematic counting of shapes",
+    "th": "การนับรูปอย่างเป็นระบบ"
+   },
+   "topic": {
+    "en": "Counting and probability",
+    "th": "การนับและความน่าจะเป็น"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ตารางสี่เหลี่ยมขนาด 3 แถว × 4 หลัก ประกอบด้วยช่องสี่เหลี่ยมจัตุรัสเล็ก 12 ช่อง ในตารางนี้มีรูปสี่เหลี่ยมผืนผ้า (รวมรูปสี่เหลี่ยมจัตุรัสทุกขนาด) ทั้งหมดกี่รูป",
+   "accept": [
+    "60"
+   ],
+   "unit": "รูป",
+   "explanation": {
+    "en": "A rectangle is fixed by choosing 2 of the 4 horizontal lines and 2 of the 5 vertical lines: C(4,2) × C(5,2) = 6 × 10 = 60 rectangles.",
+    "th": "สี่เหลี่ยมผืนผ้าแต่ละรูปกำหนดได้จากการเลือกเส้นแนวนอน 2 เส้นจาก 4 เส้น และเส้นแนวตั้ง 2 เส้นจาก 5 เส้น: 6 × 10 = 60 รูป"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "fill",
+   "difficulty": "h",
+   "skill": {
+    "en": "Area by subtracting triangles",
+    "th": "การหาพื้นที่โดยการหักสามเหลี่ยมออก"
+   },
+   "topic": {
+    "en": "Plane geometry",
+    "th": "เรขาคณิตระนาบ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "สี่เหลี่ยมผืนผ้า ABCD มี AB = 12 ซม. และ BC = 8 ซม. จุด E เป็นจุดกึ่งกลางของด้าน BC และจุด F เป็นจุดกึ่งกลางของด้าน CD สามเหลี่ยม AEF มีพื้นที่กี่ตารางเซนติเมตร",
+   "accept": [
+    "36"
+   ],
+   "unit": "ตร.ซม.",
+   "explanation": {
+    "en": "Rectangle = 12 × 8 = 96. Remove the three corner triangles: ABE = ½ × 12 × 4 = 24, ECF = ½ × 4 × 6 = 12, ADF = ½ × 8 × 6 = 24. Triangle AEF = 96 − 24 − 12 − 24 = 36 cm².",
+    "th": "พื้นที่สี่เหลี่ยม 12 × 8 = 96 ตร.ซม. หักสามเหลี่ยมมุม 3 รูป: ABE = ½ × 12 × 4 = 24, ECF = ½ × 4 × 6 = 12, ADF = ½ × 8 × 6 = 24 เหลือพื้นที่สามเหลี่ยม AEF = 96 − 24 − 12 − 24 = 36 ตร.ซม."
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "fill",
+   "difficulty": "m",
+   "skill": {
+    "en": "Volume by displacement",
+    "th": "การหาปริมาตรจากการแทนที่น้ำ"
+   },
+   "topic": {
+    "en": "Solids and volume",
+    "th": "ทรงสามมิติและปริมาตร"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ตู้ปลาทรงสี่เหลี่ยมมุมฉาก ภายในกว้าง 30 ซม. ยาว 40 ซม. สูง 50 ซม. มีน้ำสูง 20 ซม. เมื่อหย่อนก้อนหินลงไปจนจมมิด ระดับน้ำสูงขึ้นเป็น 26 ซม. ก้อนหินมีปริมาตรกี่ลูกบาศก์เซนติเมตร",
+   "accept": [
+    "7200",
+    "7,200"
+   ],
+   "unit": "ลบ.ซม.",
+   "explanation": {
+    "en": "The stone pushes the water up by 26 − 20 = 6 cm over the whole base, so its volume equals 40 × 30 × 6 = 7,200 cm³. The tank's height (50 cm) is not needed.",
+    "th": "หินแทนที่น้ำทำให้ระดับน้ำสูงขึ้น 26 − 20 = 6 ซม. ทั่วทั้งพื้นตู้ ปริมาตรหิน = 40 × 30 × 6 = 7,200 ลบ.ซม. ความสูงตู้ 50 ซม. ไม่ได้ใช้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "fill",
+   "difficulty": "m",
+   "skill": {
+    "en": "Weighted mean of two groups",
+    "th": "ค่าเฉลี่ยรวมของสองกลุ่ม"
+   },
+   "topic": {
+    "en": "Statistics and averages",
+    "th": "สถิติและค่าเฉลี่ย"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ห้อง ม.1/1 มีนักเรียน 30 คน ได้คะแนนสอบเฉลี่ย 72 คะแนน ห้อง ม.1/2 มีนักเรียน 20 คน ได้คะแนนเฉลี่ย 82 คะแนน คะแนนเฉลี่ยของนักเรียนทั้งสองห้องรวมกันเป็นเท่าใด",
+   "accept": [
+    "76"
+   ],
+   "unit": "คะแนน",
+   "explanation": {
+    "en": "The groups are different sizes, so do not just average 72 and 82. Total marks = 30 × 72 + 20 × 82 = 2,160 + 1,640 = 3,800 for 50 students: 3,800 ÷ 50 = 76.",
+    "th": "สองห้องมีจำนวนคนไม่เท่ากัน จึงหาค่าเฉลี่ยของ 72 กับ 82 ตรง ๆ ไม่ได้ คะแนนรวม = 30 × 72 + 20 × 82 = 2,160 + 1,640 = 3,800 คะแนน จากนักเรียน 50 คน ได้ 3,800 ÷ 50 = 76 คะแนน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "fill",
+   "difficulty": "h",
+   "skill": {
+    "en": "Prime factorisation of squares and cubes",
+    "th": "การแยกตัวประกอบของกำลังสองและกำลังสาม"
+   },
+   "topic": {
+    "en": "Number theory",
+    "th": "ทฤษฎีจำนวน"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "จำนวนนับ n ที่น้อยที่สุดซึ่งทำให้ 2n เป็นกำลังสองสมบูรณ์ และ 3n เป็นกำลังสามสมบูรณ์ คือจำนวนใด",
+   "accept": [
+    "72"
+   ],
+   "unit": "",
+   "explanation": {
+    "en": "Write n = 2ᵃ × 3ᵇ. For 2n = 2ᵃ⁺¹3ᵇ to be a square, a + 1 and b must be even; for 3n = 2ᵃ3ᵇ⁺¹ to be a cube, a and b + 1 must be multiples of 3. Smallest: a = 3, b = 2, so n = 8 × 9 = 72 (2n = 144 = 12², 3n = 216 = 6³).",
+    "th": "ให้ n = 2ᵃ × 3ᵇ ถ้า 2n = 2ᵃ⁺¹3ᵇ เป็นกำลังสอง a + 1 และ b ต้องเป็นเลขคู่ ถ้า 3n = 2ᵃ3ᵇ⁺¹ เป็นกำลังสาม a และ b + 1 ต้องหารด้วย 3 ลงตัว ค่าน้อยที่สุดคือ a = 3, b = 2 ได้ n = 8 × 9 = 72 (2n = 144 = 12², 3n = 216 = 6³)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "format": "fill",
+   "difficulty": "h",
+   "skill": {
+    "en": "Repeating decimals and cycles",
+    "th": "ทศนิยมซ้ำและวัฏจักร"
+   },
+   "topic": {
+    "en": "Number theory",
+    "th": "ทฤษฎีจำนวน"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "1/7 = 0.142857142857… เลขโดดในตำแหน่งที่ 2026 หลังจุดทศนิยมคือเลขใด",
+   "accept": [
+    "8"
+   ],
+   "unit": "",
+   "explanation": {
+    "en": "The block 142857 repeats every 6 digits. 2026 = 6 × 337 + 4, so the 2026th digit is the 4th digit of the block, which is 8.",
+    "th": "ชุด 142857 ซ้ำทุก 6 หลัก 2026 = 6 × 337 + 4 ตำแหน่งที่ 2026 จึงตรงกับเลขโดดตัวที่ 4 ของชุด คือ 8"
    }
   },
   {
    "kind": "m1",
    "program": "gate",
    "subject": "sci",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Identifying variables in an experiment",
+    "th": "การระบุตัวแปรในการทดลอง"
+   },
+   "topic": {
+    "en": "Scientific inquiry",
+    "th": "กระบวนการสืบเสาะทางวิทยาศาสตร์"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "นักเรียนปลูกต้นถั่วเขียว 3 กลุ่ม ให้แสงสีแดง สีน้ำเงิน และสีเขียวตามลำดับ แล้ววัดความสูงของต้นถั่วเมื่อครบ 10 วัน ข้อใดเป็นตัวแปรควบคุมของการทดลองนี้",
+   "explanation": {
+    "en": "The colour of light is the independent variable (what is changed) and the height or growth of the seedlings is the dependent variable (what is measured). Things kept the same for all groups, such as the type and amount of soil, are controlled variables.",
+    "th": "สีของแสงเป็นตัวแปรต้น (สิ่งที่จงใจเปลี่ยน) ความสูงหรือการเจริญเติบโตของต้นถั่วเป็นตัวแปรตาม (สิ่งที่วัด) ส่วนสิ่งที่ต้องทำให้เหมือนกันทุกกลุ่ม เช่น ชนิดและปริมาณของดิน เป็นตัวแปรควบคุม"
+   },
+   "choices": [
+    "สีของแสงที่ต้นถั่วได้รับ",
+    "ความสูงของต้นถั่วเมื่อครบ 10 วัน",
+    "อัตราการเจริญเติบโตของต้นถั่วแต่ละกลุ่ม",
+    "ชนิดและปริมาณของดินที่ใช้ปลูก"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Evaluating the design of a fair test",
+    "th": "การประเมินความยุติธรรมของการทดลอง"
+   },
+   "topic": {
+    "en": "Scientific inquiry",
+    "th": "กระบวนการสืบเสาะทางวิทยาศาสตร์"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "นักเรียนต้องการทดสอบว่า \"การเติมเกลือทำให้น้ำเดือดช้าลงหรือไม่\" จึงใส่น้ำ 200 มล. ผสมเกลือในหม้อใบที่ 1 ตั้งบนเตาแก๊ส และใส่น้ำเปล่า 500 มล. ในหม้อใบที่ 2 ตั้งบนเตาไฟฟ้า แล้วจับเวลาจนน้ำเดือด พบว่าหม้อใบที่ 1 เดือดก่อน จึงสรุปว่าเกลือทำให้น้ำเดือดเร็วขึ้น ข้อบกพร่องที่สำคัญที่สุดของการทดลองนี้คือข้อใด",
+   "explanation": {
+    "en": "In a fair test only the variable being tested (salt) may differ. Here the volume of water (200 vs 500 mL) and the heat source (gas vs electric) also differ, and either could explain why pot 1 boiled first, so the conclusion about salt is not valid. Putting the same salt in both pots would remove the variable being tested.",
+    "th": "การทดลองที่ยุติธรรมต้องให้ต่างกันเฉพาะตัวแปรที่ทดสอบ (เกลือ) แต่ที่นี่ปริมาณน้ำ (200 กับ 500 มล.) และแหล่งความร้อน (เตาแก๊สกับเตาไฟฟ้า) ก็ต่างกันด้วย ซึ่งอาจเป็นสาเหตุที่หม้อใบที่ 1 เดือดก่อน จึงสรุปเรื่องเกลือไม่ได้ ส่วนการใส่เกลือเท่ากันทั้งสองใบจะทำให้ไม่มีตัวแปรที่ต้องการทดสอบเลย"
+   },
+   "choices": [
+    "ควรใช้น้ำตาลแทนเกลือ จึงจะเห็นผลชัดเจน",
+    "ควรใส่เกลือลงในหม้อทั้งสองใบเท่ากัน",
+    "ควรจับเวลาเพียงหม้อเดียวเพื่อลดความผิดพลาด",
+    "ปริมาณน้ำและแหล่งความร้อนต่างกัน จึงสรุปไม่ได้ว่าผลเกิดจากเกลือ"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
    "difficulty": "h",
+   "skill": {
+    "en": "Finding a pattern in experimental data",
+    "th": "การหาความสัมพันธ์จากข้อมูลการทดลอง"
+   },
+   "topic": {
+    "en": "Scientific inquiry",
+    "th": "กระบวนการสืบเสาะทางวิทยาศาสตร์"
+   },
    "passage": "",
    "table": {
-    "title": "ขนาดลูกโป่งหลัง 30 นาที",
+    "title": "ผลการทดลองลูกตุ้มนาฬิกา",
     "rows": [
      [
-      "ขวด",
-      "น้ำตาล (g)",
-      "อุณหภูมิน้ำ (°C)",
-      "เส้นรอบวงลูกโป่ง (ซม.)"
+      "ความยาวเชือก (ซม.)",
+      "เวลาที่แกว่งครบ 10 รอบ (วินาที)"
+     ],
+     [
+      "25",
+      "10.0"
+     ],
+     [
+      "36",
+      "12.0"
+     ],
+     [
+      "49",
+      "14.0"
+     ],
+     [
+      "64",
+      "16.0"
+     ],
+     [
+      "81",
+      "18.0"
+     ]
+    ]
+   },
+   "lang": "th",
+   "stem": "นักเรียนผูกลูกตุ้มกับเชือกยาวต่าง ๆ แล้วจับเวลาที่ลูกตุ้มแกว่งครบ 10 รอบ ได้ผลดังตาราง ถ้าต้องการให้ลูกตุ้มแกว่งครบ 10 รอบในเวลา 22.0 วินาที ควรใช้เชือกยาวประมาณกี่เซนติเมตร",
+   "explanation": {
+    "en": "The time does not grow in step with the length (25 → 36 cm adds 11 cm but only 2 s). Instead the time for 10 swings = 2 × √(length): 2 × 5 = 10, 2 × 6 = 12, … 2 × 9 = 18. For 22.0 s, √(length) = 11, so the length is 121 cm.",
+    "th": "เวลาไม่ได้เพิ่มตามความยาวแบบคงที่ แต่เวลาแกว่ง 10 รอบ = 2 × √(ความยาว) เช่น 2 × 5 = 10, 2 × 6 = 12, …, 2 × 9 = 18 ถ้าต้องการ 22.0 วินาที √(ความยาว) = 11 ความยาวจึงเป็น 121 ซม."
+   },
+   "choices": [
+    "121 ซม.",
+    "100 ซม.",
+    "110 ซม.",
+    "144 ซม."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding density as a property of a material",
+    "th": "ความหนาแน่นเป็นสมบัติเฉพาะของสาร"
+   },
+   "topic": {
+    "en": "Density and pressure",
+    "th": "ความหนาแน่นและความดัน"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "แท่งอะลูมิเนียมมีมวล 54 กรัม ปริมาตร 20 ลูกบาศก์เซนติเมตร ถ้าตัดแท่งนี้ออกเป็นสองชิ้นโดยชิ้นเล็กมีขนาด 1/4 ของแท่งเดิม ชิ้นเล็กมีความหนาแน่นเท่าใด และเมื่อวางลงในน้ำจะเป็นอย่างไร (ความหนาแน่นของน้ำ 1 g/cm³)",
+   "explanation": {
+    "en": "Density = mass ÷ volume = 54 ÷ 20 = 2.7 g/cm³. Cutting the block changes mass and volume by the same fraction, so the density of any piece is still 2.7 g/cm³. Since 2.7 > 1, even a small piece sinks.",
+    "th": "ความหนาแน่น = มวล ÷ ปริมาตร = 54 ÷ 20 = 2.7 g/cm³ การตัดแบ่งทำให้มวลและปริมาตรลดลงในสัดส่วนเดียวกัน ความหนาแน่นจึงยังเป็น 2.7 g/cm³ และเพราะมากกว่า 1 ชิ้นเล็กจึงยังจมน้ำ"
+   },
+   "choices": [
+    "0.675 g/cm³ และลอยน้ำ",
+    "2.7 g/cm³ และจมน้ำ",
+    "2.7 g/cm³ แต่ลอยน้ำได้เพราะชิ้นเล็กมีมวลน้อย",
+    "10.8 g/cm³ และจมน้ำ"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Calculating pressure on different faces",
+    "th": "การคำนวณความดันบนพื้นที่ต่างกัน"
+   },
+   "topic": {
+    "en": "Density and pressure",
+    "th": "ความหนาแน่นและความดัน"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "อิฐก้อนหนึ่งมีขนาด 20 ซม. × 10 ซม. × 5 ซม. และหนัก 30 นิวตัน ถ้าวางอิฐบนพื้นราบ ความดันที่อิฐกระทำต่อพื้นมีค่า \"มากที่สุด\" เท่าใด",
+   "explanation": {
+    "en": "Pressure = force ÷ area, so it is greatest when the brick stands on its smallest face, 10 cm × 5 cm = 50 cm² = 0.005 m². Pressure = 30 ÷ 0.005 = 6,000 N/m². Lying flat on the 20 × 10 face gives only 1,500 N/m².",
+    "th": "ความดัน = แรง ÷ พื้นที่ จะมากที่สุดเมื่อวางอิฐด้านที่มีพื้นที่น้อยที่สุด คือ 10 ซม. × 5 ซม. = 50 ตร.ซม. = 0.005 ตร.ม. ความดัน = 30 ÷ 0.005 = 6,000 N/m² ถ้าวางด้าน 20 × 10 ซม. จะได้เพียง 1,500 N/m²"
+   },
+   "choices": [
+    "1,500 N/m²",
+    "6,000 N/m²",
+    "3,000 N/m²",
+    "600 N/m²"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Explaining liquid pressure and depth",
+    "th": "การอธิบายความดันของของเหลวกับความลึก"
+   },
+   "topic": {
+    "en": "Density and pressure",
+    "th": "ความหนาแน่นและความดัน"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "เจาะรูขนาดเท่ากัน 3 รูในแนวดิ่งที่ระดับสูง กลาง และต่ำของขวดพลาสติกที่มีน้ำเต็ม น้ำพุ่งออกจากรูทั้งสาม ข้อใดอธิบายได้ถูกต้อง",
+   "explanation": {
+    "en": "Liquid pressure depends on depth: the deeper the point, the more water is above it pushing down. The lowest hole is deepest, so water leaves it fastest.",
+    "th": "ความดันของของเหลวขึ้นกับความลึก ยิ่งลึก น้ำด้านบนยิ่งกดมาก รูล่างสุดอยู่ลึกที่สุด น้ำจึงพุ่งออกเร็วที่สุด"
+   },
+   "choices": [
+    "น้ำพุ่งออกจากรูล่างสุดด้วยความเร็วมากที่สุด เพราะความดันของน้ำมากขึ้นตามความลึก",
+    "น้ำพุ่งออกจากรูบนสุดแรงที่สุด เพราะอยู่ใกล้อากาศมากที่สุด",
+    "น้ำพุ่งออกจากทุกรูแรงเท่ากัน เพราะเป็นน้ำในขวดเดียวกัน",
+    "น้ำพุ่งออกจากรูกลางแรงที่สุด เพราะมีน้ำกดทั้งด้านบนและด้านล่าง"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying the principle of flotation",
+    "th": "การประยุกต์หลักการลอยตัว"
+   },
+   "topic": {
+    "en": "Density and pressure",
+    "th": "ความหนาแน่นและความดัน"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ไม้ก้อนหนึ่งมีความหนาแน่น 0.6 g/cm³ เมื่อลอยในน้ำจืด (1.0 g/cm³) จะจมอยู่ใต้น้ำ 60% ของปริมาตร ถ้านำไม้ก้อนนี้ไปลอยในน้ำเกลือที่มีความหนาแน่น 1.2 g/cm³ จะจมอยู่ใต้ผิวของเหลวกี่เปอร์เซ็นต์ของปริมาตร",
+   "explanation": {
+    "en": "A floating object displaces liquid equal to its own weight, so the fraction under the surface = density of object ÷ density of liquid. In fresh water 0.6/1.0 = 60%; in salt water 0.6/1.2 = 50%. A denser liquid holds the block higher.",
+    "th": "วัตถุที่ลอยจะแทนที่ของเหลวหนักเท่ากับน้ำหนักตัวเอง สัดส่วนที่จม = ความหนาแน่นวัตถุ ÷ ความหนาแน่นของเหลว ในน้ำจืด 0.6/1.0 = 60% ในน้ำเกลือ 0.6/1.2 = 50% ของเหลวที่หนาแน่นกว่าจึงพยุงไม้ให้ลอยสูงขึ้น"
+   },
+   "choices": [
+    "60%",
+    "72%",
+    "50%",
+    "40%"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Balancing moments",
+    "th": "การสมดุลของโมเมนต์"
+   },
+   "topic": {
+    "en": "Forces and simple machines",
+    "th": "แรงและเครื่องกลอย่างง่าย"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "เด็กคนแรกหนัก 300 นิวตัน นั่งบนไม้กระดานหกห่างจุดหมุน 2 เมตร เด็กคนที่สองหนัก 400 นิวตัน ต้องนั่งอีกฝั่งห่างจุดหมุนกี่เมตร ไม้กระดานจึงสมดุล",
+   "explanation": {
+    "en": "For balance the moments are equal: 300 × 2 = 400 × d, so d = 600 ÷ 400 = 1.5 m. The heavier child sits closer to the pivot.",
+    "th": "เมื่อสมดุล โมเมนต์ทั้งสองข้างเท่ากัน: 300 × 2 = 400 × d ได้ d = 600 ÷ 400 = 1.5 เมตร คนที่หนักกว่าต้องนั่งใกล้จุดหมุนกว่า"
+   },
+   "choices": [
+    "2.7 เมตร",
+    "2 เมตร",
+    "1.5 เมตร",
+    "1 เมตร"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Balancing several moments",
+    "th": "การสมดุลโมเมนต์หลายแรง"
+   },
+   "topic": {
+    "en": "Forces and simple machines",
+    "th": "แรงและเครื่องกลอย่างง่าย"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "คานสม่ำเสมอมีจุดหมุนอยู่ตรงกลาง แขวนวัตถุหนัก 20 นิวตันที่ระยะ 30 ซม. และ 10 นิวตันที่ระยะ 50 ซม. จากจุดหมุนทางด้านซ้าย ต้องแขวนวัตถุหนัก 25 นิวตันทางด้านขวาห่างจุดหมุนกี่เซนติเมตร คานจึงอยู่ในแนวระดับ",
+   "explanation": {
+    "en": "Anticlockwise moments add: 20 × 30 + 10 × 50 = 600 + 500 = 1,100 N·cm. The clockwise moment must equal this: 25 × d = 1,100, so d = 44 cm.",
+    "th": "โมเมนต์ด้านซ้ายรวมกัน: 20 × 30 + 10 × 50 = 600 + 500 = 1,100 นิวตัน·ซม. ด้านขวาต้องเท่ากัน: 25 × d = 1,100 ได้ d = 44 ซม."
+   },
+   "choices": [
+    "48 ซม.",
+    "44 ซม.",
+    "36 ซม.",
+    "40 ซม."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Work and the inclined plane",
+    "th": "งานและพื้นเอียง"
+   },
+   "topic": {
+    "en": "Forces and simple machines",
+    "th": "แรงและเครื่องกลอย่างง่าย"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ต้องการเลื่อนกล่องหนัก 500 นิวตัน ขึ้นไปบนรถบรรทุกที่สูง 1.2 เมตร โดยใช้แผ่นไม้ยาว 4 เมตรพาดเป็นพื้นเอียง ถ้าไม่มีแรงเสียดทาน ต้องออกแรงดันกล่องขนานกับพื้นเอียงอย่างน้อยกี่นิวตัน",
+   "explanation": {
+    "en": "Without friction, work along the ramp equals work lifting straight up: F × 4 = 500 × 1.2 = 600 J, so F = 150 N. The ramp reduces the force but makes the distance longer.",
+    "th": "เมื่อไม่มีแรงเสียดทาน งานที่ทำตามพื้นเอียงเท่ากับงานยกขึ้นตรง ๆ: F × 4 = 500 × 1.2 = 600 จูล ได้ F = 150 นิวตัน พื้นเอียงช่วยลดแรงแต่ต้องเคลื่อนที่ไกลขึ้น"
+   },
+   "choices": [
+    "120 นิวตัน",
+    "200 นิวตัน",
+    "150 นิวตัน",
+    "600 นิวตัน"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Comparing series and parallel circuits",
+    "th": "การเปรียบเทียบวงจรอนุกรมและขนาน"
+   },
+   "topic": {
+    "en": "Electricity and magnetism",
+    "th": "ไฟฟ้าและแม่เหล็ก"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "เหตุใดวงจรไฟฟ้าในบ้านจึงต่อหลอดไฟและเครื่องใช้ไฟฟ้าแบบขนาน",
+   "explanation": {
+    "en": "In a parallel circuit each appliance has its own path to the supply, so switching one off or a broken bulb does not break the circuit for the others, and each gets the full mains voltage.",
+    "th": "ในวงจรขนาน เครื่องใช้แต่ละชิ้นมีทางเดินของกระแสแยกกัน การปิดหรือหลอดไฟดวงหนึ่งขาดจึงไม่ทำให้วงจรของเครื่องใช้อื่นขาด และแต่ละชิ้นได้รับความต่างศักย์เต็มที่"
+   },
+   "choices": [
+    "เพื่อให้กระแสไฟฟ้าผ่านเครื่องใช้ทุกชิ้นเท่ากันและใช้ไฟน้อยลง",
+    "เมื่อปิดเครื่องใช้ไฟฟ้าชิ้นหนึ่ง หรือชิ้นหนึ่งเสีย เครื่องใช้ชิ้นอื่นยังทำงานได้ตามปกติ",
+    "เพื่อให้สวิตช์ตัวเดียวควบคุมเครื่องใช้ทุกชิ้นพร้อมกัน",
+    "เพราะวงจรขนานไม่ต้องใช้สายไฟ"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Predicting brightness in a mixed circuit",
+    "th": "การทำนายความสว่างในวงจรผสม"
+   },
+   "topic": {
+    "en": "Electricity and magnetism",
+    "th": "ไฟฟ้าและแม่เหล็ก"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ต่อหลอดไฟเหมือนกัน 3 หลอดกับแบตเตอรี่ โดยหลอด X ต่ออนุกรมกับชุดของหลอด Y และหลอด Z ที่ต่อขนานกัน ถ้าถอดหลอด Y ออก ข้อใดถูกต้อง",
+   "explanation": {
+    "en": "At first Y and Z share the current that flows through X, so X is brightest and Z gets only half of X's current. With Y removed, the circuit is just X and Z in series: the total resistance rises, so less current flows through X (X dims), but all of it now flows through Z, which is more than its earlier half-share (Z brightens). Both stay lit because the path through Z is still complete.",
+    "th": "ตอนแรก Y และ Z แบ่งกระแสที่ไหลผ่าน X คนละครึ่ง X จึงสว่างที่สุด เมื่อถอด Y ออก วงจรเหลือ X กับ Z ต่ออนุกรม ความต้านทานรวมมากขึ้น กระแสผ่าน X จึงลดลง (X หรี่ลง) แต่กระแสทั้งหมดไหลผ่าน Z ซึ่งมากกว่าครึ่งหนึ่งเดิม (Z สว่างขึ้น) ทั้งสองหลอดยังติดเพราะทางเดินกระแสผ่าน Z ยังครบวงจร"
+   },
+   "choices": [
+    "หลอด X หรี่ลง และหลอด Z สว่างขึ้น",
+    "หลอด X และหลอด Z สว่างขึ้นทั้งคู่",
+    "หลอด X และหลอด Z ดับทั้งคู่",
+    "หลอด X สว่างเท่าเดิม และหลอด Z สว่างขึ้น"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Factors affecting an electromagnet",
+    "th": "ปัจจัยที่มีผลต่อแม่เหล็กไฟฟ้า"
+   },
+   "topic": {
+    "en": "Electricity and magnetism",
+    "th": "ไฟฟ้าและแม่เหล็ก"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "นักเรียนทำแม่เหล็กไฟฟ้าโดยพันลวดทองแดงรอบตะปูเหล็กแล้วต่อกับถ่านไฟฉาย 2 ก้อน ข้อใดทำให้แม่เหล็กไฟฟ้าดูดลวดเสียบกระดาษได้จำนวนมากขึ้น",
+   "explanation": {
+    "en": "An electromagnet gets stronger with more turns of wire, more current, or an iron core. Aluminium is not magnetic, so it weakens the magnet; reversing the battery only swaps the poles; fewer cells mean less current.",
+    "th": "แม่เหล็กไฟฟ้าแรงขึ้นเมื่อพันขดลวดมากรอบขึ้น เพิ่มกระแสไฟฟ้า หรือใช้แกนเหล็ก อะลูมิเนียมไม่ใช่สารแม่เหล็กจึงทำให้อ่อนลง การสลับขั้วถ่านเพียงสลับขั้วแม่เหล็ก และการลดถ่านทำให้กระแสลดลง"
+   },
+   "choices": [
+    "เปลี่ยนแกนตะปูเหล็กเป็นแท่งอะลูมิเนียมขนาดเท่ากัน",
+    "สลับขั้วถ่านไฟฉาย",
+    "พันขดลวดรอบตะปูเหล็กให้มีจำนวนรอบมากขึ้น",
+    "ลดถ่านไฟฉายจาก 2 ก้อนเหลือ 1 ก้อน"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Image formation in a plane mirror",
+    "th": "การเกิดภาพในกระจกเงาราบ"
+   },
+   "topic": {
+    "en": "Light and sound",
+    "th": "แสงและเสียง"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ปลายืนอยู่หน้ากระจกเงาราบห่าง 2 เมตร แล้วเดินตรงเข้าหากระจกอีก 0.5 เมตร ตอนนี้ปลากับภาพของตนเองในกระจกอยู่ห่างกันกี่เมตร",
+   "explanation": {
+    "en": "In a plane mirror the image is as far behind the mirror as the object is in front. Pla is now 2 − 0.5 = 1.5 m from the mirror, so the image is 1.5 m behind it: 1.5 + 1.5 = 3 m apart. (3.5 m forgets that the image also moves closer.)",
+    "th": "ภาพในกระจกเงาราบอยู่หลังกระจกห่างเท่ากับวัตถุอยู่หน้ากระจก ตอนนี้ปลาอยู่ห่างกระจก 2 − 0.5 = 1.5 เมตร ภาพจึงอยู่หลังกระจก 1.5 เมตร ห่างกัน 1.5 + 1.5 = 3 เมตร (3.5 เมตรเป็นการลืมว่าภาพก็เคลื่อนเข้ามาด้วย)"
+   },
+   "choices": [
+    "3 เมตร",
+    "1.5 เมตร",
+    "3.5 เมตร",
+    "4 เมตร"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Explaining refraction",
+    "th": "การอธิบายการหักเหของแสง"
+   },
+   "topic": {
+    "en": "Light and sound",
+    "th": "แสงและเสียง"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "วางเหรียญที่ก้นถ้วยทึบแสง แล้วถอยหลังจนมองไม่เห็นเหรียญพอดี เมื่อเพื่อนค่อย ๆ เทน้ำลงในถ้วย กลับมองเห็นเหรียญได้ ข้อใดอธิบายได้ถูกต้อง",
+   "explanation": {
+    "en": "Light from the coin travels from water into air, where it moves faster, so it bends away from the normal at the surface. The bent rays now reach the eye, and the coin seems higher than it really is. Light is slower, not faster, in water.",
+    "th": "แสงจากเหรียญเดินทางจากน้ำสู่อากาศซึ่งแสงเคลื่อนที่เร็วกว่า จึงหักเหออกจากเส้นปกติที่ผิวน้ำ แสงที่เบนแล้วเข้าตาเราได้ และเห็นเหรียญอยู่สูงกว่าตำแหน่งจริง แสงในน้ำช้ากว่าไม่ใช่เร็วกว่า"
+   },
+   "choices": [
+    "แสงสะท้อนจากผิวน้ำด้านบนกลับเข้าตา",
+    "แสงจากเหรียญหักเหออกจากเส้นปกติเมื่อผ่านจากน้ำสู่อากาศ จึงเบนมาเข้าตา",
+    "น้ำทำหน้าที่เหมือนแว่นขยายทำให้เหรียญใหญ่ขึ้น",
+    "แสงเดินทางในน้ำเร็วกว่าในอากาศจึงหักเหเข้าหาเส้นปกติ"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Colour and the reflection of light",
+    "th": "สีของวัตถุกับการสะท้อนแสง"
+   },
+   "topic": {
+    "en": "Light and sound",
+    "th": "แสงและเสียง"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ป้ายประกาศเขียนด้วยตัวอักษรสีแดงบนกระดาษสีขาว ถ้านำป้ายนี้ไปไว้ในห้องมืดที่มีเพียงแสงสีแดงส่องสว่าง จะเห็นป้ายเป็นอย่างไร",
+   "explanation": {
+    "en": "White paper reflects every colour that falls on it, so under red light it looks red. Red ink also reflects red. Both reflect the same red light, so there is no contrast and the letters almost disappear. Letters would look black only if the ink absorbed red, e.g. blue or green ink.",
+    "th": "กระดาษสีขาวสะท้อนแสงทุกสีที่ตกกระทบ ภายใต้แสงสีแดงจึงเห็นเป็นสีแดง หมึกสีแดงก็สะท้อนแสงสีแดง ทั้งสองจึงดูเป็นสีแดงเหมือนกัน ไม่มีความต่าง ตัวอักษรจึงแทบมองไม่เห็น ตัวอักษรจะเป็นสีดำก็ต่อเมื่อหมึกดูดกลืนแสงสีแดง เช่น หมึกสีน้ำเงินหรือเขียว"
+   },
+   "choices": [
+    "เห็นตัวอักษรสีดำชัดเจนบนพื้นสีแดง",
+    "ตัวอักษรกลืนไปกับพื้นจนแทบอ่านไม่ออก เพราะทั้งพื้นขาวและตัวอักษรสะท้อนแสงสีแดงเหมือนกัน",
+    "เห็นตัวอักษรสีแดงบนพื้นสีขาวเหมือนเดิม",
+    "เห็นทั้งป้ายเป็นสีดำ"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Relating pitch to the vibrating object",
+    "th": "ความสัมพันธ์ระหว่างระดับเสียงกับสิ่งที่สั่น"
+   },
+   "topic": {
+    "en": "Light and sound",
+    "th": "แสงและเสียง"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ขวดแก้วเหมือนกัน 4 ใบ ใส่น้ำระดับต่างกัน ถ้า (1) ใช้ช้อนเคาะข้างขวด และ (2) เป่าลมผ่านปากขวด ขวดที่มีน้ำมากที่สุดจะให้เสียงอย่างไร",
+   "explanation": {
+    "en": "Tapping makes the glass and water vibrate; more water means more mass vibrating, so it vibrates more slowly and the pitch is lowest. Blowing makes the air column vibrate; the fullest bottle has the shortest air column, which vibrates fastest, so the pitch is highest.",
+    "th": "การเคาะทำให้ขวดและน้ำสั่น น้ำมากทำให้มวลที่สั่นมาก สั่นช้าลง เสียงจึงต่ำที่สุด การเป่าทำให้ลำอากาศในขวดสั่น ขวดที่มีน้ำมากที่สุดมีลำอากาศสั้นที่สุด สั่นเร็วที่สุด เสียงจึงสูงที่สุด"
+   },
+   "choices": [
+    "เคาะแล้วเสียงต่ำที่สุด แต่เป่าแล้วเสียงสูงที่สุด",
+    "เคาะแล้วเสียงสูงที่สุด และเป่าแล้วเสียงสูงที่สุด",
+    "เคาะแล้วเสียงต่ำที่สุด และเป่าแล้วเสียงต่ำที่สุด",
+    "เคาะแล้วเสียงสูงที่สุด แต่เป่าแล้วเสียงต่ำที่สุด"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Methods of heat transfer",
+    "th": "วิธีการถ่ายโอนความร้อน"
+   },
+   "topic": {
+    "en": "Heat and temperature",
+    "th": "ความร้อนและอุณหภูมิ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "กระติกน้ำร้อนแบบสุญญากาศมีผนังสองชั้นที่สูบอากาศออกจนเป็นสุญญากาศ ช่องสุญญากาศนี้ช่วยลดการถ่ายโอนความร้อนแบบใดเป็นหลัก",
+   "explanation": {
+    "en": "Conduction and convection both need particles of matter; a vacuum has almost none, so it blocks both. Radiation can cross a vacuum, which is why the walls are also silvered to reflect it.",
+    "th": "การนำความร้อนและการพาความร้อนต้องอาศัยอนุภาคของสาร สุญญากาศแทบไม่มีอนุภาคจึงกั้นได้ทั้งสองแบบ ส่วนการแผ่รังสีผ่านสุญญากาศได้ จึงต้องเคลือบผนังให้เป็นเงาเพื่อสะท้อนรังสี"
+   },
+   "choices": [
+    "การแผ่รังสีความร้อนเท่านั้น",
+    "การนำความร้อนและการพาความร้อน",
+    "การนำความร้อนเท่านั้น",
+    "การแผ่รังสีและการพาความร้อน"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Classifying physical and chemical changes",
+    "th": "การจำแนกการเปลี่ยนแปลงทางกายภาพและทางเคมี"
+   },
+   "topic": {
+    "en": "Matter and its changes",
+    "th": "สารและการเปลี่ยนแปลง"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ข้อใดเป็นการเปลี่ยนแปลงทางเคมีทุกเหตุการณ์",
+   "explanation": {
+    "en": "A chemical change makes new substances. Rusting, cooking an egg and milk going sour all form new substances. Melting ice, dissolving salt, camphor subliming, tearing paper and melting wax only change state, shape or mixing — physical changes.",
+    "th": "การเปลี่ยนแปลงทางเคมีเกิดสารใหม่ ตะปูเป็นสนิม ไข่ทอดสุก และนมบูดล้วนเกิดสารใหม่ ส่วนน้ำแข็งละลาย เกลือละลายน้ำ การบูรระเหิด ฉีกกระดาษ และเทียนไขหลอมเหลวเป็นเพียงการเปลี่ยนสถานะ รูปร่าง หรือการผสม จึงเป็นการเปลี่ยนแปลงทางกายภาพ"
+   },
+   "choices": [
+    "น้ำแข็งละลาย เกลือละลายน้ำ กระดาษไหม้",
+    "การบูรระเหิด ตะปูเป็นสนิม ไม้ผุ",
+    "ตะปูเป็นสนิม ไข่ทอดสุก นมบูด",
+    "ผลไม้สุก ฉีกกระดาษ เทียนไขหลอมเหลว"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Planning the separation of a mixture",
+    "th": "การวางแผนแยกสารผสม"
+   },
+   "topic": {
+    "en": "Matter and its changes",
+    "th": "สารและการเปลี่ยนแปลง"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "มีของผสมระหว่างเกลือ ทราย และผงเหล็ก ลำดับวิธีใดแยกสารทั้งสามออกจากกันได้ครบและได้เกลือกลับคืนมาเป็นของแข็ง",
+   "explanation": {
+    "en": "First remove iron with a magnet. Then add water: salt dissolves but sand does not. Filtering keeps the sand on the paper and lets salt water through. Evaporating the water leaves solid salt. Evaporating before filtering would mix the salt back with the sand, and filtering a dry mixture separates nothing.",
+    "th": "ขั้นแรกใช้แม่เหล็กดูดผงเหล็กออก แล้วเติมน้ำ เกลือละลายแต่ทรายไม่ละลาย การกรองทำให้ทรายค้างบนกระดาษกรอง น้ำเกลือผ่านลงไป จากนั้นระเหยน้ำจะได้เกลือ ถ้าระเหยก่อนกรองเกลือจะกลับไปปนกับทราย และการกรองของผสมแห้ง ๆ แยกอะไรไม่ได้"
+   },
+   "choices": [
+    "เติมน้ำคนให้ละลาย → ระเหยน้ำ → ใช้แม่เหล็กดูด → กรอง",
+    "กรอง → ใช้แม่เหล็กดูด → เติมน้ำ → ระเหยน้ำ",
+    "ใช้แม่เหล็กดูด → เติมน้ำคนให้ละลาย → กรอง → ระเหยน้ำออกจากของเหลวที่กรองได้",
+    "ใช้แม่เหล็กดูด → กรอง → เติมน้ำ → ระเหยน้ำ"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Conservation of mass in a reaction",
+    "th": "กฎทรงมวลในปฏิกิริยาเคมี"
+   },
+   "topic": {
+    "en": "Matter and its changes",
+    "th": "สารและการเปลี่ยนแปลง"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ใส่น้ำส้มสายชูและผงฟู (โซเดียมไบคาร์บอเนต) แยกกันไว้ในขวดพลาสติกแข็งแล้วปิดฝาแน่น ชั่งได้ 250.0 กรัม จากนั้นเอียงขวดให้สารผสมกัน เกิดฟองแก๊สจำนวนมาก ข้อใดถูกต้อง",
+   "explanation": {
+    "en": "In a closed container no matter enters or leaves, so the total mass stays 250.0 g even though carbon dioxide gas forms (law of conservation of mass). Opening the cap lets the gas escape, so the reading then drops below 250.0 g.",
+    "th": "ในภาชนะปิดไม่มีสารเข้าหรือออก มวลรวมจึงคงเดิม 250.0 กรัม แม้จะเกิดแก๊สคาร์บอนไดออกไซด์ (กฎทรงมวล) แต่เมื่อเปิดฝา แก๊สหนีออกไป มวลที่ชั่งได้จึงน้อยกว่า 250.0 กรัม"
+   },
+   "choices": [
+    "ชั่งขวดขณะปิดฝาจะได้น้อยกว่า 250.0 กรัม เพราะสารบางส่วนกลายเป็นแก๊ส",
+    "ชั่งขวดขณะปิดฝาจะได้ 250.0 กรัม แต่ถ้าเปิดฝาแล้วชั่งจะได้น้อยกว่า 250.0 กรัม",
+    "ชั่งขวดขณะปิดฝาจะได้มากกว่า 250.0 กรัม เพราะเกิดสารใหม่",
+    "ไม่ว่าเปิดหรือปิดฝาก็ชั่งได้ 250.0 กรัมเสมอ"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Using the particle model of matter",
+    "th": "การใช้แบบจำลองอนุภาคของสาร"
+   },
+   "topic": {
+    "en": "Matter and its changes",
+    "th": "สารและการเปลี่ยนแปลง"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "เมื่อปิดปลายกระบอกฉีดยา (ไม่มีเข็ม) แล้วกดก้าน พบว่ากระบอกที่บรรจุอากาศกดลงได้ง่าย แต่กระบอกที่บรรจุน้ำแทบกดไม่ลง ข้อใดอธิบายได้ดีที่สุด",
+   "explanation": {
+    "en": "In a gas the particles are far apart with lots of empty space between them, so they can be pushed closer together. In a liquid the particles are already touching, so it can hardly be compressed. Particles do not shrink, and water particles do move.",
+    "th": "อนุภาคของแก๊สอยู่ห่างกันมาก มีที่ว่างระหว่างอนุภาคมาก จึงบีบให้ชิดกันได้ ส่วนอนุภาคของของเหลวอยู่ชิดกันอยู่แล้วจึงบีบอัดแทบไม่ได้ อนุภาคไม่ได้หดเล็กลง และอนุภาคของน้ำก็เคลื่อนที่ได้"
+   },
+   "choices": [
+    "อนุภาคของแก๊สอยู่ห่างกันมาก จึงบีบให้ชิดกันได้ ส่วนอนุภาคของของเหลวอยู่ชิดกันแล้ว",
+    "อนุภาคของแก๊สมีขนาดเล็กลงเมื่อถูกกด",
+    "น้ำหนักกว่าอากาศจึงกดไม่ลง",
+    "อนุภาคของน้ำไม่มีการเคลื่อนที่"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting indicator colours and pH",
+    "th": "การแปลความหมายสีของอินดิเคเตอร์และ pH"
+   },
+   "topic": {
+    "en": "Matter and its changes",
+    "th": "สารและการเปลี่ยนแปลง"
+   },
+   "passage": "",
+   "table": {
+    "title": "สีของอินดิเคเตอร์ที่ค่า pH ต่าง ๆ",
+    "rows": [
+     [
+      "ช่วง pH",
+      "1–3",
+      "4–6",
+      "7",
+      "8–10",
+      "11–14"
+     ],
+     [
+      "สีของอินดิเคเตอร์",
+      "แดง",
+      "ชมพู",
+      "ม่วง",
+      "เขียว",
+      "เหลือง"
+     ]
+    ]
+   },
+   "lang": "th",
+   "stem": "อินดิเคเตอร์ชนิดหนึ่งให้สีตามตาราง นักเรียนพบว่าสาร A ทำให้อินดิเคเตอร์เป็นสีแดง และสาร D ทำให้เป็นสีเหลือง ถ้าค่อย ๆ หยดสาร D ลงในสาร A ที่ผสมอินดิเคเตอร์ไว้ ทีละน้อยพร้อมคน และหยดต่อไปเรื่อย ๆ จนสาร D มากเกินพอ สีของสารผสมจะเปลี่ยนตามลำดับใด",
+   "explanation": {
+    "en": "Red means pH 1–3 (strong acid), so A is acidic; yellow means pH 11–14, so D is strongly basic. Adding the base gradually raises the pH: acid (red) → weaker acid (pink) → neutral (purple) → weak base (green) → strong base (yellow) once D is in excess. It does not stop at purple because more base keeps raising the pH.",
+    "th": "สีแดงคือ pH 1–3 สาร A จึงเป็นกรด สีเหลืองคือ pH 11–14 สาร D จึงเป็นเบสแก่ การหยดเบสลงในกรดทีละน้อยทำให้ pH ค่อย ๆ สูงขึ้น: แดง → ชมพู → ม่วง (กลาง) → เขียว → เหลือง เมื่อเบสเกินพอ ไม่ได้หยุดที่สีม่วงเพราะเบสที่เติมเพิ่มทำให้ pH สูงขึ้นต่อไป"
+   },
+   "choices": [
+    "แดง → ม่วง → แดง",
+    "แดง → ชมพู → ม่วง → เขียว → เหลือง",
+    "เหลือง → เขียว → ม่วง → ชมพู → แดง",
+    "แดง → ชมพู → ม่วง แล้วคงเป็นสีม่วงตลอด"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Comparing plant and animal cells",
+    "th": "การเปรียบเทียบเซลล์พืชและเซลล์สัตว์"
+   },
+   "topic": {
+    "en": "Cells and the human body",
+    "th": "เซลล์และร่างกายมนุษย์"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "โครงสร้างในข้อใดพบในเซลล์พืช แต่ไม่พบในเซลล์สัตว์",
+   "explanation": {
+    "en": "Both plant and animal cells have a nucleus, cell membrane, cytoplasm and mitochondria. Only plant cells have a cell wall (for support) and chloroplasts (for photosynthesis).",
+    "th": "ทั้งเซลล์พืชและเซลล์สัตว์มีนิวเคลียส เยื่อหุ้มเซลล์ ไซโทพลาซึม และไมโทคอนเดรีย แต่ผนังเซลล์ (ช่วยค้ำจุน) และคลอโรพลาสต์ (สังเคราะห์ด้วยแสง) พบเฉพาะในเซลล์พืช"
+   },
+   "choices": [
+    "นิวเคลียสและเยื่อหุ้มเซลล์",
+    "ไซโทพลาซึมและไมโทคอนเดรีย",
+    "ผนังเซลล์และคลอโรพลาสต์",
+    "เยื่อหุ้มเซลล์และไซโทพลาซึม"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Tracing the path of blood circulation",
+    "th": "การลำดับเส้นทางการไหลเวียนเลือด"
+   },
+   "topic": {
+    "en": "Cells and the human body",
+    "th": "เซลล์และร่างกายมนุษย์"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "เลือดที่ได้รับออกซิเจนจากปอดแล้ว จะเดินทางตามลำดับใดก่อนไปถึงสมอง",
+   "explanation": {
+    "en": "Oxygen-rich blood returns from the lungs to the left atrium, passes down into the left ventricle, and is pumped out through the aorta (the main artery) to the body, including the brain. The right side of the heart handles oxygen-poor blood going to the lungs.",
+    "th": "เลือดที่มีออกซิเจนสูงจากปอดเข้าสู่หัวใจห้องบนซ้าย ลงสู่ห้องล่างซ้าย แล้วถูกสูบออกทางหลอดเลือดแดงใหญ่ (เอออร์ตา) ไปเลี้ยงร่างกายรวมถึงสมอง หัวใจซีกขวารับเลือดที่มีออกซิเจนต่ำส่งไปปอด"
+   },
+   "choices": [
+    "ปอด → หัวใจห้องบนขวา → หัวใจห้องล่างขวา → หลอดเลือดแดงใหญ่ → สมอง",
+    "ปอด → หัวใจห้องล่างซ้าย → หัวใจห้องบนซ้าย → หลอดเลือดดำใหญ่ → สมอง",
+    "ปอด → หลอดเลือดแดงใหญ่ → หัวใจห้องบนซ้าย → หัวใจห้องล่างซ้าย → สมอง",
+    "ปอด → หัวใจห้องบนซ้าย → หัวใจห้องล่างซ้าย → หลอดเลือดแดงใหญ่ → สมอง"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Stages of digestion",
+    "th": "ขั้นตอนการย่อยอาหาร"
+   },
+   "topic": {
+    "en": "Cells and the human body",
+    "th": "เซลล์และร่างกายมนุษย์"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "การย่อยโปรตีนด้วยเอนไซม์ในระบบย่อยอาหารของมนุษย์ \"เริ่มต้น\" ที่อวัยวะใด",
+   "explanation": {
+    "en": "The mouth begins digesting starch (amylase in saliva), not protein. Protein digestion starts in the stomach, where the enzyme pepsin works in acid; it is completed in the small intestine. The large intestine mainly absorbs water.",
+    "th": "ปากเริ่มย่อยแป้งด้วยเอนไซม์อะไมเลสในน้ำลาย ไม่ใช่โปรตีน โปรตีนเริ่มถูกย่อยในกระเพาะอาหารด้วยเอนไซม์เพปซินซึ่งทำงานในสภาพเป็นกรด และย่อยสมบูรณ์ในลำไส้เล็ก ลำไส้ใหญ่ทำหน้าที่ดูดน้ำเป็นหลัก"
+   },
+   "choices": [
+    "กระเพาะอาหาร",
+    "ปาก",
+    "ลำไส้เล็ก",
+    "ลำไส้ใหญ่"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting a photosynthesis experiment",
+    "th": "การแปลผลการทดลองการสังเคราะห์ด้วยแสง"
+   },
+   "topic": {
+    "en": "Plants",
+    "th": "พืช"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "นักเรียนนำต้นไม้ที่ใบมีสีเขียวสลับขาวไปไว้ในที่มืด 2 วัน แล้วนำออกมาตากแดด 6 ชั่วโมง จากนั้นเด็ดใบไปต้มในแอลกอฮอล์และหยดสารละลายไอโอดีน ข้อใดเป็นทั้งผลการทดลองที่ถูกต้องและเหตุผลที่ต้องนำต้นไม้ไว้ในที่มืดก่อน",
+   "explanation": {
+    "en": "Iodine turns blue-black where there is starch. Only the green parts have chlorophyll, so only they made starch during the 6 hours of light. The plant was kept in the dark first so that it used up the starch it already had; otherwise old starch could give a false result. Boiling in alcohol, not darkness, removes the chlorophyll.",
+    "th": "ไอโอดีนเปลี่ยนเป็นสีน้ำเงินเข้มเมื่อมีแป้ง เฉพาะส่วนสีเขียวมีคลอโรฟิลล์ จึงสร้างแป้งได้ในช่วงที่ได้รับแสง 6 ชั่วโมง การเก็บต้นไม้ในที่มืดก่อนก็เพื่อให้ใบใช้แป้งที่มีอยู่เดิมจนหมด ผลจะได้ไม่คลาดเคลื่อน ส่วนการกำจัดคลอโรฟิลล์ทำโดยการต้มในแอลกอฮอล์ ไม่ใช่การเก็บในที่มืด"
+   },
+   "choices": [
+    "เฉพาะส่วนที่เคยเป็นสีเขียวเปลี่ยนเป็นสีน้ำเงินเข้ม และเก็บในที่มืดเพื่อให้ใบใช้แป้งเดิมจนหมด",
+    "ทั้งใบเปลี่ยนเป็นสีน้ำเงินเข้ม และเก็บในที่มืดเพื่อให้ใบสร้างแป้งได้มากขึ้น",
+    "เฉพาะส่วนที่เคยเป็นสีขาวเปลี่ยนเป็นสีน้ำเงินเข้ม และเก็บในที่มืดเพื่อให้ใบใช้แป้งเดิมจนหมด",
+    "เฉพาะส่วนที่เคยเป็นสีเขียวเปลี่ยนเป็นสีน้ำเงินเข้ม และเก็บในที่มืดเพื่อกำจัดคลอโรฟิลล์"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Predicting results from knowledge of stomata",
+    "th": "การทำนายผลจากความรู้เรื่องปากใบ"
+   },
+   "topic": {
+    "en": "Plants",
+    "th": "พืช"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "นำกิ่งไม้ที่มีใบขนาดและจำนวนเท่ากัน 4 กิ่ง ปักในหลอดทดลองที่มีน้ำเท่ากันและหยดน้ำมันปิดผิวน้ำ แล้วทาวาสลีนดังนี้ กิ่ง ก ไม่ทา กิ่ง ข ทาผิวใบด้านบน กิ่ง ค ทาผิวใบด้านล่าง กิ่ง ง ทาทั้งสองด้าน ทิ้งไว้ 2 วัน ข้อใดน่าจะเป็นลำดับมวลของน้ำที่หายไปจากมากไปน้อย (ใบพืชชนิดนี้มีปากใบด้านล่างมากกว่าด้านบน)",
+   "explanation": {
+    "en": "Water leaves the leaves mainly through stomata, and most stomata are on the lower surface. Vaseline blocks the stomata it covers. Branch ก (no coating) loses most; ข (upper surface blocked) still has most stomata open; ค (lower surface blocked) loses much less; ง (both blocked) loses least. The oil layer stops evaporation from the water surface, so loss is from the leaves only.",
+    "th": "น้ำออกจากใบทางปากใบเป็นหลัก และปากใบส่วนใหญ่อยู่ด้านล่าง วาสลีนปิดปากใบบริเวณที่ทา กิ่ง ก ไม่ทาเลยจึงเสียน้ำมากที่สุด กิ่ง ข ปิดด้านบนแต่ปากใบส่วนใหญ่ยังเปิด กิ่ง ค ปิดด้านล่างจึงเสียน้ำน้อยลงมาก และกิ่ง ง ปิดทั้งสองด้านเสียน้ำน้อยที่สุด ชั้นน้ำมันกันการระเหยจากผิวน้ำ น้ำที่หายไปจึงมาจากใบเท่านั้น"
+   },
+   "choices": [
+    "ก > ค > ข > ง",
+    "ง > ค > ข > ก",
+    "ก > ข > ค > ง",
+    "ก = ข > ค = ง"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Energy flow in a food chain",
+    "th": "การถ่ายทอดพลังงานในโซ่อาหาร"
+   },
+   "topic": {
+    "en": "Ecosystems",
+    "th": "ระบบนิเวศ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "โซ่อาหาร: หญ้า → ตั๊กแตน → กบ → งู → เหยี่ยว ถ้าหญ้าสะสมพลังงานไว้ 50,000 กิโลจูล และพลังงานถ่ายทอดไปยังผู้บริโภคลำดับถัดไปได้ประมาณ 10% ในแต่ละขั้น เหยี่ยวจะได้รับพลังงานประมาณกี่กิโลจูล",
+   "explanation": {
+    "en": "There are four transfers: grass → grasshopper 5,000 kJ → frog 500 kJ → snake 50 kJ → hawk 5 kJ. About 90% is lost at each step (as heat, movement, waste), so top predators get very little energy and are few in number.",
+    "th": "พลังงานถ่ายทอด 4 ขั้น: หญ้า → ตั๊กแตน 5,000 → กบ 500 → งู 50 → เหยี่ยว 5 กิโลจูล ในแต่ละขั้นสูญเสียประมาณ 90% (เป็นความร้อน การเคลื่อนไหว ของเสีย) ผู้ล่าลำดับสูงสุดจึงได้รับพลังงานน้อยมากและมีจำนวนน้อย"
+   },
+   "choices": [
+    "5",
+    "50",
+    "500",
+    "0.5"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Classifying relationships between organisms",
+    "th": "การจำแนกความสัมพันธ์ระหว่างสิ่งมีชีวิต"
+   },
+   "topic": {
+    "en": "Ecosystems",
+    "th": "ระบบนิเวศ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ความสัมพันธ์ในข้อใดเป็นภาวะอิงอาศัย (ฝ่ายหนึ่งได้ประโยชน์ อีกฝ่ายไม่ได้และไม่เสียประโยชน์)",
+   "explanation": {
+    "en": "The remora gets food scraps and transport while the shark is neither helped nor harmed: commensalism (+, 0). Bees and flowers, and the fungus and alga in a lichen, both benefit (mutualism, +, +). The mistletoe takes water and minerals from the mango tree and harms it (parasitism, +, −).",
+    "th": "เหาฉลามได้เศษอาหารและพาหนะ ส่วนปลาฉลามไม่ได้และไม่เสียประโยชน์ จึงเป็นภาวะอิงอาศัย (+, 0) ผึ้งกับดอกไม้ และราและสาหร่ายในไลเคน ได้ประโยชน์ทั้งสองฝ่าย (ภาวะพึ่งพากัน +, +) กาฝากแย่งน้ำและแร่ธาตุจากต้นมะม่วงทำให้เสียประโยชน์ (ภาวะปรสิต +, −)"
+   },
+   "choices": [
+    "ผึ้งดูดน้ำหวานจากดอกไม้และช่วยถ่ายเรณู",
+    "เหาฉลามเกาะติดตัวปลาฉลามเพื่อกินเศษอาหาร",
+    "กาฝากเกาะบนต้นมะม่วงและดูดน้ำกับแร่ธาตุ",
+    "ราและสาหร่ายอยู่ร่วมกันเป็นไลเคน"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Using a Punnett square",
+    "th": "การใช้ตารางพันเนตต์"
+   },
+   "topic": {
+    "en": "Heredity",
+    "th": "พันธุกรรม"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ในต้นถั่ว ลักษณะต้นสูง (T) เป็นลักษณะเด่น ต้นเตี้ย (t) เป็นลักษณะด้อย นำต้นสูงพันธุ์ทาง (Tt) มาผสมกัน ได้ต้นรุ่นลูก 80 ต้น คาดว่าจะมีต้นสูงที่เป็นพันธุ์แท้ (TT) ประมาณกี่ต้น",
+   "explanation": {
+    "en": "Tt × Tt gives TT : Tt : tt = 1 : 2 : 1. About 3/4 of 80 = 60 plants are tall, but only 1/4 of 80 = 20 are pure-breeding TT; the other 40 tall plants are Tt.",
+    "th": "Tt × Tt ได้ TT : Tt : tt = 1 : 2 : 1 ต้นสูงมีประมาณ 3/4 ของ 80 = 60 ต้น แต่ที่เป็นพันธุ์แท้ TT มีเพียง 1/4 ของ 80 = 20 ต้น อีก 40 ต้นเป็นพันธุ์ทาง Tt"
+   },
+   "choices": [
+    "60",
+    "40",
+    "30",
+    "20"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Distinguishing inherited and acquired traits",
+    "th": "การแยกลักษณะทางพันธุกรรมกับลักษณะที่ได้มาภายหลัง"
+   },
+   "topic": {
+    "en": "Heredity",
+    "th": "พันธุกรรม"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ข้อใดเป็นลักษณะทางพันธุกรรมที่ถ่ายทอดจากพ่อแม่ไปสู่ลูกได้",
+   "explanation": {
+    "en": "Dimples are controlled by genes and can be passed from parents to children. A scar, muscles from training and a suntan are acquired during life and are not inherited.",
+    "th": "ลักยิ้มถูกควบคุมด้วยยีนและถ่ายทอดจากพ่อแม่สู่ลูกได้ ส่วนแผลเป็น กล้ามจากการออกกำลังกาย และผิวคล้ำจากแดด เกิดขึ้นภายหลังจึงไม่ถ่ายทอดทางพันธุกรรม"
+   },
+   "choices": [
+    "รอยแผลเป็นที่หัวเข่า",
+    "การมีลักยิ้ม",
+    "กล้ามแขนใหญ่จากการยกน้ำหนักทุกวัน",
+    "ผิวคล้ำจากการตากแดดเป็นเวลานาน"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Predicting the phases and rising of the Moon",
+    "th": "การทำนายข้างขึ้นข้างแรมและตำแหน่งดวงจันทร์"
+   },
+   "topic": {
+    "en": "Earth and space",
+    "th": "โลกและอวกาศ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "คืนนี้ (ประเทศไทย) เวลาประมาณ 18.00 น. นักเรียนเห็นดวงจันทร์ครึ่งดวง ด้านขวาสว่าง อยู่สูงกลางท้องฟ้า อีกประมาณ 7 วันข้างหน้า เวลาประมาณ 18.00 น. จะเห็นดวงจันทร์ลักษณะใดและอยู่ที่ใด",
+   "explanation": {
+    "en": "A half moon lit on the right, high in the sky at sunset, is the first quarter (about ขึ้น 8 ค่ำ). About 7 days later it is full. A full moon is opposite the Sun, so it rises in the east as the Sun sets in the west around 6 p.m. The new moon comes about two weeks after the full moon, not one week after the first quarter.",
+    "th": "ดวงจันทร์ครึ่งดวงด้านขวาสว่างและอยู่กลางฟ้าตอนหัวค่ำคือข้างขึ้นประมาณ 8 ค่ำ อีกประมาณ 7 วันจะเป็นจันทร์เต็มดวง ซึ่งอยู่ตรงข้ามดวงอาทิตย์ จึงขึ้นทางทิศตะวันออกขณะดวงอาทิตย์ตกทางทิศตะวันตกตอนประมาณ 18.00 น. ส่วนเดือนดับจะเกิดหลังจันทร์เต็มดวงประมาณสองสัปดาห์"
+   },
+   "choices": [
+    "เต็มดวง อยู่สูงกลางท้องฟ้า",
+    "ครึ่งดวงด้านซ้ายสว่าง อยู่ใกล้ขอบฟ้าทางทิศตะวันตก",
+    "มองไม่เห็นดวงจันทร์เพราะเป็นคืนเดือนดับ",
+    "เต็มดวง อยู่ใกล้ขอบฟ้าทางทิศตะวันออก"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Explaining eclipses",
+    "th": "การอธิบายการเกิดอุปราคา"
+   },
+   "topic": {
+    "en": "Earth and space",
+    "th": "โลกและอวกาศ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "สุริยุปราคาเกิดได้เฉพาะช่วงเดือนดับ (ดวงจันทร์อยู่ระหว่างโลกกับดวงอาทิตย์) แต่ไม่ได้เกิดทุกเดือน เพราะเหตุใด",
+   "explanation": {
+    "en": "The Moon's orbit is tilted about 5° to Earth's orbit. At most new moons the Moon passes a little above or below the Sun as seen from Earth, so its shadow misses Earth. An eclipse happens only when new moon occurs near the points where the two orbits cross.",
+    "th": "ระนาบวงโคจรของดวงจันทร์เอียงประมาณ 5° กับระนาบวงโคจรของโลก ในเดือนดับส่วนใหญ่ดวงจันทร์จึงผ่านเหนือหรือใต้ดวงอาทิตย์เมื่อมองจากโลก เงาไม่ตกบนโลก สุริยุปราคาเกิดเมื่อเดือนดับตรงกับช่วงที่ดวงจันทร์อยู่ใกล้จุดตัดของสองระนาบเท่านั้น"
+   },
+   "choices": [
+    "ดวงจันทร์มีขนาดเล็กเกินกว่าจะบังดวงอาทิตย์ได้",
+    "ระนาบวงโคจรของดวงจันทร์เอียงจากระนาบวงโคจรของโลกเล็กน้อย ส่วนใหญ่ดวงจันทร์จึงผ่านเหนือหรือใต้แนวเส้นตรงระหว่างโลกกับดวงอาทิตย์",
+    "ดวงจันทร์ไม่ได้โคจรรอบโลกทุกเดือน",
+    "ในบางเดือนโลกหมุนรอบตัวเองเร็วเกินไป"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Ordering geological events",
+    "th": "การลำดับเหตุการณ์ทางธรณีวิทยา"
+   },
+   "topic": {
+    "en": "Earth and space",
+    "th": "โลกและอวกาศ"
+   },
+   "passage": "",
+   "table": {
+    "title": "ชั้นหินที่หน้าผา (เรียงจากบนลงล่าง)",
+    "rows": [
+     [
+      "ชั้น",
+      "ลักษณะ"
      ],
      [
       "A",
-      "5",
-      "35",
-      "20"
+      "หินทราย"
      ],
      [
       "B",
-      "10",
-      "35",
-      "28"
+      "หินปูนมีซากหอย"
      ],
      [
       "C",
-      "10",
-      "10",
-      "8"
+      "หินดินดาน"
      ],
      [
       "D",
-      "0",
-      "35",
-      "2"
+      "หินกรวดมน"
      ]
     ]
    },
-   "stem": "นักเรียนใส่ยีสต์ปริมาณเท่ากันลงในขวด 4 ใบ เติมน้ำตาลและน้ำอุณหภูมิต่างกัน แล้วครอบปากขวดด้วยลูกโป่ง ผลเป็นดังตาราง ถ้าต้องการทดสอบว่าอุณหภูมิมีผลต่อการผลิตแก๊สของยีสต์หรือไม่ ควรเปรียบเทียบขวดคู่ใด",
-   "choices": [
-    "ขวด A กับขวด C",
-    "ขวด A กับขวด D",
-    "ขวด B กับขวด C",
-    "ขวด A กับขวด B"
-   ],
-   "answer": 2,
+   "lang": "th",
+   "stem": "หน้าผาแห่งหนึ่งมีชั้นหินเรียงจากบนลงล่างดังตาราง และมีสายหินอัคนีแทรกตัดผ่านชั้น D, C และ B แต่ไม่ตัดผ่านชั้น A ข้อใดเรียงลำดับเหตุการณ์จากเกิดก่อนไปเกิดหลังได้ถูกต้อง (ชั้นหินไม่ได้พลิกกลับ)",
    "explanation": {
-    "en": "A fair test changes only the variable being tested. Bottles B and C have the same sugar (10 g) but different temperatures (35 °C and 10 °C). A vs B changes sugar; A vs C changes both sugar and temperature; A vs D changes sugar.",
-    "th": "การทดลองที่ยุติธรรมต้องเปลี่ยนเฉพาะตัวแปรที่ต้องการทดสอบ ขวด B และ C ใช้น้ำตาลเท่ากัน (10 กรัม) แต่อุณหภูมิต่างกัน (35 °C และ 10 °C) ส่วนขวด A กับ B ต่างกันที่น้ำตาล ขวด A กับ C ต่างกันทั้งน้ำตาลและอุณหภูมิ และขวด A กับ D ต่างกันที่น้ำตาล"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "sci",
-   "difficulty": "h",
-   "passage": "",
-   "table": {
-    "title": "ความหนาแน่นของของเหลว",
-    "rows": [
-     [
-      "ของเหลว",
-      "ความหนาแน่น (g/cm³)"
-     ],
-     [
-      "น้ำมันพืช",
-      "0.92"
-     ],
-     [
-      "น้ำ",
-      "1.00"
-     ],
-     [
-      "น้ำเชื่อมเข้มข้น",
-      "1.40"
-     ],
-     [
-      "สารละลาย X",
-      "1.80"
-     ]
-    ]
+    "en": "In undisturbed layers the bottom layer is oldest, so D, C, B formed in that order. A body of rock that cuts through layers must be younger than them, so the igneous intrusion came after B. It does not cut A, so A was laid down on top afterwards.",
+    "th": "ชั้นหินที่ไม่ถูกพลิก ชั้นล่างสุดเกิดก่อน จึงเกิด D, C, B ตามลำดับ หินที่แทรกตัดผ่านชั้นใดต้องเกิดหลังชั้นนั้น หินอัคนีจึงเกิดหลัง B และเพราะไม่ตัดผ่านชั้น A ชั้น A จึงทับถมทีหลังสุด"
    },
-   "stem": "ก้อนวัสดุรูปสี่เหลี่ยมมุมฉากขนาด 4 × 5 × 10 ซม. มีมวล 300 กรัม เมื่อนำไปใส่ในของเหลวแต่ละชนิดในตาราง ก้อนวัสดุนี้จะลอยในของเหลวใด",
    "choices": [
-    "สารละลาย X",
-    "น้ำเชื่อมเข้มข้น",
-    "น้ำมันพืช",
-    "น้ำ"
+    "A → B → C → D → หินอัคนีแทรกตัด",
+    "หินอัคนีแทรกตัด → D → C → B → A",
+    "D → C → B → หินอัคนีแทรกตัด → A",
+    "D → C → B → A → หินอัคนีแทรกตัด"
    ],
-   "answer": 0,
-   "explanation": {
-    "en": "Volume = 4 × 5 × 10 = 200 cm³, so density = 300 ÷ 200 = 1.5 g/cm³. It floats only in a liquid denser than 1.5 g/cm³: liquid X (1.80). It sinks in oil, water and syrup (1.40).",
-    "th": "ปริมาตร = 4 × 5 × 10 = 200 ลบ.ซม. ความหนาแน่น = 300 ÷ 200 = 1.5 g/cm³ จะลอยได้เฉพาะในของเหลวที่หนาแน่นกว่า 1.5 คือสารละลาย X (1.80) ส่วนน้ำมันพืช น้ำ และน้ำเชื่อมเข้มข้น (1.40) หนาแน่นน้อยกว่า วัสดุจึงจม"
-   }
+   "answer": 2
   },
   {
    "kind": "m1",
    "program": "gate",
    "subject": "sci",
+   "format": "fill",
    "difficulty": "h",
-   "passage": "",
-   "table": null,
-   "stem": "ผลักกล่องบนพื้นด้วยแรง 50 นิวตันไปทางขวา กล่องเคลื่อนที่ด้วยความเร็วคงตัว ต่อมาเพิ่มแรงผลักเป็น 80 นิวตัน (แรงเสียดทานคงเดิม) แรงลัพธ์ที่กระทำต่อกล่องเป็นเท่าใด",
-   "choices": [
-    "30 นิวตัน ไปทางขวา",
-    "0 นิวตัน เพราะกล่องยังเคลื่อนที่",
-    "130 นิวตัน ไปทางขวา",
-    "80 นิวตัน ไปทางขวา"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "At constant velocity the net force is zero, so friction must be 50 N to the left. With an 80 N push: net force = 80 − 50 = 30 N to the right, and the box speeds up.",
-    "th": "เมื่อกล่องเคลื่อนที่ด้วยความเร็วคงตัว แรงลัพธ์เป็นศูนย์ แรงเสียดทานจึงเท่ากับ 50 นิวตันไปทางซ้าย เมื่อผลักด้วยแรง 80 นิวตัน แรงลัพธ์ = 80 − 50 = 30 นิวตันไปทางขวา กล่องจะเคลื่อนที่เร็วขึ้น"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "sci",
-   "difficulty": "h",
-   "passage": "",
-   "table": null,
-   "stem": "เดือนกรกฎาคมเป็นฤดูร้อนของซีกโลกเหนือ แต่เป็นฤดูหนาวของประเทศออสเตรเลียซึ่งอยู่ซีกโลกใต้ สาเหตุหลักคือข้อใด",
-   "choices": [
-    "โลกโคจรไปอยู่ไกลดวงอาทิตย์ที่สุดในเดือนกรกฎาคม",
-    "ซีกโลกใต้มีพื้นที่มหาสมุทรมากจึงเย็นกว่าตลอดปี",
-    "ดวงอาทิตย์ส่องแสงอ่อนลงในช่วงกลางปี",
-    "แกนโลกเอียง ทำให้ซีกโลกใต้เอียงออกจากดวงอาทิตย์ แสงตกกระทบเฉียงกว่าและกลางวันสั้นกว่า"
-   ],
-   "answer": 3,
-   "explanation": {
-    "en": "Seasons are caused by the tilt of Earth's axis. In July the southern hemisphere is tilted away from the Sun, so sunlight is more slanted and days are shorter. Distance from the Sun cannot be the cause, because the two hemispheres have opposite seasons at the same distance.",
-    "th": "ฤดูกาลเกิดจากแกนโลกเอียง ในเดือนกรกฎาคมซีกโลกใต้เอียงออกจากดวงอาทิตย์ แสงจึงตกกระทบเฉียงและกลางวันสั้น ระยะห่างจากดวงอาทิตย์ไม่ใช่สาเหตุ เพราะในวันเดียวกันซีกโลกทั้งสองอยู่ห่างดวงอาทิตย์เท่ากันแต่เป็นคนละฤดู"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "sci",
-   "difficulty": "h",
-   "passage": "",
-   "table": {
-    "title": "การเปลี่ยนแปลงมวลของชิ้นมันฝรั่ง",
-    "rows": [
-     [
-      "ความเข้มข้นน้ำเกลือ (%)",
-      "0",
-      "2",
-      "4",
-      "6"
-     ],
-     [
-      "มวลที่เปลี่ยนไป (%)",
-      "+8",
-      "+1",
-      "−5",
-      "−10"
-     ]
-    ]
+   "skill": {
+    "en": "Measuring density by displacement",
+    "th": "การหาความหนาแน่นโดยการแทนที่น้ำ"
    },
-   "stem": "แช่ชิ้นมันฝรั่งขนาดเท่ากันในสารละลายน้ำเกลือความเข้มข้นต่าง ๆ นาน 1 ชั่วโมง แล้วชั่งมวลที่เปลี่ยนไป ได้ผลดังตาราง ความเข้มข้นของสารละลายภายในเซลล์มันฝรั่งน่าจะอยู่ในช่วงใด",
-   "choices": [
-    "ระหว่าง 0% ถึง 1%",
-    "ระหว่าง 3% ถึง 4%",
-    "ระหว่าง 2% ถึง 3%",
-    "ระหว่าง 5% ถึง 6%"
+   "topic": {
+    "en": "Density and pressure",
+    "th": "ความหนาแน่นและความดัน"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "กระบอกตวงมีน้ำ 50 มล. เมื่อใส่ลูกแก้วเหมือนกันทุกประการ 6 ลูกลงไปจนจมหมด ระดับน้ำขึ้นไปที่ 74 มล. ถ้าลูกแก้วทั้ง 6 ลูกมีมวลรวม 60 กรัม ลูกแก้วมีความหนาแน่นกี่กรัมต่อลูกบาศก์เซนติเมตร",
+   "accept": [
+    "2.5",
+    "2.50",
+    "5/2",
+    "2 1/2"
    ],
-   "answer": 2,
+   "unit": "g/cm³",
    "explanation": {
-    "en": "Where the solution matches the cell sap, water moves in and out equally and the mass does not change. The change goes from +1% at 2% to −5% at 4%, so zero change is at about 2 + 2 × 1/6 ≈ 2.3% — between 2% and 3%.",
-    "th": "ที่ความเข้มข้นเท่ากับภายในเซลล์ น้ำเข้าออกเท่ากันโดยออสโมซิส มวลจึงไม่เปลี่ยน จากตาราง มวลเปลี่ยนจาก +1% ที่ 2% เป็น −5% ที่ 4% จุดที่มวลไม่เปลี่ยนอยู่ประมาณ 2 + 2 × 1/6 ≈ 2.3% จึงอยู่ระหว่าง 2% ถึง 3%"
+    "en": "The 6 marbles displace 74 − 50 = 24 mL = 24 cm³. Density = 60 g ÷ 24 cm³ = 2.5 g/cm³ (the same as one marble: 10 g ÷ 4 cm³).",
+    "th": "ลูกแก้ว 6 ลูกแทนที่น้ำ 74 − 50 = 24 มล. = 24 ลบ.ซม. ความหนาแน่น = 60 ÷ 24 = 2.5 g/cm³ (เท่ากับลูกเดียว 10 กรัม ÷ 4 ลบ.ซม.)"
    }
   },
   {
    "kind": "m1",
    "program": "gate",
    "subject": "sci",
+   "format": "fill",
    "difficulty": "h",
+   "skill": {
+    "en": "Mechanical advantage of a pulley system",
+    "th": "การได้เปรียบเชิงกลของระบบรอก"
+   },
+   "topic": {
+    "en": "Forces and simple machines",
+    "th": "แรงและเครื่องกลอย่างง่าย"
+   },
    "passage": "",
    "table": null,
-   "stem": "ลำดับการเปลี่ยนรูปพลังงานในเขื่อนผลิตไฟฟ้าพลังน้ำข้อใดถูกต้อง",
-   "choices": [
-    "พลังงานศักย์ของน้ำ → พลังงานไฟฟ้า → พลังงานจลน์ของกังหัน",
-    "พลังงานจลน์ของน้ำ → พลังงานศักย์ของน้ำ → พลังงานจลน์ของกังหัน → พลังงานไฟฟ้า",
-    "พลังงานศักย์ของน้ำ → พลังงานจลน์ของน้ำ → พลังงานจลน์ของกังหัน → พลังงานไฟฟ้า",
-    "พลังงานความร้อน → พลังงานจลน์ของกังหัน → พลังงานไฟฟ้า"
+   "lang": "th",
+   "stem": "ระบบรอกชุดหนึ่งมีเส้นเชือก 4 เส้นดึงรั้งชุดรอกเคลื่อนที่ซึ่งแขวนวัตถุหนัก 600 นิวตัน ถ้าไม่คิดน้ำหนักของรอกและแรงเสียดทาน ต้องออกแรงดึงปลายเชือกอย่างน้อยกี่นิวตันจึงยกวัตถุขึ้นได้ด้วยความเร็วคงที่",
+   "accept": [
+    "150"
    ],
-   "answer": 2,
+   "unit": "นิวตัน",
    "explanation": {
-    "en": "Water stored high behind the dam has potential energy. As it falls it gains kinetic energy, which turns the turbine (kinetic energy of the turbine), and the generator changes this into electrical energy. Heat is the starting energy in a thermal power station, not a dam.",
-    "th": "น้ำที่กักเก็บไว้ที่สูงมีพลังงานศักย์ เมื่อไหลลงมาจะมีพลังงานจลน์ ไปหมุนกังหัน (พลังงานจลน์ของกังหัน) แล้วเครื่องกำเนิดไฟฟ้าเปลี่ยนเป็นพลังงานไฟฟ้า ส่วนพลังงานความร้อนเป็นจุดเริ่มต้นของโรงไฟฟ้าพลังความร้อน ไม่ใช่เขื่อน"
+    "en": "With 4 rope sections holding up the moving block, the load is shared equally by the 4 sections, each with the same tension as the end you pull: 600 ÷ 4 = 150 N. (The trade-off: to lift the load 1 m you must pull 4 m of rope.)",
+    "th": "เชือก 4 เส้นรับน้ำหนักของชุดรอกเคลื่อนที่ร่วมกันเท่า ๆ กัน และแรงตึงแต่ละเส้นเท่ากับแรงที่ดึงปลายเชือก จึงต้องดึง 600 ÷ 4 = 150 นิวตัน (แลกกับการต้องดึงเชือกยาว 4 เมตรเพื่อยกวัตถุขึ้น 1 เมตร)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "fill",
+   "difficulty": "m",
+   "skill": {
+    "en": "Calculating electrical energy and cost",
+    "th": "การคำนวณพลังงานไฟฟ้าและค่าไฟฟ้า"
+   },
+   "topic": {
+    "en": "Electricity and magnetism",
+    "th": "ไฟฟ้าและแม่เหล็ก"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "เครื่องทำน้ำอุ่นกำลังไฟฟ้า 1,500 วัตต์ เปิดใช้วันละ 2 ชั่วโมง เป็นเวลา 30 วัน ถ้าค่าไฟฟ้าหน่วยละ 4 บาท จะต้องจ่ายค่าไฟฟ้าสำหรับเครื่องนี้กี่บาท",
+   "accept": [
+    "360"
+   ],
+   "unit": "บาท",
+   "explanation": {
+    "en": "Energy in units (kWh) = kilowatts × hours = 1.5 kW × (2 × 30) h = 90 units. Cost = 90 × 4 = 360 baht.",
+    "th": "พลังงานไฟฟ้า (หน่วย) = กิโลวัตต์ × ชั่วโมง = 1.5 × (2 × 30) = 90 หน่วย ค่าไฟฟ้า = 90 × 4 = 360 บาท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "fill",
+   "difficulty": "m",
+   "skill": {
+    "en": "Using echoes to measure distance",
+    "th": "การใช้เสียงสะท้อนวัดระยะทาง"
+   },
+   "topic": {
+    "en": "Light and sound",
+    "th": "แสงและเสียง"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "นักเรียนยืนตะโกนหันหน้าเข้าหาหน้าผา ได้ยินเสียงสะท้อนกลับมาหลังจากตะโกน 1.2 วินาที ถ้าเสียงเคลื่อนที่ในอากาศด้วยอัตราเร็ว 340 เมตรต่อวินาที นักเรียนยืนห่างจากหน้าผากี่เมตร",
+   "accept": [
+    "204"
+   ],
+   "unit": "เมตร",
+   "explanation": {
+    "en": "In 1.2 s the sound travels 340 × 1.2 = 408 m, but that is there and back. The cliff is half of this: 408 ÷ 2 = 204 m.",
+    "th": "ใน 1.2 วินาที เสียงเดินทางได้ 340 × 1.2 = 408 เมตร ซึ่งเป็นระยะไปและกลับ ระยะถึงหน้าผาจึงเป็นครึ่งหนึ่ง คือ 408 ÷ 2 = 204 เมตร"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "format": "fill",
+   "difficulty": "h",
+   "skill": {
+    "en": "Heat exchange when mixing water",
+    "th": "การแลกเปลี่ยนความร้อนเมื่อผสมน้ำ"
+   },
+   "topic": {
+    "en": "Heat and temperature",
+    "th": "ความร้อนและอุณหภูมิ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ผสมน้ำ 200 กรัม อุณหภูมิ 80 °C กับน้ำ 300 กรัม อุณหภูมิ 20 °C ในภาชนะที่เป็นฉนวนความร้อน อุณหภูมิสุดท้ายของน้ำผสมเป็นกี่องศาเซลเซียส (ไม่มีการสูญเสียความร้อน)",
+   "accept": [
+    "44"
+   ],
+   "unit": "°C",
+   "explanation": {
+    "en": "Heat lost by the hot water = heat gained by the cold water: 200 × (80 − T) = 300 × (T − 20). So 16,000 − 200T = 300T − 6,000, 500T = 22,000, T = 44 °C. It is closer to 20 °C because there is more cold water.",
+    "th": "ความร้อนที่น้ำร้อนเสีย = ความร้อนที่น้ำเย็นได้รับ: 200 × (80 − T) = 300 × (T − 20) ได้ 16,000 − 200T = 300T − 6,000 จึง 500T = 22,000, T = 44 °C ใกล้ 20 °C มากกว่าเพราะน้ำเย็นมีมากกว่า"
    }
   },
   {
    "kind": "m1",
    "program": "gate",
    "subject": "eng",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the past perfect continuous",
+    "th": "การเลือกใช้ past perfect continuous"
+   },
+   "topic": {
+    "en": "Verb tenses and conditionals",
+    "th": "กาลและประโยคเงื่อนไข"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "en",
+   "stem": "By the time the rescue team arrived, the hikers ___ in the cave for nearly two days.",
+   "explanation": {
+    "en": "The waiting began before another past moment (the team's arrival) and continued up to it, with a duration ('for nearly two days'). That calls for the past perfect continuous: had been waiting. 'Have been waiting' connects to the present, which does not match 'arrived'.",
+    "th": "การรอเริ่มก่อนเหตุการณ์ในอดีตอีกเหตุการณ์หนึ่ง (ทีมกู้ภัยมาถึง) และต่อเนื่องจนถึงตอนนั้น โดยบอกระยะเวลา จึงใช้ past perfect continuous คือ had been waiting ส่วน have been waiting เชื่อมกับปัจจุบัน ไม่เข้ากับ arrived"
+   },
+   "choices": [
+    "have been waiting",
+    "had been waiting",
+    "were waiting",
+    "are waiting"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion after negative adverbs",
+    "th": "การสลับตำแหน่งกริยาหลังคำวิเศษณ์เชิงปฏิเสธ"
+   },
+   "topic": {
+    "en": "Sentence structure",
+    "th": "โครงสร้างประโยค"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "en",
+   "stem": "Hardly ___ the platform when the doors closed and the train pulled away.",
+   "explanation": {
+    "en": "When a sentence starts with 'Hardly … when', the auxiliary comes before the subject (inversion), and the first action uses the past perfect because it happened just before the second: 'Hardly had we reached the platform when the doors closed.'",
+    "th": "เมื่อขึ้นต้นประโยคด้วย Hardly … when ต้องสลับกริยาช่วยมาไว้หน้าประธาน และเหตุการณ์แรกใช้ past perfect เพราะเกิดก่อนอีกเหตุการณ์เพียงเล็กน้อย จึงเป็น Hardly had we reached the platform when …"
+   },
+   "choices": [
+    "we had reached",
+    "had we reached",
+    "we reached",
+    "have we reached"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Using mixed conditionals",
+    "th": "การใช้ประโยคเงื่อนไขแบบผสม"
+   },
+   "topic": {
+    "en": "Verb tenses and conditionals",
+    "th": "กาลและประโยคเงื่อนไข"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "en",
+   "stem": "If Mina ___ the doctor's advice last month, she wouldn't be in hospital now.",
+   "explanation": {
+    "en": "The condition is about the past ('last month') but the result is about the present ('now'). This mixed conditional uses 'if + past perfect' with 'would + base verb': If she had followed the advice, she wouldn't be in hospital now.",
+    "th": "เงื่อนไขเป็นเรื่องในอดีต (last month) แต่ผลเป็นปัจจุบัน (now) จึงเป็นประโยคเงื่อนไขแบบผสม ใช้ if + past perfect คู่กับ would + กริยาช่องที่ 1 คำตอบคือ had followed"
+   },
+   "choices": [
+    "followed",
+    "would follow",
+    "had followed",
+    "has followed"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Reported questions",
+    "th": "การรายงานคำถามทางอ้อม"
+   },
+   "topic": {
+    "en": "Sentence structure",
+    "th": "โครงสร้างประโยค"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "en",
+   "stem": "\"Did you visit the museum yesterday?\" she asked me. → She asked me ___ the museum the day before.",
+   "explanation": {
+    "en": "A reported yes/no question uses 'if' or 'whether' with normal word order (subject before verb, no 'did'), and the tense moves back one step: 'visited' becomes 'had visited'. 'That' is used for reported statements, not questions.",
+    "th": "คำถามแบบ yes/no ในคำพูดทางอ้อมใช้ if หรือ whether ตามด้วยประธานแล้วจึงเป็นกริยา (ไม่สลับ ไม่ใช้ did) และเลื่อนกาลถอยหลังหนึ่งขั้น visited เป็น had visited ส่วน that ใช้กับประโยคบอกเล่า ไม่ใช่คำถาม"
+   },
+   "choices": [
+    "whether I had visited",
+    "if had I visited",
+    "whether did I visit",
+    "that I visited"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the correct relative pronoun",
+    "th": "การเลือกคำสรรพนามเชื่อมความ"
+   },
+   "topic": {
+    "en": "Sentence structure",
+    "th": "โครงสร้างประโยค"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "en",
+   "stem": "The marine biologist, ___ research on coral bleaching won a national award, will give a talk at our school next week.",
+   "explanation": {
+    "en": "The gap shows possession: the research belongs to the biologist. 'Whose' is the possessive relative pronoun ('whose research'). 'Who' and 'whom' would need a verb or a preposition to fit, and 'which' refers to things.",
+    "th": "ช่องว่างแสดงความเป็นเจ้าของ คืองานวิจัยเป็นของนักชีววิทยา จึงใช้ whose (whose research) ส่วน who และ whom ไม่สามารถตามด้วยคำนามในความหมายเป็นเจ้าของได้ และ which ใช้กับสิ่งของ"
+   },
+   "choices": [
+    "whose",
+    "who",
+    "whom",
+    "which"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context: verbs of change",
+    "th": "คำศัพท์ตามบริบท: กริยาแสดงการเปลี่ยนแปลง"
+   },
+   "topic": {
+    "en": "Vocabulary and word formation",
+    "th": "คำศัพท์และการสร้างคำ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "en",
+   "stem": "The new one-way system was meant to ___ the traffic jams outside the school, but in fact it made them even worse.",
+   "explanation": {
+    "en": "'But in fact it made them even worse' shows a contrast with what was intended, so the plan was meant to make the jams less severe: 'alleviate' (= reduce, ease). 'Aggravate' means make worse, which would remove the contrast.",
+    "th": "คำว่า but in fact it made them even worse แสดงความขัดแย้งกับสิ่งที่ตั้งใจไว้ แผนนี้จึงตั้งใจทำให้รถติดน้อยลง คือ alleviate (บรรเทา) ส่วน aggravate แปลว่าทำให้แย่ลง ซึ่งจะไม่เกิดความขัดแย้ง"
+   },
+   "choices": [
+    "aggravate",
+    "anticipate",
+    "accumulate",
+    "alleviate"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring word meaning from context",
+    "th": "การอนุมานความหมายคำจากบริบท"
+   },
+   "topic": {
+    "en": "Vocabulary and word formation",
+    "th": "คำศัพท์และการสร้างคำ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "en",
+   "stem": "The mayor's answer was deliberately evasive: she spoke for ten minutes without ever saying whether the park would close. In this sentence, 'evasive' most nearly means",
+   "explanation": {
+    "en": "The explanation after the colon defines the word: she talked for a long time but never answered the actual question. That is being evasive — avoiding a direct answer. Nothing suggests anger, completeness or painful honesty.",
+    "th": "ข้อความหลังเครื่องหมาย : อธิบายความหมายไว้ คือพูดนานแต่ไม่เคยตอบคำถามจริง ๆ จึงหมายถึงการหลีกเลี่ยงการตอบตรง ๆ (avoiding giving a direct answer) ไม่มีส่วนใดบอกว่าโกรธ ละเอียดครบถ้วน หรือพูดตรงจนเจ็บปวด"
+   },
+   "choices": [
+    "angry and impolite",
+    "carefully detailed and complete",
+    "avoiding giving a direct answer",
+    "honest but painful to hear"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Phrasal verbs in context",
+    "th": "กริยาวลีตามบริบท"
+   },
+   "topic": {
+    "en": "Vocabulary and word formation",
+    "th": "คำศัพท์และการสร้างคำ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "en",
+   "stem": "The outdoor concert was ___ at the last minute because a thunderstorm was forecast.",
+   "explanation": {
+    "en": "'Call off' means cancel, which fits an event stopped because of a storm warning. 'Carry on' means continue (the opposite), 'put up' means build or tolerate, and 'turn up' means arrive or appear.",
+    "th": "call off แปลว่ายกเลิก เหมาะกับงานที่ต้องงดเพราะพยากรณ์ว่าจะมีพายุ ส่วน carry on แปลว่าดำเนินต่อ (ตรงข้าม) put up แปลว่าสร้างหรือทนกับสิ่งใด และ turn up แปลว่ามาถึงหรือปรากฏตัว"
+   },
+   "choices": [
+    "put up",
+    "carried on",
+    "called off",
+    "turned up"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
    "difficulty": "e",
+   "skill": {
+    "en": "Word formation: nouns from verbs",
+    "th": "การสร้างคำนามจากคำกริยา"
+   },
+   "topic": {
+    "en": "Vocabulary and word formation",
+    "th": "คำศัพท์และการสร้างคำ"
+   },
    "passage": "",
    "table": null,
-   "stem": "Choose the correct word: Our school sports day is ___ Friday.",
-   "choices": [
-    "by",
-    "at",
-    "on",
-    "in"
-   ],
-   "answer": 2,
+   "lang": "en",
+   "stem": "The ___ of the new bridge across the river took almost three years.",
    "explanation": {
-    "en": "We use \"on\" with days and dates: on Friday, on 5 May. \"In\" is for months and years, \"at\" for clock times.",
-    "th": "ใช้ on กับวันและวันที่ เช่น on Friday ส่วน in ใช้กับเดือนและปี และ at ใช้กับเวลา"
-   }
+    "en": "After 'The' and before 'of' we need a noun that names the process: construction. 'Constructive' is an adjective, 'constructed' is a past participle and 'construct' is a verb.",
+    "th": "หลัง The และหน้า of ต้องใช้คำนามที่หมายถึงกระบวนการ คือ construction (การก่อสร้าง) ส่วน constructive เป็นคุณศัพท์ constructed เป็นกริยาช่องที่ 3 และ construct เป็นกริยา"
+   },
+   "choices": [
+    "constructive",
+    "constructed",
+    "construct",
+    "construction"
+   ],
+   "answer": 3
   },
   {
    "kind": "m1",
    "program": "gate",
    "subject": "eng",
-   "difficulty": "m",
-   "passage": "",
-   "table": null,
-   "stem": "Choose the word closest in meaning to \"enormous\" in this sentence: The elephant was enormous.",
-   "choices": [
-    "tiny",
-    "huge",
-    "friendly",
-    "noisy"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "\"Enormous\" means extremely big, the same as \"huge\". \"Tiny\" is the opposite.",
-    "th": "enormous แปลว่า ใหญ่มาก มีความหมายเดียวกับ huge ส่วน tiny มีความหมายตรงข้าม"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "eng",
-   "difficulty": "m",
-   "passage": "",
-   "table": null,
-   "stem": "A: \"I'm sorry I'm late.\"\nB: \"___\"",
-   "choices": [
-    "Yes, you are welcome.",
-    "That's all right. We've only just started.",
-    "No, I'm not late.",
-    "Good idea!"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "The polite reply to an apology accepts it: \"That's all right.\" \"You're welcome\" answers \"Thank you\", not \"Sorry\".",
-    "th": "การตอบรับคำขอโทษอย่างสุภาพใช้ That's all right. ส่วน You're welcome ใช้ตอบคำขอบคุณ ไม่ใช่คำขอโทษ"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "eng",
+   "format": "mcq",
    "difficulty": "h",
-   "passage": "Dear parents,\nThe school trip to the Science Museum will now take place on Friday 14 November instead of Thursday 13 November, because the museum is closed for repairs on Thursday. Buses will leave at 7.30 a.m., half an hour earlier than planned, so that students can join the planetarium show at 9.00. Students should bring a packed lunch, as the museum café will not be open. Please return the signed form by Monday 10 November.",
+   "skill": {
+    "en": "Identifying a grammatically correct sentence",
+    "th": "การระบุประโยคที่ถูกไวยากรณ์"
+   },
+   "topic": {
+    "en": "Sentence structure",
+    "th": "โครงสร้างประโยค"
+   },
+   "passage": "",
    "table": null,
-   "stem": "According to the notice, what time were the buses first planned to leave?",
-   "choices": [
-    "7.30 a.m.",
-    "8.30 a.m.",
-    "8.00 a.m.",
-    "9.00 a.m."
-   ],
-   "answer": 2,
+   "lang": "en",
+   "stem": "Which sentence is grammatically correct?",
    "explanation": {
-    "en": "The buses will now leave at 7.30 a.m., \"half an hour earlier than planned\". So the original plan was half an hour later: 8.00 a.m. 9.00 is the planetarium show.",
-    "th": "ประกาศบอกว่ารถออก 7.30 น. ซึ่ง \"เร็วกว่าที่วางแผนไว้ครึ่งชั่วโมง\" เวลาเดิมจึงช้ากว่าครึ่งชั่วโมง คือ 8.00 น. ส่วน 9.00 น. เป็นเวลาการแสดงท้องฟ้าจำลอง"
-   }
+    "en": "'Not only' at the start of a sentence needs inversion: 'Not only did she finish…'. The other sentences contain common errors: 'suggest' is not followed by 'me to' (say 'suggested that I take' or 'suggested taking'), and 'despite' is never followed by 'of' ('despite the rain' or 'in spite of the rain').",
+    "th": "Not only ที่ขึ้นต้นประโยคต้องสลับกริยาช่วย: Not only did she finish … ประโยคอื่นมีข้อผิดที่พบบ่อย คือไม่ใช้ Not only she finished โดยไม่สลับ suggest ไม่ตามด้วย me to (ควรเป็น suggested that I take หรือ suggested taking) และ despite ไม่ตามด้วย of (ใช้ despite the rain หรือ in spite of the rain)"
+   },
+   "choices": [
+    "Not only she finished the project early, but she also helped two classmates with theirs.",
+    "Not only did she finish the project early, but she also helped two classmates with theirs.",
+    "She suggested me to take the earlier bus to avoid the traffic.",
+    "Despite of the heavy rain, the final match continued as planned."
+   ],
+   "answer": 1
   },
   {
    "kind": "m1",
    "program": "gate",
    "subject": "eng",
-   "difficulty": "h",
-   "passage": "",
-   "table": null,
-   "stem": "Mali said, \"I will visit my grandmother tomorrow.\" Which sentence reports this correctly?",
-   "choices": [
-    "Mali said that she would visit her grandmother the next day.",
-    "Mali said that she would visited her grandmother the next day.",
-    "Mali said that I would visit my grandmother the next day.",
-    "Mali said that she will visit her grandmother tomorrow."
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "In reported speech after \"said\": I → she, my → her, will → would (followed by the base verb visit), and tomorrow → the next day.",
-    "th": "ประโยคบอกเล่าทางอ้อมหลัง said ต้องเปลี่ยน I เป็น she, my เป็น her, will เป็น would ตามด้วยกริยารูปเดิม visit และ tomorrow เป็น the next day"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "gate",
-   "subject": "thai",
+   "format": "mcq",
    "difficulty": "e",
-   "passage": "",
+   "skill": {
+    "en": "Choosing a contrast connector",
+    "th": "การเลือกคำเชื่อมแสดงความขัดแย้ง"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "Every second Saturday, our school hall turns into a repair café. Neighbours bring broken lamps, torn jackets and radios that have fallen silent, and volunteers — many of them retired engineers — try to bring them back to life. The idea is simple, (1) ___ its effects are surprisingly wide. Each object that is fixed is one less piece of rubbish sent to landfill, and visitors often leave with more than a working toaster. (2) ___ watching the volunteers at work, they learn how everyday machines are put together, and many go home determined to try small repairs themselves.\n\nNot every story ends happily. Some items are beyond repair, and the volunteers are honest about it. (3) ___, a failed repair still has value, because the owner now understands why the object broke and can choose a better-made replacement. Last year the café kept more than 400 kilograms of goods out of the bin. The organisers admit that this figure is tiny (4) ___ the amount the city throws away every single week. Yet they argue that the numbers miss the point: the café is changing the way people think about the things they own, and that kind of change is far harder to (5) ___.",
    "table": null,
-   "stem": "คำราชาศัพท์ที่ใช้แทนคำว่า \"ป่วย\" สำหรับพระมหากษัตริย์คือคำใด",
-   "choices": [
-    "บรรทม",
-    "ประชวร",
-    "เสด็จ",
-    "ประทับ"
-   ],
-   "answer": 1,
+   "lang": "en",
+   "stem": "Read the passage. Which word best fills blank (1)?",
    "explanation": {
-    "en": "For the king, \"to be ill\" is ประชวร. ประทับ means to sit or stay, เสด็จ means to go, and บรรทม means to sleep.",
-    "th": "คำว่า \"ป่วย\" สำหรับพระมหากษัตริย์ใช้ว่า ประชวร ส่วนประทับ แปลว่า นั่งหรืออยู่ เสด็จ แปลว่า ไป และบรรทม แปลว่า นอน"
-   }
+    "en": "'The idea is simple' and 'its effects are surprisingly wide' contrast with each other, so 'but' is needed. 'So' and 'because' show cause and result, and 'unless' shows a condition.",
+    "th": "\"แนวคิดเรียบง่าย\" กับ \"ผลกระทบกว้างขวางเกินคาด\" ขัดแย้งกัน จึงต้องใช้ but ส่วน so และ because แสดงเหตุผล และ unless แสดงเงื่อนไข"
+   },
+   "choices": [
+    "so",
+    "but",
+    "because",
+    "unless"
+   ],
+   "answer": 1
   },
   {
    "kind": "m1",
    "program": "gate",
-   "subject": "thai",
+   "subject": "eng",
+   "format": "mcq",
    "difficulty": "m",
-   "passage": "",
+   "skill": {
+    "en": "Choosing a preposition of means",
+    "th": "การเลือกคำบุพบทแสดงวิธีการ"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "Every second Saturday, our school hall turns into a repair café. Neighbours bring broken lamps, torn jackets and radios that have fallen silent, and volunteers — many of them retired engineers — try to bring them back to life. The idea is simple, (1) ___ its effects are surprisingly wide. Each object that is fixed is one less piece of rubbish sent to landfill, and visitors often leave with more than a working toaster. (2) ___ watching the volunteers at work, they learn how everyday machines are put together, and many go home determined to try small repairs themselves.\n\nNot every story ends happily. Some items are beyond repair, and the volunteers are honest about it. (3) ___, a failed repair still has value, because the owner now understands why the object broke and can choose a better-made replacement. Last year the café kept more than 400 kilograms of goods out of the bin. The organisers admit that this figure is tiny (4) ___ the amount the city throws away every single week. Yet they argue that the numbers miss the point: the café is changing the way people think about the things they own, and that kind of change is far harder to (5) ___.",
    "table": null,
-   "stem": "\"แม่ซื้อร่มมาให้ฉัน 2 ___\" ควรเติมคำลักษณนามใด",
-   "choices": [
-    "อัน",
-    "ด้าม",
-    "คัน",
-    "เล่ม"
-   ],
-   "answer": 2,
+   "lang": "en",
+   "stem": "Read the passage. Which word or phrase best fills blank (2)?",
    "explanation": {
-    "en": "The classifier for umbrellas is คัน (as for cars and spoons with handles). ด้าม is used for pens, and เล่ม for books and knives.",
-    "th": "ลักษณนามของร่มคือ \"คัน\" ส่วน \"ด้าม\" ใช้กับปากกา และ \"เล่ม\" ใช้กับหนังสือหรือมีด"
-   }
+    "en": "The visitors learn how machines work through watching the volunteers, so we need 'by + -ing' to show the means: 'By watching the volunteers at work, they learn…'. 'Despite', 'instead of' and 'without' would mean they learn in spite of watching or without watching, which makes no sense.",
+    "th": "ผู้มาเยือนเรียนรู้วิธีทำงานของเครื่องใช้จากการดูอาสาสมัคร จึงใช้ By + -ing แสดงวิธีการ ส่วน Despite, Instead of และ Without จะให้ความหมายว่าเรียนรู้ทั้งที่ดู แทนการดู หรือโดยไม่ได้ดู ซึ่งไม่สมเหตุสมผล"
+   },
+   "choices": [
+    "Despite",
+    "Instead of",
+    "By",
+    "Without"
+   ],
+   "answer": 2
   },
   {
    "kind": "m1",
    "program": "gate",
-   "subject": "thai",
+   "subject": "eng",
+   "format": "mcq",
    "difficulty": "m",
-   "passage": "",
+   "skill": {
+    "en": "Linking ideas across sentences",
+    "th": "การเชื่อมความระหว่างประโยค"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "Every second Saturday, our school hall turns into a repair café. Neighbours bring broken lamps, torn jackets and radios that have fallen silent, and volunteers — many of them retired engineers — try to bring them back to life. The idea is simple, (1) ___ its effects are surprisingly wide. Each object that is fixed is one less piece of rubbish sent to landfill, and visitors often leave with more than a working toaster. (2) ___ watching the volunteers at work, they learn how everyday machines are put together, and many go home determined to try small repairs themselves.\n\nNot every story ends happily. Some items are beyond repair, and the volunteers are honest about it. (3) ___, a failed repair still has value, because the owner now understands why the object broke and can choose a better-made replacement. Last year the café kept more than 400 kilograms of goods out of the bin. The organisers admit that this figure is tiny (4) ___ the amount the city throws away every single week. Yet they argue that the numbers miss the point: the café is changing the way people think about the things they own, and that kind of change is far harder to (5) ___.",
    "table": null,
-   "stem": "สำนวน \"ตีตนไปก่อนไข้\" มีความหมายตรงกับข้อใด",
-   "choices": [
-    "ทำร้ายตัวเองเพื่อหนีปัญหา",
-    "ลงโทษตนเองเมื่อทำผิด",
-    "ป้องกันโรคไว้ก่อนจะเจ็บป่วย",
-    "วิตกกังวลกับเรื่องที่ยังไม่เกิดขึ้น"
-   ],
-   "answer": 3,
+   "lang": "en",
+   "stem": "Read the passage. Which word or phrase best fills blank (3)?",
    "explanation": {
-    "en": "The idiom means worrying or suffering over something that has not happened yet. It is not about preventing illness.",
-    "th": "สำนวนนี้หมายถึง การวิตกกังวลหรือทุกข์ร้อนไปก่อนกับเรื่องที่ยังไม่เกิดขึ้น ไม่ได้หมายถึงการป้องกันโรค"
-   }
+    "en": "The sentence before says some repairs fail; the next one says a failed repair still has value. That is a contrast with what we might expect, so 'Nevertheless' fits. 'Therefore' would claim the failure causes the value, 'For instance' would introduce an example, and 'Similarly' a comparison.",
+    "th": "ประโยคก่อนหน้าบอกว่าบางชิ้นซ่อมไม่ได้ แต่ประโยคถัดมาบอกว่าการซ่อมไม่สำเร็จก็ยังมีคุณค่า เป็นความขัดแย้งกับสิ่งที่คาด จึงใช้ Nevertheless ส่วน Therefore แสดงผล For instance ยกตัวอย่าง และ Similarly แสดงความคล้ายกัน"
+   },
+   "choices": [
+    "Nevertheless",
+    "Therefore",
+    "For instance",
+    "Similarly"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing a phrase of comparison",
+    "th": "การเลือกวลีแสดงการเปรียบเทียบ"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "Every second Saturday, our school hall turns into a repair café. Neighbours bring broken lamps, torn jackets and radios that have fallen silent, and volunteers — many of them retired engineers — try to bring them back to life. The idea is simple, (1) ___ its effects are surprisingly wide. Each object that is fixed is one less piece of rubbish sent to landfill, and visitors often leave with more than a working toaster. (2) ___ watching the volunteers at work, they learn how everyday machines are put together, and many go home determined to try small repairs themselves.\n\nNot every story ends happily. Some items are beyond repair, and the volunteers are honest about it. (3) ___, a failed repair still has value, because the owner now understands why the object broke and can choose a better-made replacement. Last year the café kept more than 400 kilograms of goods out of the bin. The organisers admit that this figure is tiny (4) ___ the amount the city throws away every single week. Yet they argue that the numbers miss the point: the café is changing the way people think about the things they own, and that kind of change is far harder to (5) ___.",
+   "table": null,
+   "lang": "en",
+   "stem": "Read the passage. Which phrase best fills blank (4)?",
+   "explanation": {
+    "en": "The 400 kg is 'tiny' only when it is set next to the much larger amount the city throws away, so the phrase must compare the two figures: 'tiny compared with the amount…'. The other phrases do not express a comparison.",
+    "th": "400 กิโลกรัม \"น้อยมาก\" เมื่อนำไปเทียบกับปริมาณขยะของทั้งเมือง จึงต้องใช้วลีเปรียบเทียบ compared with ส่วนวลีอื่นไม่ได้แสดงการเปรียบเทียบ"
+   },
+   "choices": [
+    "in spite of",
+    "instead of",
+    "according to",
+    "compared with"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Using paragraph logic to choose a word",
+    "th": "การใช้ตรรกะของย่อหน้าในการเลือกคำ"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "Every second Saturday, our school hall turns into a repair café. Neighbours bring broken lamps, torn jackets and radios that have fallen silent, and volunteers — many of them retired engineers — try to bring them back to life. The idea is simple, (1) ___ its effects are surprisingly wide. Each object that is fixed is one less piece of rubbish sent to landfill, and visitors often leave with more than a working toaster. (2) ___ watching the volunteers at work, they learn how everyday machines are put together, and many go home determined to try small repairs themselves.\n\nNot every story ends happily. Some items are beyond repair, and the volunteers are honest about it. (3) ___, a failed repair still has value, because the owner now understands why the object broke and can choose a better-made replacement. Last year the café kept more than 400 kilograms of goods out of the bin. The organisers admit that this figure is tiny (4) ___ the amount the city throws away every single week. Yet they argue that the numbers miss the point: the café is changing the way people think about the things they own, and that kind of change is far harder to (5) ___.",
+   "table": null,
+   "lang": "en",
+   "stem": "Read the passage. Which word best fills blank (5)?",
+   "explanation": {
+    "en": "The organisers say 'the numbers miss the point': a change in how people think cannot easily be counted in kilograms. So it is 'far harder to measure'. The other verbs do not connect to the contrast between numbers and attitudes.",
+    "th": "ผู้จัดบอกว่าตัวเลขไม่ได้สะท้อนสาระสำคัญ เพราะการเปลี่ยนวิธีคิดของคนนับเป็นกิโลกรัมไม่ได้ จึงเป็น far harder to measure (วัดได้ยากกว่ามาก) คำกริยาอื่นไม่เชื่อมกับการเปรียบเทียบระหว่างตัวเลขกับความคิด"
+   },
+   "choices": [
+    "measure",
+    "repair",
+    "recycle",
+    "purchase"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Identifying the main idea",
+    "th": "การจับใจความสำคัญ"
+   },
+   "topic": {
+    "en": "Reading comprehension",
+    "th": "การอ่านเพื่อความเข้าใจ"
+   },
+   "passage": "In parts of northern Mozambique, honey hunters set off into the woodland with an unusual partner: a small brown bird called the greater honeyguide. The bird knows where wild bees have built their nests, often high inside hollow trees, but it cannot break into them alone. People, on the other hand, can open a nest with an axe and calm the bees with smoke, but finding one by themselves may take hours. Working together, both sides win: the hunters take the honey, and the bird feeds on the wax that is left behind.\n\nWhat makes this partnership remarkable is that it is not the result of training. A honeyguide grows up without ever meeting its parents, because honeyguides lay their eggs in the nests of other bird species. Yet young birds still learn to cooperate with humans. Hunters in the area announce that they are looking for a guide with a special trilling call, a \"brrr-hm\" sound passed down from parent to child. In 2016, researchers tested whether the call really mattered. They walked through the woodland playing three recordings: the traditional call, ordinary human words, and the call of another bird. The honeyguides were far more likely to approach and lead the way when they heard the traditional call, and hunters using it found nests about three times as often.\n\nThe researchers also noticed that the call differs from region to region. Hunters in Tanzania, for example, use a melodic whistle instead. This suggests that local birds have learned the local \"language\" of their human partners, much as a traveller picks up a few words of a foreign tongue.\n\nSadly, the partnership is fading in places where sugar has become cheap and easy to buy. Where people no longer need wild honey, the birds seem to stop guiding — a reminder that cooperation lasts only as long as both sides continue to benefit.",
+   "table": null,
+   "lang": "en",
+   "stem": "Read the passage. What is it mainly about?",
+   "explanation": {
+    "en": "Every paragraph is about the partnership: how it works, how it is maintained by a call, how it varies by region and why it is fading. The birds are explicitly not trained, and honey versus sugar and human languages are only details.",
+    "th": "ทุกย่อหน้ากล่าวถึงความร่วมมือระหว่างนกกับคน ทั้งวิธีการ เสียงเรียก ความต่างตามภูมิภาค และเหตุที่ลดลง บทความยังบอกชัดว่านกไม่ได้ถูกฝึก ส่วนเรื่องน้ำผึ้งกับน้ำตาลและภาษาของคนเป็นเพียงรายละเอียด"
+   },
+   "choices": [
+    "How honey hunters train young birds to find bees' nests",
+    "Why wild honey is healthier than sugar",
+    "The different languages spoken in Mozambique and Tanzania",
+    "A cooperative relationship between a wild bird and people that benefits both"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding the purpose of a detail",
+    "th": "การเข้าใจจุดประสงค์ของรายละเอียด"
+   },
+   "topic": {
+    "en": "Reading comprehension",
+    "th": "การอ่านเพื่อความเข้าใจ"
+   },
+   "passage": "In parts of northern Mozambique, honey hunters set off into the woodland with an unusual partner: a small brown bird called the greater honeyguide. The bird knows where wild bees have built their nests, often high inside hollow trees, but it cannot break into them alone. People, on the other hand, can open a nest with an axe and calm the bees with smoke, but finding one by themselves may take hours. Working together, both sides win: the hunters take the honey, and the bird feeds on the wax that is left behind.\n\nWhat makes this partnership remarkable is that it is not the result of training. A honeyguide grows up without ever meeting its parents, because honeyguides lay their eggs in the nests of other bird species. Yet young birds still learn to cooperate with humans. Hunters in the area announce that they are looking for a guide with a special trilling call, a \"brrr-hm\" sound passed down from parent to child. In 2016, researchers tested whether the call really mattered. They walked through the woodland playing three recordings: the traditional call, ordinary human words, and the call of another bird. The honeyguides were far more likely to approach and lead the way when they heard the traditional call, and hunters using it found nests about three times as often.\n\nThe researchers also noticed that the call differs from region to region. Hunters in Tanzania, for example, use a melodic whistle instead. This suggests that local birds have learned the local \"language\" of their human partners, much as a traveller picks up a few words of a foreign tongue.\n\nSadly, the partnership is fading in places where sugar has become cheap and easy to buy. Where people no longer need wild honey, the birds seem to stop guiding — a reminder that cooperation lasts only as long as both sides continue to benefit.",
+   "table": null,
+   "lang": "en",
+   "stem": "Read the passage. Why does the writer mention that honeyguides lay their eggs in other birds' nests?",
+   "explanation": {
+    "en": "The detail comes right after 'it is not the result of training' and before 'Yet young birds still learn to cooperate'. Because the chicks are raised by other species, they never meet their parents, which makes their ability to cooperate with humans more surprising.",
+    "th": "รายละเอียดนี้อยู่หลัง it is not the result of training และก่อน Yet young birds still learn to cooperate ลูกนกถูกเลี้ยงโดยนกชนิดอื่นจึงไม่เคยพบพ่อแม่ การที่ยังร่วมมือกับคนได้จึงน่าทึ่งยิ่งขึ้น"
+   },
+   "choices": [
+    "To explain why honeyguides cannot open bees' nests",
+    "To show that young honeyguides cannot learn guiding from their own parents",
+    "To suggest that honeyguides are lazy parents",
+    "To explain why the number of honeyguides is falling"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding the design of an experiment",
+    "th": "การเข้าใจการออกแบบการทดลอง"
+   },
+   "topic": {
+    "en": "Reading comprehension",
+    "th": "การอ่านเพื่อความเข้าใจ"
+   },
+   "passage": "In parts of northern Mozambique, honey hunters set off into the woodland with an unusual partner: a small brown bird called the greater honeyguide. The bird knows where wild bees have built their nests, often high inside hollow trees, but it cannot break into them alone. People, on the other hand, can open a nest with an axe and calm the bees with smoke, but finding one by themselves may take hours. Working together, both sides win: the hunters take the honey, and the bird feeds on the wax that is left behind.\n\nWhat makes this partnership remarkable is that it is not the result of training. A honeyguide grows up without ever meeting its parents, because honeyguides lay their eggs in the nests of other bird species. Yet young birds still learn to cooperate with humans. Hunters in the area announce that they are looking for a guide with a special trilling call, a \"brrr-hm\" sound passed down from parent to child. In 2016, researchers tested whether the call really mattered. They walked through the woodland playing three recordings: the traditional call, ordinary human words, and the call of another bird. The honeyguides were far more likely to approach and lead the way when they heard the traditional call, and hunters using it found nests about three times as often.\n\nThe researchers also noticed that the call differs from region to region. Hunters in Tanzania, for example, use a melodic whistle instead. This suggests that local birds have learned the local \"language\" of their human partners, much as a traveller picks up a few words of a foreign tongue.\n\nSadly, the partnership is fading in places where sugar has become cheap and easy to buy. Where people no longer need wild honey, the birds seem to stop guiding — a reminder that cooperation lasts only as long as both sides continue to benefit.",
+   "table": null,
+   "lang": "en",
+   "stem": "Read the passage. Why did the researchers also play ordinary human words and another bird's call?",
+   "explanation": {
+    "en": "The other two recordings are comparisons (controls). If the birds had approached all three sounds equally, the special call would not matter. Because they responded much more to the traditional call, the test shows that the call itself carries the message.",
+    "th": "เสียงอีกสองแบบใช้เป็นตัวเปรียบเทียบ (ชุดควบคุม) ถ้านกเข้าหาทุกเสียงเท่ากัน แสดงว่าเสียงเรียกพิเศษไม่สำคัญ แต่นกตอบสนองต่อเสียงดั้งเดิมมากกว่ามาก จึงแสดงว่าเสียงนั้นเองเป็นสัญญาณ"
+   },
+   "choices": [
+    "To teach the honeyguides a new way to find nests",
+    "To frighten away other birds that eat honey",
+    "To find out which sound the hunters preferred",
+    "To check whether the birds were responding to the traditional call itself rather than to any sound"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "Reading comprehension",
+    "th": "การอ่านเพื่อความเข้าใจ"
+   },
+   "passage": "In parts of northern Mozambique, honey hunters set off into the woodland with an unusual partner: a small brown bird called the greater honeyguide. The bird knows where wild bees have built their nests, often high inside hollow trees, but it cannot break into them alone. People, on the other hand, can open a nest with an axe and calm the bees with smoke, but finding one by themselves may take hours. Working together, both sides win: the hunters take the honey, and the bird feeds on the wax that is left behind.\n\nWhat makes this partnership remarkable is that it is not the result of training. A honeyguide grows up without ever meeting its parents, because honeyguides lay their eggs in the nests of other bird species. Yet young birds still learn to cooperate with humans. Hunters in the area announce that they are looking for a guide with a special trilling call, a \"brrr-hm\" sound passed down from parent to child. In 2016, researchers tested whether the call really mattered. They walked through the woodland playing three recordings: the traditional call, ordinary human words, and the call of another bird. The honeyguides were far more likely to approach and lead the way when they heard the traditional call, and hunters using it found nests about three times as often.\n\nThe researchers also noticed that the call differs from region to region. Hunters in Tanzania, for example, use a melodic whistle instead. This suggests that local birds have learned the local \"language\" of their human partners, much as a traveller picks up a few words of a foreign tongue.\n\nSadly, the partnership is fading in places where sugar has become cheap and easy to buy. Where people no longer need wild honey, the birds seem to stop guiding — a reminder that cooperation lasts only as long as both sides continue to benefit.",
+   "table": null,
+   "lang": "en",
+   "stem": "Read the passage. Based on the passage, what would most likely happen if a Mozambican hunter used the \"brrr-hm\" call in Tanzania?",
+   "explanation": {
+    "en": "The third paragraph says calls differ by region and that local birds have learned the local 'language'. A call that works in Mozambique is therefore not guaranteed to work where birds respond to a whistle. Nothing in the passage says sugar is cheap in Tanzania.",
+    "th": "ย่อหน้าที่สามบอกว่าเสียงเรียกต่างกันตามภูมิภาค และนกในท้องถิ่นเรียนรู้ \"ภาษา\" ของคนในท้องถิ่น เสียงที่ใช้ได้ในโมซัมบิกจึงไม่แน่ว่าจะได้ผลในที่ที่นกคุ้นกับเสียงผิวปาก และบทความไม่ได้กล่าวว่าน้ำตาลในแทนซาเนียราคาถูก"
+   },
+   "choices": [
+    "He might be less successful, because birds there have learned a different signal",
+    "He would find nests three times as often as Tanzanian hunters",
+    "The birds would follow him because all honeyguides know the same call",
+    "The birds would stop guiding because sugar is cheap there"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting the writer's conclusion",
+    "th": "การตีความข้อสรุปของผู้เขียน"
+   },
+   "topic": {
+    "en": "Reading comprehension",
+    "th": "การอ่านเพื่อความเข้าใจ"
+   },
+   "passage": "In parts of northern Mozambique, honey hunters set off into the woodland with an unusual partner: a small brown bird called the greater honeyguide. The bird knows where wild bees have built their nests, often high inside hollow trees, but it cannot break into them alone. People, on the other hand, can open a nest with an axe and calm the bees with smoke, but finding one by themselves may take hours. Working together, both sides win: the hunters take the honey, and the bird feeds on the wax that is left behind.\n\nWhat makes this partnership remarkable is that it is not the result of training. A honeyguide grows up without ever meeting its parents, because honeyguides lay their eggs in the nests of other bird species. Yet young birds still learn to cooperate with humans. Hunters in the area announce that they are looking for a guide with a special trilling call, a \"brrr-hm\" sound passed down from parent to child. In 2016, researchers tested whether the call really mattered. They walked through the woodland playing three recordings: the traditional call, ordinary human words, and the call of another bird. The honeyguides were far more likely to approach and lead the way when they heard the traditional call, and hunters using it found nests about three times as often.\n\nThe researchers also noticed that the call differs from region to region. Hunters in Tanzania, for example, use a melodic whistle instead. This suggests that local birds have learned the local \"language\" of their human partners, much as a traveller picks up a few words of a foreign tongue.\n\nSadly, the partnership is fading in places where sugar has become cheap and easy to buy. Where people no longer need wild honey, the birds seem to stop guiding — a reminder that cooperation lasts only as long as both sides continue to benefit.",
+   "table": null,
+   "lang": "en",
+   "stem": "Read the passage. What does the final sentence suggest about the partnership?",
+   "explanation": {
+    "en": "The writer says that where people stop needing wild honey, the birds stop guiding, and calls this a reminder that cooperation lasts 'only as long as both sides continue to benefit'. So the partnership survives only while it is useful to both bird and human.",
+    "th": "ผู้เขียนกล่าวว่าที่ใดคนไม่ต้องการน้ำผึ้งป่าแล้ว นกก็เลิกนำทาง และสรุปว่าความร่วมมือจะคงอยู่ only as long as both sides continue to benefit แสดงว่าความร่วมมือขึ้นอยู่กับการที่ทั้งสองฝ่ายยังได้ประโยชน์"
+   },
+   "choices": [
+    "It will continue forever because it is passed down through generations",
+    "It was harmful to the birds from the beginning",
+    "It can easily be replaced by modern technology",
+    "It depends on both partners still gaining something from it"
+   ],
+   "answer": 3
   },
   {
    "kind": "m1",
    "program": "gate",
    "subject": "thai",
+   "format": "mcq",
    "difficulty": "h",
-   "passage": "หลายคนเชื่อว่าการอ่านหนังสือให้ได้มากเล่มที่สุดคือหนทางสู่ความรู้ แต่การอ่านเร็ว ๆ โดยไม่หยุดคิดก็เหมือนการเทน้ำลงบนหิน น้ำไหลผ่านไปหมดโดยไม่ซึมลงไปเลย ผู้อ่านที่ดีจึงควรอ่านอย่างช้าพอที่จะตั้งคำถาม โต้แย้ง และเชื่อมโยงสิ่งที่อ่านกับประสบการณ์ของตน แม้จะอ่านได้น้อยเล่มกว่า แต่ความรู้ที่ได้จะติดตัวไปนาน",
+   "skill": {
+    "en": "Recognising sandhi compounds",
+    "th": "การจำแนกคำสมาสที่มีการสนธิ"
+   },
+   "topic": {
+    "en": "Word formation",
+    "th": "การสร้างคำ"
+   },
+   "passage": "",
    "table": null,
-   "stem": "ผู้เขียนใช้การเปรียบเทียบ \"การเทน้ำลงบนหิน\" เพื่อสื่อความหมายใด",
-   "choices": [
-    "ผู้อ่านควรอ่านหนังสือให้ได้มากเล่มที่สุด",
-    "การอ่านหนังสือมากเกินไปทำให้เหนื่อยล้า",
-    "หนังสือบางเล่มยากเกินกว่าจะเข้าใจได้",
-    "การอ่านโดยไม่คิดตาม ทำให้ความรู้ไม่ติดอยู่ในตัวผู้อ่าน"
-   ],
-   "answer": 3,
+   "lang": "th",
+   "stem": "ข้อใดเป็นคำสมาสที่มีการสนธิทุกคำ",
    "explanation": {
-    "en": "Water poured on rock runs off without soaking in. The writer compares this to reading fast without thinking: the knowledge does not stay with the reader. The text actually argues against reading as many books as possible.",
-    "th": "น้ำที่เทลงบนหินไหลผ่านไปโดยไม่ซึมลงไป ผู้เขียนเปรียบกับการอ่านเร็ว ๆ โดยไม่คิดตาม ความรู้จึงไม่ติดอยู่กับผู้อ่าน และข้อความนี้แย้งความเชื่อเรื่องการอ่านให้ได้มากเล่มที่สุด"
-   }
+    "en": "นโยบาย, ปรมาณู, สุริโยทัย are all sandhi compounds: นย + อุบาย, ปรม + อณู, สุริย + อุทัย, where the sounds merge at the join. In the other groups some words are compounds joined without sandhi: ราชการ, ภูมิภาค, อุทกภัย, ประวัติศาสตร์, ชนบท.",
+    "th": "นโยบาย (นย + อุบาย) ปรมาณู (ปรม + อณู) สุริโยทัย (สุริย + อุทัย) เป็นคำสมาสที่มีการกลมกลืนเสียงตรงรอยต่อ คือสนธิทุกคำ ส่วนกลุ่มอื่นมีคำสมาสที่ไม่สนธิปนอยู่ ได้แก่ ราชการ ภูมิภาค อุทกภัย ประวัติศาสตร์ และชนบท"
+   },
+   "choices": [
+    "ราชการ ภูมิภาค ธนาคาร",
+    "อุทกภัย วิทยาลัย คมนาคม",
+    "นโยบาย ปรมาณู สุริโยทัย",
+    "มหัศจรรย์ ประวัติศาสตร์ ชนบท"
+   ],
+   "answer": 2
   },
   {
    "kind": "m1",
    "program": "gate",
    "subject": "thai",
-   "difficulty": "h",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Identifying word class from function",
+    "th": "การระบุชนิดของคำจากหน้าที่ในประโยค"
+   },
+   "topic": {
+    "en": "Parts of speech",
+    "th": "ชนิดของคำ"
+   },
    "passage": "",
    "table": null,
-   "stem": "ประโยคใดเป็นประโยคความรวม",
-   "choices": [
-    "นักเรียนชั้น ป.6 ไปทัศนศึกษาที่อยุธยา",
-    "คนที่ใส่เสื้อสีแดงเป็นครูของฉัน",
-    "แม่บอกว่าพรุ่งนี้ฝนจะตก",
-    "พี่อ่านหนังสือ ส่วนน้องดูโทรทัศน์"
-   ],
-   "answer": 3,
+   "lang": "th",
+   "stem": "คำว่า \"ที่\" ในข้อใดเป็นคำบุพบท",
    "explanation": {
-    "en": "Two independent clauses (พี่อ่านหนังสือ / น้องดูโทรทัศน์) are joined by ส่วน, so it is a compound sentence (ความรวม). The sentences with ที่ and ว่า contain a clause inside the main sentence (ความซ้อน), and the trip sentence is simple (ความเดียว).",
-    "th": "ประโยค \"พี่อ่านหนังสือ\" และ \"น้องดูโทรทัศน์\" เป็นใจความอิสระสองประโยคเชื่อมด้วย \"ส่วน\" จึงเป็นประโยคความรวม ประโยคที่มี \"ที่\" และ \"ว่า\" มีอนุประโยคซ้อนอยู่ จึงเป็นประโยคความซ้อน ส่วนประโยคเรื่องทัศนศึกษาเป็นประโยคความเดียว"
-   }
+    "en": "In 'รอเพื่อนที่ป้ายรถเมล์' ที่ links the verb to a place, so it is a preposition. In 'บ้านที่เขาซื้อ' it introduces a clause describing บ้าน (relative pronoun); in 'ที่ตรงนี้' it is a noun meaning 'place'; in 'ข้าวผัดสองที่' it is a classifier.",
+    "th": "\"ที่\" ใน \"รอเพื่อนที่ป้ายรถเมล์\" นำหน้าคำนามบอกสถานที่ จึงเป็นคำบุพบท ส่วนใน \"บ้านที่เขาซื้อ\" เป็นประพันธสรรพนามเชื่อมประโยคขยายบ้าน ใน \"ที่ตรงนี้\" เป็นคำนามหมายถึงสถานที่ และใน \"ข้าวผัดสองที่\" เป็นคำลักษณนาม"
+   },
+   "choices": [
+    "บ้านที่เขาซื้อเมื่อปีก่อนอยู่ริมคลอง",
+    "ที่ตรงนี้ร่มรื่นเหมาะแก่การนั่งพัก",
+    "เขานั่งรอเพื่อนที่ป้ายรถเมล์หน้าโรงเรียน",
+    "แม่สั่งข้าวผัดมาสองที่"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Classifying sentences by structure",
+    "th": "การจำแนกประโยคตามโครงสร้าง"
+   },
+   "topic": {
+    "en": "Sentence types",
+    "th": "ชนิดของประโยค"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ข้อใดเป็นประโยคความซ้อน",
+   "explanation": {
+    "en": "'ทุกคนรู้ว่าเขาเป็นคนซื่อสัตย์' has a main clause (ทุกคนรู้) with a smaller clause (เขาเป็นคนซื่อสัตย์) acting as its object, introduced by ว่า — a complex sentence. Sentences joined by แต่ or ส่วน are compound sentences, and the sentence about the two boys is simple, with one subject–verb unit despite its long modifiers.",
+    "th": "\"ทุกคนรู้ว่าเขาเป็นคนซื่อสัตย์\" มีมุขยประโยค \"ทุกคนรู้\" และมีอนุประโยค \"เขาเป็นคนซื่อสัตย์\" ทำหน้าที่เป็นกรรม เชื่อมด้วย \"ว่า\" จึงเป็นประโยคความซ้อน ส่วนประโยคที่เชื่อมด้วย \"แต่\" หรือ \"ส่วน\" เป็นประโยคความรวม และประโยคเรื่องเด็กชายสองคนเป็นประโยคความเดียวแม้จะมีส่วนขยายยาว"
+   },
+   "choices": [
+    "ฝนตกหนักแต่เขายังมาโรงเรียนทันเวลา",
+    "ทุกคนรู้ว่าเขาเป็นคนซื่อสัตย์",
+    "พี่อ่านหนังสือ ส่วนน้องดูโทรทัศน์",
+    "เด็กชายสองคนกำลังวิ่งเล่นอยู่ในสนามหลังโรงเรียน"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Using royal vocabulary correctly",
+    "th": "การใช้ราชาศัพท์ให้ถูกต้อง"
+   },
+   "topic": {
+    "en": "Royal vocabulary",
+    "th": "ราชาศัพท์"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ข้อใดใช้ราชาศัพท์ถูกต้อง",
+   "explanation": {
+    "en": "เสด็จพระราชดำเนิน is correct, and ทรง may be placed before an ordinary verb such as เปิด. ทรง must not be added in front of words that are already royal verbs (เสวย, พระราชดำเนิน), and the standard form is มีพระราชดำรัส, not ทรงมีพระราชดำรัส.",
+    "th": "\"เสด็จพระราชดำเนิน\" ใช้ถูกต้อง และเติม \"ทรง\" หน้ากริยาสามัญอย่าง \"เปิด\" เป็น \"ทรงเปิด\" ได้ แต่ห้ามเติม \"ทรง\" หน้าคำที่เป็นกริยาราชาศัพท์อยู่แล้ว เช่น เสวย พระราชดำเนิน และใช้ \"มีพระราชดำรัส\" ไม่ใช้ \"ทรงมีพระราชดำรัส\""
+   },
+   "choices": [
+    "สมเด็จพระราชินีทรงเสวยพระกระยาหารกลางวันร่วมกับนักเรียน",
+    "พระบาทสมเด็จพระเจ้าอยู่หัวทรงพระราชดำเนินไปยังวัดประจำจังหวัด",
+    "พระองค์ทรงมีพระราชดำรัสแก่ผู้เข้าเฝ้าฯ อย่างเป็นกันเอง",
+    "พระบาทสมเด็จพระเจ้าอยู่หัวเสด็จพระราชดำเนินไปทรงเปิดอาคารเรียนหลังใหม่"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Knowing royal words for parts of the body",
+    "th": "ราชาศัพท์หมวดร่างกาย"
+   },
+   "topic": {
+    "en": "Royal vocabulary",
+    "th": "ราชาศัพท์"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ข้อใดจับคู่คำราชาศัพท์กับความหมายไม่ถูกต้อง",
+   "explanation": {
+    "en": "พระขนง means eyebrow (คิ้ว), not eyelash, so this pair is wrong. พระปราง = cheek, พระชานุ = knee and พระนลาฏ = forehead are all correct.",
+    "th": "พระขนง หมายถึง คิ้ว ไม่ใช่ขนตา คู่นี้จึงไม่ถูกต้อง ส่วนพระปราง = แก้ม พระชานุ = เข่า และพระนลาฏ = หน้าผาก ถูกต้องทั้งหมด"
+   },
+   "choices": [
+    "พระปราง – แก้ม",
+    "พระชานุ – เข่า",
+    "พระขนง – ขนตา",
+    "พระนลาฏ – หน้าผาก"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Matching an idiom to a situation",
+    "th": "การเลือกสำนวนให้ตรงกับสถานการณ์"
+   },
+   "topic": {
+    "en": "Idioms and sayings",
+    "th": "สำนวนไทย"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "\"เมื่อรู้ว่าจะมีคณะกรรมการมาตรวจเยี่ยม เจ้าหน้าที่รีบทาสีเฉพาะรั้วด้านหน้าและนำกระถางดอกไม้มาเรียงไว้ที่ประตู ส่วนห้องน้ำนักเรียนที่ชำรุดมานานยังปล่อยไว้เหมือนเดิม\" พฤติกรรมนี้ตรงกับสำนวนใด",
+   "explanation": {
+    "en": "ผักชีโรยหน้า means doing something good only on the surface to look good, while the real problem is left. Fixing only what the visitors will see fits exactly. ปิดทองหลังพระ is the opposite (doing good unseen), เข็นครกขึ้นภูเขา means a very hard task, and ตีวัวกระทบคราด means venting anger on someone else.",
+    "th": "ผักชีโรยหน้า หมายถึงทำดีเพียงผิวเผินให้ดูดีภายนอก ส่วนปัญหาจริงไม่ได้แก้ ตรงกับการปรับปรุงเฉพาะส่วนที่ผู้ตรวจจะเห็น ส่วนปิดทองหลังพระมีความหมายตรงข้าม (ทำดีโดยไม่มีใครเห็น) เข็นครกขึ้นภูเขาหมายถึงทำสิ่งที่ยากลำบากมาก และตีวัวกระทบคราดหมายถึงโกรธคนหนึ่งแต่ไปแสดงกับอีกคนหรือสิ่งของ"
+   },
+   "choices": [
+    "ผักชีโรยหน้า",
+    "ปิดทองหลังพระ",
+    "เข็นครกขึ้นภูเขา",
+    "ตีวัวกระทบคราด"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Comparing meanings of idioms",
+    "th": "การเปรียบเทียบความหมายของสำนวน"
+   },
+   "topic": {
+    "en": "Idioms and sayings",
+    "th": "สำนวนไทย"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "สำนวนคู่ใดมีความหมายใกล้เคียงกันที่สุด",
+   "explanation": {
+    "en": "Both ขิงก็รา ข่าก็แรง and เกลือจิ้มเกลือ describe two sides who are equally tough and answer hardness with hardness. น้ำขึ้นให้รีบตัก (seize the chance) and น้ำนิ่งไหลลึก (quiet people are deep) differ; ปิดทองหลังพระ and ผักชีโรยหน้า are opposites; จับปลาสองมือ (wanting two things and getting neither) and ฆ่าควายเสียดายพริก (doing something big but being stingy over a small cost) are unrelated.",
+    "th": "ขิงก็รา ข่าก็แรง และเกลือจิ้มเกลือ ต่างหมายถึงทั้งสองฝ่ายแข็งพอกัน ไม่มีใครยอมใคร แข็งมาก็แข็งตอบ ส่วนน้ำขึ้นให้รีบตัก (มีโอกาสให้รีบทำ) กับน้ำนิ่งไหลลึก (คนเงียบมักคิดลึก) ความหมายต่างกัน ปิดทองหลังพระกับผักชีโรยหน้ามีความหมายตรงข้าม และจับปลาสองมือ (หวังสองอย่างจนไม่ได้สักอย่าง) กับฆ่าควายเสียดายพริก (ทำการใหญ่แต่ตระหนี่ของเล็กน้อย) ไม่เกี่ยวข้องกัน"
+   },
+   "choices": [
+    "น้ำขึ้นให้รีบตัก – น้ำนิ่งไหลลึก",
+    "ปิดทองหลังพระ – ผักชีโรยหน้า",
+    "จับปลาสองมือ – ฆ่าควายเสียดายพริก",
+    "ขิงก็รา ข่าก็แรง – เกลือจิ้มเกลือ"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Judging consistency of language level",
+    "th": "การพิจารณาความสม่ำเสมอของระดับภาษา"
+   },
+   "topic": {
+    "en": "Levels of language",
+    "th": "ระดับภาษา"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ข้อใดใช้ระดับภาษาไม่สม่ำเสมอ",
+   "explanation": {
+    "en": "The sentence about the chairman starts formally (ท่านประธาน, กล่าวเปิดการประชุม) but ends with the slang ชิ่ง, so its level is inconsistent. The others keep one level throughout: casual for friends and for the mother, formal for the committee.",
+    "th": "ประโยคเรื่องท่านประธานขึ้นต้นด้วยภาษาทางการ (ท่านประธาน กล่าวเปิดการประชุม) แต่ลงท้ายด้วยคำสแลง \"ชิ่ง\" ระดับภาษาจึงไม่สม่ำเสมอ ส่วนประโยคอื่นใช้ระดับเดียวตลอด คือภาษากันเองในเรื่องเพื่อนและแม่ และภาษาทางการในเรื่องคณะกรรมการ"
+   },
+   "choices": [
+    "เพื่อน ๆ ไปกินข้าวกันที่ร้านหน้าโรงเรียนแล้วก็คุยกันสนุกมาก",
+    "คณะกรรมการได้พิจารณาข้อเสนอดังกล่าวและมีมติเห็นชอบ",
+    "แม่ถามว่าพรุ่งนี้หนูจะกลับบ้านกี่โมงจ๊ะ",
+    "ท่านประธานกล่าวเปิดการประชุมเสร็จแล้วก็ชิ่งกลับไปก่อนเลย"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Distinguishing simile and metaphor",
+    "th": "การแยกอุปมากับอุปลักษณ์"
+   },
+   "topic": {
+    "en": "Figures of speech",
+    "th": "ภาพพจน์"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ข้อใดใช้ภาพพจน์ต่างจากข้ออื่น",
+   "explanation": {
+    "en": "'ขาวราวกับสำลี' compares using the word ราวกับ, so it is a simile (อุปมา). The other three say one thing IS another (เป็น, คือ) — metaphors (อุปลักษณ์).",
+    "th": "\"ขาวราวกับสำลี\" เปรียบโดยใช้คำว่า \"ราวกับ\" จึงเป็นอุปมา ส่วนอีกสามข้อกล่าวว่าสิ่งหนึ่ง \"เป็น\" หรือ \"คือ\" อีกสิ่งหนึ่ง จึงเป็นอุปลักษณ์"
+   },
+   "choices": [
+    "หน้าของเธอขาวราวกับสำลี",
+    "ใจของเขาเป็นหินไม่หวั่นไหวต่อคำวิงวอน",
+    "ครูคือแสงเทียนส่องทางให้ศิษย์",
+    "ความรู้คือประทีปนำชีวิต"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Recognising personification",
+    "th": "การระบุบุคคลวัต"
+   },
+   "topic": {
+    "en": "Figures of speech",
+    "th": "ภาพพจน์"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ข้อใดใช้ภาพพจน์แบบบุคคลวัต",
+   "explanation": {
+    "en": "The wind 'whispers' to the rice — a human action given to a non-human thing, which is personification. 'Tears flooding the room' is hyperbole, 'เปาะแปะ' imitates a sound (onomatopoeia), and 'งามดั่งดอกบัว' is a simile.",
+    "th": "สายลม \"กระซิบบอก\" ต้นข้าว เป็นการให้สิ่งที่ไม่ใช่คนทำกิริยาอย่างคน จึงเป็นบุคคลวัต ส่วน \"น้ำตาท่วมห้อง\" เป็นอติพจน์ \"เปาะแปะ\" เป็นสัทพจน์ และ \"งามดั่งดอกบัว\" เป็นอุปมา"
+   },
+   "choices": [
+    "คิดถึงจนน้ำตาท่วมห้อง",
+    "ฝนตกเปาะแปะบนหลังคาสังกะสี",
+    "เธองามดั่งดอกบัวแรกแย้ม",
+    "สายลมกระซิบบอกต้นข้าวว่าฝนใกล้มาแล้ว"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Identifying a style of writing",
+    "th": "การระบุโวหารการเขียน"
+   },
+   "topic": {
+    "en": "Writing styles",
+    "th": "โวหารการเขียน"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "\"ท้องฟ้ายามเย็นที่ชายทะเลถูกแต้มด้วยสีส้มอมชมพู เมฆบางเบาลอยเอื่อยราวปุยฝ้าย คลื่นลูกเล็ก ๆ ซัดเข้าฝั่งเป็นจังหวะแผ่วเบา กลิ่นไอเค็มของทะเลลอยมากับลมเย็นจนใจสงบอย่างประหลาด\" ข้อความนี้ใช้โวหารใดเป็นหลัก",
+   "explanation": {
+    "en": "The passage paints a scene with colour, sound, smell and feeling so that readers can picture and feel it — descriptive writing (พรรณนาโวหาร). It does not tell a sequence of events (บรรยาย), explain how something works (อธิบาย) or teach a moral (เทศนา).",
+    "th": "ข้อความวาดภาพด้วยสี เสียง กลิ่น และอารมณ์ ให้ผู้อ่านเห็นภาพและรู้สึกตาม จึงเป็นพรรณนาโวหาร ไม่ได้เล่าเหตุการณ์ตามลำดับ (บรรยายโวหาร) ไม่ได้อธิบายขั้นตอนหรือเหตุผล (อธิบายโวหาร) และไม่ได้สั่งสอน (เทศนาโวหาร)"
+   },
+   "choices": [
+    "บรรยายโวหาร",
+    "อธิบายโวหาร",
+    "พรรณนาโวหาร",
+    "เทศนาโวหาร"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Identifying the origin of loanwords",
+    "th": "การระบุที่มาของคำยืม"
+   },
+   "topic": {
+    "en": "Loanwords",
+    "th": "คำยืมในภาษาไทย"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ข้อใดเป็นคำที่ยืมมาจากภาษาเขมรทุกคำ",
+   "explanation": {
+    "en": "เสด็จ, ถนน and ตำรวจ all come from Khmer. Each other group contains one non-Khmer word: ศัตรู and ภรรยา are Sanskrit, and ธุระ is Pali, although บรรทม, เสวย, ฉลาด, กังวล, ขนม and เพลิง are Khmer.",
+    "th": "เสด็จ ถนน และตำรวจ เป็นคำยืมภาษาเขมรทั้งหมด ส่วนกลุ่มอื่นมีคำที่ไม่ใช่ภาษาเขมรปนอยู่ ได้แก่ ศัตรูและภรรยาเป็นคำสันสกฤต และธุระเป็นคำบาลี แม้ว่าบรรทม เสวย ฉลาด กังวล ขนม และเพลิงจะเป็นคำเขมรก็ตาม"
+   },
+   "choices": [
+    "บรรทม เสวย ศัตรู",
+    "ฉลาด กังวล ภรรยา",
+    "เสด็จ ถนน ตำรวจ",
+    "ขนม เพลิง ธุระ"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Distinguishing compound and paired words",
+    "th": "การแยกคำประสมกับคำซ้อน"
+   },
+   "topic": {
+    "en": "Word formation",
+    "th": "การสร้างคำ"
+   },
+   "passage": "",
+   "table": null,
+   "lang": "th",
+   "stem": "ข้อใดเป็นคำประสมทุกคำ",
+   "explanation": {
+    "en": "น้ำแข็ง, ไม้บรรทัด and แม่ครัว join words to make a new thing with a new meaning — compound words (คำประสม). Each other group has a paired word (คำซ้อน) made of two words of similar meaning: บ้านเรือน, ถ้วยชาม, เสื้อผ้า.",
+    "th": "น้ำแข็ง ไม้บรรทัด และแม่ครัว เป็นการนำคำมารวมกันเกิดคำที่มีความหมายใหม่ จึงเป็นคำประสมทั้งหมด ส่วนกลุ่มอื่นมีคำซ้อนซึ่งเกิดจากคำที่มีความหมายคล้ายกันมาซ้อนกันปนอยู่ ได้แก่ บ้านเรือน ถ้วยชาม และเสื้อผ้า"
+   },
+   "choices": [
+    "น้ำแข็ง ไม้บรรทัด แม่ครัว",
+    "บ้านเรือน ลูกเสือ ปากกา",
+    "ถ้วยชาม แม่น้ำ รถไฟ",
+    "เสื้อผ้า ทางม้าลาย ผีเสื้อ"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Inferring a character's feelings",
+    "th": "การอนุมานความรู้สึกของตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: literary text",
+    "th": "การอ่านวรรณกรรม"
+   },
+   "passage": "ตั้งแต่ตีห้า ปู่ก็ปีนต้นมะพร้าวต้นแรกแล้ว ฉันยืนแหงนมองอยู่ข้างล่าง มือกำไฟฉายแน่น เสียงพะองไม้ไผ่กระทบลำต้นดังเป็นจังหวะ ปู่บอกว่าน้ำตาลจะหอมหวานหรือไม่ ขึ้นอยู่กับว่าเราตื่นทันน้ำค้างหรือเปล่า ปิดเทอมนี้แม่ส่งฉันมาอยู่กับปู่ที่อัมพวาเพราะไม่อยากให้ฉันจมอยู่กับโทรศัพท์ทั้งวัน ฉันจึงเริ่มต้นวันหยุดด้วยอาการงอนอยู่หลายวัน ตอบปู่เพียงคำสองคำ และนับวันรอกลับบ้าน\n\nกระบอกตาลที่ปู่ปลดลงมามีน้ำใสกลิ่นหอมอ่อน ๆ ปู่เทน้ำตาลสดลงกระทะใบบัวที่ตั้งบนเตาฟืน แล้วยื่นไม้พายให้ฉัน \"คนไปเรื่อย ๆ อย่าให้ติดก้นกระทะ ไฟแรงไปน้ำตาลจะไหม้ ไฟอ่อนไปก็ไม่งวด\" ฉันคนได้ไม่ถึงสิบนาทีก็บ่นว่าเมื่อยแขน ปู่หัวเราะเบา ๆ แต่ไม่รับไม้พายคืน กลับนั่งลงข้างเตาแล้วเล่าว่าสมัยหนุ่ม ๆ ปู่ต้องคนน้ำตาลจนแขนล้าแทบยกไม่ขึ้นเหมือนกัน\n\nวันหนึ่งฉันใจร้อน เติมฟืนจนไฟลุกโชน น้ำตาลทั้งกระทะส่งกลิ่นไหม้และกลายเป็นสีน้ำตาลเข้มรสขม ฉันยืนนิ่งรอฟังเสียงดุ แต่ปู่เพียงตักน้ำตาลไหม้ใส่ถังไว้ต่างหาก แล้วพูดว่า \"พรุ่งนี้ตื่นเช้ากว่าเดิมนะ ต้นมะพร้าวไม่โกรธใครหรอก\" คืนนั้นฉันนอนไม่หลับ คิดถึงแต่ใบหน้าของปู่ที่ไม่มีแววโกรธเลยสักนิด\n\nเช้าวันต่อมา ฉันตื่นก่อนนาฬิกาปลุก ช่วยปู่ล้างกระบอกตาลและรมควันโดยไม่ต้องให้ใครบอก ตอนเคี่ยว ฉันคอยดูไฟอย่างตั้งใจ ถอนฟืนออกเมื่อเห็นฟองเดือดแรงเกินไป เมื่อน้ำตาลเริ่มข้นเหนียวเป็นยางมะตูม ปู่พยักหน้าให้ฉันยกกระทะลง เราช่วยกันหยอดน้ำตาลลงพิมพ์จนเป็นก้อนกลมเรียงกันบนผ้าขาว\n\nก่อนกลับกรุงเทพฯ ปู่ห่อน้ำตาลปึกให้ฉันหนึ่งห่อ บนกระดาษเขียนด้วยลายมือโย้เย้ว่า \"ฝีมือหลานคนเก่ง\" ตลอดทางกลับบ้าน ฉันไม่ได้แตะโทรศัพท์เลย เพราะมัวแต่กอดห่อน้ำตาลไว้บนตัก",
+   "table": null,
+   "lang": "th",
+   "stem": "อ่านบทอ่านแล้วตอบคำถาม ในช่วงแรกของการมาอยู่ที่อัมพวา ผู้เล่ามีความรู้สึกอย่างไร",
+   "explanation": {
+    "en": "The narrator 'started the holiday sulking for several days', answered grandpa with only a word or two and counted the days until going home — all signs of being unwilling and annoyed. Nothing at the start shows excitement, fear of being scolded, or missing school friends.",
+    "th": "ผู้เล่าบอกว่า \"เริ่มต้นวันหยุดด้วยอาการงอนอยู่หลายวัน ตอบปู่เพียงคำสองคำ และนับวันรอกลับบ้าน\" แสดงว่าไม่เต็มใจและขุ่นเคือง ไม่มีส่วนใดในตอนต้นแสดงความตื่นเต้น ความกลัวถูกดุ หรือการคิดถึงเพื่อน"
+   },
+   "choices": [
+    "ตื่นเต้นที่จะได้เรียนทำน้ำตาลมะพร้าว",
+    "กลัวปู่จะดุเพราะทำงานไม่เป็น",
+    "เหงาเพราะคิดถึงเพื่อนที่โรงเรียน",
+    "ไม่เต็มใจและขุ่นเคืองที่ต้องมาอยู่กับปู่"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting a character's motive",
+    "th": "การตีความเจตนาของตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: literary text",
+    "th": "การอ่านวรรณกรรม"
+   },
+   "passage": "ตั้งแต่ตีห้า ปู่ก็ปีนต้นมะพร้าวต้นแรกแล้ว ฉันยืนแหงนมองอยู่ข้างล่าง มือกำไฟฉายแน่น เสียงพะองไม้ไผ่กระทบลำต้นดังเป็นจังหวะ ปู่บอกว่าน้ำตาลจะหอมหวานหรือไม่ ขึ้นอยู่กับว่าเราตื่นทันน้ำค้างหรือเปล่า ปิดเทอมนี้แม่ส่งฉันมาอยู่กับปู่ที่อัมพวาเพราะไม่อยากให้ฉันจมอยู่กับโทรศัพท์ทั้งวัน ฉันจึงเริ่มต้นวันหยุดด้วยอาการงอนอยู่หลายวัน ตอบปู่เพียงคำสองคำ และนับวันรอกลับบ้าน\n\nกระบอกตาลที่ปู่ปลดลงมามีน้ำใสกลิ่นหอมอ่อน ๆ ปู่เทน้ำตาลสดลงกระทะใบบัวที่ตั้งบนเตาฟืน แล้วยื่นไม้พายให้ฉัน \"คนไปเรื่อย ๆ อย่าให้ติดก้นกระทะ ไฟแรงไปน้ำตาลจะไหม้ ไฟอ่อนไปก็ไม่งวด\" ฉันคนได้ไม่ถึงสิบนาทีก็บ่นว่าเมื่อยแขน ปู่หัวเราะเบา ๆ แต่ไม่รับไม้พายคืน กลับนั่งลงข้างเตาแล้วเล่าว่าสมัยหนุ่ม ๆ ปู่ต้องคนน้ำตาลจนแขนล้าแทบยกไม่ขึ้นเหมือนกัน\n\nวันหนึ่งฉันใจร้อน เติมฟืนจนไฟลุกโชน น้ำตาลทั้งกระทะส่งกลิ่นไหม้และกลายเป็นสีน้ำตาลเข้มรสขม ฉันยืนนิ่งรอฟังเสียงดุ แต่ปู่เพียงตักน้ำตาลไหม้ใส่ถังไว้ต่างหาก แล้วพูดว่า \"พรุ่งนี้ตื่นเช้ากว่าเดิมนะ ต้นมะพร้าวไม่โกรธใครหรอก\" คืนนั้นฉันนอนไม่หลับ คิดถึงแต่ใบหน้าของปู่ที่ไม่มีแววโกรธเลยสักนิด\n\nเช้าวันต่อมา ฉันตื่นก่อนนาฬิกาปลุก ช่วยปู่ล้างกระบอกตาลและรมควันโดยไม่ต้องให้ใครบอก ตอนเคี่ยว ฉันคอยดูไฟอย่างตั้งใจ ถอนฟืนออกเมื่อเห็นฟองเดือดแรงเกินไป เมื่อน้ำตาลเริ่มข้นเหนียวเป็นยางมะตูม ปู่พยักหน้าให้ฉันยกกระทะลง เราช่วยกันหยอดน้ำตาลลงพิมพ์จนเป็นก้อนกลมเรียงกันบนผ้าขาว\n\nก่อนกลับกรุงเทพฯ ปู่ห่อน้ำตาลปึกให้ฉันหนึ่งห่อ บนกระดาษเขียนด้วยลายมือโย้เย้ว่า \"ฝีมือหลานคนเก่ง\" ตลอดทางกลับบ้าน ฉันไม่ได้แตะโทรศัพท์เลย เพราะมัวแต่กอดห่อน้ำตาลไว้บนตัก",
+   "table": null,
+   "lang": "th",
+   "stem": "อ่านบทอ่านแล้วตอบคำถาม การที่ปู่ \"หัวเราะเบา ๆ แต่ไม่รับไม้พายคืน\" แล้วเล่าเรื่องสมัยหนุ่มของตน แสดงว่าปู่ต้องการสิ่งใดมากที่สุด",
+   "explanation": {
+    "en": "Grandpa does not take the paddle back, so he wants the child to keep going; he laughs gently and shares that he too had aching arms when young, which reassures rather than scolds or boasts. The story shows warmth, not punishment or discouragement.",
+    "th": "ปู่ไม่รับไม้พายคืนแสดงว่าต้องการให้หลานทำต่อ และการหัวเราะเบา ๆ พร้อมเล่าว่าตนก็เคยแขนล้าเหมือนกัน เป็นการให้กำลังใจว่าความเหนื่อยเป็นเรื่องปกติ ไม่ใช่การลงโทษ การอวดตัว หรือการบอกว่าหลานไม่เหมาะกับงาน"
+   },
+   "choices": [
+    "ลงโทษหลานที่ชอบบ่น",
+    "แสดงว่าตนเก่งกว่าหลานมาก",
+    "บอกเป็นนัยว่าหลานไม่เหมาะกับงานนี้",
+    "ให้หลานอดทนทำต่อ โดยให้กำลังใจว่าความเหนื่อยเป็นเรื่องปกติของผู้ฝึกหัด"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting implied meaning",
+    "th": "การตีความความหมายแฝง"
+   },
+   "topic": {
+    "en": "Reading: literary text",
+    "th": "การอ่านวรรณกรรม"
+   },
+   "passage": "ตั้งแต่ตีห้า ปู่ก็ปีนต้นมะพร้าวต้นแรกแล้ว ฉันยืนแหงนมองอยู่ข้างล่าง มือกำไฟฉายแน่น เสียงพะองไม้ไผ่กระทบลำต้นดังเป็นจังหวะ ปู่บอกว่าน้ำตาลจะหอมหวานหรือไม่ ขึ้นอยู่กับว่าเราตื่นทันน้ำค้างหรือเปล่า ปิดเทอมนี้แม่ส่งฉันมาอยู่กับปู่ที่อัมพวาเพราะไม่อยากให้ฉันจมอยู่กับโทรศัพท์ทั้งวัน ฉันจึงเริ่มต้นวันหยุดด้วยอาการงอนอยู่หลายวัน ตอบปู่เพียงคำสองคำ และนับวันรอกลับบ้าน\n\nกระบอกตาลที่ปู่ปลดลงมามีน้ำใสกลิ่นหอมอ่อน ๆ ปู่เทน้ำตาลสดลงกระทะใบบัวที่ตั้งบนเตาฟืน แล้วยื่นไม้พายให้ฉัน \"คนไปเรื่อย ๆ อย่าให้ติดก้นกระทะ ไฟแรงไปน้ำตาลจะไหม้ ไฟอ่อนไปก็ไม่งวด\" ฉันคนได้ไม่ถึงสิบนาทีก็บ่นว่าเมื่อยแขน ปู่หัวเราะเบา ๆ แต่ไม่รับไม้พายคืน กลับนั่งลงข้างเตาแล้วเล่าว่าสมัยหนุ่ม ๆ ปู่ต้องคนน้ำตาลจนแขนล้าแทบยกไม่ขึ้นเหมือนกัน\n\nวันหนึ่งฉันใจร้อน เติมฟืนจนไฟลุกโชน น้ำตาลทั้งกระทะส่งกลิ่นไหม้และกลายเป็นสีน้ำตาลเข้มรสขม ฉันยืนนิ่งรอฟังเสียงดุ แต่ปู่เพียงตักน้ำตาลไหม้ใส่ถังไว้ต่างหาก แล้วพูดว่า \"พรุ่งนี้ตื่นเช้ากว่าเดิมนะ ต้นมะพร้าวไม่โกรธใครหรอก\" คืนนั้นฉันนอนไม่หลับ คิดถึงแต่ใบหน้าของปู่ที่ไม่มีแววโกรธเลยสักนิด\n\nเช้าวันต่อมา ฉันตื่นก่อนนาฬิกาปลุก ช่วยปู่ล้างกระบอกตาลและรมควันโดยไม่ต้องให้ใครบอก ตอนเคี่ยว ฉันคอยดูไฟอย่างตั้งใจ ถอนฟืนออกเมื่อเห็นฟองเดือดแรงเกินไป เมื่อน้ำตาลเริ่มข้นเหนียวเป็นยางมะตูม ปู่พยักหน้าให้ฉันยกกระทะลง เราช่วยกันหยอดน้ำตาลลงพิมพ์จนเป็นก้อนกลมเรียงกันบนผ้าขาว\n\nก่อนกลับกรุงเทพฯ ปู่ห่อน้ำตาลปึกให้ฉันหนึ่งห่อ บนกระดาษเขียนด้วยลายมือโย้เย้ว่า \"ฝีมือหลานคนเก่ง\" ตลอดทางกลับบ้าน ฉันไม่ได้แตะโทรศัพท์เลย เพราะมัวแต่กอดห่อน้ำตาลไว้บนตัก",
+   "table": null,
+   "lang": "th",
+   "stem": "อ่านบทอ่านแล้วตอบคำถาม คำพูดของปู่ที่ว่า \"ต้นมะพร้าวไม่โกรธใครหรอก\" สื่อความหมายใด",
+   "explanation": {
+    "en": "Right after the sugar burns, the narrator expects to be scolded, but grandpa calmly puts it aside and says to wake earlier tomorrow. The coconut trees will give sap again, so the mistake can be made up — a gentle reassurance. The narrator notices there was no anger on his face, which rules out sarcasm or blame.",
+    "th": "หลังน้ำตาลไหม้ ผู้เล่ารอฟังเสียงดุ แต่ปู่เพียงเก็บน้ำตาลไหม้ไว้และบอกให้พรุ่งนี้ตื่นเช้ากว่าเดิม ต้นมะพร้าวยังให้น้ำตาลได้อีก ความผิดพลาดจึงแก้ตัวได้ เป็นการปลอบใจ และผู้เล่าสังเกตว่าใบหน้าปู่ไม่มีแววโกรธ จึงไม่ใช่การประชดหรือตำหนิ"
+   },
+   "choices": [
+    "ปู่ประชดว่าหลานทำให้เสียน้ำตาลไปทั้งกระทะ",
+    "ต้นมะพร้าวจะให้น้ำตาลมากขึ้นถ้าหลานตื่นเช้า",
+    "ปู่ตำหนิว่าความผิดทั้งหมดเกิดจากการตื่นสาย",
+    "ความผิดพลาดครั้งนี้แก้ตัวใหม่ได้ ไม่จำเป็นต้องกลัวหรือโทษตัวเอง"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "m",
+   "skill": {
+    "en": "Tracing character development",
+    "th": "การวิเคราะห์พัฒนาการของตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: literary text",
+    "th": "การอ่านวรรณกรรม"
+   },
+   "passage": "ตั้งแต่ตีห้า ปู่ก็ปีนต้นมะพร้าวต้นแรกแล้ว ฉันยืนแหงนมองอยู่ข้างล่าง มือกำไฟฉายแน่น เสียงพะองไม้ไผ่กระทบลำต้นดังเป็นจังหวะ ปู่บอกว่าน้ำตาลจะหอมหวานหรือไม่ ขึ้นอยู่กับว่าเราตื่นทันน้ำค้างหรือเปล่า ปิดเทอมนี้แม่ส่งฉันมาอยู่กับปู่ที่อัมพวาเพราะไม่อยากให้ฉันจมอยู่กับโทรศัพท์ทั้งวัน ฉันจึงเริ่มต้นวันหยุดด้วยอาการงอนอยู่หลายวัน ตอบปู่เพียงคำสองคำ และนับวันรอกลับบ้าน\n\nกระบอกตาลที่ปู่ปลดลงมามีน้ำใสกลิ่นหอมอ่อน ๆ ปู่เทน้ำตาลสดลงกระทะใบบัวที่ตั้งบนเตาฟืน แล้วยื่นไม้พายให้ฉัน \"คนไปเรื่อย ๆ อย่าให้ติดก้นกระทะ ไฟแรงไปน้ำตาลจะไหม้ ไฟอ่อนไปก็ไม่งวด\" ฉันคนได้ไม่ถึงสิบนาทีก็บ่นว่าเมื่อยแขน ปู่หัวเราะเบา ๆ แต่ไม่รับไม้พายคืน กลับนั่งลงข้างเตาแล้วเล่าว่าสมัยหนุ่ม ๆ ปู่ต้องคนน้ำตาลจนแขนล้าแทบยกไม่ขึ้นเหมือนกัน\n\nวันหนึ่งฉันใจร้อน เติมฟืนจนไฟลุกโชน น้ำตาลทั้งกระทะส่งกลิ่นไหม้และกลายเป็นสีน้ำตาลเข้มรสขม ฉันยืนนิ่งรอฟังเสียงดุ แต่ปู่เพียงตักน้ำตาลไหม้ใส่ถังไว้ต่างหาก แล้วพูดว่า \"พรุ่งนี้ตื่นเช้ากว่าเดิมนะ ต้นมะพร้าวไม่โกรธใครหรอก\" คืนนั้นฉันนอนไม่หลับ คิดถึงแต่ใบหน้าของปู่ที่ไม่มีแววโกรธเลยสักนิด\n\nเช้าวันต่อมา ฉันตื่นก่อนนาฬิกาปลุก ช่วยปู่ล้างกระบอกตาลและรมควันโดยไม่ต้องให้ใครบอก ตอนเคี่ยว ฉันคอยดูไฟอย่างตั้งใจ ถอนฟืนออกเมื่อเห็นฟองเดือดแรงเกินไป เมื่อน้ำตาลเริ่มข้นเหนียวเป็นยางมะตูม ปู่พยักหน้าให้ฉันยกกระทะลง เราช่วยกันหยอดน้ำตาลลงพิมพ์จนเป็นก้อนกลมเรียงกันบนผ้าขาว\n\nก่อนกลับกรุงเทพฯ ปู่ห่อน้ำตาลปึกให้ฉันหนึ่งห่อ บนกระดาษเขียนด้วยลายมือโย้เย้ว่า \"ฝีมือหลานคนเก่ง\" ตลอดทางกลับบ้าน ฉันไม่ได้แตะโทรศัพท์เลย เพราะมัวแต่กอดห่อน้ำตาลไว้บนตัก",
+   "table": null,
+   "lang": "th",
+   "stem": "อ่านบทอ่านแล้วตอบคำถาม ข้อความตอนใดแสดงการเปลี่ยนแปลงทัศนคติของผู้เล่าได้ชัดเจนที่สุด",
+   "explanation": {
+    "en": "At the start the narrator sulks and complains; after the burnt-sugar night, the narrator wakes before the alarm and helps without being told — a clear change from reluctance to willing effort. The other moments show the narrator before the change.",
+    "th": "ตอนต้นผู้เล่างอนและบ่น แต่หลังคืนที่น้ำตาลไหม้ ผู้เล่าตื่นก่อนนาฬิกาปลุกและช่วยงานโดยไม่ต้องมีใครบอก แสดงการเปลี่ยนจากความไม่เต็มใจเป็นความตั้งใจอย่างชัดเจน ส่วนเหตุการณ์อื่นเป็นพฤติกรรมก่อนการเปลี่ยนแปลง"
+   },
+   "choices": [
+    "ยืนแหงนมองปู่ปีนต้นมะพร้าวโดยกำไฟฉายแน่น",
+    "คนน้ำตาลได้ไม่ถึงสิบนาทีก็บ่นว่าเมื่อยแขน",
+    "เติมฟืนจนไฟลุกโชนจนน้ำตาลไหม้",
+    "ตื่นก่อนนาฬิกาปลุก ช่วยปู่ล้างกระบอกตาลโดยไม่ต้องให้ใครบอก"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "e",
+   "skill": {
+    "en": "Identifying the writer's purpose",
+    "th": "การระบุจุดประสงค์ของผู้เขียน"
+   },
+   "topic": {
+    "en": "Reading: informational text",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "หิ่งห้อยเป็นแมลงปีกแข็งที่กะพริบแสงได้เองจากปฏิกิริยาเคมีในส่วนท้องของลำตัว แสงที่เกิดขึ้นแทบไม่มีความร้อน จึงมักเรียกกันว่า \"แสงเย็น\" แต่แสงนี้ไม่ได้มีไว้เพื่อความสวยงาม หากเป็น \"ภาษา\" ที่หิ่งห้อยใช้สื่อสารกัน หิ่งห้อยแต่ละชนิดกะพริบด้วยจังหวะเฉพาะตัว ตัวผู้จะกะพริบแสงขณะบิน ส่วนตัวเมียที่เกาะอยู่ตามใบไม้จะกะพริบตอบ หากจังหวะตรงกัน ทั้งคู่จึงจะพบกันและผสมพันธุ์ได้\n\nปัญหาคือ ภาษาแสงนี้ใช้ได้ดีเฉพาะในความมืด เมื่อชุมชนริมน้ำหลายแห่งเติบโตขึ้น ไฟถนน ป้ายโฆษณา และไฟจากร้านค้าก็สว่างจ้าจนกลบแสงเล็ก ๆ ของหิ่งห้อย งานวิจัยหลายประเทศรายงานตรงกันว่า ในบริเวณที่มีแสงไฟยามค่ำคืนมาก หิ่งห้อยกะพริบน้อยลงและพบคู่ได้ยากขึ้น เปรียบได้กับการพยายามกระซิบคุยกันกลางคอนเสิร์ต\n\nแสงไฟไม่ใช่ภัยคุกคามเพียงอย่างเดียว หิ่งห้อยหลายชนิดในประเทศไทยอาศัยต้นลำพูริมน้ำกร่อยเป็นที่เกาะ ส่วนตัวอ่อนต้องการดินชื้นและหอยทากขนาดเล็กเป็นอาหาร การถางต้นไม้ริมตลิ่งเพื่อสร้างเขื่อนคอนกรีต หรือการใช้สารเคมีกำจัดศัตรูพืชในสวน จึงทำลายวงจรชีวิตของหิ่งห้อยตั้งแต่ยังไม่ทันได้กะพริบแสงครั้งแรก\n\nที่น่าคิดคือ ชุมชนบางแห่งเคยมีรายได้จากการพานักท่องเที่ยวล่องเรือชมหิ่งห้อย แต่เมื่อนักท่องเที่ยวมากขึ้น เรือหลายลำกลับส่องไฟฉายเข้าหาต้นลำพูและเร่งเครื่องยนต์เสียงดัง ความนิยมที่ควรช่วยให้คนหวงแหนธรรมชาติจึงกลายเป็นแรงกดดันเสียเอง\n\nทางออกไม่จำเป็นต้องยุ่งยาก การหรี่หรือปิดไฟที่ไม่จำเป็นหลังสามทุ่ม การใช้โคมไฟที่ส่องลงพื้นแทนการส่องกระจายขึ้นฟ้า การเว้นต้นไม้ริมตลิ่งไว้ และการกำหนดกติกาให้เรือชมหิ่งห้อยดับไฟและลดความเร็ว ล้วนเป็นสิ่งที่ชุมชนทำได้ทันที หากเราอยากให้ลูกหลานยังได้เห็นต้นไม้ทั้งต้นกะพริบแสงพร้อมกันในค่ำคืนที่มืดสนิท เราอาจต้องเรียนรู้ที่จะอยู่กับความมืดให้มากขึ้นอีกสักหน่อย",
+   "table": null,
+   "lang": "th",
+   "stem": "อ่านบทความแล้วตอบคำถาม ผู้เขียนมีจุดประสงค์สำคัญเพื่ออะไร",
+   "explanation": {
+    "en": "The essay explains why light matters to fireflies, describes threats (artificial light, loss of riverside trees, chemicals, careless tours) and ends with practical solutions. The chemistry is only background, it does not promote more tours, and it asks for rules for tour boats, not a ban.",
+    "th": "บทความอธิบายว่าแสงสำคัญต่อหิ่งห้อยอย่างไร กล่าวถึงภัยคุกคาม (แสงไฟ การถางต้นไม้ริมน้ำ สารเคมี การท่องเที่ยวที่ไม่ระวัง) แล้วจบด้วยแนวทางแก้ไขที่ทำได้ทันที เรื่องปฏิกิริยาเคมีเป็นเพียงพื้นฐาน ไม่ได้ชวนให้ไปเที่ยวมากขึ้น และเสนอให้ตั้งกติกาสำหรับเรือ ไม่ใช่ห้ามท่องเที่ยว"
+   },
+   "choices": [
+    "อธิบายปฏิกิริยาเคมีที่ทำให้หิ่งห้อยเกิดแสงอย่างละเอียด",
+    "ชี้ให้เห็นภัยที่คุกคามหิ่งห้อยและเสนอแนวทางที่ชุมชนทำได้",
+    "ชักชวนให้ผู้อ่านไปล่องเรือชมหิ่งห้อยให้มากขึ้น",
+    "เรียกร้องให้ห้ามการท่องเที่ยวชมหิ่งห้อยทั้งหมด"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting a comparison",
+    "th": "การตีความการเปรียบเทียบ"
+   },
+   "topic": {
+    "en": "Reading: informational text",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "หิ่งห้อยเป็นแมลงปีกแข็งที่กะพริบแสงได้เองจากปฏิกิริยาเคมีในส่วนท้องของลำตัว แสงที่เกิดขึ้นแทบไม่มีความร้อน จึงมักเรียกกันว่า \"แสงเย็น\" แต่แสงนี้ไม่ได้มีไว้เพื่อความสวยงาม หากเป็น \"ภาษา\" ที่หิ่งห้อยใช้สื่อสารกัน หิ่งห้อยแต่ละชนิดกะพริบด้วยจังหวะเฉพาะตัว ตัวผู้จะกะพริบแสงขณะบิน ส่วนตัวเมียที่เกาะอยู่ตามใบไม้จะกะพริบตอบ หากจังหวะตรงกัน ทั้งคู่จึงจะพบกันและผสมพันธุ์ได้\n\nปัญหาคือ ภาษาแสงนี้ใช้ได้ดีเฉพาะในความมืด เมื่อชุมชนริมน้ำหลายแห่งเติบโตขึ้น ไฟถนน ป้ายโฆษณา และไฟจากร้านค้าก็สว่างจ้าจนกลบแสงเล็ก ๆ ของหิ่งห้อย งานวิจัยหลายประเทศรายงานตรงกันว่า ในบริเวณที่มีแสงไฟยามค่ำคืนมาก หิ่งห้อยกะพริบน้อยลงและพบคู่ได้ยากขึ้น เปรียบได้กับการพยายามกระซิบคุยกันกลางคอนเสิร์ต\n\nแสงไฟไม่ใช่ภัยคุกคามเพียงอย่างเดียว หิ่งห้อยหลายชนิดในประเทศไทยอาศัยต้นลำพูริมน้ำกร่อยเป็นที่เกาะ ส่วนตัวอ่อนต้องการดินชื้นและหอยทากขนาดเล็กเป็นอาหาร การถางต้นไม้ริมตลิ่งเพื่อสร้างเขื่อนคอนกรีต หรือการใช้สารเคมีกำจัดศัตรูพืชในสวน จึงทำลายวงจรชีวิตของหิ่งห้อยตั้งแต่ยังไม่ทันได้กะพริบแสงครั้งแรก\n\nที่น่าคิดคือ ชุมชนบางแห่งเคยมีรายได้จากการพานักท่องเที่ยวล่องเรือชมหิ่งห้อย แต่เมื่อนักท่องเที่ยวมากขึ้น เรือหลายลำกลับส่องไฟฉายเข้าหาต้นลำพูและเร่งเครื่องยนต์เสียงดัง ความนิยมที่ควรช่วยให้คนหวงแหนธรรมชาติจึงกลายเป็นแรงกดดันเสียเอง\n\nทางออกไม่จำเป็นต้องยุ่งยาก การหรี่หรือปิดไฟที่ไม่จำเป็นหลังสามทุ่ม การใช้โคมไฟที่ส่องลงพื้นแทนการส่องกระจายขึ้นฟ้า การเว้นต้นไม้ริมตลิ่งไว้ และการกำหนดกติกาให้เรือชมหิ่งห้อยดับไฟและลดความเร็ว ล้วนเป็นสิ่งที่ชุมชนทำได้ทันที หากเราอยากให้ลูกหลานยังได้เห็นต้นไม้ทั้งต้นกะพริบแสงพร้อมกันในค่ำคืนที่มืดสนิท เราอาจต้องเรียนรู้ที่จะอยู่กับความมืดให้มากขึ้นอีกสักหน่อย",
+   "table": null,
+   "lang": "th",
+   "stem": "อ่านบทความแล้วตอบคำถาม การเปรียบว่า \"การพยายามกระซิบคุยกันกลางคอนเสิร์ต\" ต้องการสื่อว่าอย่างไร",
+   "explanation": {
+    "en": "A whisper is a weak signal; a concert is a much stronger one that drowns it out. In the same way the faint flashes of fireflies are drowned out by street and shop lights, so males and females find each other less easily. The comparison is about light, not real sound, and the passage says fireflies flash less, not more strongly.",
+    "th": "เสียงกระซิบเป็นสัญญาณที่อ่อน ส่วนเสียงคอนเสิร์ตแรงกว่ามากจนกลบเสียงกระซิบ เช่นเดียวกับแสงกะพริบเล็ก ๆ ของหิ่งห้อยที่ถูกแสงไฟถนนและร้านค้ากลบ ตัวผู้และตัวเมียจึงหากันยาก การเปรียบนี้พูดถึงแสง ไม่ใช่เสียงจริง และบทความบอกว่าหิ่งห้อยกะพริบน้อยลง ไม่ใช่แรงขึ้น"
+   },
+   "choices": [
+    "หิ่งห้อยชอบส่งเสียงร้องเรียกคู่ในที่ที่มีเสียงดัง",
+    "หิ่งห้อยในเมืองกะพริบแสงแรงขึ้นเพื่อแข่งกับไฟถนน",
+    "เสียงเครื่องยนต์เรือทำให้หิ่งห้อยตกใจและบินหนี",
+    "สัญญาณแสงที่อ่อนของหิ่งห้อยถูกแสงไฟที่แรงกว่ากลบ จนสื่อสารกันได้ยาก"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "format": "mcq",
+   "difficulty": "h",
+   "skill": {
+    "en": "Drawing a valid conclusion",
+    "th": "การสรุปความอย่างสมเหตุสมผล"
+   },
+   "topic": {
+    "en": "Reading: informational text",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "หิ่งห้อยเป็นแมลงปีกแข็งที่กะพริบแสงได้เองจากปฏิกิริยาเคมีในส่วนท้องของลำตัว แสงที่เกิดขึ้นแทบไม่มีความร้อน จึงมักเรียกกันว่า \"แสงเย็น\" แต่แสงนี้ไม่ได้มีไว้เพื่อความสวยงาม หากเป็น \"ภาษา\" ที่หิ่งห้อยใช้สื่อสารกัน หิ่งห้อยแต่ละชนิดกะพริบด้วยจังหวะเฉพาะตัว ตัวผู้จะกะพริบแสงขณะบิน ส่วนตัวเมียที่เกาะอยู่ตามใบไม้จะกะพริบตอบ หากจังหวะตรงกัน ทั้งคู่จึงจะพบกันและผสมพันธุ์ได้\n\nปัญหาคือ ภาษาแสงนี้ใช้ได้ดีเฉพาะในความมืด เมื่อชุมชนริมน้ำหลายแห่งเติบโตขึ้น ไฟถนน ป้ายโฆษณา และไฟจากร้านค้าก็สว่างจ้าจนกลบแสงเล็ก ๆ ของหิ่งห้อย งานวิจัยหลายประเทศรายงานตรงกันว่า ในบริเวณที่มีแสงไฟยามค่ำคืนมาก หิ่งห้อยกะพริบน้อยลงและพบคู่ได้ยากขึ้น เปรียบได้กับการพยายามกระซิบคุยกันกลางคอนเสิร์ต\n\nแสงไฟไม่ใช่ภัยคุกคามเพียงอย่างเดียว หิ่งห้อยหลายชนิดในประเทศไทยอาศัยต้นลำพูริมน้ำกร่อยเป็นที่เกาะ ส่วนตัวอ่อนต้องการดินชื้นและหอยทากขนาดเล็กเป็นอาหาร การถางต้นไม้ริมตลิ่งเพื่อสร้างเขื่อนคอนกรีต หรือการใช้สารเคมีกำจัดศัตรูพืชในสวน จึงทำลายวงจรชีวิตของหิ่งห้อยตั้งแต่ยังไม่ทันได้กะพริบแสงครั้งแรก\n\nที่น่าคิดคือ ชุมชนบางแห่งเคยมีรายได้จากการพานักท่องเที่ยวล่องเรือชมหิ่งห้อย แต่เมื่อนักท่องเที่ยวมากขึ้น เรือหลายลำกลับส่องไฟฉายเข้าหาต้นลำพูและเร่งเครื่องยนต์เสียงดัง ความนิยมที่ควรช่วยให้คนหวงแหนธรรมชาติจึงกลายเป็นแรงกดดันเสียเอง\n\nทางออกไม่จำเป็นต้องยุ่งยาก การหรี่หรือปิดไฟที่ไม่จำเป็นหลังสามทุ่ม การใช้โคมไฟที่ส่องลงพื้นแทนการส่องกระจายขึ้นฟ้า การเว้นต้นไม้ริมตลิ่งไว้ และการกำหนดกติกาให้เรือชมหิ่งห้อยดับไฟและลดความเร็ว ล้วนเป็นสิ่งที่ชุมชนทำได้ทันที หากเราอยากให้ลูกหลานยังได้เห็นต้นไม้ทั้งต้นกะพริบแสงพร้อมกันในค่ำคืนที่มืดสนิท เราอาจต้องเรียนรู้ที่จะอยู่กับความมืดให้มากขึ้นอีกสักหน่อย",
+   "table": null,
+   "lang": "th",
+   "stem": "อ่านบทความแล้วตอบคำถาม ข้อใดสรุปได้สมเหตุสมผลที่สุดจากบทความ",
+   "explanation": {
+    "en": "Paragraph 4 says tourism could make people value nature but has become a pressure because boats shine torches and run loud engines, and the final paragraph proposes rules for boats — so the effect depends on behaviour. The passage gives no extinction date, never says firefly light helps the trees, and names concrete embankments as a threat.",
+    "th": "ย่อหน้าที่ 4 บอกว่าการท่องเที่ยวควรช่วยให้คนหวงแหนธรรมชาติ แต่กลับเป็นแรงกดดันเพราะเรือส่องไฟและเร่งเครื่องเสียงดัง และย่อหน้าสุดท้ายเสนอกติกาให้เรือ จึงสรุปได้ว่าผลขึ้นอยู่กับพฤติกรรม บทความไม่ได้ระบุว่าจะสูญพันธุ์เมื่อใด ไม่ได้บอกว่าแสงหิ่งห้อยช่วยต้นลำพู และกล่าวว่าการสร้างเขื่อนคอนกรีตเป็นภัยคุกคาม"
+   },
+   "choices": [
+    "หิ่งห้อยในประเทศไทยจะสูญพันธุ์หมดภายในสิบปี",
+    "แสงของหิ่งห้อยช่วยให้ต้นลำพูเจริญเติบโต",
+    "การท่องเที่ยวชมหิ่งห้อยอาจเป็นผลดีหรือผลเสียก็ได้ ขึ้นอยู่กับพฤติกรรมของเรือและนักท่องเที่ยว",
+    "การสร้างเขื่อนคอนกรีตริมตลิ่งช่วยป้องกันหิ่งห้อยจากแสงไฟ"
+   ],
+   "answer": 2
   }
  ]
 }
