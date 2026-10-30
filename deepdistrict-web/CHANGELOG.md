@@ -1,5 +1,23 @@
 # Changelog
 
+## 5.9 r1 — October 2026
+- **M.1 and M.4 entrance papers are now English only** — 60 four-choice questions in six parts, 3 papers each:
+  | Paper | A conv. | B vocab. | C grammar | D error | E cloze | F reading | Time |
+  |---|---|---|---|---|---|---|---|
+  | M.1 Suankularb (GATE + EP on one paper) | 8 | 10 | 12 | 6 | 8 | 16 | 60 min |
+  | M.1 Satit Prasarnmit | 10 | 10 | 12 | 6 | 7 | 15 | 60 min |
+  | M.4 Suankularb (GATE + EP on one paper) | 6 | 10 | 12 | 8 | 8 | 16 | 75 min |
+  | M.4 Triam Udom Suksa (cloze, reading, error weighted) | 4 | 8 | 10 | 10 | 12 | 16 | 75 min |
+  | M.4 top schools (general) | 8 | 10 | 12 | 8 | 8 | 14 | 75 min |
+  Part mixes follow tutor summaries (schools do not publish papers). Difficulty rises from set 1 to set 3;
+  answer positions are balanced; every question has what it measures and its topic.
+- **Error identification:** four underlined parts in the sentence (`[[text]]`), choices kept in sentence order.
+- **Results by part (A–F)** on screen, in score reports and PDFs; practice targets GATE 65 % / EP 80 %
+  (Suankularb M.1 and M.4), Satit 70 %, Triam Udom 75 %, top schools 70 %.
+- Test screens show part headings and part tabs; the public tests page, menus and home cards list the
+  M.1 / M.4 English papers. The earlier multi-subject M.1 papers are replaced automatically on start
+  (past results kept).
+
 ## 5.8 r1 — October 2026
 - **All test sets rewritten — harder, longer, in each test's real style and full length.** Every set
   was checked by `tools/check_sets.py`; every maths and science answer was verified by script.

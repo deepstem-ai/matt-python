@@ -1,0 +1,1875 @@
+{
+ "exam": "sk4",
+ "set": 3,
+ "title": {
+  "en": "Suankularb M.4 English (GATE and English Program) — Practice paper 3",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.4 สวนกุหลาบ (GATE และ EP) — ชุดที่ 3"
+ },
+ "minutes": 75,
+ "note": {
+  "en": "60 questions in 75 minutes, six parts: conversation, vocabulary, grammar, error identification, cloze and reading. GATE and English Program applicants take the same paper; EP applicants need a higher score. DeepDistrict practice format based on tutor summaries — not an official or past paper.",
+  "th": "60 ข้อ 75 นาที 6 ตอน: บทสนทนา คำศัพท์ ไวยากรณ์ หาจุดผิด เติมคำในบทความ และการอ่าน ผู้สมัคร GATE และ EP ใช้ข้อสอบชุดเดียวกัน ผู้สมัคร EP ต้องได้คะแนนสูงกว่า — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Responding to thanks",
+    "th": "การตอบรับคำขอบคุณ"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Thanks so much for helping me move house last weekend.\nB: ______ That's what friends are for.",
+   "choices": [
+    "It doesn't matter.",
+    "Same here.",
+    "I'm afraid not.",
+    "Don't mention it."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Don't mention it\" is a standard reply to thanks. \"It doesn't matter\" answers an apology or a problem, \"Same here\" agrees with a feeling, and \"I'm afraid not\" is a polite no.",
+    "th": "Don't mention it เป็นคำตอบมาตรฐานเมื่อมีคนขอบคุณ ส่วน It doesn't matter ใช้ตอบคำขอโทษหรือบอกว่าไม่สำคัญ Same here ใช้บอกว่ารู้สึกเหมือนกัน และ I'm afraid not เป็นการปฏิเสธอย่างสุภาพ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Declining an invitation politely",
+    "th": "การปฏิเสธคำชวนอย่างสุภาพ"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Do you fancy going to the night market after school?\nB: ______ I've got a mountain of homework tonight.",
+   "choices": [
+    "Yes, let's go straight away.",
+    "I'd love to, but I can't.",
+    "That would be lovely, see you there.",
+    "Of course, why not?"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Homework is B's reason for not going, so B must decline: \"I'd love to, but I can't\". The other three accept the invitation, which contradicts the reason given.",
+    "th": "การบ้านเป็นเหตุผลที่ B ไปไม่ได้ จึงต้องปฏิเสธ I'd love to, but I can't อีกสามตัวเลือกเป็นการตอบรับ ซึ่งขัดกับเหตุผลที่ให้ไว้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding idioms about the future",
+    "th": "การเข้าใจสำนวนเกี่ยวกับอนาคต"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: I heard you got the scholarship to study in Canada. Congratulations!\nB: Thanks, but ______ I'm still waiting for my visa.",
+   "choices": [
+    "I'm not counting my chickens yet.",
+    "I'm over the moon about the visa.",
+    "it's all water under the bridge.",
+    "I've already burned my bridges."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Don't count your chickens (before they hatch)\" means don't be sure of success too early, which fits B still waiting for a visa. B is not happy about the visa yet, \"water under the bridge\" means a past problem that no longer matters, and \"burn your bridges\" means destroy your chance to go back.",
+    "th": "สำนวน don't count your chickens หมายถึงอย่าเพิ่งมั่นใจว่าจะสำเร็จ ตรงกับที่ B ยังรอวีซ่าอยู่ B ยังไม่ได้ดีใจเรื่องวีซ่า water under the bridge คือเรื่องที่ผ่านไปแล้ว และ burn your bridges คือการทำลายโอกาสที่จะย้อนกลับ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Disagreeing in a formal register",
+    "th": "การแสดงความไม่เห็นด้วยแบบทางการ"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Honestly, I don't see why we need to learn history. It's all in the past.\nB: ______ Understanding the past helps us avoid repeating the same mistakes.",
+   "choices": [
+    "I couldn't have put it better myself.",
+    "You took the words right out of my mouth.",
+    "Fair enough, you've got a point.",
+    "I'm afraid I'd have to disagree."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "B goes on to defend history, so B disagrees: \"I'm afraid I'd have to disagree\". The other three all agree with A, which contradicts B's next sentence.",
+    "th": "B กล่าวต่อเพื่อปกป้องวิชาประวัติศาสตร์ จึงไม่เห็นด้วย I'm afraid I'd have to disagree อีกสามตัวเลือกล้วนเห็นด้วยกับ A ซึ่งขัดกับประโยคถัดไปของ B"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Accepting an offer",
+    "th": "การตอบรับข้อเสนอ"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Would you like me to drop you off at the station?\nB: ______ I could do with a lift; it's pouring.",
+   "choices": [
+    "No, I wouldn't like.",
+    "Don't bother, I'd rather get wet.",
+    "Yes, drop me.",
+    "That would be great, if it's no trouble."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "B wants a lift (\"I could do with a lift\"), so B accepts politely: \"That would be great, if it's no trouble\". \"No, I wouldn't like\" is ungrammatical and refuses, \"Don't bother\" refuses, and \"Yes, drop me\" is incomplete and sounds rude.",
+    "th": "B ต้องการให้ไปส่ง (I could do with a lift) จึงตอบรับอย่างสุภาพ That would be great, if it's no trouble ส่วน No, I wouldn't like ผิดไวยากรณ์และเป็นการปฏิเสธ Don't bother ก็ปฏิเสธ และ Yes, drop me ไม่สมบูรณ์และฟังห้วน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Warning with idioms",
+    "th": "การเตือนโดยใช้สำนวน"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: This term I've agreed to organise the charity concert, coach the junior debate team and edit the school magazine.\nB: ______ You'll wear yourself out.",
+   "choices": [
+    "Aren't you biting off more than you can chew?",
+    "Aren't you just sitting on the fence?",
+    "Haven't you let the cat out of the bag?",
+    "Isn't that a piece of cake for you?"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Bite off more than you can chew\" means take on more than you can manage, which matches three big jobs and the warning \"You'll wear yourself out\". \"Sit on the fence\" means avoid choosing, \"let the cat out of the bag\" means reveal a secret, and \"a piece of cake\" (easy) contradicts the warning.",
+    "th": "bite off more than you can chew แปลว่ารับงานเกินกำลัง ตรงกับการรับงานใหญ่สามอย่างและคำเตือนว่าจะเหนื่อยจนหมดแรง ส่วน sit on the fence แปลว่าไม่ยอมเลือกข้าง let the cat out of the bag แปลว่าเผยความลับ และ a piece of cake (ง่ายมาก) ขัดกับคำเตือน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Phrasal verbs: lay off",
+    "th": "กริยาวลี lay off"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"The factory had to ______ two hundred workers when sales collapsed.\"",
+   "choices": [
+    "lay out",
+    "lay off",
+    "lay down",
+    "lay by"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Lay off\" means dismiss workers because there is not enough work, which matches collapsing sales. \"Lay out\" means arrange or spend, \"lay down\" means put down or establish rules, and \"lay by\" means save.",
+    "th": "lay off แปลว่าเลิกจ้างเพราะงานไม่พอ ตรงกับยอดขายตก ส่วน lay out แปลว่าจัดวางหรือใช้จ่าย lay down แปลว่าวางลงหรือกำหนดกฎ และ lay by แปลว่าเก็บออม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Advanced adjectives describing explanations",
+    "th": "คุณศัพท์ระดับสูงที่ใช้บรรยายคำอธิบาย"
+   },
+   "topic": {
+    "en": "Word meaning and formation",
+    "th": "ความหมายคำและการสร้างคำ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"Her explanation was so ______ that nobody in the class could follow it.\"",
+   "choices": [
+    "concise",
+    "convoluted",
+    "coherent",
+    "lucid"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Nobody could follow it, so the explanation was too complicated: \"convoluted\". \"Concise\" (short and clear), \"coherent\" (logical) and \"lucid\" (clear) all describe explanations that are easy to follow.",
+    "th": "ไม่มีใครตามทัน แสดงว่าคำอธิบายซับซ้อนวกวน คือ convoluted ส่วน concise (กระชับ) coherent (เป็นเหตุเป็นผล) และ lucid (ชัดเจน) ล้วนหมายถึงคำอธิบายที่เข้าใจง่าย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Word formation: nouns ending in -ion",
+    "th": "การสร้างคำนามที่ลงท้ายด้วย -ion"
+   },
+   "topic": {
+    "en": "Word meaning and formation",
+    "th": "ความหมายคำและการสร้างคำ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"The ______ of the new metro line has cut journey times across the city by half.\"",
+   "choices": [
+    "completion",
+    "complete",
+    "completely",
+    "completed"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "After \"The\" and before \"of\" we need a noun: \"completion\". \"Complete\" is a verb or adjective, \"completely\" an adverb, and \"completed\" a past participle.",
+    "th": "หลัง The และก่อน of ต้องใช้คำนาม คือ completion ส่วน complete เป็นกริยาหรือคุณศัพท์ completely เป็นกริยาวิเศษณ์ และ completed เป็น V3"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Collocations: grave danger",
+    "th": "คำปรากฏร่วม grave danger"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"Scientists have warned that the coral reef is in ______ danger of disappearing within twenty years.\"",
+   "choices": [
+    "heavy",
+    "strong",
+    "deep",
+    "grave"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"In grave danger\" is the fixed collocation for very serious danger. \"Heavy\", \"strong\" and \"deep\" do not combine with danger (we say heavy rain, strong wind, deep trouble).",
+    "th": "in grave danger เป็นคำปรากฏร่วมตายตัว หมายถึงอันตรายร้ายแรง ส่วน heavy, strong, deep ไม่ใช้กับ danger (ใช้ heavy rain, strong wind, deep trouble)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Commonly confused verbs: return / borrow / lend",
+    "th": "กริยาที่มักสับสน return borrow lend"
+   },
+   "topic": {
+    "en": "Word meaning and formation",
+    "th": "ความหมายคำและการสร้างคำ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"I borrowed this book from the library, so I have to ______ it by Friday.\"",
+   "choices": [
+    "lend",
+    "borrow",
+    "keep",
+    "return"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "A borrowed library book must be given back: \"return\". \"Lend\" means give to someone for a time, \"borrow\" is what you already did, and \"keep\" is the opposite of what the deadline requires.",
+    "th": "หนังสือที่ยืมจากห้องสมุดต้องคืน จึงใช้ return ส่วน lend แปลว่าให้ยืม borrow คือการยืมซึ่งทำไปแล้ว และ keep ขัดกับการมีกำหนดส่งคืน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Meaning of formal adjectives in context",
+    "th": "ความหมายของคุณศัพท์ทางการตามบริบท"
+   },
+   "topic": {
+    "en": "Word meaning and formation",
+    "th": "ความหมายคำและการสร้างคำ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the meaning closest to \"ambiguous\" in the sentence.\n\"The minister's statement was deliberately ambiguous, so journalists could not tell whether the policy would change.\"",
+   "choices": [
+    "extremely detailed",
+    "openly hostile",
+    "open to more than one interpretation",
+    "completely false"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Journalists could not tell what the policy would be, so the statement could be understood in different ways: \"ambiguous\" means open to more than one interpretation. Detail, hostility or falseness would not cause this uncertainty.",
+    "th": "นักข่าวบอกไม่ได้ว่านโยบายจะเปลี่ยนหรือไม่ แสดงว่าคำแถลงตีความได้หลายทาง ambiguous จึงแปลว่ากำกวม ความละเอียด ความเป็นปรปักษ์ หรือความเท็จไม่ได้ทำให้เกิดความไม่แน่ใจแบบนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Phrasal verbs: put up with",
+    "th": "กริยาวลี put up with"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"We can't ______ with this noise any longer; let's complain to the manager.\"",
+   "choices": [
+    "get on",
+    "keep up",
+    "put up",
+    "come up"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Put up with\" means tolerate, which fits complaining about noise. \"Get on with\" means have a good relationship or continue, \"keep up with\" means stay at the same level, and \"come up with\" means think of an idea.",
+    "th": "put up with แปลว่าทนกับ เข้ากับการจะไปร้องเรียนเรื่องเสียงดัง ส่วน get on with แปลว่าเข้ากันได้หรือทำต่อไป keep up with แปลว่าตามให้ทัน และ come up with แปลว่าคิดออก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Word formation with prefixes: dis-",
+    "th": "การสร้างคำด้วยอุปสรรค dis-"
+   },
+   "topic": {
+    "en": "Word meaning and formation",
+    "th": "ความหมายคำและการสร้างคำ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"The scientist's claims were ______ by later research, which found no evidence to support them.\"",
+   "choices": [
+    "discredited",
+    "uncredited",
+    "miscredited",
+    "incredible"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Discredit\" means show that something is not true or not trustworthy, which matches \"found no evidence\". \"Uncredited\" means not given credit (e.g. in a film), \"miscredited\" is not a standard word, and \"incredible\" is an adjective meaning amazing.",
+    "th": "discredit แปลว่าทำให้หมดความน่าเชื่อถือ ตรงกับการไม่พบหลักฐานสนับสนุน ส่วน uncredited แปลว่าไม่ได้รับการระบุชื่อ miscredited ไม่ใช่คำมาตรฐาน และ incredible เป็นคุณศัพท์แปลว่าน่าทึ่ง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Adverb–verb collocations",
+    "th": "คำปรากฏร่วมระหว่างกริยาวิเศษณ์กับกริยา"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"The charity relies ______ on donations from the public; without them it would have to close.\"",
+   "choices": [
+    "strongly",
+    "deeply",
+    "highly",
+    "heavily"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Rely heavily on\" is the natural collocation for depending a lot on something. \"Strongly\" goes with believe or recommend, \"deeply\" with care or regret, and \"highly\" with recommend or skilled.",
+    "th": "rely heavily on เป็นคำปรากฏร่วมที่เป็นธรรมชาติ หมายถึงพึ่งพาอย่างมาก ส่วน strongly ใช้กับ believe, recommend deeply ใช้กับ care, regret และ highly ใช้กับ recommend หรือ skilled"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Word forms: noun after an article",
+    "th": "รูปคำ: คำนามหลัง article"
+   },
+   "topic": {
+    "en": "Word meaning and formation",
+    "th": "ความหมายคำและการสร้างคำ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"Her decision to leave the team came as a complete ______ to everyone.\"",
+   "choices": [
+    "surprising",
+    "surprised",
+    "surprise",
+    "surprisingly"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "After \"a complete\" we need a noun, and \"come as a surprise\" is a fixed phrase. \"Surprising\" and \"surprised\" are adjectives, and \"surprisingly\" is an adverb.",
+    "th": "หลัง a complete ต้องเป็นคำนาม และ come as a surprise เป็นวลีตายตัว ส่วน surprising, surprised เป็นคุณศัพท์ และ surprisingly เป็นกริยาวิเศษณ์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inverted third conditional",
+    "th": "เงื่อนไขแบบที่ 3 รูปสลับที่"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"Had the government acted sooner, the flooding ______ so severe.\"",
+   "choices": [
+    "would not have been",
+    "would not be",
+    "will not be",
+    "had not been"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Had the government acted\" = \"If the government had acted\", an unreal past condition about a past flood, so the result is \"would not have been\". \"Would not be\" refers to the present, and the other forms are not conditional results.",
+    "th": "Had the government acted มีความหมายเท่ากับ If the government had acted เป็นเงื่อนไขที่ไม่จริงในอดีตเกี่ยวกับน้ำท่วมที่เกิดไปแล้ว ผลจึงเป็น would not have been ส่วน would not be หมายถึงปัจจุบัน และรูปอื่นไม่ใช่รูปผลของเงื่อนไข"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion after 'Never before'",
+    "th": "การสลับที่หลัง Never before"
+   },
+   "topic": {
+    "en": "Agreement, comparison and inversion",
+    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"Never before ______ so many students apply for the scholarship.\"",
+   "choices": [
+    "the school had seen",
+    "did the school saw",
+    "had the school seen",
+    "the school saw"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "A negative adverb like \"Never before\" at the start requires inversion: auxiliary + subject + verb, \"had the school seen\". Normal order is wrong after it, and \"did … saw\" uses two past forms.",
+    "th": "เมื่อขึ้นต้นด้วยคำปฏิเสธอย่าง Never before ต้องสลับเป็นกริยาช่วย + ประธาน + กริยา คือ had the school seen ส่วนการเรียงแบบปกติผิด และ did … saw ใช้รูปอดีตซ้อนสองครั้ง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Future perfect continuous",
+    "th": "future perfect continuous"
+   },
+   "topic": {
+    "en": "Verb tenses",
+    "th": "กาลของกริยา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"By next June, I ______ English for ten years.\"",
+   "choices": [
+    "have been studying",
+    "will have been studying",
+    "will study",
+    "am studying"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"By next June\" is a future point, and \"for ten years\" is the period up to it, so the future perfect continuous \"will have been studying\" is needed. The other forms do not look back from a future point.",
+    "th": "By next June เป็นจุดเวลาในอนาคต และ for ten years คือระยะเวลาจนถึงจุดนั้น จึงใช้ future perfect continuous คือ will have been studying ส่วนรูปอื่นไม่ได้มองย้อนจากจุดเวลาในอนาคต"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "'Would rather' + subject + past simple",
+    "th": "would rather + ประธาน + past simple"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"I'd rather you ______ anyone about the surprise party.\"",
+   "choices": [
+    "don't tell",
+    "won't tell",
+    "not to tell",
+    "didn't tell"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "When \"would rather\" is followed by a different subject, the verb is in the past simple with present or future meaning: \"I'd rather you didn't tell\". Present, future and to-infinitive forms are not used.",
+    "th": "เมื่อ would rather ตามด้วยประธานอีกคน กริยาจะใช้ past simple แต่มีความหมายปัจจุบันหรืออนาคต คือ I'd rather you didn't tell ส่วนรูปปัจจุบัน อนาคต และ to-infinitive ใช้ไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Passive reporting verbs with perfect infinitive",
+    "th": "passive reporting verb กับ perfect infinitive"
+   },
+   "topic": {
+    "en": "Passive and causative",
+    "th": "ประโยค passive และ causative"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"The bridge is thought ______ in the 14th century.\"",
+   "choices": [
+    "to be built",
+    "to have been built",
+    "being built",
+    "to have built"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The belief is present (is thought) but the building happened in the past, and the bridge was built by people, so we need the perfect passive infinitive \"to have been built\". \"To have built\" is active, and \"to be built\" refers to the present or future.",
+    "th": "ความเชื่อเป็นปัจจุบัน (is thought) แต่การสร้างเกิดในอดีต และสะพานถูกสร้าง จึงใช้ perfect passive infinitive คือ to have been built ส่วน to have built เป็น active และ to be built หมายถึงปัจจุบันหรืออนาคต"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Past participle clauses for feelings",
+    "th": "participle clause รูป V3 แสดงความรู้สึก"
+   },
+   "topic": {
+    "en": "Relative and participle clauses",
+    "th": "อนุประโยคสัมพันธ์และ participle clause"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"______ by the news, she couldn't say a word.\"",
+   "choices": [
+    "Shocking",
+    "Having shocked",
+    "To shock",
+    "Shocked"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "She was shocked by the news (passive meaning, \"by the news\"), so the past participle \"Shocked\" is correct. \"Shocking\" and \"Having shocked\" would mean she shocked someone, and \"To shock\" expresses purpose.",
+    "th": "เธอตกใจเพราะข่าว (ความหมาย passive มี by the news) จึงใช้ V3 คือ Shocked ส่วน Shocking และ Having shocked หมายถึงเธอทำให้คนอื่นตกใจ และ To shock แสดงจุดประสงค์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Mixed conditional: past condition, present result",
+    "th": "mixed conditional เงื่อนไขอดีต ผลปัจจุบัน"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"If I hadn't stayed up so late last night, I ______ so tired now.\"",
+   "choices": [
+    "wouldn't have been",
+    "won't be",
+    "hadn't been",
+    "wouldn't be"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The condition is past (hadn't stayed up last night) but the result is now, so this mixed conditional uses \"wouldn't be\". \"Wouldn't have been\" refers to a past result, and the other forms break the pattern.",
+    "th": "เงื่อนไขอยู่ในอดีต (hadn't stayed up last night) แต่ผลเป็นปัจจุบัน (now) จึงใช้ mixed conditional คือ wouldn't be ส่วน wouldn't have been หมายถึงผลในอดีต และรูปอื่นผิดโครงสร้าง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Causative passive: have something stolen",
+    "th": "causative have something + V3 (เหตุการณ์ที่เกิดกับเรา)"
+   },
+   "topic": {
+    "en": "Passive and causative",
+    "th": "ประโยค passive และ causative"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"She had her purse ______ while she was waiting for the train.\"",
+   "choices": [
+    "steal",
+    "stolen",
+    "stealing",
+    "to steal"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Have something + past participle\" can describe something bad that someone did to you: \"had her purse stolen\". The other forms would mean she made someone steal it or are ungrammatical.",
+    "th": "have something + V3 ใช้บอกเหตุการณ์ไม่ดีที่คนอื่นทำกับเรา คือ had her purse stolen ส่วนรูปอื่นหมายถึงเธอให้คนอื่นขโมยหรือผิดไวยากรณ์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Relative pronoun 'whose' in non-defining clauses",
+    "th": "whose ในอนุประโยคแบบไม่จำกัดความ"
+   },
+   "topic": {
+    "en": "Relative and participle clauses",
+    "th": "อนุประโยคสัมพันธ์และ participle clause"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"The professor, ______ research on dengue fever has won international awards, will give a talk on Friday.\"",
+   "choices": [
+    "who",
+    "whom",
+    "which his",
+    "whose"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The research belongs to the professor, and a noun follows the gap, so the possessive relative \"whose\" is needed. \"Who\" and \"whom\" cannot be followed by a noun here, and \"which his\" is not English.",
+    "th": "งานวิจัยเป็นของศาสตราจารย์ และหลังช่องว่างเป็นคำนาม จึงใช้ whose ส่วน who และ whom ตามด้วยคำนามแบบนี้ไม่ได้ และ which his ไม่ใช่ภาษาอังกฤษที่ถูกต้อง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion with 'So + adjective'",
+    "th": "การสลับที่ด้วย So + คุณศัพท์"
+   },
+   "topic": {
+    "en": "Agreement, comparison and inversion",
+    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"So ______ that the match had to be stopped.\"",
+   "choices": [
+    "the rain was heavy",
+    "heavy was the rain",
+    "heavily rained",
+    "heavy the rain was"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "When \"So + adjective\" starts the sentence, the verb comes before the subject: \"So heavy was the rain that…\". Normal order is used only in \"The rain was so heavy that…\".",
+    "th": "เมื่อขึ้นต้นด้วย So + คุณศัพท์ ต้องวางกริยาไว้หน้าประธาน คือ So heavy was the rain that… การเรียงแบบปกติใช้ได้เฉพาะในรูป The rain was so heavy that…"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "'Despite' + -ing",
+    "th": "despite + V-ing"
+   },
+   "topic": {
+    "en": "Verb patterns, modals and reported speech",
+    "th": "รูปแบบกริยา modal และคำพูดรายงาน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"Despite ______ very tired, she finished the race.\"",
+   "choices": [
+    "she was",
+    "to be",
+    "being",
+    "be"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Despite\" is a preposition, so it takes a noun or -ing form: \"Despite being very tired\". A full clause (she was) needs \"although\", and infinitives cannot follow despite.",
+    "th": "despite เป็นบุพบท จึงตามด้วยคำนามหรือ V-ing คือ Despite being very tired ถ้าเป็นอนุประโยคเต็ม (she was) ต้องใช้ although และ infinitive ตามหลัง despite ไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Reported commands",
+    "th": "การรายงานคำสั่ง"
+   },
+   "topic": {
+    "en": "Verb patterns, modals and reported speech",
+    "th": "รูปแบบกริยา modal และคำพูดรายงาน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"\"Don't touch the wires,\" the electrician said. → The electrician told us ______ the wires.\"",
+   "choices": [
+    "don't touch",
+    "to not touching",
+    "not to touch",
+    "not touching"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "A negative command is reported with tell + object + not + to-infinitive: \"told us not to touch\". \"Don't touch\" keeps the direct form, and the -ing forms are wrong after tell + object.",
+    "th": "คำสั่งปฏิเสธรายงานด้วย tell + กรรม + not + to-infinitive คือ told us not to touch ส่วน don't touch ยังเป็นรูปคำพูดตรง และรูป V-ing ใช้หลัง tell + กรรมไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "'No sooner … than'",
+    "th": "No sooner … than"
+   },
+   "topic": {
+    "en": "Agreement, comparison and inversion",
+    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\nNo sooner [[had]] the teacher left the room [[when]] the students [[started]] [[talking]] loudly.",
+   "choices": [
+    "had",
+    "when",
+    "started",
+    "talking"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"No sooner\" is paired with \"than\", not \"when\": \"No sooner had the teacher left the room than…\". (\"Hardly/Scarcely\" go with \"when\".)",
+    "th": "No sooner ต้องคู่กับ than ไม่ใช่ when คือ No sooner had the teacher left the room than… (ส่วน Hardly/Scarcely คู่กับ when)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Agreement with 'the number of'",
+    "th": "ความสอดคล้องเมื่อใช้ the number of"
+   },
+   "topic": {
+    "en": "Agreement, comparison and inversion",
+    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\nThe number of tourists [[visiting]] Chiang Rai [[have]] risen [[sharply]] [[since]] the new airport terminal opened.",
+   "choices": [
+    "visiting",
+    "have",
+    "sharply",
+    "since"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The subject is \"the number\", which is singular, so the verb should be \"has risen\". (Compare \"a number of tourists have…\", which is plural.)",
+    "th": "ประธานคือ the number ซึ่งเป็นเอกพจน์ กริยาจึงต้องเป็น has risen (ต่างจาก a number of tourists ซึ่งใช้กริยาพหูพจน์)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Parallel forms with 'would rather … than'",
+    "th": "รูปขนานใน would rather … than"
+   },
+   "topic": {
+    "en": "Verb patterns, modals and reported speech",
+    "th": "รูปแบบกริยา modal และคำพูดรายงาน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\nShe [[would rather]] [[stay]] at home tonight than [[going]] out [[with]] her friends.",
+   "choices": [
+    "would rather",
+    "stay",
+    "going",
+    "with"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Would rather\" is followed by bare infinitives on both sides of \"than\": \"would rather stay … than go out\". \"Going\" should be \"go\".",
+    "th": "would rather ตามด้วยกริยารูปฐานทั้งสองข้างของ than คือ would rather stay … than go out ดังนั้น going ต้องเป็น go"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Wish + past perfect for past regrets",
+    "th": "wish + past perfect เสียดายเรื่องในอดีต"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\nI wish I [[had]] more time [[yesterday]], because I [[could have]] [[finished]] the project.",
+   "choices": [
+    "had",
+    "yesterday",
+    "could have",
+    "finished"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The regret is about yesterday, so wish needs the past perfect: \"I wish I had had more time yesterday\". The single \"had\" is past simple, which is for present wishes.",
+    "th": "ความเสียดายเป็นเรื่องเมื่อวาน wish จึงต้องตามด้วย past perfect คือ I wish I had had more time yesterday ส่วน had ตัวเดียวเป็น past simple ซึ่งใช้กับความปรารถนาในปัจจุบัน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Prepositions of time: by vs until",
+    "th": "บุพบทบอกเวลา by กับ until"
+   },
+   "topic": {
+    "en": "Verb patterns, modals and reported speech",
+    "th": "รูปแบบกริยา modal และคำพูดรายงาน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\nThe documents [[must]] be signed by both parents [[and]] [[handed]] to the school office [[until]] Friday.",
+   "choices": [
+    "must",
+    "and",
+    "handed",
+    "until"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "A deadline uses \"by\" (no later than), not \"until\", which describes a continuing action: \"handed to the school office by Friday\".",
+    "th": "กำหนดส่งใช้ by (ไม่เกิน) ไม่ใช่ until ซึ่งใช้กับการกระทำที่ต่อเนื่องไปจนถึงเวลานั้น จึงต้องเป็น by Friday"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Agreement after 'hardly anyone'",
+    "th": "ความสอดคล้องหลัง hardly anyone"
+   },
+   "topic": {
+    "en": "Agreement, comparison and inversion",
+    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\nHardly [[anyone]] in the class [[have]] [[read]] the novel [[that]] the teacher recommended.",
+   "choices": [
+    "anyone",
+    "have",
+    "read",
+    "that"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Anyone\" is singular, so the verb must be \"has read\", not \"have read\".",
+    "th": "anyone เป็นเอกพจน์ กริยาจึงต้องเป็น has read ไม่ใช่ have read"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion after 'Only when'",
+    "th": "การสลับที่หลัง Only when"
+   },
+   "topic": {
+    "en": "Agreement, comparison and inversion",
+    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\nOnly when the lights went out [[we realised]] how [[much]] we [[depend]] on electricity, [[especially]] at night.",
+   "choices": [
+    "we realised",
+    "much",
+    "depend",
+    "especially"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Only when + clause\" at the start requires inversion in the main clause: \"did we realise\", not \"we realised\".",
+    "th": "เมื่อขึ้นต้นด้วย Only when + อนุประโยค ประโยคหลักต้องสลับที่เป็น did we realise ไม่ใช่ we realised"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Double comparatives",
+    "th": "โครงสร้าง the + ขั้นกว่า, the + ขั้นกว่า"
+   },
+   "topic": {
+    "en": "Agreement, comparison and inversion",
+    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\nThe [[harder]] you practise, the [[more]] confident you will [[become]], and the [[easiest]] it will be to speak in public.",
+   "choices": [
+    "harder",
+    "more",
+    "become",
+    "easiest"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The pattern \"the + comparative …, the + comparative\" needs comparatives throughout, so \"the easiest\" should be \"the easier\".",
+    "th": "โครงสร้าง the + ขั้นกว่า …, the + ขั้นกว่า ต้องใช้ขั้นกว่าทุกส่วน the easiest จึงต้องเป็น the easier"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Cloze: reduced passive clauses",
+    "th": "การเติมคำ: อนุประโยค passive แบบลดรูป"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "For centuries, doctors have known that patients sometimes feel better after receiving a treatment that, chemically speaking, should do nothing at all. This phenomenon, (1) ______ as the placebo effect, is one of the strangest puzzles in medicine. In clinical trials, a sugar pill can reduce pain, nausea or anxiety in a surprising number of patients, provided they believe it is real medicine.\n\nScientists once dismissed the effect as (2) ______ imagination, but brain scans have shown that it produces measurable physical changes. When patients expect relief from pain, the brain releases natural chemicals which, according to several studies, (3) ______ in much the same way as some painkillers. Expectation, in other words, is not just a feeling; it can alter the body itself.\n\nEven more surprising is a series of experiments on \"open-label\" placebos. In these studies, patients were told honestly that the pills they (4) ______ contained no active ingredient. (5) ______ this, many of them still reported feeling better. Researchers think that the ritual of taking medicine—swallowing a pill at the same time every day, being cared for by a doctor—may be (6) ______ triggers the response.\n\nThe placebo effect has a darker twin: the nocebo effect. Patients who are warned about possible side effects sometimes develop those very symptoms, (7) ______ they have been given a harmless pill. This raises a difficult ethical question for doctors: how can they be honest about risks without making patients ill? Some suggest that the answer lies not in hiding information but in the way it is (8) ______.",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (1)?",
+   "choices": [
+    "knowing",
+    "to know",
+    "known",
+    "is known"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Known as\" is a reduced passive relative clause (= which is known as). \"Knowing\" is active, \"to know\" does not fit, and \"is known\" would create a second main verb in the sentence.",
+    "th": "known as เป็นอนุประโยค passive แบบลดรูป (= which is known as) ส่วน knowing เป็น active to know ไม่เข้ากับโครงสร้าง และ is known จะทำให้ประโยคมีกริยาแท้สองตัว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Cloze: limiting expressions",
+    "th": "การเติมคำ: สำนวนแสดงการจำกัด"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "For centuries, doctors have known that patients sometimes feel better after receiving a treatment that, chemically speaking, should do nothing at all. This phenomenon, (1) ______ as the placebo effect, is one of the strangest puzzles in medicine. In clinical trials, a sugar pill can reduce pain, nausea or anxiety in a surprising number of patients, provided they believe it is real medicine.\n\nScientists once dismissed the effect as (2) ______ imagination, but brain scans have shown that it produces measurable physical changes. When patients expect relief from pain, the brain releases natural chemicals which, according to several studies, (3) ______ in much the same way as some painkillers. Expectation, in other words, is not just a feeling; it can alter the body itself.\n\nEven more surprising is a series of experiments on \"open-label\" placebos. In these studies, patients were told honestly that the pills they (4) ______ contained no active ingredient. (5) ______ this, many of them still reported feeling better. Researchers think that the ritual of taking medicine—swallowing a pill at the same time every day, being cared for by a doctor—may be (6) ______ triggers the response.\n\nThe placebo effect has a darker twin: the nocebo effect. Patients who are warned about possible side effects sometimes develop those very symptoms, (7) ______ they have been given a harmless pill. This raises a difficult ethical question for doctors: how can they be honest about risks without making patients ill? Some suggest that the answer lies not in hiding information but in the way it is (8) ______.",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (2)?",
+   "choices": [
+    "nothing more than",
+    "nothing less than",
+    "anything but",
+    "no longer than"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Scientists once thought the effect was only imagination, which the \"but\" clause then contradicts, so \"nothing more than\" (= only) fits. \"Nothing less than\" stresses importance, \"anything but\" means definitely not, and \"no longer than\" is about length or time.",
+    "th": "นักวิทยาศาสตร์เคยคิดว่าเป็นเพียงจินตนาการ แล้วประโยคหลัง but จึงแย้ง ดังนั้น nothing more than (= เป็นแค่) เหมาะสม ส่วน nothing less than เน้นว่าสำคัญมาก anything but แปลว่าไม่ใช่เลย และ no longer than ใช้กับความยาวหรือเวลา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Cloze: agreement across an interrupting phrase",
+    "th": "การเติมคำ: ความสอดคล้องเมื่อมีวลีแทรก"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "For centuries, doctors have known that patients sometimes feel better after receiving a treatment that, chemically speaking, should do nothing at all. This phenomenon, (1) ______ as the placebo effect, is one of the strangest puzzles in medicine. In clinical trials, a sugar pill can reduce pain, nausea or anxiety in a surprising number of patients, provided they believe it is real medicine.\n\nScientists once dismissed the effect as (2) ______ imagination, but brain scans have shown that it produces measurable physical changes. When patients expect relief from pain, the brain releases natural chemicals which, according to several studies, (3) ______ in much the same way as some painkillers. Expectation, in other words, is not just a feeling; it can alter the body itself.\n\nEven more surprising is a series of experiments on \"open-label\" placebos. In these studies, patients were told honestly that the pills they (4) ______ contained no active ingredient. (5) ______ this, many of them still reported feeling better. Researchers think that the ritual of taking medicine—swallowing a pill at the same time every day, being cared for by a doctor—may be (6) ______ triggers the response.\n\nThe placebo effect has a darker twin: the nocebo effect. Patients who are warned about possible side effects sometimes develop those very symptoms, (7) ______ they have been given a harmless pill. This raises a difficult ethical question for doctors: how can they be honest about risks without making patients ill? Some suggest that the answer lies not in hiding information but in the way it is (8) ______.",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (3)?",
+   "choices": [
+    "works",
+    "work",
+    "working",
+    "is worked"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The subject of the gap is \"which\", referring back to the plural \"chemicals\"; the phrase \"according to several studies\" interrupts but does not change it. So the plural active verb \"work\" is needed.",
+    "th": "ประธานของช่องว่างคือ which ซึ่งแทน chemicals ที่เป็นพหูพจน์ วลี according to several studies ที่แทรกอยู่ไม่ได้เปลี่ยนประธาน จึงใช้กริยาพหูพจน์รูป active คือ work"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Cloze: passive in a reduced relative clause",
+    "th": "การเติมคำ: passive ในอนุประโยคสัมพันธ์ที่ละ relative pronoun"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "For centuries, doctors have known that patients sometimes feel better after receiving a treatment that, chemically speaking, should do nothing at all. This phenomenon, (1) ______ as the placebo effect, is one of the strangest puzzles in medicine. In clinical trials, a sugar pill can reduce pain, nausea or anxiety in a surprising number of patients, provided they believe it is real medicine.\n\nScientists once dismissed the effect as (2) ______ imagination, but brain scans have shown that it produces measurable physical changes. When patients expect relief from pain, the brain releases natural chemicals which, according to several studies, (3) ______ in much the same way as some painkillers. Expectation, in other words, is not just a feeling; it can alter the body itself.\n\nEven more surprising is a series of experiments on \"open-label\" placebos. In these studies, patients were told honestly that the pills they (4) ______ contained no active ingredient. (5) ______ this, many of them still reported feeling better. Researchers think that the ritual of taking medicine—swallowing a pill at the same time every day, being cared for by a doctor—may be (6) ______ triggers the response.\n\nThe placebo effect has a darker twin: the nocebo effect. Patients who are warned about possible side effects sometimes develop those very symptoms, (7) ______ they have been given a harmless pill. This raises a difficult ethical question for doctors: how can they be honest about risks without making patients ill? Some suggest that the answer lies not in hiding information but in the way it is (8) ______.",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (4)?",
+   "choices": [
+    "were given",
+    "had given",
+    "were giving",
+    "have given"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The patients received the pills from the researchers, so \"the pills (that) they were given\" is passive. The active forms would mean the patients gave the pills to someone else.",
+    "th": "ผู้ป่วยได้รับยาจากนักวิจัย จึงใช้ passive คือ the pills (that) they were given ส่วนรูป active หมายถึงผู้ป่วยเป็นผู้ให้ยาคนอื่น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Cloze: 'despite' + noun phrase",
+    "th": "การเติมคำ: despite + นามวลี"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "For centuries, doctors have known that patients sometimes feel better after receiving a treatment that, chemically speaking, should do nothing at all. This phenomenon, (1) ______ as the placebo effect, is one of the strangest puzzles in medicine. In clinical trials, a sugar pill can reduce pain, nausea or anxiety in a surprising number of patients, provided they believe it is real medicine.\n\nScientists once dismissed the effect as (2) ______ imagination, but brain scans have shown that it produces measurable physical changes. When patients expect relief from pain, the brain releases natural chemicals which, according to several studies, (3) ______ in much the same way as some painkillers. Expectation, in other words, is not just a feeling; it can alter the body itself.\n\nEven more surprising is a series of experiments on \"open-label\" placebos. In these studies, patients were told honestly that the pills they (4) ______ contained no active ingredient. (5) ______ this, many of them still reported feeling better. Researchers think that the ritual of taking medicine—swallowing a pill at the same time every day, being cared for by a doctor—may be (6) ______ triggers the response.\n\nThe placebo effect has a darker twin: the nocebo effect. Patients who are warned about possible side effects sometimes develop those very symptoms, (7) ______ they have been given a harmless pill. This raises a difficult ethical question for doctors: how can they be honest about risks without making patients ill? Some suggest that the answer lies not in hiding information but in the way it is (8) ______.",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (5)?",
+   "choices": [
+    "Although",
+    "In spite",
+    "Even though",
+    "Despite"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Before a noun or pronoun (this) we need a preposition: \"Despite this\". \"Although\" and \"even though\" need a clause, and \"in spite\" needs \"of\".",
+    "th": "หน้าคำนามหรือสรรพนาม (this) ต้องใช้บุพบท คือ Despite this ส่วน Although, Even though ต้องตามด้วยอนุประโยค และ In spite ต้องมี of"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Cloze: 'what' as a nominal relative",
+    "th": "การเติมคำ: what ที่ทำหน้าที่เป็นนามานุประโยค"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "For centuries, doctors have known that patients sometimes feel better after receiving a treatment that, chemically speaking, should do nothing at all. This phenomenon, (1) ______ as the placebo effect, is one of the strangest puzzles in medicine. In clinical trials, a sugar pill can reduce pain, nausea or anxiety in a surprising number of patients, provided they believe it is real medicine.\n\nScientists once dismissed the effect as (2) ______ imagination, but brain scans have shown that it produces measurable physical changes. When patients expect relief from pain, the brain releases natural chemicals which, according to several studies, (3) ______ in much the same way as some painkillers. Expectation, in other words, is not just a feeling; it can alter the body itself.\n\nEven more surprising is a series of experiments on \"open-label\" placebos. In these studies, patients were told honestly that the pills they (4) ______ contained no active ingredient. (5) ______ this, many of them still reported feeling better. Researchers think that the ritual of taking medicine—swallowing a pill at the same time every day, being cared for by a doctor—may be (6) ______ triggers the response.\n\nThe placebo effect has a darker twin: the nocebo effect. Patients who are warned about possible side effects sometimes develop those very symptoms, (7) ______ they have been given a harmless pill. This raises a difficult ethical question for doctors: how can they be honest about risks without making patients ill? Some suggest that the answer lies not in hiding information but in the way it is (8) ______.",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (6)?",
+   "choices": [
+    "which",
+    "what",
+    "that",
+    "where"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The gap needs a word meaning \"the thing that\" and acting as the subject of \"triggers\": \"may be what triggers the response\". \"Which\" and \"that\" need a noun before them, and \"where\" refers to place.",
+    "th": "ช่องว่างต้องการคำที่แปลว่าสิ่งที่ และเป็นประธานของ triggers คือ may be what triggers the response ส่วน which และ that ต้องมีคำนามข้างหน้า และ where ใช้กับสถานที่"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Cloze: concession with 'even when'",
+    "th": "การเติมคำ: การยอมรับข้อขัดแย้งด้วย even when"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "For centuries, doctors have known that patients sometimes feel better after receiving a treatment that, chemically speaking, should do nothing at all. This phenomenon, (1) ______ as the placebo effect, is one of the strangest puzzles in medicine. In clinical trials, a sugar pill can reduce pain, nausea or anxiety in a surprising number of patients, provided they believe it is real medicine.\n\nScientists once dismissed the effect as (2) ______ imagination, but brain scans have shown that it produces measurable physical changes. When patients expect relief from pain, the brain releases natural chemicals which, according to several studies, (3) ______ in much the same way as some painkillers. Expectation, in other words, is not just a feeling; it can alter the body itself.\n\nEven more surprising is a series of experiments on \"open-label\" placebos. In these studies, patients were told honestly that the pills they (4) ______ contained no active ingredient. (5) ______ this, many of them still reported feeling better. Researchers think that the ritual of taking medicine—swallowing a pill at the same time every day, being cared for by a doctor—may be (6) ______ triggers the response.\n\nThe placebo effect has a darker twin: the nocebo effect. Patients who are warned about possible side effects sometimes develop those very symptoms, (7) ______ they have been given a harmless pill. This raises a difficult ethical question for doctors: how can they be honest about risks without making patients ill? Some suggest that the answer lies not in hiding information but in the way it is (8) ______.",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (7)?",
+   "choices": [
+    "even when",
+    "unless",
+    "as long as",
+    "so that"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Developing symptoms from a harmless pill is surprising, so the concessive \"even when\" fits. \"Unless\" and \"as long as\" set up conditions that reverse the meaning, and \"so that\" shows purpose.",
+    "th": "การเกิดอาการจากยาที่ไม่มีฤทธิ์เป็นเรื่องน่าแปลกใจ จึงใช้ even when ส่วน unless และ as long as เป็นเงื่อนไขที่ทำให้ความหมายผิด และ so that แสดงจุดประสงค์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "e",
+   "skill": {
+    "en": "Cloze: passive after 'is'",
+    "th": "การเติมคำ: passive หลัง is"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "For centuries, doctors have known that patients sometimes feel better after receiving a treatment that, chemically speaking, should do nothing at all. This phenomenon, (1) ______ as the placebo effect, is one of the strangest puzzles in medicine. In clinical trials, a sugar pill can reduce pain, nausea or anxiety in a surprising number of patients, provided they believe it is real medicine.\n\nScientists once dismissed the effect as (2) ______ imagination, but brain scans have shown that it produces measurable physical changes. When patients expect relief from pain, the brain releases natural chemicals which, according to several studies, (3) ______ in much the same way as some painkillers. Expectation, in other words, is not just a feeling; it can alter the body itself.\n\nEven more surprising is a series of experiments on \"open-label\" placebos. In these studies, patients were told honestly that the pills they (4) ______ contained no active ingredient. (5) ______ this, many of them still reported feeling better. Researchers think that the ritual of taking medicine—swallowing a pill at the same time every day, being cared for by a doctor—may be (6) ______ triggers the response.\n\nThe placebo effect has a darker twin: the nocebo effect. Patients who are warned about possible side effects sometimes develop those very symptoms, (7) ______ they have been given a harmless pill. This raises a difficult ethical question for doctors: how can they be honest about risks without making patients ill? Some suggest that the answer lies not in hiding information but in the way it is (8) ______.",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (8)?",
+   "choices": [
+    "present",
+    "presenting",
+    "presentation",
+    "presented"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Information is presented by doctors, so after \"is\" we need the past participle: \"the way it is presented\". \"Is presenting\" would be active, and the base verb and noun do not fit.",
+    "th": "ข้อมูลถูกนำเสนอโดยแพทย์ หลัง is จึงใช้ V3 คือ the way it is presented ส่วน is presenting เป็น active และกริยารูปฐานหรือคำนามใช้ไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Identifying the main idea",
+    "th": "การหาใจความสำคัญ"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่าน: บทความ"
+   },
+   "passage": "The Disappearing Night\n\nFor most of human history, the night sky was one of the great shared experiences of our species. On a clear night, almost anyone could look up and see thousands of stars and the pale band of the Milky Way. Today, more than a third of the world's population can no longer see the Milky Way from where they live, and in some heavily developed regions the figure is far higher. The cause is light pollution: the excessive or badly directed artificial light that now spills from streetlights, buildings, billboards and car parks into the sky.\n\nAstronomers were among the first to raise the alarm, since a bright sky makes faint objects impossible to observe. But the consequences extend well beyond science. Many animals depend on the natural cycle of light and darkness to find food, navigate and reproduce. Newly hatched sea turtles, for example, find the ocean by moving towards the brightest horizon, which on an undeveloped beach is the moonlit sea. On a beach backed by hotels, however, the hatchlings often crawl inland, where they die of exhaustion or are caught by predators. Migrating birds, which use the stars to navigate, are drawn towards lit-up towers, and large numbers are killed each year in collisions.\n\nHumans are affected too. Exposure to bright light at night, particularly the blue-rich light produced by many LEDs, suppresses the production of melatonin, the hormone that regulates sleep. Some researchers have suggested links between long-term exposure and health problems, although these connections are not yet fully understood.\n\nUnlike many environmental problems, light pollution is remarkably easy to reverse. A polluted river may take decades to recover, but a light that is switched off stops polluting instantly. Simple measures—shielding streetlights so that they point downwards, using warmer colours, and dimming or turning off lights that are not needed late at night—can dramatically reduce the problem while also cutting energy bills. Several towns around the world have gained \"dark sky\" status by adopting such rules, and some now attract tourists who come specifically to see the stars.\n\nThe real obstacle, then, is not technology but awareness. Few people think of light as a pollutant at all; for most of us, a brightly lit street simply feels safe and modern. Changing that perception may prove harder than changing the bulbs.",
+   "table": null,
+   "stem": "What is the main point of the passage?",
+   "choices": [
+    "LED lights should be banned in all cities.",
+    "Astronomers are the main victims of light pollution.",
+    "Light pollution harms nature and people but could be reduced fairly easily.",
+    "Dark-sky towns have become popular tourist destinations."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The passage describes effects on astronomy, animals and humans, then stresses that the problem is \"remarkably easy to reverse\". It never calls for an LED ban, says the consequences go beyond astronomers, and mentions dark-sky tourism only as a detail.",
+    "th": "บทความอธิบายผลกระทบต่อดาราศาสตร์ สัตว์ และมนุษย์ แล้วเน้นว่าปัญหานี้แก้ไขได้ง่ายมาก บทความไม่ได้เรียกร้องให้ห้ามใช้ LED บอกว่าผลกระทบไปไกลกว่านักดาราศาสตร์ และกล่าวถึงการท่องเที่ยวชมดาวเป็นเพียงรายละเอียด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding cause and effect",
+    "th": "การเข้าใจเหตุและผล"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่าน: บทความ"
+   },
+   "passage": "The Disappearing Night\n\nFor most of human history, the night sky was one of the great shared experiences of our species. On a clear night, almost anyone could look up and see thousands of stars and the pale band of the Milky Way. Today, more than a third of the world's population can no longer see the Milky Way from where they live, and in some heavily developed regions the figure is far higher. The cause is light pollution: the excessive or badly directed artificial light that now spills from streetlights, buildings, billboards and car parks into the sky.\n\nAstronomers were among the first to raise the alarm, since a bright sky makes faint objects impossible to observe. But the consequences extend well beyond science. Many animals depend on the natural cycle of light and darkness to find food, navigate and reproduce. Newly hatched sea turtles, for example, find the ocean by moving towards the brightest horizon, which on an undeveloped beach is the moonlit sea. On a beach backed by hotels, however, the hatchlings often crawl inland, where they die of exhaustion or are caught by predators. Migrating birds, which use the stars to navigate, are drawn towards lit-up towers, and large numbers are killed each year in collisions.\n\nHumans are affected too. Exposure to bright light at night, particularly the blue-rich light produced by many LEDs, suppresses the production of melatonin, the hormone that regulates sleep. Some researchers have suggested links between long-term exposure and health problems, although these connections are not yet fully understood.\n\nUnlike many environmental problems, light pollution is remarkably easy to reverse. A polluted river may take decades to recover, but a light that is switched off stops polluting instantly. Simple measures—shielding streetlights so that they point downwards, using warmer colours, and dimming or turning off lights that are not needed late at night—can dramatically reduce the problem while also cutting energy bills. Several towns around the world have gained \"dark sky\" status by adopting such rules, and some now attract tourists who come specifically to see the stars.\n\nThe real obstacle, then, is not technology but awareness. Few people think of light as a pollutant at all; for most of us, a brightly lit street simply feels safe and modern. Changing that perception may prove harder than changing the bulbs.",
+   "table": null,
+   "stem": "According to the passage, why do many sea turtle hatchlings on developed beaches die?",
+   "choices": [
+    "Hotel staff remove their eggs from the beach.",
+    "Bright moonlight confuses them.",
+    "Hotel lights attract more predators to the beach.",
+    "They move towards artificial light instead of the sea."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Hatchlings move towards the brightest horizon; near hotels that is inland, so they crawl away from the sea and die of exhaustion or predators. Predators are mentioned, but the passage does not say lights attract them; eggs and moonlight confusion are not mentioned.",
+    "th": "ลูกเต่าคลานไปทางขอบฟ้าที่สว่างที่สุด ซึ่งหาดที่มีโรงแรมคือฝั่งแผ่นดิน จึงคลานออกห่างทะเลและตายเพราะหมดแรงหรือถูกล่า บทความกล่าวถึงผู้ล่าแต่ไม่ได้บอกว่าแสงไฟดึงดูดผู้ล่า และไม่ได้พูดถึงไข่หรือแสงจันทร์ทำให้สับสน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding the purpose of a comparison",
+    "th": "การเข้าใจจุดประสงค์ของการเปรียบเทียบ"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่าน: บทความ"
+   },
+   "passage": "The Disappearing Night\n\nFor most of human history, the night sky was one of the great shared experiences of our species. On a clear night, almost anyone could look up and see thousands of stars and the pale band of the Milky Way. Today, more than a third of the world's population can no longer see the Milky Way from where they live, and in some heavily developed regions the figure is far higher. The cause is light pollution: the excessive or badly directed artificial light that now spills from streetlights, buildings, billboards and car parks into the sky.\n\nAstronomers were among the first to raise the alarm, since a bright sky makes faint objects impossible to observe. But the consequences extend well beyond science. Many animals depend on the natural cycle of light and darkness to find food, navigate and reproduce. Newly hatched sea turtles, for example, find the ocean by moving towards the brightest horizon, which on an undeveloped beach is the moonlit sea. On a beach backed by hotels, however, the hatchlings often crawl inland, where they die of exhaustion or are caught by predators. Migrating birds, which use the stars to navigate, are drawn towards lit-up towers, and large numbers are killed each year in collisions.\n\nHumans are affected too. Exposure to bright light at night, particularly the blue-rich light produced by many LEDs, suppresses the production of melatonin, the hormone that regulates sleep. Some researchers have suggested links between long-term exposure and health problems, although these connections are not yet fully understood.\n\nUnlike many environmental problems, light pollution is remarkably easy to reverse. A polluted river may take decades to recover, but a light that is switched off stops polluting instantly. Simple measures—shielding streetlights so that they point downwards, using warmer colours, and dimming or turning off lights that are not needed late at night—can dramatically reduce the problem while also cutting energy bills. Several towns around the world have gained \"dark sky\" status by adopting such rules, and some now attract tourists who come specifically to see the stars.\n\nThe real obstacle, then, is not technology but awareness. Few people think of light as a pollutant at all; for most of us, a brightly lit street simply feels safe and modern. Changing that perception may prove harder than changing the bulbs.",
+   "table": null,
+   "stem": "The writer compares light pollution with a polluted river in order to",
+   "choices": [
+    "argue that water pollution is a more serious problem",
+    "explain how artificial light affects fish",
+    "show how quickly light pollution can be stopped",
+    "suggest that both problems take decades to solve"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The contrast is that a river needs decades to recover, while a light \"stops polluting instantly\" when switched off: light pollution is easy and fast to end. The writer does not rank the problems, mention fish, or say both take decades.",
+    "th": "การเปรียบเทียบชี้ว่าแม่น้ำต้องใช้เวลาหลายสิบปีในการฟื้นตัว แต่ไฟที่ปิดแล้วหยุดก่อมลพิษทันที แสดงว่ามลพิษทางแสงหยุดได้ง่ายและเร็ว ผู้เขียนไม่ได้จัดลำดับความรุนแรง ไม่ได้พูดถึงปลา และไม่ได้บอกว่าทั้งสองปัญหาใช้เวลาหลายสิบปี"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring the writer's conclusion",
+    "th": "การอนุมานข้อสรุปของผู้เขียน"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่าน: บทความ"
+   },
+   "passage": "The Disappearing Night\n\nFor most of human history, the night sky was one of the great shared experiences of our species. On a clear night, almost anyone could look up and see thousands of stars and the pale band of the Milky Way. Today, more than a third of the world's population can no longer see the Milky Way from where they live, and in some heavily developed regions the figure is far higher. The cause is light pollution: the excessive or badly directed artificial light that now spills from streetlights, buildings, billboards and car parks into the sky.\n\nAstronomers were among the first to raise the alarm, since a bright sky makes faint objects impossible to observe. But the consequences extend well beyond science. Many animals depend on the natural cycle of light and darkness to find food, navigate and reproduce. Newly hatched sea turtles, for example, find the ocean by moving towards the brightest horizon, which on an undeveloped beach is the moonlit sea. On a beach backed by hotels, however, the hatchlings often crawl inland, where they die of exhaustion or are caught by predators. Migrating birds, which use the stars to navigate, are drawn towards lit-up towers, and large numbers are killed each year in collisions.\n\nHumans are affected too. Exposure to bright light at night, particularly the blue-rich light produced by many LEDs, suppresses the production of melatonin, the hormone that regulates sleep. Some researchers have suggested links between long-term exposure and health problems, although these connections are not yet fully understood.\n\nUnlike many environmental problems, light pollution is remarkably easy to reverse. A polluted river may take decades to recover, but a light that is switched off stops polluting instantly. Simple measures—shielding streetlights so that they point downwards, using warmer colours, and dimming or turning off lights that are not needed late at night—can dramatically reduce the problem while also cutting energy bills. Several towns around the world have gained \"dark sky\" status by adopting such rules, and some now attract tourists who come specifically to see the stars.\n\nThe real obstacle, then, is not technology but awareness. Few people think of light as a pollutant at all; for most of us, a brightly lit street simply feels safe and modern. Changing that perception may prove harder than changing the bulbs.",
+   "table": null,
+   "stem": "What does the writer suggest in the final paragraph?",
+   "choices": [
+    "New kinds of light bulbs still need to be invented.",
+    "People's attitudes are a bigger barrier than technology.",
+    "Brightly lit streets are actually safer than dark ones.",
+    "Most people already regard light as a pollutant."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"The real obstacle … is not technology but awareness\" and changing perceptions \"may prove harder than changing the bulbs\": attitudes are the main barrier. The writer says the technology already exists, does not judge street safety, and says few people see light as a pollutant.",
+    "th": "ผู้เขียนบอกว่าอุปสรรคที่แท้จริงไม่ใช่เทคโนโลยีแต่เป็นความตระหนัก และการเปลี่ยนทัศนคติอาจยากกว่าการเปลี่ยนหลอดไฟ ผู้เขียนบอกว่าเทคโนโลยีมีอยู่แล้ว ไม่ได้ตัดสินเรื่องความปลอดภัย และบอกว่ามีคนน้อยมากที่มองแสงเป็นมลพิษ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding a narrator's feelings",
+    "th": "การเข้าใจความรู้สึกของผู้เล่าเรื่อง"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่าน: เรื่องเล่า"
+   },
+   "passage": "The Map\n\nWhen my grandfather died, he left me three things: a wristwatch that ran ten minutes slow, a box of cassette tapes I had no way of playing, and a map. The map was drawn in blue ballpoint on the back of an old calendar, and it showed the neighbourhood in Thonburi where he had grown up. Every house, shop and tree was labelled in his tiny, careful handwriting: \"Mr Lim's bicycle repairs\", \"big tamarind—climb here\", \"Auntie Pen's sweets (best coconut ice cream)\".\n\nFor months, I left it in a drawer. Then one Sunday in the hot season, with nothing better to do, I took the boat across the river and tried to follow it.\n\nI was not prepared for how little remained. Where Mr Lim's shop should have been, there was a convenience store with automatic doors that sighed open as I approached. The big tamarind had been replaced by a car park. I walked up and down the soi three times looking for Auntie Pen's, feeling increasingly foolish, before an old woman sitting in a doorway asked me whether I was lost.\n\nI showed her the map. She held it very close to her face, then very far away, and then she began to laugh—a dry, delighted laugh that turned into a cough. \"Somchai,\" she said, tapping my grandfather's name in the corner. \"He used to steal mangoes from my father's tree.\"\n\nHer name was Wan, and she was the daughter of the Auntie Pen on the map; the sweet shop had closed forty years ago. Yet she remembered my grandfather as a thin boy with enormous ears who could climb anything, and she spent the next two hours telling me stories about him that nobody in my family had ever heard.\n\nBy the time I left, the sun was setting over the river. I had not found a single place on the map. And yet, as the boat pulled away from the pier, I realised that I had found exactly what my grandfather would have wanted me to find, even if he could not have planned it himself. The map had never really been about places at all.",
+   "table": null,
+   "stem": "Why did the narrator feel \"increasingly foolish\"?",
+   "choices": [
+    "She had taken the wrong boat across the river.",
+    "The old woman was laughing at her.",
+    "She could not find any of the places on the map.",
+    "She had forgotten her grandfather's name."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Mr Lim's shop and the tamarind were gone, and she walked up and down the soi three times without finding Auntie Pen's. The boat is not described as wrong, the laughing came later and was about her grandfather, and the name is on the map.",
+    "th": "ร้านของคุณลิมและต้นมะขามหายไปหมด และเธอเดินขึ้นลงซอยสามรอบก็ยังหาร้านป้าเพ็ญไม่เจอ ไม่ได้บอกว่าขึ้นเรือผิด การหัวเราะเกิดทีหลังและเป็นเพราะนึกถึงคุณปู่ และชื่อคุณปู่อยู่บนแผนที่"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring reasons for a character's reaction",
+    "th": "การอนุมานเหตุผลของปฏิกิริยาตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่าน: เรื่องเล่า"
+   },
+   "passage": "The Map\n\nWhen my grandfather died, he left me three things: a wristwatch that ran ten minutes slow, a box of cassette tapes I had no way of playing, and a map. The map was drawn in blue ballpoint on the back of an old calendar, and it showed the neighbourhood in Thonburi where he had grown up. Every house, shop and tree was labelled in his tiny, careful handwriting: \"Mr Lim's bicycle repairs\", \"big tamarind—climb here\", \"Auntie Pen's sweets (best coconut ice cream)\".\n\nFor months, I left it in a drawer. Then one Sunday in the hot season, with nothing better to do, I took the boat across the river and tried to follow it.\n\nI was not prepared for how little remained. Where Mr Lim's shop should have been, there was a convenience store with automatic doors that sighed open as I approached. The big tamarind had been replaced by a car park. I walked up and down the soi three times looking for Auntie Pen's, feeling increasingly foolish, before an old woman sitting in a doorway asked me whether I was lost.\n\nI showed her the map. She held it very close to her face, then very far away, and then she began to laugh—a dry, delighted laugh that turned into a cough. \"Somchai,\" she said, tapping my grandfather's name in the corner. \"He used to steal mangoes from my father's tree.\"\n\nHer name was Wan, and she was the daughter of the Auntie Pen on the map; the sweet shop had closed forty years ago. Yet she remembered my grandfather as a thin boy with enormous ears who could climb anything, and she spent the next two hours telling me stories about him that nobody in my family had ever heard.\n\nBy the time I left, the sun was setting over the river. I had not found a single place on the map. And yet, as the boat pulled away from the pier, I realised that I had found exactly what my grandfather would have wanted me to find, even if he could not have planned it himself. The map had never really been about places at all.",
+   "table": null,
+   "stem": "Why did the old woman laugh when she saw the map?",
+   "choices": [
+    "She recognised the name of someone she had known as a child.",
+    "She thought the drawings on the map were badly made.",
+    "She thought the narrator was playing a joke on her.",
+    "The map showed her own house as a sweet shop."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "She tapped \"Somchai\" and immediately remembered him stealing mangoes from her father's tree: a happy memory of a childhood friend. She does not criticise the map or suspect a joke, and the passage does not say the sweet shop was her house.",
+    "th": "เธอชี้ที่ชื่อสมชายแล้วนึกถึงตอนที่เขาขโมยมะม่วงจากต้นของพ่อเธอทันที เป็นความทรงจำที่ดีถึงเพื่อนในวัยเด็ก เธอไม่ได้ติแผนที่หรือคิดว่าถูกแกล้ง และเรื่องไม่ได้บอกว่าร้านขนมคือบ้านของเธอ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting the theme of a story",
+    "th": "การตีความแก่นเรื่อง"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่าน: เรื่องเล่า"
+   },
+   "passage": "The Map\n\nWhen my grandfather died, he left me three things: a wristwatch that ran ten minutes slow, a box of cassette tapes I had no way of playing, and a map. The map was drawn in blue ballpoint on the back of an old calendar, and it showed the neighbourhood in Thonburi where he had grown up. Every house, shop and tree was labelled in his tiny, careful handwriting: \"Mr Lim's bicycle repairs\", \"big tamarind—climb here\", \"Auntie Pen's sweets (best coconut ice cream)\".\n\nFor months, I left it in a drawer. Then one Sunday in the hot season, with nothing better to do, I took the boat across the river and tried to follow it.\n\nI was not prepared for how little remained. Where Mr Lim's shop should have been, there was a convenience store with automatic doors that sighed open as I approached. The big tamarind had been replaced by a car park. I walked up and down the soi three times looking for Auntie Pen's, feeling increasingly foolish, before an old woman sitting in a doorway asked me whether I was lost.\n\nI showed her the map. She held it very close to her face, then very far away, and then she began to laugh—a dry, delighted laugh that turned into a cough. \"Somchai,\" she said, tapping my grandfather's name in the corner. \"He used to steal mangoes from my father's tree.\"\n\nHer name was Wan, and she was the daughter of the Auntie Pen on the map; the sweet shop had closed forty years ago. Yet she remembered my grandfather as a thin boy with enormous ears who could climb anything, and she spent the next two hours telling me stories about him that nobody in my family had ever heard.\n\nBy the time I left, the sun was setting over the river. I had not found a single place on the map. And yet, as the boat pulled away from the pier, I realised that I had found exactly what my grandfather would have wanted me to find, even if he could not have planned it himself. The map had never really been about places at all.",
+   "table": null,
+   "stem": "What does the narrator mean by \"The map had never really been about places at all\"?",
+   "choices": [
+    "Its real value lay in connecting her to people and memories of her grandfather.",
+    "The map was too inaccurate to be useful.",
+    "Her grandfather had been bad at drawing.",
+    "The neighbourhood had hardly changed since his childhood."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "She found no places but gained two hours of stories about her grandfather from someone who knew him; the map's value was the connection to people and memories. Accuracy and drawing skill are not the point, and the neighbourhood had changed a great deal.",
+    "th": "เธอไม่พบสถานที่ใดเลย แต่ได้ฟังเรื่องราวของคุณปู่สองชั่วโมงจากคนที่รู้จักท่าน คุณค่าของแผนที่จึงอยู่ที่การเชื่อมโยงกับผู้คนและความทรงจำ ความแม่นยำหรือฝีมือการวาดไม่ใช่ประเด็น และย่านนั้นเปลี่ยนไปมาก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Recognising tone",
+    "th": "การระบุน้ำเสียงของผู้เขียน"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่าน: เรื่องเล่า"
+   },
+   "passage": "The Map\n\nWhen my grandfather died, he left me three things: a wristwatch that ran ten minutes slow, a box of cassette tapes I had no way of playing, and a map. The map was drawn in blue ballpoint on the back of an old calendar, and it showed the neighbourhood in Thonburi where he had grown up. Every house, shop and tree was labelled in his tiny, careful handwriting: \"Mr Lim's bicycle repairs\", \"big tamarind—climb here\", \"Auntie Pen's sweets (best coconut ice cream)\".\n\nFor months, I left it in a drawer. Then one Sunday in the hot season, with nothing better to do, I took the boat across the river and tried to follow it.\n\nI was not prepared for how little remained. Where Mr Lim's shop should have been, there was a convenience store with automatic doors that sighed open as I approached. The big tamarind had been replaced by a car park. I walked up and down the soi three times looking for Auntie Pen's, feeling increasingly foolish, before an old woman sitting in a doorway asked me whether I was lost.\n\nI showed her the map. She held it very close to her face, then very far away, and then she began to laugh—a dry, delighted laugh that turned into a cough. \"Somchai,\" she said, tapping my grandfather's name in the corner. \"He used to steal mangoes from my father's tree.\"\n\nHer name was Wan, and she was the daughter of the Auntie Pen on the map; the sweet shop had closed forty years ago. Yet she remembered my grandfather as a thin boy with enormous ears who could climb anything, and she spent the next two hours telling me stories about him that nobody in my family had ever heard.\n\nBy the time I left, the sun was setting over the river. I had not found a single place on the map. And yet, as the boat pulled away from the pier, I realised that I had found exactly what my grandfather would have wanted me to find, even if he could not have planned it himself. The map had never really been about places at all.",
+   "table": null,
+   "stem": "Which word best describes the tone of the final paragraph?",
+   "choices": [
+    "reflective",
+    "bitter",
+    "humorous",
+    "anxious"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The narrator watches the sunset, thinks about what the day meant and reaches a quiet realisation: a reflective tone. There is no resentment, joke or worry.",
+    "th": "ผู้เล่ามองพระอาทิตย์ตก ทบทวนความหมายของวันนั้น และเกิดความเข้าใจอย่างสงบ จึงเป็นน้ำเสียงครุ่นคิด (reflective) ไม่มีความขมขื่น มุกตลก หรือความกังวล"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding rules in formal correspondence",
+    "th": "การเข้าใจกฎในจดหมายทางการ"
+   },
+   "topic": {
+    "en": "Reading: notice and email",
+    "th": "การอ่าน: ประกาศและอีเมล"
+   },
+   "passage": "Subject: Re: Request for refund – Young Engineers Summer Programme\n\nDear Mr Phanuwat,\n\nThank you for your email of 3 May regarding your son Thanakorn's place on the Young Engineers Summer Programme. I was sorry to hear that he has broken his wrist and will be unable to take part in the practical workshops.\n\nI have looked carefully at your request for a full refund of the 15,500-baht programme fee. As you may be aware, our terms and conditions, which were accepted at the time of booking, state that cancellations made less than 30 days before the start date are not normally eligible for a refund. As the programme begins on 20 May, your cancellation falls within this period.\n\nHowever, we recognise that your son's situation was entirely beyond his control, and we are keen to find a fair solution. I would therefore like to offer you a choice of the following options:\n\n1. Thanakorn could transfer his place, free of charge, to our next programme, which runs from 14 to 25 October. The content will be identical, and he would join a group of students of a similar age.\n\n2. Thanakorn could attend the theory sessions in May, which do not require the use of his hands, and receive a partial refund of 6,000 baht for the workshops he will miss. Please note that he would not receive the programme certificate, as this requires completion of all practical tasks.\n\n3. We could refund 50 per cent of the fee (7,750 baht), provided we receive a medical certificate from his doctor.\n\nIf none of these options is acceptable, you are, of course, entitled to make a formal appeal to the Faculty's Student Affairs Committee, which meets once a month. I should point out, though, that appeals of this kind are rarely successful when a reasonable alternative has already been offered.\n\nI would be grateful if you could let me know which option you prefer by 15 May, so that we can offer any unused place to a student on our waiting list.\n\nWith best wishes for Thanakorn's recovery,\n\nDr Sirinya Chaiyaporn\nProgramme Director",
+   "table": null,
+   "stem": "Why is Mr Phanuwat not automatically entitled to a full refund?",
+   "choices": [
+    "He cancelled less than 30 days before the programme starts.",
+    "He did not accept the terms and conditions when booking.",
+    "The programme has already started.",
+    "He did not send a medical certificate."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The terms say cancellations less than 30 days before the start (20 May) are not normally refunded, and his email came on 3 May. He did accept the terms, the programme has not started, and the medical certificate is only needed for the 50 per cent option.",
+    "th": "เงื่อนไขระบุว่าการยกเลิกน้อยกว่า 30 วันก่อนเริ่มโครงการ (20 พฤษภาคม) โดยปกติจะไม่ได้รับเงินคืน และอีเมลของเขาส่งมาวันที่ 3 พฤษภาคม เขายอมรับเงื่อนไขแล้ว โครงการยังไม่เริ่ม และใบรับรองแพทย์ใช้เฉพาะกรณีขอคืนเงินครึ่งหนึ่ง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Comparing options to meet a condition",
+    "th": "การเปรียบเทียบทางเลือกตามเงื่อนไข"
+   },
+   "topic": {
+    "en": "Reading: notice and email",
+    "th": "การอ่าน: ประกาศและอีเมล"
+   },
+   "passage": "Subject: Re: Request for refund – Young Engineers Summer Programme\n\nDear Mr Phanuwat,\n\nThank you for your email of 3 May regarding your son Thanakorn's place on the Young Engineers Summer Programme. I was sorry to hear that he has broken his wrist and will be unable to take part in the practical workshops.\n\nI have looked carefully at your request for a full refund of the 15,500-baht programme fee. As you may be aware, our terms and conditions, which were accepted at the time of booking, state that cancellations made less than 30 days before the start date are not normally eligible for a refund. As the programme begins on 20 May, your cancellation falls within this period.\n\nHowever, we recognise that your son's situation was entirely beyond his control, and we are keen to find a fair solution. I would therefore like to offer you a choice of the following options:\n\n1. Thanakorn could transfer his place, free of charge, to our next programme, which runs from 14 to 25 October. The content will be identical, and he would join a group of students of a similar age.\n\n2. Thanakorn could attend the theory sessions in May, which do not require the use of his hands, and receive a partial refund of 6,000 baht for the workshops he will miss. Please note that he would not receive the programme certificate, as this requires completion of all practical tasks.\n\n3. We could refund 50 per cent of the fee (7,750 baht), provided we receive a medical certificate from his doctor.\n\nIf none of these options is acceptable, you are, of course, entitled to make a formal appeal to the Faculty's Student Affairs Committee, which meets once a month. I should point out, though, that appeals of this kind are rarely successful when a reasonable alternative has already been offered.\n\nI would be grateful if you could let me know which option you prefer by 15 May, so that we can offer any unused place to a student on our waiting list.\n\nWith best wishes for Thanakorn's recovery,\n\nDr Sirinya Chaiyaporn\nProgramme Director",
+   "table": null,
+   "stem": "If Thanakorn wants to receive the programme certificate, which option should he choose?",
+   "choices": [
+    "Attending only the theory sessions in May",
+    "Transferring to the October programme",
+    "Taking the 50 per cent refund",
+    "Making a formal appeal to the committee"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The certificate requires completing all practical tasks. Only the October programme, with identical content after his wrist heals, allows this. Attending only theory sessions explicitly gives no certificate, the refund means not attending, and an appeal is about money.",
+    "th": "เกียรติบัตรต้องทำงานภาคปฏิบัติครบทุกชิ้น มีเพียงการย้ายไปรุ่นเดือนตุลาคมซึ่งเนื้อหาเหมือนเดิมและข้อมือหายแล้วเท่านั้นที่ทำได้ การเข้าเฉพาะภาคทฤษฎีระบุชัดว่าไม่ได้เกียรติบัตร การรับเงินคืนคือไม่ได้เข้าร่วม และการอุทธรณ์เป็นเรื่องเงิน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding the function of a paragraph",
+    "th": "การเข้าใจหน้าที่ของย่อหน้า"
+   },
+   "topic": {
+    "en": "Reading: notice and email",
+    "th": "การอ่าน: ประกาศและอีเมล"
+   },
+   "passage": "Subject: Re: Request for refund – Young Engineers Summer Programme\n\nDear Mr Phanuwat,\n\nThank you for your email of 3 May regarding your son Thanakorn's place on the Young Engineers Summer Programme. I was sorry to hear that he has broken his wrist and will be unable to take part in the practical workshops.\n\nI have looked carefully at your request for a full refund of the 15,500-baht programme fee. As you may be aware, our terms and conditions, which were accepted at the time of booking, state that cancellations made less than 30 days before the start date are not normally eligible for a refund. As the programme begins on 20 May, your cancellation falls within this period.\n\nHowever, we recognise that your son's situation was entirely beyond his control, and we are keen to find a fair solution. I would therefore like to offer you a choice of the following options:\n\n1. Thanakorn could transfer his place, free of charge, to our next programme, which runs from 14 to 25 October. The content will be identical, and he would join a group of students of a similar age.\n\n2. Thanakorn could attend the theory sessions in May, which do not require the use of his hands, and receive a partial refund of 6,000 baht for the workshops he will miss. Please note that he would not receive the programme certificate, as this requires completion of all practical tasks.\n\n3. We could refund 50 per cent of the fee (7,750 baht), provided we receive a medical certificate from his doctor.\n\nIf none of these options is acceptable, you are, of course, entitled to make a formal appeal to the Faculty's Student Affairs Committee, which meets once a month. I should point out, though, that appeals of this kind are rarely successful when a reasonable alternative has already been offered.\n\nI would be grateful if you could let me know which option you prefer by 15 May, so that we can offer any unused place to a student on our waiting list.\n\nWith best wishes for Thanakorn's recovery,\n\nDr Sirinya Chaiyaporn\nProgramme Director",
+   "table": null,
+   "stem": "What is the main purpose of the paragraph about a formal appeal?",
+   "choices": [
+    "To inform Mr Phanuwat of his rights while discouraging him from using them",
+    "To encourage him to appeal as soon as possible",
+    "To tell him that the committee has already rejected his request",
+    "To suggest that he complain about Dr Sirinya"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Dr Sirinya says he is \"entitled\" to appeal (his rights) but adds that such appeals \"are rarely successful\" when an alternative has been offered, gently discouraging him. She does not urge an appeal, report a decision or invite a complaint about herself.",
+    "th": "ดร.ศิริญญาบอกว่าเขามีสิทธิ์อุทธรณ์ แต่เสริมว่าการอุทธรณ์แบบนี้ไม่ค่อยสำเร็จเมื่อมีทางเลือกที่สมเหตุสมผลแล้ว จึงเป็นการแจ้งสิทธิ์พร้อมกับห้ามปรามอย่างนุ่มนวล ไม่ได้เร่งให้อุทธรณ์ ไม่ได้แจ้งผลการพิจารณา และไม่ได้ชวนให้ร้องเรียนตัวเธอ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำตามบริบท"
+   },
+   "topic": {
+    "en": "Reading: notice and email",
+    "th": "การอ่าน: ประกาศและอีเมล"
+   },
+   "passage": "Subject: Re: Request for refund – Young Engineers Summer Programme\n\nDear Mr Phanuwat,\n\nThank you for your email of 3 May regarding your son Thanakorn's place on the Young Engineers Summer Programme. I was sorry to hear that he has broken his wrist and will be unable to take part in the practical workshops.\n\nI have looked carefully at your request for a full refund of the 15,500-baht programme fee. As you may be aware, our terms and conditions, which were accepted at the time of booking, state that cancellations made less than 30 days before the start date are not normally eligible for a refund. As the programme begins on 20 May, your cancellation falls within this period.\n\nHowever, we recognise that your son's situation was entirely beyond his control, and we are keen to find a fair solution. I would therefore like to offer you a choice of the following options:\n\n1. Thanakorn could transfer his place, free of charge, to our next programme, which runs from 14 to 25 October. The content will be identical, and he would join a group of students of a similar age.\n\n2. Thanakorn could attend the theory sessions in May, which do not require the use of his hands, and receive a partial refund of 6,000 baht for the workshops he will miss. Please note that he would not receive the programme certificate, as this requires completion of all practical tasks.\n\n3. We could refund 50 per cent of the fee (7,750 baht), provided we receive a medical certificate from his doctor.\n\nIf none of these options is acceptable, you are, of course, entitled to make a formal appeal to the Faculty's Student Affairs Committee, which meets once a month. I should point out, though, that appeals of this kind are rarely successful when a reasonable alternative has already been offered.\n\nI would be grateful if you could let me know which option you prefer by 15 May, so that we can offer any unused place to a student on our waiting list.\n\nWith best wishes for Thanakorn's recovery,\n\nDr Sirinya Chaiyaporn\nProgramme Director",
+   "table": null,
+   "stem": "In the paragraph about a formal appeal, the word \"reasonable\" is closest in meaning to",
+   "choices": [
+    "expensive",
+    "temporary",
+    "fair",
+    "official"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "A \"reasonable alternative\" is one that is fair and acceptable. The other words do not describe the options offered in this sense.",
+    "th": "reasonable alternative หมายถึงทางเลือกที่ยุติธรรมและยอมรับได้ จึงตรงกับ fair ส่วนคำอื่นไม่ได้มีความหมายนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding a key concept",
+    "th": "การเข้าใจแนวคิดสำคัญ"
+   },
+   "topic": {
+    "en": "Reading: opinion text",
+    "th": "การอ่าน: บทความแสดงความคิดเห็น"
+   },
+   "passage": "More Roads, More Traffic\n\nWhenever traffic in Bangkok becomes unbearable—which is to say, most weekdays—someone proposes the same solution: build more roads. Widen the highways, add another expressway, construct a new flyover. It seems like common sense. If there are too many cars for the space available, surely the answer is more space. Yet decades of evidence from cities around the world suggest that this answer is not merely ineffective but often counterproductive.\n\nThe reason is a phenomenon that transport researchers call \"induced demand\". When a new road opens, journeys along that route become faster, at least at first. But faster journeys encourage people to change their behaviour. Some who used to take the train start driving; others who avoided the trip altogether begin to make it; still others move further out of the city, knowing they can now commute by car. Within a few years, the new road is as congested as the old one was, except that there are now more cars in total. Studies in several countries have found that the distance driven in a city tends to rise roughly in proportion to the amount of new road built.\n\nNone of this means that cities should never build roads. A new road may be essential to connect a growing area that has no access at all. But as a strategy for reducing congestion, road-building has been tested repeatedly, and it has failed almost every time.\n\nWhat works better? The cities that have made real progress against traffic have generally done so by making alternatives more attractive rather than by making driving easier. That means frequent, reliable public transport; safe, shaded routes for walking and cycling; and, more controversially, charging drivers to enter the busiest areas at peak times. London, Stockholm and Singapore have all introduced such charges, and in each case traffic fell noticeably soon afterwards.\n\nBangkok has already invested heavily in its rail network, and the results are visible in the crowds on its trains. The next step is harder, because it asks drivers to give something up. Politicians understandably prefer cutting ribbons on new flyovers to telling voters that driving should cost more. But if the city is serious about its traffic, it will have to stop treating the car as the solution to the problem rather than its cause.",
+   "table": null,
+   "stem": "According to the writer, what usually happens after a new road is built to reduce traffic?",
+   "choices": [
+    "Traffic disappears permanently from the area.",
+    "People stop driving and take the train instead.",
+    "It attracts more drivers until it becomes congested again.",
+    "The old roads in the area are closed."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "This is \"induced demand\": faster journeys attract new drivers, and \"within a few years, the new road is as congested as the old one was\". Traffic does not disappear, people move from trains to cars (not the reverse), and old roads are not mentioned as closing.",
+    "th": "นี่คือ induced demand การเดินทางที่เร็วขึ้นดึงดูดผู้ขับรถใหม่ และภายในไม่กี่ปีถนนใหม่ก็ติดเหมือนถนนเดิม การจราจรไม่ได้หายไป คนเปลี่ยนจากรถไฟมาขับรถ (ไม่ใช่กลับกัน) และไม่ได้กล่าวถึงการปิดถนนเดิม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Vocabulary in context: advanced words",
+    "th": "ความหมายของคำศัพท์ระดับสูงตามบริบท"
+   },
+   "topic": {
+    "en": "Reading: opinion text",
+    "th": "การอ่าน: บทความแสดงความคิดเห็น"
+   },
+   "passage": "More Roads, More Traffic\n\nWhenever traffic in Bangkok becomes unbearable—which is to say, most weekdays—someone proposes the same solution: build more roads. Widen the highways, add another expressway, construct a new flyover. It seems like common sense. If there are too many cars for the space available, surely the answer is more space. Yet decades of evidence from cities around the world suggest that this answer is not merely ineffective but often counterproductive.\n\nThe reason is a phenomenon that transport researchers call \"induced demand\". When a new road opens, journeys along that route become faster, at least at first. But faster journeys encourage people to change their behaviour. Some who used to take the train start driving; others who avoided the trip altogether begin to make it; still others move further out of the city, knowing they can now commute by car. Within a few years, the new road is as congested as the old one was, except that there are now more cars in total. Studies in several countries have found that the distance driven in a city tends to rise roughly in proportion to the amount of new road built.\n\nNone of this means that cities should never build roads. A new road may be essential to connect a growing area that has no access at all. But as a strategy for reducing congestion, road-building has been tested repeatedly, and it has failed almost every time.\n\nWhat works better? The cities that have made real progress against traffic have generally done so by making alternatives more attractive rather than by making driving easier. That means frequent, reliable public transport; safe, shaded routes for walking and cycling; and, more controversially, charging drivers to enter the busiest areas at peak times. London, Stockholm and Singapore have all introduced such charges, and in each case traffic fell noticeably soon afterwards.\n\nBangkok has already invested heavily in its rail network, and the results are visible in the crowds on its trains. The next step is harder, because it asks drivers to give something up. Politicians understandably prefer cutting ribbons on new flyovers to telling voters that driving should cost more. But if the city is serious about its traffic, it will have to stop treating the car as the solution to the problem rather than its cause.",
+   "table": null,
+   "stem": "In paragraph 1, the word \"counterproductive\" is closest in meaning to",
+   "choices": [
+    "producing no effect at all",
+    "too expensive to complete",
+    "having the opposite of the intended effect",
+    "popular with voters"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Not merely ineffective but often counterproductive\" goes one step further than having no effect: building roads can make traffic worse, the opposite of what was intended. \"Producing no effect\" is just \"ineffective\", and cost or popularity are not the meaning.",
+    "th": "not merely ineffective but often counterproductive หมายถึงไม่เพียงแค่ไม่ได้ผล แต่ยังทำให้แย่ลงตรงข้ามกับที่ตั้งใจ ส่วน producing no effect มีความหมายเท่ากับ ineffective เท่านั้น และค่าใช้จ่ายหรือความนิยมไม่ใช่ความหมายของคำนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding the use of examples",
+    "th": "การเข้าใจการใช้ตัวอย่าง"
+   },
+   "topic": {
+    "en": "Reading: opinion text",
+    "th": "การอ่าน: บทความแสดงความคิดเห็น"
+   },
+   "passage": "More Roads, More Traffic\n\nWhenever traffic in Bangkok becomes unbearable—which is to say, most weekdays—someone proposes the same solution: build more roads. Widen the highways, add another expressway, construct a new flyover. It seems like common sense. If there are too many cars for the space available, surely the answer is more space. Yet decades of evidence from cities around the world suggest that this answer is not merely ineffective but often counterproductive.\n\nThe reason is a phenomenon that transport researchers call \"induced demand\". When a new road opens, journeys along that route become faster, at least at first. But faster journeys encourage people to change their behaviour. Some who used to take the train start driving; others who avoided the trip altogether begin to make it; still others move further out of the city, knowing they can now commute by car. Within a few years, the new road is as congested as the old one was, except that there are now more cars in total. Studies in several countries have found that the distance driven in a city tends to rise roughly in proportion to the amount of new road built.\n\nNone of this means that cities should never build roads. A new road may be essential to connect a growing area that has no access at all. But as a strategy for reducing congestion, road-building has been tested repeatedly, and it has failed almost every time.\n\nWhat works better? The cities that have made real progress against traffic have generally done so by making alternatives more attractive rather than by making driving easier. That means frequent, reliable public transport; safe, shaded routes for walking and cycling; and, more controversially, charging drivers to enter the busiest areas at peak times. London, Stockholm and Singapore have all introduced such charges, and in each case traffic fell noticeably soon afterwards.\n\nBangkok has already invested heavily in its rail network, and the results are visible in the crowds on its trains. The next step is harder, because it asks drivers to give something up. Politicians understandably prefer cutting ribbons on new flyovers to telling voters that driving should cost more. But if the city is serious about its traffic, it will have to stop treating the car as the solution to the problem rather than its cause.",
+   "table": null,
+   "stem": "Why does the writer mention London, Stockholm and Singapore?",
+   "choices": [
+    "To show that these cities have built many new roads",
+    "To give examples of cities where charging drivers reduced traffic",
+    "To argue that Bangkok's rail network is too small",
+    "To compare the size of these cities with Bangkok"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "They are named right after the idea of \"charging drivers to enter the busiest areas\", and \"in each case traffic fell noticeably\". Road-building, Bangkok's rail network and city size are not what these examples show.",
+    "th": "ทั้งสามเมืองถูกกล่าวถึงต่อจากแนวคิดการเก็บค่าผ่านเข้าเขตที่หนาแน่น และในทุกกรณีการจราจรลดลงอย่างชัดเจน ตัวอย่างเหล่านี้ไม่ได้แสดงเรื่องการสร้างถนน ระบบรางของกรุงเทพฯ หรือขนาดเมือง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring implied criticism",
+    "th": "การอนุมานคำวิจารณ์ที่แฝงอยู่"
+   },
+   "topic": {
+    "en": "Reading: opinion text",
+    "th": "การอ่าน: บทความแสดงความคิดเห็น"
+   },
+   "passage": "More Roads, More Traffic\n\nWhenever traffic in Bangkok becomes unbearable—which is to say, most weekdays—someone proposes the same solution: build more roads. Widen the highways, add another expressway, construct a new flyover. It seems like common sense. If there are too many cars for the space available, surely the answer is more space. Yet decades of evidence from cities around the world suggest that this answer is not merely ineffective but often counterproductive.\n\nThe reason is a phenomenon that transport researchers call \"induced demand\". When a new road opens, journeys along that route become faster, at least at first. But faster journeys encourage people to change their behaviour. Some who used to take the train start driving; others who avoided the trip altogether begin to make it; still others move further out of the city, knowing they can now commute by car. Within a few years, the new road is as congested as the old one was, except that there are now more cars in total. Studies in several countries have found that the distance driven in a city tends to rise roughly in proportion to the amount of new road built.\n\nNone of this means that cities should never build roads. A new road may be essential to connect a growing area that has no access at all. But as a strategy for reducing congestion, road-building has been tested repeatedly, and it has failed almost every time.\n\nWhat works better? The cities that have made real progress against traffic have generally done so by making alternatives more attractive rather than by making driving easier. That means frequent, reliable public transport; safe, shaded routes for walking and cycling; and, more controversially, charging drivers to enter the busiest areas at peak times. London, Stockholm and Singapore have all introduced such charges, and in each case traffic fell noticeably soon afterwards.\n\nBangkok has already invested heavily in its rail network, and the results are visible in the crowds on its trains. The next step is harder, because it asks drivers to give something up. Politicians understandably prefer cutting ribbons on new flyovers to telling voters that driving should cost more. But if the city is serious about its traffic, it will have to stop treating the car as the solution to the problem rather than its cause.",
+   "table": null,
+   "stem": "What does the writer imply about politicians?",
+   "choices": [
+    "They have refused to invest in Bangkok's rail network.",
+    "They are planning to introduce a congestion charge soon.",
+    "They tend to choose popular projects over effective but unpopular ones.",
+    "They believe public transport is too expensive."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Politicians \"prefer cutting ribbons on new flyovers to telling voters that driving should cost more\": visible, popular projects rather than effective but unpopular policies. The writer says Bangkok has invested in rail, and mentions no planned charge or view on transport costs.",
+    "th": "นักการเมืองชอบตัดริบบิ้นเปิดสะพานข้ามแยกมากกว่าบอกประชาชนว่าการขับรถควรมีค่าใช้จ่ายสูงขึ้น คือเลือกโครงการที่ได้รับความนิยมมากกว่านโยบายที่ได้ผลแต่ไม่เป็นที่นิยม ผู้เขียนบอกว่ากรุงเทพฯ ลงทุนระบบรางแล้ว และไม่ได้พูดถึงแผนเก็บค่าผ่านเขตหรือความเห็นเรื่องค่าขนส่งสาธารณะ"
+   }
+  }
+ ]
+}

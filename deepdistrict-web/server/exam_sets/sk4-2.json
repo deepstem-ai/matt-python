@@ -804,7 +804,7 @@
    },
    "passage": "",
    "table": null,
-   "stem": "Choose the best option to complete the sentence.\n\"The coach warned us that if we ______ late again, we would not be allowed to play.\"",
+   "stem": "Choose the best option to complete the sentence.\n\"Last season, the coach warned us that if we ______ late again, we would not be allowed to play.\"",
    "choices": [
     "are",
     "will be",
@@ -1041,7 +1041,7 @@
    "lang": "en",
    "format": "mcq",
    "part": "error",
-   "difficulty": "h",
+   "difficulty": "m",
    "skill": {
     "en": "'Avoid' + -ing",
     "th": "avoid + V-ing"
