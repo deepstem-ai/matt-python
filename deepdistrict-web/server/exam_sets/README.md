@@ -3,7 +3,8 @@
 Each `*.json` file here is one complete, original DeepDistrict practice set. The back office
 (**Item bank → Load ready-made sets**) adds the items to the bank as *approved* and creates a
 **question set** for each file, so it can be started as a timed test, run as a live class or
-printed as an audited PDF. Loading twice does not create duplicates.
+printed as an audited PDF. Loading twice does not create duplicates; when a file changes, the server replaces its previous version on
+the next start (old items are retired, past results keep their copy).
 
 Every item was written for DeepDistrict. Nothing is copied or paraphrased from official papers,
 past papers, school pre-tests or commercial books. Format details come from public descriptions
@@ -19,7 +20,7 @@ python3 tools/check_sets.py
 ## File format
 
 ```json
-{"exam": "sat" | "ielts" | "gate" | "ep", "set": 1,
+{"exam": "sat" | "ielts" | "gate" | "satit", "set": 1,
  "title": {"en": "…", "th": "…"}, "minutes": 32,
  "note": {"en": "…", "th": "…"},
  "items": [ … ]}
@@ -33,8 +34,7 @@ must be checked against each year's announcement).
 |-------|-------|------|-----|
 | sat   | 54 × `sat`: items 1–27 = Module 1, 28–54 = Module 2 (harder) | 2 × 32 min | each module cs 7 · ii 7 · sec 7 · eoi 6 |
 | ielts | 3 × `ielts-r` (40 marks, 2,150–2,750 words) + `ielts-w` Task 1 and Task 2 | 60 + 60 min | — |
-| gate  | 120 × `m1` `"program": "gate"` | 180 min | math 40 (10 written) · sci 40 (5 written) · eng 20 · thai 20 |
-| ep    | 130 × `m1` `"program": "ep"` (all in English) | 180 min | eng 50 · math 40 (10 written) · sci 40 (5 written) |
+| gate  | 120 × `m1` `"program": "gate"` — one Suankularb paper for GATE **and** English Program applicants (EP needs a higher English score) | 180 min | math 40 (10 written) · sci 40 (5 written) · eng 20 · thai 20 |
 | satit | 185 × `m1` `"program": "satit"` | 240 min | math 25 (20 Thai + 5 English) · sci 50 (40 Thai + 10 English) · thai 60 · eng 50 |
 
 Every item says **what it measures** and **what it is about** — `skill` and `topic` for M.1 items,
@@ -75,6 +75,6 @@ Same shape as `exam_samples.WRITING`. Task 1 needs a `table`, the official instr
 {"kind": "m1", "program": "gate", "subject": "math", "format": "fill", "accept": ["84"], "unit": "ตร.ซม.", …}
 ```
 
-`passage` is optional (a reading text or a situation shared by the question). GATE questions are in
-Thai except the English part; EP questions are in English. Explanations name the right answer by
+`passage` is optional (a reading text or a situation shared by the question). Suankularb and Satit questions are in
+Thai except the English part and the English-language maths/science items (`"lang": "en"`). Explanations name the right answer by
 its content, never by a letter or position (ก ข ค ง / A B C D), because answer order is shuffled.

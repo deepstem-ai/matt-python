@@ -1,5 +1,40 @@
 # Changelog
 
+## 5.8 r1 — October 2026
+- **All test sets rewritten — harder, longer, in each test's real style and full length.** Every set
+  was checked by `tools/check_sets.py`; every maths and science answer was verified by script.
+  - **SAT Reading and Writing:** 3 full tests of 54 questions (Module 1 + the harder Module 2,
+    32 minutes each, cs 7 · ii 7 · sec 7 · eoi 6 per module), College Board style, real-test vocabulary,
+    support/weaken, data-table and punctuation items.
+  - **IELTS Academic:** 3 full tests — Reading 3 passages (~2,700 words, exactly 40 questions, 10–11
+    question types per test) + Writing Task 1 and Task 2.
+  - **Suankularb M.1 — GATE and English Program on one paper** (as the school does: EP applicants need a
+    higher English score): 3 papers × 120 questions in 3 hours — Maths 40 (10 written answers), Science
+    40 (5 written answers), English 20 (B1–B2, cloze, long reading), Thai 20.
+  - **New: Satit Prasarnmit M.1 (Trilingual Plus+):** 3 papers × 185 questions — Maths 25 (5 in English),
+    Science 50 (10 in English), Thai 60, English 50. Format from public tutor summaries.
+  - **Every question says what it measures and what it is about** (`skill` and `topic`); results group
+    by subject, topic and skill.
+  - **Written answers (อัตนัย)** for M.1 papers: typed numbers/words, accepted in equivalent forms
+    (13/28 = 26/56, "35 %" = 35).
+  - Updated sets **replace their previous version automatically** on the next start (old items retired,
+    past results kept); the removed EP-only sets are taken down.
+- **Free tests page:** set 1 of every exam is free **in full**, with a large on-screen timer (SAT as two
+  timed modules, IELTS Reading then Writing); sets 2–3 have samples. Larger, easier-to-read type and
+  subject colours.
+- **Results summary on screen** (public page and student portal): score, GATE/EP and Satit practice
+  targets, by subject, by topic (weakest first), SAT by skill, IELTS by question type, and a table of every
+  question — what it measures, its topic, your answer and the key — then explanations.
+- **PDFs:** question paper, paper with answer key and results summary on the public page; in the portal
+  every set has a "⬇ PDF" button for learners (student copy with notes column) and the score-report PDF
+  now lists topics, targets and every question.
+- **Student portal test screen:** larger type and choices, colourful header, big timer (h:mm:ss, red in
+  the last minute), subject tabs and grouped question map for M.1 papers, full SAT sets run as two timed
+  modules.
+- **Menus grouped:** public top menu has dropdowns (Courses · Tests & admissions · About) with short
+  descriptions; the back office has a "Tests & classes" group with all test pages together.
+- Starter news updated for the new sets.
+
 ## 5.7 r2 — October 2026
 - **Free practice tests on the public website — no sign-in** (`pages/tests.html`, menu "Free tests",
   and a new "Try SAT, IELTS and Suankularb M.1 questions now" section on the home page). Each of the 12

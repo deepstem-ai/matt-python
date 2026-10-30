@@ -86,14 +86,22 @@ def start_photo_thread():
 
 
 def autoload_sets(con):
-    """Ready-made practice sets (server/exam_sets) are added once per file; deleting one later keeps it deleted."""
+    """Ready-made practice sets (server/exam_sets): each file is added once per version. A file that changed
+    replaces its previous version; a file that was removed is taken out of use; a set deleted by staff stays
+    deleted until its file changes."""
     r = con.execute("SELECT value FROM kv WHERE key='readySets'").fetchone()
-    done = set(json.loads(r["value"])) if r else set()
-    new = [f["file"] for f in ready_sets.catalogue() if f["file"] not in done]
-    if not new:
-        return
-    ready_sets.load(con, {"id": "system", "name": "DeepDistrict"}, only=set(new))
-    con.execute("INSERT INTO kv (key, value) VALUES ('readySets', ?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (json.dumps(sorted(done | set(new))),))
+    done = json.loads(r["value"]) if r else {}
+    if isinstance(done, list):                       # v5.7 kept only file names
+        done = {f: None for f in done}
+    cat = {f["file"]: f["rev"] for f in ready_sets.catalogue()}
+    new = {f for f, rev in cat.items() if done.get(f) != rev}
+    gone = [f for f in done if f not in cat]
+    for f in gone:
+        ready_sets.retire(con, f)
+    if new:
+        ready_sets.load(con, {"id": "system", "name": "DeepDistrict"}, only=new)
+    if new or gone:
+        con.execute("INSERT INTO kv (key, value) VALUES ('readySets', ?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (json.dumps(cat),))
 
 
 # ---------------------------------------------------------------- background AI jobs

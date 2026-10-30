@@ -2,7 +2,9 @@
 
 Each file becomes approved bank items (tagged "ready-made") plus one published question set — two for
 IELTS (Reading: 3 passages / 60 min, Writing: Task 1 + Task 2 / 60 min). Ids are derived from the file
-name and position, so loading again adds only what is missing and never overwrites a teacher's edits.
+name, its content fingerprint and the position, so loading again adds only what is missing and never
+overwrites a teacher's edits. When a file is updated (new fingerprint) its previous version is replaced:
+the old items are retired (past results keep their own copy) and the old question set is removed.
 """
 
 import glob
@@ -14,7 +16,8 @@ import exams
 import qsets
 
 DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "exam_sets")
-EXAMS = {"sat": "SAT Reading and Writing", "ielts": "IELTS Academic", "gate": "Suankularb M.1 GATE Program", "ep": "Suankularb M.1 English Program (EPLUS+)", "satit": "Satit Prasarnmit M.1 (Trilingual Plus+)"}
+EXAMS = {"sat": "SAT Reading and Writing", "ielts": "IELTS Academic", "gate": "Suankularb M.1 (GATE and English Program)", "satit": "Satit Prasarnmit M.1 (Trilingual Plus+)",
+         "ep": "Suankularb M.1 English Program (older sets)"}
 
 
 def _id(prefix, *parts):
@@ -25,10 +28,12 @@ def files():
     out = []
     for path in sorted(glob.glob(os.path.join(DIR, "*.json"))):
         try:
-            with open(path, encoding="utf-8") as f:
-                d = json.load(f)
+            with open(path, "rb") as f:
+                raw = f.read()
+            d = json.loads(raw.decode("utf-8"))
         except (OSError, ValueError):
             continue
+        d["_rev"] = hashlib.sha1(raw).hexdigest()[:10]
         if d.get("exam") in EXAMS and isinstance(d.get("items"), list):
             d["_file"] = os.path.basename(path)
             out.append(d)
@@ -38,7 +43,27 @@ def files():
 
 def catalogue():
     """What is available to load (for the bank page)."""
-    return [{"file": d["_file"], "exam": d["exam"], "set": d.get("set"), "title": d.get("title"), "items": len(d["items"])} for d in files()]
+    return [{"file": d["_file"], "rev": d["_rev"], "exam": d["exam"], "set": d.get("set"), "title": d.get("title"), "items": len(d["items"])} for d in files()]
+
+
+def retire(con, file, keep=()):
+    """Take an earlier version of a ready-made file out of use: retire its items and remove its question sets."""
+    stem = file.rsplit(".", 1)[0]
+    exam, _, n = stem.partition("-")
+    old_q = {_id("q", file, k) for k in exams.KINDS}               # ids used before fingerprints were added (v5.7)
+    for r in con.execute("SELECT id, data FROM question_sets").fetchall():
+        q = json.loads(r["data"])
+        if q.get("source") == "ready-made" and q["id"] not in keep and (q.get("file") == file or q["id"] in old_q):
+            con.execute("DELETE FROM question_sets WHERE id=?", (q["id"],))
+    n_items = 0
+    for it in exams.items(con):
+        tags = it.get("tags") or []
+        mine = f"file:{file}" in tags or ("ready-made" in tags and exam in tags and f"set-{n}" in tags and not any(t.startswith("file:") for t in tags))
+        if mine and it["id"] not in keep and it["status"] != "retired":
+            it["status"] = "retired"
+            exams.save_item(con, it, "system")
+            n_items += 1
+    return n_items
 
 
 def load(con, me, only=None):
@@ -49,11 +74,11 @@ def load(con, me, only=None):
             continue
         ids = {}
         for n, raw in enumerate(d["items"]):
-            iid = _id("x", d["_file"], n)
+            iid = _id("x", d["_file"], d["_rev"], n)
             ids.setdefault(raw.get("kind"), []).append(iid)
             if exams.get_item(con, iid):
                 continue
-            tags = ["ready-made", d["exam"], f"set-{d.get('set')}"]
+            tags = ["ready-made", d["exam"], f"set-{d.get('set')}", f"file:{d['_file']}", f"rev:{d['_rev']}"]
             it, probs = exams.clean_item(dict(raw, id=iid, status="approved", origin="original", rightsOk=True, tags=tags))
             if probs:
                 problems.append(f"{d['_file']} #{n + 1}: {'; '.join(probs)}")
@@ -64,7 +89,7 @@ def load(con, me, only=None):
         for kind, sfx_en, sfx_th, minutes in parts:
             if not ids.get(kind):
                 continue
-            sid = _id("q", d["_file"], kind)
+            sid = _id("q", d["_file"], d["_rev"], kind)
             if qsets.get(con, sid):
                 continue
             body = {"kind": kind, "title": (title.get("en") or d["_file"]) + sfx_en, "titleTh": (title.get("th") or "") + sfx_th,
@@ -75,7 +100,10 @@ def load(con, me, only=None):
             if not chosen:
                 continue
             s.update({k: body[k] for k in ("kind", "title", "titleTh", "note", "published", "minutes", "exam", "source")})
+            s.update({"file": d["_file"], "rev": d["_rev"]})
             s["items"] = [[i["id"], i["version"]] for i in (sorted(chosen, key=lambda t: t["task"]) if kind == "ielts-w" else chosen)]
             qsets.put(con, s)
             added_sets += 1
+        keep = set(sum(ids.values(), [])) | {_id("q", d["_file"], d["_rev"], k) for k in exams.KINDS}
+        retire(con, d["_file"], keep)                              # an earlier version of this file, if any
     return {"items": added_items, "sets": added_sets, "problems": problems[:30]}

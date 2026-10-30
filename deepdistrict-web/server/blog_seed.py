@@ -10,7 +10,7 @@ import json
 
 import images
 
-V = 2        # bump to add newly written starter posts (existing ones are never touched again)
+V = 3        # bump to add newly written starter posts (existing ones are never touched again)
 
 
 def _cover(c1, c2, label, glyph):
