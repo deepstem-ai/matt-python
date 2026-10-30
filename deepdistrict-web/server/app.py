@@ -38,6 +38,7 @@ from wsgiref.simple_server import WSGIRequestHandler, WSGIServer, make_server
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import notify  # noqa: E402
 import popups  # noqa: E402
+import learning  # noqa: E402  (AI news blog + SAT / IELTS exams)
 
 VERSION = (Path(__file__).resolve().parent.parent / "VERSION").read_text(encoding="utf-8").strip() if (Path(__file__).resolve().parent.parent / "VERSION").exists() else "dev"
 
@@ -82,6 +83,7 @@ def init_db():
         CREATE TABLE IF NOT EXISTS consent_log (ref TEXT NOT NULL, at TEXT NOT NULL, received TEXT NOT NULL, version INTEGER, choices TEXT NOT NULL, page TEXT);
         """)
         notify.init(con)
+        learning.init(con)
 
 
 def now_iso():
@@ -568,6 +570,7 @@ def cron(environ, start):
     if not key or not hmac.compare_digest((q.get("key") or [""])[0], key):
         return respond(start, "403 Forbidden", {"error": "bad key"})
     run_notifications(with_reminders=True)
+    learning.tick()
     return respond(start, "200 OK", {"ok": True})
 
 
@@ -599,6 +602,10 @@ def api(environ, start, path):
             # public: what the website should show — course status/visibility and the edited
             # test-prep catalogue and university finder (hidden entries are never sent)
             return respond(start, "200 OK", public_catalog(con), extra=[("Cache-Control", "no-store")])
+
+        pub = learning.public_routes(con, path, method, environ)
+        if pub:
+            return respond(start, pub[0], pub[1], extra=[("Cache-Control", "no-store")])
 
         if path == "consent" and method == "POST":
             # proof of cookie consent (PDPA): random reference, time, policy version and choices only —
@@ -648,6 +655,12 @@ def api(environ, start, path):
 
         if not me:
             return respond(start, "401 Unauthorized", {"error": "sign in required"})
+
+        out = learning.routes(con, me, path, method, body, environ)
+        if out:
+            if out[0] != "200 OK":
+                con.rollback()
+            return respond(start, out[0], out[1], extra=[("Cache-Control", "no-store")])
 
         if path == "bootstrap" and method == "GET":
             return respond(start, "200 OK", bootstrap(con, me))
@@ -796,6 +809,7 @@ def api(environ, start, path):
                     "prepCatalog": get_kv(con, "prepCatalog", None), "pathways": get_kv(con, "pathways", None)}
             for col in COLLECTIONS:
                 data[col] = load_col(con, col)
+            data.update(learning.backup(con))
             data["credentials"] = [dict(r) for r in con.execute("SELECT user_id, salt, hash FROM credentials")]
             audit(con, me, "Exported backup")
             return respond(start, "200 OK", data, extra=[("Content-Disposition", f'attachment; filename="deepdistrict-backup-{datetime.now():%Y-%m-%d}.json"')])
@@ -824,6 +838,7 @@ def api(environ, start, path):
                     except (ValueError, TypeError):
                         pass
                 set_kv(con, "popups", {"enabled": bool(body["popups"].get("enabled")), "items": kept[:50]})
+            learning.restore(con, body)
             con.execute("DELETE FROM auth_sessions WHERE user_id != ?", (me["id"],))
             audit(con, me, "Restored backup")
             return respond(start, "200 OK", {"ok": True})
@@ -832,7 +847,7 @@ def api(environ, start, path):
             if body.get("confirm") != "ERASE":
                 return respond(start, "400 Bad Request", {"error": "confirmation missing"})
             daily_backup()
-            for t in ("records", "kv", "credentials", "auth_sessions", "audit", "notifications", "user_prefs", "line_users", "line_codes", "consent_log"):
+            for t in ("records", "kv", "credentials", "auth_sessions", "audit", "notifications", "user_prefs", "line_users", "line_codes", "consent_log") + learning.TABLES:
                 con.execute(f"DELETE FROM {t}")
             return respond(start, "200 OK", {"ok": True}, extra=[cookie(environ, "", clear=True)])
 
@@ -875,6 +890,7 @@ def application(environ, start):
 mimetypes.add_type("application/javascript", ".js")
 mimetypes.add_type("font/woff2", ".woff2")
 mimetypes.add_type("application/manifest+json", ".webmanifest")
+learning.setup(db=db, lock=_lock, audit=audit, load_col=load_col, get_rec=get_rec, now_iso=now_iso)
 init_db()
 
 
@@ -901,6 +917,7 @@ def main():
         while True:
             time.sleep(20)
             run_notifications(with_reminders=True)
+            learning.tick()
     threading.Thread(target=loop, daemon=True).start()
     # if the port is taken (often an older DeepDistrict still running), use the next free one
     httpd = None

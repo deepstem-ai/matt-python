@@ -1,5 +1,65 @@
 # Changelog
 
+## 5.3 r1 — October 2026
+- **News blog written with AI, checked by people** (`server/blog.py`, `pages/blog.html`, back office → News blog).
+  - Two branches: **STEM, AI & SI technologies** (AI & SI, coding & Apple tech, STEM & innovation,
+    research & competitions) and **Standard tests & higher education** (TCAS, SAT, IELTS & English,
+    medicine, study abroad, scholarships). Categories are editable.
+  - **Write with AI:** give a topic and scope. Or leave the topic empty and the AI picks a recent one.
+    - Claude searches only the trusted sites of that branch and writes Thai + English versions in our tone.
+    - Only sources the search really returned are kept.
+    - The draft waits in "review".
+  - **Automatic writer:** chosen days and hour, 1–3 posts each time, taking turns between categories.
+    "Auto-publish" can be allowed per category, and only when every check passes.
+  - **Cover images:**
+    - a free-licence photo from Openverse (CC0, public domain, CC BY, CC BY-SA), with the credit shown under it
+    - or an AI drawing (SVG, rebuilt from a safe allow-list)
+    - or an upload
+  - **Checks before publishing:**
+    - both languages and a full text
+    - at least one source for AI posts
+    - no banned phrase
+    - photo credit present
+  - **Status flow:** idea → drafting → review → scheduled/published → archived/rejected, with history and audit.
+  - **Public pages:** a "News" link in the menu, the blog page with branch tabs and category chips,
+    an article page (sources, AI label, "check the official site" note), and latest-news cards on the
+    home and admissions pages.
+- **Online tests: SAT Reading & Writing, IELTS Academic Reading and Writing** (`server/exams.py`,
+  back office → Online tests / Exam item bank / Writing marking, full-screen `admin/exam.html`).
+  - **SAT R&W full test:** 2 adaptive modules × 27 questions × 32 minutes.
+    - Domain order and easy→hard inside each skill group.
+    - Up to 2 unscored pretest items per module.
+    - Module 2 is harder or easier depending on module 1.
+    - Answers can change only inside the current module.
+    - Mark for review, answer eliminator, question navigator, "check your work".
+    - Score estimate 200–800, with the easier-route ceiling.
+  - **IELTS Reading full test:** 3 passages, exactly 40 questions, 2,150–2,750 words, 60 minutes.
+    - All official question types.
+    - Spelling and word limits are checked.
+    - Band estimate from the 40 answers.
+  - **IELTS Writing full test:** Task 1 (150+) and Task 2 (250+) in 60 minutes.
+    - Live word count, no spell-check.
+    - AI suggests a band per criterion; a teacher confirms it.
+    - Task 2 counts twice as much as Task 1.
+  - **Practice modes:** SAT by topic, one reading passage, one writing task.
+  - **Timing and data:** time is kept by the server and answers save automatically. Answer keys
+    reach the browser only after the end. Every attempt keeps a snapshot of its items.
+  - **Item bank:**
+    - statuses draft → review → approved → retired, every version kept
+    - checks follow the real format
+    - an "original content" confirmation is needed to approve
+    - AI drafts items, teachers approve
+    - readiness meter
+    - 11 original sample items
+  - **Results:** parents see their children's results; teachers see their students'.
+- **AI settings** (back office): model, effort, monthly job and dollar limits, prices, and a log of
+  every call with tokens, searches and cost.
+  - The API key stays in the server environment (`ANTHROPIC_API_KEY`).
+  - Refused requests fall back to Anthropic's recommended model.
+- Backups and restore include blog posts, exam items, attempts and their settings.
+  "Erase all" clears them too. Pop-ups can also target the News page.
+- `docs/PLAN-AI-BLOG-SAT-IELTS.md` and `server/DEPLOY.md` (AI set-up) updated.
+
 ## 5.2 r1 — October 2026
 - **"Minimum score or winning score?"** (Admissions page), in our own words:
   - the three ways scores are used: entry ticket, ranking score, whole-person review

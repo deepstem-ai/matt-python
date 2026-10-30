@@ -10,7 +10,7 @@
   var PAGE_NAMES = {
     all: ["All pages (not the privacy page)", "ทุกหน้า (ยกเว้นหน้านโยบายความเป็นส่วนตัว)"], home: ["Home", "หน้าแรก"], programs: ["Programs", "หลักสูตร"],
     admissions: ["Admissions", "สอบเข้ามหาลัย"], si: ["What is SI?", "SI คืออะไร"], innovation: ["Innovation Lab", "แล็บนวัตกรรม"], research: ["Research", "วิจัย"],
-    stem: ["Youth STEM", "STEM เยาวชน"], partners: ["Partners", "พันธมิตร"], about: ["About", "เกี่ยวกับเรา"], contact: ["Contact", "ติดต่อ"]
+    stem: ["Youth STEM", "STEM เยาวชน"], partners: ["Partners", "พันธมิตร"], about: ["About", "เกี่ยวกับเรา"], contact: ["Contact", "ติดต่อ"], blog: ["News", "ข่าวสาร"]
   };
   var FREQ = { visit: ["Every visit", "ทุกครั้งที่เข้าเว็บ"], day: ["Once a day", "วันละครั้ง"], once: ["Only once", "ครั้งเดียว"] };
   var STATUS = {

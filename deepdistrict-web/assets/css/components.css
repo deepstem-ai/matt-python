@@ -1156,3 +1156,47 @@ html[lang="th"] .punchline p { font-family: var(--f-display-th); }
 .cd-test__note--score { padding: 8px 12px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 8%, transparent); color: var(--text) !important; }
 @media (max-width: 1000px) { .sg-kinds, .sg-systems { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 640px) { .sg-kinds, .sg-systems { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   v5.3 — News & insights (blog)
+   ========================================================================== */
+.news-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.news-tab { padding: 10px 18px; border: 1px solid var(--line); border-radius: var(--r-pill); background: var(--surface); color: var(--text); font-weight: 600; text-decoration: none; }
+.news-tab[aria-selected="true"] { background: var(--grad-brand); color: #fff; border-color: transparent; }
+.news-tab--stem[aria-selected="true"] { background: linear-gradient(120deg, #0e8fa8, #4f46e5); }
+.news-tab--tests[aria-selected="true"] { background: linear-gradient(120deg, #1d3fb8, #c27c0e); }
+.news-cats { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+.news-chip { padding: 5px 12px; border: 1px solid var(--line); border-radius: var(--r-pill); font-size: var(--fs-sm); color: var(--text-dim); text-decoration: none; background: var(--surface-2); }
+.news-chip.is-on, .news-chip:hover { color: var(--text); border-color: var(--blue); }
+.news-card { padding: 0; overflow: hidden; display: flex; flex-direction: column; text-decoration: none; color: inherit; }
+.news-card__img { aspect-ratio: 1200 / 630; background: var(--surface-2); overflow: hidden; }
+.news-card__img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.news-card__img--none { background: var(--grad-si); opacity: 0.35; }
+.news-card__body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.news-card__cat { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--blue); }
+.news-card__date { margin-top: auto; font-size: var(--fs-xs); color: var(--text-faint); }
+.news-empty { padding: 40px 0; text-align: center; color: var(--text-dim); }
+.news-more { justify-content: center; margin-top: 28px; }
+.news-article { max-width: 760px; margin: 0 auto; }
+.news-article h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 8px 0 10px; line-height: 1.2; }
+.news-back { font-size: var(--fs-sm); margin: 0 0 18px; }
+.news-meta { color: var(--text-dim); font-size: var(--fs-sm); margin: 0 0 20px; }
+.news-ai { display: inline-block; padding: 2px 10px; border-radius: var(--r-pill); background: var(--surface-2); border: 1px solid var(--line); font-size: var(--fs-xs); }
+.news-cover { margin: 0 0 22px; }
+.news-cover img { width: 100%; aspect-ratio: 1200 / 630; object-fit: cover; border-radius: var(--r-md); display: block; background: var(--surface-2); }
+.news-cover figcaption { font-size: var(--fs-xs); color: var(--text-faint); margin-top: 6px; overflow-wrap: anywhere; }
+.news-lead { font-size: var(--fs-lg); color: var(--text-dim); }
+.news-body h3 { margin: 28px 0 8px; font-size: 1.35rem; }
+.news-body h4 { margin: 20px 0 6px; }
+.news-body p, .news-body li { font-size: var(--fs-md); line-height: 1.75; overflow-wrap: anywhere; }
+.news-body ul { padding-left: 1.2em; }
+.news-sources { margin-top: 32px; padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--r-md); background: var(--surface-2); }
+.news-sources h2 { font-size: 1rem; margin: 0 0 8px; }
+.news-sources li { font-size: var(--fs-sm); overflow-wrap: anywhere; }
+.news-note { margin: 22px 0; padding: 14px 18px; border-left: 4px solid var(--amber); background: color-mix(in srgb, var(--amber) 10%, var(--surface)); border-radius: var(--r-sm); font-size: var(--fs-sm); }
+.news-note .btn { margin-left: 6px; }
+
+/* online tests teaser (admissions page) */
+.test-cards .card { gap: 10px; }
+.test-cards .card .btn { align-self: flex-start; margin-top: auto; }
+.test-rule { font-size: var(--fs-xs); color: var(--text-faint); }

@@ -1,0 +1,612 @@
+"""API routes for the AI news blog and the SAT / IELTS exam module (wired into app.api()).
+
+Kept apart from app.py so that file stays about accounts, lessons and payments. Everything here
+uses the same database connection, lock, sign-in and audit log as the rest of the server.
+AI work runs in a background thread: the request returns at once and the page polls for the result.
+"""
+
+import json
+import threading
+import traceback
+import sys
+from datetime import datetime, timedelta, timezone
+from urllib.parse import parse_qs
+
+import ai
+import blog
+import exams
+import exam_samples
+import images
+
+STALE = timedelta(minutes=15)
+H = {}          # filled by app.py: db, lock, audit, load_col, get_rec, now_iso
+
+
+def setup(**helpers):
+    H.update(helpers)
+
+
+def init(con):
+    ai.init(con)
+    blog.init(con)
+    exams.init(con)
+
+
+# ---------------------------------------------------------------- background AI jobs
+def run_ai(con, kind, ref, uid, note, call, done):
+    """Open an AI job (checks limits; raises ai.AIError), run call(cfg) in a thread without the lock,
+    then done(con, result, error) under the lock. Returns the job id."""
+    jid, cfg = ai.start_job(con, kind, ref, uid, note)
+
+    def work():
+        res, err = None, None
+        try:
+            res = call(cfg)
+        except Exception as e:  # noqa: BLE001 — every failure is recorded on the job
+            err = e
+            if not isinstance(e, (ai.AIError, images.ImageError, ValueError)):
+                traceback.print_exc(file=sys.stderr)
+        with H["lock"], H["db"]() as c2:
+            try:
+                done(c2, res, err)
+            except Exception as e2:  # noqa: BLE001
+                traceback.print_exc(file=sys.stderr)
+                err = err or e2
+            ai.finish_job(c2, jid, cfg, (res or {}).get("usage") if isinstance(res, dict) else None, err)
+    t = threading.Thread(target=work, daemon=True)
+    t.start()
+    return jid
+
+
+def _add(u, v):
+    for k in ("input_tokens", "output_tokens", "searches"):
+        u[k] = u.get(k, 0) + (v or {}).get(k, 0)
+    return u
+
+
+def cleanup_stale(con):
+    cut = (datetime.now(timezone.utc) - STALE).isoformat(timespec="seconds")
+    con.execute("UPDATE ai_jobs SET status='failed', error='interrupted (server restarted?)' WHERE status='running' AND at < ?", (cut,))
+    for p in blog.all_posts(con):
+        if p["status"] == "drafting" and (p.get("updatedAt") or "") < cut:
+            p["status"] = "idea"; p["ai"]["error"] = "the AI job was interrupted — try again"
+            blog.put(con, p)
+
+
+# ---------------------------------------------------------------- blog: AI writer
+def generate(con, uid, cat, topic="", scope="", auto=False, pid=None):
+    bcfg = blog.settings(con)
+    p = blog.get(con, pid) if pid else None
+    if p and p["status"] == "drafting":
+        raise ValueError("the AI is already writing this post")
+    p = p or blog.new_post(con, bcfg, cat, uid, topic, scope)
+    if pid and (topic or scope):
+        p["ai"].update({"topic": str(topic)[:300], "scope": str(scope)[:1000]})
+    topic, scope = p["ai"].get("topic", ""), p["ai"].get("scope", "")
+    branch, cat = p["branch"], p["category"]
+    recent = [x["title"]["en"] or x["title"]["th"] for x in blog.all_posts(con) if x["category"] == cat and x["title"]["en"]][:15]
+    system, prompt = blog.write_system(bcfg, branch), blog.write_prompt(bcfg, cat, topic, scope, recent)
+    domains, mode = bcfg["allow"].get(branch) or [], bcfg["image"]
+    p["status"] = "drafting"; p["ai"].pop("error", None)
+    blog.log(p, uid or "auto", "AI writing started" + (" (automatic)" if auto else ""))
+    blog.put(con, p)
+
+    def call(cfg):
+        r = ai.ask(cfg, system, prompt, web_domains=domains, max_searches=6)
+        if not isinstance(r.get("data"), dict):
+            raise ai.AIError("the AI answer had no article data")
+        usage, data, cover, notes = dict(r["usage"]), r["data"], None, []
+        title = (data.get("title") or {}).get("en") or (data.get("title") or {}).get("th") or topic
+        summary = (data.get("summary") or {}).get("en") or ""
+        if mode in ("photo-then-draw", "photo"):
+            try:
+                for item in images.search_photos(data.get("imageQuery") or title, 8)[:4]:
+                    try:
+                        cover = {"src": images.fetch_photo(item), "kind": "photo", "credit": images.credit(item)}
+                        break
+                    except images.ImageError:
+                        continue
+            except images.ImageError as e:
+                notes.append(str(e))
+        if not cover and mode in ("photo-then-draw", "draw"):
+            try:
+                d = ai.ask(cfg, images.DRAW_SYSTEM, images.draw_prompt(title, summary, branch), schema=images.DRAW_SCHEMA)
+                _add(usage, d["usage"])
+                cover = {"src": images.svg_data_url(images.clean_svg(d["data"].get("svg"))), "kind": "drawing", "credit": None}
+            except (ai.AIError, images.ImageError) as e:
+                notes.append("drawing: " + str(e))
+        return {"usage": usage, "data": data, "sources": r["sources"], "cover": cover, "notes": notes}
+
+    def done(c2, res, err):
+        q = blog.get(c2, p["id"])
+        if not q:
+            return
+        if err or not res:
+            q["status"] = "idea"; q["ai"]["error"] = str(err or "no answer")[:300]
+            blog.log(q, "system", "AI writing failed: " + q["ai"]["error"]); blog.put(c2, q)
+            return
+        try:
+            blog.apply_ai(q, res["data"], res["sources"], bcfg)
+        except ValueError as e:
+            q["status"] = "idea"; q["ai"]["error"] = str(e); blog.put(c2, q)
+            return
+        q["slug"] = blog.unique_slug(c2, q.pop("_wantSlug", "") or q["title"]["en"] or q["slug"], q["id"])
+        if res.get("cover"):
+            q["cover"], q["coverKind"], q["coverCredit"] = res["cover"]["src"], res["cover"]["kind"], res["cover"]["credit"]
+        q["ai"]["notes"] = res.get("notes") or []
+        q["status"] = "review"
+        blog.log(q, "system", f"AI draft ready ({len(q['sources'])} verified sources)")
+        if auto and cat in (bcfg["auto"].get("publish") or []) and not blog.problems(q, bcfg):
+            blog.set_status(q, "published", bcfg, "auto")
+        blog.put(c2, q)
+        H["audit"](c2, None, f"Blog: AI draft '{q['title']['en'] or q['title']['th']}' → {q['status']}")
+
+    run_ai(con, "blog", p["id"], uid, topic or ("auto: " + cat), call, done)
+    return p
+
+
+def draw_cover(con, uid, pid):
+    p = blog.get(con, pid)
+    if not p:
+        raise ValueError("post not found")
+    title, summary, branch = p["title"]["en"] or p["title"]["th"], p["summary"]["en"] or p["summary"]["th"], p["branch"]
+
+    def call(cfg):
+        d = ai.ask(cfg, images.DRAW_SYSTEM, images.draw_prompt(title, summary, branch), schema=images.DRAW_SCHEMA)
+        return {"usage": d["usage"], "src": images.svg_data_url(images.clean_svg(d["data"].get("svg")))}
+
+    def done(c2, res, err):
+        q = blog.get(c2, pid)
+        if q and res and not err:
+            q["cover"], q["coverKind"], q["coverCredit"] = res["src"], "drawing", None
+            blog.log(q, "system", "AI drew a new cover"); blog.put(c2, q)
+        elif q:
+            q["ai"]["error"] = "drawing failed: " + str(err)[:200]; blog.put(c2, q)
+
+    return run_ai(con, "blog-draw", pid, uid, "cover drawing", call, done)
+
+
+def tick():
+    """Publish scheduled posts and run the automatic writer when due (called every 20 s locally and by /api/cron)."""
+    try:
+        with H["lock"], H["db"]() as con:
+            cleanup_stale(con)
+            bcfg = blog.settings(con)
+            blog.publish_due(con, bcfg)
+            if blog.auto_due(con, bcfg):
+                blog.mark_auto_ran(con)
+                for cat in blog.next_auto_categories(con, bcfg):
+                    try:
+                        generate(con, None, cat, auto=True)
+                    except (ai.AIError, ValueError) as e:
+                        H["audit"](con, None, f"Blog automatic writer skipped ({cat}): {e}")
+                        break
+    except Exception as e:  # noqa: BLE001 — never stop the server loop
+        print("blog tick error", repr(e), file=sys.stderr)
+
+
+# ---------------------------------------------------------------- exams: helpers
+def students_of(con, me):
+    if me["role"] == "admin":
+        return None                                   # everyone
+    users = H["load_col"](con, "users")
+    if me["role"] == "teacher":
+        ids = {e.get("studentId") for e in H["load_col"](con, "enrolments") if e.get("teacherId") == me["id"]}
+        ids |= {u["id"] for u in users if u.get("createdBy") == me["id"] and u.get("role") == "student"}
+        return ids
+    if me["role"] == "parent":
+        return {u["id"] for u in users if u.get("guardianId") == me["id"]}
+    return set()
+
+
+def can_see(con, me, att):
+    if att["userId"] == me["id"]:
+        return True
+    s = students_of(con, me)
+    return s is None or att["userId"] in s
+
+
+def summary(a, names):
+    r = a.get("result") or {}
+    out = {k: a.get(k) for k in ("id", "kind", "mode", "status", "createdAt", "finishedAt", "preview")}
+    out["userId"], out["userName"] = a["userId"], names.get(a["userId"], "")
+    if a["kind"] == "sat":
+        out.update({"correct": r.get("correct"), "total": r.get("total"), "estimate": r.get("estimate")})
+    elif a["kind"] == "ielts-r":
+        out.update({"correct": r.get("correct"), "total": r.get("total"), "band": r.get("band")})
+    else:
+        t = r.get("teacher") or {}
+        out.update({"band": t.get("band"), "aiBand": (r.get("ai") or {}).get("band"), "marked": a["status"] == "marked"})
+    return out
+
+
+def attempts_for(con, me, limit=300):
+    names = {u["id"]: u.get("name", "") for u in H["load_col"](con, "users")}
+    s = students_of(con, me)
+    rows = con.execute("SELECT data FROM exam_attempts ORDER BY started_at DESC LIMIT 2000").fetchall()
+    out = []
+    for r in rows:
+        a = json.loads(r["data"])
+        if a["userId"] == me["id"] or s is None or a["userId"] in s:
+            out.append(summary(a, names))
+        if len(out) >= limit:
+            break
+    return out
+
+
+def writing_feedback(con, att, uid):
+    """Ask the AI for band suggestions on each Writing task (if AI is ready)."""
+    sec = att["sections"][0]
+    tasks = [(iid, att["snap"][iid], sec["answers"].get(iid, "")) for iid in sec["items"]]
+    att["result"]["aiPending"] = True; att["result"].pop("aiError", None)
+    exams.put_attempt(con, att)
+
+    def call(cfg):
+        usage, out = {}, {}
+        for iid, task, essay in tasks:
+            if exams.words(essay) < 20:
+                out[iid] = {"skipped": "too short to assess"}
+                continue
+            r = ai.ask(cfg, exams.FEEDBACK_SYSTEM, exams.feedback_content(task, essay), schema=exams.FEEDBACK_SCHEMA, max_tokens=8000)
+            _add(usage, r["usage"])
+            fb = r["data"]
+            cr = {k: max(0, min(9, int(fb["criteria"][k]["band"]))) for k in exams.CRITERIA}
+            out[iid] = {"criteria": {k: {"band": cr[k], "comment": str(fb["criteria"][k]["comment"])[:1200]} for k in exams.CRITERIA},
+                        "band": exams.task_band(cr), "strengths": [str(x)[:300] for x in fb.get("strengths", [])][:6],
+                        "improvements": [str(x)[:300] for x in fb.get("improvements", [])][:6],
+                        "corrections": [{"original": str(c.get("original"))[:300], "better": str(c.get("better"))[:300]} for c in fb.get("corrections", [])][:6],
+                        "summaryTh": str(fb.get("summary_th") or "")[:1200]}
+        return {"usage": usage, "ai": out}
+
+    def done(c2, res, err):
+        a = exams.get_attempt(c2, att["id"])
+        if not a:
+            return
+        a["result"]["aiPending"] = False
+        if err or not res:
+            a["result"]["aiError"] = str(err or "no answer")[:300]
+        else:
+            fb = res["ai"]
+            bands = {k: v.get("band") for k, v in fb.items() if v.get("band") is not None}
+            fb["band"] = exams.writing_band(a, bands)
+            a["result"]["ai"] = fb
+        exams.put_attempt(c2, a)
+
+    try:
+        return run_ai(con, "writing-feedback", att["id"], uid, "IELTS Writing feedback", call, done)
+    except ai.AIError as e:
+        att["result"]["aiPending"] = False; att["result"]["aiError"] = str(e)
+        exams.put_attempt(con, att)
+        return None
+
+
+def draft_items(con, uid, body):
+    kind = body.get("kind")
+    topic = str(body.get("topic") or "")[:300]
+    if kind == "sat":
+        dom = body.get("domain") if body.get("domain") in exams.SAT_DOMAINS else "cs"
+        skill = body.get("skill") if body.get("skill") in exams.SAT_DOMAINS[dom]["skills"] else ""
+        n = max(1, min(10, int(body.get("count") or 5)))
+        content, schema, conv = exams.sat_prompt(dom, skill, body.get("difficulty"), n, topic), exams.SAT_SCHEMA, lambda d: exams.from_ai_sat(d, dom)
+    elif kind == "ielts-r":
+        diff = max(1, min(3, int(body.get("difficulty") or 2)))
+        content, schema, conv = exams.reading_prompt(topic, diff), exams.READ_SCHEMA, lambda d: [exams.from_ai_reading(d, diff)]
+    elif kind == "ielts-w":
+        task = 1 if int(body.get("task") or 2) == 1 else 2
+        content, schema, conv = exams.wtask_prompt(task, topic), exams.WTASK_SCHEMA, lambda d: [exams.from_ai_wtask(d, task)]
+    else:
+        raise ValueError("unknown item type")
+
+    def call(cfg):
+        r = ai.ask(cfg, exams.ITEM_SYSTEM, content, schema=schema)
+        return {"usage": r["usage"], "items": conv(r["data"])}
+
+    def done(c2, res, err):
+        if err or not res:
+            H["audit"](c2, None, f"Exam bank: AI draft failed ({kind}): {str(err)[:200]}")
+            return
+        n = 0
+        for raw in res["items"]:
+            try:
+                it, _ = exams.clean_item(dict(raw, rightsOk=False))
+            except (ValueError, TypeError):
+                continue
+            it["status"] = "draft"; it["origin"] = "ai"
+            exams.save_item(c2, it, uid); n += 1
+        H["audit"](c2, None, f"Exam bank: AI drafted {n} {kind} item(s) — waiting for review")
+
+    return run_ai(con, "items", kind, uid, f"{kind} {topic}", call, done)
+
+
+# ---------------------------------------------------------------- routes
+def public_routes(con, path, method, environ):
+    """Routes that need no sign-in. Returns (status, body, cache) or None."""
+    if method != "GET":
+        return None
+    q = parse_qs(environ.get("QUERY_STRING", ""))
+    one = lambda k, d="": (q.get(k) or [d])[0]  # noqa: E731
+    if path == "blog":
+        bcfg = blog.settings(con)
+        if not bcfg["enabled"]:
+            return "200 OK", {"items": [], "total": 0, "off": True, "branches": blog.BRANCHES, "categories": bcfg["categories"]}
+        try:
+            limit, offset = max(1, min(30, int(one("limit", "12")))), max(0, int(one("offset", "0")))
+        except ValueError:
+            limit, offset = 12, 0
+        return "200 OK", blog.public_list(con, bcfg, one("branch")[:10] or None, one("cat")[:20] or None, limit, offset)
+    if path == "blog/post":
+        bcfg = blog.settings(con)
+        p = blog.public_get(con, bcfg, one("slug")) if bcfg["enabled"] else None
+        return ("200 OK", {"post": p, "branches": blog.BRANCHES}) if p else ("404 Not Found", {"error": "post not found"})
+    return None
+
+
+def routes(con, me, path, method, body, environ):
+    """Signed-in routes. Returns (status, body) or None when the path is not ours."""
+    q = parse_qs(environ.get("QUERY_STRING", ""))
+    one = lambda k, d="": (q.get(k) or [d])[0]  # noqa: E731
+    role, staff, admin = me["role"], me["role"] in ("admin", "teacher"), me["role"] == "admin"
+    ecfg = exams.settings(con)
+    try:
+        # ---------- exams: everyone signed in
+        if path == "exam/home" and method == "GET":
+            rd = exams.readiness(con)
+            return "200 OK", {"settings": ecfg, "ready": rd, "attempts": attempts_for(con, me), "role": role,
+                              "domains": {k: {"en": v["en"], "th": v["th"]} for k, v in exams.SAT_DOMAINS.items()},
+                              "aiReady": ai.status(con)["ready"]}
+        if path == "exam/start" and method == "POST":
+            if role == "parent":
+                return "403 Forbidden", {"error": "tests are taken from the student's own account"}
+            if role == "student" and not ecfg["studentsCanStart"]:
+                return "403 Forbidden", {"error": "online tests are closed at the moment — ask your teacher"}
+            a = exams.start(con, me, body, ecfg)
+            H["audit"](con, me, f"Started {a['kind']} {a['mode']} test {a['id']}")
+            return "200 OK", {"id": a["id"]}
+        if path.startswith("exam/") and path in ("exam/attempt", "exam/answer", "exam/submit"):
+            aid = one("id") if method == "GET" else body.get("id")
+            a = exams.get_attempt(con, aid)
+            if not a or not can_see(con, me, a):
+                return "404 Not Found", {"error": "test not found"}
+            own = a["userId"] == me["id"]
+            if path == "exam/attempt":
+                if exams.tick(con, a, ecfg) and a["kind"] == "ielts-w" and a["status"] == "submitted":
+                    writing_feedback(con, a, me["id"])
+                return "200 OK", exams.view(a, ecfg, staff=staff and not own)
+            if not own:
+                return "403 Forbidden", {"error": "only the person taking the test can answer"}
+            if path == "exam/answer":
+                exams.save_answers(con, a, body, ecfg)
+                return "200 OK", {"ok": True, "serverNow": exams.iso(), "deadline": a["sections"][a["current"]]["deadline"]}
+            if a["status"] != "active":
+                return "400 Bad Request", {"error": "this test is already finished"}
+            if body.get("answers"):
+                exams.save_answers(con, a, body, ecfg)
+            exams.submit_section(con, a, ecfg)
+            if a["status"] != "active":
+                H["audit"](con, me, f"Finished {a['kind']} {a['mode']} test {a['id']}")
+                if a["kind"] == "ielts-w":
+                    writing_feedback(con, a, me["id"])
+            return "200 OK", exams.view(a, ecfg)
+
+        # ---------- exams: staff
+        if path.startswith("exam/") and not staff:
+            return "403 Forbidden", {"error": "staff only"}
+        if path == "exam/bank" and method == "GET":
+            kind = one("kind")
+            lst = exams.items(con, kind if kind in exams.KINDS else None)
+            out = []
+            for it in lst:
+                _, probs = exams.clean_item(it, it)
+                lite = {k: v for k, v in it.items() if k not in ("paragraphs", "image")}
+                if it["kind"] == "ielts-r":
+                    lite["groups"] = [{"type": g["type"], "n": len(g["questions"])} for g in it["groups"]]
+                lite["problems"] = probs
+                out.append(lite)
+            return "200 OK", {"items": out, "ready": exams.readiness(con), "domains": exams.SAT_DOMAINS, "types": exams.IELTS_TYPES,
+                              "criteria": exams.CRITERIA, "ai": ai.status(con)["ready"]}
+        if path == "exam/item" and method == "GET":
+            it = exams.get_item(con, one("id"))
+            if not it:
+                return "404 Not Found", {"error": "not found"}
+            vers = [dict(r) for r in con.execute("SELECT version, at, by FROM exam_item_versions WHERE id=? ORDER BY version DESC", (it["id"],))]
+            return "200 OK", {"item": it, "problems": exams.clean_item(it, it)[1], "versions": vers}
+        if path == "exam/bank" and method == "POST":
+            if isinstance(body.get("save"), dict):
+                old = exams.get_item(con, body["save"].get("id")) if body["save"].get("id") else None
+                it, probs = exams.clean_item(body["save"], old)
+                if body["save"].get("status") == "approved" and probs:
+                    return "400 Bad Request", {"error": "cannot approve yet: " + "; ".join(probs), "problems": probs}
+                exams.save_item(con, it, me["id"])
+                H["audit"](con, me, f"Exam bank: saved {it['kind']} item {it['id']} v{it['version']} ({it['status']})")
+                return "200 OK", {"ok": True, "id": it["id"], "problems": probs, "status": it["status"]}
+            if isinstance(body.get("status"), dict):
+                it = exams.get_item(con, body["status"].get("id"))
+                to = body["status"].get("to")
+                if not it or to not in exams.STATUSES:
+                    return "400 Bad Request", {"error": "bad request"}
+                if to == "approved":
+                    probs = exams.clean_item(it, it)[1]
+                    if probs:
+                        return "400 Bad Request", {"error": "cannot approve yet: " + "; ".join(probs), "problems": probs}
+                it["status"] = to
+                exams.save_item(con, it, me["id"])
+                H["audit"](con, me, f"Exam bank: {it['id']} → {to}")
+                return "200 OK", {"ok": True}
+            if body.get("delete"):
+                if not admin:
+                    return "403 Forbidden", {"error": "only admins delete items (teachers can retire them)"}
+                used = con.execute("SELECT COUNT(*) FROM exam_attempts WHERE data LIKE ?", ('%"' + str(body["delete"])[:30] + '"%',)).fetchone()[0]
+                if used:
+                    return "400 Bad Request", {"error": "this item was used in tests — retire it instead"}
+                con.execute("DELETE FROM exam_items WHERE id=?", (body["delete"],))
+                H["audit"](con, me, f"Exam bank: deleted {body['delete']}")
+                return "200 OK", {"ok": True}
+            if body.get("samples"):
+                have = {json.dumps(i.get("tags")) + (i.get("stem") or i.get("title") or i.get("prompt") or "") for i in exams.items(con)}
+                n = 0
+                for raw in exam_samples.all_items():
+                    k = json.dumps(raw["tags"]) + (raw.get("stem") or raw.get("title") or raw.get("prompt") or "")
+                    if k in have:
+                        continue
+                    it, _ = exams.clean_item(raw)
+                    exams.save_item(con, it, me["id"]); n += 1
+                H["audit"](con, me, f"Exam bank: loaded {n} sample items")
+                return "200 OK", {"ok": True, "added": n}
+            if isinstance(body.get("draft"), dict):
+                jid = draft_items(con, me["id"], body["draft"])
+                return "200 OK", {"ok": True, "job": jid}
+            return "400 Bad Request", {"error": "unknown action"}
+        if path == "exam/marking" and method == "GET":
+            names = {u["id"]: u.get("name", "") for u in H["load_col"](con, "users")}
+            s = students_of(con, me)
+            out = []
+            for r in con.execute("SELECT data FROM exam_attempts WHERE kind='ielts-w' AND status IN ('submitted','marked') ORDER BY finished_at DESC LIMIT 300"):
+                a = json.loads(r["data"])
+                if s is None or a["userId"] in s or a["userId"] == me["id"]:
+                    out.append(summary(a, names))
+            return "200 OK", {"items": out, "criteria": exams.CRITERIA}
+        if path == "exam/mark" and method == "POST":
+            a = exams.get_attempt(con, body.get("id"))
+            if not a or a["kind"] != "ielts-w" or not can_see(con, me, a) or a["status"] not in ("submitted", "marked"):
+                return "404 Not Found", {"error": "not found"}
+            bands, crit = {}, {}
+            for iid in a["sections"][0]["items"]:
+                c = (body.get("criteria") or {}).get(iid) or {}
+                try:
+                    cr = {k: max(0.0, min(9.0, float(c[k]))) for k in exams.CRITERIA}
+                except (KeyError, TypeError, ValueError):
+                    return "400 Bad Request", {"error": "give all four criteria for every task (0–9)"}
+                crit[iid], bands[iid] = cr, exams.task_band(cr)
+            a["result"]["teacher"] = {"criteria": crit, "tasks": bands, "band": exams.writing_band(a, bands),
+                                      "comment": str(body.get("comment") or "")[:3000], "by": me["id"], "byName": me.get("name"), "at": exams.iso()}
+            a["status"] = "marked"
+            exams.put_attempt(con, a)
+            H["audit"](con, me, f"Marked IELTS Writing test {a['id']} — band {a['result']['teacher']['band']}")
+            return "200 OK", {"ok": True, "band": a["result"]["teacher"]["band"]}
+        if path == "exam/feedback" and method == "POST":
+            a = exams.get_attempt(con, body.get("id"))
+            if not a or a["kind"] != "ielts-w" or not can_see(con, me, a) or a["status"] == "active":
+                return "404 Not Found", {"error": "not found"}
+            jid = writing_feedback(con, a, me["id"])
+            return ("200 OK", {"ok": True, "job": jid}) if jid else ("400 Bad Request", {"error": a["result"].get("aiError") or "AI is not ready"})
+        if path == "exam/settings" and method == "POST":
+            if not admin:
+                return "403 Forbidden", {"error": "admin only"}
+            return "200 OK", {"settings": exams.save_settings(con, body)}
+
+        # ---------- blog & AI: admins
+        if path.startswith(("blog-admin", "blog/photos", "ai-admin")) and not admin:
+            return "403 Forbidden", {"error": "admin only"}
+        if path == "ai-admin" and method == "GET":
+            return "200 OK", {**ai.status(con), "jobs": ai.jobs(con, 100)}
+        if path == "ai-admin" and method == "POST":
+            cfg = ai.save_settings(con, body)
+            H["audit"](con, me, "Updated AI settings")
+            return "200 OK", {"settings": cfg}
+        if path == "blog-admin" and method == "GET":
+            cleanup_stale(con)
+            posts = blog.all_posts(con)
+            bcfg = blog.settings(con)
+            for p in posts:
+                p["problems"] = blog.problems(p, bcfg)
+            return "200 OK", {"posts": posts, "settings": bcfg, "branches": blog.BRANCHES, "ai": ai.status(con),
+                              "statuses": blog.STATUSES, "imageModes": blog.IMAGE_MODES}
+        if path == "blog/photos" and method == "GET":
+            return "200 OK", {"items": images.search_photos(one("q"), 16)}
+        if path == "blog-admin" and method == "POST":
+            bcfg = blog.settings(con)
+            if isinstance(body.get("settings"), dict):
+                bcfg = blog.save_settings(con, body["settings"])
+                H["audit"](con, me, "Updated blog settings")
+                return "200 OK", {"ok": True, "settings": bcfg}
+            if isinstance(body.get("generate"), dict):
+                g = body["generate"]
+                p = generate(con, me["id"], g.get("category"), str(g.get("topic") or "").strip(), str(g.get("scope") or "").strip(), pid=g.get("id"))
+                return "200 OK", {"ok": True, "id": p["id"]}
+            if body.get("draw"):
+                draw_cover(con, me["id"], body["draw"])
+                return "200 OK", {"ok": True}
+            if isinstance(body.get("photo"), dict):
+                p = blog.get(con, body["photo"].get("id"))
+                item = body["photo"].get("item") or {}
+                if not p:
+                    return "404 Not Found", {"error": "post not found"}
+                p["cover"], p["coverKind"], p["coverCredit"] = images.fetch_photo(item), "photo", images.credit(item)
+                blog.log(p, me["id"], "cover photo chosen"); blog.put(con, p)
+                return "200 OK", {"ok": True}
+            if isinstance(body.get("save"), dict):
+                s = body["save"]
+                p = blog.get(con, s.get("id")) if s.get("id") else blog.new_post(con, bcfg, s.get("category"), me["id"])
+                if not p:
+                    return "404 Not Found", {"error": "post not found"}
+                if p["status"] == "idea" and not s.get("id"):
+                    p["status"] = "review"
+                blog.clean_edit(p, s, bcfg, images.check_cover)
+                if s.get("slug"):
+                    p["slug"] = blog.unique_slug(con, s["slug"], p["id"])
+                elif p["slug"].startswith("post-") and p["title"]["en"]:
+                    p["slug"] = blog.unique_slug(con, p["title"]["en"], p["id"])
+                if p["status"] == "idea" and (p["title"]["en"] or p["title"]["th"]):
+                    p["status"] = "review"
+                if p["status"] in ("published", "scheduled") and blog.problems(p, bcfg):
+                    return "400 Bad Request", {"error": "a published post must stay complete: " + "; ".join(blog.problems(p, bcfg))}
+                blog.log(p, me["id"], "edited"); blog.put(con, p)
+                H["audit"](con, me, f"Blog: saved '{p['title']['en'] or p['title']['th']}'")
+                return "200 OK", {"ok": True, "id": p["id"], "slug": p["slug"], "problems": blog.problems(p, bcfg)}
+            if isinstance(body.get("status"), dict):
+                p = blog.get(con, body["status"].get("id"))
+                if not p:
+                    return "404 Not Found", {"error": "post not found"}
+                blog.set_status(p, body["status"].get("to"), bcfg, me["id"], body["status"].get("publishAt"))
+                blog.put(con, p)
+                H["audit"](con, me, f"Blog: '{p['title']['en'] or p['title']['th']}' → {p['status']}")
+                return "200 OK", {"ok": True}
+            if body.get("delete"):
+                blog.delete(con, body["delete"])
+                H["audit"](con, me, "Blog: deleted a post")
+                return "200 OK", {"ok": True}
+            return "400 Bad Request", {"error": "unknown action"}
+    except (ValueError, TypeError, images.ImageError) as e:
+        return "400 Bad Request", {"error": str(e)}
+    except ai.AIError as e:
+        return "409 Conflict", {"error": str(e)}
+    return None
+
+
+# ---------------------------------------------------------------- backup / restore / erase
+TABLES = ("blog_posts", "exam_items", "exam_item_versions", "exam_attempts", "ai_jobs")
+
+
+def backup(con):
+    return {"blog": blog.all_posts(con), "blogSettings": blog.settings(con), "examItems": exams.items(con),
+            "examAttempts": [json.loads(r["data"]) for r in con.execute("SELECT data FROM exam_attempts")],
+            "examSettings": exams.settings(con), "aiSettings": ai.settings(con)}
+
+
+def restore(con, body):
+    for t in ("blog_posts", "exam_items", "exam_attempts"):
+        con.execute(f"DELETE FROM {t}")
+    if isinstance(body.get("blogSettings"), dict):
+        blog.save_settings(con, body["blogSettings"])
+    for p in body.get("blog") or []:
+        try:
+            p["cover"] = images.check_cover(p.get("cover"))
+            if p.get("status") not in blog.STATUSES or p["status"] == "drafting":
+                p["status"] = "review"
+            p["slug"] = blog.unique_slug(con, p.get("slug") or p.get("id"), p["id"])
+            blog.put(con, p)
+        except (KeyError, TypeError, images.ImageError):
+            continue
+    for raw in body.get("examItems") or []:
+        try:
+            it, _ = exams.clean_item(raw, {"id": raw["id"], "version": max(0, int(raw.get("version") or 1) - 1)})
+            exams.save_item(con, it, raw.get("updatedBy"))
+        except (KeyError, ValueError, TypeError):
+            continue
+    for a in body.get("examAttempts") or []:
+        if isinstance(a, dict) and a.get("id") and a.get("userId") and a.get("kind") in exams.KINDS:
+            exams.put_attempt(con, a)
+    if isinstance(body.get("examSettings"), dict):
+        exams.save_settings(con, body["examSettings"])
+    if isinstance(body.get("aiSettings"), dict):
+        ai.save_settings(con, body["aiSettings"])

@@ -51,6 +51,37 @@ Free-plan limits to know (check PythonAnywhere's current terms): one web app, ab
 512 MB disk, a monthly click to keep the free app running, and community support only.
 For a custom domain (e.g. `portal.deepdistrict.si`) a paid plan is needed.
 
+## AI (Claude): news blog writer and online tests
+
+The news blog writer, the cover drawings, AI-drafted exam items and IELTS Writing feedback use
+Claude through the official Anthropic SDK. Everything else works without it.
+
+1. **Install the SDK** (once). Locally: `pip install anthropic`. On PythonAnywhere, in a Bash
+   console: `pip3.13 install --user anthropic` (use the same Python version as the web app).
+2. **API key** — create one at console.anthropic.com and set a monthly spend limit there too.
+   Give it to the server as the environment variable `ANTHROPIC_API_KEY`. Never commit it, never
+   paste it into the back office or a chat.
+   * Locally (Windows PowerShell): `$env:ANTHROPIC_API_KEY="…"` before `python server/app.py`;
+     macOS/Linux: `export ANTHROPIC_API_KEY=…`.
+   * PythonAnywhere: add these two lines at the top of the WSGI configuration file (it is private
+     to your account), then reload the web app:
+     ```python
+     import os
+     os.environ["ANTHROPIC_API_KEY"] = "…your key…"
+     ```
+3. **Back office → AI settings**: switch AI on, enter the model id (from Anthropic's models page),
+   the monthly job and dollar limits, and the token prices from Anthropic's pricing page so the
+   cost estimate works. Every AI call is logged there with tokens, web searches and cost.
+4. **Internet access**: the server must reach `api.anthropic.com` (Claude) and
+   `api.openverse.org` (free-licence photos). On PythonAnywhere this needs a paid plan.
+5. **Timer**: scheduled posts and the automatic writer run from the same *Online hosting timer*
+   URL as reminders (Back office → Notifications). Call it every 5–15 minutes from a free cron
+   service, or from a PythonAnywhere scheduled task (paid plan).
+
+How the AI work runs: the request returns at once and the work continues in a background thread
+of the web worker; pages refresh by themselves. If a worker restarts mid-job, the job is marked
+"interrupted" after 15 minutes and can simply be started again.
+
 ## Email
 
 Settings → Email in the back office. With Gmail / Google Workspace: host `smtp.gmail.com`, port

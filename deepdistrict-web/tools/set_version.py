@@ -25,7 +25,7 @@ def main():
     prefs.write_text(re.sub(r'SITE_VERSION: "[^"]*"', f'SITE_VERSION: "{version}"', prefs.read_text(encoding="utf-8")), encoding="utf-8")
 
     link = re.compile(r'((?:src|href)=")((?:\.\./)?(?:assets|css|js|vendor)/[^"?#]+\.(?:js|css))(?:\?v=[^"]*)?(")')
-    pages = [ROOT / "index.html", ROOT / "admin/index.html", *sorted((ROOT / "pages").glob("*.html"))]
+    pages = [ROOT / "index.html", ROOT / "admin/index.html", ROOT / "admin/exam.html", *sorted((ROOT / "pages").glob("*.html"))]
     for p in pages:
         text = p.read_text(encoding="utf-8")
         new = link.sub(lambda m: f"{m.group(1)}{m.group(2)}?v={tag}{m.group(3)}", text)

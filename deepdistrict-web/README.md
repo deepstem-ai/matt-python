@@ -9,7 +9,7 @@ industry. Every course is **personalised** and offered **live on Zoom, onsite or
 
 Plain HTML, CSS and JavaScript. No build step and no dependencies. Works from disk.
 
-**Version 5.2 r1** (see `VERSION` and `CHANGELOG.md`).
+**Version 5.3 r1** (see `VERSION` and `CHANGELOG.md`).
 
 ## Run it on your computer
 
@@ -38,6 +38,7 @@ See `admin/README.md` (features) and `server/DEPLOY.md` (LAN use and free hostin
 | Innovation Lab | `pages/innovation.html` | Fully personalised course: from finding a topic to publication or competition |
 | Research | `pages/research.html` | Why STEM + SI research matters, projects by field (publish · present · compete), research pathway, mentoring model, lab research areas, venues, integrity |
 | Youth STEM | `pages/stem.html` | Six future skills, ages 8–18, student journey, information for parents |
+| News & insights | `pages/blog.html` | Articles written with AI and checked by staff, in two branches (STEM, AI & SI technologies · Standard tests & higher education) with categories, cover photos with licence credits or AI drawings, sources on every article. Data comes from the server (`/api/blog`) |
 | Partners | `pages/partners.html` | Partner types, engagement models, example projects |
 | About | `pages/about.html` | Mission, vision, values, SI teaser, principles, learning-to-working path, logo meaning |
 | Contact | `pages/contact.html` | Form with required PDPA consent on every submission; prefilled from course and plan links |
@@ -46,6 +47,13 @@ See `admin/README.md` (features) and `server/DEPLOY.md` (LAN use and free hostin
 
 ## Key features
 
+- **AI news blog** (back office → News blog): give a topic and scope, or let the automatic writer
+  pick recent topics on a schedule; Claude researches trusted sites only, writes Thai + English,
+  lists sources and finds a free-licence photo or draws a cover; staff review before publishing.
+  Set-up: `server/DEPLOY.md` → "AI (Claude)".
+- **Online tests** (back office → Online tests): SAT Reading & Writing (adaptive 2 × 27 questions),
+  IELTS Academic Reading (40 questions) and Writing (Task 1 + 2) in the real formats, with an item
+  bank, AI-drafted items approved by teachers, and teacher-confirmed Writing bands.
 - **Thai / English switch:** every text is written in both languages.
 - **Light / dark theme:** the header button switches light ↔ dark (animated circular reveal); the
   footer has *System · Light · Dark*. With no saved choice the site follows the operating system.

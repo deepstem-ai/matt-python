@@ -14,7 +14,7 @@ import secrets
 from datetime import datetime, timedelta, timezone
 
 TZ = timezone(timedelta(hours=7))  # Bangkok
-PAGES = ["home", "programs", "admissions", "si", "innovation", "research", "stem", "partners", "about", "contact"]
+PAGES = ["home", "programs", "admissions", "si", "innovation", "research", "stem", "partners", "about", "contact", "blog"]
 NEVER = {"legal"}                    # never cover the privacy / legal page
 FREQUENCIES = ("visit", "day", "once")
 MAX_IMAGE = 1_500_000                # characters of a data URL (~1.1 MB)

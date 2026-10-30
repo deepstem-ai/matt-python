@@ -18,6 +18,11 @@
     search: '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
     bell: '<path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/>',
     more: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+    tests: '<path d="M9 3h6l1 3H8z"/><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 11l2 2 4-4M8 17h8"/>',
+    bank: '<ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>',
+    marking: '<path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+    news: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6M7 16h10M15 12h2"/>',
+    ai: '<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
     promo: '<path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1zM15 9a3 3 0 0 1 0 6M18 6a7 7 0 0 1 0 12"/>',
     settings: '<circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/>'
   };
@@ -30,6 +35,7 @@
     ["calendar", "Calendar", "ปฏิทิน", "all"],
     ["requests", "Change requests", "คำขอเปลี่ยนแปลง", "all", "sessions"],
     ["inbox", "Notifications", "การแจ้งเตือน", "all", "bell"],
+    ["tests", "Online tests", "ข้อสอบออนไลน์", "all", "tests"],
     ["enrolments", "Enrolments", "การลงทะเบียน", "staff", "enrol"],
     ["sessions", "Lessons log", "บันทึกการสอน", "staff"],
     ["people", "People", "ผู้ใช้และนักเรียน", "staff"],
@@ -37,6 +43,10 @@
     ["courses", "Courses", "หลักสูตร", "admin"],
     ["content", "Website content", "เนื้อหาเว็บไซต์", "admin", "reports"],
     ["popups", "Pop-ups", "ป๊อปอัป", "admin", "promo"],
+    ["bank", "Exam item bank", "คลังข้อสอบ", "staff", "bank"],
+    ["marking", "Writing marking", "ตรวจ Writing", "staff", "marking"],
+    ["blog", "News blog", "บล็อกข่าวสาร", "admin", "news"],
+    ["ai", "AI settings", "ตั้งค่า AI", "admin", "ai"],
     ["search", "Search", "ค้นหา", "staff"],
     ["reports", "Reports & export", "รายงานและส่งออก", "all"],
     ["settings", "Settings", "ตั้งค่า", "all"]
@@ -613,7 +623,7 @@
     if (!$("#view")) shell();
     var h = location.hash.replace(/^#\/?/, "") || (A.isStaff() ? "dashboard" : "home");
     var parts = h.split("?"), path = parts[0].split("/"), q = new URLSearchParams(parts[1] || "");
-    var staffOnly = ["dashboard", "enrolments", "enrolment", "sessions", "people", "payments", "courses", "search", "popups", "content"];
+    var staffOnly = ["dashboard", "enrolments", "enrolment", "sessions", "people", "payments", "courses", "search", "popups", "content", "bank", "marking", "blog", "ai"];
     var name = path[0];
     if (!A.isStaff() && staffOnly.indexOf(name) !== -1) name = "home";
     if (A.isStaff() && name === "home") name = "dashboard";

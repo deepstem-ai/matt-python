@@ -198,6 +198,81 @@ data: a random reference, the time, the policy version and the choices. Records 
   the privacy page. Pop-ups need the DeepDistrict server, so they don't show when the site is
   opened as plain files.
 
+## News blog with AI (admins)
+
+**News blog** lists articles by status: waiting for review, scheduled, published, ideas, archived
+and rejected.
+
+**Write with AI**
+1. Choose a category, which also sets the branch: *STEM, AI & SI technologies* or *Standard
+   tests & higher education*.
+2. Type a topic and a scope, or leave the topic empty and the AI picks a recent one.
+3. About a minute later the draft is ready. The AI has searched only that branch's trusted
+   sites, written Thai and English versions and added a cover.
+4. Check the facts, edit, then **Publish now** or **Schedule…**.
+
+The **cover** comes from one of three places, and you can change it in the editor:
+- a free-licence photo, with its credit shown under it automatically
+- an AI drawing
+- an upload
+
+**Publishing is blocked** while the post is missing a language, has too little text, is an AI post
+without a source, contains a banned phrase, or uses a photo without its credit.
+
+**Blog settings** control:
+- the tone and length
+- the trusted sites for each branch and the banned phrases
+- the cover style
+- the AI label shown on articles
+- the **automatic writer**: which days and hour, how many posts each time, which categories take
+  turns, and which categories may publish without review (only when every check passes)
+
+**AI settings** has:
+- a check that the server is connected to Claude
+- the model, effort level and monthly job and dollar limits
+- a log of every AI job with its tokens and cost
+
+The API key is never typed in the back office; see `server/DEPLOY.md`.
+
+## Online tests (SAT R&W, IELTS Reading & Writing)
+
+**Students** open **Online tests**. Each test has a full version and practice versions.
+
+| Test | Full test | Practice |
+|---|---|---|
+| SAT R&W | 2 adaptive modules × 27 questions, 32 min each | by topic |
+| IELTS Reading | 3 passages, 40 questions, 60 min | one passage, 20 min |
+| IELTS Writing | Task 1 + Task 2, 60 min | Task 1 (20 min) or Task 2 (40 min) |
+
+The test opens full screen. Time is kept by the server and answers save as you go.
+
+Results:
+- **SAT:** an estimate of 200–800 with a score per domain.
+- **IELTS Reading:** a band estimate.
+- Practice tests show the answers and explanations at the end.
+- **IELTS Writing** waits for the teacher. Practice tasks also show AI feedback straight away,
+  labelled as an estimate.
+
+Parents see their children's results. Teachers see their own students' results.
+
+**Exam item bank** (teachers and admins):
+- **Adding items:** add SAT questions, IELTS reading passages (questions written in a simple text
+  format shown in the form) and Writing tasks; **Draft with AI** creates new ones as drafts;
+  **Load sample items** gives 11 original items to try the system.
+- **Approving:** only *approved* items reach students. Approving needs every format check to pass
+  and the "original content" box ticked. Every save keeps the previous version. Retire an item
+  instead of deleting it once it has been used.
+- **Readiness meter:** shows when there are enough items for full tests. SAT needs at least
+  14/14/14/12 approved questions per domain; IELTS Reading needs 3 passages that make exactly
+  40 questions.
+
+**Writing marking:**
+1. Open a submitted Writing test.
+2. Read the essays and the AI suggestion.
+3. Set the four criteria for each task and add a comment.
+
+The Writing band is calculated from your marks, with Task 2 counting twice as much as Task 1.
+
 ## Search
 
 **Search** finds lessons (topics, notes, rooms), enrolments, people, payments (receipt numbers)
