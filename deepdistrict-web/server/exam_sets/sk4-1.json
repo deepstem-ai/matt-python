@@ -2,13 +2,13 @@
  "exam": "sk4",
  "set": 1,
  "title": {
-  "en": "Suankularb M.4 English (GATE and English Program) — Practice paper 1",
-  "th": "ภาษาอังกฤษ สอบเข้า ม.4 สวนกุหลาบ (GATE และ EP) — ชุดที่ 1"
+  "en": "Suankularb M.4 English (GATE / EPLUS+) — Practice paper 1",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.4 สวนกุหลาบ (GATE / EPLUS+) — ชุดที่ 1"
  },
- "minutes": 75,
+ "minutes": 60,
  "note": {
-  "en": "60 questions in 75 minutes, six parts: conversation, vocabulary, grammar, error identification, cloze and reading. GATE and English Program applicants take the same paper; EP applicants need a higher score. DeepDistrict practice format based on tutor summaries — not an official or past paper.",
-  "th": "60 ข้อ 75 นาที 6 ตอน: บทสนทนา คำศัพท์ ไวยากรณ์ หาจุดผิด เติมคำในบทความ และการอ่าน ผู้สมัคร GATE และ EP ใช้ข้อสอบชุดเดียวกัน ผู้สมัคร EP ต้องได้คะแนนสูงกว่า — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+  "en": "50 questions in 60 minutes: conversation, vocabulary, grammar, error identification, cloze and reading. GATE and EPLUS+ applicants take the same paper; EPLUS+ needs a higher score. DeepDistrict practice — not an official or past paper.",
+  "th": "50 ข้อ 60 นาที: บทสนทนา คำศัพท์ ไวยากรณ์ หาจุดผิด เติมคำในบทความ และการอ่าน ผู้สมัคร GATE และ EPLUS+ ใช้ข้อสอบชุดเดียวกัน EPLUS+ ต้องได้คะแนนสูงกว่า — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
  },
  "items": [
   {
@@ -155,12 +155,12 @@
    "table": null,
    "stem": "Choose the best response to complete the conversation.\nA: Did you finish the science project on time?\nB: Only just. We handed it in five minutes before the deadline.\nA: Wow, ______",
    "choices": [
-    "that was cutting it fine!",
-    "that was a piece of cake!",
     "you must have got cold feet!",
+    "that was a piece of cake!",
+    "that was cutting it fine!",
     "you were on cloud nine!"
    ],
-   "answer": 0,
+   "answer": 2,
    "explanation": {
     "en": "\"Cutting it fine\" means leaving almost no spare time, exactly what five minutes before the deadline shows. \"A piece of cake\" means very easy, \"get cold feet\" means become too nervous to do something, and \"on cloud nine\" means extremely happy.",
     "th": "cutting it fine แปลว่าเฉียดฉิวแทบไม่เหลือเวลา ตรงกับการส่งงานก่อนหมดเวลา 5 นาที ส่วน a piece of cake แปลว่าง่ายมาก get cold feet แปลว่าเกิดกลัวจนไม่กล้าทำ และ on cloud nine แปลว่ามีความสุขมาก"
@@ -288,37 +288,6 @@
    "explanation": {
     "en": "After the adjective \"great\" and the verb \"showed\" we need a noun: \"determination\". \"Determine\" is a verb and \"determined\"/\"determining\" are adjective or participle forms.",
     "th": "หลัง showed great ต้องใช้คำนาม คือ determination (ความมุ่งมั่น) ส่วน determine เป็นกริยา determined และ determining เป็นคุณศัพท์หรือ participle"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "vocabulary",
-   "difficulty": "m",
-   "skill": {
-    "en": "Synonyms in context",
-    "th": "คำที่มีความหมายใกล้เคียงตามบริบท"
-   },
-   "topic": {
-    "en": "Word meaning and formation",
-    "th": "ความหมายคำและการสร้างคำ"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the word closest in meaning to \"reluctant\".\n\"The new manager was reluctant to change the timetable so close to the exams.\"",
-   "choices": [
-    "unwilling",
-    "eager",
-    "careless",
-    "proud"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "\"Reluctant\" means not wanting to do something, so \"unwilling\" is the synonym. \"Eager\" is the opposite; \"careless\" and \"proud\" describe other qualities.",
-    "th": "reluctant แปลว่าไม่เต็มใจ ตรงกับ unwilling ส่วน eager มีความหมายตรงข้าม (กระตือรือร้น) และ careless, proud มีความหมายอื่น"
    }
   },
   {
@@ -474,37 +443,6 @@
    "explanation": {
     "en": "The fixed expression is \"cast doubt on something\" (make people less sure it is true). \"Give\", \"make\" and \"bring\" are not used with doubt in this way.",
     "th": "สำนวนตายตัวคือ cast doubt on something แปลว่าทำให้เกิดความสงสัยในสิ่งนั้น ส่วน gave, made, brought ไม่ใช้กับ doubt ในความหมายนี้"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "vocabulary",
-   "difficulty": "e",
-   "skill": {
-    "en": "Commonly confused words: afford / effort",
-    "th": "คำที่มักสับสน afford กับ effort"
-   },
-   "topic": {
-    "en": "Word meaning and formation",
-    "th": "ความหมายคำและการสร้างคำ"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the best option to complete the sentence.\n\"I'm afraid I can't ______ to buy a new laptop this year; my savings are almost gone.\"",
-   "choices": [
-    "afford",
-    "effort",
-    "spend",
-    "pay"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "\"Can't afford to buy\" means not having enough money, matching \"my savings are almost gone\". \"Effort\" is a noun; \"spend to buy\" and \"pay to buy\" are not correct patterns.",
-    "th": "can't afford to buy แปลว่ามีเงินไม่พอจะซื้อ ตรงกับเงินเก็บใกล้หมด ส่วน effort เป็นคำนาม และ spend to buy, pay to buy ไม่ใช่รูปที่ถูกต้อง"
    }
   },
   {
@@ -762,37 +700,6 @@
    "lang": "en",
    "format": "mcq",
    "part": "grammar",
-   "difficulty": "m",
-   "skill": {
-    "en": "Relative pronoun 'whose'",
-    "th": "relative pronoun whose"
-   },
-   "topic": {
-    "en": "Relative and participle clauses",
-    "th": "อนุประโยคสัมพันธ์และ participle clause"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the best option to complete the sentence.\n\"The teacher ______ advice helped me most was Ms Anong.\"",
-   "choices": [
-    "who",
-    "whom",
-    "whose",
-    "which"
-   ],
-   "answer": 2,
-   "explanation": {
-    "en": "The advice belongs to the teacher, and a noun (advice) follows the gap, so the possessive relative \"whose\" is needed. \"Who\", \"whom\" and \"which\" cannot be followed directly by a noun in this way.",
-    "th": "คำแนะนำเป็นของครู และหลังช่องว่างเป็นคำนาม (advice) จึงต้องใช้ whose ซึ่งแสดงความเป็นเจ้าของ ส่วน who, whom, which ไม่สามารถตามด้วยคำนามแบบนี้ได้"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "grammar",
    "difficulty": "h",
    "skill": {
     "en": "Reported questions: word order and backshift",
@@ -815,37 +722,6 @@
    "explanation": {
     "en": "A reported question uses statement word order (subject before verb) and moves the tense back: \"where I had been\". \"Where had I been\" and \"where was I\" keep question order; \"have been\" does not backshift.",
     "th": "คำถามในคำพูดรายงานต้องเรียงแบบประโยคบอกเล่า (ประธานก่อนกริยา) และเลื่อนกาลถอยหลัง คือ where I had been ส่วน where had I been และ where was I ยังเรียงแบบคำถาม และ have been ไม่ได้เลื่อนกาล"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "grammar",
-   "difficulty": "e",
-   "skill": {
-    "en": "Verb + to-infinitive: agree to",
-    "th": "กริยาที่ตามด้วย to-infinitive: agree to"
-   },
-   "topic": {
-    "en": "Verb patterns, modals and reported speech",
-    "th": "รูปแบบกริยา modal และคำพูดรายงาน"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the best option to complete the sentence.\n\"My parents finally agreed ______ me go on the school trip to Japan.\"",
-   "choices": [
-    "letting",
-    "let",
-    "to let",
-    "to letting"
-   ],
-   "answer": 2,
-   "explanation": {
-    "en": "\"Agree\" is followed by a to-infinitive: \"agreed to let me go\". \"Letting\", bare \"let\" and \"to letting\" are wrong after agree.",
-    "th": "agree ตามด้วย to-infinitive จึงเป็น agreed to let me go ส่วน letting, let และ to letting ใช้หลัง agree ไม่ได้"
    }
   },
   {
@@ -908,68 +784,6 @@
    "explanation": {
     "en": "\"Neither of + plural noun\" takes a singular verb in careful English: \"neither of my cousins speaks\". The other parts are correct.",
     "th": "neither of + คำนามพหูพจน์ ใช้กริยาเอกพจน์ จึงต้องเป็น speaks ไม่ใช่ speak ส่วนอื่นถูกต้อง"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "error",
-   "difficulty": "e",
-   "skill": {
-    "en": "Parallel past tense verbs",
-    "th": "การใช้กริยาอดีตให้ขนานกัน"
-   },
-   "topic": {
-    "en": "Verb tenses",
-    "th": "กาลของกริยา"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the underlined part that is incorrect.\nLast weekend we [[went]] to the night market, [[bought]] some [[delicious]] mango sticky rice and [[bring]] it home.",
-   "choices": [
-    "went",
-    "bought",
-    "delicious",
-    "bring"
-   ],
-   "answer": 3,
-   "explanation": {
-    "en": "The three actions happened last weekend, so all verbs must be past simple: went, bought and brought. \"Bring\" should be \"brought\".",
-    "th": "การกระทำทั้งสามเกิดเมื่อสุดสัปดาห์ที่แล้ว กริยาทุกตัวต้องเป็น past simple คือ went, bought, brought ดังนั้น bring ต้องเป็น brought"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "error",
-   "difficulty": "m",
-   "skill": {
-    "en": "Uncountable nouns and agreement",
-    "th": "คำนามนับไม่ได้กับความสอดคล้องของกริยา"
-   },
-   "topic": {
-    "en": "Agreement, comparison and inversion",
-    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the underlined part that is incorrect.\nThe information [[about]] the new bus routes [[were]] posted on the school website [[two days]] [[ago]].",
-   "choices": [
-    "about",
-    "were",
-    "two days",
-    "ago"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "The subject is \"information\", an uncountable noun, so the verb must be singular: \"was posted\", not \"were\". \"Routes\" is inside the prepositional phrase and does not control the verb.",
-    "th": "ประธานคือ information ซึ่งเป็นคำนามนับไม่ได้ จึงต้องใช้กริยาเอกพจน์ was ไม่ใช่ were ส่วน routes อยู่ในวลีบุพบทจึงไม่ใช่ประธาน"
    }
   },
   {
@@ -1134,7 +948,7 @@
    "lang": "en",
    "format": "mcq",
    "part": "cloze",
-   "difficulty": "m",
+   "difficulty": "e",
    "skill": {
     "en": "Cloze: past simple for past habits",
     "th": "การเติมคำ: past simple บอกสิ่งที่เคยเป็นในอดีต"
@@ -1621,130 +1435,6 @@
    "explanation": {
     "en": "\"Recovery\" means getting back to normal after a problem, so the examiner admired how Ploy recovered from the slip. The note does not mention the prize or a scholarship, and praising a recovery means she did notice the mistake.",
     "th": "recovery แปลว่าการฟื้นตัวกลับมาได้หลังเกิดปัญหา แสดงว่ากรรมการชื่นชมการแก้สถานการณ์ของพลอย โน้ตไม่ได้พูดถึงรางวัลหรือทุน และการชมการฟื้นตัวแสดงว่ากรรมการเห็นความผิดพลาดนั้น"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "reading",
-   "difficulty": "m",
-   "skill": {
-    "en": "Applying eligibility conditions",
-    "th": "การนำเงื่อนไขคุณสมบัติไปใช้"
-   },
-   "topic": {
-    "en": "Reading: notice and email",
-    "th": "การอ่าน: ประกาศและอีเมล"
-   },
-   "passage": "Subject: Summer Exchange Programme – application details\n\nDear Matthayom 4 students,\n\nOur partner school in Nagoya, Japan, has invited eight students from our school to join its Summer Science Camp from 12 to 26 July. Students who take part will live with Japanese host families, attend morning classes in English, and spend the afternoons on field trips to research centres, factories and a national park.\n\nTo be eligible, you must:\n• be a Matthayom 4 student in the English Program or the GATE Program in the current academic year;\n• have a grade point average of at least 3.25 in the last semester;\n• have no record of serious disciplinary problems.\n\nApplications must include a one-page letter in English explaining why you want to join and what you hope to contribute, a recommendation from your homeroom teacher, and a consent form signed by a parent or guardian. Please note that letters longer than one page will not be read.\n\nThe partner school will cover tuition, meals at school and all field-trip costs. Families will be responsible for airfare (approximately 18,000 baht), travel insurance and personal spending money. A limited number of grants are available for students whose families would find these costs difficult; if you wish to apply for one, tick the box on the consent form and our finance office will contact you privately.\n\nShortlisted applicants will be interviewed in English on 15 March. The interview will last about ten minutes and will include a short discussion of a science news article, which you will be given twenty minutes to read beforehand. Dictionaries will not be allowed.\n\nCompleted applications should be handed in to Room 305 no later than 4:00 p.m. on Friday, 28 February. Late or incomplete applications will not be considered under any circumstances.\n\nIf you have any questions, please contact me by email rather than by phone, as I am teaching for most of the day.\n\nBest wishes,\nMs Kanokwan Thepsiri\nInternational Programmes Coordinator",
-   "table": null,
-   "stem": "Which student is eligible to apply?",
-   "choices": [
-    "A Matthayom 5 English Program student with a GPA of 3.80",
-    "A Matthayom 4 GATE student with a GPA of 3.40",
-    "A Matthayom 4 regular-programme student with a GPA of 3.50",
-    "A Matthayom 4 English Program student with a GPA of 3.10"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "Applicants must be in Matthayom 4, in the EP or GATE Program, with a GPA of at least 3.25. Only the GATE student with 3.40 meets all three; the others are in the wrong year, the wrong programme, or below 3.25.",
-    "th": "ผู้สมัครต้องเรียน ม.4 ในโครงการ EP หรือ GATE และมีเกรดเฉลี่ยอย่างน้อย 3.25 นักเรียน GATE ที่ได้ 3.40 จึงผ่านทุกเงื่อนไข คนอื่นผิดชั้นปี ผิดโครงการ หรือเกรดต่ำกว่า 3.25"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "reading",
-   "difficulty": "e",
-   "skill": {
-    "en": "Locating details about costs",
-    "th": "การหารายละเอียดเรื่องค่าใช้จ่าย"
-   },
-   "topic": {
-    "en": "Reading: notice and email",
-    "th": "การอ่าน: ประกาศและอีเมล"
-   },
-   "passage": "Subject: Summer Exchange Programme – application details\n\nDear Matthayom 4 students,\n\nOur partner school in Nagoya, Japan, has invited eight students from our school to join its Summer Science Camp from 12 to 26 July. Students who take part will live with Japanese host families, attend morning classes in English, and spend the afternoons on field trips to research centres, factories and a national park.\n\nTo be eligible, you must:\n• be a Matthayom 4 student in the English Program or the GATE Program in the current academic year;\n• have a grade point average of at least 3.25 in the last semester;\n• have no record of serious disciplinary problems.\n\nApplications must include a one-page letter in English explaining why you want to join and what you hope to contribute, a recommendation from your homeroom teacher, and a consent form signed by a parent or guardian. Please note that letters longer than one page will not be read.\n\nThe partner school will cover tuition, meals at school and all field-trip costs. Families will be responsible for airfare (approximately 18,000 baht), travel insurance and personal spending money. A limited number of grants are available for students whose families would find these costs difficult; if you wish to apply for one, tick the box on the consent form and our finance office will contact you privately.\n\nShortlisted applicants will be interviewed in English on 15 March. The interview will last about ten minutes and will include a short discussion of a science news article, which you will be given twenty minutes to read beforehand. Dictionaries will not be allowed.\n\nCompleted applications should be handed in to Room 305 no later than 4:00 p.m. on Friday, 28 February. Late or incomplete applications will not be considered under any circumstances.\n\nIf you have any questions, please contact me by email rather than by phone, as I am teaching for most of the day.\n\nBest wishes,\nMs Kanokwan Thepsiri\nInternational Programmes Coordinator",
-   "table": null,
-   "stem": "Which cost will the partner school pay for?",
-   "choices": [
-    "Return flights to Japan",
-    "Travel insurance",
-    "Personal spending money",
-    "Field trips to research centres and factories"
-   ],
-   "answer": 3,
-   "explanation": {
-    "en": "The email says the partner school covers \"tuition, meals at school and all field-trip costs\". Airfare, insurance and spending money are paid by families.",
-    "th": "อีเมลระบุว่าโรงเรียนคู่ร่วมมือออกค่าเรียน ค่าอาหารที่โรงเรียน และค่าทัศนศึกษาทั้งหมด ส่วนค่าเครื่องบิน ประกัน และเงินใช้จ่ายส่วนตัว ครอบครัวต้องจ่ายเอง"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "reading",
-   "difficulty": "h",
-   "skill": {
-    "en": "Making inferences from instructions",
-    "th": "การอนุมานจากข้อกำหนด"
-   },
-   "topic": {
-    "en": "Reading: notice and email",
-    "th": "การอ่าน: ประกาศและอีเมล"
-   },
-   "passage": "Subject: Summer Exchange Programme – application details\n\nDear Matthayom 4 students,\n\nOur partner school in Nagoya, Japan, has invited eight students from our school to join its Summer Science Camp from 12 to 26 July. Students who take part will live with Japanese host families, attend morning classes in English, and spend the afternoons on field trips to research centres, factories and a national park.\n\nTo be eligible, you must:\n• be a Matthayom 4 student in the English Program or the GATE Program in the current academic year;\n• have a grade point average of at least 3.25 in the last semester;\n• have no record of serious disciplinary problems.\n\nApplications must include a one-page letter in English explaining why you want to join and what you hope to contribute, a recommendation from your homeroom teacher, and a consent form signed by a parent or guardian. Please note that letters longer than one page will not be read.\n\nThe partner school will cover tuition, meals at school and all field-trip costs. Families will be responsible for airfare (approximately 18,000 baht), travel insurance and personal spending money. A limited number of grants are available for students whose families would find these costs difficult; if you wish to apply for one, tick the box on the consent form and our finance office will contact you privately.\n\nShortlisted applicants will be interviewed in English on 15 March. The interview will last about ten minutes and will include a short discussion of a science news article, which you will be given twenty minutes to read beforehand. Dictionaries will not be allowed.\n\nCompleted applications should be handed in to Room 305 no later than 4:00 p.m. on Friday, 28 February. Late or incomplete applications will not be considered under any circumstances.\n\nIf you have any questions, please contact me by email rather than by phone, as I am teaching for most of the day.\n\nBest wishes,\nMs Kanokwan Thepsiri\nInternational Programmes Coordinator",
-   "table": null,
-   "stem": "What can be inferred about the interview?",
-   "choices": [
-    "Applicants will be interviewed in Japanese by the partner school.",
-    "Applicants must bring a science article of their own.",
-    "Applicants will need to understand an English article without outside help.",
-    "Every student who applies will be interviewed."
-   ],
-   "answer": 2,
-   "explanation": {
-    "en": "Applicants read a science news article for twenty minutes, then discuss it in English, and dictionaries are not allowed, so they must understand it on their own. The interview is in English, the article is given to them, and only shortlisted applicants are interviewed.",
-    "th": "ผู้สมัครต้องอ่านข่าววิทยาศาสตร์ 20 นาทีแล้วอภิปรายเป็นภาษาอังกฤษ โดยห้ามใช้พจนานุกรม จึงต้องเข้าใจบทความด้วยตนเอง การสัมภาษณ์เป็นภาษาอังกฤษ บทความทางโรงเรียนจัดให้ และสัมภาษณ์เฉพาะผู้ผ่านการคัดเลือกรอบแรก"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "reading",
-   "difficulty": "m",
-   "skill": {
-    "en": "Following procedures in a notice",
-    "th": "การทำตามขั้นตอนในประกาศ"
-   },
-   "topic": {
-    "en": "Reading: notice and email",
-    "th": "การอ่าน: ประกาศและอีเมล"
-   },
-   "passage": "Subject: Summer Exchange Programme – application details\n\nDear Matthayom 4 students,\n\nOur partner school in Nagoya, Japan, has invited eight students from our school to join its Summer Science Camp from 12 to 26 July. Students who take part will live with Japanese host families, attend morning classes in English, and spend the afternoons on field trips to research centres, factories and a national park.\n\nTo be eligible, you must:\n• be a Matthayom 4 student in the English Program or the GATE Program in the current academic year;\n• have a grade point average of at least 3.25 in the last semester;\n• have no record of serious disciplinary problems.\n\nApplications must include a one-page letter in English explaining why you want to join and what you hope to contribute, a recommendation from your homeroom teacher, and a consent form signed by a parent or guardian. Please note that letters longer than one page will not be read.\n\nThe partner school will cover tuition, meals at school and all field-trip costs. Families will be responsible for airfare (approximately 18,000 baht), travel insurance and personal spending money. A limited number of grants are available for students whose families would find these costs difficult; if you wish to apply for one, tick the box on the consent form and our finance office will contact you privately.\n\nShortlisted applicants will be interviewed in English on 15 March. The interview will last about ten minutes and will include a short discussion of a science news article, which you will be given twenty minutes to read beforehand. Dictionaries will not be allowed.\n\nCompleted applications should be handed in to Room 305 no later than 4:00 p.m. on Friday, 28 February. Late or incomplete applications will not be considered under any circumstances.\n\nIf you have any questions, please contact me by email rather than by phone, as I am teaching for most of the day.\n\nBest wishes,\nMs Kanokwan Thepsiri\nInternational Programmes Coordinator",
-   "table": null,
-   "stem": "A student whose family cannot easily afford the airfare should",
-   "choices": [
-    "phone the finance office directly",
-    "explain the problem in the one-page letter",
-    "ask the partner school to pay for the flight",
-    "tick the box on the consent form"
-   ],
-   "answer": 3,
-   "explanation": {
-    "en": "The email says students who want a grant should \"tick the box on the consent form\" and the finance office will contact them privately. Phoning, using the letter or asking the partner school are not mentioned.",
-    "th": "อีเมลบอกว่านักเรียนที่ต้องการทุนช่วยเหลือให้ทำเครื่องหมายในช่องบนแบบฟอร์มยินยอม แล้วฝ่ายการเงินจะติดต่อกลับเป็นการส่วนตัว ไม่มีการกล่าวถึงการโทรศัพท์ การเขียนในจดหมาย หรือการขอให้โรงเรียนญี่ปุ่นจ่าย"
    }
   },
   {

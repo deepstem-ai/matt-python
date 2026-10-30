@@ -2,13 +2,13 @@
  "exam": "sk4",
  "set": 3,
  "title": {
-  "en": "Suankularb M.4 English (GATE and English Program) — Practice paper 3",
-  "th": "ภาษาอังกฤษ สอบเข้า ม.4 สวนกุหลาบ (GATE และ EP) — ชุดที่ 3"
+  "en": "Suankularb M.4 English (GATE / EPLUS+) — Practice paper 3",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.4 สวนกุหลาบ (GATE / EPLUS+) — ชุดที่ 3"
  },
- "minutes": 75,
+ "minutes": 60,
  "note": {
-  "en": "60 questions in 75 minutes, six parts: conversation, vocabulary, grammar, error identification, cloze and reading. GATE and English Program applicants take the same paper; EP applicants need a higher score. DeepDistrict practice format based on tutor summaries — not an official or past paper.",
-  "th": "60 ข้อ 75 นาที 6 ตอน: บทสนทนา คำศัพท์ ไวยากรณ์ หาจุดผิด เติมคำในบทความ และการอ่าน ผู้สมัคร GATE และ EP ใช้ข้อสอบชุดเดียวกัน ผู้สมัคร EP ต้องได้คะแนนสูงกว่า — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+  "en": "50 questions in 60 minutes: conversation, vocabulary, grammar, error identification, cloze and reading. GATE and EPLUS+ applicants take the same paper; EPLUS+ needs a higher score. DeepDistrict practice — not an official or past paper.",
+  "th": "50 ข้อ 60 นาที: บทสนทนา คำศัพท์ ไวยากรณ์ หาจุดผิด เติมคำในบทความ และการอ่าน ผู้สมัคร GATE และ EPLUS+ ใช้ข้อสอบชุดเดียวกัน EPLUS+ ต้องได้คะแนนสูงกว่า — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
  },
  "items": [
   {
@@ -142,7 +142,7 @@
    "lang": "en",
    "format": "mcq",
    "part": "conversation",
-   "difficulty": "m",
+   "difficulty": "e",
    "skill": {
     "en": "Accepting an offer",
     "th": "การตอบรับข้อเสนอ"
@@ -268,37 +268,6 @@
    "part": "vocabulary",
    "difficulty": "m",
    "skill": {
-    "en": "Word formation: nouns ending in -ion",
-    "th": "การสร้างคำนามที่ลงท้ายด้วย -ion"
-   },
-   "topic": {
-    "en": "Word meaning and formation",
-    "th": "ความหมายคำและการสร้างคำ"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the best option to complete the sentence.\n\"The ______ of the new metro line has cut journey times across the city by half.\"",
-   "choices": [
-    "completion",
-    "complete",
-    "completely",
-    "completed"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "After \"The\" and before \"of\" we need a noun: \"completion\". \"Complete\" is a verb or adjective, \"completely\" an adverb, and \"completed\" a past participle.",
-    "th": "หลัง The และก่อน of ต้องใช้คำนาม คือ completion ส่วน complete เป็นกริยาหรือคุณศัพท์ completely เป็นกริยาวิเศษณ์ และ completed เป็น V3"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "vocabulary",
-   "difficulty": "h",
-   "skill": {
     "en": "Collocations: grave danger",
     "th": "คำปรากฏร่วม grave danger"
    },
@@ -319,37 +288,6 @@
    "explanation": {
     "en": "\"In grave danger\" is the fixed collocation for very serious danger. \"Heavy\", \"strong\" and \"deep\" do not combine with danger (we say heavy rain, strong wind, deep trouble).",
     "th": "in grave danger เป็นคำปรากฏร่วมตายตัว หมายถึงอันตรายร้ายแรง ส่วน heavy, strong, deep ไม่ใช้กับ danger (ใช้ heavy rain, strong wind, deep trouble)"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "vocabulary",
-   "difficulty": "e",
-   "skill": {
-    "en": "Commonly confused verbs: return / borrow / lend",
-    "th": "กริยาที่มักสับสน return borrow lend"
-   },
-   "topic": {
-    "en": "Word meaning and formation",
-    "th": "ความหมายคำและการสร้างคำ"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the best option to complete the sentence.\n\"I borrowed this book from the library, so I have to ______ it by Friday.\"",
-   "choices": [
-    "lend",
-    "borrow",
-    "keep",
-    "return"
-   ],
-   "answer": 3,
-   "explanation": {
-    "en": "A borrowed library book must be given back: \"return\". \"Lend\" means give to someone for a time, \"borrow\" is what you already did, and \"keep\" is the opposite of what the deadline requires.",
-    "th": "หนังสือที่ยืมจากห้องสมุดต้องคืน จึงใช้ return ส่วน lend แปลว่าให้ยืม borrow คือการยืมซึ่งทำไปแล้ว และ keep ขัดกับการมีกำหนดส่งคืน"
    }
   },
   {
@@ -762,37 +700,6 @@
    "lang": "en",
    "format": "mcq",
    "part": "grammar",
-   "difficulty": "m",
-   "skill": {
-    "en": "Relative pronoun 'whose' in non-defining clauses",
-    "th": "whose ในอนุประโยคแบบไม่จำกัดความ"
-   },
-   "topic": {
-    "en": "Relative and participle clauses",
-    "th": "อนุประโยคสัมพันธ์และ participle clause"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the best option to complete the sentence.\n\"The professor, ______ research on dengue fever has won international awards, will give a talk on Friday.\"",
-   "choices": [
-    "who",
-    "whom",
-    "which his",
-    "whose"
-   ],
-   "answer": 3,
-   "explanation": {
-    "en": "The research belongs to the professor, and a noun follows the gap, so the possessive relative \"whose\" is needed. \"Who\" and \"whom\" cannot be followed by a noun here, and \"which his\" is not English.",
-    "th": "งานวิจัยเป็นของศาสตราจารย์ และหลังช่องว่างเป็นคำนาม จึงใช้ whose ส่วน who และ whom ตามด้วยคำนามแบบนี้ไม่ได้ และ which his ไม่ใช่ภาษาอังกฤษที่ถูกต้อง"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "grammar",
    "difficulty": "h",
    "skill": {
     "en": "Inversion with 'So + adjective'",
@@ -815,37 +722,6 @@
    "explanation": {
     "en": "When \"So + adjective\" starts the sentence, the verb comes before the subject: \"So heavy was the rain that…\". Normal order is used only in \"The rain was so heavy that…\".",
     "th": "เมื่อขึ้นต้นด้วย So + คุณศัพท์ ต้องวางกริยาไว้หน้าประธาน คือ So heavy was the rain that… การเรียงแบบปกติใช้ได้เฉพาะในรูป The rain was so heavy that…"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "grammar",
-   "difficulty": "e",
-   "skill": {
-    "en": "'Despite' + -ing",
-    "th": "despite + V-ing"
-   },
-   "topic": {
-    "en": "Verb patterns, modals and reported speech",
-    "th": "รูปแบบกริยา modal และคำพูดรายงาน"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the best option to complete the sentence.\n\"Despite ______ very tired, she finished the race.\"",
-   "choices": [
-    "she was",
-    "to be",
-    "being",
-    "be"
-   ],
-   "answer": 2,
-   "explanation": {
-    "en": "\"Despite\" is a preposition, so it takes a noun or -ing form: \"Despite being very tired\". A full clause (she was) needs \"although\", and infinitives cannot follow despite.",
-    "th": "despite เป็นบุพบท จึงตามด้วยคำนามหรือ V-ing คือ Despite being very tired ถ้าเป็นอนุประโยคเต็ม (she was) ต้องใช้ although และ infinitive ตามหลัง despite ไม่ได้"
    }
   },
   {
@@ -979,7 +855,7 @@
    "lang": "en",
    "format": "mcq",
    "part": "error",
-   "difficulty": "h",
+   "difficulty": "m",
    "skill": {
     "en": "Wish + past perfect for past regrets",
     "th": "wish + past perfect เสียดายเรื่องในอดีต"
@@ -990,79 +866,17 @@
    },
    "passage": "",
    "table": null,
-   "stem": "Choose the underlined part that is incorrect.\nI wish I [[had]] more time [[yesterday]], because I [[could have]] [[finished]] the project.",
+   "stem": "Choose the underlined part that is incorrect.\nI wish I [[had]] more time yesterday; then I [[could have]] [[finished]] the project [[properly]].",
    "choices": [
     "had",
-    "yesterday",
     "could have",
-    "finished"
+    "finished",
+    "properly"
    ],
    "answer": 0,
    "explanation": {
     "en": "The regret is about yesterday, so wish needs the past perfect: \"I wish I had had more time yesterday\". The single \"had\" is past simple, which is for present wishes.",
     "th": "ความเสียดายเป็นเรื่องเมื่อวาน wish จึงต้องตามด้วย past perfect คือ I wish I had had more time yesterday ส่วน had ตัวเดียวเป็น past simple ซึ่งใช้กับความปรารถนาในปัจจุบัน"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "error",
-   "difficulty": "m",
-   "skill": {
-    "en": "Prepositions of time: by vs until",
-    "th": "บุพบทบอกเวลา by กับ until"
-   },
-   "topic": {
-    "en": "Verb patterns, modals and reported speech",
-    "th": "รูปแบบกริยา modal และคำพูดรายงาน"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the underlined part that is incorrect.\nThe documents [[must]] be signed by both parents [[and]] [[handed]] to the school office [[until]] Friday.",
-   "choices": [
-    "must",
-    "and",
-    "handed",
-    "until"
-   ],
-   "answer": 3,
-   "explanation": {
-    "en": "A deadline uses \"by\" (no later than), not \"until\", which describes a continuing action: \"handed to the school office by Friday\".",
-    "th": "กำหนดส่งใช้ by (ไม่เกิน) ไม่ใช่ until ซึ่งใช้กับการกระทำที่ต่อเนื่องไปจนถึงเวลานั้น จึงต้องเป็น by Friday"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "error",
-   "difficulty": "m",
-   "skill": {
-    "en": "Agreement after 'hardly anyone'",
-    "th": "ความสอดคล้องหลัง hardly anyone"
-   },
-   "topic": {
-    "en": "Agreement, comparison and inversion",
-    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the underlined part that is incorrect.\nHardly [[anyone]] in the class [[have]] [[read]] the novel [[that]] the teacher recommended.",
-   "choices": [
-    "anyone",
-    "have",
-    "read",
-    "that"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "\"Anyone\" is singular, so the verb must be \"has read\", not \"have read\".",
-    "th": "anyone เป็นเอกพจน์ กริยาจึงต้องเป็น has read ไม่ใช่ have read"
    }
   },
   {
@@ -1258,7 +1072,7 @@
    "lang": "en",
    "format": "mcq",
    "part": "cloze",
-   "difficulty": "m",
+   "difficulty": "e",
    "skill": {
     "en": "Cloze: 'despite' + noun phrase",
     "th": "การเติมคำ: despite + นามวลี"
@@ -1537,7 +1351,7 @@
    "lang": "en",
    "format": "mcq",
    "part": "reading",
-   "difficulty": "h",
+   "difficulty": "m",
    "skill": {
     "en": "Inferring reasons for a character's reaction",
     "th": "การอนุมานเหตุผลของปฏิกิริยาตัวละคร"
@@ -1621,130 +1435,6 @@
    "explanation": {
     "en": "The narrator watches the sunset, thinks about what the day meant and reaches a quiet realisation: a reflective tone. There is no resentment, joke or worry.",
     "th": "ผู้เล่ามองพระอาทิตย์ตก ทบทวนความหมายของวันนั้น และเกิดความเข้าใจอย่างสงบ จึงเป็นน้ำเสียงครุ่นคิด (reflective) ไม่มีความขมขื่น มุกตลก หรือความกังวล"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "reading",
-   "difficulty": "m",
-   "skill": {
-    "en": "Understanding rules in formal correspondence",
-    "th": "การเข้าใจกฎในจดหมายทางการ"
-   },
-   "topic": {
-    "en": "Reading: notice and email",
-    "th": "การอ่าน: ประกาศและอีเมล"
-   },
-   "passage": "Subject: Re: Request for refund – Young Engineers Summer Programme\n\nDear Mr Phanuwat,\n\nThank you for your email of 3 May regarding your son Thanakorn's place on the Young Engineers Summer Programme. I was sorry to hear that he has broken his wrist and will be unable to take part in the practical workshops.\n\nI have looked carefully at your request for a full refund of the 15,500-baht programme fee. As you may be aware, our terms and conditions, which were accepted at the time of booking, state that cancellations made less than 30 days before the start date are not normally eligible for a refund. As the programme begins on 20 May, your cancellation falls within this period.\n\nHowever, we recognise that your son's situation was entirely beyond his control, and we are keen to find a fair solution. I would therefore like to offer you a choice of the following options:\n\n1. Thanakorn could transfer his place, free of charge, to our next programme, which runs from 14 to 25 October. The content will be identical, and he would join a group of students of a similar age.\n\n2. Thanakorn could attend the theory sessions in May, which do not require the use of his hands, and receive a partial refund of 6,000 baht for the workshops he will miss. Please note that he would not receive the programme certificate, as this requires completion of all practical tasks.\n\n3. We could refund 50 per cent of the fee (7,750 baht), provided we receive a medical certificate from his doctor.\n\nIf none of these options is acceptable, you are, of course, entitled to make a formal appeal to the Faculty's Student Affairs Committee, which meets once a month. I should point out, though, that appeals of this kind are rarely successful when a reasonable alternative has already been offered.\n\nI would be grateful if you could let me know which option you prefer by 15 May, so that we can offer any unused place to a student on our waiting list.\n\nWith best wishes for Thanakorn's recovery,\n\nDr Sirinya Chaiyaporn\nProgramme Director",
-   "table": null,
-   "stem": "Why is Mr Phanuwat not automatically entitled to a full refund?",
-   "choices": [
-    "He cancelled less than 30 days before the programme starts.",
-    "He did not accept the terms and conditions when booking.",
-    "The programme has already started.",
-    "He did not send a medical certificate."
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "The terms say cancellations less than 30 days before the start (20 May) are not normally refunded, and his email came on 3 May. He did accept the terms, the programme has not started, and the medical certificate is only needed for the 50 per cent option.",
-    "th": "เงื่อนไขระบุว่าการยกเลิกน้อยกว่า 30 วันก่อนเริ่มโครงการ (20 พฤษภาคม) โดยปกติจะไม่ได้รับเงินคืน และอีเมลของเขาส่งมาวันที่ 3 พฤษภาคม เขายอมรับเงื่อนไขแล้ว โครงการยังไม่เริ่ม และใบรับรองแพทย์ใช้เฉพาะกรณีขอคืนเงินครึ่งหนึ่ง"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "reading",
-   "difficulty": "h",
-   "skill": {
-    "en": "Comparing options to meet a condition",
-    "th": "การเปรียบเทียบทางเลือกตามเงื่อนไข"
-   },
-   "topic": {
-    "en": "Reading: notice and email",
-    "th": "การอ่าน: ประกาศและอีเมล"
-   },
-   "passage": "Subject: Re: Request for refund – Young Engineers Summer Programme\n\nDear Mr Phanuwat,\n\nThank you for your email of 3 May regarding your son Thanakorn's place on the Young Engineers Summer Programme. I was sorry to hear that he has broken his wrist and will be unable to take part in the practical workshops.\n\nI have looked carefully at your request for a full refund of the 15,500-baht programme fee. As you may be aware, our terms and conditions, which were accepted at the time of booking, state that cancellations made less than 30 days before the start date are not normally eligible for a refund. As the programme begins on 20 May, your cancellation falls within this period.\n\nHowever, we recognise that your son's situation was entirely beyond his control, and we are keen to find a fair solution. I would therefore like to offer you a choice of the following options:\n\n1. Thanakorn could transfer his place, free of charge, to our next programme, which runs from 14 to 25 October. The content will be identical, and he would join a group of students of a similar age.\n\n2. Thanakorn could attend the theory sessions in May, which do not require the use of his hands, and receive a partial refund of 6,000 baht for the workshops he will miss. Please note that he would not receive the programme certificate, as this requires completion of all practical tasks.\n\n3. We could refund 50 per cent of the fee (7,750 baht), provided we receive a medical certificate from his doctor.\n\nIf none of these options is acceptable, you are, of course, entitled to make a formal appeal to the Faculty's Student Affairs Committee, which meets once a month. I should point out, though, that appeals of this kind are rarely successful when a reasonable alternative has already been offered.\n\nI would be grateful if you could let me know which option you prefer by 15 May, so that we can offer any unused place to a student on our waiting list.\n\nWith best wishes for Thanakorn's recovery,\n\nDr Sirinya Chaiyaporn\nProgramme Director",
-   "table": null,
-   "stem": "If Thanakorn wants to receive the programme certificate, which option should he choose?",
-   "choices": [
-    "Attending only the theory sessions in May",
-    "Transferring to the October programme",
-    "Taking the 50 per cent refund",
-    "Making a formal appeal to the committee"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "The certificate requires completing all practical tasks. Only the October programme, with identical content after his wrist heals, allows this. Attending only theory sessions explicitly gives no certificate, the refund means not attending, and an appeal is about money.",
-    "th": "เกียรติบัตรต้องทำงานภาคปฏิบัติครบทุกชิ้น มีเพียงการย้ายไปรุ่นเดือนตุลาคมซึ่งเนื้อหาเหมือนเดิมและข้อมือหายแล้วเท่านั้นที่ทำได้ การเข้าเฉพาะภาคทฤษฎีระบุชัดว่าไม่ได้เกียรติบัตร การรับเงินคืนคือไม่ได้เข้าร่วม และการอุทธรณ์เป็นเรื่องเงิน"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "reading",
-   "difficulty": "h",
-   "skill": {
-    "en": "Understanding the function of a paragraph",
-    "th": "การเข้าใจหน้าที่ของย่อหน้า"
-   },
-   "topic": {
-    "en": "Reading: notice and email",
-    "th": "การอ่าน: ประกาศและอีเมล"
-   },
-   "passage": "Subject: Re: Request for refund – Young Engineers Summer Programme\n\nDear Mr Phanuwat,\n\nThank you for your email of 3 May regarding your son Thanakorn's place on the Young Engineers Summer Programme. I was sorry to hear that he has broken his wrist and will be unable to take part in the practical workshops.\n\nI have looked carefully at your request for a full refund of the 15,500-baht programme fee. As you may be aware, our terms and conditions, which were accepted at the time of booking, state that cancellations made less than 30 days before the start date are not normally eligible for a refund. As the programme begins on 20 May, your cancellation falls within this period.\n\nHowever, we recognise that your son's situation was entirely beyond his control, and we are keen to find a fair solution. I would therefore like to offer you a choice of the following options:\n\n1. Thanakorn could transfer his place, free of charge, to our next programme, which runs from 14 to 25 October. The content will be identical, and he would join a group of students of a similar age.\n\n2. Thanakorn could attend the theory sessions in May, which do not require the use of his hands, and receive a partial refund of 6,000 baht for the workshops he will miss. Please note that he would not receive the programme certificate, as this requires completion of all practical tasks.\n\n3. We could refund 50 per cent of the fee (7,750 baht), provided we receive a medical certificate from his doctor.\n\nIf none of these options is acceptable, you are, of course, entitled to make a formal appeal to the Faculty's Student Affairs Committee, which meets once a month. I should point out, though, that appeals of this kind are rarely successful when a reasonable alternative has already been offered.\n\nI would be grateful if you could let me know which option you prefer by 15 May, so that we can offer any unused place to a student on our waiting list.\n\nWith best wishes for Thanakorn's recovery,\n\nDr Sirinya Chaiyaporn\nProgramme Director",
-   "table": null,
-   "stem": "What is the main purpose of the paragraph about a formal appeal?",
-   "choices": [
-    "To inform Mr Phanuwat of his rights while discouraging him from using them",
-    "To encourage him to appeal as soon as possible",
-    "To tell him that the committee has already rejected his request",
-    "To suggest that he complain about Dr Sirinya"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "Dr Sirinya says he is \"entitled\" to appeal (his rights) but adds that such appeals \"are rarely successful\" when an alternative has been offered, gently discouraging him. She does not urge an appeal, report a decision or invite a complaint about herself.",
-    "th": "ดร.ศิริญญาบอกว่าเขามีสิทธิ์อุทธรณ์ แต่เสริมว่าการอุทธรณ์แบบนี้ไม่ค่อยสำเร็จเมื่อมีทางเลือกที่สมเหตุสมผลแล้ว จึงเป็นการแจ้งสิทธิ์พร้อมกับห้ามปรามอย่างนุ่มนวล ไม่ได้เร่งให้อุทธรณ์ ไม่ได้แจ้งผลการพิจารณา และไม่ได้ชวนให้ร้องเรียนตัวเธอ"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "reading",
-   "difficulty": "e",
-   "skill": {
-    "en": "Vocabulary in context",
-    "th": "ความหมายของคำตามบริบท"
-   },
-   "topic": {
-    "en": "Reading: notice and email",
-    "th": "การอ่าน: ประกาศและอีเมล"
-   },
-   "passage": "Subject: Re: Request for refund – Young Engineers Summer Programme\n\nDear Mr Phanuwat,\n\nThank you for your email of 3 May regarding your son Thanakorn's place on the Young Engineers Summer Programme. I was sorry to hear that he has broken his wrist and will be unable to take part in the practical workshops.\n\nI have looked carefully at your request for a full refund of the 15,500-baht programme fee. As you may be aware, our terms and conditions, which were accepted at the time of booking, state that cancellations made less than 30 days before the start date are not normally eligible for a refund. As the programme begins on 20 May, your cancellation falls within this period.\n\nHowever, we recognise that your son's situation was entirely beyond his control, and we are keen to find a fair solution. I would therefore like to offer you a choice of the following options:\n\n1. Thanakorn could transfer his place, free of charge, to our next programme, which runs from 14 to 25 October. The content will be identical, and he would join a group of students of a similar age.\n\n2. Thanakorn could attend the theory sessions in May, which do not require the use of his hands, and receive a partial refund of 6,000 baht for the workshops he will miss. Please note that he would not receive the programme certificate, as this requires completion of all practical tasks.\n\n3. We could refund 50 per cent of the fee (7,750 baht), provided we receive a medical certificate from his doctor.\n\nIf none of these options is acceptable, you are, of course, entitled to make a formal appeal to the Faculty's Student Affairs Committee, which meets once a month. I should point out, though, that appeals of this kind are rarely successful when a reasonable alternative has already been offered.\n\nI would be grateful if you could let me know which option you prefer by 15 May, so that we can offer any unused place to a student on our waiting list.\n\nWith best wishes for Thanakorn's recovery,\n\nDr Sirinya Chaiyaporn\nProgramme Director",
-   "table": null,
-   "stem": "In the paragraph about a formal appeal, the word \"reasonable\" is closest in meaning to",
-   "choices": [
-    "expensive",
-    "temporary",
-    "fair",
-    "official"
-   ],
-   "answer": 2,
-   "explanation": {
-    "en": "A \"reasonable alternative\" is one that is fair and acceptable. The other words do not describe the options offered in this sense.",
-    "th": "reasonable alternative หมายถึงทางเลือกที่ยุติธรรมและยอมรับได้ จึงตรงกับ fair ส่วนคำอื่นไม่ได้มีความหมายนี้"
    }
   },
   {

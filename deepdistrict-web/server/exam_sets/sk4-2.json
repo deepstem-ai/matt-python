@@ -2,13 +2,13 @@
  "exam": "sk4",
  "set": 2,
  "title": {
-  "en": "Suankularb M.4 English (GATE and English Program) — Practice paper 2",
-  "th": "ภาษาอังกฤษ สอบเข้า ม.4 สวนกุหลาบ (GATE และ EP) — ชุดที่ 2"
+  "en": "Suankularb M.4 English (GATE / EPLUS+) — Practice paper 2",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.4 สวนกุหลาบ (GATE / EPLUS+) — ชุดที่ 2"
  },
- "minutes": 75,
+ "minutes": 60,
  "note": {
-  "en": "60 questions in 75 minutes, six parts: conversation, vocabulary, grammar, error identification, cloze and reading. GATE and English Program applicants take the same paper; EP applicants need a higher score. DeepDistrict practice format based on tutor summaries — not an official or past paper.",
-  "th": "60 ข้อ 75 นาที 6 ตอน: บทสนทนา คำศัพท์ ไวยากรณ์ หาจุดผิด เติมคำในบทความ และการอ่าน ผู้สมัคร GATE และ EP ใช้ข้อสอบชุดเดียวกัน ผู้สมัคร EP ต้องได้คะแนนสูงกว่า — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+  "en": "50 questions in 60 minutes: conversation, vocabulary, grammar, error identification, cloze and reading. GATE and EPLUS+ applicants take the same paper; EPLUS+ needs a higher score. DeepDistrict practice — not an official or past paper.",
+  "th": "50 ข้อ 60 นาที: บทสนทนา คำศัพท์ ไวยากรณ์ หาจุดผิด เติมคำในบทความ และการอ่าน ผู้สมัคร GATE และ EPLUS+ ใช้ข้อสอบชุดเดียวกัน EPLUS+ ต้องได้คะแนนสูงกว่า — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
  },
  "items": [
   {
@@ -32,11 +32,11 @@
    "stem": "Choose the best response to complete the conversation.\nA: Could you give me a hand with these boxes? They're heavier than they look.\nB: ______ Where do you want them?",
    "choices": [
     "No, I couldn't.",
-    "Help yourself.",
+    "Sure, no problem.",
     "Give me a break.",
-    "Sure, no problem."
+    "Help yourself."
    ],
-   "answer": 3,
+   "answer": 1,
    "explanation": {
     "en": "B then asks where to put the boxes, so B is agreeing: \"Sure, no problem\". \"No, I couldn't\" refuses, \"Help yourself\" invites someone to take something, and \"Give me a break\" means stop bothering me.",
     "th": "B ถามต่อว่าจะให้วางกล่องที่ไหน แสดงว่ายินดีช่วย จึงตอบ Sure, no problem ส่วน No, I couldn't เป็นการปฏิเสธ Help yourself ใช้เชิญให้หยิบเอง และ Give me a break แปลว่าอย่ากวนใจ"
@@ -62,12 +62,12 @@
    "table": null,
    "stem": "Choose the best response to complete the conversation.\nA: I'm thinking of dyeing my hair bright blue for the school festival.\nB: ______ The school rules say natural colours only.",
    "choices": [
-    "I wouldn't do that if I were you.",
     "Why not? Go for it.",
+    "I wouldn't do that if I were you.",
     "That sounds like a brilliant idea.",
     "I'm all for it."
    ],
-   "answer": 0,
+   "answer": 1,
    "explanation": {
     "en": "B mentions a rule against unnatural colours, so B is warning A not to do it: \"I wouldn't do that if I were you\". The other three all encourage the idea.",
     "th": "B อ้างกฎโรงเรียนที่ห้ามย้อมสีผมไม่เป็นธรรมชาติ จึงเป็นการเตือน I wouldn't do that if I were you อีกสามตัวเลือกล้วนสนับสนุนความคิดนั้น"
@@ -126,10 +126,10 @@
    "choices": [
     "Mind your own business.",
     "Speak for yourself.",
-    "So do I.",
-    "Point taken."
+    "Point taken.",
+    "So do I."
    ],
-   "answer": 3,
+   "answer": 2,
    "explanation": {
     "en": "B promises to start earlier next time, so B accepts the criticism: \"Point taken\" (= I understand and accept what you said). \"Mind your own business\" rejects it rudely, \"Speak for yourself\" says the comment applies to A, and \"So do I\" makes no sense here.",
     "th": "B สัญญาว่าจะเริ่มทำงานเร็วขึ้น แสดงว่ายอมรับคำติ จึงตอบ Point taken (รับทราบและยอมรับ) ส่วน Mind your own business เป็นการปฏิเสธอย่างหยาบ Speak for yourself หมายถึงคนพูดเองต่างหาก และ So do I ไม่เข้ากับบริบท"
@@ -226,37 +226,6 @@
    "explanation": {
     "en": "The usual collocation is \"make a decision\". Thai learners often choose \"do\", but we do homework or a job, not a decision; \"give\" and \"put\" do not collocate with decision.",
     "th": "คำที่ใช้คู่กันคือ make a decision ผู้เรียนไทยมักใช้ do แต่ do ใช้กับ homework หรือ job ส่วน give และ put ไม่ใช้กับ decision"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "vocabulary",
-   "difficulty": "m",
-   "skill": {
-    "en": "Phrasal verbs: give up",
-    "th": "กริยาวลี give up"
-   },
-   "topic": {
-    "en": "Collocations and phrasal verbs",
-    "th": "คำปรากฏร่วมและกริยาวลี"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the best option to complete the sentence.\n\"The doctor told him to ______ up smoking for the sake of his health.\"",
-   "choices": [
-    "put",
-    "take",
-    "give",
-    "make"
-   ],
-   "answer": 2,
-   "explanation": {
-    "en": "\"Give up\" means stop doing a habit. \"Put up\" means build or tolerate (with with), \"take up\" means start a hobby, the opposite meaning, and \"make up\" means invent or become friends again.",
-    "th": "give up แปลว่าเลิกนิสัยหรือกิจกรรม ส่วน put up แปลว่าสร้างหรือทนกับ take up แปลว่าเริ่มทำงานอดิเรก (ความหมายตรงข้าม) และ make up แปลว่าแต่งเรื่องหรือคืนดี"
    }
   },
   {
@@ -443,37 +412,6 @@
    "explanation": {
     "en": "After \"tried to\" we need a base verb: \"simplify\" (make simpler). \"Simple\" is an adjective, \"simplicity\" a noun and \"simply\" an adverb.",
     "th": "หลัง tried to ต้องเป็นกริยารูปฐาน คือ simplify (ทำให้ง่ายขึ้น) ส่วน simple เป็นคุณศัพท์ simplicity เป็นคำนาม และ simply เป็นกริยาวิเศษณ์"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "vocabulary",
-   "difficulty": "m",
-   "skill": {
-    "en": "Antonyms in context",
-    "th": "คำตรงข้ามตามบริบท"
-   },
-   "topic": {
-    "en": "Word meaning and formation",
-    "th": "ความหมายคำและการสร้างคำ"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the best option to complete the sentence.\n\"Rather than being temporary, the changes to the school timetable turned out to be ______.\"",
-   "choices": [
-    "occasional",
-    "permanent",
-    "brief",
-    "momentary"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "\"Rather than being temporary\" signals the opposite of temporary, which is \"permanent\". \"Brief\" and \"momentary\" mean short, like temporary, and \"occasional\" means happening sometimes.",
-    "th": "Rather than being temporary บอกว่าคำตอบต้องตรงข้ามกับ temporary คือ permanent (ถาวร) ส่วน brief, momentary มีความหมายใกล้กับชั่วคราว และ occasional แปลว่าเป็นครั้งคราว"
    }
   },
   {
@@ -762,37 +700,6 @@
    "lang": "en",
    "format": "mcq",
    "part": "grammar",
-   "difficulty": "m",
-   "skill": {
-    "en": "'Be used to' + -ing",
-    "th": "be used to + V-ing"
-   },
-   "topic": {
-    "en": "Verb patterns, modals and reported speech",
-    "th": "รูปแบบกริยา modal และคำพูดรายงาน"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the best option to complete the sentence.\n\"I'm not used to ______ up so early; at my old school, classes started at nine.\"",
-   "choices": [
-    "getting",
-    "get",
-    "got",
-    "have got"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "In \"be used to\" (= be accustomed to), \"to\" is a preposition, so it takes a gerund: \"used to getting up\". \"Used to get\" without \"be\" describes a past habit, which is a different structure.",
-    "th": "ใน be used to (เคยชินกับ) to เป็นบุพบท จึงตามด้วย V-ing คือ used to getting up ส่วน used to get (ไม่มี be) เป็นอีกโครงสร้างหนึ่ง หมายถึงเคยทำในอดีต"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "grammar",
    "difficulty": "h",
    "skill": {
     "en": "Reported speech in conditionals",
@@ -815,37 +722,6 @@
    "explanation": {
     "en": "The coach's words were \"If you are late again, you won't be allowed…\"; in reported speech after \"warned\", \"are\" moves back to \"were\" and \"won't\" to \"would not\". \"Will\" and \"would\" are not used in the if-clause.",
     "th": "คำพูดเดิมคือ If you are late again, you won't be allowed… เมื่อรายงานหลัง warned กาลจะถอยหลัง are เป็น were และ won't เป็น would not ส่วน will และ would ไม่ใช้ในอนุประโยค if"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "grammar",
-   "difficulty": "e",
-   "skill": {
-    "en": "Superlatives of long adjectives",
-    "th": "ขั้นสูงสุดของคุณศัพท์หลายพยางค์"
-   },
-   "topic": {
-    "en": "Agreement, comparison and inversion",
-    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the best option to complete the sentence.\n\"This is ______ film I have ever seen; I fell asleep twice.\"",
-   "choices": [
-    "the more boring",
-    "most boring",
-    "the most boring",
-    "the boringest"
-   ],
-   "answer": 2,
-   "explanation": {
-    "en": "\"I have ever seen\" signals a superlative, and \"boring\" is a long adjective, so it is \"the most boring\". \"The more boring\" is comparative, \"most boring\" lacks \"the\", and \"boringest\" does not exist.",
-    "th": "I have ever seen บ่งบอกขั้นสูงสุด และ boring เป็นคุณศัพท์หลายพยางค์ จึงเป็น the most boring ส่วน the more boring เป็นขั้นกว่า most boring ขาด the และ boringest ไม่มีในภาษาอังกฤษ"
    }
   },
   {
@@ -948,7 +824,7 @@
    "lang": "en",
    "format": "mcq",
    "part": "error",
-   "difficulty": "h",
+   "difficulty": "m",
    "skill": {
     "en": "Agreement in 'most of which' clauses",
     "th": "ความสอดคล้องในอนุประโยค most of which"
@@ -1041,37 +917,6 @@
    "lang": "en",
    "format": "mcq",
    "part": "error",
-   "difficulty": "m",
-   "skill": {
-    "en": "'Avoid' + -ing",
-    "th": "avoid + V-ing"
-   },
-   "topic": {
-    "en": "Verb patterns, modals and reported speech",
-    "th": "รูปแบบกริยา modal และคำพูดรายงาน"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the underlined part that is incorrect.\nThe singer [[avoided]] [[to answer]] the reporter's questions [[about]] her [[private]] life.",
-   "choices": [
-    "avoided",
-    "to answer",
-    "about",
-    "private"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "\"Avoid\" is followed by a gerund: \"avoided answering\", not \"to answer\".",
-    "th": "avoid ตามด้วย V-ing จึงต้องเป็น avoided answering ไม่ใช่ to answer"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "error",
    "difficulty": "h",
    "skill": {
     "en": "Dangling participle clauses",
@@ -1094,37 +939,6 @@
    "explanation": {
     "en": "A participle clause must share the subject of the main clause, but the match was not \"a rainy day\". We need a subject: \"It being a rainy day\" or \"As it was a rainy day\", so \"Being\" is the error.",
     "th": "participle clause ต้องมีประธานเดียวกับประโยคหลัก แต่การแข่งขันไม่ใช่ a rainy day จึงต้องเติมประธาน เช่น It being a rainy day หรือ As it was a rainy day ดังนั้น Being เป็นจุดที่ผิด"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "error",
-   "difficulty": "m",
-   "skill": {
-    "en": "Uncountable nouns: information",
-    "th": "คำนามนับไม่ได้: information"
-   },
-   "topic": {
-    "en": "Word meaning and formation",
-    "th": "ความหมายคำและการสร้างคำ"
-   },
-   "passage": "",
-   "table": null,
-   "stem": "Choose the underlined part that is incorrect.\nYou can find [[a lot of]] useful [[informations]] about [[university]] scholarships [[on]] this website.",
-   "choices": [
-    "a lot of",
-    "informations",
-    "university",
-    "on"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "\"Information\" is uncountable and has no plural form, so \"informations\" should be \"information\".",
-    "th": "information เป็นคำนามนับไม่ได้ ไม่มีรูปพหูพจน์ informations จึงต้องเป็น information"
    }
   },
   {
@@ -1621,130 +1435,6 @@
    "explanation": {
     "en": "Wanting \"the floor to swallow him\" shows embarrassment, and the last words say he \"had never felt so proud\". There is no sign of anger, disappointment about a reward, or fear of punishment.",
     "th": "การอยากให้พื้นดูดตัวเองหายไปแสดงถึงความอาย และประโยคสุดท้ายบอกว่าไม่เคยภูมิใจเท่านี้มาก่อน ไม่มีสัญญาณของความโกรธ ความผิดหวังเรื่องรางวัล หรือความกลัวถูกลงโทษ"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "reading",
-   "difficulty": "e",
-   "skill": {
-    "en": "Identifying the purpose of an advertisement",
-    "th": "การระบุจุดประสงค์ของโฆษณา"
-   },
-   "topic": {
-    "en": "Reading: notice and email",
-    "th": "การอ่าน: ประกาศและอีเมล"
-   },
-   "passage": "VOLUNTEERS WANTED\nCoastal Clean-Up Weekend — Saturday 14 and Sunday 15 June\n\nEvery year, tonnes of plastic wash up on the beaches south of Hua Hin, much of it carried by currents from rivers hundreds of kilometres away. This June, Blue Shore, a small non-profit group, is looking for 200 volunteers aged 14 and over to help clear a six-kilometre stretch of coastline.\n\nWhat you will do\nVolunteers will work in teams of ten, each led by an experienced team leader. As well as collecting rubbish, every team will sort and record what it finds, using a simple form on our mobile app. This information is shared with university researchers who are tracking where marine plastic comes from, so please be as accurate as you can—even a bottle cap counts!\n\nWhat we provide\nGloves, sacks, drinking water, sunscreen, lunch on both days and a free T-shirt. Volunteers who attend both days will also receive a certificate of participation, which many students have found useful for university applications.\n\nWhat you should bring\nA hat, a refillable water bottle, closed shoes (no sandals—broken glass is common) and a charged phone with our app installed.\n\nAccommodation and transport\nWe cannot provide accommodation. However, a free shuttle bus will leave from Hua Hin railway station at 6:30 a.m. each day and return at 4:30 p.m. Volunteers who miss the bus will need to make their own way to the meeting point, which is about 12 kilometres from the town centre.\n\nImportant\nVolunteers under 18 must be accompanied by a parent, teacher or other responsible adult, who is also welcome to volunteer. Work will stop at midday for two hours because of the heat. If there is a storm warning, the clean-up will be cancelled, and all registered volunteers will be informed by text message by 8:00 p.m. the evening before.\n\nTo register, scan the QR code below. Registration closes on 31 May or when all 200 places are filled, whichever comes first. Last year, all places were taken within ten days.",
-   "table": null,
-   "stem": "What is the main purpose of the advertisement?",
-   "choices": [
-    "To recruit people to help clean a beach",
-    "To sell T-shirts to raise money",
-    "To advertise hotels in Hua Hin",
-    "To report the results of university research"
-   ],
-   "answer": 0,
-   "explanation": {
-    "en": "The heading \"Volunteers wanted\" and the details about tasks and registration show it is recruiting volunteers. T-shirts are free, no accommodation is offered, and the research is only mentioned as a use of the data.",
-    "th": "หัวข้อ Volunteers wanted และรายละเอียดเรื่องงานและการลงทะเบียนแสดงว่าเป็นการรับอาสาสมัคร เสื้อยืดแจกฟรี ไม่มีที่พักให้ และงานวิจัยถูกกล่าวถึงเพียงว่านำข้อมูลไปใช้"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "reading",
-   "difficulty": "m",
-   "skill": {
-    "en": "Understanding reasons in a text",
-    "th": "การเข้าใจเหตุผลในบทอ่าน"
-   },
-   "topic": {
-    "en": "Reading: notice and email",
-    "th": "การอ่าน: ประกาศและอีเมล"
-   },
-   "passage": "VOLUNTEERS WANTED\nCoastal Clean-Up Weekend — Saturday 14 and Sunday 15 June\n\nEvery year, tonnes of plastic wash up on the beaches south of Hua Hin, much of it carried by currents from rivers hundreds of kilometres away. This June, Blue Shore, a small non-profit group, is looking for 200 volunteers aged 14 and over to help clear a six-kilometre stretch of coastline.\n\nWhat you will do\nVolunteers will work in teams of ten, each led by an experienced team leader. As well as collecting rubbish, every team will sort and record what it finds, using a simple form on our mobile app. This information is shared with university researchers who are tracking where marine plastic comes from, so please be as accurate as you can—even a bottle cap counts!\n\nWhat we provide\nGloves, sacks, drinking water, sunscreen, lunch on both days and a free T-shirt. Volunteers who attend both days will also receive a certificate of participation, which many students have found useful for university applications.\n\nWhat you should bring\nA hat, a refillable water bottle, closed shoes (no sandals—broken glass is common) and a charged phone with our app installed.\n\nAccommodation and transport\nWe cannot provide accommodation. However, a free shuttle bus will leave from Hua Hin railway station at 6:30 a.m. each day and return at 4:30 p.m. Volunteers who miss the bus will need to make their own way to the meeting point, which is about 12 kilometres from the town centre.\n\nImportant\nVolunteers under 18 must be accompanied by a parent, teacher or other responsible adult, who is also welcome to volunteer. Work will stop at midday for two hours because of the heat. If there is a storm warning, the clean-up will be cancelled, and all registered volunteers will be informed by text message by 8:00 p.m. the evening before.\n\nTo register, scan the QR code below. Registration closes on 31 May or when all 200 places are filled, whichever comes first. Last year, all places were taken within ten days.",
-   "table": null,
-   "stem": "Why are volunteers asked to record every item they collect?",
-   "choices": [
-    "To decide which volunteers receive a certificate",
-    "To help researchers find out where the plastic comes from",
-    "To calculate the cost of the clean-up",
-    "To check that every team is working hard"
-   ],
-   "answer": 1,
-   "explanation": {
-    "en": "The data \"is shared with university researchers who are tracking where marine plastic comes from\". Certificates depend on attending both days, and cost or checking teams is not mentioned.",
-    "th": "ข้อมูลจะถูกส่งให้นักวิจัยมหาวิทยาลัยที่ติดตามว่าขยะพลาสติกในทะเลมาจากไหน ส่วนเกียรติบัตรขึ้นกับการมาครบสองวัน และไม่ได้กล่าวถึงการคำนวณค่าใช้จ่ายหรือการตรวจสอบทีม"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "reading",
-   "difficulty": "h",
-   "skill": {
-    "en": "Applying several conditions to a case",
-    "th": "การนำเงื่อนไขหลายข้อมาใช้กับกรณีหนึ่ง"
-   },
-   "topic": {
-    "en": "Reading: notice and email",
-    "th": "การอ่าน: ประกาศและอีเมล"
-   },
-   "passage": "VOLUNTEERS WANTED\nCoastal Clean-Up Weekend — Saturday 14 and Sunday 15 June\n\nEvery year, tonnes of plastic wash up on the beaches south of Hua Hin, much of it carried by currents from rivers hundreds of kilometres away. This June, Blue Shore, a small non-profit group, is looking for 200 volunteers aged 14 and over to help clear a six-kilometre stretch of coastline.\n\nWhat you will do\nVolunteers will work in teams of ten, each led by an experienced team leader. As well as collecting rubbish, every team will sort and record what it finds, using a simple form on our mobile app. This information is shared with university researchers who are tracking where marine plastic comes from, so please be as accurate as you can—even a bottle cap counts!\n\nWhat we provide\nGloves, sacks, drinking water, sunscreen, lunch on both days and a free T-shirt. Volunteers who attend both days will also receive a certificate of participation, which many students have found useful for university applications.\n\nWhat you should bring\nA hat, a refillable water bottle, closed shoes (no sandals—broken glass is common) and a charged phone with our app installed.\n\nAccommodation and transport\nWe cannot provide accommodation. However, a free shuttle bus will leave from Hua Hin railway station at 6:30 a.m. each day and return at 4:30 p.m. Volunteers who miss the bus will need to make their own way to the meeting point, which is about 12 kilometres from the town centre.\n\nImportant\nVolunteers under 18 must be accompanied by a parent, teacher or other responsible adult, who is also welcome to volunteer. Work will stop at midday for two hours because of the heat. If there is a storm warning, the clean-up will be cancelled, and all registered volunteers will be informed by text message by 8:00 p.m. the evening before.\n\nTo register, scan the QR code below. Registration closes on 31 May or when all 200 places are filled, whichever comes first. Last year, all places were taken within ten days.",
-   "table": null,
-   "stem": "A 15-year-old student who wants to take part should",
-   "choices": [
-    "book a hotel through Blue Shore",
-    "wear sandals so that her feet stay cool",
-    "come with a responsible adult and register as soon as possible",
-    "wait until June to register"
-   ],
-   "answer": 2,
-   "explanation": {
-    "en": "Under-18s must be accompanied by a responsible adult, and places may run out quickly, so registering early is wise. Blue Shore provides no accommodation, sandals are forbidden, and registration closes on 31 May.",
-    "th": "ผู้ที่อายุต่ำกว่า 18 ปีต้องมีผู้ใหญ่มาด้วย และที่นั่งอาจเต็มเร็ว จึงควรลงทะเบียนโดยเร็ว Blue Shore ไม่ได้จัดที่พัก ห้ามใส่รองเท้าแตะ และการลงทะเบียนปิดวันที่ 31 พฤษภาคม"
-   }
-  },
-  {
-   "kind": "m1",
-   "program": "sk4",
-   "subject": "eng",
-   "lang": "en",
-   "format": "mcq",
-   "part": "reading",
-   "difficulty": "h",
-   "skill": {
-    "en": "Drawing inferences from final information",
-    "th": "การอนุมานจากข้อมูลตอนท้าย"
-   },
-   "topic": {
-    "en": "Reading: notice and email",
-    "th": "การอ่าน: ประกาศและอีเมล"
-   },
-   "passage": "VOLUNTEERS WANTED\nCoastal Clean-Up Weekend — Saturday 14 and Sunday 15 June\n\nEvery year, tonnes of plastic wash up on the beaches south of Hua Hin, much of it carried by currents from rivers hundreds of kilometres away. This June, Blue Shore, a small non-profit group, is looking for 200 volunteers aged 14 and over to help clear a six-kilometre stretch of coastline.\n\nWhat you will do\nVolunteers will work in teams of ten, each led by an experienced team leader. As well as collecting rubbish, every team will sort and record what it finds, using a simple form on our mobile app. This information is shared with university researchers who are tracking where marine plastic comes from, so please be as accurate as you can—even a bottle cap counts!\n\nWhat we provide\nGloves, sacks, drinking water, sunscreen, lunch on both days and a free T-shirt. Volunteers who attend both days will also receive a certificate of participation, which many students have found useful for university applications.\n\nWhat you should bring\nA hat, a refillable water bottle, closed shoes (no sandals—broken glass is common) and a charged phone with our app installed.\n\nAccommodation and transport\nWe cannot provide accommodation. However, a free shuttle bus will leave from Hua Hin railway station at 6:30 a.m. each day and return at 4:30 p.m. Volunteers who miss the bus will need to make their own way to the meeting point, which is about 12 kilometres from the town centre.\n\nImportant\nVolunteers under 18 must be accompanied by a parent, teacher or other responsible adult, who is also welcome to volunteer. Work will stop at midday for two hours because of the heat. If there is a storm warning, the clean-up will be cancelled, and all registered volunteers will be informed by text message by 8:00 p.m. the evening before.\n\nTo register, scan the QR code below. Registration closes on 31 May or when all 200 places are filled, whichever comes first. Last year, all places were taken within ten days.",
-   "table": null,
-   "stem": "What can be inferred from the last sentence?",
-   "choices": [
-    "Last year's clean-up was cancelled because of a storm.",
-    "Registration is open for only ten days.",
-    "Fewer volunteers are needed this year than last year.",
-    "Places may run out well before 31 May."
-   ],
-   "answer": 3,
-   "explanation": {
-    "en": "If all places were taken within ten days last year, they may fill up again long before the 31 May closing date. The sentence says nothing about storms, a ten-day rule or the number of volunteers needed.",
-    "th": "ปีที่แล้วที่นั่งเต็มภายใน 10 วัน ปีนี้จึงอาจเต็มก่อนวันปิดรับ 31 พฤษภาคมมาก ประโยคนี้ไม่ได้พูดถึงพายุ การเปิดรับเพียง 10 วัน หรือจำนวนอาสาสมัครที่ต้องการ"
    }
   },
   {
