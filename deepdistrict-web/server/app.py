@@ -40,6 +40,8 @@ import notify  # noqa: E402
 import popups  # noqa: E402
 import learning  # noqa: E402  (AI news blog + SAT / IELTS exams)
 import access  # noqa: E402  (menu & permissions by role)
+import history  # noqa: E402  (every version and every removed row is kept)
+import example_data  # noqa: E402  (5 example learners, tagged)
 
 VERSION = (Path(__file__).resolve().parent.parent / "VERSION").read_text(encoding="utf-8").strip() if (Path(__file__).resolve().parent.parent / "VERSION").exists() else "dev"
 
@@ -83,8 +85,12 @@ def init_db():
         CREATE TABLE IF NOT EXISTS audit (at TEXT NOT NULL, user_id TEXT, user_name TEXT, text TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS consent_log (ref TEXT NOT NULL, at TEXT NOT NULL, received TEXT NOT NULL, version INTEGER, choices TEXT NOT NULL, page TEXT);
         """)
+        history.prepare(con)
         notify.init(con)
         learning.init(con)
+        history.init(con)          # last, so every table gets its keep-forever triggers
+        if os.environ.get("DD_SEED", "1") != "0":
+            example_data.seed(con, put_rec, get_kv, set_kv, now_iso)
 
 
 def now_iso():
@@ -92,22 +98,23 @@ def now_iso():
 
 
 def load_col(con, col):
-    return [json.loads(r["data"]) for r in con.execute("SELECT data FROM records WHERE col=?", (col,))]
+    return [json.loads(r["data"]) for r in con.execute("SELECT data FROM records WHERE col=? AND archived=0", (col,))]
 
 
 def get_rec(con, col, rid):
-    r = con.execute("SELECT data FROM records WHERE col=? AND id=?", (col, rid)).fetchone()
+    r = con.execute("SELECT data FROM records WHERE col=? AND id=? AND archived=0", (col, rid)).fetchone()
     return json.loads(r["data"]) if r else None
 
 
 def put_rec(con, col, rec, by):
-    con.execute("INSERT INTO records (col, id, data, updated_at, updated_by) VALUES (?,?,?,?,?) "
-                "ON CONFLICT(col, id) DO UPDATE SET data=excluded.data, updated_at=excluded.updated_at, updated_by=excluded.updated_by",
+    con.execute("INSERT INTO records (col, id, data, updated_at, updated_by, archived) VALUES (?,?,?,?,?,0) "
+                "ON CONFLICT(col, id) DO UPDATE SET data=excluded.data, updated_at=excluded.updated_at, updated_by=excluded.updated_by, archived=0",
                 (col, rec["id"], json.dumps(rec, ensure_ascii=False), now_iso(), by))
 
 
-def del_rec(con, col, rid):
-    con.execute("DELETE FROM records WHERE col=? AND id=?", (col, rid))
+def del_rec(con, col, rid, by=None):
+    """Never removes anything: the record is archived (hidden) and can be restored by an admin."""
+    con.execute("UPDATE records SET archived=1, updated_at=?, updated_by=? WHERE col=? AND id=?", (now_iso(), by, col, rid))
 
 
 def get_kv(con, key, default):
@@ -139,7 +146,8 @@ def daily_backup():
         src.backup(dst)
     src.close(); dst.close()
     for old in sorted(BACKUP_DIR.glob("deepdistrict-*.db"))[:-30]:
-        old.unlink()
+        if not old.stem.endswith("-01"):      # the copy from the 1st of each month is kept for good
+            old.unlink()
 
 
 # ---------------------------------------------------------------- passwords & sessions
@@ -347,10 +355,9 @@ def apply_sync(con, me, body):
             if not old:
                 continue
             can_write(con, me, col, None, old)
-            del_rec(con, col, rid)
+            del_rec(con, col, rid, me["id"])                   # archived, never removed
             if col == "users":
-                con.execute("DELETE FROM credentials WHERE user_id=?", (rid,))
-                con.execute("DELETE FROM auth_sessions WHERE user_id=?", (rid,))
+                con.execute("DELETE FROM auth_sessions WHERE user_id=?", (rid,))   # signed out; the account is kept
             changed += 1
     for key in KV_KEYS:
         if key in body:
@@ -621,7 +628,6 @@ def api(environ, start, path):
                 return respond(start, "200 OK", {"ok": True})
             con.execute("INSERT INTO consent_log (ref, at, received, version, choices, page) VALUES (?,?,?,?,?,?)",
                         (ref, str(body.get("at") or "")[:30], now_iso(), int(body.get("v") or 0), json.dumps(clean), str(body.get("page") or "")[:60]))
-            con.execute("DELETE FROM consent_log WHERE received < ?", ((datetime.now(timezone.utc) - timedelta(days=3 * 365)).isoformat(timespec="seconds"),))
             return respond(start, "200 OK", {"ok": True})
 
         if path == "setup" and method == "POST":
@@ -822,7 +828,8 @@ def api(environ, start, path):
             if not any(u.get("role") == "admin" for u in body["users"]):
                 return respond(start, "400 Bad Request", {"error": "backup has no admin"})
             daily_backup()
-            con.execute("DELETE FROM records"); con.execute("DELETE FROM credentials")
+            con.execute("UPDATE records SET archived=1 WHERE archived=0")   # kept; records in the file come back live
+            con.execute("DELETE FROM credentials")                            # (earlier copies stay in the archive)
             for col in COLLECTIONS:
                 for rec in body.get(col) or []:
                     rec.pop("pass", None); rec.pop("hasLogin", None)
@@ -846,12 +853,28 @@ def api(environ, start, path):
             return respond(start, "200 OK", {"ok": True})
 
         if path == "erase" and method == "POST":
-            if body.get("confirm") != "ERASE":
-                return respond(start, "400 Bad Request", {"error": "confirmation missing"})
-            daily_backup()
-            for t in ("records", "kv", "credentials", "auth_sessions", "audit", "notifications", "user_prefs", "line_users", "line_codes", "consent_log") + learning.TABLES:
-                con.execute(f"DELETE FROM {t}")
-            return respond(start, "200 OK", {"ok": True}, extra=[cookie(environ, "", clear=True)])
+            return respond(start, "410 Gone", {"error": "nothing is ever deleted — records can only be archived"})
+
+        if path == "example/seed" and method == "POST":
+            n = example_data.seed(con, put_rec, get_kv, set_kv, now_iso, force=True)
+            audit(con, me, f"Added example data ({n} records)")
+            return respond(start, "200 OK", {"ok": True, "added": n})
+        if path == "archive" and method == "GET":
+            return respond(start, "200 OK", {"items": history.archived(con, COLLECTIONS), "stats": history.stats(con)})
+        if path == "archive/restore" and method == "POST":
+            col, rid = body.get("col"), str(body.get("id") or "")
+            r = con.execute("SELECT data FROM records WHERE col=? AND id=? AND archived=1", (col, rid)).fetchone() if col in COLLECTIONS else None
+            if not r:
+                return respond(start, "404 Not Found", {"error": "not in the archive"})
+            put_rec(con, col, json.loads(r["data"]), me["id"])
+            audit(con, me, f"Restored {col} {rid} from the archive")
+            return respond(start, "200 OK", {"ok": True})
+        if path == "history" and method == "GET":
+            q = parse_qs(environ.get("QUERY_STRING", ""))
+            col, rid = (q.get("col") or [""])[0], (q.get("id") or [""])[0]
+            if col not in COLLECTIONS:
+                return respond(start, "400 Bad Request", {"error": "unknown collection"})
+            return respond(start, "200 OK", {"versions": history.versions(con, col, rid)})
 
     return respond(start, "404 Not Found", {"error": "unknown endpoint"})
 

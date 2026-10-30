@@ -517,3 +517,12 @@ html[lang="th"] .tbl th { text-transform: none; letter-spacing: 0; font-size: 0.
 .set-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
 .set-card { display: flex; flex-direction: column; gap: 6px; padding: 12px; border: 1px solid var(--line, var(--surface-2)); border-radius: 12px; background: var(--surface); }
 .set-card .btn { align-self: flex-start; margin-top: auto; }
+
+/* ---------- example data tag (amber) + record history ---------- */
+.tag-ex { display: inline-block; margin-left: .35em; padding: .05em .55em; border-radius: 999px; font-size: .72em; font-weight: 700;
+  letter-spacing: .02em; vertical-align: middle; color: #7c2d12; background: #fde68a; border: 1px solid #f59e0b; }
+.ev.is-example { background-image: repeating-linear-gradient(135deg, transparent 0 7px, rgba(245, 158, 11, .22) 7px 10px); outline: 1px dashed #f59e0b; outline-offset: -1px; }
+.hist { list-style: none; margin: 0; padding: 0; max-height: 60vh; overflow: auto; }
+.hist__item { border-left: 3px solid #f59e0b; padding: .4rem .8rem; margin: 0 0 .7rem; }
+.hist__when { font-weight: 700; margin-bottom: .25rem; }
+.hist__item ul { margin: 0; padding-left: 1.1rem; font-size: .92em; word-break: break-word; }

@@ -59,11 +59,13 @@
       foot(p.date, L("Received by", "ผู้รับเงิน")) + "</article>";
   };
 
-  function scheduleSection(e) {
+  // from: "" = the full schedule from the first lesson; a date = only lessons on or after it (numbering stays the same)
+  function scheduleSection(e, from) {
     var st = A.stats(e), n = 0, cum = 0;
     var rows = st.sessions.filter(function (s) { return s.status !== "rescheduled"; }).map(function (s) {
       var counts = s.status !== "cancelled";
       if (counts) { n++; cum += +s.hours || 0; }
+      if (from && s.date < from) return "";
       return "<tr" + (counts ? "" : ' class="is-off"') + "><td>" + (counts ? n : "–") + "</td><td>" + esc(A.fmtDate(s.date, { weekday: "short", day: "numeric", month: "short", year: "numeric" })) + "</td><td>" + esc(A.span(s)) + "</td><td>" + A.num(s.hours) + "</td><td>" + esc(A.modeName(s.mode)) + (s.location ? "<br><span class=rp-note>" + esc(s.location) + "</span>" : "") + "</td><td>" + esc(A.statusName(s.status)) + (s.movedFrom || s.makeUpFor ? "<br><span class=rp-note>" + (s.makeUpFor ? L("make-up", "ชดเชย") : L("moved", "เลื่อนมา")) + "</span>" : "") + "</td><td>" + (counts ? A.num(cum) : "") + "</td></tr>";
     });
     return '<div class="rp-stats"><div><span>' + L("Total hours", "ชั่วโมงทั้งหมด") + "</span><b>" + A.num(st.total) + "</b></div><div><span>" + L("Learned", "เรียนแล้ว") + "</span><b>" + A.num(st.used) + '</b></div><div class="rp-hi"><span>' + L("Remaining", "คงเหลือ") + "</span><b>" + A.num(st.remaining) + "</b></div><div><span>" + L("Booked", "นัดแล้ว") + "</span><b>" + A.num(st.planned) + "</b></div></div>" +
@@ -72,8 +74,9 @@
       (st.unscheduled > 0.001 && st.used + st.planned > 0 ? '<p class="rp-small">' + L(A.hrs(st.unscheduled) + " still to be booked.", "ยังเหลือ " + A.hrs(st.unscheduled) + " ที่รอนัดเพิ่ม") + "</p>" : "") +
       '<p class="rp-small">' + L("Need a change? Send a request in the DeepDistrict portal or contact us — every change is confirmed by DeepDistrict.", "ต้องการเปลี่ยนแปลง? ส่งคำขอผ่านระบบ DeepDistrict หรือติดต่อเรา ทุกการเปลี่ยนแปลงจะได้รับการยืนยันจาก DeepDistrict") + "</p>";
   }
-  A.scheduleHTML = function (e) {
-    return '<article class="report doc" id="report">' + head(L("Learning schedule", "ตารางเรียน"), "", "SC-" + e.id.slice(-6).toUpperCase(), A.today()) + learnerBlock(e) + scheduleSection(e) + foot(A.today()) + "</article>";
+  A.scheduleHTML = function (e, from) {
+    var sub = from ? L("Remaining lessons from " + A.fmtDate(from), "คาบเรียนที่เหลือ ตั้งแต่ " + A.fmtDate(from)) : L("Full schedule from the first lesson", "ตารางเรียนทั้งหมด ตั้งแต่คาบแรก");
+    return '<article class="report doc" id="report">' + head(L("Learning schedule", "ตารางเรียน"), sub, "SC-" + e.id.slice(-6).toUpperCase(), A.today()) + learnerBlock(e) + scheduleSection(e, from) + foot(A.today()) + "</article>";
   };
   A.feeNoticeSection = function (e) {
     var st = A.stats(e), o = A.db.org;
@@ -199,8 +202,8 @@
     var e = A.byId("enrolments", p.enrolmentId) || {};
     A.showDoc(A.receiptHTML(p), "receipt-" + (p.ref || p.id), { to: e.id ? A.guardianEmails(e) : [], subject: L("Receipt ", "ใบเสร็จรับเงิน ") + (p.ref || "") + " · " + A.db.org.name });
   };
-  A.openSchedule = function (e) {
-    A.showDoc(A.scheduleHTML(e), "schedule-" + A.slug(A.userName(e.studentId)) + "-" + e.courseCode, { to: A.guardianEmails(e), subject: L("Learning schedule · ", "ตารางเรียน · ") + A.courseName(e.courseCode) });
+  A.openSchedule = function (e, from) {
+    A.showDoc(A.scheduleHTML(e, from), "schedule-" + A.slug(A.userName(e.studentId)) + "-" + e.courseCode + (from ? "-from-" + from : "-full"), { to: A.guardianEmails(e), subject: L("Learning schedule · ", "ตารางเรียน · ") + A.courseName(e.courseCode) });
   };
   A.openPack = function (e) {
     A.showDoc(A.enrolmentPackHTML(e), "enrolment-" + A.slug(A.userName(e.studentId)) + "-" + e.courseCode, { to: A.guardianEmails(e), subject: L("Enrolment confirmation · ", "ยืนยันการลงทะเบียนเรียน · ") + A.courseName(e.courseCode) });
@@ -210,7 +213,7 @@
   A.onAct = function (act, b, ev) {
     var id = b.getAttribute("data-id");
     if (act === "doc-receipt") return A.openReceipt(A.byId("payments", id));
-    if (act === "doc-schedule") return A.openSchedule(A.byId("enrolments", b.getAttribute("data-enr")));
+    if (act === "doc-schedule") return A.openSchedule(A.byId("enrolments", b.getAttribute("data-enr")), b.getAttribute("data-from") === "today" ? A.today() : "");
     if (act === "doc-pack") return A.openPack(A.byId("enrolments", b.getAttribute("data-enr")));
     if (act === "smtp") return A.api("GET", "smtp").then(function (c) {
       A.form({

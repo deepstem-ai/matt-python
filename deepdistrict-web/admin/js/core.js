@@ -135,6 +135,29 @@
     A.save();
     return obj;
   };
+  /* Earlier versions of a record (kept for good in the database archive) */
+  A.showHistory = function (col, id) {
+    A.api("GET", "history?col=" + encodeURIComponent(col) + "&id=" + encodeURIComponent(id)).then(function (d) {
+      var cur = A.byId(col, id), list = d.versions || [];
+      function diffText(a, b) {
+        var keys = {}; Object.keys(a || {}).concat(Object.keys(b || {})).forEach(function (k) { keys[k] = 1; });
+        return Object.keys(keys).filter(function (k) { return k !== "createdAt" && JSON.stringify((a || {})[k]) !== JSON.stringify((b || {})[k]); })
+          .map(function (k) { var v = (a || {})[k]; return "<li><b>" + A.esc(k) + ":</b> " + A.esc(v == null ? "–" : typeof v === "object" ? JSON.stringify(v) : String(v)).slice(0, 300) + "</li>"; }).join("");
+      }
+      var html = list.length ? list.map(function (v, i) {
+        var newer = i === 0 ? cur : list[i - 1].data;
+        return '<li class="hist__item"><div class="hist__when">' + A.esc(new Date(v.savedAt || v.at).toLocaleString(A.lang === "th" ? "th-TH" : "en-GB")) +
+          (v.archived ? ' <span class="badge">' + A.L("archived", "เก็บถาวร") + "</span>" : "") + "</div><ul>" + (diffText(v.data, newer) || "<li>" + A.L("(no field changes)", "(ไม่มีการเปลี่ยนแปลงข้อมูล)") + "</li>") + "</ul></li>";
+      }).join("") : "<li>" + A.L("No earlier versions yet — this is the first version.", "ยังไม่มีเวอร์ชันก่อนหน้า — นี่คือเวอร์ชันแรก") + "</li>";
+      var dlg = document.createElement("dialog"); dlg.className = "modal";
+      dlg.innerHTML = '<div class="modal__box"><header><h2>' + A.L("History — earlier versions", "ประวัติ — เวอร์ชันก่อนหน้า") + '</h2><button type="button" class="ibtn" data-x aria-label="Close">✕</button></header>' +
+        '<p class="modal__intro">' + A.L("Every earlier version is kept in the database for good. Each entry shows the values before the next change.", "ทุกเวอร์ชันก่อนหน้าถูกเก็บไว้ในฐานข้อมูลถาวร แต่ละรายการแสดงค่าก่อนการแก้ไขครั้งถัดไป") + '</p><ul class="hist">' + html + "</ul></div>";
+      document.body.appendChild(dlg); dlg.showModal();
+      dlg.querySelector("[data-x]").addEventListener("click", function () { dlg.close(); dlg.remove(); });
+    }).catch(function (e) { A.toast(e.message, "err"); });
+  };
+  /* Example data (5 example learners) carries an amber tag everywhere */
+  A.exTag = function (rec) { return rec && rec.example ? ' <span class="tag-ex" title="' + A.L("Example data", "ข้อมูลตัวอย่าง") + '">' + A.L("Example", "ตัวอย่าง") + "</span>" : ""; };
   A.remove = function (col, id) { A.db[col] = A.db[col].filter(function (x) { return x.id !== id; }); A.save(); };
 
   /* ------------------------------------------------------------ courses (public catalogue + overrides + custom) */
@@ -257,7 +280,8 @@
       (opts.intro ? '<p class="modal__intro">' + opts.intro + "</p>" : "") +
       '<div class="mf-grid">' + opts.fields.map(field).join("") + "</div>" +
       '<p class="mf-error" role="alert"></p>' +
-      "<footer>" + (opts.onDelete ? '<button type="button" class="btn btn--danger" data-del>' + A.L("Delete", "ลบ") + "</button>" : "") +
+      "<footer>" + (opts.onDelete ? '<button type="button" class="btn btn--danger" data-del>' + A.L("Archive", "ย้ายไปที่เก็บถาวร") + "</button>" : "") +
+      (opts.history && A.isAdmin() ? '<button type="button" class="btn" data-hist>' + A.L("History", "ประวัติการแก้ไข") + "</button>" : "") +
       (opts.extra || "") + '<span class="spacer"></span><button type="button" class="btn" data-x>' + A.L("Cancel", "ยกเลิก") + '</button><button type="submit" class="btn btn--primary">' + A.esc(opts.submit || A.L("Save", "บันทึก")) + "</button></footer></form>";
     document.body.appendChild(dlg);
     var form = dlg.querySelector("form");
@@ -265,8 +289,10 @@
     A.$$("[data-x]", dlg).forEach(function (b) { b.addEventListener("click", close); });
     dlg.addEventListener("cancel", function (e) { e.preventDefault(); close(); });
     if (opts.onDelete) dlg.querySelector("[data-del]").addEventListener("click", function () {
-      if (confirm(A.L("Delete this record? This cannot be undone.", "ลบรายการนี้ใช่ไหม? ไม่สามารถย้อนกลับได้"))) { opts.onDelete(); close(); }
+      if (confirm(A.L("Move this record to the archive? Nothing is ever deleted — it stays in the database and an admin can restore it (Settings → Archive & history).",
+        "ย้ายรายการนี้ไปที่เก็บถาวรใช่ไหม? ระบบไม่ลบข้อมูลใด ๆ — ข้อมูลยังอยู่ในฐานข้อมูล และผู้ดูแลระบบกู้คืนได้ (ตั้งค่า → ที่เก็บถาวรและประวัติ)"))) { opts.onDelete(); close(); }
     });
+    if (opts.history && A.isAdmin()) dlg.querySelector("[data-hist]").addEventListener("click", function () { A.showHistory(opts.history.col, opts.history.id); });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var out = {};

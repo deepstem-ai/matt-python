@@ -30,7 +30,7 @@
   }
   function chip(s, bad) {
     var e = A.byId("enrolments", s.enrolmentId), u = A.byId("users", e.studentId) || {};
-    return '<button type="button" class="ev ev--' + s.status + (bad && bad[s.id] ? " is-clash" : "") + '" style="--tc:' + A.teacherColor(teacherOf(s)) + '" data-session="' + s.id + '" title="' + esc(A.describe(s) + " · " + A.statusName(s.status)) + '">' +
+    return '<button type="button" class="ev ev--' + s.status + (bad && bad[s.id] ? " is-clash" : "") + (s.example ? " is-example" : "") + '" style="--tc:' + A.teacherColor(teacherOf(s)) + '" data-session="' + s.id + '" title="' + esc(A.describe(s) + " · " + A.statusName(s.status)) + '">' +
       (bad && bad[s.id] ? "⚠ " : "") + "<b>" + esc(A.span(s)) + "</b> " + esc(u.nick || (u.name || "").split(" ")[0]) + ' <span>' + esc(e.courseCode) + "</span></button>";
   }
 
@@ -131,7 +131,7 @@
       (A.isAdmin() ? '<select name="teacher" aria-label="Teacher">' + A.opts(A.peopleOpts("staff"), q.get("teacher"), L("All teachers", "ครูทุกคน")) + "</select>" : "") +
       '<select name="student" aria-label="Student">' + A.opts(A.peopleOpts("student"), q.get("student"), L("All students", "นักเรียนทุกคน")) + "</select></form></div>" +
       '<div class="legend">' + A.people("staff").filter(function (t) { return all.concat(busy).some(function (x) { return teacherOf(x) === t.id; }); }).map(function (t) { return '<span class="lg-t" style="--tc:' + A.teacherColor(t.id) + '"><i></i>' + esc(t.nick || t.name) + "</span>"; }).join("") +
-      '<span class="lg-s">✓ ' + A.statusName("done") + '</span><span class="lg-s"><s>' + A.statusName("cancelled") + '</s></span><span class="lg-s is-clash-lg">⚠ ' + L("same teacher, same time", "ครูคนเดียวกันเวลาชน") + "</span>" + (A.isAdmin() ? '<span class="lg-pay"><i></i>' + L("Payment received", "รับชำระเงิน") + "</span>" : "") + '<span class="muted">' + (A.isStaff() ? L("Click a day to add a lesson, or a lesson to update or move it.", "คลิกวันที่เพื่อเพิ่มคาบ หรือคลิกคาบเพื่ออัปเดตหรือเลื่อน") : L("Click a lesson for details or to request a change.", "คลิกคาบเพื่อดูรายละเอียดหรือขอเปลี่ยนแปลง")) + "</span></div>";
+      '<span class="lg-s">✓ ' + A.statusName("done") + '</span><span class="lg-s"><s>' + A.statusName("cancelled") + '</s></span><span class="lg-s is-clash-lg">⚠ ' + L("same teacher, same time", "ครูคนเดียวกันเวลาชน") + "</span>" (A.db.sessions.some(function (x) { return x.example; }) ? '<span class="lg-s"><span class="tag-ex">' + L("Example", "ตัวอย่าง") + "</span> " + L("example data", "ข้อมูลตัวอย่าง") + "</span>" : "") + (A.isAdmin() ? '<span class="lg-pay"><i></i>' + L("Payment received", "รับชำระเงิน") + "</span>" : "") + '<span class="muted">' + (A.isStaff() ? L("Click a day to add a lesson, or a lesson to update or move it.", "คลิกวันที่เพื่อเพิ่มคาบ หรือคลิกคาบเพื่ออัปเดตหรือเลื่อน") : L("Click a lesson for details or to request a change.", "คลิกคาบเพื่อดูรายละเอียดหรือขอเปลี่ยนแปลง")) + "</span></div>";
     A._calSessions = all;
     return {
       title: L("Calendar", "ปฏิทิน"),
@@ -181,60 +181,4 @@
     A.toast(L(list.length + " lessons exported — open the file to add them to Google, Apple or Outlook Calendar.", "ส่งออก " + list.length + " คาบแล้ว เปิดไฟล์เพื่อเพิ่มลง Google, Apple หรือ Outlook Calendar"));
   }
 
-  /* ------------------------------------------------------------ demo data */
-  A.demo = function () {
-    var D = A.db, now = A.today();
-    function person(role, name, nick, extra) { var u = Object.assign({ id: A.uid("u"), role: role, name: name, nick: nick, active: true, createdAt: new Date().toISOString() }, extra || {}); D.users.push(u); return u; }
-    var t1 = person("teacher", "Dr. Narin Suksawat", "Ajarn Narin", { email: "narin@example.com" });
-    var t2 = person("teacher", "Ploy Chaiyaporn", "Kru Ploy", { email: "ploy@example.com" });
-    var p1 = person("parent", "Wanida Rattanakul", "Mae Wan", { phone: "08x-xxx-1234", email: "wanida@example.com" });
-    var s1 = person("student", "Pim Rattanakul", "Pim", { grade: "M.4", school: "Bangkok Demo School", guardianId: p1.id, consentDate: A.addDays(now, -40) });
-    var s2 = person("student", "Thanakorn Srisuk", "Ton", { grade: "M.6", school: "Demo Wittaya", consentDate: A.addDays(now, -30) });
-    var s3 = person("student", "Alex Chen", "Alex", { grade: "University Y2", email: "alex@example.com", consentDate: A.addDays(now, -20) });
-    function enrol(stu, code, teacher, hours, rate, start, mode, goal) {
-      var e = { id: A.uid("e"), studentId: stu.id, courseCode: code, teacherId: teacher.id, hours: hours, rate: rate, discount: 0, fee: hours * rate, start: start, mode: mode, status: "active", goal: goal, createdAt: new Date().toISOString() };
-      D.enrolments.push(e); return e;
-    }
-    // Pim: 12 h, Mondays and Wednesdays, 1.5 h each (8 lessons)
-    var e1 = enrol(s1, "PY101", t2, 12, 800, A.addDays(now, -22), "hybrid", "Build a quiz game for a school project");
-    var e2 = enrol(s2, "EXM210", t1, 24, 900, A.addDays(now, -28), "online", "COMPAS-PY1 AWARD of EXCELLENCE for TCAS70 portfolio");
-    var e3 = enrol(s3, "EDG320", t1, 30, 1200, A.addDays(now, -14), "onsite", "Offline voice assistant on Jetson for a hackathon");
-    e1.pattern = [{ day: 1, start: "16:30", end: "18:00", location: "Room A" }, { day: 3, start: "16:30", end: "18:00", location: "Room A" }]; e1.location = "Room A";
-    e2.pattern = [{ day: 2, start: "18:00", end: "20:00" }, { day: 5, start: "18:00", end: "20:00" }]; e2.location = "Zoom";
-    e3.pattern = [{ day: 1, start: "09:00", end: "12:00", location: "Jetson Lab" }, { day: 4, start: "13:00", end: "16:00", location: "Jetson Lab" }]; e3.location = "Jetson Lab";
-    var topics = {
-      PY101: ["Setup & first program", "Variables & input", "if / elif / else", "for and while loops", "Functions", "Lists & dictionaries", "Files & mini project", "Quiz game polish"],
-      EXM210: ["Exam format & timing", "Strings drill", "Lists & dict patterns", "Plan · Edge practice", "Recursion basics", "Timed mock #1 review", "Edge-case hunting", "Timed mock #2 review"],
-      EDG320: ["JetPack setup", "Running a small LLM", "Quantisation & speed", "Speech to text", "Wake word & TTS", "Integration test"]
-    };
-    function add(e, date, start, hours, i) {
-      var past = date < now, s = { id: A.uid("s"), enrolmentId: e.id, date: date, start: start, hours: hours, status: past ? "done" : "scheduled", mode: e.mode, location: e.location, teacherId: e.teacherId,
-        topic: past ? (topics[e.courseCode] || [])[i] || "" : "", notes: past && i % 2 ? "Good progress; homework set." : "", createdAt: new Date().toISOString() };
-      D.sessions.push(s); return s;
-    }
-    // Mon/Wed series for Pim starting on the Monday on or after the enrolment date
-    var d = A.parse(e1.start); while (d.getDay() !== 1) d.setDate(d.getDate() + 1);
-    var pim = [];
-    for (var k = 0; pim.length < 8 && k < 60; k++) { if (d.getDay() === 1 || d.getDay() === 3) pim.push(add(e1, A.iso(d), "16:30", 1.5, pim.length)); d.setDate(d.getDate() + 1); }
-    // the next upcoming Monday lesson was moved to Tuesday for 1 h -> 0.5 h left to schedule
-    var mon = pim.filter(function (s) { return s.status === "scheduled" && A.parse(s.date).getDay() === 1; })[0];
-    if (mon) {
-      var tue = { id: A.uid("s"), enrolmentId: e1.id, date: A.addDays(mon.date, 1), start: "17:00", hours: 1, status: "scheduled", mode: e1.mode, teacherId: e1.teacherId, movedFrom: mon.id, createdAt: new Date().toISOString() };
-      D.sessions.push(tue); Object.assign(mon, { status: "rescheduled", movedTo: tue.id, reason: "School activity on Monday" });
-    }
-    function series(e, startOffset, every, count, hours, start) { for (var i = 0; i < count; i++) add(e, A.addDays(now, startOffset + i * every), start, hours, i); }
-    series(e2, -27, 4, 10, 2, "18:00");
-    series(e3, -12, 3, 8, 3, "13:00");
-    D.payments.push({ id: A.uid("p"), enrolmentId: e1.id, date: e1.start, amount: 9600, method: "transfer", ref: "RC-DEMO-001", createdAt: new Date().toISOString() });
-    D.payments.push({ id: A.uid("p"), enrolmentId: e2.id, date: A.addDays(now, -28), amount: 10800, method: "promptpay", ref: "RC-DEMO-002", note: "Deposit 50%", createdAt: new Date().toISOString() });
-    D.payments.push({ id: A.uid("p"), enrolmentId: e3.id, date: A.addDays(now, -14), amount: 18000, method: "card", ref: "RC-DEMO-003", note: "Deposit 50%", createdAt: new Date().toISOString() });
-    // a waiting "time off" request from Pim's parent (two weeks, starting next week)
-    var nextMon = A.parse(now); nextMon.setDate(nextMon.getDate() + ((8 - nextMon.getDay()) % 7 || 7));
-    D.requests.push({ id: A.uid("r"), enrolmentId: e1.id, type: "pause", from: A.iso(nextMon), to: A.addDays(A.iso(nextMon), 13), note: "Family trip / ไปต่างจังหวัดกับครอบครัว", status: "pending", createdAt: new Date().toISOString() });
-    // demo sign-ins (change or remove before real use)
-    p1.email = "parent@demo.test"; p1.password = "demo-parent-1";
-    s1.email = "student@demo.test"; s1.password = "demo-student-1";
-    t2.password = "demo-teacher-1";
-    A.logAct("Loaded demo data");
-  };
 })();

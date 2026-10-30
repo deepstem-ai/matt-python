@@ -49,12 +49,12 @@ def _set_kv(con, key, value):
 
 
 def _rec(con, col, rid):
-    r = con.execute("SELECT data FROM records WHERE col=? AND id=?", (col, rid)).fetchone() if rid else None
+    r = con.execute("SELECT data FROM records WHERE col=? AND id=? AND archived=0", (col, rid)).fetchone() if rid else None
     return json.loads(r["data"]) if r else None
 
 
 def _col(con, col):
-    return [json.loads(r["data"]) for r in con.execute("SELECT data FROM records WHERE col=?", (col,))]
+    return [json.loads(r["data"]) for r in con.execute("SELECT data FROM records WHERE col=? AND archived=0", (col,))]
 
 
 def settings(con):
