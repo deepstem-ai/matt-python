@@ -1,5 +1,20 @@
 # Changelog
 
+## 5.7 r2 — October 2026
+- **Free practice tests on the public website — no sign-in** (`pages/tests.html`, menu "Free tests",
+  and a new "Try SAT, IELTS and Suankularb M.1 questions now" section on the home page). Each of the 12
+  ready-made sets has free sample questions: SAT 6, GATE/EP 10, IELTS a full Reading passage with every
+  question type plus both Writing tasks. Answers are checked in the browser with explanations; the full
+  timed sets stay in the student portal ("Sign in & take the full test").
+- **News and tests now show even without the server** (opening `index.html` directly or plain static
+  hosting): `assets/data/news.js` and `assets/data/tests.js`, built by `tools/build_public_data.py`.
+- **Real photos on the news.** On the computer that runs the server, starter posts swap their drawn
+  cover for a free-licence photo from Openverse (CC0, public domain, or CC BY / BY-SA with the credit on
+  the card and under the article). Without internet the drawn covers stay.
+- **Longer starter articles** (about 700–1,000 words in each language) and three new ones. Starter
+  posts that staff have not edited are upgraded automatically; edited or deleted ones are left alone.
+- Top menu: "Partners" moved to the menu drawer and footer to make room for "Free tests".
+
 ## 5.7 r1 — October 2026
 - **Every page is in the menu; rights follow the user level.**
   - The back-office menu is grouped (Learning · Teaching · Administration · General). Pages a person

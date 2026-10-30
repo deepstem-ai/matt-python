@@ -16,8 +16,8 @@
     { href: "pages/innovation.html", en: "Innovation Lab", th: "แล็บนวัตกรรม" },
     { href: "pages/research.html", en: "Research", th: "วิจัย" },
     { href: "pages/stem.html", en: "Youth STEM", th: "STEM เยาวชน" },
+    { href: "pages/tests.html", en: "Free tests", th: "ลองทำข้อสอบ", cls: "nav-tests" },
     { href: "pages/blog.html", en: "News", th: "ข่าวสาร", cls: "nav-news" },
-    { href: "pages/partners.html", en: "Partners", th: "พันธมิตร" },
     { href: "pages/about.html", en: "About", th: "เกี่ยวกับเรา" }
   ];
 
@@ -29,6 +29,7 @@
       { href: "pages/admissions.html", en: "IELTS · SAT · TBAT · CU-AAT", th: "IELTS · SAT · TBAT · CU-AAT" },
       { href: "pages/admissions.html#portfolio", en: "Admissions portfolio", th: "พอร์ตยื่นมหาวิทยาลัย" },
       { href: "pages/stem.html", en: "Youth STEM", th: "STEM เยาวชน" },
+      { href: "pages/tests.html", en: "Free practice tests (SAT · IELTS · M.1)", th: "ลองทำข้อสอบฟรี (SAT · IELTS · ม.1)" },
       { href: "pages/admissions.html#online-tests", en: "Online SAT & IELTS practice", th: "ฝึกทำข้อสอบ SAT และ IELTS ออนไลน์" },
       { href: "pages/blog.html", en: "News & insights", th: "ข่าวสารและบทความ" }
     ] },

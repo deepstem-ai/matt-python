@@ -10,7 +10,7 @@ import json
 
 import images
 
-V = 1        # bump to add newly written starter posts (existing ones are never touched again)
+V = 2        # bump to add newly written starter posts (existing ones are never touched again)
 
 
 def _cover(c1, c2, label, glyph):
@@ -29,7 +29,7 @@ def _cover(c1, c2, label, glyph):
 
 
 POSTS = [
-    {"slug": "suankularb-m1-gate-ep-practice-sets", "category": "tcas", "days": 0, "cover": ("#1d3fb8", "#c27c0e", "Suankularb M.1 · GATE · EP", "ม.1"),
+    {"slug": "suankularb-m1-gate-ep-practice-sets", "photoQuery": "students exam classroom", "category": "tcas", "days": 0, "cover": ("#1d3fb8", "#c27c0e", "Suankularb M.1 · GATE · EP", "ม.1"),
      "title": {"en": "Suankularb M.1 GATE and English Program: new timed practice sets",
                "th": "เตรียมสอบเข้า ม.1 สวนกุหลาบ GATE และ English Program: ชุดฝึกจับเวลาชุดใหม่"},
      "summary": {"en": "Three full practice sets for each programme are now in the Online tests page — 40 questions, 90 minutes, answers explained in Thai and English.",
@@ -47,7 +47,7 @@ POSTS = [
                     "## วิธีใช้\nเข้าสู่ระบบ เปิดหน้า **ข้อสอบออนไลน์** แล้วเลือกชุดในหัวข้อ *ชุดข้อสอบเตรียมสอบเข้าและชุดฝึก* ครูสามารถใช้ชุดเดียวกันเปิดห้องเรียนสด หรือพิมพ์เป็น PDF ที่มีช่องจดโน้ตได้\n\n"
                     "ชุดฝึกนี้เป็นของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า วิชา วันสอบ และกติกาอาจเปลี่ยนทุกปี โปรดตรวจสอบประกาศของโรงเรียนก่อนสมัครทุกครั้ง"},
      "tags": ["M.1", "Suankularb", "GATE", "EP"], "sources": []},
-    {"slug": "digital-sat-reading-writing-format-practice-modules", "category": "sat", "days": 2, "cover": ("#0e1f6b", "#2563eb", "Digital SAT · Reading and Writing", "SAT"),
+    {"slug": "digital-sat-reading-writing-format-practice-modules", "photoQuery": "student studying laptop", "category": "sat", "days": 2, "cover": ("#0e1f6b", "#2563eb", "Digital SAT · Reading and Writing", "SAT"),
      "title": {"en": "Digital SAT Reading and Writing: how the two modules work (and three new practice modules)",
                "th": "Digital SAT Reading and Writing: 2 โมดูลทำงานอย่างไร (พร้อมชุดฝึกใหม่ 3 โมดูล)"},
      "summary": {"en": "54 questions in two adaptive modules of 32 minutes. We added three full 27-question practice modules with explanations.",
@@ -68,7 +68,7 @@ POSTS = [
                     "คะแนนในระบบของเราเป็นค่าประมาณเพื่อการฝึก ไม่ใช่คะแนนทางการของ College Board โปรดตรวจสอบวันสอบและกติกาที่เว็บไซต์ College Board"},
      "tags": ["SAT", "Digital SAT", "Reading and Writing"],
      "sources": [{"title": "College Board — What's on the SAT: Reading and Writing", "url": "https://satsuite.collegeboard.org/sat/whats-on-the-test/reading-writing"}]},
-    {"slug": "ielts-academic-reading-question-types", "category": "ielts", "days": 4, "cover": ("#7c1d6f", "#e0457b", "IELTS Academic · Reading and Writing", "IELTS"),
+    {"slug": "ielts-academic-reading-question-types", "photoQuery": "reading books library", "category": "ielts", "days": 4, "cover": ("#7c1d6f", "#e0457b", "IELTS Academic · Reading and Writing", "IELTS"),
      "title": {"en": "IELTS Academic Reading is not just multiple choice: the question types to know",
                "th": "IELTS Academic Reading ไม่ได้มีแค่ตัวเลือก: รู้จักรูปแบบคำถามที่ต้องเจอ"},
      "summary": {"en": "3 passages, 40 questions, 60 minutes — and around a dozen task types, from True/False/Not Given to completing notes with words from the text.",
@@ -87,7 +87,7 @@ POSTS = [
                     "คะแนนของเราเป็นค่าประมาณเพื่อการฝึก ไม่ใช่ผลสอบ IELTS ทางการ"},
      "tags": ["IELTS", "Academic Reading"],
      "sources": [{"title": "IELTS — official website (test format)", "url": "https://ielts.org/"}]},
-    {"slug": "tcas70-round-1-portfolio-check-dates", "category": "tcas", "days": 6, "cover": ("#0f5132", "#16a34a", "TCAS70 · Round 1 Portfolio", "TCAS"),
+    {"slug": "tcas70-round-1-portfolio-check-dates", "photoQuery": "university campus students", "category": "tcas", "days": 6, "cover": ("#0f5132", "#16a34a", "TCAS70 · Round 1 Portfolio", "TCAS"),
      "title": {"en": "TCAS70 Round 1 (Portfolio): each university sets its own dates",
                "th": "TCAS70 รอบ 1 Portfolio: แต่ละมหาวิทยาลัยกำหนดวันรับสมัครเอง"},
      "summary": {"en": "Round 1 is already open at many universities, but there is no single deadline. Check each faculty's announcement and confirm your place on myTCAS.",
@@ -104,7 +104,7 @@ POSTS = [
                     "วันที่ในข่าวหรือโซเชียลมีเดียบางครั้งคลาดเคลื่อน ให้ยึดประกาศของมหาวิทยาลัยและ myTCAS เป็นหลักเสมอ ทีมแนะแนวของเราช่วยวางแผนพอร์ตและวันสอบได้"},
      "tags": ["TCAS70", "Portfolio", "myTCAS"],
      "sources": [{"title": "myTCAS — official TCAS website", "url": "https://www.mytcas.com/"}]},
-    {"slug": "swift-student-challenge-2027-get-ready", "category": "coding", "days": 8, "cover": ("#111827", "#f97316", "Swift Student Challenge", "Swift"),
+    {"slug": "swift-student-challenge-2027-get-ready", "photoQuery": "coding laptop student", "category": "coding", "days": 8, "cover": ("#111827", "#f97316", "Swift Student Challenge", "Swift"),
      "title": {"en": "Swift Student Challenge: what we know about the next round, and how to get ready",
                "th": "Swift Student Challenge: รอบถัดไปมีอะไรบ้าง และเตรียมตัวอย่างไร"},
      "summary": {"en": "In 2026 submissions ran from 6 to 28 February. Apple has not yet announced the 2027 dates — the best time to start your app playground is now.",
@@ -121,7 +121,7 @@ POSTS = [
                     "เมื่อประกาศรอบใหม่ โปรดตรวจคุณสมบัติและกติกาจากหน้าทางการ คลาสโค้ดดิ้งและเทคโนโลยี Apple ของเรามีคลินิกโปรเจกต์สำหรับผู้ที่จะส่งผลงาน"},
      "tags": ["Swift", "Apple", "Coding"],
      "sources": [{"title": "Apple Developer — Swift Student Challenge", "url": "https://developer.apple.com/swift-student-challenge/"}]},
-    {"slug": "using-ai-for-homework-the-right-way", "category": "ai", "days": 10, "cover": ("#4f46e5", "#0e8fa8", "AI for learning — the right way", "AI"),
+    {"slug": "using-ai-for-homework-the-right-way", "photoQuery": "student homework computer", "category": "ai", "days": 10, "cover": ("#4f46e5", "#0e8fa8", "AI for learning — the right way", "AI"),
      "title": {"en": "Using AI for homework the right way: a tutor, not a ghost-writer",
                "th": "ใช้ AI ทำการบ้านอย่างถูกวิธี: ให้เป็นติวเตอร์ ไม่ใช่คนเขียนแทน"},
      "summary": {"en": "AI can explain, quiz you and check your reasoning. Copying its answers skips the learning — and schools can tell. Five habits that help.",
@@ -139,7 +139,7 @@ POSTS = [
                     "- **ทำตามกฎของโรงเรียน** และบอกครูเมื่อใช้ AI\n\n"
                     "ในห้องสอบอย่าง SAT, IELTS หรือสอบเข้าโรงเรียนไม่มี AI ให้ใช้ เป้าหมายจึงต้องเป็น *เราทำเองได้* เสมอ ครูของเราสอนวิธีใช้ AI เป็นเพื่อนคู่เรียนในชั้นเรียน"},
      "tags": ["AI", "Study skills"], "sources": []},
-    {"slug": "live-class-same-screen-teacher-and-students", "category": "stem", "days": 12, "cover": ("#0e8fa8", "#4f46e5", "Live class · one set, two screens", "LIVE"),
+    {"slug": "live-class-same-screen-teacher-and-students", "photoQuery": "teacher classroom projector", "category": "stem", "days": 12, "cover": ("#0e8fa8", "#4f46e5", "Live class · one set, two screens", "LIVE"),
      "title": {"en": "Live class: teacher and students on the same question set",
                "th": "ห้องเรียนสด: ครูและนักเรียนทำชุดข้อสอบเดียวกันพร้อมกัน"},
      "summary": {"en": "Teachers share a screen without the key, students answer on their own devices, and the class sees the results together — paced or self-paced.",
@@ -160,32 +160,84 @@ POSTS = [
 ]
 
 
+def posts():
+    """Starter posts: the long versions in server/blog_posts/*.json (written and fact-checked by the team),
+    falling back to the short ones above."""
+    import glob
+    import os
+    out, seen = [], set()
+    for f in sorted(glob.glob(os.path.join(os.path.dirname(os.path.abspath(__file__)), "blog_posts", "*.json"))):
+        try:
+            with open(f, encoding="utf-8") as fh:
+                for x in json.load(fh):
+                    if isinstance(x, dict) and x.get("slug") and x["slug"] not in seen:
+                        out.append(x); seen.add(x["slug"])
+        except (OSError, ValueError):
+            continue
+    out += [x for x in POSTS if x["slug"] not in seen]
+    return out
+
+
+def _hash(p):
+    import hashlib
+    return hashlib.sha1(json.dumps([p["title"], p["summary"], p["body"]], ensure_ascii=False, sort_keys=True).encode()).hexdigest()
+
+
 def seed(con):
-    """Publish the starter posts once. Returns how many were added."""
+    """Publish the starter posts once; upgrade starter posts nobody has edited. Returns how many changed."""
     import blog
+    from datetime import datetime, timedelta, timezone
     r = con.execute("SELECT value FROM kv WHERE key='blogSeed'").fetchone()
     done = json.loads(r["value"]) if r else {"v": 0, "slugs": []}
     if done.get("v", 0) >= V:
         return 0
     cfg = blog.settings(con)
-    from datetime import datetime, timedelta, timezone
     now = datetime.now(timezone.utc).replace(microsecond=0)
     n = 0
-    for x in POSTS:
-        if x["slug"] in done["slugs"] or con.execute("SELECT 1 FROM blog_posts WHERE slug=?", (x["slug"],)).fetchone():
-            done["slugs"].append(x["slug"]); continue
-        p = blog.new_post(con, cfg, x["category"], "DeepDistrict")
-        blog.clean_edit(p, {k: x[k] for k in ("title", "summary", "body", "tags", "sources")}, cfg, images.check_cover)
-        try:
-            p["cover"], p["coverKind"] = _cover(*x["cover"]), "drawing"
-        except Exception:  # noqa: BLE001 — a missing cover never blocks the post
-            p["cover"], p["coverKind"] = "", ""
-        p["slug"] = blog.unique_slug(con, x["slug"], p["id"])
-        p["publishedAt"] = (now - timedelta(days=x["days"], hours=2)).isoformat()
-        blog.set_status(p, "published", cfg, "DeepDistrict")
+    for x in posts():
+        row = con.execute("SELECT data FROM blog_posts WHERE slug=?", (x["slug"],)).fetchone()
+        if row:                                   # upgrade only an untouched starter post
+            p = json.loads(row["data"])
+            if not p.get("seed") or p.get("seedHash") != _hash(p):
+                continue
+        elif x["slug"] in done["slugs"]:
+            continue                              # deleted by staff: keep it deleted
+        else:
+            p = blog.new_post(con, cfg, x["category"], "DeepDistrict")
+            p["slug"] = blog.unique_slug(con, x["slug"], p["id"])
+            p["publishedAt"] = (now - timedelta(days=int(x.get("days") or 0), hours=2)).isoformat()
+        blog.clean_edit(p, {k: x[k] for k in ("title", "summary", "body", "tags", "sources") if k in x}, cfg, images.check_cover)
+        if p.get("coverKind") != "photo":
+            try:
+                p["cover"], p["coverKind"] = _cover(*x["cover"]), "drawing"
+            except Exception:  # noqa: BLE001 — a missing cover never blocks the post
+                p["cover"], p["coverKind"] = "", ""
+        p["photoQuery"] = str(x.get("photoQuery") or "")[:120]
+        if p["status"] != "published":
+            blog.set_status(p, "published", cfg, "DeepDistrict")
         p["seed"] = True
+        p["seedHash"] = _hash(p)
         blog.put(con, p)
-        done["slugs"].append(x["slug"]); n += 1
+        if x["slug"] not in done["slugs"]:
+            done["slugs"].append(x["slug"])
+        n += 1
     done["v"] = V
     con.execute("INSERT INTO kv (key, value) VALUES ('blogSeed', ?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (json.dumps(done),))
     return n
+
+
+def photo_jobs(con):
+    """Starter posts that still have a drawn cover and a photo search phrase (tried at most once a day)."""
+    import blog  # noqa: F401
+    today = datetime_today()
+    out = []
+    for r in con.execute("SELECT data FROM blog_posts WHERE status='published'"):
+        p = json.loads(r["data"])
+        if p.get("seed") and p.get("photoQuery") and p.get("coverKind") in ("drawing", "") and p.get("photoTried") != today:
+            out.append((p["id"], p["photoQuery"]))
+    return out
+
+
+def datetime_today():
+    from datetime import datetime, timedelta, timezone
+    return datetime.now(timezone(timedelta(hours=7))).strftime("%Y-%m-%d")

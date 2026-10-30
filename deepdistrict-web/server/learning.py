@@ -44,6 +44,45 @@ def init(con):
     if os.environ.get("DD_SEED", "1") != "0":       # DD_SEED=0: start empty (no ready-made sets or starter news)
         autoload_sets(con)
         blog_seed.seed(con)
+        start_photo_thread()
+
+
+def start_photo_thread():
+    """Swap the drawn covers of the starter news for free-licence photos (Openverse: CC0, public domain,
+    CC BY / BY-SA with the credit shown under the picture). Runs in the background on the computer that
+    hosts the site; when there is no internet the drawn covers simply stay."""
+    if os.environ.get("DD_SEED_PHOTOS", "1") == "0" or not H.get("db"):
+        return
+
+    def work():
+        import time
+        time.sleep(3)
+        try:
+            with H["lock"], H["db"]() as c:
+                jobs = blog_seed.photo_jobs(c)
+        except Exception:  # noqa: BLE001
+            return
+        for pid, query in jobs:
+            got = None
+            try:
+                for item in images.search_photos(query, n=10)[:6]:
+                    if item.get("license") in ("CC0", "PDM") or item.get("creator"):
+                        try:
+                            got = (images.fetch_photo(item), images.credit(item)); break
+                        except images.ImageError:
+                            continue
+            except images.ImageError:
+                pass
+            with H["lock"], H["db"]() as c:
+                p = blog.get(c, pid)
+                if not p or p.get("coverKind") not in ("drawing", ""):
+                    continue
+                p["photoTried"] = blog_seed.datetime_today()
+                if got:
+                    p["cover"], p["coverCredit"], p["coverKind"] = got[0], got[1], "photo"
+                    p["seedHash"] = blog_seed._hash(p)
+                blog.put(c, p)
+    threading.Thread(target=work, daemon=True).start()
 
 
 def autoload_sets(con):

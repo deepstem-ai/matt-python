@@ -46,13 +46,30 @@
     return out.join("");
   }
   function get(path) {
-    return fetch(API + path, { credentials: "same-origin" }).then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || r.status); return j; }); });
+    if (!online) return local(path);
+    return fetch(API + path, { credentials: "same-origin" }).then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || r.status); return j; }); })
+      .then(function (j) { return path.indexOf("blog?") === 0 && !j.total && !j.off && window.DD_NEWS ? local(path) : j; })
+      .catch(function (e) { if (window.DD_NEWS && !/not found/.test(e.message)) return local(path); throw e; });
+  }
+  // Without the DeepDistrict server (file:// or plain static hosting) the starter news in
+  // assets/data/news.js is shown instead, so the page is never empty.
+  function local(path) {
+    var D = window.DD_NEWS;
+    if (!D) return Promise.reject(new Error("offline"));
+    var q = new URLSearchParams(path.split("?")[1] || "");
+    if (path.indexOf("blog/post") === 0) {
+      var p = D.items.filter(function (x) { return x.slug === q.get("slug"); })[0];
+      return p ? Promise.resolve({ post: p, branches: D.branches }) : Promise.reject(new Error("post not found"));
+    }
+    var list = D.items.filter(function (x) { return (!q.get("branch") || x.branch === q.get("branch")) && (!q.get("cat") || x.category === q.get("cat")); });
+    var off = +q.get("offset") || 0, lim = +q.get("limit") || 12;
+    return Promise.resolve({ items: list.slice(off, off + lim), total: list.length, branches: D.branches, categories: D.categories });
   }
   function postUrl(p) { return base + "pages/blog.html?p=" + encodeURIComponent(p.slug); }
   function card(p) {
     var c = img(p.cover);
     return '<a class="card card--link news-card" href="' + postUrl(p) + '">' +
-      (c ? '<div class="news-card__img"><img src="' + c + '" alt="" loading="lazy"></div>' : '<div class="news-card__img news-card__img--none" aria-hidden="true"></div>') +
+      (c ? '<div class="news-card__img"><img src="' + c + '" alt="" loading="lazy">' + (p.coverKind === "photo" && p.coverCredit && p.coverCredit.license ? '<small class="news-card__credit">' + esc(["Photo", p.coverCredit.creator, p.coverCredit.license].filter(Boolean).join(" · ")) + "</small>" : "") + "</div>" : '<div class="news-card__img news-card__img--none" aria-hidden="true"></div>') +
       '<div class="news-card__body"><span class="news-card__cat">' + both(p.categoryName) + "</span>" +
       "<h3>" + both(p.title) + "</h3><p>" + both(p.summary, 180) + '</p><span class="news-card__date">' + date(p.publishedAt) + "</span></div></a>";
   }
@@ -64,7 +81,7 @@
   document.querySelectorAll("[data-blog-latest]").forEach(function (el) {
     var n = +el.getAttribute("data-blog-latest") || 3, branch = el.getAttribute("data-branch") || "";
     var sec = el.closest("section");
-    if (!online) { if (sec) sec.hidden = true; return; }
+    if (!online && !window.DD_NEWS) { if (sec) sec.hidden = true; return; }
     get("blog?limit=" + n + (branch ? "&branch=" + branch : "")).then(function (d) {
       if (!d.items.length) { if (sec) sec.hidden = true; return; }
       el.innerHTML = d.items.map(card).join("");
@@ -77,7 +94,7 @@
   // own for people who ask for reduced motion. Every card opens its article on the blog page.
   document.querySelectorAll("[data-blog-slider]").forEach(function (el) {
     var n = +el.getAttribute("data-blog-slider") || 8, sec = el.closest("section");
-    if (!online) { if (sec) sec.hidden = true; return; }
+    if (!online && !window.DD_NEWS) { if (sec) sec.hidden = true; return; }
     get("blog?limit=" + n).then(function (d) {
       if (!d.items.length) { if (sec) sec.hidden = true; return; }
       slider(el, d.items);
@@ -131,7 +148,7 @@
   /* ---------------------------------------------------------------- the blog page */
   var root = document.querySelector("[data-blog]");
   if (!root) return;
-  if (!online) return offline(root);
+  if (!online && !window.DD_NEWS) return offline(root);
   var q = new URLSearchParams(location.search), slug = q.get("p");
   slug ? article(slug) : list(q.get("branch") || "", q.get("cat") || "", 0);
 
