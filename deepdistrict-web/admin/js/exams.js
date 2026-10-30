@@ -140,7 +140,8 @@
     return (groups || []).map(function (g) {
       var head = "### " + g.type + (g.wordLimit ? " | max=" + g.wordLimit.words + (g.wordLimit.number ? " | number" : "") : "");
       var opts = g.type === "tfng" || g.type === "ynng" ? [] : (g.options || []).map(function (o) { return "* " + o.key + ": " + o.text; });
-      return [head, "> " + (g.instructions || "")].concat(opts, g.questions.map(function (q) {
+      var ctx = (g.context || "").split(/\n/).filter(function (l) { return l.trim(); }).map(function (l) { return "~ " + l; });
+      return [head, "> " + (g.instructions || "")].concat(ctx, opts, g.questions.map(function (q) {
         return "- " + q.text + " => " + (q.answer || []).join(" / ") + (q.options || []).map(function (o) { return "\n  " + o.key + ": " + o.text; }).join("");
       })).join("\n");
     }).join("\n\n");
@@ -155,6 +156,7 @@
       }
       if (!g) return;
       if ((m = /^>\s?(.*)$/.exec(line.trim()))) { g.instructions += (g.instructions ? " " : "") + m[1]; return; }
+      if ((m = /^~\s?(.*)$/.exec(line.trim()))) { g.context = (g.context ? g.context + "\n" : "") + m[1]; return; }
       if ((m = /^\*\s*([^:]+):\s*(.+)$/.exec(line.trim()))) { g.options.push({ key: m[1].trim(), text: m[2].trim() }); return; }
       if ((m = /^-\s*(.*?)\s*=>\s*(.*)$/.exec(line.trim()))) { q = { text: m[1], answer: m[2].split("/").map(function (s) { return s.trim(); }).filter(Boolean), options: [] }; g.questions.push(q); return; }
       if (q && (m = /^\s+([A-Z]):\s*(.+)$/.exec(line))) q.options.push({ key: m[1], text: m[2].trim() });
@@ -176,6 +178,7 @@
           { name: "pretest", label: L("Pretest (unscored, to try out a new question)", "Pretest (ไม่นับคะแนน ใช้ทดลองข้อใหม่)"), type: "checkbox", value: it.pretest },
           { name: "passage", label: L("Passage (25–150 words; cross-text up to 300; blanks as ______)", "บทอ่าน (25–150 คำ; cross-text ไม่เกิน 300; ช่องว่างใช้ ______)"), type: "textarea", value: it.passage, full: true },
           { name: "table", label: L("Data table (optional; one row per line, cells separated by |, first row = headers)", "ตารางข้อมูล (ถ้ามี; บรรทัดละแถว คั่นช่องด้วย | แถวแรกเป็นหัวตาราง)"), type: "textarea", value: tableToText(it.table), full: true },
+          { name: "image", label: L("…or a bar / line graph image (quantitative evidence)", "…หรือรูปกราฟแท่ง/กราฟเส้น (สำหรับข้อ quantitative evidence)"), type: "image", value: it.image },
           { name: "stem", label: L("Question", "คำถาม"), value: it.stem, full: true },
           { name: "c0", label: "A", value: (it.choices || [])[0] }, { name: "c1", label: "B", value: (it.choices || [])[1] }, { name: "c2", label: "C", value: (it.choices || [])[2] }, { name: "c3", label: "D", value: (it.choices || [])[3] },
           { name: "answer", label: L("Correct answer", "คำตอบที่ถูก"), type: "select", value: it.answer, options: [[0, "A"], [1, "B"], [2, "C"], [3, "D"]] },
@@ -186,7 +189,7 @@
           { name: "difficulty", label: L("Level (order in a full test)", "ระดับ (ลำดับในข้อสอบเต็ม)"), type: "select", value: it.difficulty || 2, options: [[1, L("1 — easier", "1 — ง่ายกว่า")], [2, L("2 — medium", "2 — กลาง")], [3, L("3 — harder", "3 — ยากกว่า")]] },
           { name: "paragraphs", label: L("Passage — one paragraph per block, separated by an empty line (shown as A, B, C…)", "บทอ่าน — ย่อหน้าละช่วง คั่นด้วยบรรทัดว่าง (แสดงเป็น A, B, C…)"), type: "textarea", value: (it.paragraphs || []).join("\n\n"), full: true },
           { name: "groups", label: L("Questions (see the format below)", "คำถาม (ดูรูปแบบด้านล่าง)"), type: "textarea", value: groupsToText(it.groups) || "### tfng\n> Do the following statements agree with the information given in the passage?\n- statement => TRUE", full: true,
-            hint: "### type | max=2 | number   ·   > instructions   ·   * key: option   ·   - question => answer / alternative   ·   (mcq)  A: option. " + L("Types: ", "ประเภท: ") + Object.keys(bank.types).join(", ") }];
+            hint: "### type | max=2 | number   ·   > instructions   ·   ~ summary / notes / table / flow-chart text with gaps, e.g. ~ caused by (9) ______   ·   * key: option (lists, word box)   ·   - question => answer / alternative   ·   mcq & mcq-multi: options under the question as  A: option ; mcq-multi answer:  B / D  (TWO letters) or  A / C / F  (THREE). " + L("Types: ", "ประเภท: ") + Object.keys(bank.types).map(function (k) { return k + " (" + bank.types[k] + ")"; }).join(", ") }];
       } else {
         f = [{ name: "task", label: "Task", type: "select", value: it.task || 2, options: [[1, "Task 1 (150+)"], [2, "Task 2 (250+)"]] },
           { name: "prompt", label: L("Task wording", "โจทย์"), type: "textarea", value: it.prompt, full: true },
@@ -203,7 +206,7 @@
         onDelete: id && A.isAdmin() ? function () { bankAct({ delete: id }).then(function () { return loadBank().then(drawBank); }); } : null,
         onSave: function (v) {
           var out = { id: it.id, kind: it.kind, status: v.status, rightsOk: v.rightsOk, origin: it.origin, tags: v.tags.split(",").map(function (s) { return s.trim(); }).filter(Boolean), note: it.note };
-          if (it.kind === "sat") Object.assign(out, { domain: v.domain, skill: v.skill, difficulty: v.difficulty, pretest: v.pretest, passage: v.passage, table: textToTable(v.table), stem: v.stem,
+          if (it.kind === "sat") Object.assign(out, { domain: v.domain, skill: v.skill, difficulty: v.difficulty, pretest: v.pretest, passage: v.passage, table: textToTable(v.table), image: v.image, stem: v.stem,
             choices: [v.c0, v.c1, v.c2, v.c3], answer: +v.answer, explanation: { en: v.expEn, th: v.expTh } });
           else if (it.kind === "ielts-r") Object.assign(out, { title: v.title, difficulty: +v.difficulty, labelled: true, paragraphs: v.paragraphs.split(/\n\s*\n/).map(function (p) { return p.replace(/\s*\n\s*/g, " ").trim(); }).filter(Boolean),
             groups: textToGroups(v.groups).map(function (g, i) { var old = (it.groups || [])[i]; if (old && old.image && old.type === g.type) g.image = old.image; return g; }) });
@@ -275,6 +278,8 @@
         { name: "studentsCanStart", label: L("Learners may start online tests", "นักเรียนเริ่มทำข้อสอบออนไลน์ได้"), type: "checkbox", value: s.studentsCanStart, full: true },
         { name: "practiceReview", label: L("Show answers after practice tests", "แสดงเฉลยหลังทำแบบฝึก"), type: "checkbox", value: s.practiceReview },
         { name: "mockReview", label: L("Show answers after full tests", "แสดงเฉลยหลังข้อสอบเต็ม"), type: "checkbox", value: s.mockReview },
+        { name: "routeAt", label: L("SAT routing: share of module 1 correct for the harder module 2 (0.3–0.9) — our estimate; College Board does not publish it", "SAT: สัดส่วนข้อถูกในโมดูล 1 ที่จะได้โมดูล 2 ชุดยาก (0.3–0.9) — ค่าประมาณของเรา College Board ไม่ได้เผยแพร่"), type: "number", step: "0.05", min: 0.3, value: s.routeAt, full: true },
+        { name: "easyCap", label: L("SAT: estimated top score after the easier module 2 — unofficial", "SAT: คะแนนสูงสุดโดยประมาณเมื่อได้โมดูล 2 ชุดง่าย — ไม่ใช่ตัวเลขทางการ"), type: "number", step: "10", min: 400, value: s.easyCap },
         { name: "writingAiInstant", label: L("Practice Writing: show AI feedback at once (labelled as an estimate)", "Writing แบบฝึก: แสดงคำแนะนำจาก AI ทันที (ระบุว่าเป็นค่าประมาณ)"), type: "checkbox", value: s.writingAiInstant, full: true },
         { name: "autoOn", label: L("Scheduled drafting with AI", "ตั้งเวลาให้ AI สร้างข้อสอบ"), type: "checkbox", value: a.enabled, full: true },
         { name: "days", label: L("On these days (none = every day)", "ในวันเหล่านี้ (ไม่เลือก = ทุกวัน)"), type: "days", value: a.days },
@@ -285,7 +290,7 @@
         { name: "topics", label: L("Topic ideas (optional)", "แนวหัวข้อ (ไม่บังคับ)"), value: a.topics, full: true }
       ],
       onSave: function (v) {
-        return A.api("POST", "exam/settings", { shuffle: v.shuffle, studentsCanStart: v.studentsCanStart, practiceReview: v.practiceReview, mockReview: v.mockReview, writingAiInstant: v.writingAiInstant,
+        return A.api("POST", "exam/settings", { routeAt: v.routeAt, easyCap: v.easyCap, shuffle: v.shuffle, studentsCanStart: v.studentsCanStart, practiceReview: v.practiceReview, mockReview: v.mockReview, writingAiInstant: v.writingAiInstant,
           autoDraft: { enabled: v.autoOn, days: v.days, hour: v.hour, sat: v.sat, reading: v.reading, writing: v.writing, topics: v.topics } })
           .then(function () { A.toast(L("Saved", "บันทึกแล้ว")); return loadBank().then(drawBank); }).catch(function (e) { A.toast(e.message, "err"); return false; });
       }

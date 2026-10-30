@@ -75,6 +75,53 @@
     }).catch(function (e) { submitting = false; alert(e.message); load(); });
   }
 
+  /* ---------------------------------------------------------------- tools (like Bluebook / computer IELTS):
+     Zoom, Line Reader, Highlights & Notes. Kept in this browser only (they are the learner's own marks). */
+  var zoom = 1, lineOn = false, notesOpen = false;
+  function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem("dd-ex-" + id + "-" + k) || "null"); localStorage.setItem("dd-ex-" + id + "-" + k, JSON.stringify(v)); } catch (e) { return null; } }
+  function curKey() { if (!A || A.status !== "active") return null; var it = sec().items; return A.kind === "sat" ? (it[idx] || {}).id : A.kind === "ielts-r" ? (it[part] || {}).id : null; }
+  function toolbar() {
+    if (A.kind === "ielts-w") return "";
+    return '<div class="ex-tools"><button type="button" class="ex-link" data-tool="hl" title="' + esc(L("Select text in the passage, then press Highlight", "เลือกข้อความในบทอ่าน แล้วกด ไฮไลต์")) + '">🖍 ' + L("Highlight", "ไฮไลต์") + '</button>' +
+      '<button type="button" class="ex-link" data-tool="note">📝 ' + L("Notes", "โน้ต") + '</button><button type="button" class="ex-link' + (lineOn ? " on" : "") + '" data-tool="line">☰ ' + L("Line reader", "แถบอ่านบรรทัด") + "</button>" +
+      '<button type="button" class="ex-link" data-tool="zoom-">A−</button><button type="button" class="ex-link" data-tool="zoom+">A+</button></div>';
+  }
+  function applyTools() {
+    document.documentElement.style.setProperty("--ex-zoom", zoom);
+    var k = curKey(), pane = $(".ex-passage");
+    if (k && pane) {
+      (store("hl-" + k) || []).forEach(function (phrase) { markText(pane, phrase); });
+      $$("mark.ex-hl", pane).forEach(function (m) { m.title = L("Click to remove", "คลิกเพื่อลบ"); m.addEventListener("click", function () { var list = (store("hl-" + k) || []).filter(function (x) { return x !== m.textContent; }); store("hl-" + k, list); draw(); }); });
+    }
+    var np = $("[data-notes]");
+    if (np) { np.hidden = !notesOpen || !k; if (k) { var ta = $("textarea", np); ta.value = store("note-" + k) || ""; ta.oninput = function () { store("note-" + k, ta.value); }; } }
+    var lr = $("[data-linereader]"); if (lr) lr.hidden = !lineOn;
+    $$("[data-tool]").forEach(function (b) {
+      b.onclick = function () {
+        var t = b.getAttribute("data-tool");
+        if (t === "zoom+") zoom = Math.min(1.5, zoom + 0.15); else if (t === "zoom-") zoom = Math.max(0.85, zoom - 0.15);
+        else if (t === "line") lineOn = !lineOn; else if (t === "note") notesOpen = !notesOpen;
+        else if (t === "hl") {
+          var sel = window.getSelection(), txt = sel ? String(sel).trim() : "";
+          if (!txt || !k || !pane || !pane.contains(sel.anchorNode)) return alert(L("Select some words in the passage first.", "เลือกคำในบทอ่านก่อน"));
+          var list = store("hl-" + k) || []; if (list.indexOf(txt) === -1 && txt.length <= 300) list.push(txt); store("hl-" + k, list); sel.removeAllRanges();
+        }
+        draw();
+      };
+    });
+  }
+  function markText(root, phrase) {
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), node;
+    while ((node = walker.nextNode())) {
+      var i = node.nodeValue.indexOf(phrase);
+      if (i !== -1 && !(node.parentNode && node.parentNode.classList && node.parentNode.classList.contains("ex-hl"))) {
+        var r = document.createRange(); r.setStart(node, i); r.setEnd(node, i + phrase.length);
+        var m = document.createElement("mark"); m.className = "ex-hl"; r.surroundContents(m); return;
+      }
+    }
+  }
+  document.addEventListener("mousemove", function (e) { var lr = $("[data-linereader]"); if (lr && !lr.hidden) lr.style.top = (e.clientY - 22) + "px"; });
+
   /* ---------------------------------------------------------------- shell */
   var KN = { sat: "SAT Reading and Writing", "ielts-r": "IELTS Academic Reading", "ielts-w": "IELTS Academic Writing" };
   function shell(main, foot) {
@@ -83,9 +130,11 @@
       "<br><small>" + esc(active ? sec().title : (A.mode === "mock" ? L("Full test", "ข้อสอบเต็ม") : L("Practice", "ฝึกทำ")) + " · " + L("results", "ผลสอบ")) + "</small></div>" +
       (active ? '<div class="ex-timer"><span data-time></span><button type="button" class="ex-link" data-hide>' + (hideTime ? L("Show time", "แสดงเวลา") : L("Hide", "ซ่อน")) + "</button></div>" : "") +
       '<div class="ex-right">' + (active ? '<span class="ex-save" data-save></span>' : "") + '<a class="ex-link" href="index.html#/tests" data-leave>' + (active ? L("Leave (time keeps running)", "ออก (เวลายังเดินต่อ)") : L("Back to Tests", "กลับไปหน้าข้อสอบ")) + "</a></div></header>" +
-      '<main class="ex-main ex-main--' + A.kind + '">' + main + "</main>" + (foot ? '<footer class="ex-foot">' + foot + "</footer>" : "");
+      (active ? toolbar() : "") + '<main class="ex-main ex-main--' + A.kind + '">' + main + "</main>" + (foot ? '<footer class="ex-foot">' + foot + "</footer>" : "") +
+      (active && A.kind !== "ielts-w" ? '<aside class="ex-notes" data-notes hidden><b>' + L("Notes for this question", "โน้ตของข้อนี้") + '</b><textarea rows="6"></textarea><small>' + L("Only you can see these notes; they are not marked.", "โน้ตนี้เห็นเฉพาะคุณ และไม่นำมาคิดคะแนน") + '</small></aside><div class="ex-linereader" data-linereader hidden></div>' : "");
     var h = $("[data-hide]"); if (h) h.addEventListener("click", function () { hideTime = !hideTime; h.textContent = hideTime ? L("Show time", "แสดงเวลา") : L("Hide", "ซ่อน"); tick(); });
     var lv = $("[data-leave]"); if (lv) lv.addEventListener("click", function () { flush(); });
+    if (active) applyTools();
     tick();
   }
   function draw() {
@@ -107,7 +156,7 @@
       bindNav(); return;
     }
     var it = items[idx], ans = answers()[it.id], marked = !!sec().marked[it.id], struck = sec().struck[it.id] || [];
-    shell('<section class="ex-pane ex-passage">' + passageText(it.passage) + table(it.table) + "</section>" +
+    shell('<section class="ex-pane ex-passage">' + passageText(it.passage) + table(it.table) + (it.image ? '<img class="ex-diagram" src="' + esc(it.image) + '" alt="">' : "") + "</section>" +
       '<section class="ex-pane ex-q"><div class="ex-qhead"><span class="ex-num">' + (idx + 1) + '</span><button type="button" class="ex-mark' + (marked ? " on" : "") + '" data-flag>⚑ ' + L("Mark for review", "ทำเครื่องหมายทบทวน") + "</button>" +
       '<button type="button" class="ex-link" data-elim title="' + esc(L("Cross out choices you think are wrong", "ขีดฆ่าตัวเลือกที่คิดว่าผิด")) + '">A̶B̶C̶</button></div><p class="ex-stem">' + esc(it.stem) + "</p>" +
       '<div class="ex-choices">' + it.choices.map(function (c, i) {
@@ -139,18 +188,23 @@
     var sets = sec().items, s = sets[part];
     var qs = s.groups.map(function (g, gi) {
       var head = "<h3>" + L("Questions ", "คำถามข้อ ") + g.from + (g.to > g.from ? "–" + g.to : "") + '</h3><p class="ex-instr">' + esc(g.instructions) + "</p>";
-      var box = g.options && g.options.length && g.type !== "tfng" && g.type !== "ynng" ? '<ul class="ex-opts">' + g.options.map(function (o) { return "<li><b>" + esc(o.key) + "</b> " + esc(o.text) + "</li>"; }).join("") + "</ul>" : "";
+      var box = g.options && g.options.length && !/^(tfng|ynng|matching-info|mcq|mcq-multi)$/.test(g.type) ? '<ul class="ex-opts">' + g.options.map(function (o) { return "<li><b>" + esc(o.key) + "</b> " + esc(o.text) + "</li>"; }).join("") + "</ul>" : "";
+      if (g.context) box = '<div class="ex-context">' + passageText(g.context) + "</div>" + box;
       var img = g.image ? '<img class="ex-diagram" src="' + esc(g.image) + '" alt="">' : "";
       return '<div class="ex-group">' + head + box + img + g.questions.map(function (qq, qi) {
-        var k = rkey(s, gi, qi), v = answers()[k] || "", n = g.from + qi, input;
-        if (g.type === "mcq") input = (qq.options || []).map(function (o) { return '<label class="ex-radio"><input type="radio" name="' + esc(k) + '" value="' + esc(o.key) + '"' + (v === o.key ? " checked" : "") + " data-k=\"" + esc(k) + '"> <b>' + esc(o.key) + "</b> " + esc(o.text) + "</label>"; }).join("");
+        var k = rkey(s, gi, qi), v = answers()[k] || "", n = qq.n || g.from + qi, input, label = n + (qq.marks > 1 ? "–" + (n + qq.marks - 1) : "");
+        if (g.type === "mcq-multi") {
+          var picked = v ? v.split(",") : [];
+          input = '<p class="ex-instr">' + L("Choose " + qq.pick + " letters.", "เลือก " + qq.pick + " ตัวอักษร") + "</p>" + (qq.options || []).map(function (o) { return '<label class="ex-radio"><input type="checkbox" data-multi="' + esc(k) + '" data-max="' + qq.pick + '" value="' + esc(o.key) + '"' + (picked.indexOf(o.key) !== -1 ? " checked" : "") + '> <b>' + esc(o.key) + "</b> " + esc(o.text) + "</label>"; }).join("");
+        }
+        else if (g.type === "mcq") input = (qq.options || []).map(function (o) { return '<label class="ex-radio"><input type="radio" name="' + esc(k) + '" value="' + esc(o.key) + '"' + (v === o.key ? " checked" : "") + " data-k=\"" + esc(k) + '"> <b>' + esc(o.key) + "</b> " + esc(o.text) + "</label>"; }).join("");
         else if (g.wordLimit) input = '<input class="ex-text" data-k="' + esc(k) + '" value="' + esc(v) + '" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="' + n + '">';
         else input = '<select data-k="' + esc(k) + '" aria-label="' + n + '"><option value=""></option>' + g.options.map(function (o) { return '<option value="' + esc(o.key) + '"' + (v === o.key ? " selected" : "") + ">" + esc(o.key) + "</option>"; }).join("") + "</select>";
-        return '<div class="ex-rq' + (v ? " done" : "") + '" id="q' + n + '"><span class="ex-num">' + n + "</span><div><p>" + esc(qq.text) + "</p>" + input + "</div></div>";
+        return '<div class="ex-rq' + (v ? " done" : "") + '" id="q' + n + '"><span class="ex-num">' + label + "</span><div><p>" + esc(qq.text) + "</p>" + input + "</div></div>";
       }).join("") + "</div>";
     }).join("");
     var nums = [];
-    sets.forEach(function (st, si) { st.groups.forEach(function (g, gi) { g.questions.forEach(function (x, qi) { nums.push('<button type="button" data-jump="' + si + ":" + (g.from + qi) + '" data-key="' + esc(rkey(st, gi, qi)) + '" class="' + (answers()[rkey(st, gi, qi)] ? "ans" : "unans") + (si === part ? " cur" : "") + '">' + (g.from + qi) + "</button>"); }); }); });
+    sets.forEach(function (st, si) { st.groups.forEach(function (g, gi) { g.questions.forEach(function (x, qi) { var n0 = x.n || g.from + qi; for (var m = 0; m < (x.marks || 1); m++) nums.push('<button type="button" data-jump="' + si + ":" + n0 + '" data-key="' + esc(rkey(st, gi, qi)) + '" class="' + (answers()[rkey(st, gi, qi)] ? "ans" : "unans") + (si === part ? " cur" : "") + '">' + (n0 + m) + "</button>"); }); }); });
     shell('<section class="ex-pane ex-passage ex-reading"><h2>' + L("Part ", "ส่วนที่ ") + (part + 1) + ": " + esc(s.title) + "</h2>" + s.paragraphs.map(function (p, i) { return "<p>" + (s.labelled ? '<b class="ex-para">' + String.fromCharCode(65 + i) + "</b> " : "") + esc(p) + "</p>"; }).join("") + "</section>" +
       '<section class="ex-pane ex-q ex-rqs">' + qs + "</section>",
       '<div class="ex-parts">' + sets.map(function (x, i) { return '<button type="button" class="btn btn--sm' + (i === part ? " btn--primary" : "") + '" data-part="' + i + '">' + L("Part ", "ส่วนที่ ") + (i + 1) + "</button>"; }).join("") + '</div><div class="ex-grid ex-grid--inline">' + nums.join("") + '</div><span class="spacer"></span><button class="btn btn--primary" data-submit>' + L("Submit", "ส่งคำตอบ") + "</button>");
@@ -158,6 +212,15 @@
       var ev = el.tagName === "INPUT" && el.type !== "radio" ? "input" : "change";
       el.addEventListener(ev, function () { var k = el.getAttribute("data-k"); answers()[k] = el.value; queue(k, el.value); var row = el.closest(".ex-rq"); if (row) row.classList.toggle("done", !!el.value);
         $$("[data-key]").forEach(function (b) { if (b.getAttribute("data-key") === k) { b.classList.toggle("ans", !!el.value); b.classList.toggle("unans", !el.value); } }); });
+    });
+    $$("[data-multi]").forEach(function (cb) {
+      cb.addEventListener("change", function () {
+        var k = cb.getAttribute("data-multi"), all = $$('[data-multi="' + k + '"]'), on = all.filter(function (x) { return x.checked; });
+        if (on.length > +cb.getAttribute("data-max")) { cb.checked = false; return alert(L("Choose only " + cb.getAttribute("data-max") + " letters.", "เลือกได้ " + cb.getAttribute("data-max") + " ตัวอักษรเท่านั้น")); }
+        var v = all.filter(function (x) { return x.checked; }).map(function (x) { return x.value; }).join(",");
+        answers()[k] = v; queue(k, v); var row = cb.closest(".ex-rq"); if (row) row.classList.toggle("done", !!v);
+        $$("[data-key]").forEach(function (b) { if (b.getAttribute("data-key") === k) { b.classList.toggle("ans", !!v); b.classList.toggle("unans", !v); } });
+      });
     });
     $$("[data-part]").forEach(function (b) { b.addEventListener("click", function () { part = +b.getAttribute("data-part"); drawReading(); }); });
     $$("[data-jump]").forEach(function (b) { b.addEventListener("click", function () { var x = b.getAttribute("data-jump").split(":"); if (+x[0] !== part) { part = +x[0]; drawReading(); } var t = document.getElementById("q" + x[1]); if (t) { t.scrollIntoView({ block: "center" }); var f = t.querySelector("input,select"); if (f) f.focus(); } }); });
@@ -180,7 +243,7 @@
     $$("[data-task]").forEach(function (b) { b.addEventListener("click", function () { flush(); task = +b.getAttribute("data-task"); drawWriting(); }); });
     $("[data-submit]").addEventListener("click", function () {
       var short = tasks.filter(function (x) { return words(answers()[x.id]) < x.minWords; });
-      if (short.length && !confirm(L("Some answers are under the minimum word count, which lowers the band. Submit anyway?", "บางคำตอบยังไม่ถึงจำนวนคำขั้นต่ำ ซึ่งจะทำให้คะแนนลดลง ส่งเลยไหม?"))) return;
+      if (short.length && !confirm(L("Some answers are under the minimum word count, so they may not show enough for a higher band. Submit anyway?", "บางคำตอบยังไม่ถึงจำนวนคำขั้นต่ำ อาจมีหลักฐานทางภาษาไม่พอสำหรับคะแนนสูง ส่งเลยไหม?"))) return;
       submitting = false; submit(true);
     });
   }
@@ -191,12 +254,14 @@
     if (A.kind === "sat") {
       html = '<div class="ex-score">' + (r.estimate ? "<b>" + r.estimate + "</b><span>" + L("estimated Reading and Writing score (200–800)", "คะแนน Reading and Writing โดยประมาณ (200–800)") + "</span>" : "<b>" + r.correct + "/" + r.total + "</b><span>" + L("correct", "ข้อที่ถูก") + "</span>") + "</div>" +
         (r.modules ? '<p class="ex-sub">' + r.modules.map(function (m) { return (m.key === "m1" ? L("Module 1", "โมดูล 1") : m.key === "m2" ? L("Module 2", "โมดูล 2") : L("Practice", "ฝึกทำ")) + ": " + m.correct + "/" + m.total; }).join(" · ") +
-          (r.route ? " · " + L("module 2 was the ", "โมดูล 2 เป็นชุด") + (r.route === "hard" ? L("harder set", "ยาก") : L("easier set (score ceiling about " + r.ceiling + ")", "ง่าย (คะแนนสูงสุดประมาณ " + r.ceiling + ")")) : "") + "</p>" : "") +
+          (r.route ? " · " + L("module 2 was the ", "โมดูล 2 เป็นชุด") + (r.route === "hard" ? L("harder set", "ยาก") : L("easier set (our unofficial estimate of the ceiling: about " + r.ceiling + ")", "ง่าย (เพดานคะแนนประมาณ " + r.ceiling + " เป็นค่าประมาณของเรา ไม่ใช่ตัวเลขทางการ)")) : "") + "</p>" : "") +
+        (r.percentile ? '<p class="ex-sub">' + L("About the " + r.percentile + "th percentile among SAT takers (College Board's published RW percentiles).", "ประมาณเปอร์เซ็นไทล์ที่ " + r.percentile + " ของผู้สอบ SAT (อ้างอิงตารางเปอร์เซ็นไทล์ RW ของ College Board)") + "</p>" : "") +
         '<div class="ex-doms">' + Object.keys(r.byDomain || {}).filter(function (d) { return r.byDomain[d].t; }).map(function (d) { var x = r.byDomain[d]; return '<div><span>' + esc({ cs: "Craft and Structure", ii: "Information and Ideas", sec: "Standard English Conventions", eoi: "Expression of Ideas" }[d]) + "</span><b>" + x.c + "/" + x.t + '</b><i style="width:' + Math.round(x.c / x.t * 100) + '%"></i></div>'; }).join("") + "</div>";
-      if (A.review) html += A.sections.map(function (s, si) {
+      if (A.review) html += errorLog() + A.sections.map(function (s, si) {
         return "<h2>" + esc(s.title) + "</h2>" + (s.items || []).map(function (it, i) {
           var a = s.answers[it.id], ok = a === String(it.answer);
-          return '<details class="ex-rev ' + (ok ? "ok" : "bad") + '"><summary><b>' + (i + 1) + "</b> " + (ok ? "✓" : "✗") + " " + esc(it.stem) + (it.pretest ? ' <small>(pretest)</small>' : "") + "</summary>" + passageText(it.passage) + table(it.table) +
+          return '<details class="ex-rev ' + (ok ? "ok" : "bad") + '"><summary><b>' + (i + 1) + "</b> " + (ok ? "✓" : "✗") + " " + esc(it.stem) + (it.pretest ? ' <small>(pretest)</small>' : "") + "</summary>" + passageText(it.passage) + table(it.table) + (it.image ? '<img class="ex-diagram" src="' + esc(it.image) + '" alt="">' : "") +
+            (!ok && !A.staff ? '<p class="ex-tag-row">' + L("Why did I miss it? ", "พลาดเพราะอะไร? ") + '<select data-tag="' + esc(it.id) + '">' + '<option value="">–</option>' + CAUSES.map(function (c) { return '<option value="' + c[0] + '"' + ((A.tags || {})[it.id] === c[0] ? " selected" : "") + ">" + L(c[1], c[2]) + "</option>"; }).join("") + "</select></p>" : "") +
             "<ol type=A>" + it.choices.map(function (c, k) { return '<li class="' + (k === it.answer ? "right" : String(k) === a ? "wrong" : "") + '">' + esc(c) + "</li>"; }).join("") + "</ol><p>" + esc(lang === "th" ? it.explanation.th || it.explanation.en : it.explanation.en || it.explanation.th) + "</p></details>";
         }).join("");
       }).join("");
@@ -205,8 +270,9 @@
       if (A.review) A.sections[0].items.forEach(function (s) {
         html += "<h2>" + esc(s.title) + "</h2>";
         s.groups.forEach(function (g, gi) { g.questions.forEach(function (x, qi) {
-          var a = A.sections[0].answers[rkey(s, gi, qi)] || "", ok = x.answer.some(function (y) { return y.toLowerCase().trim() === a.toLowerCase().trim(); });
-          html += '<div class="ex-rev-line ' + (ok ? "ok" : "bad") + '"><b>' + (g.from + qi) + "</b> " + esc(x.text) + " — " + L("you: ", "คุณ: ") + "<i>" + esc(a || "–") + "</i> · " + L("answer: ", "เฉลย: ") + "<b>" + esc(x.answer.join(" / ")) + "</b></div>";
+          var a = A.sections[0].answers[rkey(s, gi, qi)] || "", norm = function (t) { return String(t).toLowerCase().trim(); };
+          var ok = g.type === "mcq-multi" ? a.split(",").map(norm).sort().join(",") === x.answer.map(norm).sort().join(",") : x.answer.some(function (y) { return norm(y) === norm(a); });
+          html += '<div class="ex-rev-line ' + (ok ? "ok" : "bad") + '"><b>' + (x.n || g.from + qi) + (x.marks > 1 ? "–" + (x.n + x.marks - 1) : "") + "</b> " + esc(x.text) + " — " + L("you: ", "คุณ: ") + "<i>" + esc(a || "–") + "</i> · " + L("answer: ", "เฉลย: ") + "<b>" + esc(x.answer.join(" / ")) + "</b></div>";
         }); });
       });
     } else html = writingResult(r);
@@ -214,6 +280,9 @@
       '<p><button class="btn" data-report>' + L("Download score report (PDF)", "ดาวน์โหลดรายงานผลสอบ (PDF)") + "</button></p>";
     shell('<div class="ex-result">' + html + "</div>");
     bindMarking();
+    $$("[data-tag]").forEach(function (sel) {
+      sel.addEventListener("change", function () { api("POST", "exam/tag", { id: id, item: sel.getAttribute("data-tag"), cause: sel.value }).then(function (r) { A.tags = r.tags; var det = $$("details[open]").map(function (d) { return $$("details").indexOf(d); }); drawResult(); det.forEach(function (i) { var d = $$("details")[i]; if (d) d.open = true; }); }); });
+    });
     $("[data-report]").addEventListener("click", function () {
       var b = this; b.disabled = true; b.textContent = L("Creating…", "กำลังสร้าง…");
       api("POST", "doc/report", { attemptId: id }).then(function (p) { return window.DDPDF.save(p, api); })
@@ -221,6 +290,18 @@
         .catch(function (e) { alert(e.message); b.disabled = false; });
     });
     if (A.kind === "ielts-w" && r.aiPending) setTimeout(load, 5000);
+  }
+  var CAUSES = [["vocabulary", "Vocabulary gap", "ไม่รู้คำศัพท์"], ["reasoning", "Reasoning gap", "ตีความ/เหตุผลผิด"], ["rule", "Grammar rule", "ไม่รู้กฎไวยากรณ์"], ["misread", "Misread the question", "อ่านโจทย์พลาด"], ["time", "Ran out of time", "เวลาไม่พอ"], ["trap", "Fell for a trap answer", "ติดกับดักตัวเลือก"]];
+  var DOMN = { cs: "Craft and Structure", ii: "Information and Ideas", sec: "Standard English Conventions", eoi: "Expression of Ideas" };
+  function errorLog() {
+    if (A.kind !== "sat") return "";
+    var rows = {}, tags = A.tags || {}, any = false;
+    A.sections.forEach(function (s) { (s.items || []).forEach(function (it) { if (s.answers[it.id] !== String(it.answer) && !it.pretest) { var c = tags[it.id] || "untagged"; rows[it.domain] = rows[it.domain] || {}; rows[it.domain][c] = (rows[it.domain][c] || 0) + 1; any = true; } }); });
+    if (!any) return "";
+    var cols = CAUSES.map(function (c) { return c[0]; }).concat(["untagged"]);
+    return '<h2>' + L("My error log", "บันทึกข้อผิดพลาดของฉัน") + '</h2><p class="ex-note">' + L("Tag each missed question below. Drill the domain and cause with the most misses first.", "ระบุสาเหตุของแต่ละข้อที่ผิดด้านล่าง แล้วฝึกหมวดและสาเหตุที่ผิดบ่อยที่สุดก่อน") + '</p><table class="ex-crit"><tr><th></th>' +
+      cols.map(function (c) { var x = CAUSES.filter(function (y) { return y[0] === c; })[0]; return "<th>" + (x ? L(x[1], x[2]) : L("Not tagged", "ยังไม่ระบุ")) + "</th>"; }).join("") + "</tr>" +
+      Object.keys(rows).map(function (d) { return "<tr><th>" + esc(DOMN[d] || d) + "</th>" + cols.map(function (c) { return "<td>" + (rows[d][c] || "") + "</td>"; }).join("") + "</tr>"; }).join("") + "</table>";
   }
   var CRIT = { ta: ["Task Achievement / Response", "การตอบโจทย์"], cc: ["Coherence & Cohesion", "การเชื่อมโยงและลำดับความคิด"], lr: ["Lexical Resource", "คำศัพท์"], gra: ["Grammatical Range & Accuracy", "ไวยากรณ์"] };
   function writingResult(r) {

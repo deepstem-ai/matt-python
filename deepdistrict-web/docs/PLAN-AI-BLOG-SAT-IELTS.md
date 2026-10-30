@@ -137,7 +137,7 @@
 | กฎ | ค่าที่ระบบบังคับ |
 | --- | --- |
 | โครงสร้าง | 60 นาที · 3 บทอ่าน (รวมประมาณ 2,150–2,750 คำ) · 40 ข้อ · ไม่มีเวลาโอนคำตอบเพิ่ม |
-| ประเภทคำถาม | Multiple choice · True/False/Not Given · Yes/No/Not Given · Matching information / headings / features / sentence endings · Sentence / summary / note / table / flow-chart completion · Diagram labelling · Short answer |
+| ประเภทคำถาม | Multiple choice (คำตอบเดียว 3–5 ตัวเลือก และแบบเลือก TWO/THREE ตัวอักษร คิดคะแนนตัวละ 1) · True/False/Not Given · Yes/No/Not Given · Matching information / headings / features / sentence endings · Summary แบบเลือกคำจากกล่อง · Sentence / summary / note / table / flow-chart completion · Diagram labelling · Short answer |
 | การตรวจคำตอบ | ตรวจตัวสะกด, ตรวจจำนวนคำตามคำสั่ง (เช่น "NO MORE THAN TWO WORDS"), ยอมรับคำตอบทางเลือกที่ครูกำหนดไว้ |
 | หน้าจอ | บทอ่านอยู่ซ้าย คำถามอยู่ขวา (แบบ computer-delivered), เน้นข้อความได้ |
 | คะแนน | 40 ข้อแปลงเป็น band 0–9 ด้วย **ตารางประมาณการของเรา** (ทางการไม่ได้เผยแพร่ตารางตายตัว) |
@@ -151,7 +151,7 @@
 | Task 2 | เรียงความแสดงความเห็น/อภิปราย อย่างน้อย 250 คำ |
 | เครื่องเขียน | นับคำสดแบบเดียวกับข้อสอบคอม, ไม่มีตัวตรวจคำสะกด, บันทึกร่างอัตโนมัติ, ส่งเมื่อหมดเวลา |
 | เกณฑ์ 4 ด้าน | Task Achievement/Response · Coherence & Cohesion · Lexical Resource · Grammatical Range & Accuracy |
-| น้ำหนัก | Task 2 มีน้ำหนักมากกว่า Task 1 (ประมาณ 2 เท่า) ส่วนงานที่เขียนสั้นกว่าจำนวนคำขั้นต่ำจะถูกหักในเกณฑ์ Task Achievement/Response |
+| น้ำหนัก | Task 2 มีน้ำหนักเป็น 2 เท่าของ Task 1 · 4 เกณฑ์น้ำหนักเท่ากัน · เขียนสั้นกว่าขั้นต่ำอาจมีหลักฐานไม่พอสำหรับ band สูง (ทางการไม่ได้ระบุการหักคะแนนตายตัว) · ออกนอกเรื่อง เขียนเป็นข้อ ๆ ลอก หรือท่องจำทั้งฉบับ ถูกลงโทษ |
 | การให้คะแนน | AI เสนอ band รายเกณฑ์ พร้อมเหตุผลและจุดแก้ จากนั้น **ครูยืนยัน/แก้ไข** ก่อนนักเรียนเห็นคะแนน "ทางการของสถาบัน" ส่วนโหมดฝึกเอง แสดงผล AI ได้ทันทีโดยติดป้าย "ประมาณการ" |
 
 > ต้องยืนยันรายละเอียดทุกข้อในตารางกับ band descriptors ฉบับล่าสุดจาก ielts.org ก่อนเปิดใช้จริง

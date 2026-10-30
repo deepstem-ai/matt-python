@@ -255,6 +255,56 @@ Results:
 
 Parents see their children's results. Teachers see their own students' results.
 
+**SAT tools (as in Bluebook)**
+
+During the test:
+- Highlights & Notes: select text, then press Highlight; notes are kept per question.
+- Line Reader and Zoom.
+- Mark for Review, Option Eliminator, the question menu and a hideable timer.
+- IELTS Reading has the same Highlight, Notes, Line Reader and Zoom tools.
+
+After a test:
+- Learners tag each missed question in their **error log** (vocabulary, reasoning, grammar rule,
+  misread, time, trap).
+- Full tests show the estimated score with College Board's published percentile.
+- The routing threshold and the easier-module ceiling are our unofficial estimates; change them under
+  **Settings & schedule**.
+
+**IELTS Reading question types**
+
+Choice from a fixed set:
+- True/False/Not Given
+- Yes/No/Not Given
+
+Multiple choice:
+- one answer from 3–5 options (A–C … A–E)
+- **choose TWO or THREE letters** from A–E / A–G, one mark per correct letter
+
+Matching (from a list longer than the questions):
+- headings (i, ii…)
+- matching information (paragraph letters, added automatically)
+- matching features
+- sentence endings
+
+Completion:
+- summary from a **box of words**
+- sentence, summary, note, table or flow-chart completion, using words from the passage within the
+  word limit
+- diagram labels
+- short answers
+
+In the editor:
+- `~` lines hold the summary / notes / table / flow-chart text with numbered gaps.
+- Write choose-TWO answers as `B / D`.
+
+The checks insist on the official instruction wording, and full tests count marks (exactly 40).
+
+**PDF legal text**
+- Page 1 has a highlighted **Disclaimer & rights** box.
+- The last page has the full bilingual **Legal notice, licence and disclaimer**: copyright, licence,
+  prohibited uses, trademarks, results disclaimer, tracking, PDPA and contact.
+- Ask a Thai lawyer to review the wording once.
+
 **Answer order:** SAT choices, IELTS multiple-choice options and matching lists are shuffled for every test (same questions, new A/B/C/D order). True/False/Not Given, paragraph letters and completion answers keep their order. Admins can switch this off in **Exam item bank → Settings & schedule**, which also sets **scheduled AI drafting** (days, hour and how many items of each type). Scheduled drafts always wait for a teacher's approval.
 
 **Exam item bank** (teachers and admins):

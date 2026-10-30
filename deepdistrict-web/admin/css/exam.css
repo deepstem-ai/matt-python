@@ -168,3 +168,18 @@
 .lv-tline { display: flex; gap: 8px; align-items: center; max-width: 420px; }
 .lv-rqs .ex-rq, .ex-rqs .ex-rq { padding: 8px 0; }
 @media (max-width: 860px) { .ex-grid--inline.lv-nav { display: flex; } .lv-panel { padding-bottom: 120px; } }
+.ex-context { margin: 0 0 12px; padding: 12px 14px; border: 1px solid var(--line-strong); border-radius: 10px; background: var(--surface-2); white-space: normal; }
+.ex-context p { margin: 0 0 6px; }
+.lv-multi { display: grid; gap: 4px; margin-bottom: 8px; }
+.lv-rightl { color: var(--ok); font-weight: 700; }
+/* tools: zoom, highlights, notes, line reader */
+.ex-main { font-size: calc(1rem * var(--ex-zoom, 1)); }
+.ex-tools { display: flex; gap: 14px; justify-content: flex-end; padding: 4px 18px; background: var(--surface); border-bottom: 1px solid var(--line); position: sticky; top: 61px; z-index: 4; }
+.ex-tools .on { font-weight: 700; text-decoration: underline; }
+mark.ex-hl { background: #fde68a; color: inherit; cursor: pointer; border-radius: 2px; }
+:root[data-theme="dark"] mark.ex-hl { background: #a16207; }
+.ex-notes { position: fixed; right: 16px; bottom: 76px; z-index: 7; width: min(320px, calc(100vw - 32px)); padding: 12px; display: grid; gap: 6px; background: var(--surface); border: 1px solid var(--line-strong); border-radius: 12px; box-shadow: 0 10px 30px rgb(0 0 0 / .18); }
+.ex-notes small { color: var(--text-faint); }
+.ex-linereader { position: fixed; left: 0; right: 0; height: 44px; z-index: 3; pointer-events: none; box-shadow: 0 0 0 100vmax rgb(0 0 0 / .35); border-top: 2px solid var(--accent); border-bottom: 2px solid var(--accent); }
+.ex-tag-row { font-size: .88rem; } .ex-tag-row select { width: auto; min-height: 32px; padding: 4px 8px; }
+@media (max-width: 860px) { .ex-tools { top: 0; position: static; flex-wrap: wrap; gap: 10px; } }

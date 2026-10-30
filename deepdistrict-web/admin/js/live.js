@@ -96,7 +96,13 @@
           (o.bars ? '<i class="lv-bar" style="width:' + pct + '%"></i><em class="lv-n">' + n + "</em>" : "") + "</button></div>";
       }).join("") + "</div>";
     } else {
-      if (Q.wordLimit) {
+      if (Q.group === "mcq-multi") {
+        var sel = (o.mine || "").split(",").filter(Boolean);
+        html = '<p class="ex-instr">' + L("Choose " + Q.pick + " letters.", "เลือก " + Q.pick + " ตัวอักษร") + '</p><div class="lv-multi">' + (Q.options || []).map(function (op) {
+          var n = Object.keys(counts).filter(function (k) { return k.toUpperCase().split(",").indexOf(op.key.toUpperCase()) !== -1; }).reduce(function (t, k) { return t + counts[k]; }, 0), right = showKey && (Q.answer || []).some(function (a) { return a.toUpperCase() === op.key.toUpperCase(); });
+          return '<label class="ex-radio' + (right ? " lv-rightl" : "") + '"><input type="checkbox" data-mpick="' + esc(Q.key) + '" value="' + esc(op.key) + '"' + (sel.indexOf(op.key) !== -1 ? " checked" : "") + (o.canAnswer ? "" : " disabled") + "> <b>" + esc(op.key) + "</b> " + esc(op.text) + (o.bars ? ' <em class="lv-n">' + n + "</em>" : "") + "</label>";
+        }).join("") + "</div>" + (o.canAnswer ? '<button class="btn btn--sm" data-msend="' + esc(Q.key) + '" data-max="' + Q.pick + '">' + L("Save answer", "บันทึกคำตอบ") + "</button>" : "");
+      } else if (Q.wordLimit) {
         var v = o.mine != null ? o.mine : (typing[Q.key] || "");
         html = '<div class="lv-tline"><input class="ex-text lv-text" data-text="' + esc(Q.key) + '" value="' + esc(v) + '"' + (o.canAnswer ? "" : " disabled") + ' autocomplete="off" spellcheck="false" aria-label="' + Q.number + '">' +
           (o.canAnswer ? '<button class="btn btn--sm" data-send="' + esc(Q.key) + '">' + L("Save", "บันทึก") + "</button>" : "") + "</div>" +
@@ -106,17 +112,26 @@
         return '<div class="ex-choice' + (op.key === o.mine ? " sel" : "") + (right ? " lv-right" : "") + '"><button type="button" data-pick="' + esc(op.key) + '" data-q="' + esc(Q.key) + '"' + (o.canAnswer ? "" : " disabled") + "><b>" + esc(op.key) + "</b><span>" + esc(op.text === op.key ? "" : op.text) + "</span>" +
           (o.bars ? '<i class="lv-bar" style="width:' + pct + '%"></i><em class="lv-n">' + n + "</em>" : "") + "</button></div>";
       }).join("") + "</div>";
-      html = '<div class="ex-rq"><span class="ex-num">' + Q.number + "</span><div><p>" + esc(Q.text) + "</p>" + html + "</div></div>";
+      html = (Q.context && !o.noHead ? '<div class="ex-context">' + para(Q.context) + "</div>" : "") +
+        (!o.noHead && (Q.group === "summary-box" || /matching-features|headings|endings/.test(Q.group)) ? '<ul class="ex-opts">' + (Q.options || []).map(function (op) { return "<li><b>" + esc(op.key) + "</b> " + esc(op.text) + "</li>"; }).join("") + "</ul>" : "") +
+        '<div class="ex-rq"><span class="ex-num">' + Q.number + (Q.marks > 1 ? "–" + (Q.number + Q.marks - 1) : "") + "</span><div><p>" + esc(Q.text) + "</p>" + html + "</div></div>";
       if (showKey) html += '<p class="lv-key">' + L("Answer: ", "เฉลย: ") + "<b>" + esc(keyText(Q)) + "</b></p>";
     }
     if (o.result != null) html += '<p class="lv-mark ' + (o.result ? "ok" : "bad") + '">' + (o.result ? "✓ " + L("Correct", "ถูก") : "✗ " + L("Answer: ", "เฉลย: ") + esc(keyText(Q))) + "</p>";
     if (o.key) html += expl(Q);
     return html;
   }
-  function passFor(Q) { return Q.type === "sat" ? para(Q.passage) + table(Q.table) : passageHtml(Q.paragraphs ? Q : S.passages[Q.itemId]); }
+  function passFor(Q) { return Q.type === "sat" ? para(Q.passage) + table(Q.table) + (Q.image ? '<img class="ex-diagram" src="' + esc(Q.image) + '" alt="">' : "") : passageHtml(Q.paragraphs ? Q : S.passages[Q.itemId]); }
   function bindAnswers(after) {
     $$("[data-pick]").forEach(function (b) { b.addEventListener("click", function () { send(b.getAttribute("data-q"), b.getAttribute("data-pick"), after); }); });
     $$("[data-text]").forEach(function (t) { t.addEventListener("input", function () { typing[t.getAttribute("data-text")] = t.value; }); t.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); send(t.getAttribute("data-text"), t.value.trim(), after); } }); });
+    $$("[data-msend]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var k = b.getAttribute("data-msend"), v = $$('[data-mpick="' + k + '"]').filter(function (x) { return x.checked; }).map(function (x) { return x.value; });
+        if (v.length > +b.getAttribute("data-max")) return alert(L("Choose only " + b.getAttribute("data-max") + " letters.", "เลือกได้ " + b.getAttribute("data-max") + " ตัวอักษรเท่านั้น"));
+        send(k, v.join(","), after);
+      });
+    });
     $$("[data-send]").forEach(function (b) { b.addEventListener("click", function () { var k = b.getAttribute("data-send"); send(k, ($('[data-text="' + k + '"]') || {}).value.trim(), after); }); });
   }
   function send(key, value, after) {
@@ -157,8 +172,8 @@
     } else {
       var P = S.passages[Qs[0].itemId];
       main = '<section class="ex-pane ex-passage ex-reading">' + passageHtml(P) + '</section><section class="ex-pane ex-q ex-rqs">' + head +
-        Qs.map(function (x, i) { return (i === 0 || x.gi !== Qs[i - 1].gi ? '<p class="ex-instr">' + esc(x.instructions) + "</p>" + (x.options && x.options.length && !/tfng|ynng|mcq/.test(x.group) ? '<ul class="ex-opts">' + x.options.map(function (o) { return "<li><b>" + esc(o.key) + "</b> " + esc(o.text) + "</li>"; }).join("") + "</ul>" : "") : "") +
-          '<div id="lq' + i + '">' + qBody(x, { mine: mine[x.key], canAnswer: can, key: reveal, result: reveal ? !!res[x.key] : null }) + "</div>"; }).join("") + "</section>";
+        Qs.map(function (x, i) { return (i === 0 || x.gi !== Qs[i - 1].gi ? '<p class="ex-instr">' + esc(x.instructions) + "</p>" + (x.context ? '<div class="ex-context">' + para(x.context) + "</div>" : "") + (x.options && x.options.length && !/tfng|ynng|mcq|matching-info/.test(x.group) ? '<ul class="ex-opts">' + x.options.map(function (o) { return "<li><b>" + esc(o.key) + "</b> " + esc(o.text) + "</li>"; }).join("") + "</ul>" : "") : "") +
+          '<div id="lq' + i + '">' + qBody(x, { mine: mine[x.key], canAnswer: can, key: reveal, result: reveal ? !!res[x.key] : null, noHead: true }) + "</div>"; }).join("") + "</section>";
     }
     var done = Object.keys(mine).length;
     root.innerHTML = top + '<main class="ex-main ex-main--' + S.kind + '">' + main + '</main><footer class="ex-foot">' + nav + '<span class="spacer"></span><span class="muted">' + L("Answered ", "ตอบแล้ว ") + done + "/" + S.total + "</span></footer>";

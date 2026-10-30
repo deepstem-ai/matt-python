@@ -48,6 +48,9 @@
       ".ap-wn{display:grid;grid-template-columns:1fr 230px;gap:14px;align-items:stretch}.ap-wn .ap-q{border-bottom:0}" +
       ".ap-notes{border:1px solid #c7cede;border-radius:6px;padding:4px 8px 6px;margin:8px 0;background:#fcfdff}.ap-notes b{font-size:9.5px;color:#6b7489;letter-spacing:.04em}" +
       ".ap-notes div{border-bottom:1px solid #dfe4ee;height:22px}.ap-sep{border-bottom:1px dashed #d6dbe6}" +
+      ".ap-disc{border:2px solid #b45309;background:#fffbeb}.ap-disc h2{color:#92400e}.ap-disc p{margin:3px 0}" +
+      ".ap-legalbox{border:2px solid #111827;border-radius:8px;padding:14px 18px;font-size:10.5px;line-height:1.5}.ap-legalbox h2{font-size:14px;margin:0 0 8px}" +
+      ".ap-lsec{margin:0 0 8px}.ap-lsec h3{font-size:11.5px;margin:0 0 2px}.ap-lsec p{margin:0 0 2px}.ap-lsec .th{color:#46506a}.ap-conf{margin:8px 0 0;font-weight:700;color:#b91c1c}" +
       ".ap-end{height:30px}";
     document.head.appendChild(st);
   }
@@ -88,36 +91,69 @@
     return block('<div class="ap-box"><h2>How to use this paper · วิธีใช้</h2><ul><li>' + esc(h[0]) + "</li><li>" + esc(h[1]) + "</li><li>" + esc(h[2]) +
       "</li>" + (p.notes ? "<li>Use the NOTES column to write key words, reasons and your teacher's explanations during the live class. · ใช้ช่อง NOTES จดคำสำคัญ เหตุผล และคำอธิบายของครูระหว่างเรียน</li>" : "") + "<li>For classroom practice at DeepDistrict. Scores are practice estimates, not official results. · ใช้ฝึกในชั้นเรียน DeepDistrict คะแนนเป็นค่าประมาณ ไม่ใช่ผลสอบทางการ</li></ul></div>");
   }
-  function legal(p) {
-    return block('<div class="ap-box ap-legal"><h2>Legal notice · ขอบเขตทางกฎหมาย</h2>' +
-      "<p>© " + new Date().getFullYear() + " DeepDistrict.si. All questions and passages are original material written by DeepDistrict and are not taken from any official or published test. This copy is licensed only to the school/teacher named above and their enrolled learners for classroom use. Copying, reselling, sharing online, uploading to other services or using it to train AI systems is not allowed without written permission.</p>" +
-      "<p>© DeepDistrict.si ข้อสอบและบทอ่านทั้งหมดเป็นงานต้นฉบับของ DeepDistrict ไม่ได้นำมาจากข้อสอบทางการหรือหนังสือที่ตีพิมพ์ เอกสารนี้อนุญาตให้ใช้เฉพาะผู้สร้างตามที่ระบุและนักเรียนที่ลงทะเบียน เพื่อการเรียนในชั้นเรียนเท่านั้น ห้ามทำซ้ำ จำหน่าย เผยแพร่ออนไลน์ อัปโหลด หรือนำไปฝึก AI โดยไม่ได้รับอนุญาตเป็นลายลักษณ์อักษร</p>" +
-      "<p>SAT® is a registered trademark of the College Board. IELTS is jointly owned by the British Council, IDP: IELTS Australia and Cambridge University Press & Assessment. DeepDistrict is not affiliated with or endorsed by them.</p>" +
-      (p.kind === "report" ? "<p>This report contains personal data (PDPA). Keep it private; share it only with the learner, their parents/guardians and DeepDistrict staff. · เอกสารนี้มีข้อมูลส่วนบุคคล (PDPA) โปรดเก็บรักษาและเปิดเผยเฉพาะผู้เรียน ผู้ปกครอง และเจ้าหน้าที่ DeepDistrict</p>" : "") +
-      "<p>Every copy is logged (who generated it and when). Check that a printed copy is genuine at " + esc(verifyUrl(p.code)) + " · ทุกฉบับถูกบันทึกว่าใครสร้างและเมื่อไร ตรวจสอบความถูกต้องได้ที่ลิงก์ด้านบน</p></div>");
+  /* short notice on page 1 (right under the header) */
+  function disclaimer(p) {
+    return block('<div class="ap-box ap-disc"><h2>Disclaimer & rights · ข้อจำกัดความรับผิดชอบและสิทธิ์</h2>' +
+      "<p><b>Practice material — not an official test.</b> Not produced, endorsed or approved by the College Board (SAT®) or the IELTS partners (British Council, IDP: IELTS Australia, Cambridge University Press & Assessment). Scores are estimates and do not predict or guarantee official results or admission.</p>" +
+      "<p><b>เอกสารฝึกสอบ ไม่ใช่ข้อสอบทางการ</b> ไม่ได้จัดทำ รับรอง หรืออนุมัติโดย College Board (SAT®) หรือเจ้าของ IELTS คะแนนเป็นค่าประมาณ ไม่ใช่การรับประกันผลสอบจริงหรือการได้รับเข้าศึกษา</p>" +
+      "<p><b>© " + new Date().getFullYear() + " DeepDistrict.si — all rights reserved · สงวนลิขสิทธิ์</b>. Licensed for use in DeepDistrict classes only. Copy " + esc(p.code) + " is traceable to its creator. Full terms on the last page. · ใช้ได้เฉพาะในชั้นเรียนของ DeepDistrict ฉบับนี้ติดตามได้ว่าใครสร้าง ดูเงื่อนไขฉบับเต็มที่หน้าสุดท้าย</p></div>");
   }
-
+  /* full legal notice (last page) */
+  function legal(p) {
+    var y = new Date().getFullYear();
+    var sec = function (n, en, th) { return '<div class="ap-lsec"><h3>' + n + "</h3><p>" + en + "</p><p class=\"th\">" + th + "</p></div>"; };
+    return block('<div class="ap-legalbox"><h2>Legal notice, licence and disclaimer · ประกาศทางกฎหมาย สัญญาอนุญาต และข้อจำกัดความรับผิดชอบ</h2>' +
+      sec("1. Copyright & ownership · ลิขสิทธิ์และความเป็นเจ้าของ",
+        "© " + y + " DeepDistrict.si. All rights reserved. The questions, passages, explanations, layout and score reports are original works of DeepDistrict.si (written by our team or drafted with AI and checked by our teachers) and are protected by the Copyright Act B.E. 2537 (1994) of Thailand and international copyright law. They are not copied from any official or published test.",
+        "© " + y + " DeepDistrict.si สงวนลิขสิทธิ์ ข้อสอบ บทอ่าน คำอธิบาย รูปแบบเอกสาร และรายงานผล เป็นงานต้นฉบับของ DeepDistrict.si (เขียนโดยทีมงาน หรือร่างด้วย AI และตรวจโดยครู) ได้รับความคุ้มครองตามพระราชบัญญัติลิขสิทธิ์ พ.ศ. 2537 และกฎหมายลิขสิทธิ์ระหว่างประเทศ และไม่ได้คัดลอกจากข้อสอบทางการหรือหนังสือที่ตีพิมพ์") +
+      sec("2. Licence · สิทธิ์ในการใช้งาน",
+        "DeepDistrict grants a limited, non-exclusive, non-transferable licence to the creator named on this document and to learners enrolled in their DeepDistrict class, to view, print and write on this copy for that class and for personal revision.",
+        "DeepDistrict อนุญาตแบบจำกัด ไม่ผูกขาด และโอนไม่ได้ ให้ผู้สร้างที่ระบุในเอกสาร และผู้เรียนที่ลงทะเบียนในชั้นเรียนของ DeepDistrict ใช้ดู พิมพ์ และเขียนลงในฉบับนี้ เพื่อการเรียนในชั้นเรียนนั้นและการทบทวนส่วนตัวเท่านั้น") +
+      sec("3. Not allowed · สิ่งที่ห้ามทำ",
+        "Copying or scanning for others; sharing, posting or uploading (including chat groups, social media, file-sharing and AI tools or datasets); selling or using in other tutoring; adapting or translating; removing or hiding this notice, the code or the watermark — unless DeepDistrict has agreed in writing.",
+        "ห้ามทำสำเนาหรือสแกนให้ผู้อื่น ห้ามแชร์ โพสต์ หรืออัปโหลด (รวมถึงกลุ่มแชต โซเชียลมีเดีย เว็บฝากไฟล์ และเครื่องมือหรือชุดข้อมูล AI) ห้ามขายหรือนำไปใช้สอนที่อื่น ห้ามดัดแปลงหรือแปล และห้ามลบหรือปิดบังประกาศนี้ รหัส หรือลายน้ำ เว้นแต่ได้รับอนุญาตเป็นลายลักษณ์อักษรจาก DeepDistrict") +
+      sec("4. Trademarks & independence · เครื่องหมายการค้าและความเป็นอิสระ",
+        "SAT® is a registered trademark of the College Board. IELTS™ is jointly owned by the British Council, IDP: IELTS Australia and Cambridge University Press & Assessment. These names are used only to describe the test a learner prepares for. DeepDistrict is independent and is not affiliated with, sponsored or endorsed by them.",
+        "SAT® เป็นเครื่องหมายการค้าจดทะเบียนของ College Board ส่วน IELTS™ เป็นของ British Council, IDP: IELTS Australia และ Cambridge University Press & Assessment ร่วมกัน ชื่อเหล่านี้ใช้เพื่ออธิบายการสอบที่ผู้เรียนเตรียมตัวเท่านั้น DeepDistrict เป็นองค์กรอิสระ ไม่มีความเกี่ยวข้อง ไม่ได้รับการสนับสนุนหรือรับรองจากองค์กรเหล่านี้") +
+      sec("5. Disclaimer · ข้อจำกัดความรับผิดชอบ",
+        "This is practice material. It follows the published formats as closely as we can, but it is not an official test and may differ from the real one. Scores and bands are DeepDistrict estimates for learning; they are not official scores and do not predict or guarantee any test result, admission or scholarship. Test rules, dates and university requirements change: always check the official websites. The material is provided \"as is\"; to the extent permitted by law DeepDistrict is not liable for decisions made on the basis of these estimates.",
+        "เอกสารนี้เป็นแบบฝึก จัดทำตามรูปแบบที่เผยแพร่ให้ใกล้เคียงที่สุด แต่ไม่ใช่ข้อสอบทางการและอาจแตกต่างจากข้อสอบจริง คะแนนและ band เป็นค่าประมาณเพื่อการเรียนรู้ ไม่ใช่คะแนนทางการ และไม่ใช่การรับประกันผลสอบ การได้รับเข้าศึกษา หรือทุนการศึกษา กฎเกณฑ์ วันสอบ และเกณฑ์ของมหาวิทยาลัยเปลี่ยนแปลงได้ โปรดตรวจสอบกับเว็บไซต์ทางการเสมอ DeepDistrict ไม่รับผิดชอบต่อการตัดสินใจที่อาศัยค่าประมาณเหล่านี้ ภายในขอบเขตที่กฎหมายอนุญาต") +
+      sec("6. Tracking & verification · การติดตามและตรวจสอบ",
+        "Each copy has a unique code (" + esc(p.code) + "). DeepDistrict records who created it, when, which question versions it contains and every download or print. Anyone can check that a printed copy is genuine at " + esc(verifyUrl(p.code)) + ". Copies found outside DeepDistrict classes can be traced to their source.",
+        "ทุกฉบับมีรหัสเฉพาะ (" + esc(p.code) + ") DeepDistrict บันทึกว่าใครสร้าง เมื่อไร ใช้ข้อสอบเวอร์ชันใด และทุกครั้งที่ดาวน์โหลดหรือพิมพ์ ตรวจสอบความถูกต้องของฉบับพิมพ์ได้ที่ลิงก์ด้านบน ฉบับที่พบนอกชั้นเรียนของ DeepDistrict สามารถติดตามถึงต้นทางได้") +
+      (p.kind === "report" ? sec("7. Personal data (PDPA) · ข้อมูลส่วนบุคคล",
+        "This report contains a learner's personal data, processed under the Personal Data Protection Act B.E. 2562 (2019) and DeepDistrict's privacy notice. Keep it private and share it only with the learner, their parents or guardians and DeepDistrict staff.",
+        "รายงานนี้มีข้อมูลส่วนบุคคลของผู้เรียน ประมวลผลตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 และประกาศความเป็นส่วนตัวของ DeepDistrict โปรดเก็บรักษาและเปิดเผยเฉพาะผู้เรียน ผู้ปกครอง และเจ้าหน้าที่ DeepDistrict") : "") +
+      sec((p.kind === "report" ? "8" : "7") + ". Permissions & contact · ขออนุญาตและติดต่อ",
+        "For any other use, or to report misuse, contact info@deepdistrict.si. These terms are governed by the laws of Thailand.",
+        "หากต้องการใช้งานนอกเหนือจากนี้ หรือแจ้งการใช้งานที่ไม่ถูกต้อง ติดต่อ info@deepdistrict.si เงื่อนไขนี้อยู่ภายใต้กฎหมายไทย") +
+      (p.withKey ? '<p class="ap-conf">TEACHER COPY — CONFIDENTIAL. Do not give to learners or leave in classrooms. · ฉบับครู — เอกสารลับ ห้ามให้นักเรียนหรือวางทิ้งไว้ในห้องเรียน</p>' : "") + "</div>", "ap-break");
+  }
   function paperBody(p) {
     var out = [], n = 0;
     p.items.forEach(function (it) {
       if (it.kind === "sat") {
         n++;
-        out.push(block(noted(p, '<div class="ap-q"><div class="n">' + n + "</div><div>" + lines(it.passage) + tbl(it.table) + '<p class="ap-stem">' + esc(it.stem) + "</p>" +
+        out.push(block(noted(p, '<div class="ap-q"><div class="n">' + n + "</div><div>" + lines(it.passage) + tbl(it.table) + (it.image ? '<img src="' + esc(it.image) + '" style="max-width:100%;margin:6px 0" alt="">' : "") + '<p class="ap-stem">' + esc(it.stem) + "</p>" +
           it.choices.map(function (c, i) { return '<div class="ap-ch"><b>' + LET[i] + ")</b>" + esc(c) + "</div>"; }).join("") + "</div></div>", wc(it.passage) + 30)));
       } else if (it.kind === "ielts-r") {
         out.push(block('<h2 class="ap-h2">' + esc(it.title) + "</h2>"));
         it.paragraphs.forEach(function (para, i) { out.push(block('<p class="ap-para">' + (it.labelled ? "<b>" + String.fromCharCode(65 + i) + "</b>" : "") + esc(para) + "</p>")); });
         it.groups.forEach(function (g) {
           var from = n + 1;
-          out.push(block('<p class="ap-instr"><b>Questions ' + from + (g.questions.length > 1 ? "–" + (n + g.questions.length) : "") + "</b> · " + esc(g.instructions) + "</p>" +
-            (g.options && g.options.length && g.type !== "tfng" && g.type !== "ynng" ? '<div class="ap-opts">' + g.options.map(function (o) { return "<div><b>" + esc(o.key) + "</b>" + esc(o.text) + "</div>"; }).join("") + "</div>" : "") +
+          var gm = g.questions.reduce(function (t, q) { return t + (q.marks || 1); }, 0);
+          out.push(block('<p class="ap-instr"><b>Questions ' + from + (gm > 1 ? "–" + (n + gm) : "") + "</b> · " + esc(g.instructions) + "</p>" +
+            (g.context ? '<div class="ap-box" style="margin-top:4px">' + lines(g.context) + "</div>" : "") +
+            (g.options && g.options.length && !/^(tfng|ynng|matching-info|mcq|mcq-multi)$/.test(g.type) ? '<div class="ap-opts">' + g.options.map(function (o) { return "<div><b>" + esc(o.key) + "</b>" + esc(o.text) + "</div>"; }).join("") + "</div>" : "") +
             (g.image ? '<img src="' + esc(g.image) + '" style="max-width:100%" alt="">' : "")));
           g.questions.forEach(function (q) {
             n++;
+            var label = n + ((q.marks || 1) > 1 ? "–" + (n + q.marks - 1) : "");
             var ans = g.type === "tfng" ? "TRUE / FALSE / NOT GIVEN" : g.type === "ynng" ? "YES / NO / NOT GIVEN" : "";
-            out.push(block(noted(p, '<div class="ap-q"><div class="n">' + n + "</div><div><p>" + esc(q.text) + "</p>" +
+            n += (q.marks || 1) - 1;
+            out.push(block(noted(p, '<div class="ap-q"><div class="n" style="' + (label.length > 3 ? "font-size:9px" : "") + '">' + label + "</div><div><p>" + esc(q.text) + "</p>" +
               (q.options ? q.options.map(function (o) { return '<div class="ap-ch"><b>' + esc(o.key) + ")</b>" + esc(o.text) + "</div>"; }).join("") : "") +
-              (ans ? '<p style="color:#46506a;font-size:11px">' + ans + "</p>" : "") + '<p>Answer / คำตอบ: <span class="ap-blank">&nbsp;</span></p></div></div>', 30)));
+              (ans ? '<p style="color:#46506a;font-size:11px">' + ans + "</p>" : "") + ((q.marks || 1) > 1 ? "<p>Answers / คำตอบ (" + q.marks + " letters): " + new Array(q.marks + 1).join('<span class="ap-blank" style="min-width:60px">&nbsp;</span> ') + "</p>" : '<p>Answer / คำตอบ: <span class="ap-blank">&nbsp;</span></p>') + "</div></div>", 30)));
           });
         });
       } else {
@@ -132,7 +168,7 @@
     var out = [block('<h2 class="ap-h2">Answer key · เฉลย (teacher copy)</h2>', "ap-break")], n = 0, rows = [];
     p.items.forEach(function (it) {
       if (it.kind === "sat") { n++; rows.push("<tr><td><b>" + n + "</b></td><td><b>" + LET[it.answer] + "</b></td><td>" + esc(DOM[it.domain] || "") + " · " + esc(it.skill) + " · " + esc({ e: "easy", m: "medium", h: "hard" }[it.difficulty] || "") + "<br>" + esc((it.explanation || {}).en || "") + (it.explanation && it.explanation.th ? "<br>" + esc(it.explanation.th) : "") + "</td></tr>"); }
-      else if (it.kind === "ielts-r") it.groups.forEach(function (g) { g.questions.forEach(function (q) { n++; rows.push("<tr><td><b>" + n + "</b></td><td><b>" + esc((q.answer || []).join(" / ")) + "</b></td><td>" + esc(g.type) + "</td></tr>"); }); });
+      else if (it.kind === "ielts-r") it.groups.forEach(function (g) { g.questions.forEach(function (q) { n++; var m = q.marks || 1; rows.push("<tr><td><b>" + n + (m > 1 ? "–" + (n + m - 1) : "") + "</b></td><td><b>" + esc((q.answer || []).join(m > 1 ? ", " : " / ")) + "</b>" + (m > 1 ? "<br><small>any order; one mark per letter</small>" : "") + "</td><td>" + esc(g.type) + "</td></tr>"); n += m - 1; }); });
     });
     for (var i = 0; i < rows.length; i += 6) out.push(block('<table class="ap-tbl ap-key" style="width:100%">' + rows.slice(i, i + 6).join("") + "</table>"));
     return rows.length ? out : [];
@@ -158,7 +194,7 @@
   function build(p) {
     css();
     var doc = document.createElement("div"); doc.className = "ap-doc";
-    var blocks = [header(p), instructions(p)].concat(p.kind === "paper" ? paperBody(p) : reportBody(p)).concat(p.kind === "paper" && p.withKey ? answerKey(p) : []).concat([legal(p), '<div class="ap-end"></div>']);
+    var blocks = [header(p), disclaimer(p), instructions(p)].concat(p.kind === "paper" ? paperBody(p) : reportBody(p)).concat(p.kind === "paper" && p.withKey ? answerKey(p) : []).concat([legal(p), '<div class="ap-end"></div>']);
     doc.innerHTML = blocks.join('<div class="ap-gap"></div>');
     document.body.appendChild(doc);
     var imgs = Array.prototype.slice.call(doc.querySelectorAll("img"));
@@ -168,7 +204,7 @@
       return window.html2canvas(doc, { scale: 2, backgroundColor: "#ffffff", useCORS: true, logging: false }).then(function (c) {
         document.body.removeChild(doc);
         var pdf = new window.jspdf.jsPDF({ orientation: "portrait", unit: "mm", format: "a4" });
-        var pw = pdf.internal.pageSize.getWidth(), ph = pdf.internal.pageSize.getHeight(), foot = 12;
+        var pw = pdf.internal.pageSize.getWidth(), ph = pdf.internal.pageSize.getHeight(), foot = 15;
         var k = c.width / W, mmPerPx = pw / c.width, pageH = Math.floor((ph - foot - 6) / mmPerPx);
         // choose page cuts at block edges (never through a question); forced break before the answer key
         var pages = [], y = 0;
@@ -194,9 +230,10 @@
           pdf.text("DeepDistrict  " + p.code, pw / 2, ph * 0.62, { angle: 30, align: "center" });
           if (pdf.GState) pdf.setGState(new pdf.GState({ opacity: 1 }));
           pdf.setDrawColor(200, 206, 220); pdf.line(10, ph - foot, pw - 10, ph - foot);
-          pdf.setTextColor(90, 99, 120); pdf.setFontSize(7.5);
+          pdf.setTextColor(90, 99, 120); pdf.setFontSize(7);
           pdf.text("DeepDistrict.si  |  " + (p.kind === "paper" ? (p.withKey ? "TEACHER COPY" : "Student copy") : "Score report") + "  |  Code " + p.code + "  |  Generated " + String(p.generatedAt).replace(/[^\x20-\x7e]/g, "") + "  |  Page " + (i + 1) + " of " + pages.length, 10, ph - foot + 4.5);
-          pdf.text("Verify at " + verifyUrl(p.code) + "  -  copying or sharing outside DeepDistrict classes is not allowed.", 10, ph - foot + 8.5);
+          pdf.text("(c) " + new Date().getFullYear() + " DeepDistrict.si - all rights reserved. Practice material, not an official SAT/IELTS test. Licensed for DeepDistrict classes only.", 10, ph - foot + 8);
+          pdf.text("Verify this copy: " + verifyUrl(p.code), 10, ph - foot + 11.5);
         });
         pdf.setProperties({ title: p.title + " (" + p.code + ")", subject: p.kind === "paper" ? "DeepDistrict test paper" : "DeepDistrict score report", author: "DeepDistrict.si", creator: "DeepDistrict back office", keywords: p.code });
         return pdf.output("blob");

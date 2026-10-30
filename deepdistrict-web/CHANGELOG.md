@@ -1,5 +1,82 @@
 # Changelog
 
+## 5.6 r1 — October 2026
+- **IELTS Academic Reading now covers the real range of question types**, not only "one of four".
+  - **Choice from a fixed set:** True/False/Not Given and Yes/No/Not Given.
+  - **Multiple choice, one answer:** 3–5 options (A–C … A–E).
+  - **Multiple choice, choose TWO or THREE letters:** from a longer list (A–E / A–G), worth one mark
+    per correct letter. Choosing more letters than asked scores 0. Numbered as a range, e.g. 13–14.
+  - **Lists longer than the questions:** matching headings (i, ii…), matching information (paragraph
+    letters, added automatically), matching features and sentence endings.
+  - **Summary completion from a box of words:** lettered list with at least 2 extra words.
+  - **Completion with words from the passage:** sentence, summary, note, table and flow-chart
+    completion, diagram labels and short answers. Word limits are checked, and the notes / table /
+    flow-chart / summary text is shown with numbered gaps.
+  - **Totals:** passage and test totals count marks; a full test is exactly 40 marks.
+  - **Format checks:**
+    - the official instruction wording ("Choose TWO letters", "NO MORE THAN TWO WORDS…") must match the settings
+    - a word box needs extra words
+    - note/table/flow-chart tasks need their text
+  - **Supported everywhere:** the test player, the live class (both modes), the PDFs, the answer
+    shuffle and the AI drafting instructions.
+  - **Sample passage:** now includes a "Choose TWO letters" question.
+- **Checked against the IELTS Academic summary (Oct 2026, `docs/IELTS-ACADEMIC-2026-TH.md`).**
+  - **Reading band table:** 32–34 correct = 7.5 (was 33).
+  - **Answer checking:**
+    - numbers count whether written as figures or words
+    - capitals don't matter
+    - spelling and singular/plural must match
+    - a hyphenated word counts as one word
+  - **Matching rules:**
+    - a heading or sentence ending can't be used twice
+    - a paragraph or feature letter can be reused only when the instructions say "NB You may use any letter more than once"
+    - there must be more endings than sentence beginnings
+  - **Writing feedback follows the official guidance.** A short answer may not show enough for a high
+    band, but there is no fixed deduction. Off-topic writing, notes or bullet points, copied text and
+    memorised scripts are penalised. Task 1 needs an overview and no opinion.
+  - **IELTS course info:** computer-delivered only from mid-2026 (some centres offer Writing on paper);
+    results in about 3–5 days.
+- **Checked against the Digital SAT Reading and Writing summary (Oct 2026, `docs/SAT-RW-2026.md`).**
+  - **Already matched:**
+    - 2 × 27 questions (25 scored + 2 unscored pretest), 32 minutes each
+    - 4 choices, passages of 25–150 words
+    - the domain blueprint (14/14/14/12 per test, inside the official ranges)
+    - fixed domain order, easy → hard
+    - answers locked once a module is submitted; no wrong-answer penalty
+  - **Added Bluebook-style tools:** Highlights & Notes, Line Reader and Zoom, alongside Mark for Review,
+    Option Eliminator, the question menu and the hideable timer. The same tools work in IELTS Reading.
+  - **Graphs:** quantitative-evidence questions may use a bar or line graph image as well as a table.
+  - **Results:**
+    - the estimated RW score shows College Board's published percentile among SAT takers
+      (600 → 72nd, 700 → 92nd, 800 → 99th)
+    - the easier-module ceiling and the routing threshold are labelled as our unofficial estimates
+      (College Board publishes neither) and can be adjusted in settings
+  - **Error log:** after a test, learners tag each missed question (vocabulary gap, reasoning gap, grammar
+    rule, misread, time, trap answer). A table by domain × cause shows what to drill first.
+  - **AI drafting** builds wrong answers in the official distractor patterns (contradicts, unsupported,
+    half of a two-part claim, wrong connector, real but wrong word sense) and follows the Standard English
+    Conventions difficulty ladder.
+  - **SAT course info:** Bluebook, 25 + 2 questions per module, 10-point steps; RW 700 ≈ 92nd percentile.
+- **IELTS Writing:** tasks must carry the official instructions.
+  - **Task 1:** "Summarise the information by selecting and reporting the main features…".
+  - **Task 2:** "Give reasons for your answer and include any relevant examples…".
+  - **Both:** "Write at least 150/250 words".
+- **PDFs: clear disclaimer and legal rights.**
+  - **Page 1:** a highlighted "Disclaimer & rights" box (practice material, not an official test;
+    no affiliation; scores are estimates; © all rights reserved; traceable copy).
+  - **Last page:** a full bilingual "Legal notice, licence and disclaimer", covering:
+    - copyright and ownership (Thai Copyright Act B.E. 2537)
+    - the licence granted
+    - what is not allowed (including uploading to AI tools)
+    - trademarks and independence
+    - disclaimer of results and accuracy
+    - tracking and verification
+    - PDPA for score reports
+    - permissions, contact and governing law
+  - **Every page:** the footer states the rights and the verify link.
+  - **Teacher copies:** marked confidential.
+  - Have the wording reviewed by a Thai lawyer before relying on it.
+
 ## 5.5 r1 — October 2026
 - **Question sets** (back office → Question sets; `server/qsets.py`).
   - **What a set is:** a named list of approved questions that records each question's version.

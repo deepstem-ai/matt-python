@@ -129,7 +129,6 @@ READING = [{
         {"type": "tfng", "instructions": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.",
          "questions": [{"text": "A single sound-meter reading gives a complete picture of the noise in a place.", "answer": ["FALSE"]},
                        {"text": "Noise in nearby streets can differ greatly at night.", "answer": ["TRUE"]},
-                       {"text": "Sudden noises always wake sleeping people.", "answer": ["FALSE"]},
                        {"text": "Researchers are certain that road noise is the only cause of lower reading scores.", "answer": ["FALSE"]},
                        {"text": "Most residents in the surveys preferred markets to parks.", "answer": ["NOT GIVEN"]}]},
         {"type": "sentence-completion", "instructions": "Complete the sentences below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
@@ -137,6 +136,14 @@ READING = [{
          "questions": [{"text": "Sensors that record sound for weeks are fixed to rooftops and ______.", "answer": ["lamp posts"]},
                        {"text": "Some planners create quiet spaces that are described as ______.", "answer": ["acoustic refuges"]},
                        {"text": "At higher speeds, most vehicle noise is produced by the ______.", "answer": ["tyres", "tires"]}]},
+        {"type": "mcq-multi", "instructions": "Choose TWO letters, A–E.",
+         "questions": [{"text": "Which TWO ways of making city sound less harmful are described in the passage?",
+                        "options": [{"key": "A", "text": "using plants and earth to hide a road from view"},
+                                    {"key": "B", "text": "replacing petrol vehicles with quieter electric ones"},
+                                    {"key": "C", "text": "giving residents noise-cancelling headphones"},
+                                    {"key": "D", "text": "banning all traffic at night"},
+                                    {"key": "E", "text": "building taller concrete walls beside roads"}],
+                        "answer": ["A", "B"]}]},
     ],
 }]
 

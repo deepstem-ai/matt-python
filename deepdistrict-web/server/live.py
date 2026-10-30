@@ -184,6 +184,8 @@ def answer(con, s, me, value, key=None):
     else:
         q = s["questions"][s["index"]]
     v = str(value or "").strip()[:80]
+    if s["kind"] == "ielts-r" and s["snap"][q["itemId"]]["groups"][q["gi"]]["type"] == "mcq-multi":
+        v = ",".join(sorted({x.strip().upper() for x in v.split(",") if x.strip()}))
     if v:
         s["answers"].setdefault(q["key"], {})[me["id"]] = v
     else:
@@ -193,21 +195,24 @@ def answer(con, s, me, value, key=None):
 
 # ---------------------------------------------------------------- building views
 def _number(s, q):
+    if s["kind"] == "ielts-r":                        # TWO/THREE-letter questions use one number per letter
+        return exams.numbering(s["snap"][q["itemId"]])[(q["gi"], q["qi"])][0]
     return s["questions"].index(q) + 1
 
 
 def _question(s, q, key=False, passage=True):
     it = s["snap"][q["itemId"]]
     if s["kind"] == "sat":
-        out = {"key": q["key"], "number": _number(s, q), "type": "sat", "passage": it["passage"], "table": it.get("table"), "stem": it["stem"], "choices": it["choices"]}
+        out = {"key": q["key"], "number": _number(s, q), "type": "sat", "passage": it["passage"], "table": it.get("table"), "image": it.get("image") or "", "stem": it["stem"], "choices": it["choices"]}
         if key:
             out.update({"answer": it["answer"], "explanation": it.get("explanation")})
         return out
     g = it["groups"][q["gi"]]
     qq = g["questions"][q["qi"]]
-    out = {"key": q["key"], "number": _number(s, q), "type": "ielts-r", "itemId": it["id"], "group": g["type"], "gi": q["gi"],
-           "instructions": g["instructions"], "options": (qq.get("options") if g["type"] == "mcq" else g["options"]), "wordLimit": g.get("wordLimit"),
-           "text": qq["text"], "image": g.get("image") or ""}
+    n, m = exams.numbering(it)[(q["gi"], q["qi"])]
+    out = {"key": q["key"], "number": n, "marks": m, "type": "ielts-r", "itemId": it["id"], "group": g["type"], "gi": q["gi"],
+           "instructions": g["instructions"], "options": (qq.get("options") if g["type"] in exams.PER_QUESTION_OPTIONS else g["options"]), "wordLimit": g.get("wordLimit"),
+           "text": qq["text"], "image": g.get("image") or "", "context": g.get("context") or "", "pick": len(qq["answer"]) if g["type"] == "mcq-multi" else None}
     if passage:
         out.update({"title": it["title"], "paragraphs": it["paragraphs"], "labelled": it.get("labelled", True)})
     if key:

@@ -86,7 +86,7 @@ def create(con, me, body, old=None):
 
 def summary(con, s):
     its = items_of(con, s)
-    n = len(its) if s["kind"] == "sat" else sum(len(g["questions"]) for it in its for g in it["groups"])
+    n = len(its) if s["kind"] == "sat" else sum(exams.total_marks(it) for it in its)
     out = {k: s.get(k) for k in ("id", "title", "kind", "note", "ownerName", "createdAt", "updatedAt", "variant")}
     out.update({"questions": n, "items": [{"id": i["id"], "version": i["version"], "label": (i.get("stem") or i.get("title") or "")[:90],
                                           "domain": i.get("domain"), "difficulty": i.get("difficulty")} for i in its]})

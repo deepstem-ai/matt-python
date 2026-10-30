@@ -48,19 +48,50 @@ SAT_MODULE_Q, SAT_MODULE_S = 27, 32 * 60
 DIFF = ("e", "m", "h")
 WEIGHT = {"e": 1.0, "m": 1.5, "h": 2.0}
 
+# IELTS Academic Reading task types (as published by IELTS). Answers are not always "one of four":
+#   choice from a fixed set (T/F/NG, Y/N/NG), one letter from 3–5 options (mcq), TWO or THREE letters
+#   from a longer list (mcq-multi, one mark per correct letter), letters/numerals from a list that is
+#   longer than the questions (headings, features, sentence endings, summary with a box of words),
+#   paragraph letters (matching-info), or words copied from the passage within a word limit
+#   (sentence / summary / note / table / flow-chart / diagram completion, short answers).
 IELTS_TYPES = {
-    "tfng": "True / False / Not Given", "ynng": "Yes / No / Not Given", "mcq": "Multiple choice",
+    "tfng": "True / False / Not Given", "ynng": "Yes / No / Not Given",
+    "mcq": "Multiple choice — one answer (A–C/D/E)", "mcq-multi": "Multiple choice — choose TWO or THREE letters",
     "headings": "Matching headings", "matching-info": "Matching information (which paragraph)",
     "matching-features": "Matching features", "sentence-endings": "Matching sentence endings",
-    "sentence-completion": "Sentence completion", "summary-completion": "Summary / note / table / flow-chart completion",
+    "summary-box": "Summary completion — choose from a box of words",
+    "sentence-completion": "Sentence completion", "summary-completion": "Summary completion — words from the passage",
+    "note-completion": "Note completion", "table-completion": "Table completion", "flowchart-completion": "Flow-chart completion",
     "diagram-label": "Diagram label completion", "short-answer": "Short-answer questions",
 }
-CHOICE_TYPES = {"tfng", "ynng", "mcq", "headings", "matching-info", "matching-features", "sentence-endings"}
-TEXT_TYPES = {"sentence-completion", "summary-completion", "diagram-label", "short-answer"}
+CHOICE_TYPES = {"tfng", "ynng", "mcq", "mcq-multi", "headings", "matching-info", "matching-features", "sentence-endings", "summary-box"}
+TEXT_TYPES = {"sentence-completion", "summary-completion", "note-completion", "table-completion", "flowchart-completion", "diagram-label", "short-answer"}
+PER_QUESTION_OPTIONS = {"mcq", "mcq-multi"}
+CONTEXT_TYPES = {"summary-box", "summary-completion", "note-completion", "table-completion", "flowchart-completion"}   # show the text with numbered gaps
+
+
+def marks(g, q):
+    """Marks (and question numbers) a question uses: TWO/THREE-letter questions count one per letter."""
+    return max(1, len(q.get("answer") or [])) if g["type"] == "mcq-multi" else 1
+
+
+def numbering(item):
+    """{(group, question): (first number, marks)} inside one passage, starting at 1."""
+    out, n = {}, 1
+    for gi, g in enumerate(item["groups"]):
+        for qi, q in enumerate(g["questions"]):
+            m = marks(g, q)
+            out[(gi, qi)] = (n, m)
+            n += m
+    return out
+
+
+def total_marks(item):
+    return sum(marks(g, q) for g in item["groups"] for q in g["questions"])
 FIXED = {"tfng": ["TRUE", "FALSE", "NOT GIVEN"], "ynng": ["YES", "NO", "NOT GIVEN"]}
 IELTS_R_SECONDS, IELTS_W_SECONDS = 60 * 60, 60 * 60
 CRITERIA = {"ta": "Task Achievement / Response", "cc": "Coherence and Cohesion", "lr": "Lexical Resource", "gra": "Grammatical Range and Accuracy"}
-READING_BANDS = [(39, 9), (37, 8.5), (35, 8), (33, 7.5), (30, 7), (27, 6.5), (23, 6), (19, 5.5), (15, 5), (13, 4.5), (10, 4), (8, 3.5), (6, 3), (4, 2.5), (2, 2), (1, 1)]
+READING_BANDS = [(39, 9), (37, 8.5), (35, 8), (32, 7.5), (30, 7), (27, 6.5), (23, 6), (19, 5.5), (15, 5), (13, 4.5), (10, 4), (8, 3.5), (6, 3), (4, 2.5), (2, 2), (1, 1)]
 
 DEFAULT_SETTINGS = {"routeAt": 0.6, "easyCap": 640, "practiceReview": True, "mockReview": True, "writingAiInstant": True, "studentsCanStart": True,
                     "shuffle": True,
@@ -68,7 +99,7 @@ DEFAULT_SETTINGS = {"routeAt": 0.6, "easyCap": 640, "practiceReview": True, "moc
                     "autoDraft": {"enabled": False, "days": [1], "hour": 7, "sat": 3, "reading": 0, "writing": 0, "topics": ""}}
 LETTERS = [chr(65 + i) for i in range(26)]
 ROMAN = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x", "xi", "xii", "xiii", "xiv", "xv", "xvi"]
-SHUFFLE_GROUPS = {"headings": ROMAN, "matching-features": LETTERS, "sentence-endings": LETTERS}   # lists whose order carries no meaning
+SHUFFLE_GROUPS = {"headings": ROMAN, "matching-features": LETTERS, "sentence-endings": LETTERS, "summary-box": LETTERS}   # lists whose order carries no meaning
 
 
 def init(con):
@@ -116,7 +147,7 @@ def shuffle_item(it, rng):
             it["answer"] = perm.index(int(it["answer"]))
     elif it["kind"] == "ielts-r":
         for g in it["groups"]:
-            if g["type"] == "mcq":
+            if g["type"] in PER_QUESTION_OPTIONS:
                 for q in g["questions"]:
                     opts = list(q.get("options") or [])
                     rng.shuffle(opts)
@@ -217,14 +248,16 @@ def clean_item(raw, old=None):
             rows = [[_s(c, 60) for c in r][:8] for r in (table.get("rows") or []) if isinstance(r, list)][:12]
             table = {"title": _s(table.get("title"), 160), "rows": rows} if rows else None
         it.update({"domain": dom, "skill": skill, "difficulty": raw.get("difficulty") if raw.get("difficulty") in DIFF else "m",
-                   "passage": _s(raw.get("passage"), 3000), "table": table, "stem": _s(raw.get("stem"), 600), "choices": choices,
+                   "passage": _s(raw.get("passage"), 3000), "table": table, "image": _s(raw.get("image"), 1_600_000), "stem": _s(raw.get("stem"), 600), "choices": choices,
                    "answer": int(raw.get("answer")) if str(raw.get("answer", "")).lstrip("-").isdigit() else -1,
                    "explanation": _bi(raw.get("explanation"), 1500), "pretest": bool(raw.get("pretest"))})
         w, limit = words(it["passage"]), (300 if skill == "cross-text" else 150)
         if not (25 <= w <= limit):
             probs.append(f"passage must be 25–{limit} words (now {w})")
-        if skill == "evidence-quantitative" and not table:
-            probs.append("quantitative evidence questions need a data table")
+        if skill == "evidence-quantitative" and not (table or it["image"]):
+            probs.append("quantitative evidence questions need a data table or a graph image (bar or line graph)")
+        if it["image"] and not re.match(r"^(data:image/(png|jpeg|webp);base64,|https://)", it["image"]):
+            raise ValueError("graph must be a PNG/JPEG/WebP upload or https:// address")
         if not it["stem"]:
             probs.append("question missing")
         if len(choices) != 4 or any(not c for c in choices) or len({c.strip() for c in choices}) != 4:
@@ -248,15 +281,17 @@ def clean_item(raw, old=None):
             grp = {"type": t, "instructions": _s(g.get("instructions"), 600),
                    "options": [{"key": k, "text": k} for k in FIXED[t]] if t in FIXED else _opts(g.get("options"), 16),
                    "wordLimit": {"words": max(1, min(5, int(wl.get("words") or 2))), "number": bool(wl.get("number"))} if t in TEXT_TYPES else None,
-                   "image": _s(g.get("image"), 1_600_000) if t == "diagram-label" else "", "questions": []}
+                   "image": _s(g.get("image"), 1_600_000) if t == "diagram-label" else "", "context": _s(g.get("context"), 3000) if t in CONTEXT_TYPES else "", "questions": []}
+            if t == "matching-info" and not grp["options"]:      # the options are the passage's paragraph letters
+                grp["options"] = [{"key": LETTERS[i], "text": LETTERS[i]} for i in range(len([p for p in (raw.get("paragraphs") or []) if str(p).strip()][:12]))]
             for q in (g.get("questions") or [])[:20]:
                 ans = q.get("answer")
                 ans = [_s(a, 80) for a in (ans if isinstance(ans, list) else [ans]) if _s(a, 80)][:6]
                 qq = {"text": _s(q.get("text"), 600), "answer": ans}
-                if t == "mcq":
-                    qq["options"] = _opts(q.get("options"), 6)
+                if t in PER_QUESTION_OPTIONS:
+                    qq["options"] = _opts(q.get("options"), 9)
                 grp["questions"].append(qq)
-            total_q += len(grp["questions"])
+            total_q += sum(marks(grp, q) for q in grp["questions"])
             groups.append(grp)
         it.update({"title": _s(raw.get("title"), 160), "paragraphs": paras, "labelled": bool(raw.get("labelled", True)),
                    "difficulty": max(1, min(3, int(raw.get("difficulty") or 2))), "groups": groups})
@@ -273,13 +308,23 @@ def clean_item(raw, old=None):
             for i, q in enumerate(g["questions"], 1):
                 if not q["answer"]:
                     probs.append(f"{g['type']} question {i}: answer missing")
-                if g["type"] in CHOICE_TYPES and g["type"] != "mcq" and not g["options"]:
+                if g["type"] in CHOICE_TYPES and g["type"] not in PER_QUESTION_OPTIONS and not g["options"]:
                     probs.append(f"{g['type']}: options missing")
                 if g["type"] == "mcq":
                     k2 = {norm(o["key"]) for o in q.get("options", [])}
-                    if len(q.get("options", [])) < 3 or any(norm(a) not in k2 for a in q["answer"]):
-                        probs.append(f"multiple choice question {i}: needs 3+ options and a valid answer letter")
-                elif g["type"] in CHOICE_TYPES and any(norm(a) not in keys for a in q["answer"]):
+                    if not 3 <= len(q.get("options", [])) <= 5 or len(q["answer"]) != 1 or any(norm(a) not in k2 for a in q["answer"]):
+                        probs.append(f"multiple choice question {i}: needs 3–5 options (A–C … A–E) and exactly one answer letter")
+                if g["type"] == "mcq-multi":
+                    k2 = {norm(o["key"]) for o in q.get("options", [])}
+                    need = len(q["answer"])
+                    if need not in (2, 3) or len({norm(a) for a in q["answer"]}) != need or any(norm(a) not in k2 for a in q["answer"]):
+                        probs.append(f"choose-{need} question {i}: give TWO or THREE different answer letters from its options")
+                    if len(q.get("options", [])) < need + 2:
+                        probs.append(f"choose-{need} question {i}: needs at least {need + 2} options (e.g. A–E for TWO, A–G for THREE)")
+                    word = {2: "TWO", 3: "THREE"}.get(need, "")
+                    if word and word not in (g.get("instructions") or "").upper():
+                        probs.append(f"choose-{need} question {i}: the instructions must say \"Choose {word} letters\"")
+                if g["type"] in CHOICE_TYPES and g["type"] not in PER_QUESTION_OPTIONS and any(norm(a) not in keys for a in q["answer"]):
                     probs.append(f"{g['type']} question {i}: the answer must be one of the options")
                 if g["type"] in TEXT_TYPES:
                     for a in q["answer"]:
@@ -294,6 +339,18 @@ def clean_item(raw, old=None):
                 probs.append(f"{g['type']}: instructions must state the word limit (e.g. \"Choose NO MORE THAN TWO WORDS from the passage\")")
             if g["type"] in ("tfng", "ynng") and not g.get("instructions"):
                 probs.append(f"{g['type']}: instructions missing")
+            if g["type"] == "summary-box" and len(g["options"]) < len(g["questions"]) + 2:
+                probs.append("summary with a box of words: the box needs more words than gaps (at least 2 extra)")
+            if g["type"] in CONTEXT_TYPES and g["type"] != "summary-completion" and not g.get("context"):
+                probs.append(f"{g['type']}: add the summary / notes / table / flow-chart text with numbered gaps")
+            reuse = "MORE THAN ONCE" in (g.get("instructions") or "").upper()
+            used = [norm(a) for q in g["questions"] for a in q["answer"][:1]]
+            if g["type"] in ("headings", "sentence-endings", "summary-box") and len(used) != len(set(used)):
+                probs.append(f"{g['type']}: each option may be used only once")
+            if g["type"] in ("matching-info", "matching-features") and len(used) != len(set(used)) and not reuse:
+                probs.append(f"{g['type']}: a letter is used twice — add \"NB You may use any letter more than once.\" to the instructions, or change the answers")
+            if g["type"] == "sentence-endings" and len(g["options"]) <= len(g["questions"]):
+                probs.append("sentence endings: there must be more endings than sentence beginnings")
             if g["type"] == "headings" and len(g["options"]) <= len(g["questions"]):
                 probs.append("matching headings needs more headings than paragraphs to match")
             if g["type"] == "diagram-label" and not g["image"]:
@@ -313,6 +370,10 @@ def clean_item(raw, old=None):
             probs.append("Task 1 needs a chart image or a data table")
         if it["prompt"] and str(it["minWords"]) not in it["prompt"]:
             probs.append(f"the task must say \"Write at least {it['minWords']} words.\" as in the real test")
+        if task == 1 and it["prompt"] and "summarise the information" not in it["prompt"].lower():
+            probs.append("Task 1 must use the official instruction: \"Summarise the information by selecting and reporting the main features, and make comparisons where relevant.\"")
+        if task == 2 and it["prompt"] and "give reasons for your answer" not in it["prompt"].lower():
+            probs.append("Task 2 must end with: \"Give reasons for your answer and include any relevant examples from your own knowledge or experience.\"")
         if it["image"] and not re.match(r"^(data:image/(png|jpeg|webp);base64,|https://)", it["image"]):
             raise ValueError("image must be a PNG/JPEG/WebP upload or https:// address")
     if kind == "ielts-r":
@@ -374,7 +435,7 @@ def readiness(con):
     tasks = items(con, "ielts-w", "approved")
     return {"sat": {"approved": len(op), "pretest": len(sat) - len(op), "byDomain": by, "need": need, "minimum": sum(need.values()),
                     "recommended": 81 * 3, "mock": sat_ok},
-            "ielts-r": {"sets": len(sets), "questions": sum(sum(len(g["questions"]) for g in s["groups"]) for s in sets), "mock": bool(_pick_reading(sets, random.Random(1)))},
+            "ielts-r": {"sets": len(sets), "questions": sum(total_marks(s) for s in sets), "mock": bool(_pick_reading(sets, random.Random(1)))},
             "ielts-w": {"task1": sum(1 for t in tasks if t["task"] == 1), "task2": sum(1 for t in tasks if t["task"] == 2),
                         "mock": any(t["task"] == 1 for t in tasks) and any(t["task"] == 2 for t in tasks)}}
 
@@ -434,7 +495,7 @@ def _pick_reading(sets, rng, tries=3000):
         return None
     for _ in range(tries):
         trio = rng.sample(sets, 3)
-        q = sum(sum(len(g["questions"]) for g in s["groups"]) for s in trio)
+        q = sum(total_marks(s) for s in trio)
         w = sum(s.get("words") or 0 for s in trio)
         if q == 40 and 2150 <= w <= 2750:
             return sorted(trio, key=lambda s: s.get("difficulty", 2))
@@ -613,15 +674,34 @@ def is_correct(item, value, gi=None, qi=None):
         return str(value) == str(item["answer"])
     g = item["groups"][gi]
     q = g["questions"][qi]
+    return points(g, q, value) == marks(g, q)
+
+
+def points(g, q, value):
+    """Marks earned. TWO/THREE-letter questions: one mark per correct letter; more letters than asked scores 0."""
+    if g["type"] == "mcq-multi":
+        picked = {norm(x) for x in str(value or "").split(",") if norm(x)}
+        right = {norm(x) for x in q["answer"]}
+        return 0 if len(picked) > len(right) else len(picked & right)
     if g["type"] in TEXT_TYPES:
-        return check_text(value, q["answer"], g["wordLimit"])
-    return norm(value) in {norm(x) for x in q["answer"]}
+        return int(check_text(value, q["answer"], g["wordLimit"]))
+    return int(norm(value) in {norm(x) for x in q["answer"]})
+
+
+NUMBER_WORDS = {w: str(i) for i, w in enumerate("zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty".split())}
+NUMBER_WORDS.update({"thirty": "30", "forty": "40", "fifty": "50", "sixty": "60", "seventy": "70", "eighty": "80", "ninety": "90", "hundred": "100"})
+
+
+def _numform(s):
+    """IELTS accepts a number written as figures or as a word: '3' = 'three'."""
+    return " ".join(NUMBER_WORDS.get(t, t) for t in norm(s).split())
 
 
 def check_text(ans, accepted, wl):
+    """Exact words (any capitalisation); spelling and singular/plural must match; numbers as figures or words."""
     if not within_limit(ans, wl):
         return False
-    return norm(ans) in {norm(x) for x in accepted}
+    return _numform(ans) in {_numform(x) for x in accepted}
 
 
 def score(a, cfg):
@@ -647,7 +727,8 @@ def score(a, cfg):
             else:
                 est = 200 + (cfg["easyCap"] - 200) * frac
             res["estimate"] = int(max(200, min(800, round(est / 10) * 10)))
-            res["ceiling"] = cfg["easyCap"] if a.get("route") == "easy" else 800
+            res["ceiling"] = cfg["easyCap"] if a.get("route") == "easy" else 800     # unofficial: College Board publishes no ceiling
+            res["percentile"] = rw_percentile(res["estimate"])
         return res
     if a["kind"] == "ielts-r":
         sec, c, t, per = a["sections"][0], 0, 0, []
@@ -655,9 +736,8 @@ def score(a, cfg):
             s, sc = a["snap"][sid], 0
             for gi, g in enumerate(s["groups"]):
                 for qi, q in enumerate(g["questions"]):
-                    ans = sec["answers"].get(f"{sid}:{gi}:{qi}", "")
-                    ok = check_text(ans, q["answer"], g["wordLimit"]) if g["type"] in TEXT_TYPES else norm(ans) in {norm(x) for x in q["answer"]}
-                    c += ok; t += 1; sc += ok
+                    ok = points(g, q, sec["answers"].get(f"{sid}:{gi}:{qi}", ""))
+                    c += ok; t += marks(g, q); sc += ok
             per.append({"id": sid, "title": s["title"], "correct": sc})
         res = {"correct": c, "total": t, "passages": per}
         raw = c if t == 40 else round(c * 40 / t) if t else 0
@@ -666,6 +746,35 @@ def score(a, cfg):
         return res
     sec = a["sections"][0]
     return {"words": {iid: words(sec["answers"].get(iid, "")) for iid in sec["items"]}, "ai": {}, "teacher": None}
+
+
+# Official College Board percentiles for the RW section score (SAT user group), 2026 research page.
+RW_PERCENTILES = [(800, 99), (750, 98), (700, 92), (650, 84), (600, 72)]
+ERROR_CAUSES = ("vocabulary", "reasoning", "misread", "time", "trap", "rule")
+
+
+def rw_percentile(score):
+    """Approximate percentile among SAT takers (interpolated between the official anchors; None below 600)."""
+    if score is None or score < 600:
+        return None
+    pts = sorted(RW_PERCENTILES)
+    for (s1, p1), (s2, p2) in zip(pts, pts[1:]):
+        if s1 <= score <= s2:
+            return round(p1 + (p2 - p1) * (score - s1) / (s2 - s1))
+    return 99
+
+
+def tag_error(a, iid, cause):
+    """Learner's own error log on a finished SAT test: why was this question missed?"""
+    if a["kind"] != "sat" or a["status"] == "active":
+        raise ValueError("tag mistakes after the test")
+    if iid not in a["snap"]:
+        raise ValueError("unknown question")
+    tags = a.setdefault("tags", {})
+    if cause in ERROR_CAUSES:
+        tags[iid] = cause
+    else:
+        tags.pop(iid, None)
 
 
 def task_band(cr):
@@ -708,8 +817,13 @@ def view(a, cfg, staff=False):
             if a["kind"] == "ielts-r":
                 n = 1
                 for it in s["items"]:
-                    for g in it["groups"]:
-                        g["from"] = n; n += len(g["questions"]); g["to"] = n - 1
+                    full = a["snap"][it["id"]]               # marks come from the full item (the public copy has no answers)
+                    for gi, g in enumerate(it["groups"]):
+                        g["from"] = n
+                        for qi, q in enumerate(g["questions"]):
+                            q["n"], q["marks"] = n, marks(full["groups"][gi], full["groups"][gi]["questions"][qi])
+                            n += q["marks"]
+                        g["to"] = n - 1
         else:
             s["count"] = len(sec["items"])
         secs.append(s)
@@ -718,6 +832,7 @@ def view(a, cfg, staff=False):
     out["staff"] = bool(staff)
     if done:
         out["result"] = dict(a.get("result") or {})
+        out["tags"] = a.get("tags", {})
         if a["kind"] == "ielts-w":
             out["result"] = writing_view(a, cfg, staff)
     return out
@@ -733,15 +848,16 @@ def writing_view(a, cfg, staff):
 
 def _public_item(it, review):
     if it["kind"] == "sat":
-        out = {k: it.get(k) for k in ("id", "passage", "table", "stem", "choices")}
+        out = {k: it.get(k) for k in ("id", "passage", "table", "image", "stem", "choices")}
         if review:
             out.update({"answer": it["answer"], "explanation": it["explanation"], "domain": it["domain"], "skill": it["skill"], "difficulty": it["difficulty"], "pretest": it.get("pretest", False)})
         return out
     if it["kind"] == "ielts-r":
         groups = []
         for g in it["groups"]:
-            gg = {k: g.get(k) for k in ("type", "instructions", "options", "wordLimit", "image")}
-            gg["questions"] = [{"text": q["text"], "options": q.get("options"), **({"answer": q["answer"]} if review else {})} for q in g["questions"]]
+            gg = {k: g.get(k) for k in ("type", "instructions", "options", "wordLimit", "image", "context")}
+            gg["questions"] = [{"text": q["text"], "options": q.get("options"), "pick": len(q["answer"]) if g["type"] == "mcq-multi" else None,
+                                **({"answer": q["answer"]} if review else {})} for q in g["questions"]]
             groups.append(gg)
         return {"id": it["id"], "title": it["title"], "paragraphs": it["paragraphs"], "labelled": it.get("labelled", True), "groups": groups}
     return {k: it.get(k) for k in ("id", "task", "prompt", "image", "table", "minWords")}
@@ -761,12 +877,12 @@ READ_SCHEMA = {"type": "object", "properties": {
     "groups": {"type": "array", "items": {"type": "object", "properties": {
         "type": {"type": "string", "enum": sorted(IELTS_TYPES)}, "instructions": {"type": "string"},
         "options": {"type": "array", "items": {"type": "object", "properties": {"key": {"type": "string"}, "text": {"type": "string"}}, "required": ["key", "text"], "additionalProperties": False}},
-        "max_words": {"type": "integer"}, "allow_number": {"type": "boolean"},
+        "max_words": {"type": "integer"}, "allow_number": {"type": "boolean"}, "context": {"type": "string"},
         "questions": {"type": "array", "items": {"type": "object", "properties": {
             "text": {"type": "string"}, "answers": {"type": "array", "items": {"type": "string"}},
             "options": {"type": "array", "items": {"type": "object", "properties": {"key": {"type": "string"}, "text": {"type": "string"}}, "required": ["key", "text"], "additionalProperties": False}}},
             "required": ["text", "answers", "options"], "additionalProperties": False}}},
-        "required": ["type", "instructions", "options", "max_words", "allow_number", "questions"], "additionalProperties": False}}},
+        "required": ["type", "instructions", "options", "max_words", "allow_number", "context", "questions"], "additionalProperties": False}}},
     "required": ["title", "paragraphs", "groups"], "additionalProperties": False}
 
 WTASK_SCHEMA = {"type": "object", "properties": {
@@ -799,6 +915,14 @@ def sat_prompt(domain, skill, difficulty, count, topic):
             "Standard English Conventions items mark the blank as ______ and choices are the ways to fill it. Rhetorical synthesis gives bulleted "
             "notes ('While researching a topic, a student has taken the following notes:'). Quantitative evidence questions include a small data table "
             "(table_title and table_rows, first row = headers); otherwise leave table_title empty and table_rows empty. "
+            "Passages come from literature, history/social studies, the humanities or science. "
+            "Each question has ONE defensible answer; the right answer does exactly the job the stem asks. Build the wrong choices the way official "
+            "items do: one contradicts the text or claim, one adds something the text never says, one satisfies only half of a two-part claim, and "
+            "(where relevant) one uses the wrong logical connector or a real but wrong sense of a word. Do not rely on 'too extreme' wording alone. "
+            + ("Standard English Conventions difficulty ladder (easy → hard): end punctuation and verb forms; subject–verb agreement across "
+               "intervening nouns; no punctuation between a subject and its verb; commas around nonessential elements; semicolons with conjunctive "
+               "adverbs; restrictive vs nonrestrictive appositives; colons introducing independent clauses; dangling modifiers. Boundaries items: "
+               "options differ only in punctuation; Form, Structure, and Sense items: options differ in words or structure. " if domain == "sec" else "") +
             "skill must be one of: " + ", ".join(d["skills"]) + ". Explanations: why the answer is right and each other choice is wrong; "
             "explanation_en in English, explanation_th in Thai. In explanations refer to choices by their words, never by letter (A–D), because the order of choices is shuffled for every student.")
 
@@ -808,13 +932,26 @@ def reading_prompt(topic, difficulty):
             f"Topic: {topic or 'an academic topic of general interest (science, history, environment, technology or society)'}. "
             f"Level: {['', 'easier (like passage 1)', 'medium (like passage 2)', 'harder (like passage 3)'][max(1, min(3, int(difficulty or 2)))]}.\n"
             "Passage: 750–950 words, 6–8 paragraphs (they are labelled A, B, C… on screen), formal academic style.\n"
-            "Questions: exactly 13 or 14 in total, in 2–3 groups of different official types. For tfng/ynng leave options empty and answer with "
-            "TRUE/FALSE/NOT GIVEN (or YES/NO/NOT GIVEN). For headings, give options with roman numeral keys (i, ii, …) — more headings than paragraphs — "
-            "and each question text names a paragraph ('Paragraph B'); the answer is the heading key. matching-info answers are paragraph letters. "
-            "matching-features and sentence-endings give options with letter keys and answers as letters. mcq: each question has 4 options A–D. "
-            "Completion and short-answer types: set max_words (1–3) and allow_number, write the instruction in the official style "
-            "(e.g. 'Choose NO MORE THAN TWO WORDS from the passage for each answer.'), mark the gap in the question text as ______ and give every "
-            "acceptable answer copied exactly from the passage. Questions in each group follow the order of the passage where the official test does.")
+            "Questions: 13 or 14 marks in total, in 3 groups of DIFFERENT official types, mixing choice and completion tasks as the real test does. "
+            "Use the official instruction wording for each type. Type rules:\n"
+            "- tfng / ynng: options empty; answers TRUE/FALSE/NOT GIVEN (or YES/NO/NOT GIVEN); include at least one NOT GIVEN.\n"
+            "- mcq: 'Choose the correct letter, A, B, C or D.' Each question has its own 4 options (3–5 allowed) and exactly ONE answer letter.\n"
+            "- mcq-multi: 'Choose TWO letters, A–E.' (or THREE letters, A–G). Each question has its own 5–7 options and TWO or THREE answer letters; "
+            "each correct letter is worth one mark.\n"
+            "- headings: options with roman numerals i, ii, … (more headings than paragraphs); each question text names a paragraph; answer = numeral.\n"
+            "- matching-info: 'Which paragraph contains the following information?' options empty (paragraph letters are used); answer = paragraph letter "
+            "(add 'NB You may use any letter more than once' when true).\n"
+            "- matching-features / sentence-endings: a lettered list longer than the questions; answers are letters.\n"
+            "- summary-box: 'Complete the summary using the list of words, A–I, below.' put the summary text with numbered gaps in context "
+            "(e.g. '… caused by (9) ______ …'), give the word box as lettered options (at least 2 more than the gaps); answers are letters.\n"
+            "- summary-completion / note-completion / table-completion / flowchart-completion / sentence-completion / short-answer: answers are words "
+            "copied exactly from the passage; set max_words (1–3) and allow_number to match the instruction "
+            "('Choose NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage for each answer.' or 'Choose ONE WORD ONLY from the passage for each answer.'); "
+            "for note/table/flow-chart/summary put the whole notes/table/flow-chart/summary text in context with numbered gaps, and make each question's "
+            "text the gap line (e.g. '(10) ______'). Give every acceptable form of each answer (both British and American spellings where they differ; numbers may be figures or words).\n"
+            "Matching headings: a heading is never used twice. Sentence endings: more endings than beginnings, each used once. "
+            "Matching information / features: a letter may be used twice only if the instructions add 'NB You may use any letter more than once.'\n"
+            "Leave context empty for other types. Questions follow the order of the passage where the official test does.")
 
 
 def wtask_prompt(task, topic):
@@ -832,8 +969,12 @@ def wtask_prompt(task, topic):
 
 FEEDBACK_SYSTEM = ("You are an experienced IELTS Writing examiner trainer. Rate the response against the public IELTS Writing band descriptors "
                    "(Task 1 uses Task Achievement, Task 2 uses Task Response; plus Coherence and Cohesion, Lexical Resource, Grammatical Range and "
-                   "Accuracy). Give each criterion a whole band 0–9. Be strict and realistic, as a trained examiner would be; responses under the "
-                   "minimum word count lose marks in Task Achievement/Response; memorised or off-topic text scores low. Comments in clear, simple English "
+                   "Accuracy; the four criteria are equally weighted). Give each criterion a whole band 0–9. Be strict and realistic, as a trained "
+                   "examiner would be. A response under the minimum length may not give enough evidence for higher bands (there is no fixed "
+                   "deduction; longer is not penalised). Off-topic writing, bullet points or notes, and text copied from the task or another "
+                   "source are penalised; a wholly memorised script belongs with responses that do not attempt the task. Task 1: an overview of "
+                   "the main trends or differences is essential, key figures should be compared, and no personal opinion is given. Task 2: every "
+                   "part of the question must be answered with a clear position throughout. Comments in clear, simple English "
                    "for a Thai teenager; summary_th is a short summary in Thai. At most 6 corrections, quoting the student's words exactly.")
 
 
@@ -865,7 +1006,7 @@ def from_ai_reading(data, difficulty):
     groups = []
     for g in (data or {}).get("groups", []):
         groups.append({"type": g.get("type"), "instructions": g.get("instructions"), "options": g.get("options"),
-                       "wordLimit": {"words": g.get("max_words") or 2, "number": bool(g.get("allow_number"))},
+                       "wordLimit": {"words": g.get("max_words") or 2, "number": bool(g.get("allow_number"))}, "context": g.get("context") or "",
                        "questions": [{"text": q.get("text"), "answer": q.get("answers"), "options": q.get("options")} for q in g.get("questions", [])]})
     return {"kind": "ielts-r", "title": data.get("title"), "paragraphs": data.get("paragraphs"), "difficulty": difficulty, "groups": groups, "origin": "ai", "status": "draft"}
 

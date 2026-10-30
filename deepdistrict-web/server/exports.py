@@ -46,13 +46,14 @@ def log(con, code, me, action):
 def _strip(it, key):
     """Item content for the paper; keys/explanations only in the teacher copy."""
     if it["kind"] == "sat":
-        out = {k: it.get(k) for k in ("id", "kind", "version", "passage", "table", "stem", "choices", "domain", "skill", "difficulty")}
+        out = {k: it.get(k) for k in ("id", "kind", "version", "passage", "table", "image", "stem", "choices", "domain", "skill", "difficulty")}
         if key:
             out.update({"answer": it["answer"], "explanation": it.get("explanation")})
         return out
     if it["kind"] == "ielts-r":
         groups = [{"type": g["type"], "instructions": g["instructions"], "options": g["options"], "wordLimit": g.get("wordLimit"), "image": g.get("image", ""),
-                   "questions": [{"text": q["text"], "options": q.get("options"), **({"answer": q["answer"]} if key else {})} for q in g["questions"]]}
+                   "context": g.get("context", ""),
+                   "questions": [{"text": q["text"], "options": q.get("options"), "marks": exams.marks(g, q), **({"answer": q["answer"]} if key else {})} for q in g["questions"]]}
                   for g in it["groups"]]
         return {"id": it["id"], "kind": it["kind"], "version": it["version"], "title": it["title"], "paragraphs": it["paragraphs"], "labelled": it.get("labelled", True), "groups": groups}
     return {k: it.get(k) for k in ("id", "kind", "version", "task", "prompt", "image", "table", "minWords")}

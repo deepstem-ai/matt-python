@@ -412,6 +412,13 @@ def routes(con, me, path, method, body, environ):
             a = exams.start(con, me, body, ecfg)
             H["audit"](con, me, f"Started {a['kind']} {a['mode']} test {a['id']}")
             return "200 OK", {"id": a["id"]}
+        if path == "exam/tag" and method == "POST":
+            a = exams.get_attempt(con, body.get("id"))
+            if not a or a["userId"] != me["id"]:
+                return "404 Not Found", {"error": "test not found"}
+            exams.tag_error(a, str(body.get("item") or ""), body.get("cause"))
+            exams.put_attempt(con, a)
+            return "200 OK", {"ok": True, "tags": a["tags"]}
         if path.startswith("exam/") and path in ("exam/attempt", "exam/answer", "exam/submit"):
             aid = one("id") if method == "GET" else body.get("id")
             a = exams.get_attempt(con, aid)
