@@ -33,28 +33,35 @@
       desc: bi("Digital SAT format · full test 54 questions: Module 1 and the harder Module 2, 32 minutes each.", "รูปแบบ Digital SAT · ข้อสอบเต็ม 54 ข้อ: โมดูล 1 และโมดูล 2 (ยากขึ้น) โมดูลละ 32 นาที") },
     ielts: { name: bi("IELTS Academic", "IELTS Academic"), cls: "ielts", glyph: "IELTS",
       desc: bi("Reading: 3 passages, 40 questions, 60 minutes · Writing: Task 1 + Task 2, 60 minutes.", "Reading 3 บทความ 40 ข้อ 60 นาที · Writing Task 1 + Task 2 60 นาที") },
-    gate: { name: bi("M.1 English · Suankularb (GATE + EP)", "อังกฤษ ม.1 · สวนกุหลาบ (GATE + EP)"), cls: "gate", glyph: "ม.1",
-      desc: bi("60 questions, 60 minutes, six parts. GATE and EP applicants take the same paper; EP needs a higher score.", "60 ข้อ 60 นาที 6 ตอน ผู้สมัคร GATE และ EP ใช้ข้อสอบชุดเดียวกัน EP ต้องได้คะแนนสูงกว่า") },
-    satit: { name: bi("M.1 English · Satit Prasarnmit", "อังกฤษ ม.1 · สาธิตประสานมิตร"), cls: "satit", glyph: "ม.1",
-      desc: bi("60 questions, 60 minutes, six parts: conversation, vocabulary, grammar, error identification, cloze, reading.", "60 ข้อ 60 นาที 6 ตอน: บทสนทนา คำศัพท์ ไวยากรณ์ หาจุดผิด เติมคำ การอ่าน") },
-    sk4: { name: bi("M.4 English · Suankularb (GATE + EP)", "อังกฤษ ม.4 · สวนกุหลาบ (GATE + EP)"), cls: "sk4", glyph: "ม.4",
-      desc: bi("60 questions, 75 minutes, six parts. One paper for GATE and EP; EP needs a higher score.", "60 ข้อ 75 นาที 6 ตอน ข้อสอบชุดเดียวกันทั้ง GATE และ EP โดย EP ต้องได้คะแนนสูงกว่า") },
-    tu4: { name: bi("M.4 English · Triam Udom Suksa", "อังกฤษ ม.4 · เตรียมอุดมศึกษา"), cls: "tu4", glyph: "ม.4",
-      desc: bi("60 questions, 75 minutes, weighted towards cloze, reading and error identification.", "60 ข้อ 75 นาที เน้นเติมคำในบทความ การอ่าน และหาจุดผิด") },
-    top4: { name: bi("M.4 English · Top schools", "อังกฤษ ม.4 · โรงเรียนดัง"), cls: "top4", glyph: "ม.4",
-      desc: bi("60 questions, 75 minutes, the six parts most top schools use.", "60 ข้อ 75 นาที 6 ตอนตามแนวที่โรงเรียนดังส่วนใหญ่ใช้") }
+    sk1: { name: bi("M.1 · Suankularb (GATE / EPLUS+)", "ม.1 · สวนกุหลาบ (GATE / EPLUS+)"), cls: "gate", glyph: "ม.1",
+      desc: bi("English, 40 questions in 50 minutes, Suankularb pre-test style. GATE and EPLUS+ take the same paper; EPLUS+ needs a higher score.", "ภาษาอังกฤษ 40 ข้อ 50 นาที แนวข้อสอบสวนกุหลาบ GATE และ EPLUS+ ใช้ชุดเดียวกัน EPLUS+ ต้องได้คะแนนสูงกว่า") },
+    sp1: { name: bi("M.1 · Satit Prasarnmit", "ม.1 · สาธิตประสานมิตร"), cls: "satit", glyph: "ม.1",
+      desc: bi("English, 50 questions in 60 minutes, reading-centred with reasoning.", "ภาษาอังกฤษ 50 ข้อ 60 นาที เน้นการอ่านและการคิดวิเคราะห์") },
+    sk4: { name: bi("M.4 · Suankularb (GATE / EPLUS+)", "ม.4 · สวนกุหลาบ (GATE / EPLUS+)"), cls: "sk4", glyph: "ม.4",
+      desc: bi("English, 50 questions in 60 minutes. GATE and EPLUS+ take the same paper; EPLUS+ needs a higher score.", "ภาษาอังกฤษ 50 ข้อ 60 นาที GATE และ EPLUS+ ใช้ชุดเดียวกัน EPLUS+ ต้องได้คะแนนสูงกว่า") },
+    sp4: { name: bi("M.4 · Satit Prasarnmit", "ม.4 · สาธิตประสานมิตร"), cls: "satit", glyph: "ม.4",
+      desc: bi("English, 50 questions in 60 minutes, standardized-test style (academic vocabulary, structure, academic reading).", "ภาษาอังกฤษ 50 ข้อ 60 นาที แนวข้อสอบมาตรฐาน (คำศัพท์วิชาการ โครงสร้าง บทความวิชาการ)") },
+    tu4: { name: bi("M.4 · Triam Udom Suksa", "ม.4 · เตรียมอุดมศึกษา"), cls: "tu4", glyph: "ม.4",
+      desc: bi("English, 50 questions in 60 minutes: cloze and reading at the core, error identification (collocations), conversation.", "ภาษาอังกฤษ 50 ข้อ 60 นาที: เติมคำในบทความและการอ่านเป็นหลัก หาจุดผิด (collocation) บทสนทนา") },
+    alevel: { name: bi("A-Level English (TCAS)", "A-Level ภาษาอังกฤษ (TCAS)"), cls: "alevel", glyph: "A-L",
+      desc: bi("80 questions in 90 minutes, official blueprint: Listening & Speaking 20, Reading 40, Writing 20.", "80 ข้อ 90 นาที ตามโครงสร้างจริง: Listening & Speaking 20 Reading 40 Writing 20") }
   };
   var SUBJ = { math: ["Mathematics", "คณิตศาสตร์"], sci: ["Science", "วิทยาศาสตร์"], eng: ["English", "ภาษาอังกฤษ"], thai: ["Thai", "ภาษาไทย"], RW: ["Reading and Writing", "Reading and Writing"], read: ["Reading", "Reading"] };
   function subj(k) { var x = SUBJ[k] || [k, k]; return bi(x[0], x[1]); }
   function subjTxt(k) { var x = SUBJ[k] || [k, k]; return th() ? x[1] : x[0]; }
   var DOM = { cs: "Craft and Structure", ii: "Information and Ideas", sec: "Standard English Conventions", eoi: "Expression of Ideas" };
-  var TARGETS = { gate: [{ en: "GATE Program", th: "GATE Program", overall: 65, subjects: {} }, { en: "English Program (EPLUS+)", th: "English Program (EPLUS+)", overall: 80, subjects: {} }],
-    sk4: [{ en: "GATE / regular", th: "GATE / ห้องทั่วไป", overall: 65, subjects: {} }, { en: "English Program", th: "English Program", overall: 80, subjects: {} }],
-    satit: [{ en: "Satit Prasarnmit", th: "สาธิตประสานมิตร", overall: 70, subjects: {} }], tu4: [{ en: "Triam Udom Suksa", th: "เตรียมอุดมศึกษา", overall: 75, subjects: {} }],
-    top4: [{ en: "Top schools", th: "โรงเรียนดัง", overall: 70, subjects: {} }] };
-  var PARTS = { conversation: ["A", "Conversation", "บทสนทนา"], vocabulary: ["B", "Vocabulary", "คำศัพท์"], grammar: ["C", "Grammar and structure", "ไวยากรณ์และโครงสร้าง"],
-    error: ["D", "Error identification", "หาจุดผิด"], cloze: ["E", "Cloze test", "เติมคำในบทความ"], reading: ["F", "Reading comprehension", "การอ่านจับใจความ"] };
-  function partName(k) { var x = PARTS[k]; return x ? bi("Part " + x[0] + ": " + x[1], "ตอน " + x[0] + ": " + x[2]) : ""; }
+  var TARGETS = { sk1: [{ en: "GATE Program", th: "GATE Program", overall: 70, subjects: {} }, { en: "EPLUS+ (English Program)", th: "EPLUS+ (English Program)", overall: 85, subjects: {} }],
+    sk4: [{ en: "GATE Program", th: "GATE Program", overall: 70, subjects: {} }, { en: "EPLUS+ (English Program)", th: "EPLUS+ (English Program)", overall: 85, subjects: {} }],
+    sp1: [{ en: "Satit Prasarnmit", th: "สาธิตประสานมิตร", overall: 75, subjects: {} }], sp4: [{ en: "Satit Prasarnmit", th: "สาธิตประสานมิตร", overall: 75, subjects: {} }],
+    tu4: [{ en: "Triam Udom Suksa", th: "เตรียมอุดมศึกษา", overall: 80, subjects: {} }],
+    alevel: [{ en: "Competitive faculties (≈70+)", th: "คณะแข่งขันสูง (≈70 ขึ้นไป)", overall: 70, subjects: {} }] };
+  var PARTS = { conversation: ["Conversation", "บทสนทนา"], "conversation-short": ["Short conversations", "บทสนทนาสั้น"], "conversation-long": ["Long conversation", "บทสนทนายาว"],
+    vocabulary: ["Vocabulary in context", "คำศัพท์ในบริบท"], grammar: ["Grammar and structure", "ไวยากรณ์และโครงสร้าง"], error: ["Error identification", "หาจุดผิด"],
+    cloze: ["Cloze test", "เติมคำในบทความ"], reading: ["Reading comprehension", "การอ่านจับใจความ"], "reading-academic": ["Academic reading", "การอ่านบทความวิชาการ"],
+    "reading-ads": ["Reading: advertisements", "การอ่าน: โฆษณา"], "reading-review": ["Reading: product / service review", "การอ่าน: บทวิจารณ์สินค้าและบริการ"],
+    "reading-news": ["Reading: news", "การอ่าน: ข่าว"], "reading-visual": ["Reading: graphs and tables", "การอ่าน: กราฟและตาราง"], "reading-article": ["Reading: articles", "การอ่าน: บทความ"],
+    "text-completion": ["Writing: text completion", "การเขียน: เติมข้อความ"], paragraph: ["Writing: paragraph organization", "การเขียน: เรียงประโยคเป็นย่อหน้า"] };
+  function partName(k) { var x = PARTS[k]; return x ? bi(x[0], x[1]) : esc(k || ""); }
   var FIXED = { tfng: ["TRUE", "FALSE", "NOT GIVEN"], ynng: ["YES", "NO", "NOT GIVEN"] };
   var TEXT = { "sentence-completion": 1, "summary-completion": 1, "note-completion": 1, "table-completion": 1, "flowchart-completion": 1, "diagram-label": 1, "short-answer": 1 };
   var TYPES = { tfng: "True / False / Not Given", ynng: "Yes / No / Not Given", mcq: "Multiple choice", "mcq-multi": "Multiple choice (choose 2–3)", headings: "Matching headings", "matching-info": "Matching information", "matching-features": "Matching features", "sentence-endings": "Sentence endings", "summary-box": "Summary (word box)", "sentence-completion": "Sentence completion", "summary-completion": "Summary completion", "note-completion": "Note completion", "table-completion": "Table completion", "flowchart-completion": "Flow-chart completion", "diagram-label": "Diagram labels", "short-answer": "Short answers" };
@@ -168,7 +175,7 @@
     var first = {}, order = [];
     qs.forEach(function (q, i) { var k = q.part || q.subject || (q.domain ? "RW" : ""); if (k && first[k] == null) { first[k] = i; order.push(k); } });
     if (order.length < 2) return "";
-    return '<nav class="pt-tabs">' + order.map(function (k) { return '<a href="#pt-q-' + S.cur + "-" + first[k] + '" class="pt-tab pt-tab--' + (PARTS[k] ? "part" : k) + '">' + (PARTS[k] ? bi(PARTS[k][0] + " " + PARTS[k][1], PARTS[k][0] + " " + PARTS[k][2]) : subj(k)) + "</a>"; }).join("") + "</nav>";
+    return '<nav class="pt-tabs">' + order.map(function (k) { return '<a href="#pt-q-' + S.cur + "-" + first[k] + '" class="pt-tab pt-tab--' + (PARTS[k] ? "part" : k) + '">' + (PARTS[k] ? partName(k) : subj(k)) + "</a>"; }).join("") + "</nav>";
   }
   function choiceList(qs, si) {
     var last = null, lastPassage = null, n0 = S.sections.slice(0, si).reduce(function (t, s) { return t + (s.qs ? s.qs.length : 0); }, 0);
@@ -366,7 +373,7 @@
         n++;
         var h = "";
         var sk = it.part || it.subject;
-        if (sk && sk !== lastS) h += '<div style="font-size:17px;font-weight:700;color:#1d3fb8;margin:6px 0">' + (it.part ? esc("Part " + PARTS[it.part][0] + ": " + PARTS[it.part][1] + " · ตอน " + PARTS[it.part][0] + " " + PARTS[it.part][2]) : esc(SUBJ[it.subject][0] + " · " + SUBJ[it.subject][1])) + "</div>";
+        if (sk && sk !== lastS) h += '<div style="font-size:17px;font-weight:700;color:#1d3fb8;margin:6px 0">' + (it.part && PARTS[it.part] ? esc(PARTS[it.part][0] + " · " + PARTS[it.part][1]) : esc(SUBJ[it.subject][0] + " · " + SUBJ[it.subject][1])) + "</div>";
         lastS = sk;
         if (it.passage && it.passage !== lastP) h += '<div style="background:#f3f5fb;border-left:3px solid #94a3b8;padding:6px 10px;margin:4px 0">' + passage(it.passage) + "</div>";
         lastP = it.passage || null;

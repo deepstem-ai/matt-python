@@ -131,8 +131,13 @@
   /* ---------------------------------------------------------------- shell */
   var KN = { sat: "SAT Reading and Writing", "ielts-r": "IELTS Academic Reading", "ielts-w": "IELTS Academic Writing", m1: "Suankularb M.1 entrance" };
   var SUBJ = { math: ["Mathematics", "คณิตศาสตร์"], sci: ["Science", "วิทยาศาสตร์"], eng: ["English", "ภาษาอังกฤษ"], thai: ["Thai", "ภาษาไทย"] };
-  var PARTS = { conversation: ["A", "Conversation", "บทสนทนา"], vocabulary: ["B", "Vocabulary", "คำศัพท์"], grammar: ["C", "Grammar", "ไวยากรณ์"], error: ["D", "Error identification", "หาจุดผิด"], cloze: ["E", "Cloze", "เติมคำในบทความ"], reading: ["F", "Reading", "การอ่าน"] };
-  function partLabel(k) { var x = PARTS[k]; return x ? L("Part " + x[0] + " · " + x[1], "ตอน " + x[0] + " · " + x[2]) : ""; }
+  var PARTS = { conversation: ["Conversation", "บทสนทนา"], "conversation-short": ["Short conversations", "บทสนทนาสั้น"], "conversation-long": ["Long conversation", "บทสนทนายาว"],
+    vocabulary: ["Vocabulary in context", "คำศัพท์ในบริบท"], grammar: ["Grammar and structure", "ไวยากรณ์และโครงสร้าง"], error: ["Error identification", "หาจุดผิด"],
+    cloze: ["Cloze test", "เติมคำในบทความ"], reading: ["Reading comprehension", "การอ่านจับใจความ"], "reading-academic": ["Academic reading", "การอ่านบทความวิชาการ"],
+    "reading-ads": ["Reading: advertisements", "การอ่าน: โฆษณา"], "reading-review": ["Reading: product / service review", "การอ่าน: บทวิจารณ์สินค้าและบริการ"],
+    "reading-news": ["Reading: news", "การอ่าน: ข่าว"], "reading-visual": ["Reading: graphs and tables", "การอ่าน: กราฟและตาราง"], "reading-article": ["Reading: articles", "การอ่าน: บทความ"],
+    "text-completion": ["Writing: text completion", "การเขียน: เติมข้อความ"], paragraph: ["Writing: paragraph organization", "การเขียน: เรียงประโยคเป็นย่อหน้า"] };
+  function partLabel(k) { var x = PARTS[k]; return x ? L(x[0], x[1]) : k || ""; }
   function choiceKind() { return A.kind === "sat" || A.kind === "m1"; }
   function m1Name() { var it = ((A.sections[0] || {}).items || [])[0] || {}; return it.program === "ep" ? "Suankularb M.1 · English Program (EPLUS+)" : it.program === "gate" ? L("Suankularb M.1 · GATE Program", "สวนกุหลาบ ม.1 · GATE Program") : KN.m1; }
   function shell(main, foot) {

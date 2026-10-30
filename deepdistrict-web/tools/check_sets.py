@@ -15,15 +15,19 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "server"))
 import exams  # noqa: E402
 
-EXPECT = {"sat": {"sat": 54}, "ielts": {"ielts-r": 3, "ielts-w": 2},
-          "gate": {"m1": 60}, "satit": {"m1": 60}, "sk4": {"m1": 60}, "tu4": {"m1": 60}, "top4": {"m1": 60}}
-# English entrance papers (M.1 and M.4): 60 questions in six parts, weighted per school
-PART_MIX = {"gate": {"conversation": 8, "vocabulary": 10, "grammar": 12, "error": 6, "cloze": 8, "reading": 16},
-            "satit": {"conversation": 10, "vocabulary": 10, "grammar": 12, "error": 6, "cloze": 7, "reading": 15},
-            "sk4": {"conversation": 6, "vocabulary": 10, "grammar": 12, "error": 8, "cloze": 8, "reading": 16},
-            "tu4": {"conversation": 4, "vocabulary": 8, "grammar": 10, "error": 10, "cloze": 12, "reading": 16},
-            "top4": {"conversation": 8, "vocabulary": 10, "grammar": 12, "error": 8, "cloze": 8, "reading": 14}}
-M1_MIX = {k: {"eng": 60} for k in PART_MIX}
+# Every school / test has its own English paper (never combined): own parts, length, depth and CEFR level.
+PART_MIX = {
+    "sk1": {"conversation": 8, "vocabulary": 8, "grammar": 8, "cloze": 6, "reading": 10},                       # Suankularb M.1 GATE / EPLUS+
+    "sp1": {"conversation": 6, "vocabulary": 8, "grammar": 8, "reading": 28},                                    # Satit Prasarnmit M.1
+    "sk4": {"conversation": 6, "vocabulary": 8, "grammar": 10, "error": 6, "cloze": 8, "reading": 12},           # Suankularb M.4 GATE / EPLUS+
+    "sp4": {"vocabulary": 10, "grammar": 12, "error": 8, "reading-academic": 20},                                # Satit Prasarnmit M.4
+    "tu4": {"conversation": 5, "error": 10, "cloze": 15, "reading": 20},                                         # Triam Udom Suksa M.4
+    "alevel": {"conversation-short": 12, "conversation-long": 8, "reading-ads": 6, "reading-review": 6, "reading-news": 8,
+               "reading-visual": 8, "reading-article": 12, "text-completion": 15, "paragraph": 5},             # A-Level English (TCAS)
+}
+EXPECT = {"sat": {"sat": 54}, "ielts": {"ielts-r": 3, "ielts-w": 2}}
+EXPECT.update({k: {"m1": sum(v.values())} for k, v in PART_MIX.items()})
+M1_MIX = {k: {"eng": sum(v.values())} for k, v in PART_MIX.items()}
 M1_FILL = {k: {} for k in PART_MIX}
 M1_EN = {}
 
@@ -86,8 +90,8 @@ def check(path):
         if d["exam"] in PART_MIX and parts != PART_MIX[d["exam"]]:
             bad.append(f"{path}: parts must be {PART_MIX[d['exam']]} (now {parts})")
         order = [r.get("part") for r in d["items"]]
-        if order != sorted(order, key=lambda k: list(PART_MIX["gate"]).index(k) if k in PART_MIX["gate"] else 9):
-            bad.append(f"{path}: keep the parts in order A conversation · B vocabulary · C grammar · D error · E cloze · F reading")
+        if d["exam"] in PART_MIX and order != sorted(order, key=lambda k: list(PART_MIX[d["exam"]]).index(k) if k in PART_MIX[d["exam"]] else 99):
+            bad.append(f"{path}: keep the parts in this order: {' · '.join(PART_MIX[d['exam']])}")
         for n, r in enumerate(d["items"], 1):
             if r.get("part") == "error" and len(re.findall(r"\[\[[^\]]+\]\]", r.get("stem", ""))) != 4:
                 bad.append(f"{path} item {n}: error identification needs exactly four [[underlined]] parts in the stem")

@@ -1360,3 +1360,4 @@ u.ul-part { text-decoration: underline; text-decoration-thickness: 2px; text-und
 .pt-card--sk4 .pt-glyph { background: linear-gradient(135deg, #1d3fb8, #0e8fa8); }
 .pt-card--tu4 .pt-glyph { background: linear-gradient(135deg, #be185d, #f472b6); }
 .pt-card--top4 .pt-glyph { background: linear-gradient(135deg, #0f766e, #22c55e); }
+.pt-card--alevel .pt-glyph { background: linear-gradient(135deg, #312e81, #a21caf); }

@@ -20,8 +20,8 @@
       { href: "pages/research.html", en: "Research", th: "วิจัย", desc: ["Publish and compete", "ตีพิมพ์และแข่งขัน"] }
     ] },
     { en: "Tests & admissions", th: "ข้อสอบและสอบเข้า", key: "tests", cls: "nav-adm", children: [
-      { href: "pages/tests.html", en: "Free practice tests", th: "ลองทำข้อสอบฟรี", desc: ["SAT, IELTS, M.1 / M.4 English — timed", "SAT, IELTS, อังกฤษ ม.1 / ม.4 — จับเวลา"] },
-      { href: "pages/tests.html", en: "M.1 and M.4 English entrance", th: "อังกฤษสอบเข้า ม.1 และ ม.4", desc: ["Suankularb, Satit Prasarnmit, Triam Udom, top schools", "สวนกุหลาบ สาธิตประสานมิตร เตรียมอุดม โรงเรียนดัง"] },
+      { href: "pages/tests.html", en: "Free practice tests", th: "ลองทำข้อสอบฟรี", desc: ["SAT, IELTS, A-Level, M.1 / M.4 English — timed", "SAT, IELTS, A-Level, อังกฤษ ม.1 / ม.4 — จับเวลา"] },
+      { href: "pages/tests.html", en: "M.1 / M.4 English entrance and A-Level", th: "อังกฤษสอบเข้า ม.1 / ม.4 และ A-Level", desc: ["Suankularb, Satit Prasarnmit, Triam Udom — separate papers", "สวนกุหลาบ สาธิตประสานมิตร เตรียมอุดม — แยกชุดตามโรงเรียน"] },
       { href: "pages/admissions.html", en: "University admissions", th: "สอบเข้ามหาวิทยาลัย", desc: ["IELTS · SAT · TBAT · CU-AAT · TCAS", "IELTS · SAT · TBAT · CU-AAT · TCAS"] },
       { href: "pages/admissions.html#portfolio", en: "Admissions portfolio", th: "พอร์ตยื่นมหาวิทยาลัย", desc: ["TCAS round 1 and abroad", "TCAS รอบ 1 และต่างประเทศ"] },
       { href: "admin/index.html#/tests", en: "Student portal (sign in)", th: "ระบบนักเรียน (เข้าสู่ระบบ)", desc: ["All full sets, results, live class", "ชุดเต็มทั้งหมด ผลสอบ ห้องเรียนสด"] }

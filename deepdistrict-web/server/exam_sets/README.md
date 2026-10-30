@@ -20,7 +20,7 @@ python3 tools/check_sets.py
 ## File format
 
 ```json
-{"exam": "sat" | "ielts" | "gate" | "satit" | "sk4" | "tu4" | "top4", "set": 1,
+{"exam": "sat" | "ielts" | "sk1" | "sp1" | "sk4" | "sp4" | "tu4" | "alevel", "set": 1,
  "title": {"en": "…", "th": "…"}, "minutes": 32,
  "note": {"en": "…", "th": "…"},
  "items": [ … ]}
@@ -34,15 +34,15 @@ must be checked against each year's announcement).
 |-------|-------|------|-----|
 | sat   | 54 × `sat`: items 1–27 = Module 1, 28–54 = Module 2 (harder) | 2 × 32 min | each module cs 7 · ii 7 · sec 7 · eoi 6 |
 | ielts | 3 × `ielts-r` (40 marks, 2,150–2,750 words) + `ielts-w` Task 1 and Task 2 | 60 + 60 min | — |
-| gate  | 60 × `m1` English, `"program": "gate"` — Suankularb **M.1**, one paper for GATE and EP (EP needs a higher score) | 60 min | A conversation 8 · B vocabulary 10 · C grammar 12 · D error 6 · E cloze 8 · F reading 16 |
-| satit | 60 × `m1` English, `"program": "satit"` — Satit Prasarnmit **M.1** | 60 min | 10 · 10 · 12 · 6 · 7 · 15 |
-| sk4   | 60 × `m1` English, `"program": "sk4"` — Suankularb **M.4**, GATE and EP on one paper | 75 min | 6 · 10 · 12 · 8 · 8 · 16 |
-| tu4   | 60 × `m1` English, `"program": "tu4"` — Triam Udom Suksa **M.4** (cloze, reading, error weighted) | 75 min | 4 · 8 · 10 · 10 · 12 · 16 |
-| top4  | 60 × `m1` English, `"program": "top4"` — top schools **M.4** (general) | 75 min | 8 · 10 · 12 · 8 · 8 · 14 |
+| sk1    | 40 — Suankularb **M.1** English, GATE and EPLUS+ on one paper (pre-test style) | 50 min | conversation 8 · vocabulary 8 · grammar 8 · cloze 6 · reading 10 |
+| sp1    | 50 — Satit Prasarnmit **M.1** English (reading and reasoning) | 60 min | conversation 6 · vocabulary 8 · grammar 8 · reading 28 |
+| sk4    | 50 — Suankularb **M.4** English, GATE and EPLUS+ on one paper | 60 min | conversation 6 · vocabulary 8 · grammar 10 · error 6 · cloze 8 · reading 12 |
+| sp4    | 50 — Satit Prasarnmit **M.4** English (standardized-test style) | 60 min | vocabulary 10 · grammar 12 · error 8 · academic reading 20 |
+| tu4    | 50 — Triam Udom Suksa **M.4** English (cloze + reading core) | 60 min | conversation 5 · error 10 · cloze 15 · reading 20 |
+| alevel | 80 — **A-Level English** (TCAS, official blueprint) | 90 min | short conv. 12 · long conv. 8 · ads 6 · review 6 · news 8 · visuals 8 · articles 12 · text completion 15 · paragraph organization 5 |
 
-M.1 and M.4 entrance papers are **English only** (60 questions, six parts, `"part"` on every item, in order A–F).
-Error-identification items mark exactly four parts of the sentence as `[[text]]`; their `choices` are those four
-texts in order (they are not shuffled).
+Every school and test has its **own English paper** — they are never combined: they differ in concept, question
+types, depth, skills and CEFR level. Items carry `"part"` (see `server/exams.py` `M1_PARTS`) in the order above.
 
 Every item says **what it measures** and **what it is about** — `skill` and `topic` for M.1 items,
 `topic` for SAT items and IELTS passages — so results show strengths and weaknesses by skill and topic.

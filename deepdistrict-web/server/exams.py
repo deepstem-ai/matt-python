@@ -40,30 +40,49 @@ CHOICE_KINDS = ("sat", "m1")      # one passage/stem + four answer choices
 # most of the weight); English Program (EPLUS+) tests Mathematics, Science and English in English, plus an
 # interview that is not part of this bank. Items here are DeepDistrict originals in a 4-choice format.
 M1_PROGRAMS = {
-    # School entrance papers. Since v5.9 the ready-made ones are English papers (M.1 and M.4): 60 questions
-    # in six parts. Kind "m1" = a school-entrance item (four choices or a written answer).
-    "gate": {"en": "Suankularb M.1 English (GATE and English Program)", "th": "ภาษาอังกฤษ สอบเข้า ม.1 สวนกุหลาบ (GATE และ EP)", "subjects": ["eng", "math", "sci", "thai"], "grade": 1},
-    "satit": {"en": "Satit Prasarnmit M.1 English", "th": "ภาษาอังกฤษ สอบเข้า ม.1 สาธิตประสานมิตร", "subjects": ["eng", "math", "sci", "thai"], "grade": 1},
-    "sk4": {"en": "Suankularb M.4 English (GATE and English Program)", "th": "ภาษาอังกฤษ สอบเข้า ม.4 สวนกุหลาบ (GATE และ EP)", "subjects": ["eng"], "grade": 4},
+    # School-entrance and A-Level English papers. Each school / test has its OWN paper and style; they are
+    # never combined. Kind "m1" = an entrance-test item (four choices or a written answer).
+    "sk1": {"en": "Suankularb M.1 English (GATE / EPLUS+)", "th": "ภาษาอังกฤษ สอบเข้า ม.1 สวนกุหลาบ (GATE / EPLUS+)", "subjects": ["eng"], "grade": 1},
+    "sp1": {"en": "Satit Prasarnmit M.1 English", "th": "ภาษาอังกฤษ สอบเข้า ม.1 สาธิตประสานมิตร", "subjects": ["eng"], "grade": 1},
+    "sk4": {"en": "Suankularb M.4 English (GATE / EPLUS+)", "th": "ภาษาอังกฤษ สอบเข้า ม.4 สวนกุหลาบ (GATE / EPLUS+)", "subjects": ["eng"], "grade": 4},
+    "sp4": {"en": "Satit Prasarnmit M.4 English", "th": "ภาษาอังกฤษ สอบเข้า ม.4 สาธิตประสานมิตร", "subjects": ["eng"], "grade": 4},
     "tu4": {"en": "Triam Udom Suksa M.4 English", "th": "ภาษาอังกฤษ สอบเข้า ม.4 เตรียมอุดมศึกษา", "subjects": ["eng"], "grade": 4},
-    "top4": {"en": "Top schools M.4 English (general)", "th": "ภาษาอังกฤษ สอบเข้า ม.4 โรงเรียนดัง (ทั่วไป)", "subjects": ["eng"], "grade": 4},
-    "ep": {"en": "Suankularb M.1 English Program (older items)", "th": "สวนกุหลาบ ม.1 English Program (ข้อเดิม)", "subjects": ["math", "sci", "eng"], "legacy": True, "grade": 1},
+    "alevel": {"en": "A-Level English (TCAS)", "th": "A-Level ภาษาอังกฤษ (TCAS)", "subjects": ["eng"], "grade": 6},
+    # earlier ready-made programmes (kept so old results still display)
+    "gate": {"en": "Suankularb M.1 (earlier sets)", "th": "สวนกุหลาบ ม.1 (ชุดเดิม)", "subjects": ["eng", "math", "sci", "thai"], "grade": 1, "legacy": True},
+    "satit": {"en": "Satit Prasarnmit M.1 (earlier sets)", "th": "สาธิตประสานมิตร ม.1 (ชุดเดิม)", "subjects": ["eng", "math", "sci", "thai"], "grade": 1, "legacy": True},
+    "top4": {"en": "M.4 English (earlier general sets)", "th": "อังกฤษ ม.4 (ชุดทั่วไปเดิม)", "subjects": ["eng"], "grade": 4, "legacy": True},
+    "ep": {"en": "Suankularb M.1 English Program (older items)", "th": "สวนกุหลาบ ม.1 English Program (ข้อเดิม)", "subjects": ["math", "sci", "eng"], "grade": 1, "legacy": True},
 }
-# The six parts of an English entrance paper (tutor summaries: conversation, vocabulary, grammar,
-# error identification, cloze and reading); each school weights them differently.
-M1_PARTS = {"conversation": {"en": "Conversation", "th": "บทสนทนา"}, "vocabulary": {"en": "Vocabulary", "th": "คำศัพท์"},
-            "grammar": {"en": "Grammar and structure", "th": "ไวยากรณ์และโครงสร้าง"}, "error": {"en": "Error identification", "th": "หาจุดผิด"},
-            "cloze": {"en": "Cloze test", "th": "เติมคำในบทความ (Cloze)"}, "reading": {"en": "Reading comprehension", "th": "การอ่านจับใจความ"}}
+# Parts (sections) of the English papers. Each test uses its own selection and order (see tools/check_sets.py).
+M1_PARTS = {
+    "conversation": {"en": "Conversation", "th": "บทสนทนา"},
+    "conversation-short": {"en": "Short conversations", "th": "บทสนทนาสั้น"},
+    "conversation-long": {"en": "Long conversation", "th": "บทสนทนายาว"},
+    "vocabulary": {"en": "Vocabulary in context", "th": "คำศัพท์ในบริบท"},
+    "grammar": {"en": "Grammar and structure", "th": "ไวยากรณ์และโครงสร้าง"},
+    "error": {"en": "Error identification", "th": "หาจุดผิด"},
+    "cloze": {"en": "Cloze test", "th": "เติมคำในบทความ (Cloze)"},
+    "reading": {"en": "Reading comprehension", "th": "การอ่านจับใจความ"},
+    "reading-academic": {"en": "Academic reading", "th": "การอ่านบทความวิชาการ"},
+    "reading-ads": {"en": "Reading: advertisements", "th": "การอ่าน: โฆษณา"},
+    "reading-review": {"en": "Reading: product / service review", "th": "การอ่าน: บทวิจารณ์สินค้าและบริการ"},
+    "reading-news": {"en": "Reading: news", "th": "การอ่าน: ข่าว"},
+    "reading-visual": {"en": "Reading: graphs, tables and charts", "th": "การอ่าน: กราฟ ตาราง แผนภูมิ"},
+    "reading-article": {"en": "Reading: articles", "th": "การอ่าน: บทความ"},
+    "text-completion": {"en": "Writing: text completion", "th": "การเขียน: เติมข้อความ"},
+    "paragraph": {"en": "Writing: paragraph organization", "th": "การเขียน: เรียงประโยคเป็นย่อหน้า"},
+}
 PART_ORDER = list(M1_PARTS)
-# Practice targets shown with results (DeepDistrict guidance, not school cut-offs). GATE and EP applicants
-# take the same paper; EP applicants need a higher score.
-M1_TARGETS = {"gate": [{"key": "gate", "en": "GATE Program", "th": "GATE Program", "overall": 65, "subjects": {}},
-                       {"key": "ep", "en": "English Program (EPLUS+)", "th": "English Program (EPLUS+)", "overall": 80, "subjects": {}}],
-              "sk4": [{"key": "gate", "en": "GATE / regular", "th": "GATE / ห้องทั่วไป", "overall": 65, "subjects": {}},
-                      {"key": "ep", "en": "English Program", "th": "English Program", "overall": 80, "subjects": {}}],
-              "satit": [{"key": "satit", "en": "Satit Prasarnmit", "th": "สาธิตประสานมิตร", "overall": 70, "subjects": {}}],
-              "tu4": [{"key": "tu4", "en": "Triam Udom Suksa", "th": "เตรียมอุดมศึกษา", "overall": 75, "subjects": {}}],
-              "top4": [{"key": "top4", "en": "Top schools", "th": "โรงเรียนดัง", "overall": 70, "subjects": {}}]}
+# Practice targets shown with results (DeepDistrict guidance, not school cut-offs).
+M1_TARGETS = {"sk1": [{"key": "gate", "en": "GATE Program", "th": "GATE Program", "overall": 70, "subjects": {}},
+                      {"key": "ep", "en": "EPLUS+ (English Program)", "th": "EPLUS+ (English Program)", "overall": 85, "subjects": {}}],
+              "sk4": [{"key": "gate", "en": "GATE Program", "th": "GATE Program", "overall": 70, "subjects": {}},
+                      {"key": "ep", "en": "EPLUS+ (English Program)", "th": "EPLUS+ (English Program)", "overall": 85, "subjects": {}}],
+              "sp1": [{"key": "sp1", "en": "Satit Prasarnmit", "th": "สาธิตประสานมิตร", "overall": 75, "subjects": {}}],
+              "sp4": [{"key": "sp4", "en": "Satit Prasarnmit", "th": "สาธิตประสานมิตร", "overall": 75, "subjects": {}}],
+              "tu4": [{"key": "tu4", "en": "Triam Udom Suksa", "th": "เตรียมอุดมศึกษา", "overall": 80, "subjects": {}}],
+              "alevel": [{"key": "a70", "en": "Competitive faculties (≈70+)", "th": "คณะแข่งขันสูง (≈70 ขึ้นไป)", "overall": 70, "subjects": {}}]}
 M1_FORMATS = ("mcq", "fill")       # four choices, or a short written answer (number / word) — อัตนัยแบบเติมคำตอบ
 M1_SUBJECTS = {"math": {"en": "Mathematics", "th": "คณิตศาสตร์"}, "sci": {"en": "Science", "th": "วิทยาศาสตร์"},
                "eng": {"en": "English", "th": "ภาษาอังกฤษ"}, "thai": {"en": "Thai", "th": "ภาษาไทย"}}
@@ -872,7 +891,7 @@ def score(a, cfg):
                     x["c"] += ok; x["t"] += 1
         pct = round(100 * c / t) if t else 0
         res = {"correct": c, "total": t, "percent": pct, "bySubject": by, "byTopic": sorted(topics.values(), key=lambda x: (x["subject"], x["c"] / x["t"])), "program": prog,
-               "byPart": [parts[k] for k in PART_ORDER if k in parts]}
+               "byPart": list(parts.values())}
         if a.get("mode") == "set" or t >= 30:
             res["targets"] = [dict(g, met=pct >= g["overall"] and all(by.get(k) and 100 * by[k]["c"] / by[k]["t"] >= v for k, v in g["subjects"].items()))
                               for g in M1_TARGETS.get(prog, [])]
@@ -1034,6 +1053,7 @@ def writing_view(a, cfg, staff):
 def _public_item(it, review):
     if it["kind"] == "m1":
         out = {k: it.get(k) for k in ("id", "passage", "table", "image", "stem", "choices", "subject", "program", "format", "unit", "lang", "part")}
+        out["partName"] = M1_PARTS.get(it.get("part") or "")
         if review:
             out.update({"answer": it["answer"], "accept": it.get("accept"), "explanation": it["explanation"], "difficulty": it["difficulty"], "skill": it.get("skill"), "topic": it.get("topic")})
         return out
