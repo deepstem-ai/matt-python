@@ -1,0 +1,1815 @@
+{
+ "exam": "tu4",
+ "set": 2,
+ "title": {
+  "en": "Triam Udom Suksa M.4 English — Practice paper 2",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.4 เตรียมอุดมศึกษา — ชุดที่ 2"
+ },
+ "minutes": 75,
+ "note": {
+  "en": "60 questions in 75 minutes, weighted like the Triam Udom paper towards cloze, reading and error identification (tutor summaries report about 40 questions in recent years; ours is a longer practice paper). DeepDistrict practice — not an official or past paper.",
+  "th": "60 ข้อ 75 นาที เน้นเติมคำในบทความ การอ่าน และหาจุดผิด ตามแนวข้อสอบเตรียมอุดมฯ (ข้อมูลจากสถาบันกวดวิชาระบุราว 40 ข้อในปีหลัง ๆ ชุดนี้เป็นแบบฝึกที่ยาวกว่า) — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Agreeing to a request for help",
+    "th": "การตอบรับคำขอความช่วยเหลือ"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: Could you give me a hand with these boxes?\nB: ______ Where do you want them?",
+   "explanation": {
+    "en": "'Give me a hand' means 'help me', and B's next question shows B is helping: 'Sure, no problem.' 'Give me your hand' takes the idiom literally, 'I'm afraid I can' is not a natural reply, and 'Help yourself' invites someone to take food or things.",
+    "th": "give me a hand แปลว่าช่วยหน่อย และคำถามต่อมาของ B แสดงว่ายินดีช่วย จึงตอบ 'Sure, no problem.' ส่วน 'give me your hand' แปลตามตัวอักษร 'I'm afraid I can' ไม่เป็นธรรมชาติ และ 'Help yourself' ใช้เชิญให้หยิบอาหารหรือของเอง"
+   },
+   "choices": [
+    "I'm afraid I can.",
+    "Sure, give me your hand.",
+    "Help yourself.",
+    "Sure, no problem."
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Sympathising with bad news",
+    "th": "การแสดงความเห็นใจเมื่อได้ยินข่าวร้าย"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: I can't believe I failed my driving test again.\nB: ______ Third time lucky, as they say.",
+   "explanation": {
+    "en": "B adds 'Third time lucky', an encouraging saying, so B first shows sympathy: 'That's a shame — you'll get it next time.' 'Serves you right' means A deserved to fail; the other two are replies to good news.",
+    "th": "B พูดต่อว่า 'Third time lucky' (ครั้งที่สามจะโชคดี) เป็นการให้กำลังใจ จึงต้องแสดงความเห็นใจก่อน ส่วน 'Serves you right' แปลว่าสมควรแล้ว และอีกสองตัวเลือกใช้ตอบข่าวดี"
+   },
+   "choices": [
+    "I'm glad to hear that.",
+    "Serves you right.",
+    "That's a shame — you'll get it next time.",
+    "Congratulations!"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Offering to pay",
+    "th": "การเสนอเป็นฝ่ายจ่าย"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: Shall we try that new Korean place for dinner?\nB: I'd love to, but I'm a bit short of cash this week.\nA: ______ It's my treat — you paid last time.",
+   "explanation": {
+    "en": "A says 'It's my treat', meaning A will pay, so A tells B not to worry about money. 'Let's go Dutch' means each person pays for themselves, which contradicts 'my treat'; 'Keep the change' is said to a waiter or driver.",
+    "th": "A บอกว่า 'It's my treat' คือจะเลี้ยงเอง จึงบอกให้ B ไม่ต้องกังวลเรื่องเงิน ส่วน 'Let's go Dutch' แปลว่าต่างคนต่างจ่าย ซึ่งขัดกับการเลี้ยง และ 'Keep the change' พูดกับพนักงานหรือคนขับว่าไม่ต้องทอน"
+   },
+   "choices": [
+    "Keep the change.",
+    "Don't worry about that.",
+    "Let's go Dutch, then.",
+    "That's fair enough, let's not go."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Expressing a balanced opinion",
+    "th": "การแสดงความคิดเห็นแบบมองสองด้าน"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: Do you think the school should make uniforms optional?\nB: ______ Some students would feel more comfortable, but others might be judged for what they wear.",
+   "explanation": {
+    "en": "B goes on to give one advantage and one disadvantage, so B is undecided: 'It's hard to say.' 'There's no downside' contradicts the disadvantage, 'I couldn't care less' shows no interest, and 'Not that I know of' answers a question about facts.",
+    "th": "B ให้เหตุผลทั้งข้อดีและข้อเสีย แสดงว่ายังตัดสินไม่ได้ จึงตอบ 'It's hard to say.' ส่วน 'there's no downside' ขัดกับข้อเสียที่ B พูด 'I couldn't care less' แสดงว่าไม่สนใจเลย และ 'Not that I know of' ใช้ตอบคำถามเชิงข้อเท็จจริง"
+   },
+   "choices": [
+    "It's hard to say.",
+    "I couldn't care less.",
+    "Not that I know of.",
+    "Absolutely, there's no downside."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Phrasal verb: figure out",
+    "th": "กริยาวลี figure out"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "Scientists are still trying to ______ how the virus spreads from animals to humans.",
+   "explanation": {
+    "en": "'Figure out' means understand or discover. 'Turn out' means prove to be, 'run out' means have none left, and 'make out of' means build from a material.",
+    "th": "figure out แปลว่าหาคำตอบ ทำความเข้าใจ ส่วน turn out แปลว่ากลายเป็น run out แปลว่าหมด และ make out of แปลว่าทำจากวัสดุ"
+   },
+   "choices": [
+    "figure out",
+    "run out",
+    "make out of",
+    "turn out"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "cause + object + to-infinitive",
+    "th": "cause + กรรม + to-infinitive"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "The heavy rain ______ the outdoor concert to be cancelled at the last minute.",
+   "explanation": {
+    "en": "Only 'cause' takes 'object + to-infinitive': 'caused the concert to be cancelled'. 'Made' and 'let' take a bare infinitive, and 'result' needs 'in'.",
+    "th": "มีเพียง cause ที่ใช้รูป กรรม + to-infinitive ได้ ส่วน made และ let ตามด้วย infinitive ไม่มี to และ result ต้องใช้ result in"
+   },
+   "choices": [
+    "caused",
+    "let",
+    "resulted",
+    "made"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Negative prefix and suffix",
+    "th": "อุปสรรคและปัจจัยเชิงปฏิเสธ"
+   },
+   "topic": {
+    "en": "Word formation",
+    "th": "การสร้างคำ"
+   },
+   "passage": "",
+   "stem": "The plan was rejected on the grounds that it was economically ______ and would need government money for ever.",
+   "explanation": {
+    "en": "After 'was economically' we need an adjective meaning 'cannot continue': 'unsustainable'. 'Sustainability' is a noun, 'unsustainably' an adverb, and 'unsustained' means 'not continued' rather than 'not able to continue'.",
+    "th": "หลัง was economically ต้องใช้คำคุณศัพท์ที่แปลว่าไปต่อไม่ได้ คือ unsustainable ส่วน sustainability เป็นคำนาม unsustainably เป็นคำกริยาวิเศษณ์ และ unsustained แปลว่าไม่ได้ดำเนินต่อ ไม่ใช่ไม่สามารถดำเนินต่อได้"
+   },
+   "choices": [
+    "unsustained",
+    "unsustainable",
+    "sustainability",
+    "unsustainably"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Adjective + preposition: dependent on",
+    "th": "คำคุณศัพท์ + บุพบท dependent on"
+   },
+   "topic": {
+    "en": "Word formation",
+    "th": "การสร้างคำ"
+   },
+   "passage": "",
+   "stem": "Thailand's tourism industry is heavily ______ on visitors from abroad.",
+   "explanation": {
+    "en": "'Be dependent on' means rely on. 'Independent' means the opposite, 'dependable' means reliable, and 'is depended on' would reverse the meaning.",
+    "th": "be dependent on แปลว่าพึ่งพา ส่วน independent มีความหมายตรงข้าม dependable แปลว่าไว้ใจได้ และ is depended on ทำให้ความหมายกลับกัน"
+   },
+   "choices": [
+    "depended",
+    "independent",
+    "dependent",
+    "dependable"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Collocation: take responsibility",
+    "th": "คำปรากฏร่วม take responsibility"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "The minister refused to ______ responsibility for the failure of the project, blaming his advisers instead.",
+   "explanation": {
+    "en": "The collocation is 'take responsibility for'. 'Make', 'do' and 'have' are not used with 'responsibility' in this meaning.",
+    "th": "คำปรากฏร่วมคือ take responsibility for (รับผิดชอบ) ไม่ใช้ make, do หรือ have"
+   },
+   "choices": [
+    "do",
+    "take",
+    "make",
+    "have"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Adjective meaning from context",
+    "th": "ความหมายของคำคุณศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Academic vocabulary",
+    "th": "คำศัพท์เชิงวิชาการ"
+   },
+   "passage": "",
+   "stem": "The professor's lecture was so ______ that half the audience had fallen asleep before the end.",
+   "explanation": {
+    "en": "Falling asleep shows the lecture was boring: 'tedious'. 'Riveting' means extremely interesting, 'concise' means short and clear, and 'provocative' means causing strong reactions.",
+    "th": "การที่ผู้ฟังหลับแสดงว่าการบรรยายน่าเบื่อ คือ tedious ส่วน riveting แปลว่าน่าติดตามมาก concise แปลว่ากระชับ และ provocative แปลว่ายั่วยุให้เกิดปฏิกิริยา"
+   },
+   "choices": [
+    "provocative",
+    "tedious",
+    "riveting",
+    "concise"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Academic verb: undermine",
+    "th": "คำกริยาเชิงวิชาการ undermine"
+   },
+   "topic": {
+    "en": "Academic vocabulary",
+    "th": "คำศัพท์เชิงวิชาการ"
+   },
+   "passage": "",
+   "stem": "Repeated delays and broken promises have seriously ______ public trust in the new transport system.",
+   "explanation": {
+    "en": "To 'undermine trust' is to weaken it gradually, which matches delays and broken promises. 'Underline' means emphasise, 'undertake' means begin a task, and 'underestimate' means think something is smaller than it is.",
+    "th": "undermine trust แปลว่าบั่นทอนความเชื่อมั่น ซึ่งเข้ากับความล่าช้าและการผิดสัญญา ส่วน underline แปลว่าเน้น undertake แปลว่ารับทำงาน และ underestimate แปลว่าประเมินต่ำไป"
+   },
+   "choices": [
+    "undermined",
+    "undertaken",
+    "underlined",
+    "underestimated"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Fixed phrase: mutually exclusive",
+    "th": "วลีตายตัว mutually exclusive"
+   },
+   "topic": {
+    "en": "Academic vocabulary",
+    "th": "คำศัพท์เชิงวิชาการ"
+   },
+   "passage": "",
+   "stem": "The two theories are not mutually ______; both may be partly true at the same time.",
+   "explanation": {
+    "en": "'Mutually exclusive' describes two things that cannot both be true. 'Not mutually exclusive' matches 'both may be partly true'. 'Exclusively' is an adverb, and 'inclusive' and 'exhaustive' do not form this phrase.",
+    "th": "mutually exclusive หมายถึงสองสิ่งที่เป็นจริงพร้อมกันไม่ได้ เมื่อเป็น not mutually exclusive จึงเข้ากับ 'ทั้งสองอาจถูกบางส่วน' ส่วน exclusively เป็นคำกริยาวิเศษณ์ inclusive และ exhaustive ไม่ใช้ในวลีนี้"
+   },
+   "choices": [
+    "inclusive",
+    "exhaustive",
+    "exclusively",
+    "exclusive"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "Present perfect continuous",
+    "th": "present perfect continuous"
+   },
+   "topic": {
+    "en": "Tenses",
+    "th": "กาล (Tense)"
+   },
+   "passage": "",
+   "stem": "I ______ for this bus for forty minutes, and it still hasn't come!",
+   "explanation": {
+    "en": "An action that started in the past and is still happening now, with 'for forty minutes', takes the present perfect continuous.",
+    "th": "การกระทำที่เริ่มในอดีตและยังดำเนินอยู่ตอนนี้ พร้อมกับ for forty minutes ใช้ present perfect continuous คือ have been waiting"
+   },
+   "choices": [
+    "had waited",
+    "have been waiting",
+    "was waiting",
+    "am waiting"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "First conditional",
+    "th": "เงื่อนไขแบบที่ 1"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "stem": "If it ______ tomorrow, the trip to the national park will be cancelled.",
+   "explanation": {
+    "en": "In the first conditional the if-clause uses the present simple even for the future: 'If it rains tomorrow, … will …'.",
+    "th": "เงื่อนไขแบบที่ 1 ใช้ present simple ในอนุประโยค if แม้จะพูดถึงอนาคต: If it rains tomorrow, … will …"
+   },
+   "choices": [
+    "will rain",
+    "rains",
+    "rained",
+    "would rain"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "It's high time + past simple",
+    "th": "It's high time + past simple"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "stem": "It's high time the government ______ something about the air pollution in the north.",
+   "explanation": {
+    "en": "'It's high time + subject' is followed by the past simple to say something should already be happening: 'did'.",
+    "th": "'It's high time + ประธาน' ตามด้วย past simple เพื่อบอกว่าควรทำได้แล้ว จึงใช้ did"
+   },
+   "choices": [
+    "does",
+    "did",
+    "will do",
+    "has done"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Relative pronoun 'whose'",
+    "th": "relative pronoun whose"
+   },
+   "topic": {
+    "en": "Clauses and connectors",
+    "th": "อนุประโยคและคำเชื่อม"
+   },
+   "passage": "",
+   "stem": "The girl ______ bicycle was stolen reported it to the police.",
+   "explanation": {
+    "en": "We need a possessive relative pronoun (her bicycle → whose bicycle). 'Who's' means 'who is'.",
+    "th": "ต้องใช้ relative pronoun แสดงความเป็นเจ้าของ (her bicycle → whose bicycle) ส่วน who's ย่อมาจาก who is"
+   },
+   "choices": [
+    "which",
+    "who's",
+    "who",
+    "whose"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Modal of deduction in the past",
+    "th": "modal แสดงการสรุปในอดีต"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบกริยา (gerund/infinitive)"
+   },
+   "passage": "",
+   "stem": "You ______ have seen Mr Somchai at the market yesterday — he's been in Japan all week.",
+   "explanation": {
+    "en": "'Can't have + past participle' means it is impossible that something happened. 'Mustn't have' is not used for deduction, and 'shouldn't' and 'needn't' give advice or lack of necessity.",
+    "th": "can't have + V3 ใช้สรุปว่าเป็นไปไม่ได้ที่เหตุการณ์จะเกิดขึ้น ส่วน mustn't have ไม่ใช้ในการสรุป และ shouldn't, needn't ใช้บอกความไม่ควรหรือไม่จำเป็น"
+   },
+   "choices": [
+    "shouldn't",
+    "needn't",
+    "mustn't",
+    "can't"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Double comparative",
+    "th": "โครงสร้าง the more … the more"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "The more you practise speaking, ______ you will become.",
+   "explanation": {
+    "en": "The structure is 'the + comparative …, the + comparative …'. After 'become' we need an adjective, so 'the more confident'.",
+    "th": "โครงสร้างคือ the + comparative …, the + comparative … และหลัง become ต้องใช้คำคุณศัพท์ จึงเป็น the more confident"
+   },
+   "choices": [
+    "more confident",
+    "the most confident",
+    "the more confident",
+    "the more confidently"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "regret + -ing vs to-infinitive",
+    "th": "regret + V-ing กับ to-infinitive"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบกริยา (gerund/infinitive)"
+   },
+   "passage": "",
+   "stem": "She bitterly regretted ______ her best friend's secret to the rest of the class.",
+   "explanation": {
+    "en": "'Regret + -ing' means feeling sorry about something you did in the past. 'Regret to tell' is used to announce bad news politely.",
+    "th": "regret + V-ing หมายถึงเสียใจกับสิ่งที่ทำไปแล้ว ส่วน regret to tell ใช้แจ้งข่าวร้ายอย่างสุภาพ"
+   },
+   "choices": [
+    "telling",
+    "tell",
+    "to tell",
+    "to be told"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Passive reporting verbs",
+    "th": "passive กับกริยารายงาน"
+   },
+   "topic": {
+    "en": "Passive voice",
+    "th": "ประโยค passive"
+   },
+   "passage": "",
+   "stem": "The athlete ______ to have taken banned substances, but no proof has yet been found.",
+   "explanation": {
+    "en": "Other people make the claim about the athlete, so the passive reporting structure 'is alleged to have taken' is needed.",
+    "th": "ผู้อื่นเป็นผู้กล่าวหานักกีฬา จึงใช้โครงสร้าง passive ของกริยารายงาน คือ is alleged to have taken"
+   },
+   "choices": [
+    "alleges",
+    "is alleged",
+    "is alleging",
+    "has alleged"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion after 'Only after'",
+    "th": "การสลับที่หลัง Only after"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Only after the results were published ______ how serious the problem was.",
+   "explanation": {
+    "en": "A sentence beginning with 'Only after …' needs inversion in the main clause: auxiliary + subject + verb.",
+    "th": "ประโยคที่ขึ้นต้นด้วย Only after … ต้องสลับที่ในประโยคหลัก: กริยาช่วย + ประธาน + กริยา คือ did the public understand"
+   },
+   "choices": [
+    "did the public understand",
+    "the public did understand",
+    "the public understood",
+    "understood the public"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inverted third conditional",
+    "th": "เงื่อนไขแบบที่ 3 แบบสลับที่"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "stem": "Had the warning been issued earlier, many lives ______.",
+   "explanation": {
+    "en": "'Had the warning been issued' is a third conditional without 'if', so the result needs 'might/would have + past participle'; lives are saved by others, so it is passive.",
+    "th": "Had the warning been issued คือเงื่อนไขแบบที่ 3 ที่ละ if จึงต้องใช้ might/would have + V3 และชีวิตถูกช่วย จึงเป็น passive: might have been saved"
+   },
+   "choices": [
+    "might be saved",
+    "might have been saved",
+    "would save",
+    "had been saved"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "e",
+   "skill": {
+    "en": "Subject–verb agreement with a compound subject",
+    "th": "ความสอดคล้องของกริยากับประธานสองตัว"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: My sister and I [[usually]] [[goes]] swimming [[on]] Saturday mornings [[before]] breakfast.",
+   "explanation": {
+    "en": "'My sister and I' is a plural subject, so the verb is 'go', not 'goes'.",
+    "th": "'My sister and I' เป็นประธานพหูพจน์ กริยาจึงต้องเป็น go ไม่ใช่ goes"
+   },
+   "choices": [
+    "usually",
+    "goes",
+    "on",
+    "before"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Article before a consonant sound",
+    "th": "การใช้ a/an ตามเสียง"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: He gave me [[an]] useful [[piece of]] advice [[about]] choosing [[a]] university.",
+   "explanation": {
+    "en": "'Useful' begins with a /j/ (consonant) sound, so it takes 'a', not 'an'.",
+    "th": "useful ขึ้นต้นด้วยเสียง /j/ ซึ่งเป็นเสียงพยัญชนะ จึงต้องใช้ a ไม่ใช่ an"
+   },
+   "choices": [
+    "an",
+    "piece of",
+    "about",
+    "a"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "because vs because of",
+    "th": "because กับ because of"
+   },
+   "topic": {
+    "en": "Clauses and connectors",
+    "th": "อนุประโยคและคำเชื่อม"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The documents [[were]] [[sent]] to the wrong address [[because of]] the secretary [[was]] new.",
+   "explanation": {
+    "en": "A full clause ('the secretary was new') follows, so we need the conjunction 'because', not the preposition 'because of'.",
+    "th": "หลังช่องนี้เป็นประโยคสมบูรณ์ (the secretary was new) จึงต้องใช้คำสันธาน because ไม่ใช่บุพบท because of"
+   },
+   "choices": [
+    "were",
+    "sent",
+    "because of",
+    "was"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Agreement in a that-clause",
+    "th": "ความสอดคล้องในอนุประโยค that"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: There [[is]] [[a lot of]] evidence that [[regular]] exercise [[improve]] memory.",
+   "explanation": {
+    "en": "In the that-clause the subject 'regular exercise' is singular, so the verb must be 'improves'.",
+    "th": "ในอนุประโยค that ประธานคือ regular exercise ซึ่งเป็นเอกพจน์ กริยาจึงต้องเป็น improves"
+   },
+   "choices": [
+    "is",
+    "a lot of",
+    "regular",
+    "improve"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Third conditional result clause",
+    "th": "ผลของเงื่อนไขแบบที่ 3"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[If]] I [[had known]] you were in hospital, I [[would visit]] you [[immediately]].",
+   "explanation": {
+    "en": "'If I had known' refers to the past, so the result must be 'would have visited'.",
+    "th": "If I had known พูดถึงอดีต ผลจึงต้องเป็น would have visited"
+   },
+   "choices": [
+    "If",
+    "had known",
+    "would visit",
+    "immediately"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "so vs such",
+    "th": "so กับ such"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The film was [[such]] boring that [[most of]] the audience [[fell]] asleep [[before]] the end.",
+   "explanation": {
+    "en": "Before an adjective alone we use 'so': 'so boring that'. 'Such' is used with a noun phrase ('such a boring film').",
+    "th": "หน้าคำคุณศัพท์ที่ไม่มีคำนามตามใช้ so คือ so boring that ส่วน such ใช้กับนามวลี เช่น such a boring film"
+   },
+   "choices": [
+    "such",
+    "most of",
+    "fell",
+    "before"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "No sooner … than",
+    "th": "No sooner … than"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: No sooner [[had we]] [[sat down]] [[when]] the phone [[started]] ringing.",
+   "explanation": {
+    "en": "'No sooner' is always paired with 'than' ('No sooner had we sat down than …'). 'When' goes with 'Hardly' or 'Scarcely'.",
+    "th": "No sooner ต้องใช้คู่กับ than เสมอ ส่วน when ใช้คู่กับ Hardly หรือ Scarcely"
+   },
+   "choices": [
+    "had we",
+    "sat down",
+    "when",
+    "started"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "much vs many",
+    "th": "much กับ many"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[Much]] people believe [[that]] the museum is [[the most]] popular attraction [[in]] the city.",
+   "explanation": {
+    "en": "'People' is a plural countable noun, so it takes 'many', not 'much'.",
+    "th": "people เป็นคำนามนับได้พหูพจน์ จึงต้องใช้ many ไม่ใช่ much"
+   },
+   "choices": [
+    "Much",
+    "that",
+    "the most",
+    "in"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "e",
+   "skill": {
+    "en": "Adjective vs adverb",
+    "th": "คำคุณศัพท์กับคำกริยาวิเศษณ์"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The new manager [[speaks]] English very [[fluent]], [[although]] she has [[never]] lived abroad.",
+   "explanation": {
+    "en": "'Speaks' is described by an adverb, so it should be 'very fluently'.",
+    "th": "ขยายกริยา speaks ต้องใช้คำกริยาวิเศษณ์ จึงต้องเป็น very fluently"
+   },
+   "choices": [
+    "speaks",
+    "fluent",
+    "although",
+    "never"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "insist on + -ing",
+    "th": "insist on + V-ing"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบกริยา (gerund/infinitive)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[Despite]] [[being]] warned [[several times]], the tourists insisted [[to swim]] in the dangerous river.",
+   "explanation": {
+    "en": "'Insist' is followed by 'on + -ing': 'insisted on swimming'.",
+    "th": "insist ต้องตามด้วย on + V-ing จึงต้องเป็น insisted on swimming"
+   },
+   "choices": [
+    "Despite",
+    "being",
+    "several times",
+    "to swim"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Countable quantity noun",
+    "th": "คำนามบอกปริมาณกับคำนามนับได้"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Every year the fashion industry produces more than 100 billion items of clothing, and a large (1) ______ of them are worn only a few times before being thrown away. This trend, often called 'fast fashion', has been made possible by cheap materials and by factories that can turn a new design into finished garments in (2) ______ of weeks. For shoppers the advantages are obvious: clothes have never been cheaper. The costs, however, are less visible. Producing a single cotton T-shirt can require more than 2,500 litres of water, and many synthetic fabrics release tiny plastic fibres every time they are washed. These fibres are too small to be (3) ______ by most water treatment plants, so they end up in rivers and oceans, where they are swallowed by fish and other sea creatures. Some companies have responded by launching recycling schemes (4) ______ customers can return old clothes in exchange for a discount. Critics argue that such schemes do little to (5) ______ the root of the problem, since only a tiny fraction of returned clothing is actually turned into new fabric, and the discounts simply encourage people to buy more. The most effective solution, they say, is also the simplest: buy fewer clothes, choose better quality, and wear (6) ______ for longer.",
+   "stem": "Which choice best fits blank (1)?",
+   "explanation": {
+    "en": "'A large proportion of them' works with a countable plural. 'A large amount of' and 'a great deal of' are used with uncountable nouns, and 'a large size of' is not English.",
+    "th": "a large proportion of them ใช้กับคำนามนับได้พหูพจน์ได้ ส่วน a large amount of และ a great deal of ใช้กับคำนามนับไม่ได้ และ a large size of ไม่มีใช้"
+   },
+   "choices": [
+    "deal",
+    "size",
+    "proportion",
+    "amount"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Fixed phrase: in a matter of",
+    "th": "วลีตายตัว in a matter of"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Every year the fashion industry produces more than 100 billion items of clothing, and a large (1) ______ of them are worn only a few times before being thrown away. This trend, often called 'fast fashion', has been made possible by cheap materials and by factories that can turn a new design into finished garments in (2) ______ of weeks. For shoppers the advantages are obvious: clothes have never been cheaper. The costs, however, are less visible. Producing a single cotton T-shirt can require more than 2,500 litres of water, and many synthetic fabrics release tiny plastic fibres every time they are washed. These fibres are too small to be (3) ______ by most water treatment plants, so they end up in rivers and oceans, where they are swallowed by fish and other sea creatures. Some companies have responded by launching recycling schemes (4) ______ customers can return old clothes in exchange for a discount. Critics argue that such schemes do little to (5) ______ the root of the problem, since only a tiny fraction of returned clothing is actually turned into new fabric, and the discounts simply encourage people to buy more. The most effective solution, they say, is also the simplest: buy fewer clothes, choose better quality, and wear (6) ______ for longer.",
+   "stem": "Which choice best fits blank (2)?",
+   "explanation": {
+    "en": "'In a matter of weeks' means 'in only a few weeks'. The other nouns do not form this idiom.",
+    "th": "in a matter of weeks แปลว่าภายในเวลาเพียงไม่กี่สัปดาห์ คำนามอื่นไม่ได้ใช้ในสำนวนนี้"
+   },
+   "choices": [
+    "a period",
+    "an issue",
+    "a question",
+    "a matter"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Phrasal verb: filter out",
+    "th": "กริยาวลี filter out"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Every year the fashion industry produces more than 100 billion items of clothing, and a large (1) ______ of them are worn only a few times before being thrown away. This trend, often called 'fast fashion', has been made possible by cheap materials and by factories that can turn a new design into finished garments in (2) ______ of weeks. For shoppers the advantages are obvious: clothes have never been cheaper. The costs, however, are less visible. Producing a single cotton T-shirt can require more than 2,500 litres of water, and many synthetic fabrics release tiny plastic fibres every time they are washed. These fibres are too small to be (3) ______ by most water treatment plants, so they end up in rivers and oceans, where they are swallowed by fish and other sea creatures. Some companies have responded by launching recycling schemes (4) ______ customers can return old clothes in exchange for a discount. Critics argue that such schemes do little to (5) ______ the root of the problem, since only a tiny fraction of returned clothing is actually turned into new fabric, and the discounts simply encourage people to buy more. The most effective solution, they say, is also the simplest: buy fewer clothes, choose better quality, and wear (6) ______ for longer.",
+   "stem": "Which choice best fits blank (3)?",
+   "explanation": {
+    "en": "Water treatment plants 'filter out' (remove) particles. 'Taken off', 'thrown up' and 'left over' do not describe removing particles from water.",
+    "th": "โรงบำบัดน้ำทำหน้าที่กรองสิ่งเจือปนออก (filter out) ส่วน taken off, thrown up และ left over ไม่ได้หมายถึงการกรองอนุภาคออกจากน้ำ"
+   },
+   "choices": [
+    "taken off",
+    "left over",
+    "filtered out",
+    "thrown up"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Preposition + which",
+    "th": "บุพบท + which"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Every year the fashion industry produces more than 100 billion items of clothing, and a large (1) ______ of them are worn only a few times before being thrown away. This trend, often called 'fast fashion', has been made possible by cheap materials and by factories that can turn a new design into finished garments in (2) ______ of weeks. For shoppers the advantages are obvious: clothes have never been cheaper. The costs, however, are less visible. Producing a single cotton T-shirt can require more than 2,500 litres of water, and many synthetic fabrics release tiny plastic fibres every time they are washed. These fibres are too small to be (3) ______ by most water treatment plants, so they end up in rivers and oceans, where they are swallowed by fish and other sea creatures. Some companies have responded by launching recycling schemes (4) ______ customers can return old clothes in exchange for a discount. Critics argue that such schemes do little to (5) ______ the root of the problem, since only a tiny fraction of returned clothing is actually turned into new fabric, and the discounts simply encourage people to buy more. The most effective solution, they say, is also the simplest: buy fewer clothes, choose better quality, and wear (6) ______ for longer.",
+   "stem": "Which choice best fits blank (4)?",
+   "explanation": {
+    "en": "The clause 'customers can return old clothes' is already complete, so the relative word needs a preposition: 'schemes through which customers can return …'. 'Which' or 'that' alone would need a missing object.",
+    "th": "อนุประโยค customers can return old clothes สมบูรณ์แล้ว จึงต้องใช้บุพบท + which คือ through which ถ้าใช้ which หรือ that อย่างเดียว ประโยคหลังต้องขาดกรรม"
+   },
+   "choices": [
+    "in that",
+    "that",
+    "which",
+    "through which"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Verb + object: address a problem",
+    "th": "กริยา + กรรม: address a problem"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Every year the fashion industry produces more than 100 billion items of clothing, and a large (1) ______ of them are worn only a few times before being thrown away. This trend, often called 'fast fashion', has been made possible by cheap materials and by factories that can turn a new design into finished garments in (2) ______ of weeks. For shoppers the advantages are obvious: clothes have never been cheaper. The costs, however, are less visible. Producing a single cotton T-shirt can require more than 2,500 litres of water, and many synthetic fabrics release tiny plastic fibres every time they are washed. These fibres are too small to be (3) ______ by most water treatment plants, so they end up in rivers and oceans, where they are swallowed by fish and other sea creatures. Some companies have responded by launching recycling schemes (4) ______ customers can return old clothes in exchange for a discount. Critics argue that such schemes do little to (5) ______ the root of the problem, since only a tiny fraction of returned clothing is actually turned into new fabric, and the discounts simply encourage people to buy more. The most effective solution, they say, is also the simplest: buy fewer clothes, choose better quality, and wear (6) ______ for longer.",
+   "stem": "Which choice best fits blank (5)?",
+   "explanation": {
+    "en": "'Address the root of the problem' means deal with its cause. 'Deal' and 'cope' need 'with', and 'solve out' is not English.",
+    "th": "address the root of the problem แปลว่าแก้ที่ต้นเหตุ ส่วน deal และ cope ต้องมี with และ solve out ไม่มีใช้"
+   },
+   "choices": [
+    "cope",
+    "address",
+    "deal",
+    "solve out"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Object pronoun reference",
+    "th": "สรรพนามที่ใช้เป็นกรรม"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Every year the fashion industry produces more than 100 billion items of clothing, and a large (1) ______ of them are worn only a few times before being thrown away. This trend, often called 'fast fashion', has been made possible by cheap materials and by factories that can turn a new design into finished garments in (2) ______ of weeks. For shoppers the advantages are obvious: clothes have never been cheaper. The costs, however, are less visible. Producing a single cotton T-shirt can require more than 2,500 litres of water, and many synthetic fabrics release tiny plastic fibres every time they are washed. These fibres are too small to be (3) ______ by most water treatment plants, so they end up in rivers and oceans, where they are swallowed by fish and other sea creatures. Some companies have responded by launching recycling schemes (4) ______ customers can return old clothes in exchange for a discount. Critics argue that such schemes do little to (5) ______ the root of the problem, since only a tiny fraction of returned clothing is actually turned into new fabric, and the discounts simply encourage people to buy more. The most effective solution, they say, is also the simplest: buy fewer clothes, choose better quality, and wear (6) ______ for longer.",
+   "stem": "Which choice best fits blank (6)?",
+   "explanation": {
+    "en": "'Them' refers back to the plural 'clothes' and is the object of 'wear'. 'They' is a subject pronoun and 'it' is singular.",
+    "th": "them แทน clothes ซึ่งเป็นพหูพจน์และเป็นกรรมของ wear ส่วน they เป็นสรรพนามประธาน และ it เป็นเอกพจน์"
+   },
+   "choices": [
+    "them",
+    "they",
+    "those ones",
+    "it"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Preposition + -ing",
+    "th": "บุพบท + V-ing"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "When Malee retired from teaching in 2015, she had no intention of (7) ______ her days quietly at home. Her village in Nan province had no library, and the nearest bookshop was over an hour away by bus. So she turned the ground floor of her house into a reading room, filled it with her own books and (8) ______ a sign outside inviting anyone to come in. At first only a few children appeared, mostly out of curiosity. Within a year, however, the room was so crowded at weekends that Malee had to (9) ______ visitors to bring their own cushions. Donations began to arrive from her former students, many of (10) ______ had moved to Bangkok. Today the library holds more than four thousand books, and volunteers run storytelling sessions for young children and computer classes for older residents. Malee insists that she deserves (11) ______ credit. 'I only opened a door,' she says. 'The village did the rest.' Local officials, who had once doubted that such a small project could last, now describe it as a model (12) ______ other communities could follow.",
+   "stem": "Which choice best fits blank (7)?",
+   "explanation": {
+    "en": "'Of' is a preposition, so it is followed by the -ing form: 'no intention of spending'.",
+    "th": "of เป็นบุพบท จึงต้องตามด้วย V-ing คือ no intention of spending"
+   },
+   "choices": [
+    "spent",
+    "to spend",
+    "spend",
+    "spending"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Phrasal verb: put up",
+    "th": "กริยาวลี put up"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "When Malee retired from teaching in 2015, she had no intention of (7) ______ her days quietly at home. Her village in Nan province had no library, and the nearest bookshop was over an hour away by bus. So she turned the ground floor of her house into a reading room, filled it with her own books and (8) ______ a sign outside inviting anyone to come in. At first only a few children appeared, mostly out of curiosity. Within a year, however, the room was so crowded at weekends that Malee had to (9) ______ visitors to bring their own cushions. Donations began to arrive from her former students, many of (10) ______ had moved to Bangkok. Today the library holds more than four thousand books, and volunteers run storytelling sessions for young children and computer classes for older residents. Malee insists that she deserves (11) ______ credit. 'I only opened a door,' she says. 'The village did the rest.' Local officials, who had once doubted that such a small project could last, now describe it as a model (12) ______ other communities could follow.",
+   "stem": "Which choice best fits blank (8)?",
+   "explanation": {
+    "en": "You 'put up' a sign or notice (fix it in place). 'Put off' means postpone, 'set off' means start a journey, and 'hang on' means wait.",
+    "th": "put up a sign แปลว่าติดป้าย ส่วน put off แปลว่าเลื่อน set off แปลว่าออกเดินทาง และ hang on แปลว่ารอสักครู่"
+   },
+   "choices": [
+    "put up",
+    "hang on",
+    "set off",
+    "put off"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "ask + object + to-infinitive",
+    "th": "ask + กรรม + to-infinitive"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "When Malee retired from teaching in 2015, she had no intention of (7) ______ her days quietly at home. Her village in Nan province had no library, and the nearest bookshop was over an hour away by bus. So she turned the ground floor of her house into a reading room, filled it with her own books and (8) ______ a sign outside inviting anyone to come in. At first only a few children appeared, mostly out of curiosity. Within a year, however, the room was so crowded at weekends that Malee had to (9) ______ visitors to bring their own cushions. Donations began to arrive from her former students, many of (10) ______ had moved to Bangkok. Today the library holds more than four thousand books, and volunteers run storytelling sessions for young children and computer classes for older residents. Malee insists that she deserves (11) ______ credit. 'I only opened a door,' she says. 'The village did the rest.' Local officials, who had once doubted that such a small project could last, now describe it as a model (12) ______ other communities could follow.",
+   "stem": "Which choice best fits blank (9)?",
+   "explanation": {
+    "en": "'Ask someone to do something' is correct. 'Suggest' and 'demand' cannot take 'someone to do', and 'make' takes a bare infinitive.",
+    "th": "ask + คน + to + V ถูกต้อง ส่วน suggest และ demand ใช้รูป คน + to + V ไม่ได้ และ make ตามด้วย infinitive ไม่มี to"
+   },
+   "choices": [
+    "suggest",
+    "ask",
+    "demand",
+    "make"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Quantifier + of whom",
+    "th": "คำบอกจำนวน + of whom"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "When Malee retired from teaching in 2015, she had no intention of (7) ______ her days quietly at home. Her village in Nan province had no library, and the nearest bookshop was over an hour away by bus. So she turned the ground floor of her house into a reading room, filled it with her own books and (8) ______ a sign outside inviting anyone to come in. At first only a few children appeared, mostly out of curiosity. Within a year, however, the room was so crowded at weekends that Malee had to (9) ______ visitors to bring their own cushions. Donations began to arrive from her former students, many of (10) ______ had moved to Bangkok. Today the library holds more than four thousand books, and volunteers run storytelling sessions for young children and computer classes for older residents. Malee insists that she deserves (11) ______ credit. 'I only opened a door,' she says. 'The village did the rest.' Local officials, who had once doubted that such a small project could last, now describe it as a model (12) ______ other communities could follow.",
+   "stem": "Which choice best fits blank (10)?",
+   "explanation": {
+    "en": "After a preposition in a relative clause about people we use 'whom': 'many of whom'. 'Them' would make two sentences joined only by a comma, and 'which' is for things.",
+    "th": "หลังบุพบทในอนุประโยคขยายที่พูดถึงคนใช้ whom จึงเป็น many of whom ส่วน them จะทำให้เป็นสองประโยคที่เชื่อมด้วยจุลภาคเท่านั้น และ which ใช้กับสิ่งของ"
+   },
+   "choices": [
+    "who",
+    "whom",
+    "which",
+    "them"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "little with uncountable nouns; meaning from context",
+    "th": "little กับคำนามนับไม่ได้และความหมายตามบริบท"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "When Malee retired from teaching in 2015, she had no intention of (7) ______ her days quietly at home. Her village in Nan province had no library, and the nearest bookshop was over an hour away by bus. So she turned the ground floor of her house into a reading room, filled it with her own books and (8) ______ a sign outside inviting anyone to come in. At first only a few children appeared, mostly out of curiosity. Within a year, however, the room was so crowded at weekends that Malee had to (9) ______ visitors to bring their own cushions. Donations began to arrive from her former students, many of (10) ______ had moved to Bangkok. Today the library holds more than four thousand books, and volunteers run storytelling sessions for young children and computer classes for older residents. Malee insists that she deserves (11) ______ credit. 'I only opened a door,' she says. 'The village did the rest.' Local officials, who had once doubted that such a small project could last, now describe it as a model (12) ______ other communities could follow.",
+   "stem": "Which choice best fits blank (11)?",
+   "explanation": {
+    "en": "Malee is modest ('I only opened a door'), so she says she deserves 'little' credit. 'Credit' is uncountable, so 'few' and 'many' are wrong, and 'much' gives the opposite meaning.",
+    "th": "มาลีถ่อมตัว ('ฉันแค่เปิดประตู') จึงบอกว่าตนสมควรได้รับคำชมน้อย (little) credit เป็นคำนามนับไม่ได้ จึงใช้ few และ many ไม่ได้ ส่วน much ให้ความหมายตรงข้าม"
+   },
+   "choices": [
+    "little",
+    "few",
+    "much",
+    "many"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Relative pronoun as object",
+    "th": "relative pronoun ที่ทำหน้าที่กรรม"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "When Malee retired from teaching in 2015, she had no intention of (7) ______ her days quietly at home. Her village in Nan province had no library, and the nearest bookshop was over an hour away by bus. So she turned the ground floor of her house into a reading room, filled it with her own books and (8) ______ a sign outside inviting anyone to come in. At first only a few children appeared, mostly out of curiosity. Within a year, however, the room was so crowded at weekends that Malee had to (9) ______ visitors to bring their own cushions. Donations began to arrive from her former students, many of (10) ______ had moved to Bangkok. Today the library holds more than four thousand books, and volunteers run storytelling sessions for young children and computer classes for older residents. Malee insists that she deserves (11) ______ credit. 'I only opened a door,' she says. 'The village did the rest.' Local officials, who had once doubted that such a small project could last, now describe it as a model (12) ______ other communities could follow.",
+   "stem": "Which choice best fits blank (12)?",
+   "explanation": {
+    "en": "'Follow' needs an object, and 'that' (= the model) supplies it: 'a model that other communities could follow'. 'Where' would leave 'follow' without an object, and 'what' cannot follow a noun.",
+    "th": "follow ต้องมีกรรม และ that (แทน a model) ทำหน้าที่นั้น ส่วน where ทำให้ follow ไม่มีกรรม และ what ใช้ตามหลังคำนามไม่ได้"
+   },
+   "choices": [
+    "whose",
+    "what",
+    "where",
+    "that"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the best title",
+    "th": "การเลือกชื่อเรื่องที่เหมาะสม"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "In the 1880s a German psychologist named Hermann Ebbinghaus carried out an unusual experiment on himself. He memorised long lists of nonsense syllables — combinations such as 'WID' or 'ZOF' that had no meaning — and then tested how many he could recall after different periods of time. The results, plotted on a graph, produced what is now called the 'forgetting curve'. Memory dropped steeply in the first hour, and within a day he had lost more than half of what he had learned. After that the decline slowed, but it never entirely stopped.\n\nEbbinghaus chose nonsense syllables deliberately. Real words come with associations, and he wanted to measure memory without the help of meaning. This makes his findings something of a worst case: we forget meaningful material more slowly. Still, later researchers have repeated his experiment many times, and the basic shape of the curve has held up remarkably well.\n\nThe more useful part of his work concerned how forgetting could be slowed. Ebbinghaus found that each time he reviewed a list, the curve became flatter; he forgot less, and more slowly. Crucially, reviews were most effective when they were spaced out rather than crowded together. Studying a list ten times in one evening produced weaker long-term memory than studying it three or four times over several days. This principle, known as spaced repetition, is the basis of many modern flashcard apps, which calculate when a learner is about to forget an item and show it again at just that moment.\n\nWhy does spacing work? One explanation is that the effort of retrieving a half-forgotten memory strengthens it more than re-reading something that is still fresh. When information feels easy, the brain does little work; when recalling it requires a struggle, the memory is rebuilt more firmly. This also explains why testing yourself is more effective than simply re-reading notes, even though re-reading feels more productive at the time.\n\nThe implications for students are uncomfortable. The common habit of studying intensively the night before an exam can be enough to pass the next day, but most of the material will have disappeared within weeks. For subjects that build on earlier knowledge, such as mathematics or languages, that loss is costly. A schedule of short, repeated reviews takes no more time in total, but it requires planning — and the willingness to feel, for a while, that one is learning less.",
+   "stem": "Which title best summarises the passage?",
+   "explanation": {
+    "en": "The passage describes the forgetting curve and then explains how spaced reviews and self-testing slow forgetting. Ebbinghaus's life, nonsense syllables and apps are only parts of that story.",
+    "th": "บทความอธิบายเส้นโค้งการลืม แล้วอธิบายว่าการทบทวนแบบเว้นระยะและการทดสอบตนเองช่วยชะลอการลืมได้อย่างไร ส่วนชีวิตของ Ebbinghaus พยางค์ไร้ความหมาย และแอปเป็นเพียงส่วนย่อย"
+   },
+   "choices": [
+    "How Flashcard Apps Are Designed",
+    "The Life of Hermann Ebbinghaus",
+    "Why Nonsense Syllables Are Hard to Learn",
+    "Forgetting, and How to Slow It Down"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Detail",
+    "th": "รายละเอียด"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "In the 1880s a German psychologist named Hermann Ebbinghaus carried out an unusual experiment on himself. He memorised long lists of nonsense syllables — combinations such as 'WID' or 'ZOF' that had no meaning — and then tested how many he could recall after different periods of time. The results, plotted on a graph, produced what is now called the 'forgetting curve'. Memory dropped steeply in the first hour, and within a day he had lost more than half of what he had learned. After that the decline slowed, but it never entirely stopped.\n\nEbbinghaus chose nonsense syllables deliberately. Real words come with associations, and he wanted to measure memory without the help of meaning. This makes his findings something of a worst case: we forget meaningful material more slowly. Still, later researchers have repeated his experiment many times, and the basic shape of the curve has held up remarkably well.\n\nThe more useful part of his work concerned how forgetting could be slowed. Ebbinghaus found that each time he reviewed a list, the curve became flatter; he forgot less, and more slowly. Crucially, reviews were most effective when they were spaced out rather than crowded together. Studying a list ten times in one evening produced weaker long-term memory than studying it three or four times over several days. This principle, known as spaced repetition, is the basis of many modern flashcard apps, which calculate when a learner is about to forget an item and show it again at just that moment.\n\nWhy does spacing work? One explanation is that the effort of retrieving a half-forgotten memory strengthens it more than re-reading something that is still fresh. When information feels easy, the brain does little work; when recalling it requires a struggle, the memory is rebuilt more firmly. This also explains why testing yourself is more effective than simply re-reading notes, even though re-reading feels more productive at the time.\n\nThe implications for students are uncomfortable. The common habit of studying intensively the night before an exam can be enough to pass the next day, but most of the material will have disappeared within weeks. For subjects that build on earlier knowledge, such as mathematics or languages, that loss is costly. A schedule of short, repeated reviews takes no more time in total, but it requires planning — and the willingness to feel, for a while, that one is learning less.",
+   "stem": "According to the passage, how much had Ebbinghaus forgotten after one day?",
+   "explanation": {
+    "en": "Paragraph 1: 'within a day he had lost more than half of what he had learned'.",
+    "th": "ย่อหน้าแรกระบุว่าภายในหนึ่งวันเขาลืมไปมากกว่าครึ่งหนึ่งของสิ่งที่เรียน"
+   },
+   "choices": [
+    "Less than a quarter of the list",
+    "Almost everything he had learned",
+    "More than half of what he had learned",
+    "Nothing, because he had reviewed the list"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "In the 1880s a German psychologist named Hermann Ebbinghaus carried out an unusual experiment on himself. He memorised long lists of nonsense syllables — combinations such as 'WID' or 'ZOF' that had no meaning — and then tested how many he could recall after different periods of time. The results, plotted on a graph, produced what is now called the 'forgetting curve'. Memory dropped steeply in the first hour, and within a day he had lost more than half of what he had learned. After that the decline slowed, but it never entirely stopped.\n\nEbbinghaus chose nonsense syllables deliberately. Real words come with associations, and he wanted to measure memory without the help of meaning. This makes his findings something of a worst case: we forget meaningful material more slowly. Still, later researchers have repeated his experiment many times, and the basic shape of the curve has held up remarkably well.\n\nThe more useful part of his work concerned how forgetting could be slowed. Ebbinghaus found that each time he reviewed a list, the curve became flatter; he forgot less, and more slowly. Crucially, reviews were most effective when they were spaced out rather than crowded together. Studying a list ten times in one evening produced weaker long-term memory than studying it three or four times over several days. This principle, known as spaced repetition, is the basis of many modern flashcard apps, which calculate when a learner is about to forget an item and show it again at just that moment.\n\nWhy does spacing work? One explanation is that the effort of retrieving a half-forgotten memory strengthens it more than re-reading something that is still fresh. When information feels easy, the brain does little work; when recalling it requires a struggle, the memory is rebuilt more firmly. This also explains why testing yourself is more effective than simply re-reading notes, even though re-reading feels more productive at the time.\n\nThe implications for students are uncomfortable. The common habit of studying intensively the night before an exam can be enough to pass the next day, but most of the material will have disappeared within weeks. For subjects that build on earlier knowledge, such as mathematics or languages, that loss is costly. A schedule of short, repeated reviews takes no more time in total, but it requires planning — and the willingness to feel, for a while, that one is learning less.",
+   "stem": "Why does the writer describe Ebbinghaus's findings as 'something of a worst case'?",
+   "explanation": {
+    "en": "The next words explain it: 'we forget meaningful material more slowly'. Nonsense syllables are the hardest case, so real learning usually looks better. Later research actually confirmed the curve.",
+    "th": "ประโยคถัดมาอธิบายว่าเราลืมเนื้อหาที่มีความหมายช้ากว่า พยางค์ไร้ความหมายจึงเป็นกรณีที่แย่ที่สุด และงานวิจัยต่อมาก็ยืนยันเส้นโค้งนี้"
+   },
+   "choices": [
+    "Meaningful material is usually forgotten more slowly than nonsense syllables.",
+    "He tested himself only after very long periods.",
+    "Later researchers found that memory declines faster than he thought.",
+    "His experiment was too small to be reliable."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำตามบริบท"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "In the 1880s a German psychologist named Hermann Ebbinghaus carried out an unusual experiment on himself. He memorised long lists of nonsense syllables — combinations such as 'WID' or 'ZOF' that had no meaning — and then tested how many he could recall after different periods of time. The results, plotted on a graph, produced what is now called the 'forgetting curve'. Memory dropped steeply in the first hour, and within a day he had lost more than half of what he had learned. After that the decline slowed, but it never entirely stopped.\n\nEbbinghaus chose nonsense syllables deliberately. Real words come with associations, and he wanted to measure memory without the help of meaning. This makes his findings something of a worst case: we forget meaningful material more slowly. Still, later researchers have repeated his experiment many times, and the basic shape of the curve has held up remarkably well.\n\nThe more useful part of his work concerned how forgetting could be slowed. Ebbinghaus found that each time he reviewed a list, the curve became flatter; he forgot less, and more slowly. Crucially, reviews were most effective when they were spaced out rather than crowded together. Studying a list ten times in one evening produced weaker long-term memory than studying it three or four times over several days. This principle, known as spaced repetition, is the basis of many modern flashcard apps, which calculate when a learner is about to forget an item and show it again at just that moment.\n\nWhy does spacing work? One explanation is that the effort of retrieving a half-forgotten memory strengthens it more than re-reading something that is still fresh. When information feels easy, the brain does little work; when recalling it requires a struggle, the memory is rebuilt more firmly. This also explains why testing yourself is more effective than simply re-reading notes, even though re-reading feels more productive at the time.\n\nThe implications for students are uncomfortable. The common habit of studying intensively the night before an exam can be enough to pass the next day, but most of the material will have disappeared within weeks. For subjects that build on earlier knowledge, such as mathematics or languages, that loss is costly. A schedule of short, repeated reviews takes no more time in total, but it requires planning — and the willingness to feel, for a while, that one is learning less.",
+   "stem": "The phrase 'held up' in paragraph 2 is closest in meaning to ______.",
+   "explanation": {
+    "en": "Researchers repeated the experiment and got the same shape, so the curve 'held up' — it stayed true. The other meanings of 'hold up' (delay, rob, lift) do not fit.",
+    "th": "นักวิจัยทดลองซ้ำแล้วได้ผลแบบเดิม แสดงว่าเส้นโค้งนี้ยังคงถูกต้อง (remained valid) ความหมายอื่นของ hold up เช่น ทำให้ล่าช้า ปล้น หรือยกขึ้น ไม่เข้ากับบริบท"
+   },
+   "choices": [
+    "remained valid",
+    "been stolen",
+    "been raised",
+    "been delayed"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying ideas from the text",
+    "th": "การนำความรู้จากบทอ่านไปใช้"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "In the 1880s a German psychologist named Hermann Ebbinghaus carried out an unusual experiment on himself. He memorised long lists of nonsense syllables — combinations such as 'WID' or 'ZOF' that had no meaning — and then tested how many he could recall after different periods of time. The results, plotted on a graph, produced what is now called the 'forgetting curve'. Memory dropped steeply in the first hour, and within a day he had lost more than half of what he had learned. After that the decline slowed, but it never entirely stopped.\n\nEbbinghaus chose nonsense syllables deliberately. Real words come with associations, and he wanted to measure memory without the help of meaning. This makes his findings something of a worst case: we forget meaningful material more slowly. Still, later researchers have repeated his experiment many times, and the basic shape of the curve has held up remarkably well.\n\nThe more useful part of his work concerned how forgetting could be slowed. Ebbinghaus found that each time he reviewed a list, the curve became flatter; he forgot less, and more slowly. Crucially, reviews were most effective when they were spaced out rather than crowded together. Studying a list ten times in one evening produced weaker long-term memory than studying it three or four times over several days. This principle, known as spaced repetition, is the basis of many modern flashcard apps, which calculate when a learner is about to forget an item and show it again at just that moment.\n\nWhy does spacing work? One explanation is that the effort of retrieving a half-forgotten memory strengthens it more than re-reading something that is still fresh. When information feels easy, the brain does little work; when recalling it requires a struggle, the memory is rebuilt more firmly. This also explains why testing yourself is more effective than simply re-reading notes, even though re-reading feels more productive at the time.\n\nThe implications for students are uncomfortable. The common habit of studying intensively the night before an exam can be enough to pass the next day, but most of the material will have disappeared within weeks. For subjects that build on earlier knowledge, such as mathematics or languages, that loss is costly. A schedule of short, repeated reviews takes no more time in total, but it requires planning — and the willingness to feel, for a while, that one is learning less.",
+   "stem": "Based on the passage, which study plan would probably lead to the best long-term memory?",
+   "explanation": {
+    "en": "The passage recommends two things: spacing reviews over several days and testing yourself instead of re-reading. Only this plan does both.",
+    "th": "บทความแนะนำสองอย่าง คือทบทวนแบบเว้นระยะหลายวัน และทดสอบตนเองแทนการอ่านซ้ำ มีเพียงแผนนี้ที่ทำทั้งสองอย่าง"
+   },
+   "choices": [
+    "Studying for four hours without a break one week before the exam",
+    "Copying your notes out neatly once, very slowly",
+    "Re-reading your notes ten times on the evening before the exam",
+    "Testing yourself on the material for twenty minutes on four different days"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Purpose of a text",
+    "th": "จุดประสงค์ของงานเขียน"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "Subject: Proposal for a student-run repair café\n\nDear Dr Wanida,\n\nI am writing on behalf of the Student Council to propose a new project for the second semester: a monthly 'repair café', to be held in the school canteen on the first Saturday of each month.\n\nThe idea is simple. Students, parents and local residents would bring broken items — bicycles, clothes, small electrical appliances, school bags — and volunteers would help them fix these items rather than throw them away. Similar events have been running in many countries for over a decade, and a secondary school in Chiang Mai started one last year with considerable success. According to its organisers, more than 300 items were repaired in the first six months.\n\nWe believe the project would benefit the school in three ways. First, it would give students practical skills that are not part of the normal curriculum, from sewing to basic electronics. Second, it would reduce the amount of waste our community sends to landfill, which supports the environmental goals in the school's development plan. Third, it would strengthen links between the school and the neighbourhood, since visitors would see students in a role of service rather than simply as customers.\n\nWe are aware that the project raises some practical concerns, and we have tried to address them in advance. Safety is the most important. Electrical repairs would only be carried out under the supervision of Mr Prasert from the Design and Technology department, who has kindly agreed to take part, and no item connected to mains power would be tested until he had checked it. We would also ask every visitor to sign a short form accepting that repairs are made on a voluntary basis and cannot be guaranteed.\n\nAs for costs, we expect them to be modest. Most tools can be borrowed from the Design and Technology workshop, and a local hardware shop has offered to donate basic supplies such as glue, thread and screws. The Student Council would use part of its existing budget to pay for refreshments.\n\nWe would be grateful for the opportunity to present the plan in more detail at the next staff meeting. If you approve, we hope to hold a trial event in November and review the results before committing to a full programme.\n\nYours sincerely,\n\nNatthapong Srisuk\nPresident, Student Council",
+   "stem": "What is the main purpose of the email?",
+   "explanation": {
+    "en": "The writer 'propose[s] a new project' and ends by asking for a chance to present it and for approval ('If you approve …').",
+    "th": "ผู้เขียนเสนอโครงการใหม่ และปิดท้ายด้วยการขอโอกาสนำเสนอและขออนุมัติ ('If you approve …')"
+   },
+   "choices": [
+    "To thank Mr Prasert for repairing school equipment",
+    "To invite the director to a repair event in Chiang Mai",
+    "To ask the school director to approve a new project",
+    "To complain about the amount of waste produced by the school"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Function of an example",
+    "th": "หน้าที่ของตัวอย่างในบทอ่าน"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "Subject: Proposal for a student-run repair café\n\nDear Dr Wanida,\n\nI am writing on behalf of the Student Council to propose a new project for the second semester: a monthly 'repair café', to be held in the school canteen on the first Saturday of each month.\n\nThe idea is simple. Students, parents and local residents would bring broken items — bicycles, clothes, small electrical appliances, school bags — and volunteers would help them fix these items rather than throw them away. Similar events have been running in many countries for over a decade, and a secondary school in Chiang Mai started one last year with considerable success. According to its organisers, more than 300 items were repaired in the first six months.\n\nWe believe the project would benefit the school in three ways. First, it would give students practical skills that are not part of the normal curriculum, from sewing to basic electronics. Second, it would reduce the amount of waste our community sends to landfill, which supports the environmental goals in the school's development plan. Third, it would strengthen links between the school and the neighbourhood, since visitors would see students in a role of service rather than simply as customers.\n\nWe are aware that the project raises some practical concerns, and we have tried to address them in advance. Safety is the most important. Electrical repairs would only be carried out under the supervision of Mr Prasert from the Design and Technology department, who has kindly agreed to take part, and no item connected to mains power would be tested until he had checked it. We would also ask every visitor to sign a short form accepting that repairs are made on a voluntary basis and cannot be guaranteed.\n\nAs for costs, we expect them to be modest. Most tools can be borrowed from the Design and Technology workshop, and a local hardware shop has offered to donate basic supplies such as glue, thread and screws. The Student Council would use part of its existing budget to pay for refreshments.\n\nWe would be grateful for the opportunity to present the plan in more detail at the next staff meeting. If you approve, we hope to hold a trial event in November and review the results before committing to a full programme.\n\nYours sincerely,\n\nNatthapong Srisuk\nPresident, Student Council",
+   "stem": "Why does the writer mention a school in Chiang Mai?",
+   "explanation": {
+    "en": "The Chiang Mai school started a repair café 'with considerable success' and repaired 300 items — evidence that the idea works.",
+    "th": "โรงเรียนในเชียงใหม่จัดกิจกรรมนี้ได้ผลดีและซ่อมของได้กว่า 300 ชิ้น เป็นหลักฐานว่าแนวคิดนี้ใช้ได้จริง"
+   },
+   "choices": [
+    "To suggest that the two schools should hold a joint event",
+    "To explain where the volunteers will be trained",
+    "To compare the costs of the two schools' projects",
+    "To show that a similar project has already worked elsewhere"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Scanning for details (NOT question)",
+    "th": "การหารายละเอียดที่ไม่ได้กล่าวถึง"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "Subject: Proposal for a student-run repair café\n\nDear Dr Wanida,\n\nI am writing on behalf of the Student Council to propose a new project for the second semester: a monthly 'repair café', to be held in the school canteen on the first Saturday of each month.\n\nThe idea is simple. Students, parents and local residents would bring broken items — bicycles, clothes, small electrical appliances, school bags — and volunteers would help them fix these items rather than throw them away. Similar events have been running in many countries for over a decade, and a secondary school in Chiang Mai started one last year with considerable success. According to its organisers, more than 300 items were repaired in the first six months.\n\nWe believe the project would benefit the school in three ways. First, it would give students practical skills that are not part of the normal curriculum, from sewing to basic electronics. Second, it would reduce the amount of waste our community sends to landfill, which supports the environmental goals in the school's development plan. Third, it would strengthen links between the school and the neighbourhood, since visitors would see students in a role of service rather than simply as customers.\n\nWe are aware that the project raises some practical concerns, and we have tried to address them in advance. Safety is the most important. Electrical repairs would only be carried out under the supervision of Mr Prasert from the Design and Technology department, who has kindly agreed to take part, and no item connected to mains power would be tested until he had checked it. We would also ask every visitor to sign a short form accepting that repairs are made on a voluntary basis and cannot be guaranteed.\n\nAs for costs, we expect them to be modest. Most tools can be borrowed from the Design and Technology workshop, and a local hardware shop has offered to donate basic supplies such as glue, thread and screws. The Student Council would use part of its existing budget to pay for refreshments.\n\nWe would be grateful for the opportunity to present the plan in more detail at the next staff meeting. If you approve, we hope to hold a trial event in November and review the results before committing to a full programme.\n\nYours sincerely,\n\nNatthapong Srisuk\nPresident, Student Council",
+   "stem": "Which of the following is NOT given as a benefit of the project?",
+   "explanation": {
+    "en": "The three benefits are skills, less waste and stronger links with the neighbourhood. The council actually spends its own money on refreshments; raising money is never mentioned.",
+    "th": "ประโยชน์สามประการคือ ทักษะ ลดขยะ และความสัมพันธ์กับชุมชน สภานักเรียนกลับต้องใช้งบของตนเองจ่ายค่าอาหารว่าง ไม่มีการกล่าวถึงการหารายได้"
+   },
+   "choices": [
+    "It would reduce the amount of waste sent to landfill.",
+    "It would teach students practical skills.",
+    "It would raise money for the Student Council.",
+    "It would improve relations between the school and local residents."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "Subject: Proposal for a student-run repair café\n\nDear Dr Wanida,\n\nI am writing on behalf of the Student Council to propose a new project for the second semester: a monthly 'repair café', to be held in the school canteen on the first Saturday of each month.\n\nThe idea is simple. Students, parents and local residents would bring broken items — bicycles, clothes, small electrical appliances, school bags — and volunteers would help them fix these items rather than throw them away. Similar events have been running in many countries for over a decade, and a secondary school in Chiang Mai started one last year with considerable success. According to its organisers, more than 300 items were repaired in the first six months.\n\nWe believe the project would benefit the school in three ways. First, it would give students practical skills that are not part of the normal curriculum, from sewing to basic electronics. Second, it would reduce the amount of waste our community sends to landfill, which supports the environmental goals in the school's development plan. Third, it would strengthen links between the school and the neighbourhood, since visitors would see students in a role of service rather than simply as customers.\n\nWe are aware that the project raises some practical concerns, and we have tried to address them in advance. Safety is the most important. Electrical repairs would only be carried out under the supervision of Mr Prasert from the Design and Technology department, who has kindly agreed to take part, and no item connected to mains power would be tested until he had checked it. We would also ask every visitor to sign a short form accepting that repairs are made on a voluntary basis and cannot be guaranteed.\n\nAs for costs, we expect them to be modest. Most tools can be borrowed from the Design and Technology workshop, and a local hardware shop has offered to donate basic supplies such as glue, thread and screws. The Student Council would use part of its existing budget to pay for refreshments.\n\nWe would be grateful for the opportunity to present the plan in more detail at the next staff meeting. If you approve, we hope to hold a trial event in November and review the results before committing to a full programme.\n\nYours sincerely,\n\nNatthapong Srisuk\nPresident, Student Council",
+   "stem": "What can be inferred from the paragraph about safety?",
+   "explanation": {
+    "en": "The writer deals with safety 'in advance' and calls it 'the most important' concern, showing they expect it to be the director's first worry. Mr Prasert has agreed to help, and electrical items will be accepted under supervision.",
+    "th": "ผู้เขียนตอบเรื่องความปลอดภัยไว้ล่วงหน้าและบอกว่าเป็นเรื่องสำคัญที่สุด แสดงว่าคาดว่าผู้อำนวยการจะกังวลเรื่องนี้ ครูประเสริฐยินดีช่วย และรับของใช้ไฟฟ้าโดยมีผู้ควบคุม"
+   },
+   "choices": [
+    "Visitors will have to pay if a repair is unsuccessful.",
+    "Mr Prasert has refused to supervise repairs of electrical items.",
+    "The writer expects the director to be worried about the risks of electrical repairs.",
+    "Electrical items will not be accepted at the repair café."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Tone",
+    "th": "น้ำเสียงของผู้เขียน"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "Subject: Proposal for a student-run repair café\n\nDear Dr Wanida,\n\nI am writing on behalf of the Student Council to propose a new project for the second semester: a monthly 'repair café', to be held in the school canteen on the first Saturday of each month.\n\nThe idea is simple. Students, parents and local residents would bring broken items — bicycles, clothes, small electrical appliances, school bags — and volunteers would help them fix these items rather than throw them away. Similar events have been running in many countries for over a decade, and a secondary school in Chiang Mai started one last year with considerable success. According to its organisers, more than 300 items were repaired in the first six months.\n\nWe believe the project would benefit the school in three ways. First, it would give students practical skills that are not part of the normal curriculum, from sewing to basic electronics. Second, it would reduce the amount of waste our community sends to landfill, which supports the environmental goals in the school's development plan. Third, it would strengthen links between the school and the neighbourhood, since visitors would see students in a role of service rather than simply as customers.\n\nWe are aware that the project raises some practical concerns, and we have tried to address them in advance. Safety is the most important. Electrical repairs would only be carried out under the supervision of Mr Prasert from the Design and Technology department, who has kindly agreed to take part, and no item connected to mains power would be tested until he had checked it. We would also ask every visitor to sign a short form accepting that repairs are made on a voluntary basis and cannot be guaranteed.\n\nAs for costs, we expect them to be modest. Most tools can be borrowed from the Design and Technology workshop, and a local hardware shop has offered to donate basic supplies such as glue, thread and screws. The Student Council would use part of its existing budget to pay for refreshments.\n\nWe would be grateful for the opportunity to present the plan in more detail at the next staff meeting. If you approve, we hope to hold a trial event in November and review the results before committing to a full programme.\n\nYours sincerely,\n\nNatthapong Srisuk\nPresident, Student Council",
+   "stem": "Which best describes the tone of the email?",
+   "explanation": {
+    "en": "Phrases such as 'We would be grateful' are polite, the three benefits are persuasive, and the writer answers concerns about safety and cost before they are raised.",
+    "th": "สำนวนอย่าง We would be grateful แสดงความสุภาพ ประโยชน์สามประการเป็นการโน้มน้าว และผู้เขียนตอบข้อกังวลเรื่องความปลอดภัยและค่าใช้จ่ายไว้ล่วงหน้า"
+   },
+   "choices": [
+    "Angry and demanding",
+    "Polite and persuasive, while anticipating objections",
+    "Casual and humorous",
+    "Uncertain and apologetic"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Writer's position",
+    "th": "จุดยืนของผู้เขียน"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Visitors to some of the world's most famous places are discovering a new item on their travel budgets: an entry fee for the city itself. Venice now charges day-trippers on its busiest days, and several islands and national parks have introduced or raised similar charges. Critics call these fees a tax on curiosity that will turn travel into a privilege of the rich. I disagree. Used carefully, they are one of the fairest tools we have.\n\nStart with the problem they are meant to solve. When a small town receives more visitors in a day than it has residents, the costs are real, and they fall mostly on local people: crowded streets, rising rents as homes are converted into holiday rentals, and rubbish that the town's budget was never designed to collect. Tourists, meanwhile, often spend surprisingly little. A day visitor who arrives by coach, takes photographs and leaves before dinner may contribute almost nothing to the businesses whose streets they fill.\n\nAn entry fee shifts some of that cost back to the people who create it. This is hardly a radical idea. We already accept that visitors pay to enter museums and theme parks; the principle that a fragile place should be paid for by those who enjoy it is no different. If the money is spent visibly — on cleaning, on conservation, on housing for local workers — residents may even become more welcoming, since tourism stops feeling like something done to them.\n\nThe objection about fairness deserves a serious answer. A fee does make a trip slightly more expensive, but it is usually a tiny fraction of the cost of transport and accommodation. A family that can afford flights to Europe is not prevented from visiting by a charge of a few euros. Moreover, fees can be designed to protect access: lower prices for students, free entry for residents of the surrounding region, or charges only on the busiest days, so that those who are flexible can still visit for nothing.\n\nNone of this means that fees alone will solve over-tourism. A charge that is too low will change little, and one that is spent on unrelated projects will lose public trust. Fees work best as part of a wider plan that also limits cruise ships, controls short-term rentals and encourages visitors to explore less famous places. But to reject them as unfair is to ignore who is already paying the price of mass tourism: the people who live there.",
+   "stem": "What is the writer's position on entry fees for tourist destinations?",
+   "explanation": {
+    "en": "The writer says 'I disagree' with the critics and calls fees 'one of the fairest tools', because they shift costs back to visitors. The last paragraph says fees alone will not solve the problem.",
+    "th": "ผู้เขียนบอกว่าไม่เห็นด้วยกับผู้วิจารณ์ และเรียกค่าธรรมเนียมว่าเป็นเครื่องมือที่ยุติธรรมที่สุดอย่างหนึ่ง เพราะให้นักท่องเที่ยวรับภาระค่าใช้จ่ายร่วมกัน ย่อหน้าสุดท้ายบอกว่าค่าธรรมเนียมอย่างเดียวแก้ปัญหาไม่ได้"
+   },
+   "choices": [
+    "They will solve the problem of over-tourism by themselves.",
+    "They should be abolished because they make travel a privilege of the rich.",
+    "They are a fair way to make visitors share the costs of tourism.",
+    "They should be paid only by visitors arriving on cruise ships."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Detail",
+    "th": "รายละเอียด"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Visitors to some of the world's most famous places are discovering a new item on their travel budgets: an entry fee for the city itself. Venice now charges day-trippers on its busiest days, and several islands and national parks have introduced or raised similar charges. Critics call these fees a tax on curiosity that will turn travel into a privilege of the rich. I disagree. Used carefully, they are one of the fairest tools we have.\n\nStart with the problem they are meant to solve. When a small town receives more visitors in a day than it has residents, the costs are real, and they fall mostly on local people: crowded streets, rising rents as homes are converted into holiday rentals, and rubbish that the town's budget was never designed to collect. Tourists, meanwhile, often spend surprisingly little. A day visitor who arrives by coach, takes photographs and leaves before dinner may contribute almost nothing to the businesses whose streets they fill.\n\nAn entry fee shifts some of that cost back to the people who create it. This is hardly a radical idea. We already accept that visitors pay to enter museums and theme parks; the principle that a fragile place should be paid for by those who enjoy it is no different. If the money is spent visibly — on cleaning, on conservation, on housing for local workers — residents may even become more welcoming, since tourism stops feeling like something done to them.\n\nThe objection about fairness deserves a serious answer. A fee does make a trip slightly more expensive, but it is usually a tiny fraction of the cost of transport and accommodation. A family that can afford flights to Europe is not prevented from visiting by a charge of a few euros. Moreover, fees can be designed to protect access: lower prices for students, free entry for residents of the surrounding region, or charges only on the busiest days, so that those who are flexible can still visit for nothing.\n\nNone of this means that fees alone will solve over-tourism. A charge that is too low will change little, and one that is spent on unrelated projects will lose public trust. Fees work best as part of a wider plan that also limits cruise ships, controls short-term rentals and encourages visitors to explore less famous places. But to reject them as unfair is to ignore who is already paying the price of mass tourism: the people who live there.",
+   "stem": "According to paragraph 2, who mainly bears the costs of too many visitors?",
+   "explanation": {
+    "en": "Paragraph 2: the costs 'fall mostly on local people'.",
+    "th": "ย่อหน้าที่ 2 ระบุว่าภาระส่วนใหญ่ตกอยู่กับคนในท้องถิ่น"
+   },
+   "choices": [
+    "Coach companies",
+    "Museum owners",
+    "Local residents",
+    "Tourists who stay overnight"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Visitors to some of the world's most famous places are discovering a new item on their travel budgets: an entry fee for the city itself. Venice now charges day-trippers on its busiest days, and several islands and national parks have introduced or raised similar charges. Critics call these fees a tax on curiosity that will turn travel into a privilege of the rich. I disagree. Used carefully, they are one of the fairest tools we have.\n\nStart with the problem they are meant to solve. When a small town receives more visitors in a day than it has residents, the costs are real, and they fall mostly on local people: crowded streets, rising rents as homes are converted into holiday rentals, and rubbish that the town's budget was never designed to collect. Tourists, meanwhile, often spend surprisingly little. A day visitor who arrives by coach, takes photographs and leaves before dinner may contribute almost nothing to the businesses whose streets they fill.\n\nAn entry fee shifts some of that cost back to the people who create it. This is hardly a radical idea. We already accept that visitors pay to enter museums and theme parks; the principle that a fragile place should be paid for by those who enjoy it is no different. If the money is spent visibly — on cleaning, on conservation, on housing for local workers — residents may even become more welcoming, since tourism stops feeling like something done to them.\n\nThe objection about fairness deserves a serious answer. A fee does make a trip slightly more expensive, but it is usually a tiny fraction of the cost of transport and accommodation. A family that can afford flights to Europe is not prevented from visiting by a charge of a few euros. Moreover, fees can be designed to protect access: lower prices for students, free entry for residents of the surrounding region, or charges only on the busiest days, so that those who are flexible can still visit for nothing.\n\nNone of this means that fees alone will solve over-tourism. A charge that is too low will change little, and one that is spent on unrelated projects will lose public trust. Fees work best as part of a wider plan that also limits cruise ships, controls short-term rentals and encourages visitors to explore less famous places. But to reject them as unfair is to ignore who is already paying the price of mass tourism: the people who live there.",
+   "stem": "What point does the writer make about day visitors who 'leave before dinner'?",
+   "explanation": {
+    "en": "They 'fill' the streets but 'may contribute almost nothing' to local businesses — leaving before dinner means they do not even pay for a meal.",
+    "th": "นักท่องเที่ยวกลุ่มนี้ทำให้ถนนแออัด แต่แทบไม่ได้ใช้จ่ายกับร้านค้าในท้องถิ่น การกลับก่อนมื้อเย็นแปลว่าแม้แต่ค่าอาหารก็ไม่ได้จ่าย"
+   },
+   "choices": [
+    "They usually visit only the less famous parts of the city.",
+    "They are the main source of income for local restaurants.",
+    "They are more likely than other tourists to drop rubbish.",
+    "They add to crowding without spending much money in the town."
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำตามบริบท"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Visitors to some of the world's most famous places are discovering a new item on their travel budgets: an entry fee for the city itself. Venice now charges day-trippers on its busiest days, and several islands and national parks have introduced or raised similar charges. Critics call these fees a tax on curiosity that will turn travel into a privilege of the rich. I disagree. Used carefully, they are one of the fairest tools we have.\n\nStart with the problem they are meant to solve. When a small town receives more visitors in a day than it has residents, the costs are real, and they fall mostly on local people: crowded streets, rising rents as homes are converted into holiday rentals, and rubbish that the town's budget was never designed to collect. Tourists, meanwhile, often spend surprisingly little. A day visitor who arrives by coach, takes photographs and leaves before dinner may contribute almost nothing to the businesses whose streets they fill.\n\nAn entry fee shifts some of that cost back to the people who create it. This is hardly a radical idea. We already accept that visitors pay to enter museums and theme parks; the principle that a fragile place should be paid for by those who enjoy it is no different. If the money is spent visibly — on cleaning, on conservation, on housing for local workers — residents may even become more welcoming, since tourism stops feeling like something done to them.\n\nThe objection about fairness deserves a serious answer. A fee does make a trip slightly more expensive, but it is usually a tiny fraction of the cost of transport and accommodation. A family that can afford flights to Europe is not prevented from visiting by a charge of a few euros. Moreover, fees can be designed to protect access: lower prices for students, free entry for residents of the surrounding region, or charges only on the busiest days, so that those who are flexible can still visit for nothing.\n\nNone of this means that fees alone will solve over-tourism. A charge that is too low will change little, and one that is spent on unrelated projects will lose public trust. Fees work best as part of a wider plan that also limits cruise ships, controls short-term rentals and encourages visitors to explore less famous places. But to reject them as unfair is to ignore who is already paying the price of mass tourism: the people who live there.",
+   "stem": "The word 'radical' in paragraph 3 is closest in meaning to ______.",
+   "explanation": {
+    "en": "'Hardly a radical idea' is followed by familiar examples (museums, theme parks), showing the idea is not extreme or new.",
+    "th": "'hardly a radical idea' ตามด้วยตัวอย่างที่คุ้นเคย (พิพิธภัณฑ์ สวนสนุก) แสดงว่าแนวคิดนี้ไม่ได้สุดโต่งหรือแปลกใหม่ radical จึงแปลว่าสุดโต่งหรือใหม่โดยสิ้นเชิง"
+   },
+   "choices": [
+    "old-fashioned",
+    "simple and obvious",
+    "unpopular with tourists",
+    "extreme or completely new"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "How the writer handles a counter-argument",
+    "th": "วิธีที่ผู้เขียนตอบโต้ข้อคัดค้าน"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Visitors to some of the world's most famous places are discovering a new item on their travel budgets: an entry fee for the city itself. Venice now charges day-trippers on its busiest days, and several islands and national parks have introduced or raised similar charges. Critics call these fees a tax on curiosity that will turn travel into a privilege of the rich. I disagree. Used carefully, they are one of the fairest tools we have.\n\nStart with the problem they are meant to solve. When a small town receives more visitors in a day than it has residents, the costs are real, and they fall mostly on local people: crowded streets, rising rents as homes are converted into holiday rentals, and rubbish that the town's budget was never designed to collect. Tourists, meanwhile, often spend surprisingly little. A day visitor who arrives by coach, takes photographs and leaves before dinner may contribute almost nothing to the businesses whose streets they fill.\n\nAn entry fee shifts some of that cost back to the people who create it. This is hardly a radical idea. We already accept that visitors pay to enter museums and theme parks; the principle that a fragile place should be paid for by those who enjoy it is no different. If the money is spent visibly — on cleaning, on conservation, on housing for local workers — residents may even become more welcoming, since tourism stops feeling like something done to them.\n\nThe objection about fairness deserves a serious answer. A fee does make a trip slightly more expensive, but it is usually a tiny fraction of the cost of transport and accommodation. A family that can afford flights to Europe is not prevented from visiting by a charge of a few euros. Moreover, fees can be designed to protect access: lower prices for students, free entry for residents of the surrounding region, or charges only on the busiest days, so that those who are flexible can still visit for nothing.\n\nNone of this means that fees alone will solve over-tourism. A charge that is too low will change little, and one that is spent on unrelated projects will lose public trust. Fees work best as part of a wider plan that also limits cruise ships, controls short-term rentals and encourages visitors to explore less famous places. But to reject them as unfair is to ignore who is already paying the price of mass tourism: the people who live there.",
+   "stem": "How does the writer respond to the argument that fees are unfair?",
+   "explanation": {
+    "en": "Paragraph 4 says a fee is 'a tiny fraction' of travel costs and can be designed with lower prices for students, free entry for local people or charges only on busy days.",
+    "th": "ย่อหน้าที่ 4 บอกว่าค่าธรรมเนียมเป็นเพียงส่วนน้อยนิดของค่าเดินทาง และออกแบบให้มีส่วนลดสำหรับนักเรียน เข้าฟรีสำหรับคนในภูมิภาค หรือเก็บเฉพาะวันที่คนแน่นได้"
+   },
+   "choices": [
+    "By pointing out that fees are small compared with other travel costs and can include discounts",
+    "By arguing that fairness is less important than conservation",
+    "By claiming that only rich people visit famous cities",
+    "By admitting that fees will stop poorer families from travelling"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding the conclusion",
+    "th": "การเข้าใจบทสรุป"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Visitors to some of the world's most famous places are discovering a new item on their travel budgets: an entry fee for the city itself. Venice now charges day-trippers on its busiest days, and several islands and national parks have introduced or raised similar charges. Critics call these fees a tax on curiosity that will turn travel into a privilege of the rich. I disagree. Used carefully, they are one of the fairest tools we have.\n\nStart with the problem they are meant to solve. When a small town receives more visitors in a day than it has residents, the costs are real, and they fall mostly on local people: crowded streets, rising rents as homes are converted into holiday rentals, and rubbish that the town's budget was never designed to collect. Tourists, meanwhile, often spend surprisingly little. A day visitor who arrives by coach, takes photographs and leaves before dinner may contribute almost nothing to the businesses whose streets they fill.\n\nAn entry fee shifts some of that cost back to the people who create it. This is hardly a radical idea. We already accept that visitors pay to enter museums and theme parks; the principle that a fragile place should be paid for by those who enjoy it is no different. If the money is spent visibly — on cleaning, on conservation, on housing for local workers — residents may even become more welcoming, since tourism stops feeling like something done to them.\n\nThe objection about fairness deserves a serious answer. A fee does make a trip slightly more expensive, but it is usually a tiny fraction of the cost of transport and accommodation. A family that can afford flights to Europe is not prevented from visiting by a charge of a few euros. Moreover, fees can be designed to protect access: lower prices for students, free entry for residents of the surrounding region, or charges only on the busiest days, so that those who are flexible can still visit for nothing.\n\nNone of this means that fees alone will solve over-tourism. A charge that is too low will change little, and one that is spent on unrelated projects will lose public trust. Fees work best as part of a wider plan that also limits cruise ships, controls short-term rentals and encourages visitors to explore less famous places. But to reject them as unfair is to ignore who is already paying the price of mass tourism: the people who live there.",
+   "stem": "What does the writer suggest in the final paragraph?",
+   "explanation": {
+    "en": "'Fees work best as part of a wider plan' that also limits cruise ships, controls rentals and spreads visitors out.",
+    "th": "ผู้เขียนบอกว่าค่าธรรมเนียมได้ผลดีที่สุดเมื่อเป็นส่วนหนึ่งของแผนที่กว้างกว่า เช่น จำกัดเรือสำราญ ควบคุมที่พักระยะสั้น และกระจายนักท่องเที่ยว"
+   },
+   "choices": [
+    "Local people should decide how tourists spend their money.",
+    "Cruise ships are the only real cause of over-tourism.",
+    "Fees need to be combined with other measures to be effective.",
+    "Fees should be set as high as possible."
+   ],
+   "answer": 2
+  }
+ ]
+}

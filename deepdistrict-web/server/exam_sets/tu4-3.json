@@ -1,0 +1,1815 @@
+{
+ "exam": "tu4",
+ "set": 3,
+ "title": {
+  "en": "Triam Udom Suksa M.4 English — Practice paper 3",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.4 เตรียมอุดมศึกษา — ชุดที่ 3"
+ },
+ "minutes": 75,
+ "note": {
+  "en": "60 questions in 75 minutes, weighted like the Triam Udom paper towards cloze, reading and error identification (tutor summaries report about 40 questions in recent years; ours is a longer practice paper). DeepDistrict practice — not an official or past paper.",
+  "th": "60 ข้อ 75 นาที เน้นเติมคำในบทความ การอ่าน และหาจุดผิด ตามแนวข้อสอบเตรียมอุดมฯ (ข้อมูลจากสถาบันกวดวิชาระบุราว 40 ข้อในปีหลัง ๆ ชุดนี้เป็นแบบฝึกที่ยาวกว่า) — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Idiom: cross one's mind",
+    "th": "สำนวน cross one's mind"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: I heard you're thinking of leaving the school orchestra.\nB: ______ I haven't made up my mind yet, though.",
+   "explanation": {
+    "en": "'It has crossed my mind' means 'I have thought about it', which fits 'I haven't made up my mind yet'. 'I've changed my mind' suggests a decision has been made, 'it never crossed my mind' denies the rumour completely, and 'out of my mind' means crazy.",
+    "th": "it has crossed my mind แปลว่าเคยคิดถึงเรื่องนี้อยู่ ซึ่งเข้ากับ 'ยังไม่ได้ตัดสินใจ' ส่วน I've changed my mind แสดงว่าตัดสินใจแล้ว it never crossed my mind คือปฏิเสธว่าไม่เคยคิดเลย และ out of my mind แปลว่าเสียสติ"
+   },
+   "choices": [
+    "Well, it has crossed my mind.",
+    "Well, it never crossed my mind.",
+    "Well, I've changed my mind about it.",
+    "Well, it's out of my mind."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Expressing doubt: I wouldn't count on it",
+    "th": "การแสดงความไม่มั่นใจ: I wouldn't count on it"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: Do you think Ken will help us move house on Saturday?\nB: ______ He's never once turned up when he said he would.",
+   "explanation": {
+    "en": "B's reason (Ken never turns up) shows doubt, so 'I wouldn't count on it' (don't rely on it) is right. The other three all express certainty that Ken will come.",
+    "th": "เหตุผลของ B (เคนไม่เคยมาตามนัด) แสดงความสงสัย จึงใช้ I wouldn't count on it (อย่าหวังเลย) ส่วนอีกสามตัวเลือกแสดงความมั่นใจว่าเคนจะมา"
+   },
+   "choices": [
+    "He's bound to.",
+    "I'd bet on it.",
+    "I wouldn't count on it.",
+    "It goes without saying."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Asking for and giving repetition",
+    "th": "การขอให้พูดซ้ำและการตอบ"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: Sorry, I didn't catch the last part. Could you run that by me again?\nB: ______ I said the deadline has been moved forward to Friday.",
+   "explanation": {
+    "en": "'Run that by me again' asks B to repeat, and B does repeat the information, so 'I'll go over it again' fits. 'Run after you' means chase, and 'catch it later' misuses A's word 'catch'.",
+    "th": "run that by me again แปลว่าช่วยพูดอีกครั้ง และ B ก็พูดซ้ำจริง จึงตอบ I'll go over it again ส่วน run after you แปลว่าวิ่งตาม และ catch it later ใช้คำ catch ผิดความหมาย"
+   },
+   "choices": [
+    "Sure, I'll go over it again.",
+    "No, I didn't say anything to you.",
+    "Sure, I'll run after you.",
+    "Sorry, I'll catch it later."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Expressing mild disapproval",
+    "th": "การแสดงความไม่เห็นด้วยอย่างนุ่มนวล"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: The new manager wants us to work every Saturday this month.\nB: You're kidding! ______\nA: I know. Most of us already have plans.",
+   "explanation": {
+    "en": "B is shocked ('You're kidding!') and A agrees with a complaint, so B must say the request is unreasonable: 'That's a bit much.' 'Right up my street' means exactly what I like, 'Fair play to her' praises the manager, and 'the least we can do' means it is a small effort.",
+    "th": "B ตกใจ ('You're kidding!') และ A ตอบรับด้วยการบ่น แสดงว่า B มองว่าเกินไป จึงพูด That's a bit much ส่วน right up my street แปลว่าตรงกับที่ชอบ Fair play to her เป็นการชม และ the least we can do แปลว่าเป็นเรื่องเล็กน้อยที่ควรทำ"
+   },
+   "choices": [
+    "That's a bit much, isn't it?",
+    "That sounds right up my street.",
+    "That's the least we can do.",
+    "Fair play to her."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Collocation: pose a threat",
+    "th": "คำปรากฏร่วม pose a threat"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "Rising sea levels ______ a serious threat to low-lying coastal cities such as Bangkok.",
+   "explanation": {
+    "en": "The collocation is 'pose a threat'. 'Raise' goes with questions or money, 'make up' means form or invent, and 'cause up' is not English.",
+    "th": "คำปรากฏร่วมคือ pose a threat (เป็นภัยคุกคาม) ส่วน raise ใช้กับคำถามหรือเงิน make up แปลว่าประกอบเป็นหรือแต่งขึ้น และ cause up ไม่มีใช้"
+   },
+   "choices": [
+    "make up",
+    "cause up",
+    "pose",
+    "raise"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Confusable nouns",
+    "th": "คำนามที่สับสนง่าย"
+   },
+   "topic": {
+    "en": "Academic vocabulary",
+    "th": "คำศัพท์เชิงวิชาการ"
+   },
+   "passage": "",
+   "stem": "The two sides failed to reach a ______, so the talks were postponed until next month.",
+   "explanation": {
+    "en": "'Reach a consensus' means come to general agreement. 'Consent' is permission, a 'census' counts the population, and 'conscience' is your sense of right and wrong.",
+    "th": "reach a consensus แปลว่าได้ข้อตกลงร่วมกัน ส่วน consent แปลว่าการยินยอม census คือการสำมะโนประชากร และ conscience แปลว่ามโนธรรม"
+   },
+   "choices": [
+    "consensus",
+    "conscience",
+    "census",
+    "consent"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Collocation: shed light on",
+    "th": "คำปรากฏร่วม shed light on"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "Her research ______ new light on the causes of coral bleaching in the Gulf of Thailand.",
+   "explanation": {
+    "en": "The idiom is 'shed light on' (help to explain). 'Put', 'make' and 'give' are not used with 'light on' in this meaning.",
+    "th": "สำนวนคือ shed light on (ช่วยให้กระจ่าง) ไม่ใช้ put, make หรือ give ในความหมายนี้"
+   },
+   "choices": [
+    "makes",
+    "gives",
+    "puts",
+    "sheds"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Phrasal verb: cover up",
+    "th": "กริยาวลี cover up"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "Officials were accused of trying to ______ the scandal by destroying important documents.",
+   "explanation": {
+    "en": "To 'cover up' a scandal is to hide it, which matches destroying documents. 'Make up for' means compensate, 'look up to' means admire, and 'put up with' means tolerate.",
+    "th": "cover up แปลว่าปกปิด ซึ่งเข้ากับการทำลายเอกสาร ส่วน make up for แปลว่าชดเชย look up to แปลว่านับถือ และ put up with แปลว่าทนต่อ"
+   },
+   "choices": [
+    "put up with",
+    "look up to",
+    "make up for",
+    "cover up"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Confusable adjectives: unfounded",
+    "th": "คำคุณศัพท์ที่สับสนง่าย: unfounded"
+   },
+   "topic": {
+    "en": "Academic vocabulary",
+    "th": "คำศัพท์เชิงวิชาการ"
+   },
+   "passage": "",
+   "stem": "The company's claims about its 'eco-friendly' packaging turned out to be completely ______; independent tests found no difference from ordinary plastic.",
+   "explanation": {
+    "en": "'Unfounded' means not based on facts, which the tests showed. 'Unfunded' means without money, 'founding' relates to starting an organisation, and 'profound' means deep.",
+    "th": "unfounded แปลว่าไม่มีมูลความจริง ซึ่งผลการทดสอบยืนยัน ส่วน unfunded แปลว่าไม่มีเงินทุน founding เกี่ยวกับการก่อตั้ง และ profound แปลว่าลึกซึ้ง"
+   },
+   "choices": [
+    "unfunded",
+    "founding",
+    "profound",
+    "unfounded"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Word formation: comprehensive",
+    "th": "การสร้างคำ comprehensive"
+   },
+   "topic": {
+    "en": "Word formation",
+    "th": "การสร้างคำ"
+   },
+   "passage": "",
+   "stem": "The museum has a ______ collection of Ayutthaya-period ceramics, unmatched anywhere else in the world.",
+   "explanation": {
+    "en": "A 'comprehensive' collection is complete and wide-ranging. 'Comprehensible' means easy to understand, 'comprehension' is a noun, and 'comprehending' means understanding.",
+    "th": "comprehensive แปลว่าครอบคลุมครบถ้วน ส่วน comprehensible แปลว่าเข้าใจได้ comprehension เป็นคำนาม และ comprehending แปลว่ากำลังเข้าใจ"
+   },
+   "choices": [
+    "comprehensive",
+    "comprehensible",
+    "comprehension",
+    "comprehending"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Academic adjective from a contrast",
+    "th": "คำคุณศัพท์เชิงวิชาการจากความขัดแย้งในประโยค"
+   },
+   "topic": {
+    "en": "Academic vocabulary",
+    "th": "คำศัพท์เชิงวิชาการ"
+   },
+   "passage": "",
+   "stem": "Although the evidence against him was largely ______, the jury found it convincing enough to convict him.",
+   "explanation": {
+    "en": "'Although' needs a contrast with 'convincing enough to convict': circumstantial evidence suggests guilt indirectly, so it is normally weaker. 'Conclusive' and 'substantial' evidence would not create a contrast, and 'superstitious' does not describe evidence.",
+    "th": "Although ต้องการความขัดแย้งกับ 'น่าเชื่อพอจะตัดสินลงโทษ' หลักฐานแวดล้อม (circumstantial) บ่งชี้ทางอ้อมจึงมักอ่อนกว่า ส่วน conclusive และ substantial ไม่ทำให้เกิดความขัดแย้ง และ superstitious ใช้กับหลักฐานไม่ได้"
+   },
+   "choices": [
+    "conclusive",
+    "superstitious",
+    "circumstantial",
+    "substantial"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Adjective meaning from context: ambiguous",
+    "th": "ความหมายของคำคุณศัพท์จากบริบท: ambiguous"
+   },
+   "topic": {
+    "en": "Academic vocabulary",
+    "th": "คำศัพท์เชิงวิชาการ"
+   },
+   "passage": "",
+   "stem": "The minister's speech was deliberately ______, allowing both supporters and critics to interpret it however they wished.",
+   "explanation": {
+    "en": "A speech that can be interpreted in different ways is 'ambiguous'. 'Explicit' means clear and direct (the opposite), 'ambitious' means aiming high, and 'unanimous' means agreed by everyone.",
+    "th": "สุนทรพจน์ที่ตีความได้หลายแบบคือ ambiguous (กำกวม) ส่วน explicit แปลว่าชัดเจนตรงไปตรงมา (ตรงข้าม) ambitious แปลว่าทะเยอทะยาน และ unanimous แปลว่าเป็นเอกฉันท์"
+   },
+   "choices": [
+    "ambiguous",
+    "unanimous",
+    "explicit",
+    "ambitious"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Inversion: little did …",
+    "th": "การสลับที่: Little did …"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Little ______ that the decision would change her life for ever.",
+   "explanation": {
+    "en": "Negative adverbs such as 'little' at the start of a sentence require inversion: 'Little did she know'.",
+    "th": "คำกริยาวิเศษณ์เชิงปฏิเสธ เช่น little เมื่ออยู่ต้นประโยคต้องสลับที่ จึงเป็น Little did she know"
+   },
+   "choices": [
+    "she knew",
+    "she did know",
+    "knew she",
+    "did she know"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Relative pronoun 'whose' for things",
+    "th": "whose ที่ใช้กับสิ่งของ"
+   },
+   "topic": {
+    "en": "Clauses and connectors",
+    "th": "อนุประโยคและคำเชื่อม"
+   },
+   "passage": "",
+   "stem": "The report, ______ conclusions were widely criticised, was eventually withdrawn.",
+   "explanation": {
+    "en": "'Whose' shows possession and can refer to things: the report's conclusions → whose conclusions. 'Which conclusions' and 'its conclusions' cannot introduce this clause, and 'that' is not used after a comma.",
+    "th": "whose แสดงความเป็นเจ้าของและใช้กับสิ่งของได้ (the report's conclusions → whose conclusions) ส่วน which และ its ใช้นำอนุประโยคนี้ไม่ได้ และ that ใช้หลังจุลภาคไม่ได้"
+   },
+   "choices": [
+    "that its",
+    "its",
+    "which",
+    "whose"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Past participle clause",
+    "th": "อนุประโยค past participle"
+   },
+   "topic": {
+    "en": "Clauses and connectors",
+    "th": "อนุประโยคและคำเชื่อม"
+   },
+   "passage": "",
+   "stem": "______ in the thirteenth century, the temple is one of the oldest buildings in the province.",
+   "explanation": {
+    "en": "The temple was built by others, so a passive participle clause is needed: 'Built in the thirteenth century, …'. 'Building' and 'Having built' would mean the temple did the building.",
+    "th": "วัดถูกสร้างโดยผู้อื่น จึงต้องใช้ past participle ในความหมาย passive คือ Built … ส่วน Building และ Having built แปลว่าวัดเป็นผู้สร้าง"
+   },
+   "choices": [
+    "To build",
+    "Having built",
+    "Built",
+    "Building"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Future perfect continuous",
+    "th": "future perfect continuous"
+   },
+   "topic": {
+    "en": "Tenses",
+    "th": "กาล (Tense)"
+   },
+   "passage": "",
+   "stem": "By this time next year, Somchai ______ at the university for six months.",
+   "explanation": {
+    "en": "'By this time next year … for six months' measures the duration of an action up to a point in the future: future perfect continuous.",
+    "th": "'By this time next year … for six months' บอกระยะเวลาของการกระทำจนถึงจุดหนึ่งในอนาคต จึงใช้ future perfect continuous"
+   },
+   "choices": [
+    "has been studying",
+    "will have been studying",
+    "is studying",
+    "will study"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Correlative: not … but …",
+    "th": "คำเชื่อมคู่ not … but …"
+   },
+   "topic": {
+    "en": "Clauses and connectors",
+    "th": "อนุประโยคและคำเชื่อม"
+   },
+   "passage": "",
+   "stem": "It was not the price ______ the poor service that made customers stop coming.",
+   "explanation": {
+    "en": "'Not X but Y' corrects a wrong idea: the cause was the service, not the price.",
+    "th": "not X but Y ใช้แก้ความเข้าใจผิด คือสาเหตุไม่ใช่ราคาแต่เป็นการบริการ"
+   },
+   "choices": [
+    "and",
+    "nor",
+    "or",
+    "but"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inverted third conditional",
+    "th": "เงื่อนไขแบบที่ 3 แบบสลับที่"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "stem": "______ the instructions more carefully, he would not have broken the machine.",
+   "explanation": {
+    "en": "'Would not have broken' is a third-conditional result, so the condition must be past perfect. Without 'if', it is inverted: 'Had he read'.",
+    "th": "would not have broken เป็นผลของเงื่อนไขแบบที่ 3 เงื่อนไขจึงต้องเป็น past perfect และเมื่อละ if ต้องสลับที่เป็น Had he read"
+   },
+   "choices": [
+    "If he read",
+    "Had he read",
+    "Did he read",
+    "Should he read"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Passive reporting + perfect infinitive",
+    "th": "passive ของกริยารายงาน + perfect infinitive"
+   },
+   "topic": {
+    "en": "Passive voice",
+    "th": "ประโยค passive"
+   },
+   "passage": "",
+   "stem": "The suspect is believed ______ the country last week, shortly before the police arrived.",
+   "explanation": {
+    "en": "The belief is now, but the leaving happened earlier (last week), so the perfect infinitive is needed: 'is believed to have left'.",
+    "th": "ความเชื่อเกิดขึ้นตอนนี้ แต่การออกนอกประเทศเกิดก่อนหน้า (สัปดาห์ที่แล้ว) จึงต้องใช้ perfect infinitive คือ is believed to have left"
+   },
+   "choices": [
+    "leaving",
+    "having left",
+    "to have left",
+    "to leave"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Formal conditional: were … to",
+    "th": "เงื่อนไขแบบทางการ: were … to"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "stem": "Were the government ______ taxes on sugar, the price of soft drinks would rise sharply.",
+   "explanation": {
+    "en": "'Were + subject + to-infinitive' is a formal inverted form of 'If the government raised …'.",
+    "th": "Were + ประธาน + to-infinitive เป็นรูปสลับที่แบบทางการของ If the government raised …"
+   },
+   "choices": [
+    "raising",
+    "raised",
+    "raise",
+    "to raise"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Agreement after 'one of those who'",
+    "th": "ความสอดคล้องหลัง one of those who"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "She is one of those people who ______ always complaining about something.",
+   "explanation": {
+    "en": "'Who' refers to 'those people' (plural), not to 'one', so the verb is 'are'.",
+    "th": "who แทน those people ซึ่งเป็นพหูพจน์ ไม่ได้แทน one กริยาจึงต้องเป็น are"
+   },
+   "choices": [
+    "are",
+    "was",
+    "is",
+    "has"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "would sooner … than + bare infinitive",
+    "th": "would sooner … than + infinitive ไม่มี to"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบกริยา (gerund/infinitive)"
+   },
+   "passage": "",
+   "stem": "I'd sooner walk home than ______ for a taxi in this rain.",
+   "explanation": {
+    "en": "'Would sooner/rather do X than do Y' uses the bare infinitive in both parts.",
+    "th": "would sooner/rather do X than do Y ใช้ infinitive ไม่มี to ทั้งสองส่วน"
+   },
+   "choices": [
+    "waited",
+    "waiting",
+    "to wait",
+    "wait"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "reach a decision (no preposition)",
+    "th": "reach a decision (ไม่ใช้บุพบท)"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบกริยา (gerund/infinitive)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The committee spent three hours [[discussing]] the proposal [[without]] [[reaching]] [[to]] a decision.",
+   "explanation": {
+    "en": "'Reach' is transitive: we 'reach a decision', not 'reach to a decision'. (Note also 'discuss' with no 'about'.)",
+    "th": "reach เป็นกริยาที่ตามด้วยกรรมโดยตรง ใช้ reach a decision ไม่ใช่ reach to a decision"
+   },
+   "choices": [
+    "discussing",
+    "without",
+    "reaching",
+    "to"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Participle clause of result",
+    "th": "participle clause แสดงผล"
+   },
+   "topic": {
+    "en": "Clauses and connectors",
+    "th": "อนุประโยคและคำเชื่อม"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: Scarcely [[had]] the plane taken off [[when]] one of the engines [[caught]] fire, [[forced]] the pilot to return.",
+   "explanation": {
+    "en": "The last part shows the result of the fire and needs an active present participle: '…caught fire, forcing the pilot to return'.",
+    "th": "ส่วนท้ายแสดงผลของไฟไหม้ ต้องใช้ present participle แบบ active คือ … caught fire, forcing the pilot to return"
+   },
+   "choices": [
+    "had",
+    "when",
+    "caught",
+    "forced"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "e",
+   "skill": {
+    "en": "Uncountable noun: information",
+    "th": "คำนามนับไม่ได้ information"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[Informations]] about the course [[is]] available [[on]] the school's [[website]].",
+   "explanation": {
+    "en": "'Information' is uncountable and has no plural form; the verb 'is' is correct for it.",
+    "th": "information เป็นคำนามนับไม่ได้ ไม่มีรูปพหูพจน์ และกริยา is ถูกต้องแล้ว"
+   },
+   "choices": [
+    "Informations",
+    "is",
+    "on",
+    "website"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Agreement with 'along with'",
+    "th": "ความสอดคล้องกับ along with"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The professor, [[along with]] her students, [[are]] [[travelling]] to the conference [[by]] train.",
+   "explanation": {
+    "en": "Phrases such as 'along with' or 'as well as' do not change the subject. The subject is 'the professor', so the verb is 'is'.",
+    "th": "วลี along with หรือ as well as ไม่ได้ทำให้ประธานเปลี่ยน ประธานคือ the professor กริยาจึงต้องเป็น is"
+   },
+   "choices": [
+    "along with",
+    "are",
+    "travelling",
+    "by"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "fewer vs less",
+    "th": "fewer กับ less"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[Less]] students applied this year [[than]] last year, [[so]] the school [[extended]] the deadline.",
+   "explanation": {
+    "en": "'Students' is a plural countable noun, so it takes 'fewer', not 'less'.",
+    "th": "students เป็นคำนามนับได้พหูพจน์ จึงต้องใช้ fewer ไม่ใช่ less"
+   },
+   "choices": [
+    "Less",
+    "than",
+    "so",
+    "extended"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "would rather … than + bare infinitive",
+    "th": "would rather … than + infinitive ไม่มี to"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบกริยา (gerund/infinitive)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: She would rather [[stay]] at home tonight [[than]] [[going]] to the party, [[which]] starts very late.",
+   "explanation": {
+    "en": "After 'would rather … than' both verbs take the bare infinitive: 'than go to the party'.",
+    "th": "หลัง would rather … than กริยาทั้งสองต้องเป็น infinitive ไม่มี to จึงต้องเป็น than go"
+   },
+   "choices": [
+    "stay",
+    "than",
+    "going",
+    "which"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Plural after 'a number of'",
+    "th": "คำนามพหูพจน์หลัง a number of"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The research team [[has made]] [[a number of]] important [[discovery]] [[over]] the past decade.",
+   "explanation": {
+    "en": "'A number of' is followed by a plural noun: 'a number of important discoveries'.",
+    "th": "a number of ต้องตามด้วยคำนามพหูพจน์ คือ a number of important discoveries"
+   },
+   "choices": [
+    "has made",
+    "a number of",
+    "discovery",
+    "over"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion after 'Never before'",
+    "th": "การสลับที่หลัง Never before"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[Never before]] [[the city has seen]] such a large protest, [[and]] the police [[were]] unprepared.",
+   "explanation": {
+    "en": "A negative adverbial at the start of the sentence requires inversion: 'Never before had the city seen …' (past perfect, since the police were unprepared at that past time).",
+    "th": "คำกริยาวิเศษณ์เชิงปฏิเสธที่ต้นประโยคต้องสลับที่ คือ Never before had the city seen … (ใช้ past perfect เพราะตำรวจไม่พร้อมในเวลานั้นในอดีต)"
+   },
+   "choices": [
+    "Never before",
+    "the city has seen",
+    "and",
+    "were"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Present perfect passive",
+    "th": "present perfect แบบ passive"
+   },
+   "topic": {
+    "en": "Passive voice",
+    "th": "ประโยค passive"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The warning system, [[which]] was installed in 2006, [[has]] [[been improving]] several times [[since then]].",
+   "explanation": {
+    "en": "The system does not improve itself; engineers improve it, and 'several times' counts completed actions. It should be passive: 'has been improved'.",
+    "th": "ระบบไม่ได้ปรับปรุงตัวเอง แต่ถูกวิศวกรปรับปรุง และ several times นับการกระทำที่เสร็จแล้ว จึงต้องใช้ passive คือ has been improved"
+   },
+   "choices": [
+    "which",
+    "has",
+    "been improving",
+    "since then"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "It's no use + -ing",
+    "th": "It's no use + V-ing"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบกริยา (gerund/infinitive)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[It's]] no use [[to argue]] with him; he [[never]] changes his mind [[once]] it is made up.",
+   "explanation": {
+    "en": "The fixed expression 'It's no use' is followed by the -ing form: 'It's no use arguing with him'.",
+    "th": "สำนวน It's no use ต้องตามด้วย V-ing คือ It's no use arguing with him"
+   },
+   "choices": [
+    "It's",
+    "to argue",
+    "never",
+    "once"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Fixed phrase: in danger of",
+    "th": "วลีตายตัว in danger of"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Of the roughly 7,000 languages spoken in the world today, linguists estimate that around half are (1) ______ danger of disappearing by the end of this century. A language rarely dies suddenly. (2) ______, it fades over several generations, as parents who speak it at home decide that their children's future lies in a more widely used language. The children grow up understanding their grandparents' speech but no longer using it, and their own children may not understand it at all. When the last fluent speaker dies, much more is lost than a set of words. Languages (3) ______ knowledge that is often found nowhere else: names for local plants and their medical uses, ways of describing the landscape, and stories that record events from centuries ago. Efforts to (4) ______ endangered languages have had mixed results. Some, such as Welsh and Hawaiian, have recovered remarkably, largely because they were introduced into schools and given official status. Others survive only in recordings and dictionaries, (5) ______ they are studied by researchers but spoken by no one. The lesson from the successful cases is that documentation, however valuable, is not enough. A language stays alive only if people have reasons to speak it in their daily lives — and that depends (6) ______ on linguists than on the choices of ordinary families.",
+   "stem": "Which choice best fits blank (1)?",
+   "explanation": {
+    "en": "The fixed phrase is 'in danger of + -ing'. ('At risk of' uses 'at', but not with 'danger'.)",
+    "th": "วลีตายตัวคือ in danger of + V-ing (ส่วน at ใช้กับ at risk of ไม่ใช้กับ danger)"
+   },
+   "choices": [
+    "on",
+    "in",
+    "at",
+    "under"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Linking adverb: instead",
+    "th": "คำเชื่อม instead"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Of the roughly 7,000 languages spoken in the world today, linguists estimate that around half are (1) ______ danger of disappearing by the end of this century. A language rarely dies suddenly. (2) ______, it fades over several generations, as parents who speak it at home decide that their children's future lies in a more widely used language. The children grow up understanding their grandparents' speech but no longer using it, and their own children may not understand it at all. When the last fluent speaker dies, much more is lost than a set of words. Languages (3) ______ knowledge that is often found nowhere else: names for local plants and their medical uses, ways of describing the landscape, and stories that record events from centuries ago. Efforts to (4) ______ endangered languages have had mixed results. Some, such as Welsh and Hawaiian, have recovered remarkably, largely because they were introduced into schools and given official status. Others survive only in recordings and dictionaries, (5) ______ they are studied by researchers but spoken by no one. The lesson from the successful cases is that documentation, however valuable, is not enough. A language stays alive only if people have reasons to speak it in their daily lives — and that depends (6) ______ on linguists than on the choices of ordinary families.",
+   "stem": "Which choice best fits blank (2)?",
+   "explanation": {
+    "en": "The writer rejects one idea (sudden death) and gives the real process: 'Instead, it fades …'. The other words express condition, result and similarity.",
+    "th": "ผู้เขียนปฏิเสธความคิดหนึ่ง (ตายทันที) แล้วบอกสิ่งที่เกิดจริง จึงใช้ Instead ส่วนคำอื่นแสดงเงื่อนไข ผลลัพธ์ และความคล้ายคลึง"
+   },
+   "choices": [
+    "Therefore",
+    "Otherwise",
+    "Similarly",
+    "Instead"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Academic verb: encode",
+    "th": "คำกริยาเชิงวิชาการ encode"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Of the roughly 7,000 languages spoken in the world today, linguists estimate that around half are (1) ______ danger of disappearing by the end of this century. A language rarely dies suddenly. (2) ______, it fades over several generations, as parents who speak it at home decide that their children's future lies in a more widely used language. The children grow up understanding their grandparents' speech but no longer using it, and their own children may not understand it at all. When the last fluent speaker dies, much more is lost than a set of words. Languages (3) ______ knowledge that is often found nowhere else: names for local plants and their medical uses, ways of describing the landscape, and stories that record events from centuries ago. Efforts to (4) ______ endangered languages have had mixed results. Some, such as Welsh and Hawaiian, have recovered remarkably, largely because they were introduced into schools and given official status. Others survive only in recordings and dictionaries, (5) ______ they are studied by researchers but spoken by no one. The lesson from the successful cases is that documentation, however valuable, is not enough. A language stays alive only if people have reasons to speak it in their daily lives — and that depends (6) ______ on linguists than on the choices of ordinary families.",
+   "stem": "Which choice best fits blank (3)?",
+   "explanation": {
+    "en": "Languages 'encode' (store in their words and structures) knowledge about plants, landscapes and history. 'Decode' means interpret a code, 'enrol' means register, and 'enclose' means surround or put in an envelope.",
+    "th": "ภาษาบรรจุ (encode) ความรู้เรื่องพืช ภูมิประเทศ และประวัติศาสตร์ไว้ในคำและโครงสร้าง ส่วน decode แปลว่าถอดรหัส enrol แปลว่าลงทะเบียน และ enclose แปลว่าล้อมรอบหรือแนบ"
+   },
+   "choices": [
+    "decode",
+    "encode",
+    "enrol",
+    "enclose"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Confusable verbs: revive",
+    "th": "คำกริยาที่สับสนง่าย revive"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Of the roughly 7,000 languages spoken in the world today, linguists estimate that around half are (1) ______ danger of disappearing by the end of this century. A language rarely dies suddenly. (2) ______, it fades over several generations, as parents who speak it at home decide that their children's future lies in a more widely used language. The children grow up understanding their grandparents' speech but no longer using it, and their own children may not understand it at all. When the last fluent speaker dies, much more is lost than a set of words. Languages (3) ______ knowledge that is often found nowhere else: names for local plants and their medical uses, ways of describing the landscape, and stories that record events from centuries ago. Efforts to (4) ______ endangered languages have had mixed results. Some, such as Welsh and Hawaiian, have recovered remarkably, largely because they were introduced into schools and given official status. Others survive only in recordings and dictionaries, (5) ______ they are studied by researchers but spoken by no one. The lesson from the successful cases is that documentation, however valuable, is not enough. A language stays alive only if people have reasons to speak it in their daily lives — and that depends (6) ______ on linguists than on the choices of ordinary families.",
+   "stem": "Which choice best fits blank (4)?",
+   "explanation": {
+    "en": "To 'revive' a language is to bring it back into use, as with Welsh and Hawaiian. 'Review' and 'revise' mean check or change, and 'revolve' means turn around.",
+    "th": "revive แปลว่าฟื้นฟู ทำให้กลับมาใช้อีก เช่นกรณีภาษาเวลส์และฮาวาย ส่วน review และ revise แปลว่าทบทวนหรือแก้ไข และ revolve แปลว่าหมุนรอบ"
+   },
+   "choices": [
+    "revolve",
+    "revive",
+    "review",
+    "revise"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Relative adverb 'where'",
+    "th": "relative adverb where"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Of the roughly 7,000 languages spoken in the world today, linguists estimate that around half are (1) ______ danger of disappearing by the end of this century. A language rarely dies suddenly. (2) ______, it fades over several generations, as parents who speak it at home decide that their children's future lies in a more widely used language. The children grow up understanding their grandparents' speech but no longer using it, and their own children may not understand it at all. When the last fluent speaker dies, much more is lost than a set of words. Languages (3) ______ knowledge that is often found nowhere else: names for local plants and their medical uses, ways of describing the landscape, and stories that record events from centuries ago. Efforts to (4) ______ endangered languages have had mixed results. Some, such as Welsh and Hawaiian, have recovered remarkably, largely because they were introduced into schools and given official status. Others survive only in recordings and dictionaries, (5) ______ they are studied by researchers but spoken by no one. The lesson from the successful cases is that documentation, however valuable, is not enough. A language stays alive only if people have reasons to speak it in their daily lives — and that depends (6) ______ on linguists than on the choices of ordinary families.",
+   "stem": "Which choice best fits blank (5)?",
+   "explanation": {
+    "en": "The clause 'they are studied … but spoken by no one' is complete, so we need a relative adverb meaning 'in which': 'where'. 'Which' and 'that' would need a missing subject or object.",
+    "th": "อนุประโยค they are studied … สมบูรณ์แล้ว จึงต้องใช้ relative adverb ที่หมายถึง in which คือ where ส่วน which และ that ต้องมีประธานหรือกรรมที่ขาดอยู่"
+   },
+   "choices": [
+    "which",
+    "what",
+    "where",
+    "that"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Comparative logic: less … than",
+    "th": "ตรรกะการเปรียบเทียบ less … than"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Of the roughly 7,000 languages spoken in the world today, linguists estimate that around half are (1) ______ danger of disappearing by the end of this century. A language rarely dies suddenly. (2) ______, it fades over several generations, as parents who speak it at home decide that their children's future lies in a more widely used language. The children grow up understanding their grandparents' speech but no longer using it, and their own children may not understand it at all. When the last fluent speaker dies, much more is lost than a set of words. Languages (3) ______ knowledge that is often found nowhere else: names for local plants and their medical uses, ways of describing the landscape, and stories that record events from centuries ago. Efforts to (4) ______ endangered languages have had mixed results. Some, such as Welsh and Hawaiian, have recovered remarkably, largely because they were introduced into schools and given official status. Others survive only in recordings and dictionaries, (5) ______ they are studied by researchers but spoken by no one. The lesson from the successful cases is that documentation, however valuable, is not enough. A language stays alive only if people have reasons to speak it in their daily lives — and that depends (6) ______ on linguists than on the choices of ordinary families.",
+   "stem": "Which choice best fits blank (6)?",
+   "explanation": {
+    "en": "The paragraph argues that documentation (the linguists' work) is not enough and daily use matters most, so survival depends 'less on linguists than on … families'. 'More' reverses the argument, 'fewer' is for countable nouns, and 'rather on' would need 'than' immediately after 'rather' to make sense.",
+    "th": "ย่อหน้านี้บอกว่าการบันทึกของนักภาษาศาสตร์ไม่พอ การใช้ในชีวิตประจำวันสำคัญที่สุด จึงขึ้นอยู่กับนักภาษาศาสตร์น้อยกว่าครอบครัว (less … than) ส่วน more ทำให้ความหมายกลับกัน fewer ใช้กับคำนามนับได้ และ rather ไม่เข้ากับโครงสร้าง"
+   },
+   "choices": [
+    "more",
+    "rather",
+    "fewer",
+    "less"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Noun after adjective: accuracy",
+    "th": "คำนามหลังคำคุณศัพท์: accuracy"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Each spring and summer, a tree adds a new layer of wood beneath its bark. In good years, when rain is plentiful, this layer is wide; in years of drought it is narrow. Over time these layers form the rings that can be seen when a trunk is cut across. By counting them, scientists can determine a tree's age with remarkable (7) ______. But the rings reveal much more than age. Because trees in the same region respond to the same weather, their patterns of wide and narrow rings closely (8) ______ each other. By matching the patterns in living trees with those in old timber from buildings, and then with even older wood (9) ______ in bogs or riverbeds, researchers have built continuous records stretching back thousands of years. Such records have proved invaluable. They have allowed historians to date wooden objects precisely, and climate scientists to reconstruct droughts that occurred long before any instruments existed to measure rainfall. In Southeast Asia, studies of teak have revealed a series of severe droughts in the fourteenth and fifteenth centuries, (10) ______ some historians believe may have contributed to the decline of powerful kingdoms. The method is not without limitations. Trees in the tropics do not always form clear annual rings, and wood that has (11) ______ cannot be studied at all. (12) ______ these difficulties, tree rings remain one of the most reliable natural archives we have.",
+   "stem": "Which choice best fits blank (7)?",
+   "explanation": {
+    "en": "After 'with remarkable' we need a noun: 'with remarkable accuracy'. 'Accurate' is an adjective, 'accurately' an adverb and 'accustom' a verb.",
+    "th": "หลัง with remarkable ต้องใช้คำนาม คือ accuracy ส่วน accurate เป็นคำคุณศัพท์ accurately เป็นคำกริยาวิเศษณ์ และ accustom เป็นคำกริยา"
+   },
+   "choices": [
+    "accuracy",
+    "accurate",
+    "accurately",
+    "accustom"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "resemble (no preposition)",
+    "th": "resemble (ไม่ใช้บุพบท)"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Each spring and summer, a tree adds a new layer of wood beneath its bark. In good years, when rain is plentiful, this layer is wide; in years of drought it is narrow. Over time these layers form the rings that can be seen when a trunk is cut across. By counting them, scientists can determine a tree's age with remarkable (7) ______. But the rings reveal much more than age. Because trees in the same region respond to the same weather, their patterns of wide and narrow rings closely (8) ______ each other. By matching the patterns in living trees with those in old timber from buildings, and then with even older wood (9) ______ in bogs or riverbeds, researchers have built continuous records stretching back thousands of years. Such records have proved invaluable. They have allowed historians to date wooden objects precisely, and climate scientists to reconstruct droughts that occurred long before any instruments existed to measure rainfall. In Southeast Asia, studies of teak have revealed a series of severe droughts in the fourteenth and fifteenth centuries, (10) ______ some historians believe may have contributed to the decline of powerful kingdoms. The method is not without limitations. Trees in the tropics do not always form clear annual rings, and wood that has (11) ______ cannot be studied at all. (12) ______ these difficulties, tree rings remain one of the most reliable natural archives we have.",
+   "stem": "Which choice best fits blank (8)?",
+   "explanation": {
+    "en": "A verb is needed before 'each other', and 'resemble' takes a direct object. 'Similar' and 'alike' are adjectives that need 'are', and 'resemble to' is a common error.",
+    "th": "ช่องนี้ต้องการคำกริยาที่มีกรรม each other และ resemble ตามด้วยกรรมโดยตรง ส่วน similar และ alike เป็นคำคุณศัพท์ที่ต้องมี are และ resemble to เป็นข้อผิดพลาดที่พบบ่อย"
+   },
+   "choices": [
+    "resemble",
+    "alike",
+    "resemble to",
+    "similar"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Reduced passive relative clause",
+    "th": "อนุประโยคขยายแบบลดรูป passive"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Each spring and summer, a tree adds a new layer of wood beneath its bark. In good years, when rain is plentiful, this layer is wide; in years of drought it is narrow. Over time these layers form the rings that can be seen when a trunk is cut across. By counting them, scientists can determine a tree's age with remarkable (7) ______. But the rings reveal much more than age. Because trees in the same region respond to the same weather, their patterns of wide and narrow rings closely (8) ______ each other. By matching the patterns in living trees with those in old timber from buildings, and then with even older wood (9) ______ in bogs or riverbeds, researchers have built continuous records stretching back thousands of years. Such records have proved invaluable. They have allowed historians to date wooden objects precisely, and climate scientists to reconstruct droughts that occurred long before any instruments existed to measure rainfall. In Southeast Asia, studies of teak have revealed a series of severe droughts in the fourteenth and fifteenth centuries, (10) ______ some historians believe may have contributed to the decline of powerful kingdoms. The method is not without limitations. Trees in the tropics do not always form clear annual rings, and wood that has (11) ______ cannot be studied at all. (12) ______ these difficulties, tree rings remain one of the most reliable natural archives we have.",
+   "stem": "Which choice best fits blank (9)?",
+   "explanation": {
+    "en": "'Wood preserved in bogs' is a reduced form of 'wood that has been preserved', so the passive participle is needed. Wood does not preserve something itself.",
+    "th": "wood preserved in bogs ลดรูปมาจาก wood that has been preserved จึงต้องใช้ past participle ในความหมาย passive ไม้ไม่ได้เป็นผู้เก็บรักษาสิ่งใด"
+   },
+   "choices": [
+    "preserves",
+    "preserved",
+    "to preserve",
+    "preserving"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "which as subject with an inserted clause",
+    "th": "which เป็นประธานโดยมีอนุประโยคแทรก"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Each spring and summer, a tree adds a new layer of wood beneath its bark. In good years, when rain is plentiful, this layer is wide; in years of drought it is narrow. Over time these layers form the rings that can be seen when a trunk is cut across. By counting them, scientists can determine a tree's age with remarkable (7) ______. But the rings reveal much more than age. Because trees in the same region respond to the same weather, their patterns of wide and narrow rings closely (8) ______ each other. By matching the patterns in living trees with those in old timber from buildings, and then with even older wood (9) ______ in bogs or riverbeds, researchers have built continuous records stretching back thousands of years. Such records have proved invaluable. They have allowed historians to date wooden objects precisely, and climate scientists to reconstruct droughts that occurred long before any instruments existed to measure rainfall. In Southeast Asia, studies of teak have revealed a series of severe droughts in the fourteenth and fifteenth centuries, (10) ______ some historians believe may have contributed to the decline of powerful kingdoms. The method is not without limitations. Trees in the tropics do not always form clear annual rings, and wood that has (11) ______ cannot be studied at all. (12) ______ these difficulties, tree rings remain one of the most reliable natural archives we have.",
+   "stem": "Which choice best fits blank (10)?",
+   "explanation": {
+    "en": "'Which' refers back to the droughts and is the subject of 'may have contributed', with 'some historians believe' inserted. After a comma we use 'which', not 'that'; 'when' would leave 'may have contributed' with no subject.",
+    "th": "which แทน droughts และเป็นประธานของ may have contributed โดยมี some historians believe แทรกอยู่ หลังจุลภาคใช้ which ไม่ใช้ that ส่วน when ทำให้ may have contributed ไม่มีประธาน"
+   },
+   "choices": [
+    "when",
+    "what",
+    "which",
+    "that"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Phrasal verb: rot away",
+    "th": "กริยาวลี rot away"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Each spring and summer, a tree adds a new layer of wood beneath its bark. In good years, when rain is plentiful, this layer is wide; in years of drought it is narrow. Over time these layers form the rings that can be seen when a trunk is cut across. By counting them, scientists can determine a tree's age with remarkable (7) ______. But the rings reveal much more than age. Because trees in the same region respond to the same weather, their patterns of wide and narrow rings closely (8) ______ each other. By matching the patterns in living trees with those in old timber from buildings, and then with even older wood (9) ______ in bogs or riverbeds, researchers have built continuous records stretching back thousands of years. Such records have proved invaluable. They have allowed historians to date wooden objects precisely, and climate scientists to reconstruct droughts that occurred long before any instruments existed to measure rainfall. In Southeast Asia, studies of teak have revealed a series of severe droughts in the fourteenth and fifteenth centuries, (10) ______ some historians believe may have contributed to the decline of powerful kingdoms. The method is not without limitations. Trees in the tropics do not always form clear annual rings, and wood that has (11) ______ cannot be studied at all. (12) ______ these difficulties, tree rings remain one of the most reliable natural archives we have.",
+   "stem": "Which choice best fits blank (11)?",
+   "explanation": {
+    "en": "Wood that has 'rotted away' has decayed completely, so there are no rings to study. 'Given away' means donated, and 'rotted off' and 'worn on' do not fit.",
+    "th": "rotted away แปลว่าผุพังไปหมด จึงไม่เหลือวงปีให้ศึกษา ส่วน given away แปลว่ายกให้ และ rotted off, worn on ไม่เข้ากับบริบท"
+   },
+   "choices": [
+    "worn on",
+    "rotted off",
+    "given away",
+    "rotted away"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Despite + noun phrase",
+    "th": "Despite + นามวลี"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Each spring and summer, a tree adds a new layer of wood beneath its bark. In good years, when rain is plentiful, this layer is wide; in years of drought it is narrow. Over time these layers form the rings that can be seen when a trunk is cut across. By counting them, scientists can determine a tree's age with remarkable (7) ______. But the rings reveal much more than age. Because trees in the same region respond to the same weather, their patterns of wide and narrow rings closely (8) ______ each other. By matching the patterns in living trees with those in old timber from buildings, and then with even older wood (9) ______ in bogs or riverbeds, researchers have built continuous records stretching back thousands of years. Such records have proved invaluable. They have allowed historians to date wooden objects precisely, and climate scientists to reconstruct droughts that occurred long before any instruments existed to measure rainfall. In Southeast Asia, studies of teak have revealed a series of severe droughts in the fourteenth and fifteenth centuries, (10) ______ some historians believe may have contributed to the decline of powerful kingdoms. The method is not without limitations. Trees in the tropics do not always form clear annual rings, and wood that has (11) ______ cannot be studied at all. (12) ______ these difficulties, tree rings remain one of the most reliable natural archives we have.",
+   "stem": "Which choice best fits blank (12)?",
+   "explanation": {
+    "en": "A noun phrase ('these difficulties') follows and the meaning is contrast, so 'Despite' is right. 'Although' needs a clause, 'Because of' gives the wrong meaning, and 'Even so' is followed by a comma and a clause.",
+    "th": "ตามด้วยนามวลี these difficulties และมีความหมายขัดแย้ง จึงใช้ Despite ส่วน Although ต้องตามด้วยประโยค Because of ให้ความหมายผิด และ Even so ต้องตามด้วยจุลภาคและประโยค"
+   },
+   "choices": [
+    "Because of",
+    "Even so",
+    "Despite",
+    "Although"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Main idea",
+    "th": "ใจความสำคัญ"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "For most of the history of medicine, the placebo — a treatment with no active ingredient — was regarded as a nuisance. In clinical trials it existed only to be beaten: a new drug was considered effective if patients who received it improved more than those given sugar pills. That patients on placebo often improved too was treated as background noise, a statistical problem to be subtracted.\n\nOver the past few decades, however, researchers have begun to take that noise seriously. Brain-imaging studies have shown that when people in pain receive a placebo they believe to be a painkiller, their brains release natural pain-relieving chemicals. The improvement, in other words, is not merely imagined; it has a measurable physical basis. The size of the effect also depends on details that have nothing to do with chemistry. Two pills tend to work better than one, injections better than pills, and expensive placebos better than cheap ones. Even the colour of a tablet can influence how patients describe its effects.\n\nWhat these findings suggest is that the experience of being treated — the ritual of the consultation, the confidence of the doctor, the expectation of relief — is itself a kind of treatment. This helps to explain a puzzling observation: in some trials of treatments for pain, the effect of placebo appears to have grown stronger over the years, particularly in countries where advertising has made patients more familiar with the idea of medicines that work.\n\nThe obvious ethical difficulty is deception. A doctor who prescribes a sugar pill while claiming it is a powerful drug is lying to the patient, and most medical codes forbid this. Surprisingly, though, deception may not always be necessary. In a number of small studies, patients with conditions such as irritable bowel syndrome were given pills openly labelled as placebos and told honestly that they contained no medicine. Many still reported significant improvement compared with patients who received no pills at all.\n\nThese 'open-label' results should be treated with caution. The studies were small, and symptoms such as pain and tiredness are partly subjective, which makes them especially sensitive to expectation. No one suggests that a placebo can shrink a tumour or cure an infection. But the research has shifted the question that doctors ask. Instead of asking only which chemical a patient needs, they are beginning to ask how the way treatment is delivered might make every medicine, real or not, work a little better.",
+   "stem": "What is the main point of the passage?",
+   "explanation": {
+    "en": "The passage moves from the old view (a nuisance, 'noise') to evidence that the effect is physical, and ends with how this changes the questions doctors ask. It never claims placebos beat real drugs.",
+    "th": "บทความเล่าจากมุมมองเดิม (สิ่งรบกวน) ไปสู่หลักฐานว่าผลของยาหลอกมีพื้นฐานทางกาย และจบด้วยการที่แพทย์เริ่มตั้งคำถามใหม่ ไม่ได้อ้างว่ายาหลอกดีกว่ายาจริง"
+   },
+   "choices": [
+    "Clinical trials no longer need to compare new drugs with placebos.",
+    "The placebo effect, once dismissed, is now seen as real and as having lessons for medical practice.",
+    "Doctors should prescribe sugar pills instead of painkillers.",
+    "Placebos are more effective than most modern drugs."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Meaning of a metaphor",
+    "th": "ความหมายของการเปรียบเปรย"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "For most of the history of medicine, the placebo — a treatment with no active ingredient — was regarded as a nuisance. In clinical trials it existed only to be beaten: a new drug was considered effective if patients who received it improved more than those given sugar pills. That patients on placebo often improved too was treated as background noise, a statistical problem to be subtracted.\n\nOver the past few decades, however, researchers have begun to take that noise seriously. Brain-imaging studies have shown that when people in pain receive a placebo they believe to be a painkiller, their brains release natural pain-relieving chemicals. The improvement, in other words, is not merely imagined; it has a measurable physical basis. The size of the effect also depends on details that have nothing to do with chemistry. Two pills tend to work better than one, injections better than pills, and expensive placebos better than cheap ones. Even the colour of a tablet can influence how patients describe its effects.\n\nWhat these findings suggest is that the experience of being treated — the ritual of the consultation, the confidence of the doctor, the expectation of relief — is itself a kind of treatment. This helps to explain a puzzling observation: in some trials of treatments for pain, the effect of placebo appears to have grown stronger over the years, particularly in countries where advertising has made patients more familiar with the idea of medicines that work.\n\nThe obvious ethical difficulty is deception. A doctor who prescribes a sugar pill while claiming it is a powerful drug is lying to the patient, and most medical codes forbid this. Surprisingly, though, deception may not always be necessary. In a number of small studies, patients with conditions such as irritable bowel syndrome were given pills openly labelled as placebos and told honestly that they contained no medicine. Many still reported significant improvement compared with patients who received no pills at all.\n\nThese 'open-label' results should be treated with caution. The studies were small, and symptoms such as pain and tiredness are partly subjective, which makes them especially sensitive to expectation. No one suggests that a placebo can shrink a tumour or cure an infection. But the research has shifted the question that doctors ask. Instead of asking only which chemical a patient needs, they are beginning to ask how the way treatment is delivered might make every medicine, real or not, work a little better.",
+   "stem": "In paragraph 1, the phrase 'background noise' refers to ______.",
+   "explanation": {
+    "en": "The improvement of placebo patients was 'a statistical problem to be subtracted' — something unwanted to be removed from the results, like noise on a recording.",
+    "th": "การดีขึ้นของผู้ป่วยที่ได้ยาหลอกถูกมองว่าเป็น 'ปัญหาทางสถิติที่ต้องหักออก' คือสิ่งที่ไม่ต้องการและต้องตัดออกจากผล เหมือนเสียงรบกวนในการบันทึก"
+   },
+   "choices": [
+    "results that researchers regarded as unimportant and tried to remove",
+    "the sounds patients hear during brain scans",
+    "complaints from patients about side effects",
+    "the advertising of new medicines"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Detail",
+    "th": "รายละเอียด"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "For most of the history of medicine, the placebo — a treatment with no active ingredient — was regarded as a nuisance. In clinical trials it existed only to be beaten: a new drug was considered effective if patients who received it improved more than those given sugar pills. That patients on placebo often improved too was treated as background noise, a statistical problem to be subtracted.\n\nOver the past few decades, however, researchers have begun to take that noise seriously. Brain-imaging studies have shown that when people in pain receive a placebo they believe to be a painkiller, their brains release natural pain-relieving chemicals. The improvement, in other words, is not merely imagined; it has a measurable physical basis. The size of the effect also depends on details that have nothing to do with chemistry. Two pills tend to work better than one, injections better than pills, and expensive placebos better than cheap ones. Even the colour of a tablet can influence how patients describe its effects.\n\nWhat these findings suggest is that the experience of being treated — the ritual of the consultation, the confidence of the doctor, the expectation of relief — is itself a kind of treatment. This helps to explain a puzzling observation: in some trials of treatments for pain, the effect of placebo appears to have grown stronger over the years, particularly in countries where advertising has made patients more familiar with the idea of medicines that work.\n\nThe obvious ethical difficulty is deception. A doctor who prescribes a sugar pill while claiming it is a powerful drug is lying to the patient, and most medical codes forbid this. Surprisingly, though, deception may not always be necessary. In a number of small studies, patients with conditions such as irritable bowel syndrome were given pills openly labelled as placebos and told honestly that they contained no medicine. Many still reported significant improvement compared with patients who received no pills at all.\n\nThese 'open-label' results should be treated with caution. The studies were small, and symptoms such as pain and tiredness are partly subjective, which makes them especially sensitive to expectation. No one suggests that a placebo can shrink a tumour or cure an infection. But the research has shifted the question that doctors ask. Instead of asking only which chemical a patient needs, they are beginning to ask how the way treatment is delivered might make every medicine, real or not, work a little better.",
+   "stem": "According to the passage, which of the following tends to make a placebo more effective?",
+   "explanation": {
+    "en": "Paragraph 2: 'injections better than pills'. It also says two pills beat one and expensive placebos beat cheap ones, the reverse of two of the other options.",
+    "th": "ย่อหน้าที่ 2 ระบุว่าการฉีดได้ผลดีกว่ายาเม็ด และสองเม็ดดีกว่าหนึ่งเม็ด ยาหลอกราคาแพงดีกว่าราคาถูก ซึ่งตรงข้ามกับสองตัวเลือกอื่น"
+   },
+   "choices": [
+    "Being given as one pill rather than two",
+    "Being cheaper than other treatments",
+    "Containing a small amount of real medicine",
+    "Being given as an injection rather than a pill"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference about cause",
+    "th": "การอนุมานสาเหตุ"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "For most of the history of medicine, the placebo — a treatment with no active ingredient — was regarded as a nuisance. In clinical trials it existed only to be beaten: a new drug was considered effective if patients who received it improved more than those given sugar pills. That patients on placebo often improved too was treated as background noise, a statistical problem to be subtracted.\n\nOver the past few decades, however, researchers have begun to take that noise seriously. Brain-imaging studies have shown that when people in pain receive a placebo they believe to be a painkiller, their brains release natural pain-relieving chemicals. The improvement, in other words, is not merely imagined; it has a measurable physical basis. The size of the effect also depends on details that have nothing to do with chemistry. Two pills tend to work better than one, injections better than pills, and expensive placebos better than cheap ones. Even the colour of a tablet can influence how patients describe its effects.\n\nWhat these findings suggest is that the experience of being treated — the ritual of the consultation, the confidence of the doctor, the expectation of relief — is itself a kind of treatment. This helps to explain a puzzling observation: in some trials of treatments for pain, the effect of placebo appears to have grown stronger over the years, particularly in countries where advertising has made patients more familiar with the idea of medicines that work.\n\nThe obvious ethical difficulty is deception. A doctor who prescribes a sugar pill while claiming it is a powerful drug is lying to the patient, and most medical codes forbid this. Surprisingly, though, deception may not always be necessary. In a number of small studies, patients with conditions such as irritable bowel syndrome were given pills openly labelled as placebos and told honestly that they contained no medicine. Many still reported significant improvement compared with patients who received no pills at all.\n\nThese 'open-label' results should be treated with caution. The studies were small, and symptoms such as pain and tiredness are partly subjective, which makes them especially sensitive to expectation. No one suggests that a placebo can shrink a tumour or cure an infection. But the research has shifted the question that doctors ask. Instead of asking only which chemical a patient needs, they are beginning to ask how the way treatment is delivered might make every medicine, real or not, work a little better.",
+   "stem": "Why might placebo effects have grown stronger in some countries?",
+   "explanation": {
+    "en": "The writer links the growth to countries 'where advertising has made patients more familiar with the idea of medicines that work' — stronger expectations produce stronger effects.",
+    "th": "ผู้เขียนเชื่อมโยงกับประเทศที่โฆษณาทำให้ผู้ป่วยคุ้นเคยกับแนวคิดว่ายาได้ผล ความคาดหวังที่สูงขึ้นจึงทำให้ผลของยาหลอกแรงขึ้น"
+   },
+   "choices": [
+    "Doctors have become less confident than in the past.",
+    "Sugar pills are now made with better ingredients.",
+    "Advertising has led patients to expect more from medicines.",
+    "Fewer patients now take part in clinical trials."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Writer's attitude",
+    "th": "ทัศนคติของผู้เขียน"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "For most of the history of medicine, the placebo — a treatment with no active ingredient — was regarded as a nuisance. In clinical trials it existed only to be beaten: a new drug was considered effective if patients who received it improved more than those given sugar pills. That patients on placebo often improved too was treated as background noise, a statistical problem to be subtracted.\n\nOver the past few decades, however, researchers have begun to take that noise seriously. Brain-imaging studies have shown that when people in pain receive a placebo they believe to be a painkiller, their brains release natural pain-relieving chemicals. The improvement, in other words, is not merely imagined; it has a measurable physical basis. The size of the effect also depends on details that have nothing to do with chemistry. Two pills tend to work better than one, injections better than pills, and expensive placebos better than cheap ones. Even the colour of a tablet can influence how patients describe its effects.\n\nWhat these findings suggest is that the experience of being treated — the ritual of the consultation, the confidence of the doctor, the expectation of relief — is itself a kind of treatment. This helps to explain a puzzling observation: in some trials of treatments for pain, the effect of placebo appears to have grown stronger over the years, particularly in countries where advertising has made patients more familiar with the idea of medicines that work.\n\nThe obvious ethical difficulty is deception. A doctor who prescribes a sugar pill while claiming it is a powerful drug is lying to the patient, and most medical codes forbid this. Surprisingly, though, deception may not always be necessary. In a number of small studies, patients with conditions such as irritable bowel syndrome were given pills openly labelled as placebos and told honestly that they contained no medicine. Many still reported significant improvement compared with patients who received no pills at all.\n\nThese 'open-label' results should be treated with caution. The studies were small, and symptoms such as pain and tiredness are partly subjective, which makes them especially sensitive to expectation. No one suggests that a placebo can shrink a tumour or cure an infection. But the research has shifted the question that doctors ask. Instead of asking only which chemical a patient needs, they are beginning to ask how the way treatment is delivered might make every medicine, real or not, work a little better.",
+   "stem": "What is the writer's attitude towards the 'open-label' studies?",
+   "explanation": {
+    "en": "The writer calls the results 'surprising' but says they 'should be treated with caution' because the studies were small. Open-label studies involve no deception, and the improvement was significant.",
+    "th": "ผู้เขียนเห็นว่าผลน่าประหลาดใจ แต่บอกว่าควรรับฟังอย่างระมัดระวังเพราะงานวิจัยมีขนาดเล็ก การศึกษาแบบ open-label ไม่มีการหลอกลวง และผลดีขึ้นอย่างมีนัยสำคัญ"
+   },
+   "choices": [
+    "Indifferent, because the results were not significant",
+    "Interested but cautious, because the evidence is still limited",
+    "Completely dismissive, because the studies involved deception",
+    "Enthusiastic, because they prove placebos can cure serious diseases"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Inference from a remark",
+    "th": "การอนุมานจากคำพูดของตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่านเรื่องเล่า"
+   },
+   "passage": "The letter arrived on the morning my grandfather turned eighty, which my mother later said was either a coincidence or the cruellest joke the post office had ever played. It was addressed to him in careful, old-fashioned handwriting, and the stamp was from a country he had not visited for sixty years.\n\nHe did not open it at breakfast. He placed it beside his plate, squared its edges with the side of his hand, and went on eating his rice porridge as though it were an ordinary bill. My cousins and I, who had been told almost nothing about his life before he came to Thailand, exchanged glances across the table. My aunt asked, in the bright voice she used for difficult subjects, whether he was going to read it. 'Later,' he said, and that was the end of the conversation.\n\nLater turned out to be three days. In that time the envelope moved from the dining table to the shelf above his radio, and from there to the pocket of the cardigan he wore in the garden regardless of the heat. I began to understand that he was not ignoring it. He was keeping it close in the way you might keep a stone that is too hot to hold, waiting for it to cool.\n\nOn the fourth evening he called me into his room. He was sitting on the edge of the bed with the letter open on his knee, and his glasses had slipped down his nose. 'My eyes are tired,' he said, which I knew was not true; he read the newspaper every morning without difficulty. 'Read it to me.'\n\nThe letter was from a woman named Hana, the younger sister of a boy he had gone to school with. Her brother had died that spring. Among his things she had found a photograph of two boys on a bridge, and on the back, in her brother's writing, my grandfather's name and the words: 'I should have gone with him.' She did not know what it meant, she wrote, but she thought he should have it.\n\nWhen I finished, my grandfather took the photograph from the envelope and looked at it for a long time. Then he said something I have thought about ever since. 'All these years I believed he was angry with me for leaving. It never occurred to me that he might have envied me.' He laughed softly, wiped his eyes with the back of his wrist, and asked me to fetch a pen.",
+   "stem": "Why did the narrator's mother suggest the timing of the letter might be 'the cruellest joke'?",
+   "explanation": {
+    "en": "The letter, which brought news of a death and an old regret, arrived on his eightieth birthday — a celebration spoiled by sad news, which is why the timing seemed cruel.",
+    "th": "จดหมายที่นำข่าวการเสียชีวิตและความเสียใจในอดีตมาถึงในวันเกิดอายุแปดสิบปี วันที่ควรมีความสุขจึงถูกข่าวร้ายมาทำลาย การมาถึงในเวลานั้นจึงดูโหดร้าย"
+   },
+   "choices": [
+    "The letter had been sent to the wrong address.",
+    "Painful news from the past arrived on what should have been a happy day.",
+    "The grandfather disliked celebrating his birthday.",
+    "The post office often delivered letters late."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting a simile",
+    "th": "การตีความการเปรียบเทียบ (simile)"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่านเรื่องเล่า"
+   },
+   "passage": "The letter arrived on the morning my grandfather turned eighty, which my mother later said was either a coincidence or the cruellest joke the post office had ever played. It was addressed to him in careful, old-fashioned handwriting, and the stamp was from a country he had not visited for sixty years.\n\nHe did not open it at breakfast. He placed it beside his plate, squared its edges with the side of his hand, and went on eating his rice porridge as though it were an ordinary bill. My cousins and I, who had been told almost nothing about his life before he came to Thailand, exchanged glances across the table. My aunt asked, in the bright voice she used for difficult subjects, whether he was going to read it. 'Later,' he said, and that was the end of the conversation.\n\nLater turned out to be three days. In that time the envelope moved from the dining table to the shelf above his radio, and from there to the pocket of the cardigan he wore in the garden regardless of the heat. I began to understand that he was not ignoring it. He was keeping it close in the way you might keep a stone that is too hot to hold, waiting for it to cool.\n\nOn the fourth evening he called me into his room. He was sitting on the edge of the bed with the letter open on his knee, and his glasses had slipped down his nose. 'My eyes are tired,' he said, which I knew was not true; he read the newspaper every morning without difficulty. 'Read it to me.'\n\nThe letter was from a woman named Hana, the younger sister of a boy he had gone to school with. Her brother had died that spring. Among his things she had found a photograph of two boys on a bridge, and on the back, in her brother's writing, my grandfather's name and the words: 'I should have gone with him.' She did not know what it meant, she wrote, but she thought he should have it.\n\nWhen I finished, my grandfather took the photograph from the envelope and looked at it for a long time. Then he said something I have thought about ever since. 'All these years I believed he was angry with me for leaving. It never occurred to me that he might have envied me.' He laughed softly, wiped his eyes with the back of his wrist, and asked me to fetch a pen.",
+   "stem": "The comparison of the letter to 'a stone that is too hot to hold' suggests that the grandfather ______.",
+   "explanation": {
+    "en": "You keep a hot stone close but cannot hold it yet; you wait for it to cool. Likewise he kept the letter with him but needed time before facing it. The narrator says he 'was not ignoring it'.",
+    "th": "หินร้อนเก็บไว้ใกล้ตัวได้แต่ยังจับไม่ได้ ต้องรอให้เย็นก่อน เช่นเดียวกับที่คุณตาเก็บจดหมายไว้กับตัวแต่ต้องใช้เวลาก่อนจะเผชิญกับมัน ผู้เล่าบอกว่าคุณตาไม่ได้เพิกเฉยต่อจดหมาย"
+   },
+   "choices": [
+    "wanted to throw the letter away",
+    "was angry with the person who had sent it",
+    "felt the letter was too emotionally difficult to deal with straight away",
+    "had already guessed exactly what it said"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding a character's motive",
+    "th": "การเข้าใจแรงจูงใจของตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่านเรื่องเล่า"
+   },
+   "passage": "The letter arrived on the morning my grandfather turned eighty, which my mother later said was either a coincidence or the cruellest joke the post office had ever played. It was addressed to him in careful, old-fashioned handwriting, and the stamp was from a country he had not visited for sixty years.\n\nHe did not open it at breakfast. He placed it beside his plate, squared its edges with the side of his hand, and went on eating his rice porridge as though it were an ordinary bill. My cousins and I, who had been told almost nothing about his life before he came to Thailand, exchanged glances across the table. My aunt asked, in the bright voice she used for difficult subjects, whether he was going to read it. 'Later,' he said, and that was the end of the conversation.\n\nLater turned out to be three days. In that time the envelope moved from the dining table to the shelf above his radio, and from there to the pocket of the cardigan he wore in the garden regardless of the heat. I began to understand that he was not ignoring it. He was keeping it close in the way you might keep a stone that is too hot to hold, waiting for it to cool.\n\nOn the fourth evening he called me into his room. He was sitting on the edge of the bed with the letter open on his knee, and his glasses had slipped down his nose. 'My eyes are tired,' he said, which I knew was not true; he read the newspaper every morning without difficulty. 'Read it to me.'\n\nThe letter was from a woman named Hana, the younger sister of a boy he had gone to school with. Her brother had died that spring. Among his things she had found a photograph of two boys on a bridge, and on the back, in her brother's writing, my grandfather's name and the words: 'I should have gone with him.' She did not know what it meant, she wrote, but she thought he should have it.\n\nWhen I finished, my grandfather took the photograph from the envelope and looked at it for a long time. Then he said something I have thought about ever since. 'All these years I believed he was angry with me for leaving. It never occurred to me that he might have envied me.' He laughed softly, wiped his eyes with the back of his wrist, and asked me to fetch a pen.",
+   "stem": "What does the narrator believe about the grandfather's remark 'My eyes are tired'?",
+   "explanation": {
+    "en": "The narrator 'knew [it] was not true' because he read the newspaper easily, so it was an excuse: after waiting three days, he did not want to face the letter by himself.",
+    "th": "ผู้เล่ารู้ว่าไม่จริง เพราะคุณตาอ่านหนังสือพิมพ์ได้ทุกเช้า จึงเป็นข้ออ้าง หลังจากรอสามวัน คุณตาไม่อยากเผชิญกับจดหมายเพียงลำพัง"
+   },
+   "choices": [
+    "It means he has lost interest in the letter.",
+    "It is a way of testing the narrator's reading ability.",
+    "It is an excuse for something he finds hard to do alone.",
+    "It shows that he needs new glasses."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Detail",
+    "th": "รายละเอียด"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่านเรื่องเล่า"
+   },
+   "passage": "The letter arrived on the morning my grandfather turned eighty, which my mother later said was either a coincidence or the cruellest joke the post office had ever played. It was addressed to him in careful, old-fashioned handwriting, and the stamp was from a country he had not visited for sixty years.\n\nHe did not open it at breakfast. He placed it beside his plate, squared its edges with the side of his hand, and went on eating his rice porridge as though it were an ordinary bill. My cousins and I, who had been told almost nothing about his life before he came to Thailand, exchanged glances across the table. My aunt asked, in the bright voice she used for difficult subjects, whether he was going to read it. 'Later,' he said, and that was the end of the conversation.\n\nLater turned out to be three days. In that time the envelope moved from the dining table to the shelf above his radio, and from there to the pocket of the cardigan he wore in the garden regardless of the heat. I began to understand that he was not ignoring it. He was keeping it close in the way you might keep a stone that is too hot to hold, waiting for it to cool.\n\nOn the fourth evening he called me into his room. He was sitting on the edge of the bed with the letter open on his knee, and his glasses had slipped down his nose. 'My eyes are tired,' he said, which I knew was not true; he read the newspaper every morning without difficulty. 'Read it to me.'\n\nThe letter was from a woman named Hana, the younger sister of a boy he had gone to school with. Her brother had died that spring. Among his things she had found a photograph of two boys on a bridge, and on the back, in her brother's writing, my grandfather's name and the words: 'I should have gone with him.' She did not know what it meant, she wrote, but she thought he should have it.\n\nWhen I finished, my grandfather took the photograph from the envelope and looked at it for a long time. Then he said something I have thought about ever since. 'All these years I believed he was angry with me for leaving. It never occurred to me that he might have envied me.' He laughed softly, wiped his eyes with the back of his wrist, and asked me to fetch a pen.",
+   "stem": "Who wrote the letter?",
+   "explanation": {
+    "en": "Paragraph 5: the letter was from Hana, 'the younger sister of a boy he had gone to school with'. The friend himself had died.",
+    "th": "ย่อหน้าที่ 5 บอกว่าจดหมายมาจากฮานะ น้องสาวของเพื่อนที่เคยเรียนด้วยกัน ส่วนเพื่อนคนนั้นเสียชีวิตแล้ว"
+   },
+   "choices": [
+    "The sister of the grandfather's old school friend",
+    "A woman the grandfather had once worked with",
+    "The grandfather's old school friend",
+    "The grandfather's own younger sister"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Theme and character change",
+    "th": "แก่นเรื่องและการเปลี่ยนแปลงของตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่านเรื่องเล่า"
+   },
+   "passage": "The letter arrived on the morning my grandfather turned eighty, which my mother later said was either a coincidence or the cruellest joke the post office had ever played. It was addressed to him in careful, old-fashioned handwriting, and the stamp was from a country he had not visited for sixty years.\n\nHe did not open it at breakfast. He placed it beside his plate, squared its edges with the side of his hand, and went on eating his rice porridge as though it were an ordinary bill. My cousins and I, who had been told almost nothing about his life before he came to Thailand, exchanged glances across the table. My aunt asked, in the bright voice she used for difficult subjects, whether he was going to read it. 'Later,' he said, and that was the end of the conversation.\n\nLater turned out to be three days. In that time the envelope moved from the dining table to the shelf above his radio, and from there to the pocket of the cardigan he wore in the garden regardless of the heat. I began to understand that he was not ignoring it. He was keeping it close in the way you might keep a stone that is too hot to hold, waiting for it to cool.\n\nOn the fourth evening he called me into his room. He was sitting on the edge of the bed with the letter open on his knee, and his glasses had slipped down his nose. 'My eyes are tired,' he said, which I knew was not true; he read the newspaper every morning without difficulty. 'Read it to me.'\n\nThe letter was from a woman named Hana, the younger sister of a boy he had gone to school with. Her brother had died that spring. Among his things she had found a photograph of two boys on a bridge, and on the back, in her brother's writing, my grandfather's name and the words: 'I should have gone with him.' She did not know what it meant, she wrote, but she thought he should have it.\n\nWhen I finished, my grandfather took the photograph from the envelope and looked at it for a long time. Then he said something I have thought about ever since. 'All these years I believed he was angry with me for leaving. It never occurred to me that he might have envied me.' He laughed softly, wiped his eyes with the back of his wrist, and asked me to fetch a pen.",
+   "stem": "What does the grandfather realise at the end of the story?",
+   "explanation": {
+    "en": "The friend wrote 'I should have gone with him', and the grandfather says he had believed his friend was angry but now sees he 'might have envied' him.",
+    "th": "เพื่อนเขียนว่า 'ฉันน่าจะไปกับเขา' และคุณตาบอกว่าเคยเชื่อว่าเพื่อนโกรธ แต่ตอนนี้เข้าใจว่าเพื่อนอาจอิจฉาที่เขาได้จากไป"
+   },
+   "choices": [
+    "Hana had misunderstood her brother's words.",
+    "His friend had never forgiven him for leaving.",
+    "His friend may have regretted not leaving with him, rather than blaming him for going.",
+    "He should never have left his home country."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Main argument",
+    "th": "ข้อโต้แย้งหลัก"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Walk through the galleries of almost any major European museum and you will find objects that left their countries of origin under questionable circumstances: bronze sculptures removed by soldiers, stone carvings bought from officials who had no right to sell them, sacred objects taken from temples during periods of colonial rule. For decades, museums have resisted requests to return such items. Their arguments deserve to be heard, but I believe that, in most cases, they no longer hold.\n\nThe first argument is that these objects are safer where they are. Museums in wealthy countries, the claim goes, have the climate control, security and expert staff needed to preserve fragile works. This may once have been true, but it is increasingly difficult to defend. Many countries that have requested returns now have modern museums of their own, and some of the objects in question have been damaged in Western collections through poor storage or careless restoration. More fundamentally, the argument assumes that the original owners cannot be trusted with their own heritage — an assumption with an uncomfortable history.\n\nA second argument holds that great 'universal' museums allow visitors to compare civilisations side by side, and that dispersing their collections would destroy this. It is a genuinely attractive idea. Yet the universal museum is universal mainly for those who can travel to London, Paris or Berlin. For a student in Lagos or Phnom Penh, the most important objects from her own country's past may be thousands of kilometres away, and far more expensive for her to see than for a tourist from the city where they are kept.\n\nThe third argument is practical: if one object is returned, the museum will face endless demands, and its collections will be emptied. This fear seems exaggerated. Requests are generally made for a limited number of objects of special cultural or religious importance, not for every pot and coin. Moreover, return need not mean an end to cooperation. Several recent agreements have combined the transfer of ownership with long-term loans, joint research and exchanges of exhibitions.\n\nNone of this means that every claim is straightforward. Ownership can be genuinely unclear, especially when borders and states have changed, and each case requires careful research. But the burden of proof should lie with the museums. When an object was clearly taken by force or without the consent of those who owned it, the question should not be whether it can be returned, but how and when.",
+   "stem": "What is the writer's main argument?",
+   "explanation": {
+    "en": "The writer says the museums' arguments 'in most cases … no longer hold', but also that 'not every claim is straightforward' and each case needs research. 'All objects … immediately' goes too far.",
+    "th": "ผู้เขียนบอกว่าข้อโต้แย้งของพิพิธภัณฑ์ส่วนใหญ่ใช้ไม่ได้แล้ว แต่ก็ยอมรับว่าไม่ใช่ทุกกรณีจะตรงไปตรงมาและต้องศึกษาเป็นกรณีไป การคืนทุกชิ้นทันทีจึงเกินกว่าที่ผู้เขียนกล่าว"
+   },
+   "choices": [
+    "All objects in European museums should be returned immediately.",
+    "Museums should generally return objects that were taken unfairly, although each case needs careful study.",
+    "Universal museums are the best way to understand world history.",
+    "Objects are always safer in the museums of wealthy countries."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Text organisation",
+    "th": "การจัดโครงสร้างของบทอ่าน"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Walk through the galleries of almost any major European museum and you will find objects that left their countries of origin under questionable circumstances: bronze sculptures removed by soldiers, stone carvings bought from officials who had no right to sell them, sacred objects taken from temples during periods of colonial rule. For decades, museums have resisted requests to return such items. Their arguments deserve to be heard, but I believe that, in most cases, they no longer hold.\n\nThe first argument is that these objects are safer where they are. Museums in wealthy countries, the claim goes, have the climate control, security and expert staff needed to preserve fragile works. This may once have been true, but it is increasingly difficult to defend. Many countries that have requested returns now have modern museums of their own, and some of the objects in question have been damaged in Western collections through poor storage or careless restoration. More fundamentally, the argument assumes that the original owners cannot be trusted with their own heritage — an assumption with an uncomfortable history.\n\nA second argument holds that great 'universal' museums allow visitors to compare civilisations side by side, and that dispersing their collections would destroy this. It is a genuinely attractive idea. Yet the universal museum is universal mainly for those who can travel to London, Paris or Berlin. For a student in Lagos or Phnom Penh, the most important objects from her own country's past may be thousands of kilometres away, and far more expensive for her to see than for a tourist from the city where they are kept.\n\nThe third argument is practical: if one object is returned, the museum will face endless demands, and its collections will be emptied. This fear seems exaggerated. Requests are generally made for a limited number of objects of special cultural or religious importance, not for every pot and coin. Moreover, return need not mean an end to cooperation. Several recent agreements have combined the transfer of ownership with long-term loans, joint research and exchanges of exhibitions.\n\nNone of this means that every claim is straightforward. Ownership can be genuinely unclear, especially when borders and states have changed, and each case requires careful research. But the burden of proof should lie with the museums. When an object was clearly taken by force or without the consent of those who owned it, the question should not be whether it can be returned, but how and when.",
+   "stem": "How is the passage mainly organised?",
+   "explanation": {
+    "en": "Paragraphs 2–4 begin 'The first argument', 'A second argument' and 'The third argument', and each is followed by the writer's reply.",
+    "th": "ย่อหน้าที่ 2–4 ขึ้นต้นด้วย The first argument, A second argument และ The third argument แต่ละย่อหน้าตามด้วยการโต้แย้งของผู้เขียน"
+   },
+   "choices": [
+    "The writer presents three arguments against returning objects and responds to each one.",
+    "The writer lists the objects that should be returned first.",
+    "The writer compares the security systems of several museums.",
+    "The writer describes the history of one famous object in detail."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference from an understatement",
+    "th": "การอนุมานจากการพูดอ้อม"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Walk through the galleries of almost any major European museum and you will find objects that left their countries of origin under questionable circumstances: bronze sculptures removed by soldiers, stone carvings bought from officials who had no right to sell them, sacred objects taken from temples during periods of colonial rule. For decades, museums have resisted requests to return such items. Their arguments deserve to be heard, but I believe that, in most cases, they no longer hold.\n\nThe first argument is that these objects are safer where they are. Museums in wealthy countries, the claim goes, have the climate control, security and expert staff needed to preserve fragile works. This may once have been true, but it is increasingly difficult to defend. Many countries that have requested returns now have modern museums of their own, and some of the objects in question have been damaged in Western collections through poor storage or careless restoration. More fundamentally, the argument assumes that the original owners cannot be trusted with their own heritage — an assumption with an uncomfortable history.\n\nA second argument holds that great 'universal' museums allow visitors to compare civilisations side by side, and that dispersing their collections would destroy this. It is a genuinely attractive idea. Yet the universal museum is universal mainly for those who can travel to London, Paris or Berlin. For a student in Lagos or Phnom Penh, the most important objects from her own country's past may be thousands of kilometres away, and far more expensive for her to see than for a tourist from the city where they are kept.\n\nThe third argument is practical: if one object is returned, the museum will face endless demands, and its collections will be emptied. This fear seems exaggerated. Requests are generally made for a limited number of objects of special cultural or religious importance, not for every pot and coin. Moreover, return need not mean an end to cooperation. Several recent agreements have combined the transfer of ownership with long-term loans, joint research and exchanges of exhibitions.\n\nNone of this means that every claim is straightforward. Ownership can be genuinely unclear, especially when borders and states have changed, and each case requires careful research. But the burden of proof should lie with the museums. When an object was clearly taken by force or without the consent of those who owned it, the question should not be whether it can be returned, but how and when.",
+   "stem": "When the writer says the safety argument rests on 'an assumption with an uncomfortable history', the writer is suggesting that it ______.",
+   "explanation": {
+    "en": "The assumption is that 'the original owners cannot be trusted with their own heritage'. Its 'uncomfortable history' points to colonial-era beliefs that colonised peoples could not manage their own affairs.",
+    "th": "สมมติฐานคือ 'เจ้าของเดิมไม่น่าไว้ใจให้ดูแลมรดกของตนเอง' คำว่า uncomfortable history ชี้ไปที่ความคิดยุคอาณานิคมที่มองว่าคนในอาณานิคมดูแลตนเองไม่ได้"
+   },
+   "choices": [
+    "reflects colonial attitudes about who is capable of caring for heritage",
+    "has never been supported by any evidence",
+    "has been used to excuse thefts from museums",
+    "was first made by museum security staff"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Function of an example",
+    "th": "หน้าที่ของตัวอย่างในบทอ่าน"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Walk through the galleries of almost any major European museum and you will find objects that left their countries of origin under questionable circumstances: bronze sculptures removed by soldiers, stone carvings bought from officials who had no right to sell them, sacred objects taken from temples during periods of colonial rule. For decades, museums have resisted requests to return such items. Their arguments deserve to be heard, but I believe that, in most cases, they no longer hold.\n\nThe first argument is that these objects are safer where they are. Museums in wealthy countries, the claim goes, have the climate control, security and expert staff needed to preserve fragile works. This may once have been true, but it is increasingly difficult to defend. Many countries that have requested returns now have modern museums of their own, and some of the objects in question have been damaged in Western collections through poor storage or careless restoration. More fundamentally, the argument assumes that the original owners cannot be trusted with their own heritage — an assumption with an uncomfortable history.\n\nA second argument holds that great 'universal' museums allow visitors to compare civilisations side by side, and that dispersing their collections would destroy this. It is a genuinely attractive idea. Yet the universal museum is universal mainly for those who can travel to London, Paris or Berlin. For a student in Lagos or Phnom Penh, the most important objects from her own country's past may be thousands of kilometres away, and far more expensive for her to see than for a tourist from the city where they are kept.\n\nThe third argument is practical: if one object is returned, the museum will face endless demands, and its collections will be emptied. This fear seems exaggerated. Requests are generally made for a limited number of objects of special cultural or religious importance, not for every pot and coin. Moreover, return need not mean an end to cooperation. Several recent agreements have combined the transfer of ownership with long-term loans, joint research and exchanges of exhibitions.\n\nNone of this means that every claim is straightforward. Ownership can be genuinely unclear, especially when borders and states have changed, and each case requires careful research. But the burden of proof should lie with the museums. When an object was clearly taken by force or without the consent of those who owned it, the question should not be whether it can be returned, but how and when.",
+   "stem": "The example of a student in Lagos or Phnom Penh is used to show that ______.",
+   "explanation": {
+    "en": "The example follows the claim that the universal museum is 'universal mainly for those who can travel to London, Paris or Berlin'; the student must travel far, at great cost, to see her own heritage.",
+    "th": "ตัวอย่างนี้ตามหลังประโยคที่ว่าพิพิธภัณฑ์สากลเป็นสากลสำหรับคนที่เดินทางไปลอนดอน ปารีส หรือเบอร์ลินได้เท่านั้น นักเรียนต้องเดินทางไกลและเสียเงินมากเพื่อดูมรดกของประเทศตนเอง"
+   },
+   "choices": [
+    "museums in Lagos and Phnom Penh are too expensive to visit",
+    "universal museums mainly benefit people who live near them or can afford to travel",
+    "students in Africa and Asia are not interested in history",
+    "objects should be shared equally between all countries"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Meaning of an idiom",
+    "th": "ความหมายของสำนวน"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Walk through the galleries of almost any major European museum and you will find objects that left their countries of origin under questionable circumstances: bronze sculptures removed by soldiers, stone carvings bought from officials who had no right to sell them, sacred objects taken from temples during periods of colonial rule. For decades, museums have resisted requests to return such items. Their arguments deserve to be heard, but I believe that, in most cases, they no longer hold.\n\nThe first argument is that these objects are safer where they are. Museums in wealthy countries, the claim goes, have the climate control, security and expert staff needed to preserve fragile works. This may once have been true, but it is increasingly difficult to defend. Many countries that have requested returns now have modern museums of their own, and some of the objects in question have been damaged in Western collections through poor storage or careless restoration. More fundamentally, the argument assumes that the original owners cannot be trusted with their own heritage — an assumption with an uncomfortable history.\n\nA second argument holds that great 'universal' museums allow visitors to compare civilisations side by side, and that dispersing their collections would destroy this. It is a genuinely attractive idea. Yet the universal museum is universal mainly for those who can travel to London, Paris or Berlin. For a student in Lagos or Phnom Penh, the most important objects from her own country's past may be thousands of kilometres away, and far more expensive for her to see than for a tourist from the city where they are kept.\n\nThe third argument is practical: if one object is returned, the museum will face endless demands, and its collections will be emptied. This fear seems exaggerated. Requests are generally made for a limited number of objects of special cultural or religious importance, not for every pot and coin. Moreover, return need not mean an end to cooperation. Several recent agreements have combined the transfer of ownership with long-term loans, joint research and exchanges of exhibitions.\n\nNone of this means that every claim is straightforward. Ownership can be genuinely unclear, especially when borders and states have changed, and each case requires careful research. But the burden of proof should lie with the museums. When an object was clearly taken by force or without the consent of those who owned it, the question should not be whether it can be returned, but how and when.",
+   "stem": "The statement 'the burden of proof should lie with the museums' means that ______.",
+   "explanation": {
+    "en": "The 'burden of proof' is the duty to prove something. The next sentence makes clear that the issue is how an object was taken, so museums must show they acquired it legitimately.",
+    "th": "burden of proof คือหน้าที่ในการพิสูจน์ ประโยคถัดไปแสดงว่าประเด็นคือวัตถุถูกนำมาอย่างไร พิพิธภัณฑ์จึงต้องพิสูจน์ว่าได้มาอย่างชอบธรรม"
+   },
+   "choices": [
+    "museums should prove that the objects are genuine",
+    "museums should pay the costs of returning objects",
+    "museums should decide which claims are true",
+    "museums should have to show that they obtained an object fairly"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring the writer's views",
+    "th": "การอนุมานความคิดเห็นของผู้เขียน"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Walk through the galleries of almost any major European museum and you will find objects that left their countries of origin under questionable circumstances: bronze sculptures removed by soldiers, stone carvings bought from officials who had no right to sell them, sacred objects taken from temples during periods of colonial rule. For decades, museums have resisted requests to return such items. Their arguments deserve to be heard, but I believe that, in most cases, they no longer hold.\n\nThe first argument is that these objects are safer where they are. Museums in wealthy countries, the claim goes, have the climate control, security and expert staff needed to preserve fragile works. This may once have been true, but it is increasingly difficult to defend. Many countries that have requested returns now have modern museums of their own, and some of the objects in question have been damaged in Western collections through poor storage or careless restoration. More fundamentally, the argument assumes that the original owners cannot be trusted with their own heritage — an assumption with an uncomfortable history.\n\nA second argument holds that great 'universal' museums allow visitors to compare civilisations side by side, and that dispersing their collections would destroy this. It is a genuinely attractive idea. Yet the universal museum is universal mainly for those who can travel to London, Paris or Berlin. For a student in Lagos or Phnom Penh, the most important objects from her own country's past may be thousands of kilometres away, and far more expensive for her to see than for a tourist from the city where they are kept.\n\nThe third argument is practical: if one object is returned, the museum will face endless demands, and its collections will be emptied. This fear seems exaggerated. Requests are generally made for a limited number of objects of special cultural or religious importance, not for every pot and coin. Moreover, return need not mean an end to cooperation. Several recent agreements have combined the transfer of ownership with long-term loans, joint research and exchanges of exhibitions.\n\nNone of this means that every claim is straightforward. Ownership can be genuinely unclear, especially when borders and states have changed, and each case requires careful research. But the burden of proof should lie with the museums. When an object was clearly taken by force or without the consent of those who owned it, the question should not be whether it can be returned, but how and when.",
+   "stem": "Which statement would the writer most probably agree with?",
+   "explanation": {
+    "en": "Paragraph 4: 'return need not mean an end to cooperation', with examples of loans, joint research and exchanges. The writer says requests are limited and unclear cases need research, not that they are impossible.",
+    "th": "ย่อหน้าที่ 4 บอกว่าการคืนไม่จำเป็นต้องยุติความร่วมมือ พร้อมตัวอย่างการให้ยืม วิจัยร่วม และแลกเปลี่ยนนิทรรศการ ผู้เขียนบอกว่าคำขอมีจำนวนจำกัด และกรณีที่ไม่ชัดเจนต้องศึกษา ไม่ใช่ตัดสินไม่ได้"
+   },
+   "choices": [
+    "Requests for return usually include every item from a country.",
+    "Returning an object can be combined with continued cooperation between museums.",
+    "Once an object is returned, the museums involved should stop working together.",
+    "Changes in borders make all claims impossible to judge."
+   ],
+   "answer": 1
+  }
+ ]
+}
