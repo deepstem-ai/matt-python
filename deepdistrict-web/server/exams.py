@@ -62,7 +62,13 @@ IELTS_R_SECONDS, IELTS_W_SECONDS = 60 * 60, 60 * 60
 CRITERIA = {"ta": "Task Achievement / Response", "cc": "Coherence and Cohesion", "lr": "Lexical Resource", "gra": "Grammatical Range and Accuracy"}
 READING_BANDS = [(39, 9), (37, 8.5), (35, 8), (33, 7.5), (30, 7), (27, 6.5), (23, 6), (19, 5.5), (15, 5), (13, 4.5), (10, 4), (8, 3.5), (6, 3), (4, 2.5), (2, 2), (1, 1)]
 
-DEFAULT_SETTINGS = {"routeAt": 0.6, "easyCap": 640, "practiceReview": True, "mockReview": True, "writingAiInstant": True, "studentsCanStart": True}
+DEFAULT_SETTINGS = {"routeAt": 0.6, "easyCap": 640, "practiceReview": True, "mockReview": True, "writingAiInstant": True, "studentsCanStart": True,
+                    "shuffle": True,
+                    # AI drafts new items on a schedule (they arrive as drafts for teachers to check)
+                    "autoDraft": {"enabled": False, "days": [1], "hour": 7, "sat": 3, "reading": 0, "writing": 0, "topics": ""}}
+LETTERS = [chr(65 + i) for i in range(26)]
+ROMAN = ["i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix", "x", "xi", "xii", "xiii", "xiv", "xv", "xvi"]
+SHUFFLE_GROUPS = {"headings": ROMAN, "matching-features": LETTERS, "sentence-endings": LETTERS}   # lists whose order carries no meaning
 
 
 def init(con):
@@ -92,7 +98,48 @@ def settings(con):
     cfg = dict(DEFAULT_SETTINGS)
     if r:
         cfg.update({k: v for k, v in json.loads(r["value"]).items() if k in DEFAULT_SETTINGS})
+    cfg["autoDraft"] = dict(DEFAULT_SETTINGS["autoDraft"], **(cfg.get("autoDraft") or {}))
     return cfg
+
+
+def shuffle_item(it, rng):
+    """A copy of the item with its answer options in a new order (same question, same correct answer).
+    SAT: the four choices. IELTS Reading: multiple-choice options and the lists for matching headings,
+    features and sentence endings (relabelled i, ii… / A, B…). True/False/Not Given, paragraph letters
+    and completion answers keep their fixed order because their order is part of the task."""
+    it = json.loads(json.dumps(it))
+    if it["kind"] == "sat" and len(it.get("choices") or []) == 4:
+        perm = list(range(4))
+        rng.shuffle(perm)
+        it["choices"] = [it["choices"][p] for p in perm]
+        if 0 <= int(it.get("answer", -1)) <= 3:
+            it["answer"] = perm.index(int(it["answer"]))
+    elif it["kind"] == "ielts-r":
+        for g in it["groups"]:
+            if g["type"] == "mcq":
+                for q in g["questions"]:
+                    opts = list(q.get("options") or [])
+                    rng.shuffle(opts)
+                    m = {norm(o["key"]): LETTERS[i] for i, o in enumerate(opts)}
+                    q["options"] = [{"key": LETTERS[i], "text": o["text"]} for i, o in enumerate(opts)]
+                    q["answer"] = [m.get(norm(a), a) for a in q["answer"]]
+            elif g["type"] in SHUFFLE_GROUPS and g.get("options"):
+                labels = SHUFFLE_GROUPS[g["type"]]
+                opts = list(g["options"])
+                rng.shuffle(opts)
+                m = {norm(o["key"]): labels[i] for i, o in enumerate(opts)}
+                g["options"] = [{"key": labels[i], "text": o["text"]} for i, o in enumerate(opts)]
+                for q in g["questions"]:
+                    q["answer"] = [m.get(norm(a), a) for a in q["answer"]]
+    return it
+
+
+def arrange(items, seed, on=True):
+    """Shuffle the answer options of a list of items reproducibly (same seed → same order)."""
+    if not on:
+        return [json.loads(json.dumps(i)) for i in items]
+    rng = random.Random(seed)
+    return [shuffle_item(i, rng) for i in items]
 
 
 def save_settings(con, body):
@@ -101,9 +148,16 @@ def save_settings(con, body):
         cfg["routeAt"] = max(0.3, min(0.9, float(body["routeAt"])))
     if "easyCap" in body:
         cfg["easyCap"] = max(400, min(800, int(round(float(body["easyCap"]) / 10) * 10)))
-    for k in ("practiceReview", "mockReview", "writingAiInstant", "studentsCanStart"):
+    for k in ("practiceReview", "mockReview", "writingAiInstant", "studentsCanStart", "shuffle"):
         if k in body:
             cfg[k] = bool(body[k])
+    if isinstance(body.get("autoDraft"), dict):
+        a = body["autoDraft"]
+        cfg["autoDraft"] = {"enabled": bool(a.get("enabled")),
+                            "days": sorted({int(d) for d in a.get("days") or [] if str(d).isdigit() and 0 <= int(d) <= 6}),
+                            "hour": max(0, min(23, int(a.get("hour") or 0))),
+                            "sat": max(0, min(10, int(a.get("sat") or 0))), "reading": max(0, min(2, int(a.get("reading") or 0))),
+                            "writing": max(0, min(2, int(a.get("writing") or 0))), "topics": str(a.get("topics") or "").strip()[:300]}
     con.execute("INSERT INTO kv (key, value) VALUES ('exams', ?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (json.dumps(cfg),))
     return cfg
 
@@ -179,6 +233,10 @@ def clean_item(raw, old=None):
             probs.append("mark the correct choice")
         if not (it["explanation"]["en"] or it["explanation"]["th"]):
             probs.append("explanation missing")
+        if re.search(r"\b(?i:choice|option|answer)s?\s*\(?[A-D]\)?(?![A-Za-z])|\([A-D]\)|ตัวเลือก\s*[A-D]\b|ข้อ\s*[A-D]\b", it["explanation"]["en"] + " " + it["explanation"]["th"]):
+            probs.append("explanations must name choices by their words, not by letter (answer order is shuffled)")
+        if it["stem"] and not it["stem"].rstrip().endswith("?"):
+            probs.append("the question should be a full SAT-style question ending with \"?\"")
     elif kind == "ielts-r":
         paras = [_s(p, 4000) for p in (raw.get("paragraphs") or []) if _s(p, 4000)][:12]
         groups, total_q = [], 0
@@ -229,6 +287,13 @@ def clean_item(raw, old=None):
                             probs.append(f"{g['type']} question {i}: answer '{a}' is over the word limit")
                 if not q["text"] and g["type"] not in ("diagram-label",):
                     probs.append(f"{g['type']} question {i}: text missing")
+            m = re.search(r"NO MORE THAN (ONE|TWO|THREE|FOUR|FIVE) WORDS?", (g.get("instructions") or "").upper())
+            if g["type"] in TEXT_TYPES and m and g["wordLimit"] and ["ONE", "TWO", "THREE", "FOUR", "FIVE"].index(m.group(1)) + 1 != g["wordLimit"]["words"]:
+                probs.append(f"{g['type']}: the instructions say {m.group(0)} but the word limit is {g['wordLimit']['words']}")
+            if g["type"] in TEXT_TYPES and not m and "ONE WORD" not in (g.get("instructions") or "").upper():
+                probs.append(f"{g['type']}: instructions must state the word limit (e.g. \"Choose NO MORE THAN TWO WORDS from the passage\")")
+            if g["type"] in ("tfng", "ynng") and not g.get("instructions"):
+                probs.append(f"{g['type']}: instructions missing")
             if g["type"] == "headings" and len(g["options"]) <= len(g["questions"]):
                 probs.append("matching headings needs more headings than paragraphs to match")
             if g["type"] == "diagram-label" and not g["image"]:
@@ -246,6 +311,8 @@ def clean_item(raw, old=None):
             probs.append("task prompt missing")
         if task == 1 and not (it["image"] or it["table"]):
             probs.append("Task 1 needs a chart image or a data table")
+        if it["prompt"] and str(it["minWords"]) not in it["prompt"]:
+            probs.append(f"the task must say \"Write at least {it['minWords']} words.\" as in the real test")
         if it["image"] and not re.match(r"^(data:image/(png|jpeg|webp);base64,|https://)", it["image"]):
             raise ValueError("image must be a PNG/JPEG/WebP upload or https:// address")
     if kind == "ielts-r":
@@ -395,7 +462,7 @@ def start(con, me, body, cfg):
         if mode == "mock":
             m1 = _draw_sat(op, rng, _plan(MIX["m1"]), set(), seen, pre)
             sections.append(_section("m1", "Reading and Writing · Module 1", SAT_MODULE_S, [i["id"] for i in m1], t0))
-            snap.update({i["id"]: i for i in m1})
+            snap.update({i["id"]: i for i in arrange(m1, rng.random(), cfg["shuffle"])})
         else:
             doms = [d for d in (body.get("domains") or SAT_ORDER) if d in SAT_DOMAINS] or SAT_ORDER
             n = max(5, min(27, int(body.get("count") or 10)))
@@ -407,7 +474,7 @@ def start(con, me, body, cfg):
             chosen = rng.sample(fresh, n) if len(fresh) >= n else fresh + rng.sample([i for i in cand if i["id"] in seen], n - len(fresh))
             chosen = _sat_order(chosen)
             sections.append(_section("p", "SAT Reading and Writing · Practice", round(n * SAT_MODULE_S / SAT_MODULE_Q), [i["id"] for i in chosen], t0))
-            snap.update({i["id"]: i for i in chosen})
+            snap.update({i["id"]: i for i in arrange(chosen, rng.random(), cfg["shuffle"])})
     elif kind == "ielts-r":
         sets = items(con, "ielts-r", "approved")
         if mode == "mock":
@@ -415,13 +482,13 @@ def start(con, me, body, cfg):
             if not trio:
                 raise ValueError("the bank needs approved passages that make exactly 40 questions and 2,150–2,750 words in total")
             sections.append(_section("r", "IELTS Academic Reading", IELTS_R_SECONDS, [s["id"] for s in trio], t0))
-            snap.update({s["id"]: s for s in trio})
+            snap.update({s["id"]: s for s in arrange(trio, rng.random(), cfg["shuffle"])})
         else:
             pick = next((s for s in sets if s["id"] == body.get("item")), None) or (rng.choice([s for s in sets if s["id"] not in seen] or sets) if sets else None)
             if not pick:
                 raise ValueError("no approved reading passages yet")
             sections.append(_section("r", "IELTS Academic Reading · Practice passage", 20 * 60, [pick["id"]], t0))
-            snap[pick["id"]] = pick
+            snap[pick["id"]] = arrange([pick], rng.random(), cfg["shuffle"])[0]
     else:
         tasks = items(con, "ielts-w", "approved")
         t1, t2 = [t for t in tasks if t["task"] == 1], [t for t in tasks if t["task"] == 2]
@@ -525,7 +592,7 @@ def submit_section(con, a, cfg, timed_out=False):
         if m2:
             t0 = now()
             a["sections"].append(_section("m2", "Reading and Writing · Module 2", SAT_MODULE_S, [i["id"] for i in m2], t0))
-            a["snap"].update({i["id"]: i for i in m2})
+            a["snap"].update({i["id"]: i for i in arrange(m2, rng.random(), cfg["shuffle"])})
             a["current"] = 1
             put_attempt(con, a)
             return a
@@ -733,7 +800,7 @@ def sat_prompt(domain, skill, difficulty, count, topic):
             "notes ('While researching a topic, a student has taken the following notes:'). Quantitative evidence questions include a small data table "
             "(table_title and table_rows, first row = headers); otherwise leave table_title empty and table_rows empty. "
             "skill must be one of: " + ", ".join(d["skills"]) + ". Explanations: why the answer is right and each other choice is wrong; "
-            "explanation_en in English, explanation_th in Thai.")
+            "explanation_en in English, explanation_th in Thai. In explanations refer to choices by their words, never by letter (A–D), because the order of choices is shuffled for every student.")
 
 
 def reading_prompt(topic, difficulty):

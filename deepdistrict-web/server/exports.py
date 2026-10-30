@@ -64,12 +64,21 @@ def _version(con, iid, ver):
 
 
 def create_paper(con, me, body):
+    qset = None
+    if body.get("setId"):
+        import qsets
+        qset = qsets.get(con, body["setId"])
+        if not qset or (qset["owner"] != me["id"] and me["role"] != "admin"):
+            raise ValueError("question set not found")
+        body = dict(body, kind=qset["kind"])
     kind = body.get("kind")
     if kind not in exams.KINDS:
         raise ValueError("choose SAT, IELTS Reading or IELTS Writing")
     approved = exams.items(con, kind, "approved")
     ids = [i for i in (body.get("itemIds") or []) if isinstance(i, str)]
-    if ids:
+    if qset:
+        chosen = qsets.items_of(con, qset)
+    elif ids:
         chosen = [i for i in approved if i["id"] in ids]
         chosen.sort(key=lambda i: ids.index(i["id"]))
     elif kind == "sat":
@@ -87,8 +96,11 @@ def create_paper(con, me, body):
     if len(chosen) > 60:
         raise ValueError("at most 60 items in one paper")
     code = new_code(con)
-    title = str(body.get("title") or "").strip()[:120] or {"sat": "SAT Reading and Writing practice", "ielts-r": "IELTS Academic Reading practice", "ielts-w": "IELTS Academic Writing practice"}[kind]
-    data = {"kind": "paper", "exam": kind, "title": title, "note": str(body.get("note") or "").strip()[:200], "withKey": bool(body.get("withKey")),
+    title = str(body.get("title") or "").strip()[:120] or (qset and qset["title"]) or {"sat": "SAT Reading and Writing practice", "ielts-r": "IELTS Academic Reading practice", "ielts-w": "IELTS Academic Writing practice"}[kind]
+    data = {"kind": "paper", "exam": kind, "title": title, "note": str(body.get("note") or (qset or {}).get("note") or "").strip()[:200], "withKey": bool(body.get("withKey")),
+            "notes": bool(body.get("notes")) and not body.get("withKey"), "setId": qset and qset["id"],
+            "seed": qset.get("seed", qset["id"]) if qset else secrets.randbits(48), "shuffle": exams.settings(con)["shuffle"],
+            "variant": qset.get("variant", 1) if qset else None,
             "minutes": int(body.get("minutes") or 0) or None, "items": [[i["id"], i["version"]] for i in chosen]}
     now = exams.iso()
     con.execute("INSERT INTO doc_exports (code, kind, title, created_at, created_by, created_by_name, role, data) VALUES (?,?,?,?,?,?,?,?)",
@@ -121,8 +133,9 @@ def payload(con, code, me):
            "downloads": con.execute("SELECT COUNT(*) FROM doc_export_log WHERE code=? AND action IN ('download','print')", (code,)).fetchone()[0]}
     if d["kind"] == "paper":
         key = data["withKey"] and me["role"] in ("admin", "teacher")
-        out.update({"exam": data["exam"], "note": data["note"], "withKey": key, "minutes": data.get("minutes"),
-                    "items": [_strip(_version(con, iid, ver), key) for iid, ver in data["items"]]})
+        out.update({"exam": data["exam"], "note": data["note"], "withKey": key, "minutes": data.get("minutes"), "notes": bool(data.get("notes")),
+                    "variant": data.get("variant"),
+                    "items": [_strip(i, key) for i in exams.arrange([_version(con, iid, ver) for iid, ver in data["items"]], data.get("seed"), data.get("shuffle", False) and data.get("seed") is not None)]})
     else:
         a = exams.get_attempt(con, data["attemptId"])
         out.update({"exam": a["kind"] if a else "", "learner": data["learner"], "attempt": report_view(a) if a else None})

@@ -1,0 +1,93 @@
+"""Question sets: a named, saved list of approved items that a teacher reuses everywhere.
+
+One set → the student PDF (with a notes column), the teacher PDF (answer key), the live class
+(teacher-paced or self-paced) — always the same questions in the same order, because the set
+records each item's version. Editing an item in the bank later does not change a saved set.
+"""
+
+import json
+import random
+import secrets
+
+import exams
+
+KINDS = ("sat", "ielts-r")
+
+
+def init(con):
+    con.execute("CREATE TABLE IF NOT EXISTS question_sets (id TEXT PRIMARY KEY, owner TEXT NOT NULL, updated_at TEXT NOT NULL, data TEXT NOT NULL)")
+
+
+def get(con, sid):
+    r = con.execute("SELECT data FROM question_sets WHERE id=?", (str(sid or "")[:40],)).fetchone()
+    return json.loads(r["data"]) if r else None
+
+
+def put(con, s):
+    s["updatedAt"] = exams.iso()
+    con.execute("INSERT INTO question_sets (id, owner, updated_at, data) VALUES (?,?,?,?) ON CONFLICT(id) DO UPDATE SET updated_at=excluded.updated_at, data=excluded.data",
+                (s["id"], s["owner"], s["updatedAt"], json.dumps(s, ensure_ascii=False)))
+
+
+def listing(con, me):
+    q, a = "SELECT data FROM question_sets", []
+    if me["role"] != "admin":
+        q += " WHERE owner=?"; a.append(me["id"])
+    return [json.loads(r["data"]) for r in con.execute(q + " ORDER BY updated_at DESC", a)]
+
+
+def version(con, iid, ver):
+    r = con.execute("SELECT data FROM exam_item_versions WHERE id=? AND version=?", (iid, ver)).fetchone()
+    return json.loads(r["data"]) if r else exams.get_item(con, iid)
+
+
+def items_of(con, s):
+    """The set's items exactly as recorded (item id + version)."""
+    return [x for x in (version(con, iid, ver) for iid, ver in s["items"]) if x]
+
+
+def create(con, me, body, old=None):
+    kind = body.get("kind") if body.get("kind") in KINDS else (old or {}).get("kind", "sat")
+    title = str(body.get("title") or "").strip()[:120]
+    if not title:
+        raise ValueError("give the set a name")
+    approved = exams.items(con, kind, "approved")
+    ids = [i for i in (body.get("itemIds") or []) if isinstance(i, str)]
+    if kind == "ielts-r":
+        sid = body.get("setId") or (ids[0] if ids else None)
+        chosen = [i for i in approved if i["id"] == sid][:1]
+    elif ids:
+        by = {i["id"]: i for i in approved}
+        chosen = [by[i] for i in ids if i in by]
+    elif old and not body.get("reshuffle"):
+        chosen = None
+    else:
+        doms = [d for d in (body.get("domains") or exams.SAT_ORDER) if d in exams.SAT_DOMAINS] or exams.SAT_ORDER
+        want = body.get("difficulty") if body.get("difficulty") in exams.DIFF else None
+        cand = [i for i in approved if i["domain"] in doms and not i.get("pretest") and (not want or i["difficulty"] == want)]
+        n = max(1, min(54, int(body.get("count") or 10)))
+        if len(cand) < n:
+            raise ValueError(f"only {len(cand)} approved SAT questions match")
+        chosen = exams._sat_order(random.Random(secrets.randbits(32)).sample(cand, n))
+    s = old or {"id": "q" + secrets.token_hex(6), "owner": me["id"], "ownerName": me.get("name", ""), "createdAt": exams.iso(),
+                "seed": secrets.randbits(48), "variant": 1}
+    if old and body.get("newOrder"):                  # same questions, answer options in a new order
+        s["seed"], s["variant"] = secrets.randbits(48), int(s.get("variant") or 1) + 1
+    s.update({"title": title, "kind": kind})
+    if "note" in body or not old:
+        s["note"] = str(body.get("note") or "").strip()[:200]
+    if chosen is not None:
+        if not chosen:
+            raise ValueError("choose at least one approved item")
+        s["items"] = [[i["id"], i["version"]] for i in chosen]
+    put(con, s)
+    return s
+
+
+def summary(con, s):
+    its = items_of(con, s)
+    n = len(its) if s["kind"] == "sat" else sum(len(g["questions"]) for it in its for g in it["groups"])
+    out = {k: s.get(k) for k in ("id", "title", "kind", "note", "ownerName", "createdAt", "updatedAt", "variant")}
+    out.update({"questions": n, "items": [{"id": i["id"], "version": i["version"], "label": (i.get("stem") or i.get("title") or "")[:90],
+                                          "domain": i.get("domain"), "difficulty": i.get("difficulty")} for i in its]})
+    return out

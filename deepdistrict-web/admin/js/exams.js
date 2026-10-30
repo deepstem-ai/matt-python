@@ -89,7 +89,7 @@
   A.pages.bank = function (q) {
     if (!A.isStaff()) return A.pages.home(q);
     return { title: L("Exam item bank", "คลังข้อสอบ"),
-      actions: '<button class="btn" data-act="pdf-paper">' + L("PDF paper", "ชุดข้อสอบ PDF") + '</button><button class="btn" data-act="bank-new">+ ' + L("New item", "เพิ่มข้อสอบ") + '</button><button class="btn btn--primary" data-act="bank-ai">✦ ' + L("Draft with AI", "ให้ AI ร่าง") + "</button>",
+      actions: (A.isAdmin() ? '<button class="btn" data-act="bank-settings">' + L("Settings & schedule", "ตั้งค่าและตารางสร้างข้อสอบ") + "</button>" : "") + '<button class="btn" data-act="pdf-paper">' + L("PDF paper", "ชุดข้อสอบ PDF") + '</button><button class="btn" data-act="bank-new">+ ' + L("New item", "เพิ่มข้อสอบ") + '</button><button class="btn btn--primary" data-act="bank-ai">✦ ' + L("Draft with AI", "ให้ AI ร่าง") + "</button>",
       html: '<div data-bank data-kind="' + esc(q.get("kind") || "") + '" data-status="' + esc(q.get("status") || "") + '"><p class="muted">' + L("Loading…", "กำลังโหลด…") + "</p></div>",
       after: function () { loadBank().then(drawBank).catch(function (e) { A.toast(e.message, "err"); }); } };
   };
@@ -264,9 +264,37 @@
       } };
   };
 
+  function bankSettings() {
+    var s = bank.settings, a = s.autoDraft || {};
+    A.form({
+      title: L("Online test settings & item schedule", "ตั้งค่าข้อสอบออนไลน์และตารางสร้างข้อสอบ"),
+      intro: esc(L("Scheduled drafting: on the chosen days the AI writes new items in each test's official format. They arrive as drafts — a teacher checks every answer and approves them before learners see them.",
+        "ตั้งเวลาสร้างข้อสอบ: ในวันที่เลือก AI จะเขียนข้อสอบใหม่ตามรูปแบบทางการของแต่ละประเภท ข้อสอบจะอยู่ในสถานะฉบับร่าง ครูต้องตรวจคำตอบและอนุมัติก่อนนักเรียนจะเห็น")),
+      fields: [
+        { name: "shuffle", label: L("Shuffle answer options (same questions, new A/B/C/D order for each test, class and printed set)", "สลับลำดับตัวเลือก (ข้อเดิม แต่ลำดับ A/B/C/D ใหม่ทุกรอบสอบ ทุกห้องเรียน และทุกชุดที่พิมพ์)"), type: "checkbox", value: s.shuffle !== false, full: true },
+        { name: "studentsCanStart", label: L("Learners may start online tests", "นักเรียนเริ่มทำข้อสอบออนไลน์ได้"), type: "checkbox", value: s.studentsCanStart, full: true },
+        { name: "practiceReview", label: L("Show answers after practice tests", "แสดงเฉลยหลังทำแบบฝึก"), type: "checkbox", value: s.practiceReview },
+        { name: "mockReview", label: L("Show answers after full tests", "แสดงเฉลยหลังข้อสอบเต็ม"), type: "checkbox", value: s.mockReview },
+        { name: "writingAiInstant", label: L("Practice Writing: show AI feedback at once (labelled as an estimate)", "Writing แบบฝึก: แสดงคำแนะนำจาก AI ทันที (ระบุว่าเป็นค่าประมาณ)"), type: "checkbox", value: s.writingAiInstant, full: true },
+        { name: "autoOn", label: L("Scheduled drafting with AI", "ตั้งเวลาให้ AI สร้างข้อสอบ"), type: "checkbox", value: a.enabled, full: true },
+        { name: "days", label: L("On these days (none = every day)", "ในวันเหล่านี้ (ไม่เลือก = ทุกวัน)"), type: "days", value: a.days },
+        { name: "hour", label: L("From this hour (Bangkok)", "ตั้งแต่เวลา (กรุงเทพฯ)"), type: "number", min: 0, value: a.hour },
+        { name: "sat", label: L("SAT questions per domain each time (0–10; 4 domains)", "ข้อ SAT ต่อหมวดต่อครั้ง (0–10; มี 4 หมวด)"), type: "number", min: 0, value: a.sat },
+        { name: "reading", label: L("IELTS Reading passages each time (0–2)", "บทอ่าน IELTS ต่อครั้ง (0–2)"), type: "number", min: 0, value: a.reading },
+        { name: "writing", label: L("IELTS Writing tasks each time (0–2)", "โจทย์ IELTS Writing ต่อครั้ง (0–2)"), type: "number", min: 0, value: a.writing },
+        { name: "topics", label: L("Topic ideas (optional)", "แนวหัวข้อ (ไม่บังคับ)"), value: a.topics, full: true }
+      ],
+      onSave: function (v) {
+        return A.api("POST", "exam/settings", { shuffle: v.shuffle, studentsCanStart: v.studentsCanStart, practiceReview: v.practiceReview, mockReview: v.mockReview, writingAiInstant: v.writingAiInstant,
+          autoDraft: { enabled: v.autoOn, days: v.days, hour: v.hour, sat: v.sat, reading: v.reading, writing: v.writing, topics: v.topics } })
+          .then(function () { A.toast(L("Saved", "บันทึกแล้ว")); return loadBank().then(drawBank); }).catch(function (e) { A.toast(e.message, "err"); return false; });
+      }
+    });
+  }
   var prev = A.onAct;
   A.onAct = function (a, b, ev) {
-    if (a === "bank-ai") aiDraft();
+    if (a === "bank-settings") bankSettings();
+    else if (a === "bank-ai") aiDraft();
     else if (a === "bank-samples") bankAct({ samples: true }).then(function (r) { A.toast(L(r.added + " sample items added", "เพิ่มข้อสอบตัวอย่าง " + r.added + " ข้อ")); return loadBank().then(drawBank); });
     else if (a === "bank-new") A.form({ title: L("New item", "เพิ่มข้อสอบ"), fields: [{ name: "kind", label: L("Type", "ประเภท"), type: "select", options: Object.keys(KIND).map(function (k) { return [k, kname(k)]; }) }],
       submit: L("Next", "ถัดไป"), onSave: function (v) { setTimeout(function () { editItem(null, v.kind); }, 0); } });

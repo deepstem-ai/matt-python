@@ -45,21 +45,31 @@
       ".ap-line{border-bottom:1px solid #9aa3b5;height:26px}.ap-blank{display:inline-block;min-width:150px;border-bottom:1px solid #111827}" +
       ".ap-key td{vertical-align:top}.ap-legal{font-size:10.5px;color:#46506a}.ap-legal p{margin:3px 0}" +
       ".ap-score{display:flex;gap:18px;align-items:center;margin:14px 0;padding:14px 18px;border:1px solid #d6dbe6;border-radius:10px}.ap-score b{font-size:40px;color:#2457e6;line-height:1}" +
+      ".ap-wn{display:grid;grid-template-columns:1fr 230px;gap:14px;align-items:stretch}.ap-wn .ap-q{border-bottom:0}" +
+      ".ap-notes{border:1px solid #c7cede;border-radius:6px;padding:4px 8px 6px;margin:8px 0;background:#fcfdff}.ap-notes b{font-size:9.5px;color:#6b7489;letter-spacing:.04em}" +
+      ".ap-notes div{border-bottom:1px solid #dfe4ee;height:22px}.ap-sep{border-bottom:1px dashed #d6dbe6}" +
       ".ap-end{height:30px}";
     document.head.appendChild(st);
   }
   function tbl(t) { return t && t.rows && t.rows.length ? (t.title ? "<p><b>" + esc(t.title) + "</b></p>" : "") + '<table class="ap-tbl">' + t.rows.map(function (r, i) { return "<tr>" + r.map(function (c) { return i ? "<td>" + esc(c) + "</td>" : "<th>" + esc(c) + "</th>"; }).join("") + "</tr>"; }).join("") + "</table>" : ""; }
   function lines(t) { return esc(t).split(/\n/).map(function (l) { return "<p>" + (l || "&nbsp;") + "</p>"; }).join(""); }
+  function noted(p, qhtml, words) {
+    if (!p.notes) return qhtml;
+    var n = Math.max(4, Math.min(14, Math.ceil((words || 40) / 16)));
+    return '<div class="ap-wn">' + qhtml + '<div class="ap-notes"><b>NOTES · จดโน้ต</b>' + new Array(n + 1).join("<div></div>") + "</div></div><div class=\"ap-sep\"></div>";
+  }
+  function wc(t) { return String(t || "").split(/\s+/).length; }
   function block(html, cls) { return '<div class="ap-block ' + (cls || "") + '">' + html + "</div>"; }
 
   function header(p) {
     var exam = NAME[p.exam] || "";
-    var rows = [["Document / เอกสาร", p.kind === "paper" ? (p.withKey ? "Test paper — TEACHER COPY with answer key / ข้อสอบ ฉบับครู (มีเฉลย)" : "Test paper (student copy) / ข้อสอบ ฉบับนักเรียน") : "Score report / รายงานผลสอบ"],
+    var rows = [["Document / เอกสาร", p.kind === "paper" ? (p.withKey ? "Test paper — TEACHER COPY with answer key / ข้อสอบ ฉบับครู (มีเฉลย)" : p.notes ? "Test paper (student copy with notes column) / ข้อสอบ ฉบับนักเรียน มีช่องจดโน้ต" : "Test paper (student copy) / ข้อสอบ ฉบับนักเรียน") : "Score report / รายงานผลสอบ"],
       ["Verification code / รหัสตรวจสอบ", p.code], ["Created / สร้างเมื่อ", p.createdAtLocal + " · " + (p.createdBy || "—") + " (" + p.role + ")"],
       ["This copy / ฉบับนี้พิมพ์เมื่อ", p.generatedAt + " · " + (p.generatedBy || "—")]];
     if (p.note) rows.push(["Class / note · ห้อง/หมายเหตุ", p.note]);
     if (p.kind === "report") rows.splice(1, 0, ["Learner / ผู้สอบ", p.learner || "—"]);
     if (p.minutes) rows.push(["Time allowed / เวลา", p.minutes + " minutes / นาที"]);
+    if (p.variant) rows.push(["Answer order / ลำดับตัวเลือก", "Version " + p.variant + " — same as the live class of this set · ตรงกับห้องเรียนสดของชุดนี้"]);
     return block('<div class="ap-head"><img class="logo" src="' + base() + 'assets/images/brand/logo-horizontal.png" alt="DeepDistrict"><div class="org"><b>DeepDistrict.si</b><br>Learning & research lab · Bangkok, Thailand<br>info@deepdistrict.si</div></div>' +
       '<div class="ap-title"><div><h1>' + esc(p.title) + "</h1><p>" + esc(exam) + "</p></div>" +
       '<div class="ap-qr"><img src="' + qr(verifyUrl(p.code)) + '" alt=""><b>' + esc(p.code) + "</b><br>Scan to verify · สแกนเพื่อตรวจสอบ</div></div>" +
@@ -76,7 +86,7 @@
       "<li>ผลการสอบฝึกออนไลน์ของ DeepDistrict ตรวจโดยระบบ (คะแนน Writing ยืนยันโดยครู) คะแนนเป็นค่าประมาณเพื่อการฝึก ไม่ใช่ผลสอบทางการ</li></ul></div>");
     var h = HOW[p.exam] || ["", "", ""];
     return block('<div class="ap-box"><h2>How to use this paper · วิธีใช้</h2><ul><li>' + esc(h[0]) + "</li><li>" + esc(h[1]) + "</li><li>" + esc(h[2]) +
-      "</li><li>For classroom practice at DeepDistrict. Scores are practice estimates, not official results. · ใช้ฝึกในชั้นเรียน DeepDistrict คะแนนเป็นค่าประมาณ ไม่ใช่ผลสอบทางการ</li></ul></div>");
+      "</li>" + (p.notes ? "<li>Use the NOTES column to write key words, reasons and your teacher's explanations during the live class. · ใช้ช่อง NOTES จดคำสำคัญ เหตุผล และคำอธิบายของครูระหว่างเรียน</li>" : "") + "<li>For classroom practice at DeepDistrict. Scores are practice estimates, not official results. · ใช้ฝึกในชั้นเรียน DeepDistrict คะแนนเป็นค่าประมาณ ไม่ใช่ผลสอบทางการ</li></ul></div>");
   }
   function legal(p) {
     return block('<div class="ap-box ap-legal"><h2>Legal notice · ขอบเขตทางกฎหมาย</h2>' +
@@ -92,8 +102,8 @@
     p.items.forEach(function (it) {
       if (it.kind === "sat") {
         n++;
-        out.push(block('<div class="ap-q"><div class="n">' + n + "</div><div>" + lines(it.passage) + tbl(it.table) + '<p class="ap-stem">' + esc(it.stem) + "</p>" +
-          it.choices.map(function (c, i) { return '<div class="ap-ch"><b>' + LET[i] + ")</b>" + esc(c) + "</div>"; }).join("") + "</div></div>"));
+        out.push(block(noted(p, '<div class="ap-q"><div class="n">' + n + "</div><div>" + lines(it.passage) + tbl(it.table) + '<p class="ap-stem">' + esc(it.stem) + "</p>" +
+          it.choices.map(function (c, i) { return '<div class="ap-ch"><b>' + LET[i] + ")</b>" + esc(c) + "</div>"; }).join("") + "</div></div>", wc(it.passage) + 30)));
       } else if (it.kind === "ielts-r") {
         out.push(block('<h2 class="ap-h2">' + esc(it.title) + "</h2>"));
         it.paragraphs.forEach(function (para, i) { out.push(block('<p class="ap-para">' + (it.labelled ? "<b>" + String.fromCharCode(65 + i) + "</b>" : "") + esc(para) + "</p>")); });
@@ -105,9 +115,9 @@
           g.questions.forEach(function (q) {
             n++;
             var ans = g.type === "tfng" ? "TRUE / FALSE / NOT GIVEN" : g.type === "ynng" ? "YES / NO / NOT GIVEN" : "";
-            out.push(block('<div class="ap-q"><div class="n">' + n + "</div><div><p>" + esc(q.text) + "</p>" +
+            out.push(block(noted(p, '<div class="ap-q"><div class="n">' + n + "</div><div><p>" + esc(q.text) + "</p>" +
               (q.options ? q.options.map(function (o) { return '<div class="ap-ch"><b>' + esc(o.key) + ")</b>" + esc(o.text) + "</div>"; }).join("") : "") +
-              (ans ? '<p style="color:#46506a;font-size:11px">' + ans + "</p>" : "") + '<p>Answer / คำตอบ: <span class="ap-blank">&nbsp;</span></p></div></div>'));
+              (ans ? '<p style="color:#46506a;font-size:11px">' + ans + "</p>" : "") + '<p>Answer / คำตอบ: <span class="ap-blank">&nbsp;</span></p></div></div>', 30)));
           });
         });
       } else {

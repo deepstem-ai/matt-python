@@ -255,6 +255,8 @@ Results:
 
 Parents see their children's results. Teachers see their own students' results.
 
+**Answer order:** SAT choices, IELTS multiple-choice options and matching lists are shuffled for every test (same questions, new A/B/C/D order). True/False/Not Given, paragraph letters and completion answers keep their order. Admins can switch this off in **Exam item bank → Settings & schedule**, which also sets **scheduled AI drafting** (days, hour and how many items of each type). Scheduled drafts always wait for a teacher's approval.
+
 **Exam item bank** (teachers and admins):
 - **Adding items:** add SAT questions, IELTS reading passages (questions written in a simple text
   format shown in the form) and Writing tasks; **Draft with AI** creates new ones as drafts;
@@ -273,27 +275,40 @@ Parents see their children's results. Teachers see their own students' results.
 
 The Writing band is calculated from your marks, with Task 2 counting twice as much as Task 1.
 
-## Live class (teachers)
+## Question sets and live class (teachers)
 
-**Starting a class (teacher)**
-1. Open **Live class** → **Start a live class**.
-2. Choose SAT questions (topics, number, difficulty) or an IELTS Reading passage. Optionally set a
-   number of seconds per question.
-3. The teacher screen opens with a 6-letter **code**.
+**1. Make a question set** (**Question sets → New question set**)
+- Name it and add the class/note.
+- Choose the questions:
+  - SAT: random from topics, or tick the questions yourself
+  - IELTS Reading: one passage
+- The set records each question's version and one answer order.
 
-**Joining (learners):** **Online tests** → *Join a live class* → type the code. Phones work too
-(start the server with `--lan` on a local network).
+**2. Before class**
+- **Student PDF (notes):** hand it out. Every question has a NOTES column beside it.
+- **Teacher PDF (key):** keep it for yourself.
+- **⇄ New answer order:** keeps the same questions but shuffles the choices. Print new PDFs after
+  using it; PDFs made earlier keep the old order and show their version number.
 
-**Running each question (teacher)**
-1. **Open answers.** The answer bars and the roster fill in as learners answer.
-2. **Close answers.**
-3. **Show answer.** Each learner sees whether they were right, and the explanation.
-4. **Next.**
+**3. In class** (**▶ Start live class**) — choose one of two modes:
+- *Teacher leads one question at a time:*
+  1. Open answers.
+  2. Close answers.
+  3. Show answer.
+  4. Next.
+- *Learners work through the whole set:* learners answer at their own pace (with an optional time
+  limit). You watch the live grid: learner × question, ✓/✗, and % correct per question. Tap a
+  column to look at that question. **Close answers → Show answers** then reveals every answer;
+  step through them with Next to explain.
 
-**At the end:** **End** shows everyone's score. Their answers also feed the item statistics.
+**Screen sharing**
+- **Open the share screen ↗** opens a second window. Share only that window in Zoom or on the
+  projector: it shows questions, the code and progress, with no names, and no key until you reveal.
+- Keep the **teacher panel** (key + everyone's answers) for yourself.
 
-**Using a projector:** tick **Hide key** before showing the teacher screen. The correct answer then
-stays hidden until you reveal it.
+**Learners**
+- Join from **Online tests → Join a live class** with the code, on a phone or computer.
+- Their answers count in the item statistics.
 
 ## PDF documents (audited)
 

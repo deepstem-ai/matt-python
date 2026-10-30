@@ -1,5 +1,46 @@
 # Changelog
 
+## 5.5 r1 — October 2026
+- **Question sets** (back office → Question sets; `server/qsets.py`).
+  - **What a set is:** a named list of approved questions that records each question's version.
+    Later edits in the bank do not change it.
+  - **One set, three uses:**
+    - **Student PDF:** a NOTES column beside every question, to hand out before class.
+    - **Teacher PDF:** the answer key.
+    - **Live class.**
+    All three have the same questions in the same order with the same answer order.
+- **Live class, two modes.**
+  - **Teacher-led:** one question at a time.
+  - **Self-paced:** learners work through the whole set on their own device, with an optional
+    time limit. The teacher watches a live grid (learner × question, right/wrong, % correct per
+    question; tap a column to see that question) and reveals all the answers at the end, then
+    steps through them.
+- **Separate share screen.** "Open the share screen" opens a window for Zoom or the projector.
+  - **Share screen:** questions, join code and progress only. No learner names, and the key is
+    never sent to it before reveal.
+  - **Teacher panel:** keeps the key, every learner's answers and the grid.
+- **Shuffled answer order, same questions.**
+  - **What is shuffled:** SAT choices, IELTS multiple-choice options and the lists for matching
+    headings, features and sentence endings (relabelled i, ii… / A, B…).
+  - **What stays fixed:** True/False/Not Given, paragraph letters and completion answers, because
+    their order is part of the task.
+  - **When the order changes:**
+    - every online test gets its own order
+    - every quick live class gets its own order
+    - a question set keeps one order for its PDFs and live class; "New answer order" makes a new
+      version, and the PDF shows which version it is
+  - Can be switched off in the item bank's settings.
+- **Stricter format checks.**
+  - **SAT:** explanations must not refer to letters (answers are shuffled); questions must end with "?".
+  - **IELTS Reading:** completion and short-answer instructions must state the word limit, and it
+    must match the set limit.
+  - **IELTS Writing:** tasks must say "Write at least 150/250 words".
+- **Scheduled item drafting** (Exam item bank → Settings & schedule).
+  - **Schedule:** chosen days and hour.
+  - **Amounts each time:** SAT questions per domain, IELTS passages and Writing tasks.
+  - **Status:** everything arrives as a draft for a teacher to check and approve. Runs from the
+    same timer URL as the blog.
+
 ## 5.4 r1 — October 2026
 - **Live class** (back office → Live class; `admin/live.html`, `server/live.py`).
   - **Teacher screen:** for the projector. Shows a 6-letter join code, the same question on

@@ -495,3 +495,6 @@ html[lang="th"] .tbl th { text-transform: none; letter-spacing: 0; font-size: 0.
 .stat-chip { margin-top: 4px; font-size: .78rem; color: var(--text-dim); }
 .test-join form { margin: 6px 0 0; max-width: 360px; flex-wrap: nowrap; }
 .test-join input { font-family: var(--f-mono); text-transform: uppercase; letter-spacing: .15em; }
+.qset__head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
+.qset__head .btnrow { margin: 0; }
+.qset__list { font-size: .88rem; color: var(--text-dim); }

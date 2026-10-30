@@ -20,6 +20,7 @@ import exam_samples
 import exports
 import images
 import live
+import qsets
 
 STALE = timedelta(minutes=15)
 H = {}          # filled by app.py: db, lock, audit, load_col, get_rec, now_iso
@@ -34,6 +35,7 @@ def init(con):
     blog.init(con)
     exams.init(con)
     live.init(con)
+    qsets.init(con)
     exports.init(con)
 
 
@@ -171,13 +173,54 @@ def draw_cover(con, uid, pid):
     return run_ai(con, "blog-draw", pid, uid, "cover drawing", call, done)
 
 
+def _due(con, sched, kv_key):
+    """True once per scheduled day, from the scheduled hour (Bangkok time)."""
+    if not sched.get("enabled"):
+        return False
+    now = datetime.now(blog.TZ)
+    if sched.get("days") and (now.weekday() + 1) % 7 not in sched["days"]:
+        return False
+    if now.hour < int(sched.get("hour") or 0):
+        return False
+    r = con.execute("SELECT value FROM kv WHERE key=?", (kv_key,)).fetchone()
+    if r and json.loads(r["value"]) == now.strftime("%Y-%m-%d"):
+        return False
+    con.execute("INSERT INTO kv (key, value) VALUES (?, ?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (kv_key, json.dumps(now.strftime("%Y-%m-%d"))))
+    return True
+
+
+def exam_auto(con):
+    """Scheduled item drafting: AI writes new items in the official formats; they wait as drafts for a teacher."""
+    a = exams.settings(con)["autoDraft"]
+    if not _due(con, a, "exam_auto_last"):
+        return 0
+    jobs = []
+    if a.get("sat"):
+        jobs += [{"kind": "sat", "domain": d, "count": a["sat"], "topic": a.get("topics", "")} for d in exams.SAT_ORDER]
+    r = con.execute("SELECT value FROM kv WHERE key='exam_auto_turn'").fetchone()
+    turn = json.loads(r["value"]) if r else 0
+    jobs += [{"kind": "ielts-r", "difficulty": (turn + i) % 3 + 1, "topic": a.get("topics", "")} for i in range(a.get("reading") or 0)]
+    jobs += [{"kind": "ielts-w", "task": (turn + i) % 2 + 1, "topic": a.get("topics", "")} for i in range(a.get("writing") or 0)]
+    con.execute("INSERT INTO kv (key, value) VALUES ('exam_auto_turn', ?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (json.dumps(turn + 1),))
+    n = 0
+    for j in jobs:
+        try:
+            draft_items(con, None, j); n += 1
+        except (ai.AIError, ValueError) as e:
+            H["audit"](con, None, f"Exam bank: scheduled drafting stopped: {e}")
+            break
+    return n
+
+
 def tick():
-    """Publish scheduled posts and run the automatic writer when due (called every 20 s locally and by /api/cron)."""
+    """Publish scheduled posts, run the automatic blog writer and the scheduled item drafting when due
+    (called every 20 s locally and by /api/cron)."""
     try:
         with H["lock"], H["db"]() as con:
             cleanup_stale(con)
             bcfg = blog.settings(con)
             blog.publish_due(con, bcfg)
+            exam_auto(con)
             if blog.auto_due(con, bcfg):
                 blog.mark_auto_ran(con)
                 for cat in blog.next_auto_categories(con, bcfg):
@@ -409,11 +452,11 @@ def routes(con, me, path, method, body, environ):
             if not s or (me["id"] not in s["participants"] and not staff):
                 return "404 Not Found", {"error": "live class not found"}
             if path == "live/state":
-                if str(s["version"]) == one("v") and s["phase"] != "open":
-                    return "200 OK", {"same": True}
                 live.touch(con, s)
+                if one("pv") and str(s.get("pv", 0)) == one("pv"):     # nothing the learner needs has changed
+                    return "200 OK", {"same": True, "serverNow": exams.iso()}
                 return "200 OK", live.student_view(s, me["id"])
-            live.answer(con, s, me, body.get("value"))
+            live.answer(con, s, me, body.get("value"), body.get("key"))
             return "200 OK", {"ok": True}
         # ---------- documents: score reports for learners, parents and staff
         if path == "doc/report" and method == "POST":
@@ -439,7 +482,7 @@ def routes(con, me, path, method, body, environ):
             return "200 OK", {"ok": True}
 
         # ---------- exams: staff
-        if path.startswith(("exam/", "live/", "doc/")) and not staff:
+        if path.startswith(("exam/", "live/", "doc/", "qset/")) and not staff:
             return "403 Forbidden", {"error": "staff only"}
         if path == "exam/bank" and method == "GET":
             kind = one("kind")
@@ -452,7 +495,7 @@ def routes(con, me, path, method, body, environ):
                     lite["groups"] = [{"type": g["type"], "n": len(g["questions"])} for g in it["groups"]]
                 lite["problems"] = probs
                 out.append(lite)
-            return "200 OK", {"items": out, "ready": exams.readiness(con), "domains": exams.SAT_DOMAINS, "types": exams.IELTS_TYPES,
+            return "200 OK", {"items": out, "ready": exams.readiness(con), "domains": exams.SAT_DOMAINS, "types": exams.IELTS_TYPES, "settings": ecfg,
                               "criteria": exams.CRITERIA, "ai": ai.status(con)["ready"]}
         if path == "exam/item" and method == "GET":
             it = exams.get_item(con, one("id"))
@@ -561,13 +604,29 @@ def routes(con, me, path, method, body, environ):
             out = [{k: x.get(k) for k in ("id", "code", "title", "kind", "phase", "createdAt", "endedAt", "ownerName")} | {"questions": len(x["questions"]), "people": len(x["participants"])}
                    for x in live.all_sessions(con, None if admin else me["id"])]
             return "200 OK", {"items": out}
-        if path in ("live/host", "live/control"):
+        if path == "qset/list" and method == "GET":
+            return "200 OK", {"items": [qsets.summary(con, x) for x in qsets.listing(con, me)]}
+        if path == "qset/save" and method == "POST":
+            old = qsets.get(con, body.get("id")) if body.get("id") else None
+            if body.get("id") and (not old or (old["owner"] != me["id"] and not admin)):
+                return "404 Not Found", {"error": "question set not found"}
+            x = qsets.create(con, me, body, old)
+            H["audit"](con, me, f"Saved question set '{x['title']}' ({len(x['items'])} items)")
+            return "200 OK", {"ok": True, "set": qsets.summary(con, x)}
+        if path == "qset/delete" and method == "POST":
+            old = qsets.get(con, body.get("id"))
+            if not old or (old["owner"] != me["id"] and not admin):
+                return "404 Not Found", {"error": "question set not found"}
+            con.execute("DELETE FROM question_sets WHERE id=?", (old["id"],))
+            H["audit"](con, me, f"Deleted question set '{old['title']}'")
+            return "200 OK", {"ok": True}
+        if path in ("live/host", "live/control", "live/share"):
             s = live.get(con, one("id") if method == "GET" else body.get("id"))
             if not s or (s["owner"] != me["id"] and not admin):
                 return "404 Not Found", {"error": "live class not found"}
-            if path == "live/host":
+            if path in ("live/host", "live/share"):
                 live.touch(con, s)
-                return "200 OK", live.host_view(s)
+                return "200 OK", live.host_view(s) if path == "live/host" else live.share_view(s)
             live.control(con, s, body.get("action"), body.get("index"))
             if s["phase"] == "ended":
                 H["audit"](con, me, f"Ended live class {s['code']}")
@@ -669,7 +728,7 @@ def routes(con, me, path, method, body, environ):
 
 
 # ---------------------------------------------------------------- backup / restore / erase
-TABLES = ("blog_posts", "exam_items", "exam_item_versions", "exam_attempts", "ai_jobs", "live_sessions", "doc_exports", "doc_export_log")
+TABLES = ("blog_posts", "exam_items", "exam_item_versions", "exam_attempts", "ai_jobs", "live_sessions", "doc_exports", "doc_export_log", "question_sets")
 
 
 def backup(con):
@@ -677,12 +736,13 @@ def backup(con):
             "examAttempts": [json.loads(r["data"]) for r in con.execute("SELECT data FROM exam_attempts")],
             "examSettings": exams.settings(con), "aiSettings": ai.settings(con), "calibration": calibrate.settings(con),
             "liveSessions": [json.loads(r["data"]) for r in con.execute("SELECT data FROM live_sessions")],
+            "questionSets": [json.loads(r["data"]) for r in con.execute("SELECT data FROM question_sets")],
             "docExports": [dict(r) for r in con.execute("SELECT * FROM doc_exports")],
             "docExportLog": [dict(r) for r in con.execute("SELECT * FROM doc_export_log")]}
 
 
 def restore(con, body):
-    for t in ("blog_posts", "exam_items", "exam_attempts", "live_sessions", "doc_exports", "doc_export_log"):
+    for t in ("blog_posts", "exam_items", "exam_attempts", "live_sessions", "doc_exports", "doc_export_log", "question_sets"):
         con.execute(f"DELETE FROM {t}")
     if isinstance(body.get("blogSettings"), dict):
         blog.save_settings(con, body["blogSettings"])
@@ -714,6 +774,9 @@ def restore(con, body):
         if isinstance(s, dict) and s.get("id") and s.get("code") and s.get("owner"):
             s["version"] = max(0, int(s.get("version") or 1) - 1)
             live.put(con, s)
+    for x in body.get("questionSets") or []:
+        if isinstance(x, dict) and x.get("id") and x.get("owner") and isinstance(x.get("items"), list):
+            qsets.put(con, x)
     for d in body.get("docExports") or []:
         if isinstance(d, dict) and d.get("code") and d.get("data"):
             con.execute("INSERT OR REPLACE INTO doc_exports (code, kind, title, created_at, created_by, created_by_name, role, revoked, data) VALUES (?,?,?,?,?,?,?,?,?)",

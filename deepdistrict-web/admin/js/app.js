@@ -47,6 +47,7 @@
     ["popups", "Pop-ups", "ป๊อปอัป", "admin", "promo"],
     ["bank", "Exam item bank", "คลังข้อสอบ", "staff", "bank"],
     ["marking", "Writing marking", "ตรวจ Writing", "staff", "marking"],
+    ["sets", "Question sets", "ชุดข้อสอบ", "staff", "tests"],
     ["live", "Live class", "ห้องเรียนสด", "staff", "live"],
     ["docs", "PDF documents", "เอกสาร PDF", "staff", "pdf"],
     ["blog", "News blog", "บล็อกข่าวสาร", "admin", "news"],
@@ -627,7 +628,7 @@
     if (!$("#view")) shell();
     var h = location.hash.replace(/^#\/?/, "") || (A.isStaff() ? "dashboard" : "home");
     var parts = h.split("?"), path = parts[0].split("/"), q = new URLSearchParams(parts[1] || "");
-    var staffOnly = ["dashboard", "enrolments", "enrolment", "sessions", "people", "payments", "courses", "search", "popups", "content", "bank", "marking", "blog", "ai", "docs"];
+    var staffOnly = ["dashboard", "enrolments", "enrolment", "sessions", "people", "payments", "courses", "search", "popups", "content", "bank", "marking", "blog", "ai", "docs", "sets"];
     var name = path[0];
     if (!A.isStaff() && staffOnly.indexOf(name) !== -1) name = "home";
     if (A.isStaff() && name === "home") name = "dashboard";

@@ -17,8 +17,8 @@
   A.pages.live = function (q) {
     if (!A.isStaff()) { location.href = "live.html"; return { title: "", html: "" }; }
     return { title: L("Live class", "ห้องเรียนสด"), actions: '<button class="btn btn--primary" data-act="live-new">+ ' + L("Start a live class", "เริ่มห้องเรียนสด") + "</button>",
-      html: '<p class="note">' + L("Show the teacher screen on the projector. Learners open the portal → Online tests → \"Join a live class\" (or live.html) and type the code. Everyone sees the same question; you open answers, close them and reveal the answer. The key never reaches learners before you reveal it.",
-        "เปิดจอครูขึ้นโปรเจกเตอร์ นักเรียนเข้าพอร์ทัล → ข้อสอบออนไลน์ → \"เข้าห้องเรียนสด\" (หรือ live.html) แล้วพิมพ์รหัส ทุกคนเห็นคำถามเดียวกัน ครูเปิดรับคำตอบ ปิดรับ และเฉลย ระบบจะไม่ส่งเฉลยให้นักเรียนก่อนครูกดเฉลย") + '</p><div data-live><p class="muted">' + L("Loading…", "กำลังโหลด…") + "</p></div>",
+      html: '<p class="note">' + L("1) Choose a question set and a mode. 2) In Zoom / on the projector share only the \"share screen\" window — no key, no names. 3) Keep the teacher panel for yourself: key, every learner's answers and a live grid. Learners join from Online tests → \"Join a live class\" with the code.",
+        "1) เลือกชุดข้อสอบและรูปแบบ 2) ใน Zoom/โปรเจกเตอร์ ให้แชร์เฉพาะหน้าต่าง \"จอสำหรับแชร์\" (ไม่มีเฉลย ไม่มีชื่อนักเรียน) 3) เปิด \"แผงครู\" ไว้ดูเอง มีเฉลย คำตอบของนักเรียนทุกคน และตารางสด นักเรียนเข้าจาก ข้อสอบออนไลน์ → \"เข้าห้องเรียนสด\" ด้วยรหัส") + '</p><div data-live><p class="muted">' + L("Loading…", "กำลังโหลด…") + "</p></div>",
       after: function () {
         A.api("GET", "live/list").then(function (d) {
           var el = $("[data-live]"); if (!el) return;
@@ -29,22 +29,93 @@
         }).catch(function (e) { A.toast(e.message, "err"); });
       } };
   };
-  function newLive() {
-    bankData().then(function (b) {
-      var sets = b.items.filter(function (i) { return i.kind === "ielts-r" && i.status === "approved"; });
+  /* start a live class from a saved question set (or a quick random one) */
+  A.startLive = function (setId) {
+    A.api("GET", "qset/list").then(function (d) {
+      if (!d.items.length) { A.toast(L("Create a question set first.", "สร้างชุดข้อสอบก่อน"), "err"); location.hash = "#/sets"; return; }
       A.form({
         title: L("Start a live class", "เริ่มห้องเรียนสด"),
-        fields: [{ name: "title", label: L("Class name (shown on screens)", "ชื่อห้องเรียน (แสดงบนจอ)"), value: "", full: true },
-          { name: "kind", label: L("Questions from", "ใช้คำถามจาก"), type: "select", options: [["sat", "SAT Reading & Writing"], ["ielts-r", "IELTS Academic Reading"]] },
-          { name: "seconds", label: L("Seconds per question (0 = you close answers yourself)", "วินาทีต่อข้อ (0 = ครูปิดรับคำตอบเอง)"), type: "number", min: 0, value: 0 },
-          { name: "domains", label: "SAT · " + L("topics", "หัวข้อ"), type: "checks", options: domOpts(b.domains), value: Object.keys(b.domains) },
-          { name: "count", label: "SAT · " + L("number of questions", "จำนวนข้อ"), type: "number", min: 1, value: 8 },
-          { name: "difficulty", label: "SAT · " + L("difficulty", "ความยาก"), type: "select", options: [["", L("Mixed", "คละ")], ["e", L("Easy", "ง่าย")], ["m", L("Medium", "กลาง")], ["h", L("Hard", "ยาก")]] },
-          { name: "setId", label: "IELTS · " + L("passage", "บทอ่าน"), type: "select", options: sets.length ? sets.map(function (s) { return [s.id, s.title]; }) : [["", "–"]] }],
-        submit: L("Open teacher screen", "เปิดจอครู"),
+        intro: esc(L("Learners join with a code on their own device. Open the share screen in Zoom / on the projector — it never shows the key before you reveal it. Keep the teacher panel for yourself.",
+          "นักเรียนเข้าด้วยรหัสบนอุปกรณ์ของตัวเอง เปิด \"จอสำหรับแชร์\" ใน Zoom/โปรเจกเตอร์ (ไม่แสดงเฉลยก่อนครูกดเฉลย) และเก็บ \"แผงครู\" ไว้ดูเอง")),
+        fields: [{ name: "setId", label: L("Question set", "ชุดข้อสอบ"), type: "select", value: setId || d.items[0].id, options: d.items.map(function (x) { return [x.id, x.title + " · " + x.questions + L(" questions", " ข้อ")]; }), full: true },
+          { name: "mode", label: L("How the class works", "รูปแบบการเรียน"), type: "select", value: "paced", full: true,
+            options: [["paced", L("Teacher leads one question at a time", "ครูพาทำทีละข้อ")], ["self", L("Learners work through the whole set; teacher watches a live grid", "นักเรียนทำเองทั้งชุด ครูดูตารางคำตอบสด")]] },
+          { name: "seconds", label: L("Teacher-led: seconds per question (0 = you close answers)", "ครูพาทำ: วินาทีต่อข้อ (0 = ครูปิดเอง)"), type: "number", min: 0, value: 0 },
+          { name: "minutes", label: L("Self-paced: time limit in minutes (0 = none)", "ทำเองทั้งชุด: เวลาทั้งหมด (นาที, 0 = ไม่จำกัด)"), type: "number", min: 0, value: 0 }],
+        submit: L("Open teacher panel", "เปิดแผงครู"),
         onSave: function (v) {
-          return A.api("POST", "live/create", { title: v.title, kind: v.kind, seconds: v.seconds, domains: v.domains, count: v.count, difficulty: v.difficulty, setId: v.setId })
+          return A.api("POST", "live/create", { setId: v.setId, mode: v.mode, seconds: v.seconds, minutes: v.minutes })
             .then(function (r) { location.href = "live.html?id=" + r.id; }).catch(function (e) { A.toast(e.message, "err"); return false; });
+        }
+      });
+    });
+  };
+
+  /* ================================================================ question sets */
+  A.pages.sets = function () {
+    if (!A.isStaff()) return A.pages.home(new URLSearchParams());
+    return { title: L("Question sets", "ชุดข้อสอบ"), actions: '<button class="btn btn--primary" data-act="set-new">+ ' + L("New question set", "สร้างชุดข้อสอบ") + "</button>",
+      html: '<p class="note">' + L("One set, used everywhere: print the student copy (with a notes column) before class, keep the teacher copy with the key, and run the live class with the very same questions in the same order.",
+        "ชุดเดียวใช้ได้ทุกที่: พิมพ์ฉบับนักเรียน (มีช่องจดโน้ต) แจกก่อนเรียน เก็บฉบับครูที่มีเฉลย และเปิดห้องเรียนสดด้วยข้อสอบชุดเดียวกัน ลำดับเดียวกัน") + '</p><div data-sets><p class="muted">' + L("Loading…", "กำลังโหลด…") + "</p></div>",
+      after: drawSets };
+  };
+  var setsCache = [];
+  function drawSets() {
+    A.api("GET", "qset/list").then(function (d) {
+      setsCache = d.items;
+      var el = $("[data-sets]"); if (!el) return;
+      el.innerHTML = d.items.length ? d.items.map(function (x) {
+        return '<section class="box qset"><div class="qset__head"><div><h2>' + esc(x.title) + "</h2><p class=\"muted\">" + (x.kind === "sat" ? "SAT Reading & Writing" : "IELTS Academic Reading") + " · " + x.questions + L(" questions", " ข้อ") + " · " + L("answer order v", "ลำดับตัวเลือก v") + (x.variant || 1) + (x.note ? " · " + esc(x.note) : "") +
+          " · " + L("updated ", "แก้ไข ") + esc(when(x.updatedAt)) + (A.isAdmin() && x.ownerName ? " · " + esc(x.ownerName) : "") + "</p></div>" +
+          '<div class="btnrow"><button class="btn btn--primary" data-live-set="' + esc(x.id) + '">▶ ' + L("Start live class", "เปิดห้องเรียนสด") + '</button><button class="btn" data-pdf-set="' + esc(x.id) + '" data-key="0">' + L("Student PDF (notes)", "PDF นักเรียน (ช่องโน้ต)") + '</button>' +
+          '<button class="btn" data-pdf-set="' + esc(x.id) + '" data-key="1">' + L("Teacher PDF (key)", "PDF ครู (เฉลย)") + '</button><button class="btn" data-reorder-set="' + esc(x.id) + '" title="' + esc(L("Same questions, answer options in a new order", "ข้อเดิม แต่สลับลำดับตัวเลือกใหม่")) + '">⇄ ' + L("New answer order", "สลับตัวเลือกใหม่") + '</button><button class="btn" data-edit-set="' + esc(x.id) + '">' + L("Edit", "แก้ไข") + "</button></div></div>" +
+          '<details><summary>' + L("Questions in order", "รายการข้อตามลำดับ") + "</summary><ol class=\"qset__list\">" + x.items.map(function (i) { return "<li>" + esc(i.label) + (i.difficulty ? ' <small class="muted">' + esc(i.domain || "") + " · " + esc(i.difficulty) + "</small>" : "") + "</li>"; }).join("") + "</ol></details></section>";
+      }).join("") : A.empty("No question sets yet.", "ยังไม่มีชุดข้อสอบ", '<button class="btn btn--primary" data-act="set-new">+ ' + L("New question set", "สร้างชุดข้อสอบ") + "</button>");
+      $$("[data-live-set]", el).forEach(function (b) { b.addEventListener("click", function () { A.startLive(b.getAttribute("data-live-set")); }); });
+      $$("[data-reorder-set]", el).forEach(function (b) {
+        b.addEventListener("click", function () {
+          var x = setsCache.filter(function (y) { return y.id === b.getAttribute("data-reorder-set"); })[0];
+          if (!confirm(L("Shuffle the answer options of this set? Print new PDFs afterwards — PDFs made before keep the old order.", "สลับลำดับตัวเลือกของชุดนี้ใหม่? ควรพิมพ์ PDF ใหม่หลังจากนี้ — PDF ที่พิมพ์ไปแล้วยังเป็นลำดับเดิม"))) return;
+          A.api("POST", "qset/save", { id: x.id, title: x.title, newOrder: true }).then(function () { A.toast(L("New answer order saved", "สลับลำดับตัวเลือกแล้ว")); drawSets(); }).catch(function (e) { A.toast(e.message, "err"); });
+        });
+      });
+      $$("[data-edit-set]", el).forEach(function (b) { b.addEventListener("click", function () { editSet(setsCache.filter(function (x) { return x.id === b.getAttribute("data-edit-set"); })[0]); }); });
+      $$("[data-pdf-set]", el).forEach(function (b) {
+        b.addEventListener("click", function () {
+          var key = b.getAttribute("data-key") === "1"; b.disabled = true;
+          A.api("POST", "doc/paper", { setId: b.getAttribute("data-pdf-set"), withKey: key, notes: !key })
+            .then(function (p) { A.toast(L("Creating PDF ", "กำลังสร้าง PDF ") + p.code + "…"); return window.DDPDF.save(p, A.api); })
+            .then(function () { b.disabled = false; }).catch(function (e) { A.toast(e.message, "err"); b.disabled = false; });
+        });
+      });
+    }).catch(function (e) { A.toast(e.message, "err"); });
+  }
+  function editSet(x) {
+    bankData().then(function (b) {
+      var ok = b.items.filter(function (i) { return i.status === "approved"; });
+      var sat = ok.filter(function (i) { return i.kind === "sat"; }), sets = ok.filter(function (i) { return i.kind === "ielts-r"; });
+      var cur = x ? x.items.map(function (i) { return i.id; }) : [];
+      var fields = [{ name: "title", label: L("Name", "ชื่อชุด"), value: x ? x.title : "", required: true, full: true }, { name: "note", label: L("Class / note (printed on PDFs)", "ห้อง / หมายเหตุ (พิมพ์บน PDF)"), value: x ? x.note : "", full: true }];
+      if (!x) fields.push({ name: "kind", label: L("Type", "ประเภท"), type: "select", options: [["sat", "SAT Reading & Writing"], ["ielts-r", "IELTS Academic Reading"]] },
+        { name: "how", label: L("SAT questions", "ข้อ SAT"), type: "select", options: [["random", L("Random from topics", "สุ่มตามหัวข้อ")], ["pick", L("I choose them (list below)", "เลือกเอง (รายการด้านล่าง)")]] },
+        { name: "domains", label: "SAT · " + L("topics", "หัวข้อ"), type: "checks", options: domOpts(b.domains), value: Object.keys(b.domains) },
+        { name: "count", label: "SAT · " + L("number of questions", "จำนวนข้อ"), type: "number", min: 1, value: 10 },
+        { name: "difficulty", label: "SAT · " + L("difficulty", "ความยาก"), type: "select", options: [["", L("Mixed", "คละ")], ["e", L("Easy", "ง่าย")], ["m", L("Medium", "กลาง")], ["h", L("Hard", "ยาก")]] });
+      if (!x || x.kind === "sat") fields.push({ name: "pick", label: L("SAT questions (when choosing yourself; order follows the test's domain order)", "ข้อ SAT (กรณีเลือกเอง เรียงตามลำดับหมวดของข้อสอบจริง)"), type: "checks", value: cur,
+        options: sat.map(function (i) { return [i.id, (b.domains[i.domain] || {}).en + " · " + i.difficulty + " · " + (i.stem || "").slice(0, 70)]; }) });
+      if (!x || x.kind === "ielts-r") fields.push({ name: "setId", label: "IELTS · " + L("passage", "บทอ่าน"), type: "select", value: cur[0], options: sets.length ? sets.map(function (s) { return [s.id, s.title]; }) : [["", "–"]] });
+      A.form({
+        title: x ? L("Edit question set", "แก้ไขชุดข้อสอบ") : L("New question set", "สร้างชุดข้อสอบ"),
+        intro: esc(L("A set keeps the exact version of each question, so later edits in the bank do not change PDFs or classes made from it.", "ชุดข้อสอบเก็บเวอร์ชันของแต่ละข้อไว้ การแก้ไขในคลังภายหลังจะไม่เปลี่ยน PDF หรือห้องเรียนที่สร้างจากชุดนี้")),
+        fields: fields,
+        onDelete: x ? function () { A.api("POST", "qset/delete", { id: x.id }).then(drawSets); } : null,
+        onSave: function (v) {
+          var kind = x ? x.kind : v.kind, body = { id: x && x.id, title: v.title, note: v.note, kind: kind };
+          if (kind === "ielts-r") { if (!x || v.setId !== cur[0]) body.setId = v.setId; }
+          else if (x) { var same = v.pick.length === cur.length && v.pick.every(function (i) { return cur.indexOf(i) !== -1; }); if (!same) body.itemIds = sat.filter(function (i) { return v.pick.indexOf(i.id) !== -1; }).sort(function (a, c) { return ["cs", "ii", "sec", "eoi"].indexOf(a.domain) - ["cs", "ii", "sec", "eoi"].indexOf(c.domain) || "emh".indexOf(a.difficulty) - "emh".indexOf(c.difficulty); }).map(function (i) { return i.id; }); }
+          else if (v.how === "pick") body.itemIds = sat.filter(function (i) { return v.pick.indexOf(i.id) !== -1; }).sort(function (a, c) { return ["cs", "ii", "sec", "eoi"].indexOf(a.domain) - ["cs", "ii", "sec", "eoi"].indexOf(c.domain) || "emh".indexOf(a.difficulty) - "emh".indexOf(c.difficulty); }).map(function (i) { return i.id; });
+          else { body.domains = v.domains; body.count = v.count; body.difficulty = v.difficulty; }
+          return A.api("POST", "qset/save", body).then(function () { A.toast(L("Saved", "บันทึกแล้ว")); drawSets(); }).catch(function (e) { A.toast(e.message, "err"); return false; });
         }
       });
     });
@@ -141,7 +212,8 @@
 
   var prev = A.onAct;
   A.onAct = function (a, b, ev) {
-    if (a === "live-new") newLive();
+    if (a === "live-new") A.startLive();
+    else if (a === "set-new") editSet(null);
     else if (a === "pdf-paper") A.pdfPaper();
     else if (prev) prev(a, b, ev);
   };
