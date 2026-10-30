@@ -1,0 +1,1750 @@
+{
+ "exam": "sp1",
+ "set": 1,
+ "title": {
+  "en": "Satit Prasarnmit M.1 English — Practice paper 1",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.1 สาธิตประสานมิตร — ชุดที่ 1"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "50 questions in 60 minutes, reading-centred with reasoning (tables, notices, emails, stories, informational and opinion texts), plus conversation, vocabulary and grammar. DeepDistrict practice — not an official or past paper.",
+  "th": "50 ข้อ 60 นาที เน้นการอ่านและการคิดวิเคราะห์ (ตาราง ประกาศ อีเมล เรื่องสั้น บทความความรู้ และบทแสดงความคิดเห็น) พร้อมบทสนทนา คำศัพท์ และไวยากรณ์ — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Choosing a suitable response",
+    "th": "การเลือกคำตอบที่เหมาะสม"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "Choose the best response.\nA: Could you keep an eye on my bag while I buy a drink?\nB: ______",
+   "choices": [
+    "Yes, I can see it clearly.",
+    "No, it isn't my bag.",
+    "I'd like a drink too, thanks.",
+    "Sure, take your time."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "'Keep an eye on' means 'watch and look after', so agreeing with 'Sure, take your time' fits. 'I can see it clearly' takes the phrase literally; the other replies do not answer the request.",
+    "th": "'keep an eye on' แปลว่า ช่วยดูแลให้ จึงตอบรับด้วย 'Sure, take your time.' ส่วน 'I can see it clearly' แปลสำนวนตามตัวอักษร และคำตอบอื่นไม่ได้ตอบคำขอ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding implied meaning",
+    "th": "การเข้าใจความหมายแฝง"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: Are you coming to Mook's party on Saturday?\nB: Well, I've got a maths test on Monday and I haven't even opened the book yet.\nWhat does B mean?",
+   "choices": [
+    "B thinks the party is on Monday.",
+    "B has already finished revising.",
+    "B will study maths at the party.",
+    "B probably won't go to the party."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "B does not say 'no' directly, but explaining that a test is coming and no revision has been done implies B will stay home and study, so B probably won't go.",
+    "th": "B ไม่ได้ปฏิเสธตรง ๆ แต่การบอกว่ามีสอบวันจันทร์และยังไม่ได้เปิดหนังสือเลย สื่อว่าต้องอยู่บ้านอ่านหนังสือ จึงน่าจะไม่ไปงานปาร์ตี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing appropriate register (politeness)",
+    "th": "การเลือกระดับภาษาที่เหมาะสมกับสถานการณ์"
+   },
+   "topic": {
+    "en": "Polite and formal language",
+    "th": "ภาษาสุภาพและเป็นทางการ"
+   },
+   "passage": "",
+   "stem": "You want to ask the school director for permission to put up a poster about your club. What is the most appropriate thing to say?",
+   "choices": [
+    "Excuse me, sir. Would it be all right if I put up a poster for our club?",
+    "Give me permission for a poster, please.",
+    "You must let me put up a poster for our club.",
+    "Hey, I'm putting up a poster for our club, OK?"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "When speaking to a senior adult, a polite indirect question such as 'Would it be all right if I…?' is best. The other sentences sound too casual, too direct, or like an order.",
+    "th": "เมื่อพูดกับผู้ใหญ่ที่มีตำแหน่งสูง ควรใช้คำถามอ้อมที่สุภาพ เช่น 'Would it be all right if I…?' ประโยคอื่นฟังเป็นกันเองเกินไป ห้วนเกินไป หรือเหมือนออกคำสั่ง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Following the logic of a dialogue",
+    "th": "การเชื่อมโยงเหตุผลในบทสนทนา"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: I can't believe I left my umbrella on the bus again!\nB: ______\nA: I know, I know. Maybe I should write a note on my hand.",
+   "choices": [
+    "That's the third time this month!",
+    "I'll lend you mine tomorrow.",
+    "Which bus did you take?",
+    "Lucky you — it was an old one anyway."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A's reply 'I know, I know' accepts a criticism, and the note-on-the-hand idea is about not forgetting again. Only 'That's the third time this month!' points out that A keeps forgetting.",
+    "th": "คำตอบของ A 'I know, I know' คือการยอมรับคำติ และการเขียนโน้ตบนมือก็เพื่อไม่ให้ลืมอีก จึงต้องเป็น 'That's the third time this month!' ซึ่งชี้ว่า A ลืมบ่อย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing a suitable response",
+    "th": "การเลือกคำตอบที่เหมาะสม"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: Excuse me, is this seat taken?\nB: ______",
+   "choices": [
+    "Yes, please sit down.",
+    "I'm afraid it is. My friend has just gone to get some food.",
+    "It's taken me ten minutes to get here.",
+    "No, I'm not taking it anywhere."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "'Is this seat taken?' asks whether someone is using the seat. 'I'm afraid it is' politely says yes and gives a reason. 'Yes, please sit down' contradicts itself, and the other two misunderstand 'taken'.",
+    "th": "'Is this seat taken?' ถามว่ามีคนจองที่นั่งนี้หรือยัง 'I'm afraid it is' คือตอบอย่างสุภาพว่ามีคนนั่งแล้วพร้อมเหตุผล 'Yes, please sit down' ขัดแย้งในตัวเอง ส่วนอีกสองคำตอบเข้าใจคำว่า taken ผิดความหมาย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Following the logic of a dialogue",
+    "th": "การเชื่อมโยงเหตุผลในบทสนทนา"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: Dad, can I borrow your laptop tonight?\nB: What happened to yours?\nA: ______\nB: Then you'd better take it to the repair shop tomorrow.",
+   "choices": [
+    "It's in my bag, and the battery is full.",
+    "I've already finished my homework on it.",
+    "The screen suddenly went black and it won't turn on.",
+    "I lent it to Nok, but she'll give it back tonight."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Dad's advice to visit a repair shop only makes sense if A's laptop is broken, so A must say the screen went black and it won't turn on.",
+    "th": "คำแนะนำของพ่อให้นำไปร้านซ่อม จะสมเหตุสมผลก็ต่อเมื่อคอมพิวเตอร์ของ A เสีย จึงต้องตอบว่าจอดับและเปิดไม่ติด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Adjectives",
+    "th": "คำคุณศัพท์"
+   },
+   "passage": "",
+   "stem": "The film was so ______ that half the audience fell asleep.",
+   "choices": [
+    "frightening",
+    "dull",
+    "thrilling",
+    "popular"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "People fall asleep when something is boring, so 'dull' is correct. A thrilling or frightening film would keep them awake.",
+    "th": "คนดูหลับเพราะหนังน่าเบื่อ จึงใช้ 'dull' ส่วนหนังที่ตื่นเต้นหรือน่ากลัวจะทำให้คนดูตื่นตัว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Verbs",
+    "th": "คำกริยา"
+   },
+   "passage": "",
+   "stem": "The bridge was badly ______ in the flood, so the villagers had to use a boat to cross the river.",
+   "choices": [
+    "crowded",
+    "damaged",
+    "decorated",
+    "repaired"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "They needed a boat because the bridge could not be used, so it was 'damaged'.",
+    "th": "ชาวบ้านต้องใช้เรือเพราะใช้สะพานไม่ได้ แปลว่าสะพาน 'damaged' (เสียหาย)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Adjectives",
+    "th": "คำคุณศัพท์"
+   },
+   "passage": "",
+   "stem": "Pim never buys things she doesn't need, and she always compares prices first. She is very ______ with money.",
+   "choices": [
+    "jealous",
+    "careless",
+    "sensible",
+    "generous"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Comparing prices and avoiding unnecessary buying shows good judgement, so she is 'sensible' with money. 'Generous' means happy to give money away; 'careless' is the opposite of the description.",
+    "th": "การเปรียบเทียบราคาและไม่ซื้อของไม่จำเป็นแสดงว่าใช้เงินอย่างมีเหตุผล คือ 'sensible' ส่วน 'generous' คือใจกว้างชอบให้ และ 'careless' มีความหมายตรงข้าม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Working out word meaning from context",
+    "th": "การหาความหมายของคำจากบริบท"
+   },
+   "topic": {
+    "en": "Nouns",
+    "th": "คำนาม"
+   },
+   "passage": "",
+   "stem": "The coach was impressed by Tan's determination: even after falling many times, he got up and tried again.\nThe word 'determination' is closest in meaning to ______.",
+   "choices": [
+    "refusal to give up",
+    "great speed",
+    "bad luck",
+    "natural talent"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The clue after the colon — he kept getting up and trying again — shows that 'determination' means refusing to give up.",
+    "th": "บริบทหลังเครื่องหมาย : บอกว่าเขาล้มแล้วลุกขึ้นพยายามใหม่ จึงแปลว่า ความมุ่งมั่นไม่ยอมแพ้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Adjectives",
+    "th": "คำคุณศัพท์"
+   },
+   "passage": "",
+   "stem": "Although the instructions looked ______, it took us three hours to build the bookshelf.",
+   "choices": [
+    "complicated",
+    "missing",
+    "expensive",
+    "straightforward"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "'Although' signals a contrast with 'three hours'. The instructions looked easy, but the job was slow, so 'straightforward' fits. 'Complicated' would give no contrast.",
+    "th": "'Although' บอกความขัดแย้งกับ 'ใช้เวลาสามชั่วโมง' คำแนะนำดูง่ายแต่ทำนาน จึงใช้ 'straightforward' ถ้าเป็น 'complicated' จะไม่ขัดแย้งกัน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Verbs",
+    "th": "คำกริยา"
+   },
+   "passage": "",
+   "stem": "Because of the storm, we had to ______ the picnic until next Saturday.",
+   "choices": [
+    "postpone",
+    "cancel",
+    "prevent",
+    "arrange"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "'Until next Saturday' shows the picnic will still happen later, so 'postpone' (move to a later time) is correct. 'Cancel' means it will not happen at all.",
+    "th": "'until next Saturday' แสดงว่ายังจัดปิกนิกอยู่แต่เลื่อนออกไป จึงใช้ 'postpone' ส่วน 'cancel' คือยกเลิกไปเลย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำที่ใช้คู่กันและกริยาวลี"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำที่ใช้คู่กันและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "Please ______ attention to the safety instructions before the experiment begins.",
+   "choices": [
+    "do",
+    "take",
+    "make",
+    "pay"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The fixed expression is 'pay attention to'.",
+    "th": "สำนวนที่ใช้คู่กันคือ 'pay attention to' แปลว่า ตั้งใจฟังหรือใส่ใจ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Adjectives",
+    "th": "คำคุณศัพท์"
+   },
+   "passage": "",
+   "stem": "The new library has ramps and wide lifts, so it is ______ to everyone, including people who use wheelchairs.",
+   "choices": [
+    "responsible",
+    "comfortable",
+    "accessible",
+    "acceptable"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Ramps and wide lifts make it possible for wheelchair users to enter, so the library is 'accessible' (easy to reach and use).",
+    "th": "ทางลาดและลิฟต์กว้างช่วยให้ผู้ใช้รถเข็นเข้าถึงได้ จึงใช้ 'accessible' (เข้าถึงและใช้งานได้ง่าย)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Conditionals (first conditional)",
+    "th": "ประโยคเงื่อนไขแบบที่ 1"
+   },
+   "passage": "",
+   "stem": "If it ______ tomorrow, we will stay at home and play board games.",
+   "choices": [
+    "rained",
+    "would rain",
+    "rains",
+    "will rain"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The first conditional uses the present simple in the if-clause and 'will' in the main clause: 'If it rains…, we will…'.",
+    "th": "ประโยคเงื่อนไขแบบที่ 1 ใช้ present simple ในส่วน if และใช้ will ในประโยคหลัก จึงเป็น 'If it rains'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Subject–verb agreement",
+    "th": "ความสอดคล้องของประธานและกริยา"
+   },
+   "passage": "",
+   "stem": "Neither my brother nor my parents ______ spicy food.",
+   "choices": [
+    "is liking",
+    "liking",
+    "likes",
+    "like"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "With 'neither … nor', the verb agrees with the nearer subject. 'My parents' is plural, so the verb is 'like'.",
+    "th": "โครงสร้าง neither … nor กริยาจะผันตามประธานตัวที่อยู่ใกล้กว่า คือ 'my parents' ซึ่งเป็นพหูพจน์ จึงใช้ 'like'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Past perfect",
+    "th": "Past perfect tense"
+   },
+   "passage": "",
+   "stem": "By the time we got to the cinema, the film ______, so we missed the beginning.",
+   "choices": [
+    "is already starting",
+    "has already started",
+    "already starts",
+    "had already started"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Two past actions: the film started before we arrived. The earlier action takes the past perfect, 'had already started'.",
+    "th": "มีเหตุการณ์ในอดีตสองเหตุการณ์ หนังเริ่มก่อนเราไปถึง เหตุการณ์ที่เกิดก่อนใช้ past perfect คือ 'had already started'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Relative pronouns",
+    "th": "ประพันธสรรพนาม"
+   },
+   "passage": "",
+   "stem": "The girl ______ won the speech contest is in my class.",
+   "choices": [
+    "whose",
+    "which",
+    "who",
+    "whom"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "We need a subject pronoun for a person: 'who won the contest'. 'Whose' needs a noun after it and 'which' is for things.",
+    "th": "ต้องใช้ประพันธสรรพนามที่เป็นประธานแทนคน คือ 'who' ส่วน 'whose' ต้องตามด้วยคำนาม และ 'which' ใช้กับสิ่งของ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Be used to + -ing",
+    "th": "be used to + V-ing"
+   },
+   "passage": "",
+   "stem": "I moved to the countryside last month, and I'm still not used to ______ up at 5 a.m. with the roosters.",
+   "choices": [
+    "be waking",
+    "woke",
+    "waking",
+    "wake"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "In 'be used to', 'to' is a preposition, so it is followed by a gerund: 'used to waking up'.",
+    "th": "ใน be used to คำว่า to เป็นบุพบท จึงตามด้วย V-ing คือ 'waking'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Inversion after negative adverbs",
+    "th": "การสลับที่หลังคำวิเศษณ์ปฏิเสธ"
+   },
+   "passage": "",
+   "stem": "Hardly ______ the classroom when the bell rang.",
+   "choices": [
+    "did she entered",
+    "she had entered",
+    "she entered",
+    "had she entered"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "When a sentence begins with 'Hardly', the auxiliary comes before the subject, and the earlier action uses the past perfect: 'Hardly had she entered…when…'.",
+    "th": "เมื่อขึ้นต้นประโยคด้วย Hardly ต้องสลับกริยาช่วยไว้หน้าประธาน และเหตุการณ์ที่เกิดก่อนใช้ past perfect จึงเป็น 'had she entered'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Non-defining relative clauses",
+    "th": "อนุประโยคขยายแบบไม่จำกัดความ"
+   },
+   "passage": "",
+   "stem": "The letter, ______ was written in 1950, was found inside an old book in the library.",
+   "choices": [
+    "what",
+    "which",
+    "that",
+    "who"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The commas show a non-defining clause, which cannot use 'that'. A letter is a thing, so 'which' is correct.",
+    "th": "มีเครื่องหมายจุลภาคคั่น แสดงว่าเป็นอนุประโยคแบบไม่จำกัดความ ซึ่งใช้ that ไม่ได้ และจดหมายเป็นสิ่งของ จึงใช้ 'which'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Wishes about the past",
+    "th": "การแสดงความปรารถนาเกี่ยวกับอดีต"
+   },
+   "passage": "",
+   "stem": "Nid handed in her project yesterday, but it wasn't finished. 'I wish I ______ more time,' she said.",
+   "choices": [
+    "had had",
+    "will have",
+    "would have",
+    "have"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Nid regrets something in the past (yesterday), so 'wish' is followed by the past perfect: 'I wish I had had more time'.",
+    "th": "นิดเสียใจกับเรื่องที่เกิดในอดีต (เมื่อวาน) wish จึงตามด้วย past perfect คือ 'had had'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the table and the notes, then answer the questions.\n\nNotes:\n• All courses run for four weeks, starting on 1 April.\n• Members of the centre get 20% off every course.\n• If you join two courses, you pay 300 baht less for the cheaper one.\n• Rock climbing: you must bring a letter of permission signed by a parent.",
+   "table": {
+    "title": "Riverside Sports Centre — April holiday courses",
+    "rows": [
+     [
+      "Course",
+      "Ages",
+      "Days",
+      "Time",
+      "Fee (baht)"
+     ],
+     [
+      "Swimming (beginners)",
+      "8–12",
+      "Mon, Wed",
+      "9:00–10:30",
+      "1,200"
+     ],
+     [
+      "Badminton",
+      "10–15",
+      "Tue, Thu",
+      "9:00–11:00",
+      "1,500"
+     ],
+     [
+      "Rock climbing",
+      "12–16",
+      "Sat",
+      "13:00–16:00",
+      "2,000"
+     ],
+     [
+      "Table tennis",
+      "9–14",
+      "Mon, Wed, Fri",
+      "14:00–15:30",
+      "1,000"
+     ],
+     [
+      "Junior yoga",
+      "7–11",
+      "Tue, Thu",
+      "15:00–16:00",
+      "900"
+     ]
+    ]
+   },
+   "stem": "Which student can join the rock climbing course?",
+   "choices": [
+    "Kan, 13, who is free on Saturday afternoons and has a letter signed by his mother",
+    "Ton, 14, who is free only on Saturday mornings and has a letter from his parents",
+    "Mai, 15, who is free on Saturday afternoons but whose parents have not agreed yet",
+    "Ploy, 11, who is free every Saturday and has a letter from her father"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Rock climbing needs three things: age 12–16, free on Saturday 13:00–16:00, and a signed parent letter. Only Kan meets all three. Ploy is too young, Ton is busy in the afternoon, and Mai has no permission.",
+    "th": "ปีนผาต้องครบสามเงื่อนไข: อายุ 12–16 ปี ว่างวันเสาร์ 13:00–16:00 และมีจดหมายอนุญาตจากผู้ปกครอง มีเพียง Kan ที่ครบ Ploy อายุน้อยไป Ton ว่างแค่ตอนเช้า และ Mai ยังไม่ได้รับอนุญาต"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Comparing information in a table or text",
+    "th": "การเปรียบเทียบข้อมูลในตารางหรือบทอ่าน"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the table and the notes, then answer the questions.\n\nNotes:\n• All courses run for four weeks, starting on 1 April.\n• Members of the centre get 20% off every course.\n• If you join two courses, you pay 300 baht less for the cheaper one.\n• Rock climbing: you must bring a letter of permission signed by a parent.",
+   "table": {
+    "title": "Riverside Sports Centre — April holiday courses",
+    "rows": [
+     [
+      "Course",
+      "Ages",
+      "Days",
+      "Time",
+      "Fee (baht)"
+     ],
+     [
+      "Swimming (beginners)",
+      "8–12",
+      "Mon, Wed",
+      "9:00–10:30",
+      "1,200"
+     ],
+     [
+      "Badminton",
+      "10–15",
+      "Tue, Thu",
+      "9:00–11:00",
+      "1,500"
+     ],
+     [
+      "Rock climbing",
+      "12–16",
+      "Sat",
+      "13:00–16:00",
+      "2,000"
+     ],
+     [
+      "Table tennis",
+      "9–14",
+      "Mon, Wed, Fri",
+      "14:00–15:30",
+      "1,000"
+     ],
+     [
+      "Junior yoga",
+      "7–11",
+      "Tue, Thu",
+      "15:00–16:00",
+      "900"
+     ]
+    ]
+   },
+   "stem": "Ying is 10. She wants to take two courses, both in the morning, on different days. Which two should she choose?",
+   "choices": [
+    "Badminton and rock climbing",
+    "Swimming and badminton",
+    "Badminton and junior yoga",
+    "Swimming and table tennis"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Only swimming (Mon, Wed 9:00) and badminton (Tue, Thu 9:00) are morning courses, and a 10-year-old can join both. Table tennis and yoga are in the afternoon; rock climbing starts at 12.",
+    "th": "คอร์สตอนเช้ามีแค่ว่ายน้ำ (จันทร์ พุธ 9:00) และแบดมินตัน (อังคาร พฤหัส 9:00) และเด็กอายุ 10 ปีเรียนได้ทั้งสองคอร์ส ส่วนปิงปองและโยคะเรียนตอนบ่าย และปีนผาต้องอายุ 12 ปีขึ้นไป"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Calculating from given information",
+    "th": "การคำนวณจากข้อมูลที่กำหนด"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the table and the notes, then answer the questions.\n\nNotes:\n• All courses run for four weeks, starting on 1 April.\n• Members of the centre get 20% off every course.\n• If you join two courses, you pay 300 baht less for the cheaper one.\n• Rock climbing: you must bring a letter of permission signed by a parent.",
+   "table": {
+    "title": "Riverside Sports Centre — April holiday courses",
+    "rows": [
+     [
+      "Course",
+      "Ages",
+      "Days",
+      "Time",
+      "Fee (baht)"
+     ],
+     [
+      "Swimming (beginners)",
+      "8–12",
+      "Mon, Wed",
+      "9:00–10:30",
+      "1,200"
+     ],
+     [
+      "Badminton",
+      "10–15",
+      "Tue, Thu",
+      "9:00–11:00",
+      "1,500"
+     ],
+     [
+      "Rock climbing",
+      "12–16",
+      "Sat",
+      "13:00–16:00",
+      "2,000"
+     ],
+     [
+      "Table tennis",
+      "9–14",
+      "Mon, Wed, Fri",
+      "14:00–15:30",
+      "1,000"
+     ],
+     [
+      "Junior yoga",
+      "7–11",
+      "Tue, Thu",
+      "15:00–16:00",
+      "900"
+     ]
+    ]
+   },
+   "stem": "Arm is not a member. He joins badminton and table tennis. How much does he pay altogether?",
+   "choices": [
+    "2,200 baht",
+    "2,500 baht",
+    "1,760 baht",
+    "2,000 baht"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Badminton is 1,500 and table tennis 1,000. Because he takes two courses, the cheaper one (table tennis) costs 300 less: 1,500 + 700 = 2,200. He is not a member, so there is no 20% discount.",
+    "th": "แบดมินตัน 1,500 บาท ปิงปอง 1,000 บาท เรียนสองคอร์สจึงลด 300 บาทจากคอร์สที่ถูกกว่า (ปิงปอง) ได้ 1,500 + 700 = 2,200 บาท และเขาไม่ได้เป็นสมาชิกจึงไม่ได้ส่วนลด 20%"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Comparing information in a table or text",
+    "th": "การเปรียบเทียบข้อมูลในตารางหรือบทอ่าน"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the table and the notes, then answer the questions.\n\nNotes:\n• All courses run for four weeks, starting on 1 April.\n• Members of the centre get 20% off every course.\n• If you join two courses, you pay 300 baht less for the cheaper one.\n• Rock climbing: you must bring a letter of permission signed by a parent.",
+   "table": {
+    "title": "Riverside Sports Centre — April holiday courses",
+    "rows": [
+     [
+      "Course",
+      "Ages",
+      "Days",
+      "Time",
+      "Fee (baht)"
+     ],
+     [
+      "Swimming (beginners)",
+      "8–12",
+      "Mon, Wed",
+      "9:00–10:30",
+      "1,200"
+     ],
+     [
+      "Badminton",
+      "10–15",
+      "Tue, Thu",
+      "9:00–11:00",
+      "1,500"
+     ],
+     [
+      "Rock climbing",
+      "12–16",
+      "Sat",
+      "13:00–16:00",
+      "2,000"
+     ],
+     [
+      "Table tennis",
+      "9–14",
+      "Mon, Wed, Fri",
+      "14:00–15:30",
+      "1,000"
+     ],
+     [
+      "Junior yoga",
+      "7–11",
+      "Tue, Thu",
+      "15:00–16:00",
+      "900"
+     ]
+    ]
+   },
+   "stem": "Which course takes the most hours each week?",
+   "choices": [
+    "Table tennis",
+    "Rock climbing",
+    "Swimming (beginners)",
+    "Badminton"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Table tennis: 3 days × 1.5 hours = 4.5 hours. Badminton: 2 × 2 = 4 hours. Rock climbing: 3 hours. Swimming: 2 × 1.5 = 3 hours.",
+    "th": "ปิงปอง 3 วัน × 1.5 ชม. = 4.5 ชม. แบดมินตัน 2 × 2 = 4 ชม. ปีนผา 3 ชม. ว่ายน้ำ 2 × 1.5 = 3 ชม. ปิงปองจึงใช้เวลามากที่สุด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Checking statements against the text",
+    "th": "การตรวจสอบข้อความกับบทอ่าน"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the table and the notes, then answer the questions.\n\nNotes:\n• All courses run for four weeks, starting on 1 April.\n• Members of the centre get 20% off every course.\n• If you join two courses, you pay 300 baht less for the cheaper one.\n• Rock climbing: you must bring a letter of permission signed by a parent.",
+   "table": {
+    "title": "Riverside Sports Centre — April holiday courses",
+    "rows": [
+     [
+      "Course",
+      "Ages",
+      "Days",
+      "Time",
+      "Fee (baht)"
+     ],
+     [
+      "Swimming (beginners)",
+      "8–12",
+      "Mon, Wed",
+      "9:00–10:30",
+      "1,200"
+     ],
+     [
+      "Badminton",
+      "10–15",
+      "Tue, Thu",
+      "9:00–11:00",
+      "1,500"
+     ],
+     [
+      "Rock climbing",
+      "12–16",
+      "Sat",
+      "13:00–16:00",
+      "2,000"
+     ],
+     [
+      "Table tennis",
+      "9–14",
+      "Mon, Wed, Fri",
+      "14:00–15:30",
+      "1,000"
+     ],
+     [
+      "Junior yoga",
+      "7–11",
+      "Tue, Thu",
+      "15:00–16:00",
+      "900"
+     ]
+    ]
+   },
+   "stem": "According to the table and notes, which statement is TRUE?",
+   "choices": [
+    "The courses start on different dates.",
+    "Junior yoga is the cheapest course.",
+    "Members pay 300 baht less for every course.",
+    "Children of any age can go rock climbing with a parent's letter."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Junior yoga costs 900 baht, the lowest fee. All courses start on 1 April, members get 20% off (not 300 baht), and rock climbing is only for ages 12–16.",
+    "th": "โยคะเด็กราคา 900 บาท ถูกที่สุด ทุกคอร์สเริ่ม 1 เมษายนเหมือนกัน สมาชิกได้ลด 20% (ไม่ใช่ 300 บาท) และปีนผาจำกัดอายุ 12–16 ปี"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Identifying the writer's purpose",
+    "th": "การระบุจุดประสงค์ของผู้เขียน"
+   },
+   "topic": {
+    "en": "School or public notice",
+    "th": "ประกาศ"
+   },
+   "passage": "GREEN WEEK CHALLENGE — 10–14 June\n\nThis year every class can take part in our Plastic-Free Lunch Challenge. For five school days, try to bring and use NO single-use plastic at lunchtime.\n\nHow it works\n• Every class starts with 50 points.\n• After lunch, each class's recycling monitor counts the plastic bags, straws, bottles and wrappers in the class bin. The class loses one point for every piece.\n• Reusable bottles and lunch boxes are fine — they are not single-use!\n• Forgot your bottle? Borrow a metal cup from the canteen, but return it before 1 p.m.\n\nThe class with the most points on Friday afternoon wins a trip to the Mangrove Learning Centre. If two classes have the same score, the winner will be the class that has brought the most used batteries to the Science Room during the week.\n\nQuestions? Ask Ms Duangjai, Room 214.",
+   "stem": "What is the main purpose of this notice?",
+   "choices": [
+    "To ask students to bring plastic bottles to the Science Room",
+    "To encourage students to cut down on plastic waste at lunchtime",
+    "To sell metal cups and reusable bottles in the canteen",
+    "To tell students that every class will visit the Mangrove Learning Centre"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The notice explains a challenge in which classes try to use no single-use plastic at lunch, so its purpose is to encourage less plastic waste. Only the winning class gets the trip, and the cups are borrowed, not sold.",
+    "th": "ประกาศนี้อธิบายการแข่งขันลดการใช้พลาสติกครั้งเดียวทิ้งตอนพักกลางวัน จุดประสงค์จึงเป็นการชวนให้ลดขยะพลาสติก ทริปเป็นรางวัลเฉพาะห้องที่ชนะ และแก้วโลหะเป็นของให้ยืม ไม่ได้ขาย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "School or public notice",
+    "th": "ประกาศ"
+   },
+   "passage": "GREEN WEEK CHALLENGE — 10–14 June\n\nThis year every class can take part in our Plastic-Free Lunch Challenge. For five school days, try to bring and use NO single-use plastic at lunchtime.\n\nHow it works\n• Every class starts with 50 points.\n• After lunch, each class's recycling monitor counts the plastic bags, straws, bottles and wrappers in the class bin. The class loses one point for every piece.\n• Reusable bottles and lunch boxes are fine — they are not single-use!\n• Forgot your bottle? Borrow a metal cup from the canteen, but return it before 1 p.m.\n\nThe class with the most points on Friday afternoon wins a trip to the Mangrove Learning Centre. If two classes have the same score, the winner will be the class that has brought the most used batteries to the Science Room during the week.\n\nQuestions? Ask Ms Duangjai, Room 214.",
+   "stem": "On Friday afternoon, the top scores are: Class 1/3 – 41 points (12 batteries), Class 1/5 – 41 points (20 batteries), Class 1/2 – 38 points (30 batteries). Which class wins the trip?",
+   "choices": [
+    "Classes 1/3 and 1/5 both win",
+    "Class 1/2",
+    "Class 1/3",
+    "Class 1/5"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "1/3 and 1/5 share the highest score, so batteries decide the tie. 1/5 brought more batteries (20) than 1/3 (12). Class 1/2 has more batteries but fewer points, so batteries do not count for it.",
+    "th": "ห้อง 1/3 และ 1/5 คะแนนเท่ากันสูงสุด จึงตัดสินด้วยจำนวนถ่านใช้แล้ว 1/5 นำมา 20 ก้อน มากกว่า 1/3 ที่นำมา 12 ก้อน ส่วนห้อง 1/2 แม้มีถ่านมากกว่าแต่คะแนนน้อยกว่า จึงไม่นำถ่านมาพิจารณา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "School or public notice",
+    "th": "ประกาศ"
+   },
+   "passage": "GREEN WEEK CHALLENGE — 10–14 June\n\nThis year every class can take part in our Plastic-Free Lunch Challenge. For five school days, try to bring and use NO single-use plastic at lunchtime.\n\nHow it works\n• Every class starts with 50 points.\n• After lunch, each class's recycling monitor counts the plastic bags, straws, bottles and wrappers in the class bin. The class loses one point for every piece.\n• Reusable bottles and lunch boxes are fine — they are not single-use!\n• Forgot your bottle? Borrow a metal cup from the canteen, but return it before 1 p.m.\n\nThe class with the most points on Friday afternoon wins a trip to the Mangrove Learning Centre. If two classes have the same score, the winner will be the class that has brought the most used batteries to the Science Room during the week.\n\nQuestions? Ask Ms Duangjai, Room 214.",
+   "stem": "Which of these would NOT make a class lose a point?",
+   "choices": [
+    "A student drinks water from her own steel bottle.",
+    "A student throws away the straw from his juice box.",
+    "A student puts her sandwich wrapper in the class bin.",
+    "A student buys water in a plastic bottle and throws the bottle away."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Reusable bottles are allowed because they are not single-use. A straw, a wrapper and a plastic bottle in the bin each cost one point.",
+    "th": "ขวดน้ำที่ใช้ซ้ำได้ไม่นับเป็นพลาสติกครั้งเดียวทิ้ง จึงไม่เสียคะแนน ส่วนหลอด ห่อแซนด์วิช และขวดพลาสติกที่ทิ้งในถังจะเสียคะแนนชิ้นละหนึ่งคะแนน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "คำศัพท์ในบริบท"
+   },
+   "topic": {
+    "en": "School or public notice",
+    "th": "ประกาศ"
+   },
+   "passage": "GREEN WEEK CHALLENGE — 10–14 June\n\nThis year every class can take part in our Plastic-Free Lunch Challenge. For five school days, try to bring and use NO single-use plastic at lunchtime.\n\nHow it works\n• Every class starts with 50 points.\n• After lunch, each class's recycling monitor counts the plastic bags, straws, bottles and wrappers in the class bin. The class loses one point for every piece.\n• Reusable bottles and lunch boxes are fine — they are not single-use!\n• Forgot your bottle? Borrow a metal cup from the canteen, but return it before 1 p.m.\n\nThe class with the most points on Friday afternoon wins a trip to the Mangrove Learning Centre. If two classes have the same score, the winner will be the class that has brought the most used batteries to the Science Room during the week.\n\nQuestions? Ask Ms Duangjai, Room 214.",
+   "stem": "In the notice, a 'recycling monitor' is most likely ______.",
+   "choices": [
+    "a student who has a special job in the class",
+    "a machine that sorts rubbish",
+    "a teacher who checks the canteen",
+    "a computer screen that shows the points"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The monitor 'counts the plastic… in the class bin' for each class, so it is a person — a student given a special duty.",
+    "th": "monitor ทำหน้าที่นับขยะพลาสติกในถังของห้อง จึงหมายถึงนักเรียนที่ได้รับมอบหมายหน้าที่พิเศษ ไม่ใช่จอคอมพิวเตอร์หรือเครื่องจักร"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน (อ่านระหว่างบรรทัด)"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "From: Ben\nTo: Aunt Sue\nSubject: Next weekend\n\nHi Aunt Sue,\nMum says I can stay with you from Friday to Sunday next weekend. My train gets to Hua Hin at 4:15 p.m. on Friday. Could you meet me at the station? If you're busy, I can take a taxi — Mum has given me money for one.\nAlso, is it OK if I bring my friend Leo? His family is staying at a hotel near your house, and he'd love to see your turtles.\nBen\n\nFrom: Aunt Sue\nTo: Ben\nSubject: Re: Next weekend\n\nDear Ben,\nHow wonderful! Friday is fine, but I have a dentist appointment at four o'clock, so I may be about half an hour late. Please wait at the café opposite the ticket office instead of taking a taxi — some drivers at the station charge visitors far too much.\nOf course Leo is welcome, but the turtles won't be here for long. On Saturday morning I'm taking them back to the conservation centre, where they will be released into the sea. Perhaps you'd both like to come and watch? We'll need to leave at 6 a.m.!\nLove,\nAunt Sue",
+   "stem": "At about what time will Aunt Sue probably arrive at the station?",
+   "choices": [
+    "5:15 p.m.",
+    "4:15 p.m.",
+    "4:00 p.m.",
+    "4:45 p.m."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Ben's train arrives at 4:15 and Aunt Sue says she may be 'about half an hour late', so she will probably arrive at about 4:45. Four o'clock is the time of her dentist appointment.",
+    "th": "รถไฟของเบนถึง 4:15 น. และป้าซูบอกว่าอาจมาช้าประมาณครึ่งชั่วโมง จึงน่าจะมาถึงราว 4:45 น. ส่วน 4 โมงเย็นเป็นเวลานัดหมอฟัน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding cause and effect",
+    "th": "การเข้าใจเหตุและผล"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "From: Ben\nTo: Aunt Sue\nSubject: Next weekend\n\nHi Aunt Sue,\nMum says I can stay with you from Friday to Sunday next weekend. My train gets to Hua Hin at 4:15 p.m. on Friday. Could you meet me at the station? If you're busy, I can take a taxi — Mum has given me money for one.\nAlso, is it OK if I bring my friend Leo? His family is staying at a hotel near your house, and he'd love to see your turtles.\nBen\n\nFrom: Aunt Sue\nTo: Ben\nSubject: Re: Next weekend\n\nDear Ben,\nHow wonderful! Friday is fine, but I have a dentist appointment at four o'clock, so I may be about half an hour late. Please wait at the café opposite the ticket office instead of taking a taxi — some drivers at the station charge visitors far too much.\nOf course Leo is welcome, but the turtles won't be here for long. On Saturday morning I'm taking them back to the conservation centre, where they will be released into the sea. Perhaps you'd both like to come and watch? We'll need to leave at 6 a.m.!\nLove,\nAunt Sue",
+   "stem": "Why does Aunt Sue not want Ben to take a taxi?",
+   "choices": [
+    "She knows there are no taxis at the station.",
+    "She is worried a driver may ask him for too much money.",
+    "She thinks taxis are too slow.",
+    "She wants to save his mother's money for the dentist."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "She writes that 'some drivers at the station charge visitors far too much', so she is worried he will be overcharged.",
+    "th": "ป้าซูเขียนว่า คนขับบางคนที่สถานีคิดเงินนักท่องเที่ยวแพงเกินไป จึงกังวลว่าเบนจะโดนเรียกเงินเกินราคา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน (อ่านระหว่างบรรทัด)"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "From: Ben\nTo: Aunt Sue\nSubject: Next weekend\n\nHi Aunt Sue,\nMum says I can stay with you from Friday to Sunday next weekend. My train gets to Hua Hin at 4:15 p.m. on Friday. Could you meet me at the station? If you're busy, I can take a taxi — Mum has given me money for one.\nAlso, is it OK if I bring my friend Leo? His family is staying at a hotel near your house, and he'd love to see your turtles.\nBen\n\nFrom: Aunt Sue\nTo: Ben\nSubject: Re: Next weekend\n\nDear Ben,\nHow wonderful! Friday is fine, but I have a dentist appointment at four o'clock, so I may be about half an hour late. Please wait at the café opposite the ticket office instead of taking a taxi — some drivers at the station charge visitors far too much.\nOf course Leo is welcome, but the turtles won't be here for long. On Saturday morning I'm taking them back to the conservation centre, where they will be released into the sea. Perhaps you'd both like to come and watch? We'll need to leave at 6 a.m.!\nLove,\nAunt Sue",
+   "stem": "What can we infer about the turtles?",
+   "choices": [
+    "Aunt Sue has been looking after them only for a while.",
+    "Aunt Sue is selling them to the conservation centre.",
+    "They belong to Leo's family.",
+    "They will live in Aunt Sue's garden for many years."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "She is 'taking them back' to the conservation centre so they can be 'released into the sea', which shows she was caring for them only temporarily.",
+    "th": "ป้าซูจะ 'นำกลับไป' ที่ศูนย์อนุรักษ์เพื่อปล่อยลงทะเล แสดงว่าเธอดูแลเต่าเพียงชั่วคราวเท่านั้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "From: Ben\nTo: Aunt Sue\nSubject: Next weekend\n\nHi Aunt Sue,\nMum says I can stay with you from Friday to Sunday next weekend. My train gets to Hua Hin at 4:15 p.m. on Friday. Could you meet me at the station? If you're busy, I can take a taxi — Mum has given me money for one.\nAlso, is it OK if I bring my friend Leo? His family is staying at a hotel near your house, and he'd love to see your turtles.\nBen\n\nFrom: Aunt Sue\nTo: Ben\nSubject: Re: Next weekend\n\nDear Ben,\nHow wonderful! Friday is fine, but I have a dentist appointment at four o'clock, so I may be about half an hour late. Please wait at the café opposite the ticket office instead of taking a taxi — some drivers at the station charge visitors far too much.\nOf course Leo is welcome, but the turtles won't be here for long. On Saturday morning I'm taking them back to the conservation centre, where they will be released into the sea. Perhaps you'd both like to come and watch? We'll need to leave at 6 a.m.!\nLove,\nAunt Sue",
+   "stem": "If Ben and Leo accept Aunt Sue's invitation, what will happen on Saturday?",
+   "choices": [
+    "They will go to the dentist with Aunt Sue at 6 a.m.",
+    "They will see the turtles in Aunt Sue's house all day.",
+    "They will get up very early to watch the turtles go into the sea.",
+    "They will meet at the café opposite the ticket office."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Aunt Sue invites them to watch the turtles being released on Saturday morning, leaving at 6 a.m., so they will have to get up very early.",
+    "th": "ป้าซูชวนไปดูการปล่อยเต่าเช้าวันเสาร์และต้องออกเดินทาง 6 โมงเช้า ทั้งสองคนจึงต้องตื่นแต่เช้ามาก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Identifying the writer's attitude",
+    "th": "การระบุทัศนคติของผู้เขียน"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "From: Ben\nTo: Aunt Sue\nSubject: Next weekend\n\nHi Aunt Sue,\nMum says I can stay with you from Friday to Sunday next weekend. My train gets to Hua Hin at 4:15 p.m. on Friday. Could you meet me at the station? If you're busy, I can take a taxi — Mum has given me money for one.\nAlso, is it OK if I bring my friend Leo? His family is staying at a hotel near your house, and he'd love to see your turtles.\nBen\n\nFrom: Aunt Sue\nTo: Ben\nSubject: Re: Next weekend\n\nDear Ben,\nHow wonderful! Friday is fine, but I have a dentist appointment at four o'clock, so I may be about half an hour late. Please wait at the café opposite the ticket office instead of taking a taxi — some drivers at the station charge visitors far too much.\nOf course Leo is welcome, but the turtles won't be here for long. On Saturday morning I'm taking them back to the conservation centre, where they will be released into the sea. Perhaps you'd both like to come and watch? We'll need to leave at 6 a.m.!\nLove,\nAunt Sue",
+   "stem": "How does Aunt Sue feel about Ben's visit?",
+   "choices": [
+    "Annoyed",
+    "Delighted",
+    "Disappointed",
+    "Worried"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "She begins 'How wonderful!' and welcomes Leo too, so she is delighted.",
+    "th": "ป้าซูขึ้นต้นว่า 'How wonderful!' และยินดีต้อนรับ Leo ด้วย แสดงว่าดีใจมาก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding character and feelings",
+    "th": "การเข้าใจตัวละครและความรู้สึก"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "The Missing Medal\n\nFor weeks Arthit had trained for the school's five-kilometre race. On the day, he ran as fast as he could and finished second, just behind his best friend, Krit. At the prize-giving, Krit received a shiny gold medal. Arthit clapped with everyone else, but inside he felt a little jealous.\n\nThat evening, Arthit's phone buzzed. It was a message from Krit: 'Check your bedroom door.' Arthit rushed upstairs. His little sister, Ploy, was giggling in the hallway. On his door hung the gold medal with a note:\n\n'You stopped to help me when I fell at the third kilometre. Without you, I wouldn't have finished at all. This medal belongs to both of us. I'll come and collect it next month — your turn first!'\n\nArthit smiled. He had almost forgotten that he had stopped. Krit had not forgotten at all.",
+   "stem": "Why did Arthit feel jealous at the prize-giving?",
+   "choices": [
+    "He did not get any prize at all.",
+    "Krit had not helped him during the race.",
+    "His sister had taken his medal.",
+    "He wished he had won the gold medal himself."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "He finished second and watched Krit receive the gold medal, so he wished he had won it.",
+    "th": "อาทิตย์เข้าเส้นชัยเป็นที่สองและเห็นกฤชได้เหรียญทอง จึงรู้สึกอิจฉาเพราะอยากได้เหรียญทองเอง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน (อ่านระหว่างบรรทัด)"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "The Missing Medal\n\nFor weeks Arthit had trained for the school's five-kilometre race. On the day, he ran as fast as he could and finished second, just behind his best friend, Krit. At the prize-giving, Krit received a shiny gold medal. Arthit clapped with everyone else, but inside he felt a little jealous.\n\nThat evening, Arthit's phone buzzed. It was a message from Krit: 'Check your bedroom door.' Arthit rushed upstairs. His little sister, Ploy, was giggling in the hallway. On his door hung the gold medal with a note:\n\n'You stopped to help me when I fell at the third kilometre. Without you, I wouldn't have finished at all. This medal belongs to both of us. I'll come and collect it next month — your turn first!'\n\nArthit smiled. He had almost forgotten that he had stopped. Krit had not forgotten at all.",
+   "stem": "What can we infer about the race?",
+   "choices": [
+    "Arthit fell at the third kilometre.",
+    "The two boys crossed the finish line together.",
+    "Arthit might have won if he had not stopped to help Krit.",
+    "Krit finished without anyone's help."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Arthit stopped to help Krit, yet still finished just behind him. Without that stop, he might well have finished first. Krit himself says he would not have finished without Arthit.",
+    "th": "อาทิตย์หยุดช่วยกฤชแต่ยังเข้าเส้นชัยตามหลังเพียงนิดเดียว ถ้าไม่หยุดก็อาจชนะได้ และกฤชเองก็บอกว่าถ้าไม่มีอาทิตย์คงวิ่งไม่จบ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน (อ่านระหว่างบรรทัด)"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "The Missing Medal\n\nFor weeks Arthit had trained for the school's five-kilometre race. On the day, he ran as fast as he could and finished second, just behind his best friend, Krit. At the prize-giving, Krit received a shiny gold medal. Arthit clapped with everyone else, but inside he felt a little jealous.\n\nThat evening, Arthit's phone buzzed. It was a message from Krit: 'Check your bedroom door.' Arthit rushed upstairs. His little sister, Ploy, was giggling in the hallway. On his door hung the gold medal with a note:\n\n'You stopped to help me when I fell at the third kilometre. Without you, I wouldn't have finished at all. This medal belongs to both of us. I'll come and collect it next month — your turn first!'\n\nArthit smiled. He had almost forgotten that he had stopped. Krit had not forgotten at all.",
+   "stem": "How did the medal most probably get onto Arthit's door?",
+   "choices": [
+    "Arthit hung it there himself and forgot.",
+    "Krit gave it to Ploy, and she hung it there.",
+    "The school sent it to Arthit by post.",
+    "Krit climbed in through the window."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Krit only sent a message, and Ploy was 'giggling in the hallway' — a clue that she had helped with the surprise by hanging the medal.",
+    "th": "กฤชแค่ส่งข้อความมา และพลอยกำลังหัวเราะคิกคักอยู่ที่ทางเดิน เป็นเบาะแสว่าเธอช่วยแขวนเหรียญเพื่อเซอร์ไพรส์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding implied meaning",
+    "th": "การเข้าใจความหมายแฝง"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "The Missing Medal\n\nFor weeks Arthit had trained for the school's five-kilometre race. On the day, he ran as fast as he could and finished second, just behind his best friend, Krit. At the prize-giving, Krit received a shiny gold medal. Arthit clapped with everyone else, but inside he felt a little jealous.\n\nThat evening, Arthit's phone buzzed. It was a message from Krit: 'Check your bedroom door.' Arthit rushed upstairs. His little sister, Ploy, was giggling in the hallway. On his door hung the gold medal with a note:\n\n'You stopped to help me when I fell at the third kilometre. Without you, I wouldn't have finished at all. This medal belongs to both of us. I'll come and collect it next month — your turn first!'\n\nArthit smiled. He had almost forgotten that he had stopped. Krit had not forgotten at all.",
+   "stem": "What does Krit mean by 'I'll come and collect it next month — your turn first!'?",
+   "choices": [
+    "Arthit must return the medal to the school.",
+    "The two boys will take turns keeping the medal.",
+    "Krit wants to race again next month.",
+    "Arthit has to buy his own medal."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Krit says the medal 'belongs to both of us': Arthit keeps it first, and Krit will take it next month, so they will share it by taking turns.",
+    "th": "กฤชบอกว่าเหรียญเป็นของทั้งสองคน ให้อาทิตย์เก็บไว้ก่อนแล้วเดือนหน้ากฤชจะมาเอาไป แปลว่าผลัดกันเก็บ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing the best title",
+    "th": "การเลือกชื่อเรื่องที่เหมาะสมที่สุด"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "The Missing Medal\n\nFor weeks Arthit had trained for the school's five-kilometre race. On the day, he ran as fast as he could and finished second, just behind his best friend, Krit. At the prize-giving, Krit received a shiny gold medal. Arthit clapped with everyone else, but inside he felt a little jealous.\n\nThat evening, Arthit's phone buzzed. It was a message from Krit: 'Check your bedroom door.' Arthit rushed upstairs. His little sister, Ploy, was giggling in the hallway. On his door hung the gold medal with a note:\n\n'You stopped to help me when I fell at the third kilometre. Without you, I wouldn't have finished at all. This medal belongs to both of us. I'll come and collect it next month — your turn first!'\n\nArthit smiled. He had almost forgotten that he had stopped. Krit had not forgotten at all.",
+   "stem": "Which would be the best new title for the story?",
+   "choices": [
+    "A Jealous Friend",
+    "The Fastest Boy in School",
+    "How to Train for a Race",
+    "A Medal for Two"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The twist is that the winner shares his medal with the friend who helped him, so 'A Medal for Two' covers the whole story. The other titles fit only a small part or none of it.",
+    "th": "จุดหักมุมคือผู้ชนะแบ่งเหรียญให้เพื่อนที่ช่วยเขา ชื่อ 'A Medal for Two' จึงครอบคลุมทั้งเรื่อง ชื่ออื่นตรงกับเพียงบางส่วนหรือไม่ตรงเลย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding cause and effect",
+    "th": "การเข้าใจเหตุและผล"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Why Do Cats' Eyes Shine?\n\nHave you ever seen a cat's eyes glow in a car's headlights? The cat is not producing any light itself. Behind the retina — the part of the eye that senses light — many animals that are active at night have a thin layer that works like a mirror. It is called the tapetum lucidum, which means 'bright carpet' in Latin.\n\nWhen light enters the eye, some of it passes through the retina without being detected. The mirror layer reflects this light back through the retina, giving the eye a second chance to catch it. This is why a cat can see in light about six times dimmer than a human needs.\n\nHowever, the extra light comes at a price. Because the light bounces around inside the eye, the pictures a cat sees are slightly less sharp than ours. Humans do not have this layer, which is why our eyes look red, not shining, in flash photos: the flash lights up the blood vessels at the back of the eye.",
+   "stem": "According to the passage, why do cats' eyes seem to shine?",
+   "choices": [
+    "Their eyes are covered with a soft carpet.",
+    "A layer behind the retina reflects light back out.",
+    "Cats produce their own light at night.",
+    "The blood vessels in their eyes glow."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The text says the cat produces no light; a mirror-like layer, the tapetum lucidum, reflects light back, which makes the eyes look as if they glow.",
+    "th": "บทความบอกว่าแมวไม่ได้สร้างแสงเอง แต่มีชั้นคล้ายกระจกหลังจอตา (tapetum lucidum) สะท้อนแสงกลับ ทำให้ตาดูเหมือนเรืองแสง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Finding specific information",
+    "th": "การหาข้อมูลเฉพาะ"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Why Do Cats' Eyes Shine?\n\nHave you ever seen a cat's eyes glow in a car's headlights? The cat is not producing any light itself. Behind the retina — the part of the eye that senses light — many animals that are active at night have a thin layer that works like a mirror. It is called the tapetum lucidum, which means 'bright carpet' in Latin.\n\nWhen light enters the eye, some of it passes through the retina without being detected. The mirror layer reflects this light back through the retina, giving the eye a second chance to catch it. This is why a cat can see in light about six times dimmer than a human needs.\n\nHowever, the extra light comes at a price. Because the light bounces around inside the eye, the pictures a cat sees are slightly less sharp than ours. Humans do not have this layer, which is why our eyes look red, not shining, in flash photos: the flash lights up the blood vessels at the back of the eye.",
+   "stem": "What is one disadvantage of the tapetum lucidum?",
+   "choices": [
+    "The eyes look red in photos.",
+    "Light passes through the retina only once.",
+    "Images are a little less clear.",
+    "Cats cannot see well in dim light."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'The extra light comes at a price': because light bounces around, a cat's pictures are 'slightly less sharp'. Red eyes in photos happen to humans, who lack the layer.",
+    "th": "'the extra light comes at a price' คือข้อเสียที่ภาพที่แมวเห็นคมชัดน้อยลง ส่วนตาแดงในรูปถ่ายเกิดกับมนุษย์ซึ่งไม่มีชั้นนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Why Do Cats' Eyes Shine?\n\nHave you ever seen a cat's eyes glow in a car's headlights? The cat is not producing any light itself. Behind the retina — the part of the eye that senses light — many animals that are active at night have a thin layer that works like a mirror. It is called the tapetum lucidum, which means 'bright carpet' in Latin.\n\nWhen light enters the eye, some of it passes through the retina without being detected. The mirror layer reflects this light back through the retina, giving the eye a second chance to catch it. This is why a cat can see in light about six times dimmer than a human needs.\n\nHowever, the extra light comes at a price. Because the light bounces around inside the eye, the pictures a cat sees are slightly less sharp than ours. Humans do not have this layer, which is why our eyes look red, not shining, in flash photos: the flash lights up the blood vessels at the back of the eye.",
+   "stem": "Based on the passage, which animal is MOST likely to have a tapetum lucidum?",
+   "choices": [
+    "A pigeon that sleeps as soon as it gets dark",
+    "A squirrel that is active only in bright daylight",
+    "A butterfly that flies in sunny gardens",
+    "A deer that feeds mainly at dusk and during the night"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The text says the layer is found in many animals 'active at night', because it helps them see in dim light. Only the deer feeds at night.",
+    "th": "บทความบอกว่าชั้นนี้พบในสัตว์ที่ออกหากินกลางคืน เพราะช่วยให้มองเห็นในที่แสงน้อย มีเพียงกวางที่หากินช่วงพลบค่ำและกลางคืน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "คำศัพท์ในบริบท"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Why Do Cats' Eyes Shine?\n\nHave you ever seen a cat's eyes glow in a car's headlights? The cat is not producing any light itself. Behind the retina — the part of the eye that senses light — many animals that are active at night have a thin layer that works like a mirror. It is called the tapetum lucidum, which means 'bright carpet' in Latin.\n\nWhen light enters the eye, some of it passes through the retina without being detected. The mirror layer reflects this light back through the retina, giving the eye a second chance to catch it. This is why a cat can see in light about six times dimmer than a human needs.\n\nHowever, the extra light comes at a price. Because the light bounces around inside the eye, the pictures a cat sees are slightly less sharp than ours. Humans do not have this layer, which is why our eyes look red, not shining, in flash photos: the flash lights up the blood vessels at the back of the eye.",
+   "stem": "The word 'dimmer' in paragraph 2 is closest in meaning to ______.",
+   "choices": [
+    "less bright",
+    "more colourful",
+    "more dangerous",
+    "less warm"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The paragraph is about seeing with little light, so 'dimmer' means 'less bright'.",
+    "th": "ย่อหน้านี้พูดถึงการมองเห็นในที่แสงน้อย 'dimmer' จึงแปลว่า สลัวกว่า หรือสว่างน้อยกว่า"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Finding specific information",
+    "th": "การหาข้อมูลเฉพาะ"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Why Do Cats' Eyes Shine?\n\nHave you ever seen a cat's eyes glow in a car's headlights? The cat is not producing any light itself. Behind the retina — the part of the eye that senses light — many animals that are active at night have a thin layer that works like a mirror. It is called the tapetum lucidum, which means 'bright carpet' in Latin.\n\nWhen light enters the eye, some of it passes through the retina without being detected. The mirror layer reflects this light back through the retina, giving the eye a second chance to catch it. This is why a cat can see in light about six times dimmer than a human needs.\n\nHowever, the extra light comes at a price. Because the light bounces around inside the eye, the pictures a cat sees are slightly less sharp than ours. Humans do not have this layer, which is why our eyes look red, not shining, in flash photos: the flash lights up the blood vessels at the back of the eye.",
+   "stem": "What does 'tapetum lucidum' mean in Latin?",
+   "choices": [
+    "Second chance",
+    "Night mirror",
+    "Bright carpet",
+    "Cat's eye"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The first paragraph says it 'means \"bright carpet\" in Latin'.",
+    "th": "ย่อหน้าแรกบอกว่าในภาษาละติน แปลว่า 'bright carpet' (พรมสว่าง)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Finding specific information",
+    "th": "การหาข้อมูลเฉพาะ"
+   },
+   "topic": {
+    "en": "Opinion piece / letter to the editor",
+    "th": "บทแสดงความคิดเห็น / จดหมายถึงบรรณาธิการ"
+   },
+   "passage": "Dear Editor,\n\nLast week you published an article suggesting that the road in front of Wat Thong School should be closed to cars from 7 to 8 a.m. As a parent who drives two children to school every morning, I was ready to disagree.\n\nHowever, I changed my mind after I tried walking with my children for one week. Yes, it took us fifteen minutes longer. But my daughter, who usually complains all the way in the car, chatted happily, and we discovered a bakery and a small park that we had driven past for years without noticing. I also realised that the traffic jam outside the gate fills the air with fumes while the children are waiting there.\n\nOf course, not every family can walk; some live too far away. The school should therefore allow these families to drop their children off at the temple car park, 300 metres from the gate.\n\nSomchai Wongsa, Bang Kapi",
+   "stem": "What was the writer's first reaction to the article?",
+   "choices": [
+    "He wanted the road closed all day.",
+    "He expected to be against the idea.",
+    "He did not read it carefully.",
+    "He agreed with it immediately."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "He writes, 'I was ready to disagree', so at first he expected to oppose the idea.",
+    "th": "ผู้เขียนบอกว่า 'I was ready to disagree' แสดงว่าตอนแรกคิดจะคัดค้าน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Identifying the writer's attitude",
+    "th": "การระบุทัศนคติของผู้เขียน"
+   },
+   "topic": {
+    "en": "Opinion piece / letter to the editor",
+    "th": "บทแสดงความคิดเห็น / จดหมายถึงบรรณาธิการ"
+   },
+   "passage": "Dear Editor,\n\nLast week you published an article suggesting that the road in front of Wat Thong School should be closed to cars from 7 to 8 a.m. As a parent who drives two children to school every morning, I was ready to disagree.\n\nHowever, I changed my mind after I tried walking with my children for one week. Yes, it took us fifteen minutes longer. But my daughter, who usually complains all the way in the car, chatted happily, and we discovered a bakery and a small park that we had driven past for years without noticing. I also realised that the traffic jam outside the gate fills the air with fumes while the children are waiting there.\n\nOf course, not every family can walk; some live too far away. The school should therefore allow these families to drop their children off at the temple car park, 300 metres from the gate.\n\nSomchai Wongsa, Bang Kapi",
+   "stem": "Which best describes the writer's opinion now?",
+   "choices": [
+    "He is completely against closing the road.",
+    "He has no clear opinion about the road.",
+    "He supports closing the road, with an arrangement for families who live far away.",
+    "He supports closing the road and thinks every family must walk."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "He changed his mind and now supports the idea, but he adds that families who live far away should use the temple car park.",
+    "th": "ผู้เขียนเปลี่ยนใจและสนับสนุนการปิดถนน แต่เสนอว่าครอบครัวที่อยู่ไกลควรส่งลูกที่ลานจอดรถวัด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Identifying what is NOT stated",
+    "th": "การหาข้อมูลที่ไม่ได้กล่าวถึง"
+   },
+   "topic": {
+    "en": "Opinion piece / letter to the editor",
+    "th": "บทแสดงความคิดเห็น / จดหมายถึงบรรณาธิการ"
+   },
+   "passage": "Dear Editor,\n\nLast week you published an article suggesting that the road in front of Wat Thong School should be closed to cars from 7 to 8 a.m. As a parent who drives two children to school every morning, I was ready to disagree.\n\nHowever, I changed my mind after I tried walking with my children for one week. Yes, it took us fifteen minutes longer. But my daughter, who usually complains all the way in the car, chatted happily, and we discovered a bakery and a small park that we had driven past for years without noticing. I also realised that the traffic jam outside the gate fills the air with fumes while the children are waiting there.\n\nOf course, not every family can walk; some live too far away. The school should therefore allow these families to drop their children off at the temple car park, 300 metres from the gate.\n\nSomchai Wongsa, Bang Kapi",
+   "stem": "Which of these is NOT mentioned as a benefit of walking to school?",
+   "choices": [
+    "The children arrive at school earlier.",
+    "Cleaner air at the school gate",
+    "A happier daughter",
+    "Discovering new places nearby"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Walking actually took fifteen minutes longer, so arriving earlier is not a benefit. Cleaner air, new places and his cheerful daughter are all mentioned.",
+    "th": "การเดินใช้เวลานานขึ้น 15 นาที จึงไม่ได้ทำให้ถึงโรงเรียนเร็วขึ้น ส่วนอากาศดีขึ้น การพบสถานที่ใหม่ และลูกสาวอารมณ์ดีขึ้น ล้วนถูกกล่าวถึง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Identifying the writer's purpose",
+    "th": "การระบุจุดประสงค์ของผู้เขียน"
+   },
+   "topic": {
+    "en": "Opinion piece / letter to the editor",
+    "th": "บทแสดงความคิดเห็น / จดหมายถึงบรรณาธิการ"
+   },
+   "passage": "Dear Editor,\n\nLast week you published an article suggesting that the road in front of Wat Thong School should be closed to cars from 7 to 8 a.m. As a parent who drives two children to school every morning, I was ready to disagree.\n\nHowever, I changed my mind after I tried walking with my children for one week. Yes, it took us fifteen minutes longer. But my daughter, who usually complains all the way in the car, chatted happily, and we discovered a bakery and a small park that we had driven past for years without noticing. I also realised that the traffic jam outside the gate fills the air with fumes while the children are waiting there.\n\nOf course, not every family can walk; some live too far away. The school should therefore allow these families to drop their children off at the temple car park, 300 metres from the gate.\n\nSomchai Wongsa, Bang Kapi",
+   "stem": "Why does the writer mention the temple car park?",
+   "choices": [
+    "To explain where the bakery is",
+    "To complain that the car park is too small",
+    "To suggest a solution for families who cannot walk",
+    "To show that the road is already closed"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Right after saying some families live too far away, he proposes the car park as the place for them to drop children off — a practical solution.",
+    "th": "หลังจากบอกว่าบางครอบครัวอยู่ไกลเกินจะเดิน ผู้เขียนเสนอให้ส่งลูกที่ลานจอดรถวัด จึงเป็นการเสนอทางออก"
+   }
+  }
+ ]
+}
