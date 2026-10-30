@@ -69,7 +69,7 @@ def _questions(items):
     snap, qs = {}, []
     for it in items:
         snap[it["id"]] = it
-        if it["kind"] == "sat":
+        if it["kind"] in exams.CHOICE_KINDS:
             qs.append({"key": it["id"], "itemId": it["id"]})
         else:
             for gi, g in enumerate(it["groups"]):
@@ -81,8 +81,10 @@ def _questions(items):
 def create(con, me, body):
     mode = body.get("mode") if body.get("mode") in MODES else "paced"
     qset = qsets.get(con, body.get("setId")) if body.get("setId") else None
-    if body.get("setId") and (not qset or (qset["owner"] != me["id"] and me["role"] != "admin")):
+    if body.get("setId") and (not qset or (qset["owner"] != me["id"] and me["role"] != "admin" and qset.get("source") != "ready-made")):
         raise ValueError("question set not found")
+    if qset and qset["kind"] == "ielts-w":
+        raise ValueError("live classes run multiple-choice and reading sets — Writing sets are taken as timed tests")
     if qset:
         kind, items = qset["kind"], qsets.items_of(con, qset)
         title = str(body.get("title") or "").strip()[:120] or qset["title"]
@@ -202,7 +204,7 @@ def _number(s, q):
 
 def _question(s, q, key=False, passage=True):
     it = s["snap"][q["itemId"]]
-    if s["kind"] == "sat":
+    if s["kind"] in exams.CHOICE_KINDS:
         out = {"key": q["key"], "number": _number(s, q), "type": "sat", "passage": it["passage"], "table": it.get("table"), "image": it.get("image") or "", "stem": it["stem"], "choices": it["choices"]}
         if key:
             out.update({"answer": it["answer"], "explanation": it.get("explanation")})

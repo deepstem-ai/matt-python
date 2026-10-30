@@ -1,0 +1,869 @@
+{
+ "exam": "gate",
+ "set": 2,
+ "title": {
+  "en": "Suankularb M.1 GATE Program — Practice set 2",
+  "th": "สวนกุหลาบ ม.1 GATE Program — ชุดฝึก 2"
+ },
+ "minutes": 90,
+ "note": {
+  "en": "40 questions: Mathematics 15, Science 15, English 5, Thai 5. DeepDistrict practice format based on the school's published subjects — not an official or past paper.",
+  "th": "40 ข้อ: คณิตศาสตร์ 15 วิทยาศาสตร์ 15 ภาษาอังกฤษ 5 ภาษาไทย 5 — แบบฝึกของ DeepDistrict ตามวิชาที่โรงเรียนประกาศ ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "จำนวน 5□72 หารด้วย 9 ลงตัว เลขโดดใน □ คือเลขใด",
+   "choices": [
+    "6",
+    "3",
+    "0",
+    "4"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "A number is divisible by 9 when its digit sum is. 5 + 7 + 2 = 14, and the next multiple of 9 is 18, so the missing digit is 18 − 14 = 4 (5,472 = 9 × 608).",
+    "th": "จำนวนที่หารด้วย 9 ลงตัวต้องมีผลบวกของเลขโดดหารด้วย 9 ลงตัว 5 + 7 + 2 = 14 พหุคูณของ 9 ถัดไปคือ 18 จึงต้องเติม 18 − 14 = 4 (5,472 = 9 × 608)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "0.25 × 1.6 + 2.4 ÷ 0.8 มีค่าเท่าใด",
+   "choices": [
+    "0.7",
+    "2.6",
+    "3.04",
+    "3.4"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Multiply and divide first: 0.25 × 1.6 = 0.4 and 2.4 ÷ 0.8 = 3. Then 0.4 + 3 = 3.4.",
+    "th": "คูณและหารก่อน: 0.25 × 1.6 = 0.4 และ 2.4 ÷ 0.8 = 3 แล้วนำมาบวกกัน 0.4 + 3 = 3.4"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "แผนที่ใช้มาตราส่วน 1 : 50,000 ถ้าระยะบนแผนที่ยาว 6 เซนติเมตร ระยะจริงเป็นกี่กิโลเมตร",
+   "choices": [
+    "0.3",
+    "30",
+    "300",
+    "3"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Real distance = 6 × 50,000 = 300,000 cm. 100,000 cm = 1 km, so 300,000 cm = 3 km.",
+    "th": "ระยะจริง = 6 × 50,000 = 300,000 เซนติเมตร และ 100,000 เซนติเมตร = 1 กิโลเมตร จึงได้ 3 กิโลเมตร"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "ระฆัง 3 ใบ ดังทุก ๆ 12 นาที 18 นาที และ 30 นาที ตามลำดับ ถ้าดังพร้อมกันครั้งแรกเวลา 08.00 น. จะดังพร้อมกันครั้งถัดไปเวลาใด",
+   "choices": [
+    "09.00 น.",
+    "10.30 น.",
+    "11.00 น.",
+    "13.00 น."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "They ring together every LCM(12, 18, 30) minutes. 12 = 2²×3, 18 = 2×3², 30 = 2×3×5, so LCM = 2²×3²×5 = 180 minutes = 3 hours. 08.00 + 3 h = 11.00.",
+    "th": "ระฆังดังพร้อมกันทุก ค.ร.น.(12, 18, 30) นาที 12 = 2²×3, 18 = 2×3², 30 = 2×3×5 ค.ร.น. = 2²×3²×5 = 180 นาที = 3 ชั่วโมง 08.00 น. + 3 ชั่วโมง = 11.00 น."
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "ร้านค้าตั้งราคาสินค้าสูงกว่าราคาทุน 40% แล้วลดราคาให้ลูกค้า 10% จากราคาที่ตั้งไว้ ร้านได้กำไรกี่เปอร์เซ็นต์ของราคาทุน",
+   "choices": [
+    "24%",
+    "26%",
+    "36%",
+    "30%"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Take cost = 100. Marked price = 140. After 10% off: 140 × 0.9 = 126. Profit = 26 on a cost of 100, so 26%. (Simply doing 40% − 10% = 30% is wrong because the discount is on 140, not 100.)",
+    "th": "ให้ทุน 100 บาท ตั้งราคา 140 บาท ลด 10%: 140 × 0.9 = 126 บาท กำไร 26 บาทจากทุน 100 บาท คือ 26% (การคิด 40% − 10% = 30% ผิด เพราะส่วนลดคิดจาก 140 ไม่ใช่ 100)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "รถไฟขบวนหนึ่งยาว 200 เมตร แล่นผ่านสะพานยาว 400 เมตร ตั้งแต่หัวรถเริ่มขึ้นสะพานจนท้ายรถพ้นสะพาน ใช้เวลา 30 วินาที รถไฟแล่นด้วยอัตราเร็วกี่กิโลเมตรต่อชั่วโมง",
+   "choices": [
+    "24",
+    "20",
+    "48",
+    "72"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "To clear the bridge the train travels its own length plus the bridge: 200 + 400 = 600 m in 30 s = 20 m/s. 20 m/s × 3.6 = 72 km/h. (Using only 400 m gives 48 km/h.)",
+    "th": "รถไฟต้องเคลื่อนที่ได้ระยะเท่ากับความยาวขบวนบวกความยาวสะพาน 200 + 400 = 600 เมตร ใน 30 วินาที = 20 เมตร/วินาที × 3.6 = 72 กิโลเมตร/ชั่วโมง (ถ้าใช้แค่ 400 เมตร จะได้ 48 ซึ่งผิด)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "นำไม้ขีดมาเรียงเป็นรูปสี่เหลี่ยมจัตุรัสต่อกันเป็นแถวยาวแถวเดียว (1 รูปใช้ 4 ก้าน 2 รูปใช้ 7 ก้าน 3 รูปใช้ 10 ก้าน …) ถ้ามีไม้ขีด 100 ก้าน จะเรียงได้มากที่สุดกี่รูป",
+   "choices": [
+    "34",
+    "32",
+    "25",
+    "33"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Each new square adds 3 sticks to the first stick, so n squares need 3n + 1 sticks. 3n + 1 ≤ 100 gives n ≤ 33, and 33 squares use exactly 100 sticks. (25 assumes 4 sticks per square.)",
+    "th": "รูปที่เพิ่มแต่ละรูปใช้เพิ่ม 3 ก้าน n รูปใช้ 3n + 1 ก้าน 3n + 1 ≤ 100 ได้ n ≤ 33 และ 33 รูปใช้พอดี 100 ก้าน (คำตอบ 25 เกิดจากคิดว่ารูปละ 4 ก้าน)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "ค่าเฉลี่ยของจำนวน 5 จำนวนเท่ากับ 24 เมื่อตัดจำนวนหนึ่งออก ค่าเฉลี่ยของ 4 จำนวนที่เหลือเท่ากับ 21 จำนวนที่ถูกตัดออกคือจำนวนใด",
+   "choices": [
+    "36",
+    "45",
+    "27",
+    "3"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Sum of 5 numbers = 5 × 24 = 120. Sum of the remaining 4 = 4 × 21 = 84. The removed number = 120 − 84 = 36.",
+    "th": "ผลรวม 5 จำนวน = 5 × 24 = 120 ผลรวม 4 จำนวนที่เหลือ = 4 × 21 = 84 จำนวนที่ถูกตัดออก = 120 − 84 = 36"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "เวลา 3 นาฬิกา 40 นาที เข็มสั้นและเข็มยาวของนาฬิกาทำมุมกัน (มุมที่เล็กกว่า) กี่องศา",
+   "choices": [
+    "130",
+    "150",
+    "140",
+    "120"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The minute hand is at 40 × 6° = 240°. The hour hand is at 3 × 30° + 40 × 0.5° = 110°. The angle = 240° − 110° = 130°. (Forgetting that the hour hand moves gives 150°.)",
+    "th": "เข็มยาวอยู่ที่ 40 × 6° = 240° เข็มสั้นอยู่ที่ 3 × 30° + 40 × 0.5° = 110° มุมระหว่างเข็ม = 240° − 110° = 130° (ถ้าลืมว่าเข็มสั้นเคลื่อนไปด้วยจะได้ 150°)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "มานีใช้เงิน 1/3 ของเงินที่มีซื้อหนังสือ แล้วใช้ 1/4 ของเงินที่เหลือซื้ออาหาร ปรากฏว่าเหลือเงิน 180 บาท เดิมมานีมีเงินกี่บาท",
+   "choices": [
+    "360",
+    "540",
+    "240",
+    "432"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "After the book, 2/3 of the money is left. After food, 3/4 of that is left: 2/3 × 3/4 = 1/2 of the original. Half the money is 180, so she had 360 baht. (432 comes from wrongly taking 1/4 of the whole amount.)",
+    "th": "หลังซื้อหนังสือเหลือ 2/3 ของเงิน ซื้ออาหารแล้วเหลือ 3/4 ของส่วนที่เหลือ คือ 2/3 × 3/4 = 1/2 ของเงินเดิม ครึ่งหนึ่งของเงินเดิม = 180 บาท จึงมีเงินเดิม 360 บาท (432 เกิดจากคิด 1/4 ของเงินทั้งหมดผิด)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ABCD เป็นรูปสี่เหลี่ยมผืนผ้า AB = 12 ซม. และ BC = 8 ซม. จุด E เป็นจุดกึ่งกลางของ BC และจุด F เป็นจุดกึ่งกลางของ CD พื้นที่ของรูปสามเหลี่ยม AEF เป็นกี่ตารางเซนติเมตร",
+   "choices": [
+    "40",
+    "48",
+    "32",
+    "36"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Subtract the three corner triangles from the rectangle (96 cm²): ABE = 12 × 4 ÷ 2 = 24, ECF = 4 × 6 ÷ 2 = 12, ADF = 8 × 6 ÷ 2 = 24. Area AEF = 96 − 24 − 12 − 24 = 36 cm².",
+    "th": "นำพื้นที่สี่เหลี่ยมผืนผ้า 96 ตร.ซม. ลบสามเหลี่ยมที่มุมทั้งสาม: ABE = 12 × 4 ÷ 2 = 24, ECF = 4 × 6 ÷ 2 = 12, ADF = 8 × 6 ÷ 2 = 24 พื้นที่ AEF = 96 − 24 − 12 − 24 = 36 ตร.ซม."
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "360 มีตัวประกอบ (จำนวนนับที่หาร 360 ลงตัว) ทั้งหมดกี่จำนวน",
+   "choices": [
+    "12",
+    "36",
+    "24",
+    "20"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "360 = 2³ × 3² × 5. The number of factors is (3 + 1)(2 + 1)(1 + 1) = 4 × 3 × 2 = 24.",
+    "th": "360 = 2³ × 3² × 5 จำนวนตัวประกอบ = (3 + 1)(2 + 1)(1 + 1) = 4 × 3 × 2 = 24 จำนวน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ตารางรูปสี่เหลี่ยมจัตุรัสเล็กขนาด 3 แถว 4 หลัก (มีช่องเล็ก 12 ช่อง) มีรูปสี่เหลี่ยมผืนผ้าทุกขนาด (รวมรูปสี่เหลี่ยมจัตุรัส) ทั้งหมดกี่รูป",
+   "choices": [
+    "60",
+    "30",
+    "50",
+    "12"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A rectangle is fixed by choosing 2 of the 4 horizontal lines and 2 of the 5 vertical lines: C(4,2) × C(5,2) = 6 × 10 = 60.",
+    "th": "รูปสี่เหลี่ยมผืนผ้าแต่ละรูปเกิดจากการเลือกเส้นแนวนอน 2 เส้นจาก 4 เส้น และเส้นแนวตั้ง 2 เส้นจาก 5 เส้น ได้ 6 × 10 = 60 รูป"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ท่อ A เติมน้ำเต็มถังใน 6 ชั่วโมง ท่อ B เติมน้ำเต็มถังใน 8 ชั่วโมง และท่อ C ระบายน้ำเต็มถังออกหมดใน 12 ชั่วโมง ถ้าเปิดทั้งสามท่อพร้อมกันขณะถังว่าง น้ำจะเต็มถังในเวลาเท่าใด",
+   "choices": [
+    "4 ชั่วโมง 30 นาที",
+    "4 ชั่วโมง 48 นาที",
+    "2 ชั่วโมง 40 นาที",
+    "5 ชั่วโมง"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Net rate per hour = 1/6 + 1/8 − 1/12 = 4/24 + 3/24 − 2/24 = 5/24 of the tank. Time = 24/5 h = 4.8 h = 4 hours 48 minutes. (Adding C instead of subtracting gives 2 hours 40 minutes.)",
+    "th": "อัตราสุทธิต่อชั่วโมง = 1/6 + 1/8 − 1/12 = 4/24 + 3/24 − 2/24 = 5/24 ของถัง เวลา = 24/5 ชั่วโมง = 4.8 ชั่วโมง = 4 ชั่วโมง 48 นาที (ถ้าบวกท่อ C แทนการลบจะได้ 2 ชั่วโมง 40 นาที)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "จำนวนสองหลักจำนวนหนึ่งมีผลบวกของเลขโดดเท่ากับ 11 เมื่อสลับหลักสิบกับหลักหน่วย จะได้จำนวนใหม่ที่มากกว่าจำนวนเดิม 27 จำนวนเดิมคือจำนวนใด",
+   "choices": [
+    "47",
+    "38",
+    "56",
+    "74"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Let the number be 10a + b. Swapping gives 10b + a, and the difference is 9(b − a) = 27, so b − a = 3. With a + b = 11: a = 4, b = 7. The number is 47 (74 − 47 = 27).",
+    "th": "ให้จำนวนเดิมเป็น 10a + b สลับหลักได้ 10b + a ผลต่าง 9(b − a) = 27 ได้ b − a = 3 และ a + b = 11 จึงได้ a = 4, b = 7 จำนวนเดิมคือ 47 (74 − 47 = 27)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "แก๊สใดที่พืชปล่อยออกมาจากกระบวนการสังเคราะห์ด้วยแสง",
+   "choices": [
+    "แก๊สไนโตรเจน",
+    "แก๊สออกซิเจน",
+    "ไอน้ำเท่านั้น",
+    "แก๊สคาร์บอนไดออกไซด์"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "In photosynthesis plants use carbon dioxide, water and light energy to make sugar and release oxygen gas.",
+    "th": "การสังเคราะห์ด้วยแสง พืชใช้แก๊สคาร์บอนไดออกไซด์ น้ำ และพลังงานแสง สร้างน้ำตาล และปล่อยแก๊สออกซิเจนออกมา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "อวัยวะใดทำหน้าที่สร้างน้ำดีซึ่งช่วยย่อยไขมัน",
+   "choices": [
+    "ตับ",
+    "ตับอ่อน",
+    "กระเพาะอาหาร",
+    "ถุงน้ำดี"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Bile is made by the liver. The gall bladder only stores it before it flows into the small intestine to break fat into small droplets.",
+    "th": "น้ำดีสร้างจากตับ ถุงน้ำดีเป็นเพียงที่เก็บน้ำดีก่อนส่งไปยังลำไส้เล็กเพื่อช่วยให้ไขมันแตกตัวเป็นหยดเล็ก ๆ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "วัตถุใดถูกแม่เหล็กดูดได้",
+   "choices": [
+    "ฝากระป๋องอะลูมิเนียม",
+    "ช้อนพลาสติก",
+    "ลวดทองแดง",
+    "ตะปูเหล็ก"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Magnets attract iron (and nickel and cobalt). Aluminium, copper and plastic are not attracted.",
+    "th": "แม่เหล็กดูดเหล็ก (รวมถึงนิกเกิลและโคบอลต์) ได้ ส่วนอะลูมิเนียม ทองแดง และพลาสติกไม่ถูกแม่เหล็กดูด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "ความสัมพันธ์แบบภาวะอิงอาศัย คือฝ่ายหนึ่งได้ประโยชน์ อีกฝ่ายไม่ได้และไม่เสียประโยชน์ คู่ใดเป็นความสัมพันธ์แบบนี้",
+   "choices": [
+    "กล้วยไม้ที่เกาะอยู่บนต้นไม้ใหญ่",
+    "เห็บกับสุนัข",
+    "ราและสาหร่ายในไลเคน",
+    "เสือกับกวาง"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "An orchid gets a place high in the light while the tree is neither helped nor harmed: commensalism. A tick harms the dog (parasitism), the fungus and alga in lichen both benefit (mutualism), and a tiger eats deer (predation).",
+    "th": "กล้วยไม้ได้ที่อยู่และได้รับแสง ส่วนต้นไม้ไม่ได้และไม่เสียประโยชน์ จึงเป็นภาวะอิงอาศัย เห็บกับสุนัขเป็นภาวะปรสิต ราและสาหร่ายในไลเคนเป็นภาวะพึ่งพากัน ส่วนเสือกับกวางเป็นผู้ล่ากับเหยื่อ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "ต้องการตรวจสอบว่าหมึกสีดำของปากกาเมจิกประกอบด้วยสารสีกี่ชนิด ควรใช้วิธีแยกสารแบบใด",
+   "choices": [
+    "การตกผลึก",
+    "โครมาโทกราฟี",
+    "การกลั่น",
+    "การกรอง"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Paper chromatography separates dyes because each colour moves up the paper with the solvent at a different speed, producing separate spots.",
+    "th": "โครมาโทกราฟีแบบกระดาษแยกสารสีได้ เพราะสารสีแต่ละชนิดเคลื่อนที่ไปพร้อมตัวทำละลายบนกระดาษด้วยอัตราต่างกัน จึงแยกเป็นแถบสีให้เห็น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "การเปลี่ยนแปลงใดเป็นการเปลี่ยนแปลงทางเคมี",
+   "choices": [
+    "ฉีกกระดาษเป็นชิ้นเล็ก ๆ",
+    "น้ำแข็งละลายเป็นน้ำ",
+    "ละลายน้ำตาลในน้ำ",
+    "ตะปูเหล็กเกิดสนิม"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Rust is a new substance (iron oxide) formed when iron reacts with oxygen and water, so it is a chemical change. Melting, dissolving and tearing change only form or state; no new substance forms.",
+    "th": "สนิมเหล็กเป็นสารใหม่ที่เกิดจากเหล็กทำปฏิกิริยากับออกซิเจนและน้ำ จึงเป็นการเปลี่ยนแปลงทางเคมี ส่วนการละลายของน้ำแข็ง การละลายน้ำตาล และการฉีกกระดาษ ไม่เกิดสารใหม่ จึงเป็นการเปลี่ยนแปลงทางกายภาพ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "นักเรียนยืนห่างกระจกเงาราบ 2 เมตร แล้วเดินเข้าหากระจก 0.5 เมตร ขณะนั้นนักเรียนกับภาพของตนเองในกระจกอยู่ห่างกันกี่เมตร",
+   "choices": [
+    "2.5",
+    "3",
+    "1.5",
+    "4"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "After walking, the student is 2 − 0.5 = 1.5 m from the mirror. A plane mirror forms the image the same distance behind it, 1.5 m, so the student and image are 1.5 + 1.5 = 3 m apart.",
+    "th": "หลังเดินเข้าไป นักเรียนอยู่ห่างกระจก 2 − 0.5 = 1.5 เมตร กระจกเงาราบให้ภาพอยู่หลังกระจกเป็นระยะเท่ากัน คือ 1.5 เมตร นักเรียนกับภาพจึงห่างกัน 1.5 + 1.5 = 3 เมตร"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "เหตุผลสำคัญที่วงจรไฟฟ้าในบ้านต่อเครื่องใช้ไฟฟ้าแบบขนานคือข้อใด",
+   "choices": [
+    "ทำให้กระแสไฟฟ้าทั้งบ้านลดลงเมื่อเปิดเครื่องใช้มากขึ้น",
+    "ทำให้ประหยัดสายไฟมากกว่าการต่อแบบอนุกรม",
+    "ถ้าเครื่องใช้เครื่องหนึ่งเสีย เครื่องอื่นจะหยุดทำงานเพื่อความปลอดภัย",
+    "เครื่องใช้แต่ละเครื่องได้รับความต่างศักย์เต็มที่ และเปิด–ปิดได้อิสระจากกัน"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "In parallel each appliance is connected across the full mains voltage and has its own branch, so one can be switched off or break without stopping the others. Total current actually increases as more appliances are switched on.",
+    "th": "การต่อแบบขนานทำให้เครื่องใช้ทุกเครื่องได้รับความต่างศักย์เท่ากับแหล่งจ่ายเต็มที่ และแต่ละเครื่องมีเส้นทางของตัวเอง จึงปิดหรือเสียเครื่องหนึ่งได้โดยเครื่องอื่นยังทำงาน ส่วนกระแสรวมจะเพิ่มขึ้นเมื่อเปิดเครื่องใช้มากขึ้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "ซากดึกดำบรรพ์ (ฟอสซิล) มักพบในหินชนิดใดมากที่สุด",
+   "choices": [
+    "หินแปร เช่น หินอ่อน",
+    "หินตะกอน เช่น หินดินดาน",
+    "หินอัคนี เช่น หินบะซอลต์",
+    "หินอัคนี เช่น หินแกรนิต"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Fossils form when remains are buried in layers of sediment that slowly harden into sedimentary rock such as shale. The heat of magma (igneous) or of metamorphism usually destroys remains.",
+    "th": "ซากดึกดำบรรพ์เกิดเมื่อซากสิ่งมีชีวิตถูกตะกอนทับถมเป็นชั้น ๆ แล้วแข็งตัวเป็นหินตะกอน เช่น หินดินดาน ความร้อนสูงในการเกิดหินอัคนีหรือหินแปรมักทำลายซากเหล่านี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "ถ้ากดสายกีตาร์ให้ส่วนที่สั่นสั้นลง แล้วดีดด้วยแรงเท่าเดิม เสียงที่ได้จะเปลี่ยนไปอย่างไร",
+   "choices": [
+    "เสียงสูงขึ้น เพราะสายสั่นด้วยความถี่มากขึ้น",
+    "เสียงสูงขึ้น เพราะเสียงเดินทางในอากาศเร็วขึ้น",
+    "เสียงต่ำลง เพราะความถี่ลดลง",
+    "เสียงดังขึ้น เพราะแอมพลิจูดมากขึ้น"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A shorter vibrating string vibrates faster (higher frequency), so the pitch is higher. Loudness depends on amplitude, which stays the same with the same pluck; the speed of sound in air does not change.",
+    "th": "สายที่สั่นสั้นลงจะสั่นเร็วขึ้น ความถี่สูงขึ้น เสียงจึงสูงขึ้น ส่วนความดังขึ้นกับแอมพลิจูดซึ่งไม่เปลี่ยนเมื่อดีดแรงเท่าเดิม และอัตราเร็วเสียงในอากาศไม่เปลี่ยน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": {
+    "title": "ผลการทดลองแกว่งลูกตุ้ม",
+    "rows": [
+     [
+      "การทดลอง",
+      "ความยาวเชือก (ซม.)",
+      "มวลลูกตุ้ม (g)",
+      "คาบ (วินาที)"
+     ],
+     [
+      "1",
+      "25",
+      "50",
+      "1.0"
+     ],
+     [
+      "2",
+      "25",
+      "100",
+      "1.0"
+     ],
+     [
+      "3",
+      "100",
+      "50",
+      "2.0"
+     ],
+     [
+      "4",
+      "100",
+      "100",
+      "2.0"
+     ]
+    ]
+   },
+   "stem": "นักเรียนทดลองแกว่งลูกตุ้มแล้วจับเวลาที่ใช้แกว่งครบ 1 รอบ (คาบ) ได้ผลดังตาราง ข้อสรุปใดถูกต้อง",
+   "choices": [
+    "คาบขึ้นกับมวลของลูกตุ้ม แต่ไม่ขึ้นกับความยาวเชือก",
+    "คาบขึ้นกับความยาวเชือก แต่ไม่ขึ้นกับมวลของลูกตุ้ม",
+    "เมื่อความยาวเชือกเพิ่มขึ้น 4 เท่า คาบจะเพิ่มขึ้น 4 เท่า",
+    "ทั้งมวลและความยาวเชือกมีผลต่อคาบเท่า ๆ กัน"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Trials 1 and 2 (same length, different mass) give the same period, so mass has no effect. Trials 1 and 3 (same mass, length × 4) change the period from 1.0 s to 2.0 s, so length matters — and the period only doubles, not ×4.",
+    "th": "การทดลองที่ 1 และ 2 ความยาวเท่ากัน มวลต่างกัน ได้คาบเท่ากัน แสดงว่ามวลไม่มีผล การทดลองที่ 1 และ 3 มวลเท่ากัน ความยาวเพิ่ม 4 เท่า คาบเปลี่ยนจาก 1.0 เป็น 2.0 วินาที แสดงว่าความยาวมีผล และคาบเพิ่มเพียง 2 เท่า ไม่ใช่ 4 เท่า"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": {
+    "title": "ระยะทางของรถของเล่น",
+    "rows": [
+     [
+      "เวลา (วินาที)",
+      "0",
+      "2",
+      "4",
+      "6",
+      "8"
+     ],
+     [
+      "ระยะทางจากจุดเริ่ม (เมตร)",
+      "0",
+      "10",
+      "20",
+      "20",
+      "40"
+     ]
+    ]
+   },
+   "stem": "ตารางแสดงระยะทางที่รถของเล่นคันหนึ่งเคลื่อนที่ได้ตามเวลา ข้อใดถูกต้องทั้งอัตราเร็วเฉลี่ยตลอด 8 วินาที และช่วงเวลาที่รถหยุดนิ่ง",
+   "choices": [
+    "10 เมตรต่อวินาที; ช่วง 6–8 วินาที",
+    "5 เมตรต่อวินาที; ช่วง 6–8 วินาที",
+    "5 เมตรต่อวินาที; ช่วง 4–6 วินาที",
+    "6.67 เมตรต่อวินาที; ช่วง 4–6 วินาที"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Average speed = total distance ÷ total time = 40 m ÷ 8 s = 5 m/s (the stopped time still counts). From 4 s to 6 s the distance stays at 20 m, so the car is at rest then; from 6 s to 8 s it moves 20 m (10 m/s).",
+    "th": "อัตราเร็วเฉลี่ย = ระยะทางทั้งหมด ÷ เวลาทั้งหมด = 40 ÷ 8 = 5 เมตร/วินาที (ต้องนับเวลาที่หยุดด้วย) ช่วง 4–6 วินาทีระยะทางคงที่ 20 เมตร รถจึงหยุดนิ่ง ส่วนช่วง 6–8 วินาทีรถเคลื่อนที่ได้ 20 เมตร (10 เมตร/วินาที)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ขณะวิ่งเร็ว ๆ เราหายใจถี่และแรงขึ้น เหตุผลใดอธิบายได้ถูกต้องที่สุด",
+   "choices": [
+    "ปอดต้องการพลังงานมากขึ้นเพื่อใช้ในการสูบฉีดเลือด",
+    "ร่างกายต้องการไนโตรเจนมากขึ้นเพื่อสร้างกล้ามเนื้อ",
+    "กล้ามเนื้อต้องการออกซิเจนมากขึ้นเพื่อใช้ในการหายใจระดับเซลล์ให้ได้พลังงาน และต้องกำจัดคาร์บอนไดออกไซด์ที่เพิ่มขึ้น",
+    "หัวใจหยุดสูบฉีดเลือดชั่วคราว ร่างกายจึงต้องหายใจแทน"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Working muscles carry out more cellular respiration, using oxygen and glucose to release energy and producing more carbon dioxide. Faster, deeper breathing supplies the extra oxygen and removes the extra carbon dioxide. The heart, not the lungs, pumps blood.",
+    "th": "กล้ามเนื้อที่ทำงานหนักหายใจระดับเซลล์มากขึ้น ใช้ออกซิเจนกับกลูโคสเพื่อให้ได้พลังงาน และเกิดคาร์บอนไดออกไซด์มากขึ้น การหายใจถี่และแรงจึงช่วยรับออกซิเจนเพิ่มและกำจัดคาร์บอนไดออกไซด์ ส่วนการสูบฉีดเลือดเป็นหน้าที่ของหัวใจ ไม่ใช่ปอด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ผสมน้ำ 200 กรัม อุณหภูมิ 80 °C กับน้ำ 300 กรัม อุณหภูมิ 20 °C ในภาชนะเก็บความร้อน (ไม่มีความร้อนสูญเสีย) อุณหภูมิสุดท้ายของน้ำผสมเป็นกี่องศาเซลเซียส",
+   "choices": [
+    "40",
+    "50",
+    "56",
+    "44"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Heat lost by hot water = heat gained by cold water: 200(80 − T) = 300(T − 20), so 16,000 + 6,000 = 500T and T = 44 °C. It is closer to 20 °C because there is more cold water. (50 °C is the simple average; 56 °C swaps the masses.)",
+    "th": "ความร้อนที่น้ำร้อนให้ = ความร้อนที่น้ำเย็นรับ: 200(80 − T) = 300(T − 20) ได้ 500T = 22,000, T = 44 °C ใกล้ 20 °C มากกว่าเพราะน้ำเย็นมีมวลมากกว่า (50 °C คือค่าเฉลี่ยธรรมดา ส่วน 56 °C เกิดจากสลับมวล)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "เหตุใดคนบนโลกจึงเห็นดวงจันทร์ด้านเดียวเสมอ",
+   "choices": [
+    "เงาของโลกบังด้านหลังของดวงจันทร์ไว้ตลอดเวลา",
+    "โลกหมุนรอบตัวเองด้วยคาบเท่ากับที่ดวงจันทร์โคจรรอบโลก",
+    "ดวงจันทร์หมุนรอบตัวเองครบ 1 รอบ ใช้เวลาเท่ากับที่โคจรรอบโลกครบ 1 รอบ",
+    "ดวงจันทร์ไม่หมุนรอบตัวเองเลย"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The Moon spins once on its axis in the same time it takes to orbit Earth once (about 27 days), so the same side always faces us. If it did not spin at all we would see all sides during an orbit. Earth's shadow only covers the Moon during a lunar eclipse.",
+    "th": "ดวงจันทร์หมุนรอบตัวเองครบรอบในเวลาเท่ากับที่โคจรรอบโลกครบรอบ (ประมาณ 27 วัน) จึงหันด้านเดิมเข้าหาโลกเสมอ ถ้าดวงจันทร์ไม่หมุนเลย เราจะเห็นครบทุกด้านระหว่างการโคจร ส่วนเงาโลกบังดวงจันทร์เฉพาะตอนเกิดจันทรุปราคา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: There ___ some milk in the fridge.",
+   "choices": [
+    "is",
+    "are",
+    "be",
+    "have"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Milk is an uncountable noun, so it takes a singular verb: there is some milk.",
+    "th": "milk เป็นคำนามนับไม่ได้ จึงใช้กริยาเอกพจน์ there is some milk"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Which word is the opposite of \"ancient\"?",
+   "choices": [
+    "famous",
+    "huge",
+    "modern",
+    "old"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Ancient\" means very old, from long ago. Its opposite is \"modern\" (new, of the present time). \"Old\" has a similar meaning.",
+    "th": "ancient แปลว่า เก่าแก่โบราณ คำตรงข้ามคือ modern (ทันสมัย ปัจจุบัน) ส่วน old มีความหมายใกล้เคียงกัน ไม่ใช่ตรงข้าม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "A: \"How long have you lived in Bangkok?\"\nB: \"___\"",
+   "choices": [
+    "By train.",
+    "It is a big city.",
+    "Since I was six.",
+    "Two years ago."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"How long have you …?\" asks about a period up to now, so the answer uses \"since\" or \"for\": since I was six. \"Two years ago\" answers \"When …?\".",
+    "th": "\"How long have you …?\" ถามช่วงเวลาจนถึงปัจจุบัน คำตอบจึงใช้ since หรือ for เช่น Since I was six ส่วน Two years ago ใช้ตอบคำถาม When"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "Nida wanted to know which kind of bag kept ice frozen the longest. She put the same amount of ice into a paper bag, a plastic bag and a cloth bag, and left them all in the sun. She checked every ten minutes. The ice in the plastic bag melted first, while the ice in the cloth bag lasted the longest. Nida was surprised, because she had expected the plastic bag to win. She decided to repeat the test the next day to make sure her result was not a mistake.",
+   "table": null,
+   "stem": "Why did Nida decide to repeat the test the next day?",
+   "choices": [
+    "Because the ice in the cloth bag never melted.",
+    "To check that her result was reliable.",
+    "Because she wanted to use more ice.",
+    "Because her teacher said the result was wrong."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Nida was surprised by the result and repeated the test \"to make sure her result was not a mistake\" — that is, to check it was reliable. The other reasons are not in the text.",
+    "th": "นิดาประหลาดใจกับผลการทดลอง จึงทำซ้ำ \"to make sure her result was not a mistake\" คือเพื่อตรวจสอบว่าผลเชื่อถือได้ เหตุผลอื่นไม่ได้กล่าวไว้ในเรื่อง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer: The new library ___ next year.",
+   "choices": [
+    "will be built",
+    "is building",
+    "builds",
+    "will build"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The library does not build anything; someone builds it, so we need the passive. For the future the passive is will be + past participle: will be built.",
+    "th": "ห้องสมุดไม่ได้เป็นผู้สร้าง แต่ถูกสร้าง จึงต้องใช้ passive voice ในอนาคตใช้ will be + V3 คือ will be built"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "คำราชาศัพท์ที่ใช้แทนคำว่า \"นอน\" สำหรับพระมหากษัตริย์คือคำใด",
+   "choices": [
+    "ตรัส",
+    "บรรทม",
+    "สรง",
+    "เสวย"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "For the king, \"to sleep\" is บรรทม. เสวย means to eat, สรง means to bathe, and ตรัส means to speak.",
+    "th": "คำว่า \"นอน\" สำหรับพระมหากษัตริย์ใช้ว่า บรรทม ส่วนเสวย แปลว่า กิน สรง แปลว่า อาบน้ำ และตรัส แปลว่า พูด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "คำใดเป็นคำซ้อน",
+   "choices": [
+    "รถไฟ",
+    "ไม้บรรทัด",
+    "บ้านเรือน",
+    "น้ำแข็ง"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "บ้านเรือน joins two words with similar meaning (house + house), so it is a คำซ้อน. รถไฟ, น้ำแข็ง and ไม้บรรทัด join words to make a new meaning, so they are คำประสม.",
+    "th": "\"บ้านเรือน\" เกิดจากคำที่มีความหมายคล้ายกันมาซ้อนกัน จึงเป็นคำซ้อน ส่วน \"รถไฟ\" \"น้ำแข็ง\" และ \"ไม้บรรทัด\" เป็นคำประสม เพราะนำคำมารวมกันแล้วเกิดความหมายใหม่"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "สำนวน \"ช้า ๆ ได้พร้าเล่มงาม\" มีความหมายตรงกับข้อใด",
+   "choices": [
+    "คนขี้เกียจมักได้สิ่งที่ไม่ดี",
+    "ควรรีบทำงานให้เสร็จก่อนผู้อื่น",
+    "ทำงานอย่างประณีตรอบคอบ แม้จะช้าแต่ได้ผลดี",
+    "ของดีมักมีราคาแพง"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The saying (\"slowly, you get a fine machete\") means careful, unhurried work gives a good result.",
+    "th": "สำนวนนี้หมายถึง การทำสิ่งใดอย่างค่อยเป็นค่อยไป ประณีตรอบคอบ แม้จะใช้เวลานาน แต่ผลงานที่ได้จะดี"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "h",
+   "passage": "ผึ้งงานตัวหนึ่งมีชีวิตอยู่เพียงราวหกสัปดาห์ในฤดูที่ต้องทำงานหนัก ตลอดชีวิตมันผลิตน้ำผึ้งได้ไม่ถึงหนึ่งช้อนชา แต่เมื่อผึ้งนับหมื่นตัวในรังช่วยกันทำงานคนละเล็กละน้อย รังผึ้งก็มีน้ำผึ้งสะสมไว้มากพอให้ทั้งรังอยู่รอดผ่านช่วงที่ไม่มีดอกไม้บานได้",
+   "table": null,
+   "stem": "ผู้เขียนต้องการสื่อแนวคิดใดมากที่สุด",
+   "choices": [
+    "ผึ้งงานมีอายุสั้นจึงควรได้รับการคุ้มครอง",
+    "น้ำผึ้งเป็นอาหารที่หายากและมีราคาแพง",
+    "ความร่วมมือกันของคนจำนวนมาก แม้แต่ละคนทำได้เพียงเล็กน้อย ก็สร้างผลสำเร็จที่ยิ่งใหญ่ได้",
+    "ผู้ที่ทำงานหนักมักมีชีวิตสั้น"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The text contrasts how little one bee makes with how much the whole hive stores by working together. The message is that many small efforts combined achieve something great.",
+    "th": "ข้อความเปรียบเทียบว่าผึ้งตัวเดียวผลิตน้ำผึ้งได้น้อยมาก แต่เมื่อทั้งรังช่วยกันจึงมีน้ำผึ้งพอให้ทั้งรังอยู่รอด แนวคิดที่ผู้เขียนต้องการสื่อคือ ความร่วมมือกันของคนจำนวนมาก แม้แต่ละคนทำได้เพียงเล็กน้อย ก็สร้างผลสำเร็จที่ยิ่งใหญ่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ประโยคใดมีคำสันธาน",
+   "choices": [
+    "หนังสือของน้องวางอยู่บนโต๊ะ",
+    "ฉันอยากไปเที่ยวทะเลแต่ฝนตกหนัก",
+    "เขาเดินไปตามถนนสายนั้น",
+    "นกบินอยู่เหนือหลังคาบ้าน"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "แต่ here joins two clauses with contrasting ideas (I want to go / it is raining), so it is a conjunction (คำสันธาน). ของ, บน, ตาม and เหนือ in the other sentences are prepositions (คำบุพบท).",
+    "th": "\"แต่\" ในประโยคนี้เชื่อมข้อความสองตอนที่ขัดแย้งกัน จึงเป็นคำสันธาน ส่วน \"ของ\" \"บน\" \"ตาม\" และ \"เหนือ\" ในประโยคอื่นเป็นคำบุพบท"
+   }
+  }
+ ]
+}

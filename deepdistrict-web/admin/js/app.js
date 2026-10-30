@@ -18,6 +18,7 @@
     search: '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
     bell: '<path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"/>',
     more: '<path d="M4 6h16M4 12h16M4 18h16"/>',
+    lock: '<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>',
     tests: '<path d="M9 3h6l1 3H8z"/><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 11l2 2 4-4M8 17h8"/>',
     bank: '<ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>',
     marking: '<path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
@@ -56,6 +57,64 @@
     ["reports", "Reports & export", "รายงานและส่งออก", "all"],
     ["settings", "Settings", "ตั้งค่า", "all"]
   ];
+
+  /* ------------------------------------------------------------ menu & permissions by role (server: access.py) */
+  var NAV_GROUPS = [["learn", "Learning", "การเรียน"], ["teach", "Teaching", "งานสอน"], ["admin", "Administration", "ผู้ดูแลระบบ"], ["general", "General", "ทั่วไป"]];
+  var CEIL = { all: ["admin", "teacher", "student", "parent"], staff: ["admin", "teacher"], admin: ["admin"], learner: ["student", "parent"] };
+  function accessPage(p) {
+    var m = A.db && A.db.access && A.db.access.pages && A.db.access.pages[p];
+    if (m) return m;
+    var n = NAV.filter(function (x) { return x[0] === p; })[0];
+    return n ? { group: "general", ceiling: CEIL[n[3]], roles: CEIL[n[3]] } : null;
+  }
+  A.navGroup = function (p) { var m = accessPage(p); return m ? m.group : "general"; };
+  A.canOpen = function (p) {
+    if (p === "enrolment") p = "enrolments";
+    var m = accessPage(p);
+    return !m || A.me.role === "admin" || m.roles.indexOf(A.me.role) !== -1;
+  };
+  A.showLocked = function () { return !A.db.access || A.db.access.showLocked !== false; };
+  A.needs = function (p) { var m = accessPage(p); return m ? m.roles.map(A.roleName).join(", ") : ""; };
+  A.navLabel = function (p) { var n = NAV.filter(function (x) { return x[0] === p; })[0]; return n ? L(n[1], n[2]) : p; };
+  A.NAV = NAV;
+
+  A._lockedPage = function (q) {
+    var p = q.get("p") || "", m = accessPage(p);
+    var ceilingOk = m && m.ceiling.indexOf(A.me.role) !== -1;
+    return { title: A.navLabel(p) + " 🔒", html: '<section class="box locked"><div class="locked__ico">' + ico("lock") + "</div><h2>" + L("This page needs a different account level", "หน้านี้ต้องใช้สิทธิ์ระดับอื่น") + "</h2>" +
+      '<p>' + L("Who can open it: ", "ผู้ที่เปิดได้: ") + "<b>" + esc(A.needs(p)) + "</b>. " + L("You are signed in as ", "คุณเข้าสู่ระบบในฐานะ ") + "<b>" + esc(A.roleName(A.me.role)) + "</b>.</p>" +
+      '<p class="muted">' + (ceilingOk ? L("An admin has turned this page off for your level. Ask an admin if you need it.", "ผู้ดูแลระบบปิดหน้านี้สำหรับระดับของคุณ หากต้องการใช้ โปรดติดต่อผู้ดูแลระบบ")
+        : L("Ask the centre if you need access — for example, teachers get a teacher account.", "หากต้องการใช้งาน โปรดติดต่อศูนย์ เช่น ครูจะได้รับบัญชีระดับครู")) + "</p>" +
+      '<a class="btn btn--primary" href="#/' + (A.isStaff() ? "dashboard" : "home") + '">' + L("Back to my start page", "กลับหน้าหลักของฉัน") + "</a></section>" };
+  };
+
+  A._accessPage = function () {
+    var acc = A.db.access || { pages: {} }, roles = ["teacher", "student", "parent"];
+    var rows = NAV_GROUPS.map(function (g) {
+      var list = NAV.filter(function (n) { return A.navGroup(n[0]) === g[0]; });
+      return '<tr class="acc-group"><th colspan="5">' + L(g[1], g[2]) + "</th></tr>" + list.map(function (n) {
+        var m = accessPage(n[0]);
+        return "<tr><td>" + ico(n[4] || n[0]) + " " + L(n[1], n[2]) + '</td><td class="acc-c">✓</td>' + roles.map(function (r) {
+          if (m.ceiling.indexOf(r) === -1) return '<td class="acc-c muted" title="' + esc(L("Not available for this level", "ระดับนี้ใช้ไม่ได้")) + '">—</td>';
+          return '<td class="acc-c"><input type="checkbox" data-acc="' + n[0] + '" data-role="' + r + '"' + (m.roles.indexOf(r) !== -1 ? " checked" : "") + (m.fixed ? " disabled" : "") + ' aria-label="' + esc(L(n[1], n[2]) + " · " + A.roleName(r)) + '"></td>';
+        }).join("") + "</tr>";
+      }).join("");
+    }).join("");
+    return { title: L("Menu & permissions", "เมนูและสิทธิ์การใช้งาน"), html:
+      '<section class="box"><p class="muted">' + L("Everyone sees the full menu. Pages a person cannot open show a lock and the level they need. Untick a box to take a page away from a level. You can only limit rights — a level never gets more than it is built for (—), and admins always keep every page.",
+        "ทุกคนเห็นเมนูทั้งหมด หน้าที่เปิดไม่ได้จะแสดงรูปกุญแจและระดับที่ต้องใช้ เอาเครื่องหมายออกเพื่อปิดหน้านั้นสำหรับระดับนั้น ระบบให้จำกัดสิทธิ์ได้เท่านั้น จะเพิ่มสิทธิ์เกินกว่าที่ระดับนั้นออกแบบไว้ (—) ไม่ได้ และผู้ดูแลระบบเปิดได้ทุกหน้าเสมอ") + "</p>" +
+      '<label class="check"><input type="checkbox" data-acc-locked' + (A.showLocked() ? " checked" : "") + "> " + L("Show locked pages in the menu (with a lock)", "แสดงหน้าที่ล็อกไว้ในเมนู (พร้อมรูปกุญแจ)") + "</label>" +
+      '<div class="tbl-wrap"><table class="tbl acc"><thead><tr><th>' + L("Page", "หน้า") + "</th><th>" + A.roleName("admin") + "</th>" + roles.map(function (r) { return "<th>" + A.roleName(r) + "</th>"; }).join("") + "</tr></thead><tbody>" + rows + "</tbody></table></div>" +
+      '<div class="btnrow"><button class="btn btn--primary" data-act="acc-save">' + L("Save permissions", "บันทึกสิทธิ์") + "</button></div></section>" };
+  };
+  A.saveAccess = function () {
+    var remove = {};
+    $$("[data-acc]").forEach(function (c) { if (!c.checked && !c.disabled) (remove[c.getAttribute("data-acc")] = remove[c.getAttribute("data-acc")] || []).push(c.getAttribute("data-role")); });
+    var lockedEl = $("[data-acc-locked]");
+    return A.api("POST", "access", { remove: remove, showLocked: lockedEl ? lockedEl.checked : true }).then(function (r) {
+      A.db.access = r; A.toast(L("Saved", "บันทึกแล้ว")); root.innerHTML = ""; A.route();
+    }).catch(function (e) { A.toast(e.message, "err"); });
+  };
 
   /* ------------------------------------------------------------ scoping for teachers */
   A.visibleEnrolments = function () {
@@ -317,6 +376,7 @@
 
   /* ------------------------------------------------------------ pages */
   var P = A.pages = {};
+  P.locked = A._lockedPage; P.access = A._accessPage;
 
   P.dashboard = function () {
     var today = A.today(), in7 = A.addDays(today, 7), month = today.slice(0, 7);
@@ -543,6 +603,7 @@
       '<section class="box"><header><h2>' + L("Notifications & app", "การแจ้งเตือนและแอป") + '</h2></header><p class="muted">' + L("Choose what you are told about and how (in the app, email, LINE).", "เลือกเรื่องที่ต้องการรับแจ้งและช่องทาง (ในระบบ อีเมล LINE)") +
         (A.db.me && A.db.me.lineLinked ? " · LINE ✓" : "") + '</p><div class="btnrow"><a class="btn" href="#/inbox?tab=prefs">' + L("My notifications", "การแจ้งเตือนของฉัน") + "</a>" +
         (A.isAdmin() ? '<a class="btn" href="#/notify">' + L("Notifications & LINE (admin)", "ตั้งค่าแจ้งเตือนและ LINE (ผู้ดูแล)") + "</a>" : "") +
+        (A.isAdmin() ? '<a class="btn" href="#/access">' + ico("lock") + " " + L("Menu & permissions", "เมนูและสิทธิ์การใช้งาน") + "</a>" : "") +
         '<button class="btn" type="button" data-act="install" hidden>' + L("Install the app", "ติดตั้งแอป") + "</button></div><p class=\"note\" data-ios-tip hidden></p></section>" +
       (A.isAdmin() ? '<section class="box"><header><h2>' + L("Organisation & rules", "ข้อมูลองค์กรและกติกา") + '</h2><button class="btn" data-act="org">' + L("Edit", "แก้ไข") + "</button></header>" +
         '<dl class="dl"><dt>' + L("Name", "ชื่อ") + "</dt><dd>" + esc(o.name) + "</dd><dt>" + L("Address", "ที่อยู่") + "</dt><dd>" + esc(o.address) + "</dd><dt>" + L("Email / phone", "อีเมล / โทร") + "</dt><dd>" + esc([o.email, o.phone].filter(Boolean).join(" · ")) + "</dd><dt>" + L("Tax ID", "เลขประจำตัวผู้เสียภาษี") + "</dt><dd>" + esc(o.taxId || "–") + "</dd>" +
@@ -603,9 +664,16 @@
   function shell() {
     root.innerHTML =
       '<aside class="side" id="side"><a class="side__brand" href="#/dashboard"><img src="../assets/images/brand/logo-mark.png" alt=""><span>DeepDistrict<small>' + L("Back office", "ระบบหลังบ้าน") + "</small></span></a><nav>" +
-      NAV.filter(function (n) { return n[3] === "all" || (n[3] === "staff" && A.isStaff()) || (n[3] === "learner" && !A.isStaff()) || A.isAdmin() && n[3] === "admin"; }).map(function (n) {
-        var badge = n[0] === "requests" ? A.pendingRequests().length : n[0] === "inbox" ? A.db.inboxUnread || 0 : 0;
-        return '<a href="#/' + n[0] + '" data-nav="' + n[0] + '">' + ico(n[4] || n[0]) + "<span>" + L(n[1], n[2]) + "</span>" + (badge ? '<b class="nav-badge"' + (n[0] === "inbox" ? " data-unread" : "") + ">" + badge + "</b>" : "") + "</a>";
+      NAV_GROUPS.map(function (g) {
+        var links = NAV.filter(function (n) { return A.navGroup(n[0]) === g[0] && !(n[0] === "home" && A.isStaff()); }).map(function (n) {
+          if (!A.canOpen(n[0])) {
+            if (!A.showLocked()) return "";
+            return '<a href="#/locked?p=' + n[0] + '" data-nav="locked-' + n[0] + '" class="is-locked" title="' + esc(L("Needs: ", "ต้องเป็น: ") + A.needs(n[0])) + '">' + ico(n[4] || n[0]) + "<span>" + L(n[1], n[2]) + "</span>" + '<i class="nav-lock">' + ico("lock") + "</i></a>";
+          }
+          var badge = n[0] === "requests" ? A.pendingRequests().length : n[0] === "inbox" ? A.db.inboxUnread || 0 : 0;
+          return '<a href="#/' + n[0] + '" data-nav="' + n[0] + '">' + ico(n[4] || n[0]) + "<span>" + L(n[1], n[2]) + "</span>" + (badge ? '<b class="nav-badge"' + (n[0] === "inbox" ? " data-unread" : "") + ">" + badge + "</b>" : "") + "</a>";
+        }).join("");
+        return links ? '<p class="nav-group">' + L(g[1], g[2]) + "</p>" + links : "";
       }).join("") +
       '</nav><div class="side__foot"><button class="btn btn--sm" type="button" data-act="install" hidden>' + L("Install the app", "ติดตั้งแอป") + '</button><a href="../index.html">← ' + L("Public website", "เว็บไซต์หลัก") + "</a></div></aside>" +
       '<div class="main"><header class="top"><button class="ibtn menu" type="button" data-act="menu" aria-label="Menu">☰</button><h1 id="page-title"></h1><div class="top__act" id="page-actions"></div>' +
@@ -628,10 +696,12 @@
     if (!$("#view")) shell();
     var h = location.hash.replace(/^#\/?/, "") || (A.isStaff() ? "dashboard" : "home");
     var parts = h.split("?"), path = parts[0].split("/"), q = new URLSearchParams(parts[1] || "");
-    var staffOnly = ["dashboard", "enrolments", "enrolment", "sessions", "people", "payments", "courses", "search", "popups", "content", "bank", "marking", "blog", "ai", "docs", "sets"];
+    var staffOnly = ["dashboard", "enrolments", "enrolment", "sessions", "people", "payments", "courses", "search", "popups", "content", "bank", "marking", "blog", "ai", "docs", "sets", "live"];
     var name = path[0];
-    if (!A.isStaff() && staffOnly.indexOf(name) !== -1) name = "home";
     if (A.isStaff() && name === "home") name = "dashboard";
+    if (name === "access" && !A.isAdmin()) name = A.isStaff() ? "dashboard" : "home";
+    if (name !== "locked" && P[name] && !A.canOpen(name)) { q = new URLSearchParams("p=" + name); name = "locked"; }
+    if (!A.isStaff() && staffOnly.indexOf(name) !== -1) name = "home";    // safety net: learners never get staff pages
     var page = P[name] || (A.isStaff() ? P.dashboard : P.home);
     var out = page(q, path[1]);
     $("#page-title").textContent = out.title;
@@ -669,6 +739,7 @@
       else if (act === "org") editOrg();
       else if (act === "my-password") changePassword();
       else if (act === "backup") { A.api("GET", "backup").then(function (d) { A.download("deepdistrict-backup-" + A.today() + ".json", JSON.stringify(d, null, 2), "application/json"); }).catch(function (e) { A.toast(e.message, "err"); }); }
+      else if (act === "acc-save") A.saveAccess();
       else if (act === "demo") { if (confirm(L("Add demo students, lessons and payments? Existing data is kept.", "เพิ่มข้อมูลตัวอย่าง (นักเรียน คาบเรียน การชำระเงิน)? ข้อมูลเดิมยังอยู่"))) { A.demo(); A.save().then(function () { A.route("dashboard"); }); } }
       else if (act === "erase") { if (prompt(L("Type ERASE to delete ALL back-office data on the server (a backup copy is kept in server/data/backups).", "พิมพ์ ERASE เพื่อลบข้อมูลระบบหลังบ้านทั้งหมดบนเซิร์ฟเวอร์ (ระบบเก็บสำเนาไว้ใน server/data/backups)")) === "ERASE") A.api("POST", "erase", { confirm: "ERASE" }).then(function () { A.me = null; A.boot(); }); }
       else if (act === "consent-log") {

@@ -6,6 +6,7 @@ AI work runs in a background thread: the request returns at once and the page po
 """
 
 import json
+import os
 import threading
 import traceback
 import sys
@@ -14,13 +15,16 @@ from urllib.parse import parse_qs
 
 import ai
 import blog
+import blog_seed
 import calibrate
 import exams
 import exam_samples
+import access
 import exports
 import images
 import live
 import qsets
+import ready_sets
 
 STALE = timedelta(minutes=15)
 H = {}          # filled by app.py: db, lock, audit, load_col, get_rec, now_iso
@@ -37,6 +41,20 @@ def init(con):
     live.init(con)
     qsets.init(con)
     exports.init(con)
+    if os.environ.get("DD_SEED", "1") != "0":       # DD_SEED=0: start empty (no ready-made sets or starter news)
+        autoload_sets(con)
+        blog_seed.seed(con)
+
+
+def autoload_sets(con):
+    """Ready-made practice sets (server/exam_sets) are added once per file; deleting one later keeps it deleted."""
+    r = con.execute("SELECT value FROM kv WHERE key='readySets'").fetchone()
+    done = set(json.loads(r["value"])) if r else set()
+    new = [f["file"] for f in ready_sets.catalogue() if f["file"] not in done]
+    if not new:
+        return
+    ready_sets.load(con, {"id": "system", "name": "DeepDistrict"}, only=set(new))
+    con.execute("INSERT INTO kv (key, value) VALUES ('readySets', ?) ON CONFLICT(key) DO UPDATE SET value=excluded.value", (json.dumps(sorted(done | set(new))),))
 
 
 # ---------------------------------------------------------------- background AI jobs
@@ -258,7 +276,10 @@ def summary(a, names):
     r = a.get("result") or {}
     out = {k: a.get(k) for k in ("id", "kind", "mode", "status", "createdAt", "finishedAt", "preview")}
     out["userId"], out["userName"] = a["userId"], names.get(a["userId"], "")
-    if a["kind"] == "sat":
+    out["setTitle"] = a.get("setTitle")
+    if a["kind"] == "m1":
+        out.update({"correct": r.get("correct"), "total": r.get("total"), "percent": r.get("percent"), "program": next(iter(a["snap"].values()), {}).get("program")})
+    elif a["kind"] == "sat":
         out.update({"correct": r.get("correct"), "total": r.get("total"), "estimate": r.get("estimate")})
     elif a["kind"] == "ielts-r":
         out.update({"correct": r.get("correct"), "total": r.get("total"), "band": r.get("band")})
@@ -397,11 +418,25 @@ def routes(con, me, path, method, body, environ):
     one = lambda k, d="": (q.get(k) or [d])[0]  # noqa: E731
     role, staff, admin = me["role"], me["role"] in ("admin", "teacher"), me["role"] == "admin"
     ecfg = exams.settings(con)
+    acfg = access.settings(con)
+    pg = access.page_of(path)
+    if pg and not access.allowed(acfg, role, pg):
+        return "403 Forbidden", {"error": "your account level does not have access to this page — ask an admin", "page": pg}
+    if path == "access" and method == "POST":
+        if not admin:
+            return "403 Forbidden", {"error": "admins only"}
+        out = access.save(con, body)
+        H["audit"](con, me, "Updated menu & permissions")
+        return "200 OK", access.matrix(out)
     try:
         # ---------- exams: everyone signed in
         if path == "exam/home" and method == "GET":
             rd = exams.readiness(con)
-            return "200 OK", {"settings": ecfg, "ready": rd, "attempts": attempts_for(con, me), "role": role,
+            pub = [qsets.summary(con, x) for x in qsets.published(con)]
+            for x in pub:
+                x.pop("items", None)
+            return "200 OK", {"settings": ecfg, "ready": rd, "attempts": attempts_for(con, me), "role": role, "sets": pub,
+                              "m1": {"programs": exams.M1_PROGRAMS, "subjects": exams.M1_SUBJECTS},
                               "domains": {k: {"en": v["en"], "th": v["th"]} for k, v in exams.SAT_DOMAINS.items()},
                               "aiReady": ai.status(con)["ready"]}
         if path == "exam/start" and method == "POST":
@@ -611,6 +646,12 @@ def routes(con, me, path, method, body, environ):
             out = [{k: x.get(k) for k in ("id", "code", "title", "kind", "phase", "createdAt", "endedAt", "ownerName")} | {"questions": len(x["questions"]), "people": len(x["participants"])}
                    for x in live.all_sessions(con, None if admin else me["id"])]
             return "200 OK", {"items": out}
+        if path == "exam/sets-load":
+            if method == "GET":
+                return "200 OK", {"files": ready_sets.catalogue()}
+            res = ready_sets.load(con, me)
+            H["audit"](con, me, f"Exam bank: loaded ready-made sets ({res['items']} items, {res['sets']} sets)")
+            return "200 OK", dict(res, ok=True)
         if path == "qset/list" and method == "GET":
             return "200 OK", {"items": [qsets.summary(con, x) for x in qsets.listing(con, me)]}
         if path == "qset/save" and method == "POST":

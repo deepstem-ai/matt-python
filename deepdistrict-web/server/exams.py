@@ -32,7 +32,19 @@ import re
 import secrets
 from datetime import datetime, timezone
 
-KINDS = ("sat", "ielts-r", "ielts-w")
+KINDS = ("sat", "ielts-r", "ielts-w", "m1")
+CHOICE_KINDS = ("sat", "m1")      # one passage/stem + four answer choices
+
+# Thai M.1 (Grade 7) entrance practice — Suankularb Wittayalai special programmes. The schools publish the
+# subjects, not the papers: GATE Program tests Mathematics, Science, English and Thai (Maths and Science carry
+# most of the weight); English Program (EPLUS+) tests Mathematics, Science and English in English, plus an
+# interview that is not part of this bank. Items here are DeepDistrict originals in a 4-choice format.
+M1_PROGRAMS = {
+    "gate": {"en": "Suankularb M.1 GATE Program", "th": "สวนกุหลาบ ม.1 GATE Program", "subjects": ["math", "sci", "eng", "thai"]},
+    "ep": {"en": "Suankularb M.1 English Program (EPLUS+)", "th": "สวนกุหลาบ ม.1 English Program (EPLUS+)", "subjects": ["math", "sci", "eng"]},
+}
+M1_SUBJECTS = {"math": {"en": "Mathematics", "th": "คณิตศาสตร์"}, "sci": {"en": "Science", "th": "วิทยาศาสตร์"},
+               "eng": {"en": "English", "th": "ภาษาอังกฤษ"}, "thai": {"en": "Thai", "th": "ภาษาไทย"}}
 STATUSES = ("draft", "review", "approved", "retired")
 GRACE = 20                      # seconds of network grace after a section's time is up
 
@@ -139,7 +151,7 @@ def shuffle_item(it, rng):
     features and sentence endings (relabelled i, ii… / A, B…). True/False/Not Given, paragraph letters
     and completion answers keep their fixed order because their order is part of the task."""
     it = json.loads(json.dumps(it))
-    if it["kind"] == "sat" and len(it.get("choices") or []) == 4:
+    if it["kind"] in CHOICE_KINDS and len(it.get("choices") or []) == 4:
         perm = list(range(4))
         rng.shuffle(perm)
         it["choices"] = [it["choices"][p] for p in perm]
@@ -270,6 +282,30 @@ def clean_item(raw, old=None):
             probs.append("explanations must name choices by their words, not by letter (answer order is shuffled)")
         if it["stem"] and not it["stem"].rstrip().endswith("?"):
             probs.append("the question should be a full SAT-style question ending with \"?\"")
+    elif kind == "m1":
+        prog = raw.get("program") if raw.get("program") in M1_PROGRAMS else "gate"
+        subj = raw.get("subject") if raw.get("subject") in M1_PROGRAMS[prog]["subjects"] else M1_PROGRAMS[prog]["subjects"][0]
+        choices = [_s(c, 400) for c in (raw.get("choices") or [])][:4]
+        table = raw.get("table") if isinstance(raw.get("table"), dict) else None
+        if table:
+            rows = [[_s(c, 60) for c in r][:8] for r in (table.get("rows") or []) if isinstance(r, list)][:12]
+            table = {"title": _s(table.get("title"), 160), "rows": rows} if rows else None
+        it.update({"program": prog, "subject": subj, "difficulty": raw.get("difficulty") if raw.get("difficulty") in DIFF else "m",
+                   "passage": _s(raw.get("passage"), 3000), "table": table, "image": _s(raw.get("image"), 1_600_000), "stem": _s(raw.get("stem"), 1200),
+                   "choices": choices, "answer": int(raw.get("answer")) if str(raw.get("answer", "")).lstrip("-").isdigit() else -1,
+                   "explanation": _bi(raw.get("explanation"), 1500)})
+        if it["image"] and not re.match(r"^(data:image/(png|jpeg|webp);base64,|https://)", it["image"]):
+            raise ValueError("picture must be a PNG/JPEG/WebP upload or https:// address")
+        if not it["stem"]:
+            probs.append("question missing")
+        if len(choices) != 4 or any(not c for c in choices) or len({c.strip() for c in choices}) != 4:
+            probs.append("exactly 4 different answer choices are needed")
+        if not 0 <= it["answer"] <= 3:
+            probs.append("mark the correct choice")
+        if not (it["explanation"]["en"] or it["explanation"]["th"]):
+            probs.append("explanation missing")
+        if re.search(r"\b(?i:choice|option|answer)s?\s*\(?[A-D]\)?(?![A-Za-z])|\([A-D]\)|ตัวเลือก\s*[A-Dก-ง]\b|ข้อ\s*[A-Dกขคง](?![ก-๛])", it["explanation"]["en"] + " " + it["explanation"]["th"]):
+            probs.append("explanations must name choices by their content, not by letter (answer order is shuffled)")
     elif kind == "ielts-r":
         paras = [_s(p, 4000) for p in (raw.get("paragraphs") or []) if _s(p, 4000)][:12]
         groups, total_q = [], 0
@@ -433,11 +469,13 @@ def readiness(con):
     sat_ok = all(sum(by[d].values()) >= need[d] for d in SAT_DOMAINS)
     sets = items(con, "ielts-r", "approved")
     tasks = items(con, "ielts-w", "approved")
+    m1 = items(con, "m1", "approved")
     return {"sat": {"approved": len(op), "pretest": len(sat) - len(op), "byDomain": by, "need": need, "minimum": sum(need.values()),
                     "recommended": 81 * 3, "mock": sat_ok},
             "ielts-r": {"sets": len(sets), "questions": sum(total_marks(s) for s in sets), "mock": bool(_pick_reading(sets, random.Random(1)))},
             "ielts-w": {"task1": sum(1 for t in tasks if t["task"] == 1), "task2": sum(1 for t in tasks if t["task"] == 2),
-                        "mock": any(t["task"] == 1 for t in tasks) and any(t["task"] == 2 for t in tasks)}}
+                        "mock": any(t["task"] == 1 for t in tasks) and any(t["task"] == 2 for t in tasks)},
+            "m1": {p: {sub: sum(1 for i in m1 if i["program"] == p and i["subject"] == sub) for sub in M1_PROGRAMS[p]["subjects"]} for p in M1_PROGRAMS}}
 
 
 # ---------------------------------------------------------------- building tests
@@ -509,15 +547,57 @@ def seen_items(con, uid):
     return out
 
 
+SET_SECONDS = {"sat": SAT_MODULE_S, "ielts-r": IELTS_R_SECONDS, "ielts-w": IELTS_W_SECONDS, "m1": 90 * 60}
+SET_TITLES = {"sat": "SAT Reading and Writing", "ielts-r": "IELTS Academic Reading", "ielts-w": "IELTS Academic Writing", "m1": "M.1 entrance"}
+
+
+def start_set(con, me, qs, cfg):
+    """A timed test built from a saved question set: the same questions for everyone, answers shuffled per attempt."""
+    import qsets
+    its = [i for i in qsets.items_of(con, qs) if i.get("status") != "retired" or me["role"] in ("admin", "teacher")]
+    if not its:
+        raise ValueError("this set has no items")
+    rng = random.Random(secrets.randbits(64))
+    t0 = now()
+    secs = int(qs.get("minutes") or 0) * 60 or SET_SECONDS[qs["kind"]]
+    if qs["kind"] == "sat":
+        its = _sat_order(its)
+    sec = _section("s", qs["title"], secs, [i["id"] for i in its], t0)
+    snap = {i["id"]: i for i in (its if qs["kind"] == "ielts-w" else arrange(its, rng.random(), cfg["shuffle"]))}
+    att = {"id": "t" + secrets.token_hex(8), "userId": me["id"], "kind": qs["kind"], "mode": "set", "setId": qs["id"], "setTitle": qs["title"],
+           "status": "active", "preview": me["role"] in ("admin", "teacher"), "sections": [sec], "current": 0, "route": None, "snap": snap, "createdAt": iso(t0)}
+    put_attempt(con, att)
+    return att
+
+
 def start(con, me, body, cfg):
     kind, mode = body.get("kind"), body.get("mode") if body.get("mode") in ("mock", "practice") else "practice"
+    if body.get("setId"):
+        import qsets
+        qs = qsets.get(con, body["setId"])
+        staff = me["role"] in ("admin", "teacher")
+        if not qs or not (qs.get("published") or (staff and (qs["owner"] == me["id"] or me["role"] == "admin"))):
+            raise ValueError("this test set is not available")
+        return start_set(con, me, qs, cfg)
     if kind not in KINDS:
-        raise ValueError("choose SAT, IELTS Reading or IELTS Writing")
+        raise ValueError("choose SAT, IELTS Reading, IELTS Writing or M.1 entrance")
     rng = random.Random(secrets.randbits(64))
     seen = seen_items(con, me["id"])
     snap, sections = {}, []
     t0 = now()
-    if kind == "sat":
+    if kind == "m1":
+        prog = body.get("program") if body.get("program") in M1_PROGRAMS else "gate"
+        subs = [x for x in (body.get("subjects") or M1_PROGRAMS[prog]["subjects"]) if x in M1_PROGRAMS[prog]["subjects"]] or M1_PROGRAMS[prog]["subjects"]
+        n = max(5, min(40, int(body.get("count") or 10)))
+        cand = [i for i in items(con, "m1", "approved") if i["program"] == prog and i["subject"] in subs]
+        if len(cand) < n:
+            raise ValueError(f"only {len(cand)} approved questions match — choose fewer or more subjects")
+        fresh = [i for i in cand if i["id"] not in seen]
+        chosen = rng.sample(fresh, n) if len(fresh) >= n else fresh + rng.sample([i for i in cand if i["id"] in seen], n - len(fresh))
+        chosen.sort(key=lambda i: (M1_PROGRAMS[prog]["subjects"].index(i["subject"]), DIFF.index(i["difficulty"])))
+        sections.append(_section("p", M1_PROGRAMS[prog]["en"] + " · Practice", n * 135, [i["id"] for i in chosen], t0))
+        snap.update({i["id"]: i for i in arrange(chosen, rng.random(), cfg["shuffle"])})
+    elif kind == "sat":
         pool = items(con, "sat", "approved")
         op, pre = [i for i in pool if not i.get("pretest")], [i for i in pool if i.get("pretest")]
         if mode == "mock":
@@ -670,7 +750,7 @@ def finish(con, a, cfg):
 
 def is_correct(item, value, gi=None, qi=None):
     """Is this answer right? SAT: value is the choice index; IELTS Reading: group gi, question qi."""
-    if item["kind"] == "sat":
+    if item["kind"] in CHOICE_KINDS:
         return str(value) == str(item["answer"])
     g = item["groups"][gi]
     q = g["questions"][qi]
@@ -705,6 +785,15 @@ def check_text(ans, accepted, wl):
 
 
 def score(a, cfg):
+    if a["kind"] == "m1":
+        by, c, t = {}, 0, 0
+        for sec in a["sections"]:
+            for iid in sec["items"]:
+                it = a["snap"][iid]
+                ok = sec["answers"].get(iid) == str(it["answer"])
+                b = by.setdefault(it["subject"], {"c": 0, "t": 0})
+                b["c"] += ok; b["t"] += 1; c += ok; t += 1
+        return {"correct": c, "total": t, "percent": round(100 * c / t) if t else 0, "bySubject": by}
     if a["kind"] == "sat":
         dom = {d: {"c": 0, "t": 0} for d in SAT_DOMAINS}
         mods, got, maxw = [], 0.0, 0.0
@@ -766,7 +855,7 @@ def rw_percentile(score):
 
 def tag_error(a, iid, cause):
     """Learner's own error log on a finished SAT test: why was this question missed?"""
-    if a["kind"] != "sat" or a["status"] == "active":
+    if a["kind"] not in CHOICE_KINDS or a["status"] == "active":
         raise ValueError("tag mistakes after the test")
     if iid not in a["snap"]:
         raise ValueError("unknown question")
@@ -847,6 +936,11 @@ def writing_view(a, cfg, staff):
 
 
 def _public_item(it, review):
+    if it["kind"] == "m1":
+        out = {k: it.get(k) for k in ("id", "passage", "table", "image", "stem", "choices", "subject", "program")}
+        if review:
+            out.update({"answer": it["answer"], "explanation": it["explanation"], "difficulty": it["difficulty"]})
+        return out
     if it["kind"] == "sat":
         out = {k: it.get(k) for k in ("id", "passage", "table", "image", "stem", "choices")}
         if review:

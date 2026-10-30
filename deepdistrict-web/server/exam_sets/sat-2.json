@@ -1,0 +1,558 @@
+{
+ "exam": "sat",
+ "set": 2,
+ "title": {
+  "en": "SAT Reading and Writing — Practice module 2",
+  "th": "SAT Reading and Writing — ชุดฝึก 2"
+ },
+ "minutes": 32,
+ "note": {
+  "en": "One 27-question module in Digital SAT format. DeepDistrict practice — not an official College Board test.",
+  "th": "1 โมดูล 27 ข้อ รูปแบบ Digital SAT — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบทางการของ College Board"
+ },
+ "items": [
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "words-in-context",
+   "difficulty": "e",
+   "passage": "Before recording technology existed, a folk song survived only if people remembered it and taught it to others. Many songs from rural Isan were ______ in exactly this way, passed from parents to children over many generations until researchers finally wrote them down in the twentieth century.",
+   "stem": "Which choice completes the text with the most logical and precise word or phrase?",
+   "choices": [
+    "preserved",
+    "exaggerated",
+    "invented",
+    "forbidden"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The songs 'survived' because people remembered them and taught them, so they were 'preserved' (kept in existence). 'Invented' would describe how a song begins, not how it survives; 'forbidden' and 'exaggerated' do not fit songs being passed on faithfully.",
+    "th": "เพลงอยู่รอดมาได้เพราะคนจดจำและสอนต่อกัน จึงหมายถึง preserved (รักษาไว้) ส่วน invented (คิดค้นขึ้น) พูดถึงการเริ่มต้นของเพลง ไม่ใช่การอยู่รอด forbidden (ถูกห้าม) และ exaggerated (ถูกพูดเกินจริง) ไม่เข้ากับการสืบทอดเพลง"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "words-in-context",
+   "difficulty": "e",
+   "passage": "The engineers who designed the new bridge across the river wanted it to be ______: they expect it to survive strong earthquakes and heavy floods and to remain in use for at least a hundred years.",
+   "stem": "Which choice completes the text with the most logical and precise word or phrase?",
+   "choices": [
+    "decorative",
+    "temporary",
+    "durable",
+    "lightweight"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The colon explains the blank: surviving earthquakes and floods and lasting a hundred years describes something 'durable'. 'Temporary' is the opposite, while 'decorative' and 'lightweight' describe appearance and weight rather than the ability to last.",
+    "th": "ส่วนหลัง : อธิบายว่าสะพานต้องทนแผ่นดินไหว น้ำท่วม และใช้งานได้ร้อยปี จึงเป็น durable (ทนทาน) ส่วน temporary (ชั่วคราว) ตรงข้าม decorative (สวยงามประดับ) และ lightweight (น้ำหนักเบา) ไม่ได้หมายถึงความทนทาน"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "words-in-context",
+   "difficulty": "m",
+   "passage": "Although her first novels sold only a few hundred copies, critics now regard the writer as ______ figure in modern Thai literature: her experiments with shifting narrators shaped the work of an entire generation of younger authors.",
+   "stem": "Which choice completes the text with the most logical and precise word or phrase?",
+   "choices": [
+    "an obscure",
+    "a conventional",
+    "a reluctant",
+    "a pivotal"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "A writer who 'shaped the work of an entire generation' is of central importance, so 'a pivotal' fits. 'An obscure' contradicts the word 'now', which contrasts her current reputation with her poor early sales; 'a reluctant' is not supported; and 'a conventional' conflicts with her 'experiments'.",
+    "th": "นักเขียนที่มีอิทธิพลต่อนักเขียนทั้งรุ่นย่อมมีความสำคัญมาก จึงเป็น a pivotal (สำคัญเป็นจุดเปลี่ยน) ส่วน an obscure (ไม่มีใครรู้จัก) ขัดกับคำว่า now ซึ่งแสดงว่าชื่อเสียงปัจจุบันต่างจากยอดขายช่วงแรก a reluctant (ไม่เต็มใจ) ไม่มีข้อมูลสนับสนุน และ a conventional (ตามขนบ) ขัดกับคำว่า experiments"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "text-structure",
+   "difficulty": "m",
+   "passage": "Many people picture glaciers as unmoving masses of ice. In fact, glaciers flow constantly, sliding slowly downhill under their own weight. Some outlet glaciers in Greenland travel more than ten kilometres in a single year. This movement allows glaciers to carve deep valleys and to carry huge boulders far from where they started.",
+   "stem": "Which choice best describes the function of the third sentence in the overall structure of the text?",
+   "choices": [
+    "It challenges the claim made in the second sentence.",
+    "It describes a result of the movement of glaciers.",
+    "It gives an example that shows how quickly some glaciers can move.",
+    "It explains why many people misunderstand glaciers."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The second sentence says glaciers move, and the third gives a specific case (Greenland glaciers moving over ten kilometres a year) to show how fast they can go. It supports, not challenges, the second sentence; it gives no reason for people's misunderstanding; and the results of movement (carving valleys, carrying boulders) appear in the fourth sentence.",
+    "th": "ประโยคที่สองบอกว่าธารน้ำแข็งเคลื่อนที่ ประโยคที่สามยกตัวอย่างธารน้ำแข็งในกรีนแลนด์ที่เคลื่อนที่ได้กว่า 10 กิโลเมตรต่อปี จึงเป็นการยกตัวอย่าง ไม่ได้โต้แย้งประโยคที่สอง ไม่ได้อธิบายสาเหตุที่คนเข้าใจผิด และผลของการเคลื่อนที่อยู่ในประโยคที่สี่"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "text-structure",
+   "difficulty": "m",
+   "passage": "The following text is from a short story.\nFor thirty years, Mrs. Chantra had opened her noodle stall at five in the morning. When a café with glass walls and a menu in three languages opened across the street, her neighbours warned that she would lose her customers. Mrs. Chantra watched the young people lining up for iced coffee. Then she wiped her counter, lit her stove, and set out her plastic stools exactly as she always had.",
+   "stem": "Which choice best describes the main purpose of the text?",
+   "choices": [
+    "To portray a character's steady commitment to her routine despite changes around her",
+    "To show a character deciding to change the way she runs her business",
+    "To explain why the new café is more popular than the noodle stall",
+    "To describe the history of street food in a Thai neighbourhood"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The new café and the neighbours' warning represent change, and Mrs. Chantra responds by doing everything 'exactly as she always had'. The text does not explain the café's popularity, does not give a history of street food, and shows her keeping, not changing, her routine.",
+    "th": "ร้านกาแฟใหม่และคำเตือนของเพื่อนบ้านแสดงถึงความเปลี่ยนแปลง แต่นางจันทราก็ยังทำทุกอย่างเหมือนเดิม จึงเป็นการแสดงความมั่นคงต่อกิจวัตรของตัวละคร ข้อความไม่ได้อธิบายว่าทำไมร้านกาแฟได้รับความนิยม ไม่ได้เล่าประวัติอาหารริมทาง และตัวละครไม่ได้ตัดสินใจเปลี่ยนวิธีทำธุรกิจ"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "words-in-context",
+   "difficulty": "h",
+   "passage": "Neuroscientist Lalita Boonmee's experiments showed a clear link between deep sleep and memory in mice. In presenting her results, however, Boonmee was careful to ______ her conclusions, noting that the effect had not yet been tested in humans and might not appear in animals with different sleep patterns.",
+   "stem": "Which choice completes the text with the most logical and precise word or phrase?",
+   "choices": [
+    "exaggerate",
+    "qualify",
+    "repudiate",
+    "substantiate"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "'However' and the limits she mentions show that Boonmee restricted her claims, which is what 'qualify' means. 'Substantiate' (support with more evidence) does not match pointing out what has not been tested, 'exaggerate' is the opposite of being careful, and 'repudiate' (reject completely) is too strong, since her mouse results were clear.",
+    "th": "คำว่า however และการที่เธอชี้ข้อจำกัด แสดงว่าเธอจำกัดขอบเขตข้อสรุป ซึ่งคือ qualify ส่วน substantiate (ยืนยันด้วยหลักฐาน) ไม่ตรงกับการบอกว่ายังไม่ได้ทดสอบ exaggerate (พูดเกินจริง) ตรงข้ามกับความระมัดระวัง และ repudiate (ปฏิเสธโดยสิ้นเชิง) รุนแรงเกินไปเพราะผลในหนูชัดเจน"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "cross-text",
+   "difficulty": "h",
+   "passage": "Text 1\nIn a number of studies from the early 2000s, children who spoke two languages outperformed children who spoke one language on tasks that required them to switch attention quickly or ignore distracting information. Researchers proposed an explanation: because bilingual children must constantly keep one language in the background while using the other, they get daily practice in controlling their attention, and this practice strengthens general mental skills known as executive functions.\nText 2\nLater studies with much larger groups of children have often found small differences or none at all. Many of the early studies compared fairly small groups, and the bilingual and monolingual children in them sometimes differed in other ways, such as family income, parents' level of education, or immigration history. When researchers carefully match children on these factors, the bilingual advantage frequently disappears.",
+   "stem": "Based on the texts, how would the author of Text 2 most likely respond to the explanation proposed in Text 1?",
+   "choices": [
+    "By suggesting that tasks requiring children to switch attention do not measure executive functions",
+    "By claiming that bilingual children perform worse than monolingual children on attention tasks",
+    "By agreeing that speaking two languages strengthens executive functions, but only in adults",
+    "By arguing that the results it explains may reflect differences between the groups of children other than the number of languages they speak"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Text 2 says that early studies often compared groups that also differed in income, education or immigration history, and that the advantage often disappears when these are matched. So the author would say the results might come from those other differences. Text 2 says nothing about adults, reports 'small differences or none', not worse performance, and never questions whether the tasks measure executive functions.",
+    "th": "ข้อความที่ 2 บอกว่างานวิจัยช่วงแรกเปรียบเทียบเด็กสองกลุ่มที่ต่างกันในด้านอื่นด้วย เช่น รายได้ครอบครัว การศึกษาของพ่อแม่ และเมื่อจับคู่ปัจจัยเหล่านี้ ข้อได้เปรียบมักหายไป ผู้เขียนจึงน่าจะแย้งว่าผลอาจเกิดจากความแตกต่างอื่น ข้อความที่ 2 ไม่ได้พูดถึงผู้ใหญ่ ไม่ได้บอกว่าเด็กสองภาษาทำได้แย่กว่า และไม่ได้ตั้งคำถามว่าแบบทดสอบวัด executive functions ได้หรือไม่"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "central-ideas",
+   "difficulty": "e",
+   "passage": "Thailand's One Tambon One Product program, launched in 2001, encouraged each subdistrict, or tambon, to develop and market a local specialty, such as handwoven cloth, pottery, or dried fruit. The program offered training in design and packaging and organized trade fairs in Bangkok and abroad. As a result, many village producers were able to reach buyers far beyond their own communities.",
+   "stem": "Which choice best states the main idea of the text?",
+   "choices": [
+    "Handwoven cloth is the most profitable product made in Thai villages.",
+    "A government program helped local producers in Thailand sell their specialty goods to wider markets.",
+    "Thai villages stopped producing traditional crafts after 2001.",
+    "The program focused mainly on building trade fair venues in Bangkok."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The text describes the program's purpose (developing local specialties), its methods (training, trade fairs) and its result (reaching buyers far away). It never says villages stopped making crafts, it mentions organizing fairs rather than building venues, and it does not compare the profits of different products.",
+    "th": "ข้อความอธิบายจุดประสงค์ของโครงการ (พัฒนาสินค้าท้องถิ่น) วิธีการ (อบรม จัดงานแสดงสินค้า) และผลลัพธ์ (เข้าถึงผู้ซื้อที่อยู่ไกล) ข้อความไม่ได้บอกว่าหมู่บ้านเลิกทำหัตถกรรม พูดถึงการจัดงานแสดงสินค้า ไม่ใช่การสร้างสถานที่ และไม่ได้เปรียบเทียบกำไรของสินค้า"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "inferences",
+   "difficulty": "e",
+   "passage": "Seeds of the sacred lotus can remain alive for an extraordinarily long time. In one study, scientists planted lotus seeds that had been buried in a dry lakebed for several centuries, and many of them sprouted and grew into healthy plants. This finding suggests that, under the right conditions, lotus seeds ______",
+   "stem": "Which choice most logically completes the text?",
+   "choices": [
+    "grow best when they are planted in dry soil.",
+    "lose their ability to sprout once they are buried.",
+    "can remain able to grow for hundreds of years.",
+    "must be planted within a year after they form."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Seeds buried for 'several centuries' still sprouted, so lotus seeds can stay alive and able to grow for hundreds of years. This contradicts the claims that they must be planted within a year and that burial destroys their ability to sprout, and the text says nothing about planting in dry soil.",
+    "th": "เมล็ดที่ถูกฝังอยู่หลายร้อยปียังงอกได้ จึงสรุปว่าเมล็ดบัวมีชีวิตอยู่ได้หลายร้อยปี ซึ่งขัดกับข้อที่ว่าต้องปลูกภายในหนึ่งปีหรือการถูกฝังทำให้งอกไม่ได้ และข้อความไม่ได้กล่าวถึงการปลูกในดินแห้ง"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "central-ideas",
+   "difficulty": "m",
+   "passage": "A gecko can run up a glass window without using glue or suction. Each of its toes is covered with millions of tiny hairs, and each hair splits into hundreds of even tinier tips. These tips come so close to a surface that weak attractions between molecules hold them in place. No single tip holds much weight, but together they produce more than enough force to support the gecko's entire body.",
+   "stem": "Which choice best states the main idea of the text?",
+   "choices": [
+    "A single hair on a gecko's toe is strong enough to hold up the whole animal.",
+    "Geckos cling to surfaces through the combined effect of many tiny forces produced by the hairs on their toes.",
+    "Geckos are unable to climb surfaces that are as smooth as glass.",
+    "Geckos produce a sticky substance that allows them to climb smooth walls."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The text explains that weak forces at millions of tips add up to enough force to hold the gecko. It directly rules out glue, says that no single tip holds much weight, and begins by saying geckos can climb glass.",
+    "th": "ข้อความอธิบายว่าแรงดึงดูดเล็ก ๆ จากปลายขนจำนวนมหาศาลรวมกันจนพอจะยึดตัวตุ๊กแกไว้ได้ ข้อความบอกชัดว่าไม่ได้ใช้กาว บอกว่าปลายขนแต่ละเส้นรับน้ำหนักได้น้อย และเริ่มต้นด้วยการบอกว่าตุ๊กแกปีนกระจกได้"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "evidence-textual",
+   "difficulty": "m",
+   "passage": "Public libraries in Bangkok were once used mainly for borrowing books. A city researcher claims that, in recent years, these libraries have increasingly become places where people come to work and study rather than places to borrow books.",
+   "stem": "Which finding, if true, would most directly support the researcher's claim?",
+   "choices": [
+    "Over the past five years, both the number of visitors and the number of books borrowed have stayed about the same.",
+    "Over the past five years, the number of visitors using library desks and Wi-Fi has risen, while the number of books borrowed has fallen.",
+    "Most library visitors surveyed said that they enjoy reading novels in their free time.",
+    "Over the past five years, libraries have added thousands of new books to their collections."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The claim describes a shift: more people using libraries as workspaces and fewer borrowing books. Rising use of desks and Wi-Fi together with falling loans shows exactly that. Enjoying novels and adding books say nothing about how the libraries are used, and unchanged numbers would suggest no shift at all.",
+    "th": "ข้ออ้างพูดถึงการเปลี่ยนแปลง คือคนใช้ห้องสมุดเป็นที่ทำงานมากขึ้นและยืมหนังสือน้อยลง การที่ผู้ใช้โต๊ะและ Wi-Fi เพิ่มขึ้นแต่การยืมหนังสือลดลงจึงสนับสนุนโดยตรง การชอบอ่านนิยายและการเพิ่มหนังสือไม่ได้บอกวิธีใช้ห้องสมุด และตัวเลขที่ไม่เปลี่ยนแปลงแสดงว่าไม่มีการเปลี่ยนแปลงเลย"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "evidence-quantitative",
+   "difficulty": "m",
+   "passage": "A city opened two new rail lines in 2019. Urban planners surveyed residents in 2016 and again in 2024 about how they usually travel to work. The planners claim that the increase in rail commuting came mainly at the expense of car travel rather than bus travel.",
+   "table": {
+    "title": "Usual way of commuting to work (percent of respondents)",
+    "rows": [
+     [
+      "Mode",
+      "2016",
+      "2024"
+     ],
+     [
+      "Car",
+      "41",
+      "33"
+     ],
+     [
+      "Motorcycle",
+      "30",
+      "27"
+     ],
+     [
+      "Bus",
+      "18",
+      "17"
+     ],
+     [
+      "Rail",
+      "11",
+      "23"
+     ]
+    ]
+   },
+   "stem": "Which choice most effectively uses data from the table to support the planners' claim?",
+   "choices": [
+    "The share of respondents commuting by car fell by 8 percentage points, while the share commuting by bus fell by only 1 point.",
+    "Motorcycles were the second most common way of commuting in both 2016 and 2024.",
+    "The share of respondents commuting by bus rose between 2016 and 2024.",
+    "The share of respondents commuting by rail more than doubled, from 11 percent to 23 percent."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The claim compares losses in car travel and bus travel, so the evidence must show both: car fell from 41 to 33 percent (8 points) and bus from 18 to 17 percent (1 point). The rise in rail is true but does not say where the new riders came from, the motorcycle ranking is true but irrelevant, and bus use actually fell, so it did not rise.",
+    "th": "ข้ออ้างเปรียบเทียบการลดลงของรถยนต์กับรถเมล์ หลักฐานจึงต้องแสดงทั้งสองอย่าง คือรถยนต์ลดจาก 41 เป็น 33 (8 จุด) รถเมล์ลดจาก 18 เป็น 17 (1 จุด) การที่รถไฟเพิ่มขึ้นเป็นจริงแต่ไม่ได้บอกว่าผู้โดยสารมาจากไหน อันดับของรถจักรยานยนต์เป็นจริงแต่ไม่เกี่ยวข้อง และรถเมล์ลดลง ไม่ได้เพิ่มขึ้น"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "evidence-textual",
+   "difficulty": "h",
+   "passage": "In a recent novel, the narrator describes her younger sister, Mali, as someone who pursues her ambitions with great determination while keeping them hidden from the rest of the family.",
+   "stem": "Which quotation from the novel most effectively illustrates the narrator's description of Mali?",
+   "choices": [
+    "\"Each night, after the house had gone quiet, Mali unfolded the university application she kept beneath her mattress and added another careful line.\"",
+    "\"When our brother teased Mali for reading at the dinner table, she only laughed and turned the page.\"",
+    "\"Mali told our mother everything about the scholarship, from the deadline to the interview she was dreading.\"",
+    "\"Mali sometimes wondered aloud whether she wanted anything beyond the life she already knew.\""
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The description has two parts: Mali is determined and she hides her goals. Working on an application every night shows determination, and keeping it under her mattress until the house is quiet shows secrecy. Telling their mother everything is the opposite of hiding, wondering whether she wants anything more suggests a lack of ambition, and laughing at teasing shows neither part clearly.",
+    "th": "คำอธิบายมีสองส่วน คือมะลิมุ่งมั่นและปิดบังความทะเยอทะยาน การเขียนใบสมัครทุกคืนแสดงความมุ่งมั่น และการซ่อนไว้ใต้ฟูกตอนบ้านเงียบแสดงการปิดบัง การเล่าทุกอย่างให้แม่ฟังตรงข้ามกับการปิดบัง การสงสัยว่าต้องการอะไรมากกว่านี้หรือไม่แสดงว่าขาดความทะเยอทะยาน และการหัวเราะเมื่อถูกแซวไม่ได้แสดงทั้งสองส่วนชัดเจน"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "inferences",
+   "difficulty": "h",
+   "passage": "Astronomers observing a distant star noticed that its brightness dips by the same small amount every 12 days. Regular dips like these are often caused by a planet passing in front of a star. A dark spot on the star's surface, rotating in and out of view, can also cause regular dips, but such spots usually grow and shrink over a few weeks, which makes the dips vary in depth. Because the dips have stayed exactly the same depth throughout two years of observation, the astronomers concluded that ______",
+   "stem": "Which choice most logically completes the text?",
+   "choices": [
+    "the star has no dark spots anywhere on its surface.",
+    "a passing planet is a more likely cause of the dips than a rotating spot.",
+    "a planet could not produce dips that stay the same depth.",
+    "the star must rotate exactly once every 12 days."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Spots would make the dips change in depth; the dips have not changed, so a planet is the better explanation. The evidence does not show that the star has no spots at all, only that spots are unlikely to cause these dips. A 12-day rotation would matter only for the spot explanation, which the evidence weakens, and the text implies that a planet can produce dips of constant depth.",
+    "th": "จุดมืดบนดาวทำให้ความลึกของการหรี่แสงเปลี่ยนไป แต่ความลึกคงที่ตลอดสองปี จึงสรุปว่าดาวเคราะห์โคจรผ่านน่าจะเป็นสาเหตุมากกว่า หลักฐานไม่ได้แสดงว่าดาวไม่มีจุดมืดเลย การหมุนรอบตัวทุก 12 วันเกี่ยวกับคำอธิบายแบบจุดมืดซึ่งถูกหักล้าง และข้อความบอกเป็นนัยว่าดาวเคราะห์ทำให้หรี่แสงคงที่ได้"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "boundaries",
+   "difficulty": "e",
+   "passage": "Honeybees share information about food through ______ returning forager performs a \"waggle dance\" whose direction and length tell other bees where to find the flowers it has visited.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "movement. A",
+    "movement and a",
+    "movement a",
+    "movement, a"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "'Honeybees share information about food through movement' and 'A returning forager performs…' are complete sentences, so a period separates them correctly. A comma alone creates a comma splice, no punctuation creates a run-on, and joining two independent clauses with 'and' requires a comma before it.",
+    "th": "ทั้งสองส่วนเป็นประโยคสมบูรณ์ จึงต้องแยกด้วยจุด การใช้จุลภาคอย่างเดียวเป็น comma splice การไม่ใส่เครื่องหมายเป็นประโยคต่อกันผิดหลัก และการเชื่อมอนุประโยคอิสระสองประโยคด้วย and ต้องมีจุลภาคหน้า and"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "form-structure-sense",
+   "difficulty": "e",
+   "passage": "The gallery's new exhibition brings together twenty paintings by artists from Nonthaburi. Each of the paintings ______ a scene from daily life along the Chao Phraya River, such as a floating market or a family meal on a wooden pier.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "show",
+    "have shown",
+    "shows",
+    "are showing"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The subject is 'Each', which is singular, so the singular verb 'shows' is needed. 'Show', 'are showing' and 'have shown' are plural forms that would agree with 'paintings', but 'paintings' is part of the phrase 'of the paintings', not the subject.",
+    "th": "ประธานคือ Each ซึ่งเป็นเอกพจน์ จึงใช้ shows ส่วน show, are showing และ have shown เป็นรูปพหูพจน์ที่เข้ากับ paintings แต่ paintings อยู่ในวลี of the paintings ไม่ใช่ประธาน"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "boundaries",
+   "difficulty": "m",
+   "passage": "The Phi Ta Khon ______ held each year in the town of Dan Sai in Loei Province, features performers wearing tall, brightly painted masks made from parts of coconut palms and the woven baskets used for steaming sticky rice.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "festival—",
+    "festival",
+    "festival,",
+    "festival;"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The phrase 'held each year … Loei Province' is extra information about the festival and is closed with a comma after 'Province', so it must be opened with a comma: 'festival,'. Without the comma the pair is broken, a semicolon would cut the subject off from its verb 'features', and a dash cannot be paired with a comma.",
+    "th": "วลี held each year … Loei Province เป็นข้อมูลเสริมที่ปิดด้วยจุลภาคหลัง Province จึงต้องเปิดด้วยจุลภาค คือ festival, ถ้าไม่ใส่จะไม่ครบคู่ ; จะแยกประธานออกจากกริยา features และขีดยาว (—) ใช้คู่กับจุลภาคไม่ได้"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "boundaries",
+   "difficulty": "m",
+   "passage": "Visitors to the maritime museum in Chanthaburi can learn how wooden boats were built in the region a century ago. The museum's new exhibit focuses on three materials that traditional boat builders relied ______ teak, rattan, and natural resin.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "on",
+    "on, such as:",
+    "on;",
+    "on:"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The clause before the blank is complete, and what follows is a list that explains 'three materials', so a colon is correct. 'Such as' followed by a colon is incorrect, a semicolon must join two independent clauses (the list is not one), and with no punctuation the list runs straight into 'relied on'.",
+    "th": "ส่วนหน้าเป็นประโยคสมบูรณ์ และส่วนหลังเป็นรายการที่อธิบาย three materials จึงใช้ : การใช้ such as ตามด้วย : ผิดหลัก ; ต้องเชื่อมอนุประโยคอิสระสองประโยค (รายการไม่ใช่อนุประโยค) และถ้าไม่ใส่เครื่องหมาย รายการจะต่อกับ relied on โดยไม่มีการแบ่ง"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "form-structure-sense",
+   "difficulty": "m",
+   "passage": "When archaeologists first reached the limestone cave in 2015, they found blackened ceilings and layers of ash on the floor. Local villagers explained that by then, their families ______ the cave as a shelter during storms for centuries.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "had used",
+    "will have used",
+    "use",
+    "are using"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The using of the cave happened over a long period before another past moment ('by then', 2015), so the past perfect 'had used' is correct. 'Use' and 'are using' are present forms, and 'will have used' refers to the future, none of which fits a period ending in 2015.",
+    "th": "การใช้ถ้ำเกิดขึ้นต่อเนื่องก่อนจุดเวลาในอดีต (by then คือปี 2015) จึงใช้ past perfect คือ had used ส่วน use และ are using เป็นปัจจุบัน และ will have used เป็นอนาคต ไม่เข้ากับช่วงเวลาที่จบในปี 2015"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "boundaries",
+   "difficulty": "h",
+   "passage": "In her 2019 essay collection, Thai ______ describes growing up on a fruit farm in Chanthaburi, where her family harvested durian and mangosteen each year and sold them at markets as far away as Bangkok.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "writer, Ploy Anan",
+    "writer Ploy Anan,",
+    "writer, Ploy Anan,",
+    "writer Ploy Anan"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "'Thai writer' works like a title in front of the name, and the name is needed to identify which writer is meant, so no commas are used: 'Thai writer Ploy Anan describes'. A comma before the name, or commas around it, would treat the name as extra information, and a comma after the name would separate the subject from its verb 'describes'.",
+    "th": "'Thai writer' ทำหน้าที่คล้ายคำนำหน้าชื่อ และชื่อเป็นข้อมูลจำเป็นในการระบุตัวบุคคล จึงไม่ใส่จุลภาค การใส่จุลภาคหน้าชื่อหรือรอบชื่อทำให้ชื่อกลายเป็นข้อมูลเสริม และการใส่จุลภาคหลังชื่อจะแยกประธานออกจากกริยา describes"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "form-structure-sense",
+   "difficulty": "h",
+   "passage": "Divers exploring a seventeenth-century shipwreck off the coast of Rayong have brought many objects to the surface. Among the most valuable items recovered from the wreck ______ a set of blue-and-white porcelain bowls and a large bronze bell.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "was",
+    "has been",
+    "is",
+    "were"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The sentence is inverted: the subject comes after the verb. The subject is 'a set of … bowls and a large bronze bell', two things joined by 'and', so a plural verb is needed, and the past setting fits 'were'. 'Was', 'has been' and 'is' are all singular.",
+    "th": "ประโยคนี้เป็นประโยคกลับ ประธานอยู่หลังกริยา ประธานคือ a set of … bowls and a large bronze bell ซึ่งเป็นสองสิ่งเชื่อมด้วย and จึงเป็นพหูพจน์ ต้องใช้ were ส่วน was, has been และ is เป็นรูปเอกพจน์"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "eoi",
+   "skill": "transitions",
+   "difficulty": "e",
+   "passage": "Elephants are known for their excellent memories, which help them survive in harsh environments. ______ older female elephants can lead their herds to water holes that they have not visited for many years.",
+   "stem": "Which choice completes the text with the most logical transition?",
+   "choices": [
+    "For example,",
+    "However,",
+    "Instead,",
+    "In contrast,"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Leading the herd to water holes not visited for years is a specific case of elephants' excellent memory, so 'For example' fits. 'However' and 'In contrast' signal a contrast that is not present, and 'Instead' signals a replacement for something.",
+    "th": "การพาโขลงไปแหล่งน้ำที่ไม่ได้ไปมาหลายปีเป็นตัวอย่างของความจำดีเยี่ยม จึงใช้ For example ส่วน However และ In contrast แสดงความขัดแย้งซึ่งไม่มีในข้อความ และ Instead แสดงการแทนที่"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "eoi",
+   "skill": "transitions",
+   "difficulty": "m",
+   "passage": "To make traditional sa paper, workers first soak and boil strips of mulberry bark until they are soft. They then beat the bark into a pulp and spread it evenly across a screen floating in a tank of water. ______ they lift the screen out of the water and leave it in the sun until the sheet of paper is dry.",
+   "stem": "Which choice completes the text with the most logical transition?",
+   "choices": [
+    "In contrast,",
+    "Finally,",
+    "For instance,",
+    "Previously,"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The text describes steps in order ('first', 'then'), and drying the sheet is the last step, so 'Finally' fits. 'Previously' would place this step before the others, 'In contrast' signals an opposing idea, and 'For instance' introduces an example rather than the next step.",
+    "th": "ข้อความเรียงขั้นตอนตามลำดับ (first, then) และการตากแผ่นกระดาษเป็นขั้นตอนสุดท้าย จึงใช้ Finally ส่วน Previously ทำให้ขั้นตอนนี้อยู่ก่อนขั้นอื่น In contrast แสดงความขัดแย้ง และ For instance ใช้ยกตัวอย่าง"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "eoi",
+   "skill": "rhetorical-synthesis",
+   "difficulty": "m",
+   "passage": "While researching a topic, a student has taken the following notes:\n- The Irrawaddy dolphin lives in coastal waters and some rivers of South and Southeast Asia.\n- It has a rounded head and no distinct beak.\n- A small population lives in Songkhla Lake in southern Thailand.\n- That population is critically endangered.\n- Fishing nets, in which dolphins can become tangled, are a major threat to the population.",
+   "stem": "The student wants to explain why the Irrawaddy dolphins of Songkhla Lake are at risk. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "Irrawaddy dolphins, which have rounded heads and no distinct beaks, live in Songkhla Lake.",
+    "The Irrawaddy dolphin lives in coastal waters and some rivers of South and Southeast Asia.",
+    "The critically endangered Irrawaddy dolphins of Songkhla Lake face a major threat from fishing nets, in which they can become tangled.",
+    "A small population of Irrawaddy dolphins lives in Songkhla Lake in southern Thailand."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Only the sentence about fishing nets gives a reason for the risk, and it also notes that the population is critically endangered. The others describe the dolphin's appearance, its range or the location of the population without saying why the dolphins are in danger.",
+    "th": "มีเพียงประโยคที่กล่าวถึงอวนจับปลาที่ให้เหตุผลว่าทำไมโลมากลุ่มนี้อยู่ในอันตราย และยังระบุว่าใกล้สูญพันธุ์อย่างยิ่ง ประโยคอื่นบอกเพียงรูปร่าง ถิ่นที่อยู่ หรือตำแหน่งของประชากร โดยไม่บอกสาเหตุของความเสี่ยง"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "eoi",
+   "skill": "rhetorical-synthesis",
+   "difficulty": "m",
+   "passage": "While researching a topic, a student has taken the following notes:\n- The khim is a Thai hammered dulcimer.\n- It is played by striking its strings with two flexible bamboo sticks.\n- The instrument came to Thailand from China.\n- The jakhe is a Thai zither whose shape was once modelled on a crocodile.\n- The jakhe is played by plucking its strings with a pick tied to the player's finger.",
+   "stem": "The student wants to contrast the ways the two instruments are played. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "The jakhe is a Thai zither whose shape was once modelled on a crocodile.",
+    "The khim, a Thai hammered dulcimer, came to Thailand from China.",
+    "While the khim is played by striking its strings with two bamboo sticks, the jakhe is played by plucking its strings with a pick tied to the player's finger.",
+    "The khim and the jakhe are both Thai instruments with strings."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Only the sentence with 'While' describes how each instrument is played and sets the two methods against each other. The sentence about the khim's origin and the sentence about the jakhe's shape each mention only one instrument and not how it is played, and the sentence about both having strings states a similarity, not a contrast.",
+    "th": "มีเพียงประโยคที่ใช้ While ที่บอกวิธีเล่นของเครื่องดนตรีทั้งสองชนิดและเปรียบเทียบความต่าง ประโยคเรื่องที่มาของขิมและรูปร่างของจะเข้พูดถึงเครื่องดนตรีชนิดเดียวและไม่ได้บอกวิธีเล่น ส่วนประโยคที่บอกว่าทั้งสองมีสายเป็นความเหมือน ไม่ใช่ความต่าง"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "eoi",
+   "skill": "transitions",
+   "difficulty": "h",
+   "passage": "The golden apple snail, an invasive species, damages young rice plants in paddies across Thailand. Some farmers release ducks into their fields to control the snails, and the ducks do eat young snails readily. ______ adult snails are too large for most ducks to swallow, so this method reduces snail numbers only partly.",
+   "stem": "Which choice completes the text with the most logical transition?",
+   "choices": [
+    "Similarly,",
+    "However,",
+    "Consequently,",
+    "Indeed,"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The last sentence limits the success described before it: ducks eat young snails, but adults are too large. 'However' signals this contrast. 'Indeed' would strengthen the previous point, 'Consequently' would present the snails' size as a result of ducks eating young snails, and 'Similarly' signals a comparable point.",
+    "th": "ประโยคสุดท้ายบอกข้อจำกัดของวิธีที่กล่าวไว้ก่อนหน้า (เป็ดกินหอยตัวเล็ก แต่หอยตัวโตใหญ่เกินไป) จึงใช้ However ส่วน Indeed ใช้เสริมย้ำความเดิม Consequently ทำให้ขนาดหอยดูเป็นผลจากการที่เป็ดกินหอยตัวเล็ก และ Similarly ใช้กับสิ่งที่คล้ายกัน"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "eoi",
+   "skill": "rhetorical-synthesis",
+   "difficulty": "h",
+   "passage": "While researching a topic, a student has taken the following notes:\n- A research team wanted to know whether trees planted around schools lower classroom temperatures.\n- They compared classrooms at 20 Bangkok schools with many trees to classrooms at 20 Bangkok schools with few trees.\n- Classrooms at schools with many trees were on average 2 °C cooler in April.\n- April is usually the hottest month in Bangkok.\n- The researchers recommended planting shade trees near west-facing classroom walls.",
+   "stem": "The student wants to present the study's aim and method. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "Researchers studying classroom temperatures recommended planting shade trees near west-facing classroom walls.",
+    "April is usually the hottest month in Bangkok, so classrooms there can become uncomfortably warm.",
+    "Classrooms at Bangkok schools with many trees were on average 2 °C cooler in April, usually the city's hottest month.",
+    "To find out whether trees lower classroom temperatures, researchers compared classrooms at 20 Bangkok schools with many trees to those at 20 schools with few trees."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The goal has two parts: the aim (to find out whether trees lower temperatures) and the method (comparing classrooms at schools with many and few trees). Only the sentence beginning 'To find out' gives both. The sentence about 2 °C gives a result, the sentence about shade trees gives a recommendation, and the sentence about April gives background without the study's aim or method.",
+    "th": "เป้าหมายมีสองส่วน คือจุดประสงค์ (ต้องการรู้ว่าต้นไม้ช่วยลดอุณหภูมิหรือไม่) และวิธีการ (เปรียบเทียบห้องเรียนในโรงเรียนที่มีต้นไม้มากและน้อย) มีเพียงประโยคที่ขึ้นต้นด้วย To find out ที่ให้ครบทั้งสองส่วน ประโยคเรื่อง 2 °C เป็นผลการวิจัย ประโยคเรื่องปลูกต้นไม้เป็นข้อเสนอแนะ และประโยคเรื่องเดือนเมษายนเป็นข้อมูลพื้นหลัง"
+   }
+  }
+ ]
+}

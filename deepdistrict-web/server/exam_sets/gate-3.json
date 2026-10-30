@@ -1,0 +1,891 @@
+{
+ "exam": "gate",
+ "set": 3,
+ "title": {
+  "en": "Suankularb M.1 GATE Program — Practice set 3",
+  "th": "สวนกุหลาบ ม.1 GATE Program — ชุดฝึก 3"
+ },
+ "minutes": 90,
+ "note": {
+  "en": "40 questions: Mathematics 15, Science 15, English 5, Thai 5. DeepDistrict practice format based on the school's published subjects — not an official or past paper.",
+  "th": "40 ข้อ: คณิตศาสตร์ 15 วิทยาศาสตร์ 15 ภาษาอังกฤษ 5 ภาษาไทย 5 — แบบฝึกของ DeepDistrict ตามวิชาที่โรงเรียนประกาศ ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "48 ÷ 4 × 3 − 2² × 5 มีค่าเท่าใด",
+   "choices": [
+    "4",
+    "160",
+    "16",
+    "26"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Powers first: 2² = 4. Then × and ÷ from left to right: 48 ÷ 4 × 3 = 36 and 4 × 5 = 20. Finally 36 − 20 = 16. (Doing 4 × 3 first gives 48 ÷ 12 and leads to a wrong answer.)",
+    "th": "คิดเลขยกกำลังก่อน 2² = 4 แล้วคูณหารจากซ้ายไปขวา 48 ÷ 4 × 3 = 36 และ 4 × 5 = 20 สุดท้าย 36 − 20 = 16 (ถ้าคูณ 4 × 3 ก่อนจะได้ 48 ÷ 12 ซึ่งผิดลำดับ)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "ห้องเรียนหนึ่งมีนักเรียน 40 คน เป็นนักเรียนชาย 45% มีนักเรียนหญิงกี่คน",
+   "choices": [
+    "18",
+    "22",
+    "25",
+    "20"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Boys = 45% of 40 = 18, so girls = 40 − 18 = 22 (that is 55% of 40).",
+    "th": "นักเรียนชาย = 45% ของ 40 = 18 คน นักเรียนหญิง = 40 − 18 = 22 คน (คิดเป็น 55%)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "2⁵⁰ หารด้วย 7 เหลือเศษเท่าใด",
+   "choices": [
+    "6",
+    "1",
+    "2",
+    "4"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Powers of 2 divided by 7 leave remainders 2, 4, 1, 2, 4, 1, … repeating every 3. 50 = 3 × 16 + 2, so 2⁵⁰ leaves the same remainder as 2², which is 4.",
+    "th": "เศษจากการหาร 2¹, 2², 2³, … ด้วย 7 คือ 2, 4, 1, 2, 4, 1, … ซ้ำทุก 3 ตัว 50 = 3 × 16 + 2 จึงเหลือเศษเท่ากับ 2² คือ 4"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "ต้องการปูพื้นห้องขนาด 84 ซม. × 120 ซม. ด้วยแผ่นกระเบื้องรูปสี่เหลี่ยมจัตุรัสขนาดเท่ากันที่ใหญ่ที่สุดโดยไม่ต้องตัดกระเบื้อง ต้องใช้กระเบื้องกี่แผ่น",
+   "choices": [
+    "70",
+    "140",
+    "35",
+    "12"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The largest tile side is HCF(84, 120) = 12 cm. Tiles needed = (84 ÷ 12) × (120 ÷ 12) = 7 × 10 = 70. (12 is the tile size, not the number of tiles.)",
+    "th": "ด้านของกระเบื้องที่ใหญ่ที่สุด = ห.ร.ม.(84, 120) = 12 ซม. จำนวนแผ่น = (84 ÷ 12) × (120 ÷ 12) = 7 × 10 = 70 แผ่น (12 คือขนาดกระเบื้อง ไม่ใช่จำนวนแผ่น)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "เดิมเงินของต้นกับต่ายมีอัตราส่วน 5 : 3 ต่อมาต้นให้เงินต่าย 60 บาท ทำให้ทั้งสองมีเงินเท่ากัน ทั้งสองคนมีเงินรวมกันกี่บาท",
+   "choices": [
+    "600",
+    "240",
+    "360",
+    "480"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Let them have 5k and 3k baht. After the gift, 5k − 60 = 3k + 60, so 2k = 120 and k = 60. Total = 8k = 480 baht (the total does not change).",
+    "th": "ให้ต้นมี 5k บาท ต่ายมี 3k บาท หลังให้เงิน 5k − 60 = 3k + 60 ได้ 2k = 120, k = 60 เงินรวม = 8k = 480 บาท (เงินรวมไม่เปลี่ยน)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "ชายสองคนอยู่ห่างกัน 36 กิโลเมตร เดินเข้าหากันด้วยอัตราเร็ว 5 และ 7 กิโลเมตรต่อชั่วโมง สุนัขตัวหนึ่งวิ่งกลับไปกลับมาระหว่างชายทั้งสองด้วยอัตราเร็ว 15 กิโลเมตรต่อชั่วโมง ตั้งแต่เริ่มเดินจนทั้งสองพบกัน สุนัขวิ่งได้ระยะทางทั้งหมดกี่กิโลเมตร",
+   "choices": [
+    "45",
+    "30",
+    "36",
+    "54"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The men close the gap at 5 + 7 = 12 km/h, so they meet after 36 ÷ 12 = 3 hours. The dog runs for those same 3 hours: 15 × 3 = 45 km. No need to follow each back-and-forth trip.",
+    "th": "ทั้งสองเดินเข้าหากันด้วยอัตราเร็วรวม 5 + 7 = 12 กม./ชม. จึงพบกันหลัง 36 ÷ 12 = 3 ชั่วโมง สุนัขวิ่งตลอด 3 ชั่วโมงนั้น ระยะทาง = 15 × 3 = 45 กม. ไม่ต้องคิดทีละเที่ยว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "3 + 7 + 11 + 15 + … + 199 มีค่าเท่าใด",
+   "choices": [
+    "5150",
+    "5050",
+    "4950",
+    "5000"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The terms go up by 4, so there are (199 − 3) ÷ 4 + 1 = 50 terms. Sum = number of terms × (first + last) ÷ 2 = 50 × 202 ÷ 2 = 5,050.",
+    "th": "พจน์เพิ่มทีละ 4 มีจำนวนพจน์ (199 − 3) ÷ 4 + 1 = 50 พจน์ ผลบวก = จำนวนพจน์ × (พจน์แรก + พจน์สุดท้าย) ÷ 2 = 50 × 202 ÷ 2 = 5,050"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "รูปสามเหลี่ยม ABC มี AB = AC และมุม A = 40° ลากเส้นแบ่งครึ่งมุม B ไปพบด้าน AC ที่จุด D มุม BDC มีขนาดกี่องศา",
+   "choices": [
+    "70",
+    "75",
+    "35",
+    "105"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Base angles: B = C = (180° − 40°) ÷ 2 = 70°, so angle ABD = 35°. In triangle ABD, angle ADB = 180° − 40° − 35° = 105°. Angle BDC is on a straight line with it: 180° − 105° = 75°.",
+    "th": "มุมที่ฐาน B = C = (180° − 40°) ÷ 2 = 70° มุม ABD = 35° ในสามเหลี่ยม ABD มุม ADB = 180° − 40° − 35° = 105° มุม BDC อยู่บนเส้นตรงเดียวกัน = 180° − 105° = 75°"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ถุงใบหนึ่งมีลูกแก้วสีแดง 3 ลูก และสีน้ำเงิน 5 ลูก หยิบลูกแก้ว 2 ลูกพร้อมกัน (ไม่ใส่คืน) ความน่าจะเป็นที่ได้ลูกแก้วสีเดียวกันเท่ากับเท่าใด",
+   "choices": [
+    "1/2",
+    "17/32",
+    "13/28",
+    "15/28"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Both red: 3/8 × 2/7 = 6/56. Both blue: 5/8 × 4/7 = 20/56. Same colour = 26/56 = 13/28. (17/32 is what you get if the first marble is put back; 15/28 is the chance of different colours.)",
+    "th": "แดงทั้งคู่: 3/8 × 2/7 = 6/56 น้ำเงินทั้งคู่: 5/8 × 4/7 = 20/56 รวมสีเดียวกัน = 26/56 = 13/28 (17/32 เกิดจากคิดแบบใส่คืน ส่วน 15/28 คือความน่าจะเป็นที่ได้คนละสี)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "รูปสี่เหลี่ยมจัตุรัสแนบในวงกลมรัศมี 14 ซม. (มุมทั้งสี่ของจัตุรัสอยู่บนเส้นรอบวง) พื้นที่ส่วนของวงกลมที่อยู่นอกรูปสี่เหลี่ยมจัตุรัสเป็นกี่ตารางเซนติเมตร (ใช้ π ≈ 22/7)",
+   "choices": [
+    "168",
+    "224",
+    "420",
+    "196"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Circle area = 22/7 × 14 × 14 = 616 cm². The square's diagonal is the diameter, 28 cm, so its area = 28 × 28 ÷ 2 = 392 cm². Outside the square = 616 − 392 = 224 cm². (Taking the side as 28 cm would be wrong.)",
+    "th": "พื้นที่วงกลม = 22/7 × 14 × 14 = 616 ตร.ซม. เส้นทแยงมุมของจัตุรัสเท่ากับเส้นผ่านศูนย์กลาง 28 ซม. พื้นที่จัตุรัส = 28 × 28 ÷ 2 = 392 ตร.ซม. ส่วนที่อยู่นอกจัตุรัส = 616 − 392 = 224 ตร.ซม."
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ลูกบาศก์ไม้ยาวด้านละ 6 ซม. ทาสีแดงทุกด้าน แล้วตัดเป็นลูกบาศก์เล็กยาวด้านละ 1 ซม. ทั้งหมด จะมีลูกบาศก์เล็กที่ถูกทาสีแดงเพียง 2 ด้านกี่ลูก",
+   "choices": [
+    "48",
+    "96",
+    "8",
+    "64"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Cubes with exactly two red faces lie along the 12 edges but not at the corners: each edge has 6 − 2 = 4 such cubes, so 12 × 4 = 48. (96 have one red face, 64 have none, 8 corners have three.)",
+    "th": "ลูกบาศก์เล็กที่มีสีสองด้านอยู่ตามขอบ 12 เส้น ยกเว้นที่มุม ขอบละ 6 − 2 = 4 ลูก รวม 12 × 4 = 48 ลูก (สีด้านเดียวมี 96 ลูก ไม่มีสีเลย 64 ลูก และที่มุมมีสีสามด้าน 8 ลูก)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "จำนวนนับ n ที่น้อยที่สุดซึ่งทำให้ 1260 × n เป็นกำลังสองสมบูรณ์ คือจำนวนใด",
+   "choices": [
+    "35",
+    "70",
+    "7",
+    "5"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "1260 = 2² × 3² × 5 × 7. For a perfect square every prime needs an even power, so we must multiply by 5 × 7 = 35. Then 1260 × 35 = 44,100 = 210².",
+    "th": "1260 = 2² × 3² × 5 × 7 กำลังสองสมบูรณ์ต้องมีเลขชี้กำลังของจำนวนเฉพาะทุกตัวเป็นจำนวนคู่ จึงต้องคูณด้วย 5 × 7 = 35 ได้ 1260 × 35 = 44,100 = 210²"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "คนงาน 6 คนก่อกำแพงเสร็จใน 10 วัน (ทุกคนทำงานเร็วเท่ากัน) ทำไปได้ 4 วัน มีคนงานเพิ่มมาอีก 3 คน งานนี้จะเสร็จภายในกี่วันนับจากวันเริ่มงาน",
+   "choices": [
+    "8",
+    "7",
+    "6 2/3",
+    "9"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The job is 6 × 10 = 60 worker-days. After 4 days, 6 × 4 = 24 are done, leaving 36. Nine workers finish 36 in 36 ÷ 9 = 4 days. Total = 4 + 4 = 8 days.",
+    "th": "งานทั้งหมด = 6 × 10 = 60 คน-วัน ทำไป 4 วันได้ 6 × 4 = 24 คน-วัน เหลือ 36 คน-วัน คนงาน 9 คนใช้ 36 ÷ 9 = 4 วัน รวมทั้งหมด 4 + 4 = 8 วัน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ถนนในเมืองหนึ่งตัดกันเป็นตาราง จากสี่แยก A ต้องการเดินไปสี่แยก B ซึ่งอยู่ไปทางตะวันออก 4 ช่วงตึก และทางเหนือ 3 ช่วงตึก โดยเดินไปทางตะวันออกหรือทางเหนือเท่านั้น ถ้าสี่แยก P ซึ่งอยู่ทางตะวันออกของ A 2 ช่วงตึกและทางเหนือ 1 ช่วงตึกปิดซ่อม จะมีเส้นทางเดินทั้งหมดกี่เส้นทาง",
+   "choices": [
+    "18",
+    "12",
+    "35",
+    "17"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Without the closure: choose which 3 of the 7 moves go north, C(7,3) = 35. Routes through P: A to P is C(3,1) = 3 and P to B is C(4,2) = 6, so 18. Routes avoiding P = 35 − 18 = 17.",
+    "th": "ถ้าไม่มีการปิด: เลือกว่าใน 7 ก้าวจะเดินขึ้นเหนือ 3 ก้าว ได้ 35 เส้นทาง เส้นทางที่ผ่าน P: A ไป P มี 3 แบบ P ไป B มี 6 แบบ รวม 18 เส้นทาง จึงเหลือเส้นทางที่ไม่ผ่าน P = 35 − 18 = 17 เส้นทาง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "จำนวนสามหลักที่หารด้วย 7 เหลือเศษ 3 และหารด้วย 11 เหลือเศษ 5 มีทั้งหมดกี่จำนวน",
+   "choices": [
+    "11",
+    "13",
+    "9",
+    "12"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The smallest such three-digit number is 115 (115 = 7×16 + 3 = 11×10 + 5). The next ones come every LCM(7, 11) = 77: 115, 192, …, 115 + 77 × 11 = 962. 115 + 77 × 12 = 1,039 is too big, so there are 12.",
+    "th": "จำนวนสามหลักที่น้อยที่สุดคือ 115 (115 = 7×16 + 3 = 11×10 + 5) จำนวนถัดไปห่างกันทุก ค.ร.น.(7, 11) = 77 คือ 115, 192, …, 115 + 77 × 11 = 962 ส่วน 115 + 77 × 12 = 1,039 เกินสามหลัก จึงมีทั้งหมด 12 จำนวน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "ส่วนใดของเซลล์ทำหน้าที่ควบคุมการทำงานของเซลล์และเก็บสารพันธุกรรม",
+   "choices": [
+    "แวคิวโอล",
+    "นิวเคลียส",
+    "เยื่อหุ้มเซลล์",
+    "ไซโทพลาซึม"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The nucleus contains the genetic material (DNA) and controls the cell's activities. The cell membrane controls what enters and leaves; the cytoplasm and vacuole do not control the cell.",
+    "th": "นิวเคลียสเก็บสารพันธุกรรม (DNA) และควบคุมการทำงานของเซลล์ เยื่อหุ้มเซลล์ควบคุมการเข้าออกของสาร ส่วนไซโทพลาซึมและแวคิวโอลไม่ได้ทำหน้าที่ควบคุมเซลล์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "เครื่องมือใดใช้วัดความชื้นในอากาศ",
+   "choices": [
+    "ไฮโกรมิเตอร์",
+    "แอนนิโมมิเตอร์",
+    "บารอมิเตอร์",
+    "เทอร์โมมิเตอร์"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A hygrometer measures humidity. A barometer measures air pressure, an anemometer measures wind speed and a thermometer measures temperature.",
+    "th": "ไฮโกรมิเตอร์ใช้วัดความชื้นในอากาศ บารอมิเตอร์วัดความกดอากาศ แอนนิโมมิเตอร์วัดอัตราเร็วลม และเทอร์โมมิเตอร์วัดอุณหภูมิ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "นำก้านขึ้นฉ่ายแช่ในน้ำผสมสีผสมอาหารสีแดงทิ้งไว้ 1 วัน เมื่อตัดก้านตามขวางพบจุดสีแดงเป็นวง ๆ จุดสีแดงนั้นคือเนื้อเยื่อใด และทำหน้าที่อะไร",
+   "choices": [
+    "ปากใบ คายน้ำออกจากต้น",
+    "โฟลเอ็ม ลำเลียงอาหารจากใบไปส่วนต่าง ๆ",
+    "โฟลเอ็ม ลำเลียงน้ำและแร่ธาตุจากรากขึ้นสู่ใบ",
+    "ไซเล็ม ลำเลียงน้ำและแร่ธาตุจากรากขึ้นสู่ลำต้นและใบ"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The red dye travels with the water, and water moves up through the xylem. Phloem carries food made in the leaves; stomata are on the leaves, not in the stem's cross-section.",
+    "th": "สีแดงเคลื่อนที่ไปพร้อมกับน้ำ และน้ำลำเลียงขึ้นทางไซเล็ม จุดสีแดงจึงเป็นไซเล็ม ส่วนโฟลเอ็มลำเลียงอาหารที่สร้างจากใบ และปากใบอยู่ที่ใบ ไม่ใช่ในลำต้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "เมื่อเคี้ยวข้าวสวยในปากนาน ๆ จะรู้สึกว่ามีรสหวานขึ้น เพราะเหตุใด",
+   "choices": [
+    "น้ำลายมีน้ำตาลผสมอยู่",
+    "เอนไซม์ในน้ำลายย่อยโปรตีนในข้าวให้เป็นน้ำตาล",
+    "ฟันบดข้าวจนกลายเป็นน้ำตาลโดยไม่ต้องใช้เอนไซม์",
+    "เอนไซม์ในน้ำลายย่อยแป้งให้เป็นน้ำตาล"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Saliva contains the enzyme amylase, which breaks starch in rice into sugar (maltose), so it tastes sweet. Chewing only breaks food into smaller pieces; the change to sugar is chemical digestion.",
+    "th": "น้ำลายมีเอนไซม์อะไมเลส ซึ่งย่อยแป้งในข้าวให้เป็นน้ำตาล (มอลโทส) จึงรู้สึกหวาน การบดเคี้ยวเป็นเพียงการทำให้อาหารชิ้นเล็กลง ส่วนการเปลี่ยนแป้งเป็นน้ำตาลเป็นการย่อยทางเคมีด้วยเอนไซม์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "วิธีที่เหมาะสมที่สุดในการแยกเอทานอลออกจากสารละลายเอทานอลในน้ำคือข้อใด",
+   "choices": [
+    "การกลั่น โดยอาศัยจุดเดือดที่ต่างกัน",
+    "การกรอง โดยอาศัยขนาดอนุภาคที่ต่างกัน",
+    "การใช้กรวยแยก โดยอาศัยการไม่ละลายกัน",
+    "การตกตะกอน โดยอาศัยความหนาแน่นที่ต่างกัน"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Ethanol and water mix completely, so filtering, a separating funnel or settling cannot separate them. Ethanol boils at about 78 °C and water at 100 °C, so distillation separates them.",
+    "th": "เอทานอลกับน้ำละลายเข้ากันได้หมด จึงแยกด้วยการกรอง กรวยแยก หรือการตกตะกอนไม่ได้ แต่เอทานอลเดือดที่ประมาณ 78 °C ส่วนน้ำเดือดที่ 100 °C จึงแยกได้ด้วยการกลั่น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "ตะโกนหน้าหน้าผาแล้วได้ยินเสียงสะท้อนกลับมาหลังจากตะโกน 4 วินาที ถ้าอัตราเร็วเสียงในอากาศเท่ากับ 340 เมตรต่อวินาที หน้าผาอยู่ห่างออกไปกี่เมตร",
+   "choices": [
+    "1360",
+    "340",
+    "680",
+    "85"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "In 4 s the sound goes to the cliff and back: 340 × 4 = 1,360 m in total. The cliff is half of that, 680 m away.",
+    "th": "ใน 4 วินาที เสียงเดินทางไปถึงหน้าผาแล้วสะท้อนกลับ รวม 340 × 4 = 1,360 เมตร หน้าผาจึงอยู่ห่างครึ่งหนึ่ง คือ 680 เมตร"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "จันทรุปราคาเกิดขึ้นเมื่อใด",
+   "choices": [
+    "ดวงจันทร์อยู่ระหว่างดวงอาทิตย์กับโลก ซึ่งตรงกับวันแรม 15 ค่ำ",
+    "โลกอยู่ระหว่างดวงอาทิตย์กับดวงจันทร์ในแนวเส้นตรง ซึ่งตรงกับคืนดวงจันทร์เต็มดวง",
+    "ดวงจันทร์อยู่ระหว่างดวงอาทิตย์กับโลก ซึ่งตรงกับวันดวงจันทร์เต็มดวง",
+    "โลกอยู่ระหว่างดวงอาทิตย์กับดวงจันทร์ ซึ่งตรงกับวันขึ้น 8 ค่ำ"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "A lunar eclipse happens when Earth lies between the Sun and Moon in a line, so Earth's shadow falls on the Moon. That arrangement only occurs at full moon. The Moon between the Sun and Earth (new moon) gives a solar eclipse.",
+    "th": "จันทรุปราคาเกิดเมื่อโลกอยู่ระหว่างดวงอาทิตย์กับดวงจันทร์ในแนวเส้นตรง เงาของโลกจึงทอดไปบังดวงจันทร์ ตำแหน่งนี้ตรงกับคืนดวงจันทร์เต็มดวงเท่านั้น ถ้าดวงจันทร์อยู่ระหว่างดวงอาทิตย์กับโลก (ข้างแรม 15 ค่ำ) จะเกิดสุริยุปราคา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "โซ่อาหาร พืช → หนอน → นก → เหยี่ยว ถ้าพืชได้รับพลังงาน 10,000 กิโลจูล และพลังงานถ่ายทอดไปยังลำดับถัดไปได้ประมาณ 10% เหยี่ยวจะได้รับพลังงานประมาณกี่กิโลจูล",
+   "choices": [
+    "1000",
+    "10",
+    "100",
+    "1"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "About 10% passes on at each step: plants 10,000 → caterpillars 1,000 → birds 100 → hawks 10 kJ.",
+    "th": "พลังงานถ่ายทอดได้ประมาณ 10% ต่อลำดับ: พืช 10,000 → หนอน 1,000 → นก 100 → เหยี่ยว 10 กิโลจูล"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ต่อตัวต้านทาน 4 โอห์ม และ 6 โอห์ม แบบอนุกรมกับแบตเตอรี่ 12 โวลต์ ความต่างศักย์คร่อมตัวต้านทาน 6 โอห์มเท่ากับกี่โวลต์",
+   "choices": [
+    "4.8",
+    "6",
+    "7.2",
+    "12"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Series resistance = 4 + 6 = 10 Ω, so the current is 12 ÷ 10 = 1.2 A everywhere. Voltage across 6 Ω = 1.2 × 6 = 7.2 V (and 4.8 V across 4 Ω; together 12 V).",
+    "th": "ความต้านทานรวมแบบอนุกรม = 4 + 6 = 10 โอห์ม กระแส = 12 ÷ 10 = 1.2 แอมแปร์ เท่ากันทุกจุด ความต่างศักย์คร่อม 6 โอห์ม = 1.2 × 6 = 7.2 โวลต์ (คร่อม 4 โอห์ม = 4.8 โวลต์ รวมกันได้ 12 โวลต์)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": {
+    "title": "ขนาดลูกโป่งหลัง 30 นาที",
+    "rows": [
+     [
+      "ขวด",
+      "น้ำตาล (g)",
+      "อุณหภูมิน้ำ (°C)",
+      "เส้นรอบวงลูกโป่ง (ซม.)"
+     ],
+     [
+      "A",
+      "5",
+      "35",
+      "20"
+     ],
+     [
+      "B",
+      "10",
+      "35",
+      "28"
+     ],
+     [
+      "C",
+      "10",
+      "10",
+      "8"
+     ],
+     [
+      "D",
+      "0",
+      "35",
+      "2"
+     ]
+    ]
+   },
+   "stem": "นักเรียนใส่ยีสต์ปริมาณเท่ากันลงในขวด 4 ใบ เติมน้ำตาลและน้ำอุณหภูมิต่างกัน แล้วครอบปากขวดด้วยลูกโป่ง ผลเป็นดังตาราง ถ้าต้องการทดสอบว่าอุณหภูมิมีผลต่อการผลิตแก๊สของยีสต์หรือไม่ ควรเปรียบเทียบขวดคู่ใด",
+   "choices": [
+    "ขวด A กับขวด C",
+    "ขวด A กับขวด D",
+    "ขวด B กับขวด C",
+    "ขวด A กับขวด B"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "A fair test changes only the variable being tested. Bottles B and C have the same sugar (10 g) but different temperatures (35 °C and 10 °C). A vs B changes sugar; A vs C changes both sugar and temperature; A vs D changes sugar.",
+    "th": "การทดลองที่ยุติธรรมต้องเปลี่ยนเฉพาะตัวแปรที่ต้องการทดสอบ ขวด B และ C ใช้น้ำตาลเท่ากัน (10 กรัม) แต่อุณหภูมิต่างกัน (35 °C และ 10 °C) ส่วนขวด A กับ B ต่างกันที่น้ำตาล ขวด A กับ C ต่างกันทั้งน้ำตาลและอุณหภูมิ และขวด A กับ D ต่างกันที่น้ำตาล"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": {
+    "title": "ความหนาแน่นของของเหลว",
+    "rows": [
+     [
+      "ของเหลว",
+      "ความหนาแน่น (g/cm³)"
+     ],
+     [
+      "น้ำมันพืช",
+      "0.92"
+     ],
+     [
+      "น้ำ",
+      "1.00"
+     ],
+     [
+      "น้ำเชื่อมเข้มข้น",
+      "1.40"
+     ],
+     [
+      "สารละลาย X",
+      "1.80"
+     ]
+    ]
+   },
+   "stem": "ก้อนวัสดุรูปสี่เหลี่ยมมุมฉากขนาด 4 × 5 × 10 ซม. มีมวล 300 กรัม เมื่อนำไปใส่ในของเหลวแต่ละชนิดในตาราง ก้อนวัสดุนี้จะลอยในของเหลวใด",
+   "choices": [
+    "สารละลาย X",
+    "น้ำเชื่อมเข้มข้น",
+    "น้ำมันพืช",
+    "น้ำ"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Volume = 4 × 5 × 10 = 200 cm³, so density = 300 ÷ 200 = 1.5 g/cm³. It floats only in a liquid denser than 1.5 g/cm³: liquid X (1.80). It sinks in oil, water and syrup (1.40).",
+    "th": "ปริมาตร = 4 × 5 × 10 = 200 ลบ.ซม. ความหนาแน่น = 300 ÷ 200 = 1.5 g/cm³ จะลอยได้เฉพาะในของเหลวที่หนาแน่นกว่า 1.5 คือสารละลาย X (1.80) ส่วนน้ำมันพืช น้ำ และน้ำเชื่อมเข้มข้น (1.40) หนาแน่นน้อยกว่า วัสดุจึงจม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ผลักกล่องบนพื้นด้วยแรง 50 นิวตันไปทางขวา กล่องเคลื่อนที่ด้วยความเร็วคงตัว ต่อมาเพิ่มแรงผลักเป็น 80 นิวตัน (แรงเสียดทานคงเดิม) แรงลัพธ์ที่กระทำต่อกล่องเป็นเท่าใด",
+   "choices": [
+    "30 นิวตัน ไปทางขวา",
+    "0 นิวตัน เพราะกล่องยังเคลื่อนที่",
+    "130 นิวตัน ไปทางขวา",
+    "80 นิวตัน ไปทางขวา"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "At constant velocity the net force is zero, so friction must be 50 N to the left. With an 80 N push: net force = 80 − 50 = 30 N to the right, and the box speeds up.",
+    "th": "เมื่อกล่องเคลื่อนที่ด้วยความเร็วคงตัว แรงลัพธ์เป็นศูนย์ แรงเสียดทานจึงเท่ากับ 50 นิวตันไปทางซ้าย เมื่อผลักด้วยแรง 80 นิวตัน แรงลัพธ์ = 80 − 50 = 30 นิวตันไปทางขวา กล่องจะเคลื่อนที่เร็วขึ้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "เดือนกรกฎาคมเป็นฤดูร้อนของซีกโลกเหนือ แต่เป็นฤดูหนาวของประเทศออสเตรเลียซึ่งอยู่ซีกโลกใต้ สาเหตุหลักคือข้อใด",
+   "choices": [
+    "โลกโคจรไปอยู่ไกลดวงอาทิตย์ที่สุดในเดือนกรกฎาคม",
+    "ซีกโลกใต้มีพื้นที่มหาสมุทรมากจึงเย็นกว่าตลอดปี",
+    "ดวงอาทิตย์ส่องแสงอ่อนลงในช่วงกลางปี",
+    "แกนโลกเอียง ทำให้ซีกโลกใต้เอียงออกจากดวงอาทิตย์ แสงตกกระทบเฉียงกว่าและกลางวันสั้นกว่า"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Seasons are caused by the tilt of Earth's axis. In July the southern hemisphere is tilted away from the Sun, so sunlight is more slanted and days are shorter. Distance from the Sun cannot be the cause, because the two hemispheres have opposite seasons at the same distance.",
+    "th": "ฤดูกาลเกิดจากแกนโลกเอียง ในเดือนกรกฎาคมซีกโลกใต้เอียงออกจากดวงอาทิตย์ แสงจึงตกกระทบเฉียงและกลางวันสั้น ระยะห่างจากดวงอาทิตย์ไม่ใช่สาเหตุ เพราะในวันเดียวกันซีกโลกทั้งสองอยู่ห่างดวงอาทิตย์เท่ากันแต่เป็นคนละฤดู"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": {
+    "title": "การเปลี่ยนแปลงมวลของชิ้นมันฝรั่ง",
+    "rows": [
+     [
+      "ความเข้มข้นน้ำเกลือ (%)",
+      "0",
+      "2",
+      "4",
+      "6"
+     ],
+     [
+      "มวลที่เปลี่ยนไป (%)",
+      "+8",
+      "+1",
+      "−5",
+      "−10"
+     ]
+    ]
+   },
+   "stem": "แช่ชิ้นมันฝรั่งขนาดเท่ากันในสารละลายน้ำเกลือความเข้มข้นต่าง ๆ นาน 1 ชั่วโมง แล้วชั่งมวลที่เปลี่ยนไป ได้ผลดังตาราง ความเข้มข้นของสารละลายภายในเซลล์มันฝรั่งน่าจะอยู่ในช่วงใด",
+   "choices": [
+    "ระหว่าง 0% ถึง 1%",
+    "ระหว่าง 3% ถึง 4%",
+    "ระหว่าง 2% ถึง 3%",
+    "ระหว่าง 5% ถึง 6%"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Where the solution matches the cell sap, water moves in and out equally and the mass does not change. The change goes from +1% at 2% to −5% at 4%, so zero change is at about 2 + 2 × 1/6 ≈ 2.3% — between 2% and 3%.",
+    "th": "ที่ความเข้มข้นเท่ากับภายในเซลล์ น้ำเข้าออกเท่ากันโดยออสโมซิส มวลจึงไม่เปลี่ยน จากตาราง มวลเปลี่ยนจาก +1% ที่ 2% เป็น −5% ที่ 4% จุดที่มวลไม่เปลี่ยนอยู่ประมาณ 2 + 2 × 1/6 ≈ 2.3% จึงอยู่ระหว่าง 2% ถึง 3%"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ลำดับการเปลี่ยนรูปพลังงานในเขื่อนผลิตไฟฟ้าพลังน้ำข้อใดถูกต้อง",
+   "choices": [
+    "พลังงานศักย์ของน้ำ → พลังงานไฟฟ้า → พลังงานจลน์ของกังหัน",
+    "พลังงานจลน์ของน้ำ → พลังงานศักย์ของน้ำ → พลังงานจลน์ของกังหัน → พลังงานไฟฟ้า",
+    "พลังงานศักย์ของน้ำ → พลังงานจลน์ของน้ำ → พลังงานจลน์ของกังหัน → พลังงานไฟฟ้า",
+    "พลังงานความร้อน → พลังงานจลน์ของกังหัน → พลังงานไฟฟ้า"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Water stored high behind the dam has potential energy. As it falls it gains kinetic energy, which turns the turbine (kinetic energy of the turbine), and the generator changes this into electrical energy. Heat is the starting energy in a thermal power station, not a dam.",
+    "th": "น้ำที่กักเก็บไว้ที่สูงมีพลังงานศักย์ เมื่อไหลลงมาจะมีพลังงานจลน์ ไปหมุนกังหัน (พลังงานจลน์ของกังหัน) แล้วเครื่องกำเนิดไฟฟ้าเปลี่ยนเป็นพลังงานไฟฟ้า ส่วนพลังงานความร้อนเป็นจุดเริ่มต้นของโรงไฟฟ้าพลังความร้อน ไม่ใช่เขื่อน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: Our school sports day is ___ Friday.",
+   "choices": [
+    "by",
+    "at",
+    "on",
+    "in"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "We use \"on\" with days and dates: on Friday, on 5 May. \"In\" is for months and years, \"at\" for clock times.",
+    "th": "ใช้ on กับวันและวันที่ เช่น on Friday ส่วน in ใช้กับเดือนและปี และ at ใช้กับเวลา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word closest in meaning to \"enormous\" in this sentence: The elephant was enormous.",
+   "choices": [
+    "tiny",
+    "huge",
+    "friendly",
+    "noisy"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Enormous\" means extremely big, the same as \"huge\". \"Tiny\" is the opposite.",
+    "th": "enormous แปลว่า ใหญ่มาก มีความหมายเดียวกับ huge ส่วน tiny มีความหมายตรงข้าม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "A: \"I'm sorry I'm late.\"\nB: \"___\"",
+   "choices": [
+    "Yes, you are welcome.",
+    "That's all right. We've only just started.",
+    "No, I'm not late.",
+    "Good idea!"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The polite reply to an apology accepts it: \"That's all right.\" \"You're welcome\" answers \"Thank you\", not \"Sorry\".",
+    "th": "การตอบรับคำขอโทษอย่างสุภาพใช้ That's all right. ส่วน You're welcome ใช้ตอบคำขอบคุณ ไม่ใช่คำขอโทษ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "Dear parents,\nThe school trip to the Science Museum will now take place on Friday 14 November instead of Thursday 13 November, because the museum is closed for repairs on Thursday. Buses will leave at 7.30 a.m., half an hour earlier than planned, so that students can join the planetarium show at 9.00. Students should bring a packed lunch, as the museum café will not be open. Please return the signed form by Monday 10 November.",
+   "table": null,
+   "stem": "According to the notice, what time were the buses first planned to leave?",
+   "choices": [
+    "7.30 a.m.",
+    "8.30 a.m.",
+    "8.00 a.m.",
+    "9.00 a.m."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The buses will now leave at 7.30 a.m., \"half an hour earlier than planned\". So the original plan was half an hour later: 8.00 a.m. 9.00 is the planetarium show.",
+    "th": "ประกาศบอกว่ารถออก 7.30 น. ซึ่ง \"เร็วกว่าที่วางแผนไว้ครึ่งชั่วโมง\" เวลาเดิมจึงช้ากว่าครึ่งชั่วโมง คือ 8.00 น. ส่วน 9.00 น. เป็นเวลาการแสดงท้องฟ้าจำลอง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Mali said, \"I will visit my grandmother tomorrow.\" Which sentence reports this correctly?",
+   "choices": [
+    "Mali said that she would visit her grandmother the next day.",
+    "Mali said that she would visited her grandmother the next day.",
+    "Mali said that I would visit my grandmother the next day.",
+    "Mali said that she will visit her grandmother tomorrow."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "In reported speech after \"said\": I → she, my → her, will → would (followed by the base verb visit), and tomorrow → the next day.",
+    "th": "ประโยคบอกเล่าทางอ้อมหลัง said ต้องเปลี่ยน I เป็น she, my เป็น her, will เป็น would ตามด้วยกริยารูปเดิม visit และ tomorrow เป็น the next day"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "คำราชาศัพท์ที่ใช้แทนคำว่า \"ป่วย\" สำหรับพระมหากษัตริย์คือคำใด",
+   "choices": [
+    "บรรทม",
+    "ประชวร",
+    "เสด็จ",
+    "ประทับ"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "For the king, \"to be ill\" is ประชวร. ประทับ means to sit or stay, เสด็จ means to go, and บรรทม means to sleep.",
+    "th": "คำว่า \"ป่วย\" สำหรับพระมหากษัตริย์ใช้ว่า ประชวร ส่วนประทับ แปลว่า นั่งหรืออยู่ เสด็จ แปลว่า ไป และบรรทม แปลว่า นอน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "\"แม่ซื้อร่มมาให้ฉัน 2 ___\" ควรเติมคำลักษณนามใด",
+   "choices": [
+    "อัน",
+    "ด้าม",
+    "คัน",
+    "เล่ม"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The classifier for umbrellas is คัน (as for cars and spoons with handles). ด้าม is used for pens, and เล่ม for books and knives.",
+    "th": "ลักษณนามของร่มคือ \"คัน\" ส่วน \"ด้าม\" ใช้กับปากกา และ \"เล่ม\" ใช้กับหนังสือหรือมีด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "สำนวน \"ตีตนไปก่อนไข้\" มีความหมายตรงกับข้อใด",
+   "choices": [
+    "ทำร้ายตัวเองเพื่อหนีปัญหา",
+    "ลงโทษตนเองเมื่อทำผิด",
+    "ป้องกันโรคไว้ก่อนจะเจ็บป่วย",
+    "วิตกกังวลกับเรื่องที่ยังไม่เกิดขึ้น"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The idiom means worrying or suffering over something that has not happened yet. It is not about preventing illness.",
+    "th": "สำนวนนี้หมายถึง การวิตกกังวลหรือทุกข์ร้อนไปก่อนกับเรื่องที่ยังไม่เกิดขึ้น ไม่ได้หมายถึงการป้องกันโรค"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "h",
+   "passage": "หลายคนเชื่อว่าการอ่านหนังสือให้ได้มากเล่มที่สุดคือหนทางสู่ความรู้ แต่การอ่านเร็ว ๆ โดยไม่หยุดคิดก็เหมือนการเทน้ำลงบนหิน น้ำไหลผ่านไปหมดโดยไม่ซึมลงไปเลย ผู้อ่านที่ดีจึงควรอ่านอย่างช้าพอที่จะตั้งคำถาม โต้แย้ง และเชื่อมโยงสิ่งที่อ่านกับประสบการณ์ของตน แม้จะอ่านได้น้อยเล่มกว่า แต่ความรู้ที่ได้จะติดตัวไปนาน",
+   "table": null,
+   "stem": "ผู้เขียนใช้การเปรียบเทียบ \"การเทน้ำลงบนหิน\" เพื่อสื่อความหมายใด",
+   "choices": [
+    "ผู้อ่านควรอ่านหนังสือให้ได้มากเล่มที่สุด",
+    "การอ่านหนังสือมากเกินไปทำให้เหนื่อยล้า",
+    "หนังสือบางเล่มยากเกินกว่าจะเข้าใจได้",
+    "การอ่านโดยไม่คิดตาม ทำให้ความรู้ไม่ติดอยู่ในตัวผู้อ่าน"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Water poured on rock runs off without soaking in. The writer compares this to reading fast without thinking: the knowledge does not stay with the reader. The text actually argues against reading as many books as possible.",
+    "th": "น้ำที่เทลงบนหินไหลผ่านไปโดยไม่ซึมลงไป ผู้เขียนเปรียบกับการอ่านเร็ว ๆ โดยไม่คิดตาม ความรู้จึงไม่ติดอยู่กับผู้อ่าน และข้อความนี้แย้งความเชื่อเรื่องการอ่านให้ได้มากเล่มที่สุด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ประโยคใดเป็นประโยคความรวม",
+   "choices": [
+    "นักเรียนชั้น ป.6 ไปทัศนศึกษาที่อยุธยา",
+    "คนที่ใส่เสื้อสีแดงเป็นครูของฉัน",
+    "แม่บอกว่าพรุ่งนี้ฝนจะตก",
+    "พี่อ่านหนังสือ ส่วนน้องดูโทรทัศน์"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Two independent clauses (พี่อ่านหนังสือ / น้องดูโทรทัศน์) are joined by ส่วน, so it is a compound sentence (ความรวม). The sentences with ที่ and ว่า contain a clause inside the main sentence (ความซ้อน), and the trip sentence is simple (ความเดียว).",
+    "th": "ประโยค \"พี่อ่านหนังสือ\" และ \"น้องดูโทรทัศน์\" เป็นใจความอิสระสองประโยคเชื่อมด้วย \"ส่วน\" จึงเป็นประโยคความรวม ประโยคที่มี \"ที่\" และ \"ว่า\" มีอนุประโยคซ้อนอยู่ จึงเป็นประโยคความซ้อน ส่วนประโยคเรื่องทัศนศึกษาเป็นประโยคความเดียว"
+   }
+  }
+ ]
+}

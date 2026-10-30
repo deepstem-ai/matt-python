@@ -118,6 +118,12 @@ allowlist (or ask PythonAnywhere to add it), or use the cheapest paid plan, whic
 unrestricted internet access. The same applies to email: on the free plan only Gmail's SMTP
 server is reachable.
 
+## Ready-made content
+
+On first start the server adds the 12 ready-made practice sets in `server/exam_sets/` (SAT, IELTS,
+Suankularb M.1 GATE and EP) and 7 starter news posts. Each is added only once — deleting one keeps it
+deleted. Set `DD_SEED=0` to start with an empty bank and blog instead.
+
 ## Security checklist before real use
 
 - Use strong admin passwords; give teachers their own accounts.

@@ -498,3 +498,22 @@ html[lang="th"] .tbl th { text-transform: none; letter-spacing: 0; font-size: 0.
 .qset__head { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: flex-start; }
 .qset__head .btnrow { margin: 0; }
 .qset__list { font-size: .88rem; color: var(--text-dim); }
+
+/* ---------- menu groups, locked pages, permissions table (v5.7) */
+.nav-group { margin: 14px 11px 4px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); opacity: 0.75; }
+.nav-group:first-child { margin-top: 4px; }
+.side nav a.is-locked { opacity: 0.55; }
+.side nav a.is-locked:hover { opacity: 0.8; }
+.nav-lock { margin-left: auto; display: inline-flex; font-style: normal; }
+.side nav a .nav-lock svg { width: 14px; height: 14px; }
+.locked { text-align: center; max-width: 560px; margin: 24px auto; }
+.locked__ico svg { width: 44px; height: 44px; color: var(--text-dim); }
+.acc td, .acc th { vertical-align: middle; }
+.acc td svg { width: 16px; height: 16px; vertical-align: -3px; margin-right: 4px; }
+.acc .acc-c { text-align: center; width: 90px; }
+.acc .acc-c input { width: 18px; height: 18px; }
+.acc-group th { background: var(--surface-2); text-align: left; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.set-group { margin: 16px 0 8px; font-size: 0.95rem; }
+.set-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; }
+.set-card { display: flex; flex-direction: column; gap: 6px; padding: 12px; border: 1px solid var(--line, var(--surface-2)); border-radius: 12px; background: var(--surface); }
+.set-card .btn { align-self: flex-start; margin-top: auto; }

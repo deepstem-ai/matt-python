@@ -1,5 +1,43 @@
 # Changelog
 
+## 5.7 r1 — October 2026
+- **Every page is in the menu; rights follow the user level.**
+  - The back-office menu is grouped (Learning · Teaching · Administration · General). Pages a person
+    cannot open show a lock; clicking one explains which level is needed. Typing the address also lands
+    on that page.
+  - **Settings → Menu & permissions** (admins): untick a box to take a page away from teachers,
+    students or parents, and choose whether locked pages are shown at all. Rights can only be
+    limited — a level never gets more than it was built for, and admins always keep every page.
+  - The server enforces it for the online-test, item-bank, marking, question-set, live-class, PDF,
+    blog and AI routes (`server/access.py`); core records keep their own server rules.
+- **News slider on the home page**, right below the hero: the latest 8 posts as cards with cover
+  pictures that move on every 5.5 seconds. Each card opens its article on the blog page; "All news" goes
+  to the blog. It stops while the pointer or keyboard focus is on it, has previous / next / dots /
+  pause, swipes on phones, and does not move by itself for people who ask for reduced motion.
+- **Seven starter news posts** (both branches, Thai and English, with drawn covers): Suankularb M.1
+  GATE/EP practice sets, the Digital SAT RW format, IELTS Reading question types, TCAS70 Round 1,
+  Swift Student Challenge, using AI for homework, and live classes. Published once on first start;
+  staff can edit, archive or delete them.
+- **12 ready-made admission and practice test sets (3 per exam), all original:**
+  - **SAT Reading and Writing** — 3 × one full 27-question module (cs 7 · ii 7 · sec 7 · eoi 6), 32 min,
+    easier → harder from set 1 to set 3.
+  - **IELTS Academic** — 3 × full Reading (3 passages, exactly 40 marks, 15 question types across the
+    sets) + Writing Task 1 and Task 2; two sets each (Reading 60 min, Writing 60 min).
+  - **Suankularb M.1 GATE Program** — 3 × 40 questions (Maths 15, Science 15, English 5, Thai 5), 90 min.
+  - **Suankularb M.1 English Program (EPLUS+)** — 3 × 40 questions in English (English 20, Maths 10,
+    Science 10), 90 min.
+  - Loaded automatically on first start as approved bank items + published question sets, and shown
+    to learners under **Online tests → Admission & practice test sets**. Each set can also run as a
+    live class or print as student / teacher PDFs. **Item bank → Load ready-made sets** adds anything
+    missing without overwriting edits. Every maths answer was checked by a script; `tools/check_sets.py`
+    checks the format rules.
+- **New exam type "M.1 entrance" (`m1`)**: four-choice questions with programme (GATE / EP) and
+  subject, optional reading text / table / picture, explanations in Thai and English. Works in the bank
+  editor, practice by subject, timed sets, the live class, PDFs, score reports and calibration.
+- **Question sets** can now be opened to learners (timed, with their own minutes), hold up to three
+  IELTS passages, hold IELTS Writing tasks, and hold M.1 questions.
+- `DD_SEED=0` starts a server without the ready-made sets and starter news (used by the tests).
+
 ## 5.6 r1 — October 2026
 - **IELTS Academic Reading now covers the real range of question types**, not only "one of four".
   - **Choice from a fixed set:** True/False/Not Given and Yes/No/Not Given.

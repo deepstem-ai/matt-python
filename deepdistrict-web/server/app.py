@@ -39,6 +39,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import notify  # noqa: E402
 import popups  # noqa: E402
 import learning  # noqa: E402  (AI news blog + SAT / IELTS exams)
+import access  # noqa: E402  (menu & permissions by role)
 
 VERSION = (Path(__file__).resolve().parent.parent / "VERSION").read_text(encoding="utf-8").strip() if (Path(__file__).resolve().parent.parent / "VERSION").exists() else "dev"
 
@@ -413,6 +414,7 @@ def bootstrap(con, me):
     lc, ns = notify.line_config(con), notify.settings(con)
     data["notify"] = {"events": ns["events"], "line": {"configured": bool(lc.get("token")), "basicId": lc.get("basicId", ""), "liffId": lc.get("liffId", "")},
                       "smtp": bool(get_kv(con, "smtp", {}).get("host"))}
+    data["access"] = access.matrix(access.settings(con))
     data["inboxUnread"] = con.execute("SELECT COUNT(*) FROM notifications WHERE user_id=? AND read=0", (me["id"],)).fetchone()[0]
     data["v"] = 1
     data["serverTime"] = now_iso()

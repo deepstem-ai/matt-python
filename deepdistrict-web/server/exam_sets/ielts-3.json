@@ -1,0 +1,612 @@
+{
+ "exam": "ielts",
+ "set": 3,
+ "title": {
+  "en": "IELTS Academic — Practice test 3 (Reading + Writing)",
+  "th": "IELTS Academic — ชุดฝึก 3 (Reading + Writing)"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "Reading: 3 passages, 40 questions, 60 minutes. Writing: Task 1 + Task 2, 60 minutes. DeepDistrict practice — not an official IELTS test.",
+  "th": "Reading 3 บทความ 40 ข้อ 60 นาที · Writing Task 1 + Task 2 60 นาที — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบทางการ"
+ },
+ "items": [
+  {
+   "kind": "ielts-r",
+   "title": "Saving seeds for the future",
+   "difficulty": 1,
+   "paragraphs": [
+    "Over the past century, farming has changed dramatically. In many parts of the world, farmers who once grew dozens of local varieties of rice, wheat, beans or maize have switched to a small number of modern varieties that produce higher yields. This change has helped to feed a rapidly growing population, but it has had an unexpected cost. As the old varieties stopped being planted, many of them disappeared. Seed banks were created to slow this loss. Their aim is simple: to collect and store seeds from as many types of crop as possible, so that the diversity built up by farmers over thousands of years is not lost for ever.",
+    "Why should anyone care about varieties that farmers no longer want? The answer is that an old local variety may carry characteristics that modern crops lack, such as resistance to a particular disease, or the ability to survive drought or high temperatures. Plant breeders can cross these varieties with modern ones to produce new crops that combine high yields with greater resilience. A variety that seems unimportant today may become extremely valuable if the climate changes or a new pest appears, and once a variety has vanished, it cannot be brought back.",
+    "Building a collection begins in the field. Collectors travel to farms, markets and wild areas, often in remote regions, to find plants that have not yet been stored. For each sample, they record where it was found, the conditions in which it was growing and the name that local farmers use for it. Because plants of the same variety are not identical, collectors take seeds from many different plants rather than from just one, in order to capture as much variation as possible. They must also obtain permission from landowners and governments, and many collections are now made under agreements that share any future benefits with the communities that provided the seeds.",
+    "Once the seeds arrive at the bank, they are cleaned and checked for pests and disease. They are then dried carefully until they contain very little moisture, because water inside a seed allows the chemical processes of ageing to continue. The dried seeds are sealed in airtight foil packets or glass jars and placed in cold rooms, where the temperature is kept at around minus twenty degrees Celsius. Under these conditions, the seeds of many crops can remain alive for decades, and some may survive for much longer.",
+    "Not every plant can be stored in this way. The seeds of many tropical trees, along with some fruit and nut crops, are killed by drying, so they cannot simply be placed in a freezer. Seed banks deal with these species in other ways. Some are kept as living plants in field collections, where they must be watered, protected from pests and eventually replaced. Others are stored as small pieces of plant tissue frozen in liquid nitrogen, at temperatures far below those of an ordinary cold room. Both methods are considerably more expensive than storing dried seed.",
+    "Even well-stored seeds slowly lose their ability to grow, so seed banks must check their collections regularly. In a germination test, a small number of seeds from a sample are planted, and staff count how many of them begin to grow. If the proportion falls too low, the sample must be grown in a field or greenhouse to produce fresh seed, a process known as regeneration. This is slow and costly work, and for crops that are pollinated by insects or wind, great care is needed to prevent different varieties from mixing.",
+    "Seed banks themselves are not completely safe. Collections have been damaged by floods, fires, wars and failures of electricity supply. For this reason, most banks send duplicate samples to other institutions, and a few secure back-up stores have been built inside mountains in cold regions, where the seeds would stay frozen even if the power were cut. Experts emphasise, however, that seed banks are not a substitute for farmers. Crops that continue to be grown in fields keep adapting to changing conditions, while seeds in storage remain exactly as they were on the day they were collected."
+   ],
+   "groups": [
+    {
+     "type": "matching-info",
+     "instructions": "Reading Passage 1 has seven paragraphs, A–G. Which paragraph contains the following information? Write the correct letter, A–G.",
+     "questions": [
+      {
+       "text": "the temperature at which seeds are usually stored",
+       "answer": [
+        "D"
+       ]
+      },
+      {
+       "text": "examples of events that could destroy a seed collection",
+       "answer": [
+        "G"
+       ]
+      },
+      {
+       "text": "details of the information noted down when seeds are collected",
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "a reason why a variety that seems unimportant may be useful in the future",
+       "answer": [
+        "B"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "sentence-completion",
+     "instructions": "Complete the sentences below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+     "wordLimit": {
+      "words": 2,
+      "number": false
+     },
+     "questions": [
+      {
+       "text": "Before collecting seeds, collectors must get permission from landowners and ______.",
+       "answer": [
+        "governments"
+       ]
+      },
+      {
+       "text": "Seeds that cannot survive drying may be stored as plant tissue frozen in ______.",
+       "answer": [
+        "liquid nitrogen"
+       ]
+      },
+      {
+       "text": "Growing stored seeds to produce a fresh supply is called ______.",
+       "answer": [
+        "regeneration"
+       ]
+      },
+      {
+       "text": "Some back-up stores have been built inside ______ in cold regions.",
+       "answer": [
+        "mountains"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "tfng",
+     "instructions": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.",
+     "questions": [
+      {
+       "text": "Many farmers now grow fewer crop varieties than farmers did in the past.",
+       "answer": [
+        "TRUE"
+       ]
+      },
+      {
+       "text": "Collectors normally take seeds from a single plant of each variety.",
+       "answer": [
+        "FALSE"
+       ]
+      },
+      {
+       "text": "Under the right conditions, the seeds of many crops can survive in storage for decades.",
+       "answer": [
+        "TRUE"
+       ]
+      },
+      {
+       "text": "Germination tests are carried out once every year.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      },
+      {
+       "text": "Seeds kept in storage continue to adapt to changes in the climate.",
+       "answer": [
+        "FALSE"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-r",
+   "title": "How honeybees find their way",
+   "difficulty": 2,
+   "paragraphs": [
+    "A honeybee searching for food may fly several kilometres from its hive, visit hundreds of flowers, and then return directly home, often carrying a load of nectar or pollen almost as heavy as itself. It does all this with a brain smaller than a grain of rice. How such a tiny nervous system achieves such reliable navigation has fascinated biologists for more than a century, and the answers they have found have turned out to be both surprising and useful.",
+    "The most important tool in a bee's navigation is the sun. By keeping the sun at a particular angle as it flies, a bee can hold a steady direction, in much the same way that a sailor might use a compass. The difficulty is that the sun moves across the sky during the day, so an angle that leads to a patch of flowers in the morning would lead somewhere quite different in the afternoon. Bees solve this problem by means of an internal clock, which allows them to adjust for the sun's movement. On cloudy days, when the sun itself is hidden, they can still find their direction by detecting patterns of polarised light in the sky, which are invisible to human eyes but are picked up by a specialised region of the bee's eye.",
+    "Close to the hive, bees also rely heavily on landmarks such as trees, buildings and the edges of fields. Young bees preparing to become foragers make a series of short orientation flights, during which they fly in loops around the entrance while facing the hive, apparently learning what the area looks like. One way in which researchers have demonstrated the importance of these memories is by moving a hive a short distance while its bees are out foraging. Returning bees fly to the place where the hive used to stand and search there in confusion, which shows that they had been relying on a remembered picture of the surroundings rather than on the hive itself.",
+    "Measuring distance proved more puzzling. Early researchers placed feeders containing sugar water at measured distances from the hive and trained bees to visit them, which made it possible to study how bees judged how far they had travelled. It was once assumed that bees measured distance by the time or energy a flight required. Later experiments, however, suggested that they use the amount of visual movement they experience, known as optic flow: the image of the ground and nearby objects passing across their eyes. When bees were trained to fly through a narrow tunnel whose walls were covered with a busy pattern, they behaved as if they had flown much further than they really had.",
+    "A forager that finds a good source of food does not keep the information to itself. Back in the hive, it performs the so-called waggle dance on the vertical surface of the comb, running forward while shaking its body from side to side, then circling back to repeat the movement. The angle of the waggling run in relation to the vertical indicates the direction of the food in relation to the sun, while the length of the run indicates how far away the food is. Much of what is known about the dance comes from glass-walled observation hives, in which dances can be filmed and then analysed frame by frame.",
+    "More recently, researchers have attached tiny radar transponders to individual bees and followed their flights across open countryside. Radar tracking has shown that bees recruited by a dance fly fairly directly towards the advertised food. It has also revealed that experienced bees can take new shortcuts between familiar places, routes they have never flown before. Some scientists interpret this as evidence that bees possess something like a mental map of their surroundings, although others argue that the behaviour can be explained by simpler mechanisms, and the question remains open.",
+    "Older techniques continue to play a part. By marking individual bees with small dots of paint, researchers can recognise the same insects day after day and record how many trips each one makes. Such studies have shown that the working life of a forager usually lasts only a few weeks, and that individual foragers tend to visit flowers of one type at a time, ignoring others nearby, a habit that makes them efficient pollinators.",
+    "The study of bee navigation is not only of academic interest. Engineers designing small flying robots have borrowed the idea of optic flow, because it allows a machine to judge distance and avoid obstacles using a simple camera rather than heavy and expensive sensors. At the same time, the research has raised concern. Laboratory and field studies suggest that some agricultural chemicals may interfere with the ability of bees to navigate, so that foragers fail to return to the hive, a loss that a colony can afford only up to a point."
+   ],
+   "groups": [
+    {
+     "type": "mcq",
+     "instructions": "Choose the correct letter, A, B, C or D.",
+     "questions": [
+      {
+       "text": "On cloudy days, bees are able to find their direction by",
+       "options": [
+        {
+         "key": "A",
+         "text": "following the scent of other bees."
+        },
+        {
+         "key": "B",
+         "text": "flying towards the nearest landmark."
+        },
+        {
+         "key": "C",
+         "text": "detecting patterns of polarised light."
+        },
+        {
+         "key": "D",
+         "text": "remembering the time of their last flight."
+        }
+       ],
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "What is the purpose of the orientation flights made by young bees?",
+       "options": [
+        {
+         "key": "A",
+         "text": "to learn the appearance of the area around the hive"
+        },
+        {
+         "key": "B",
+         "text": "to search for new sources of food"
+        },
+        {
+         "key": "C",
+         "text": "to strengthen their wings before foraging"
+        },
+        {
+         "key": "D",
+         "text": "to warn other bees of danger"
+        }
+       ],
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "Bees that flew through a narrow patterned tunnel",
+       "options": [
+        {
+         "key": "A",
+         "text": "refused to enter it a second time."
+        },
+        {
+         "key": "B",
+         "text": "lost their sense of direction."
+        },
+        {
+         "key": "C",
+         "text": "flew more slowly than usual."
+        },
+        {
+         "key": "D",
+         "text": "overestimated the distance they had travelled."
+        }
+       ],
+       "answer": [
+        "D"
+       ]
+      },
+      {
+       "text": "In the waggle dance, the length of the waggling run shows",
+       "options": [
+        {
+         "key": "A",
+         "text": "the amount of food available."
+        },
+        {
+         "key": "B",
+         "text": "how far away the food is."
+        },
+        {
+         "key": "C",
+         "text": "the type of flower that was visited."
+        },
+        {
+         "key": "D",
+         "text": "the direction of the sun."
+        }
+       ],
+       "answer": [
+        "B"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "matching-features",
+     "instructions": "Look at the following findings and the list of research methods below. Match each finding with the correct method, A–E.",
+     "options": [
+      {
+       "key": "A",
+       "text": "marking bees with paint"
+      },
+      {
+       "key": "B",
+       "text": "moving the hive"
+      },
+      {
+       "key": "C",
+       "text": "radar tracking"
+      },
+      {
+       "key": "D",
+       "text": "placing feeders at measured distances"
+      },
+      {
+       "key": "E",
+       "text": "filming in observation hives"
+      }
+     ],
+     "questions": [
+      {
+       "text": "Bees sometimes travel along routes they have never used before.",
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "Dance movements can be examined in great detail.",
+       "answer": [
+        "E"
+       ]
+      },
+      {
+       "text": "Bees remember what the surroundings of the hive look like.",
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "Foragers tend to concentrate on one type of flower at a time.",
+       "answer": [
+        "A"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "short-answer",
+     "instructions": "Answer the questions below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+     "wordLimit": {
+      "words": 2,
+      "number": false
+     },
+     "questions": [
+      {
+       "text": "What allows bees to adjust for the movement of the sun during the day?",
+       "answer": [
+        "internal clock"
+       ]
+      },
+      {
+       "text": "What name is given to the image of the ground passing across a bee's eyes?",
+       "answer": [
+        "optic flow"
+       ]
+      },
+      {
+       "text": "What kind of machines have engineers designed using ideas from bee navigation?",
+       "answer": [
+        "flying robots"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "mcq-multi",
+     "instructions": "Choose TWO letters, A–E.",
+     "questions": [
+      {
+       "text": "Which TWO statements about forager bees are made in the passage?",
+       "options": [
+        {
+         "key": "A",
+         "text": "They may fly several kilometres from the hive."
+        },
+        {
+         "key": "B",
+         "text": "They usually live for several years."
+        },
+        {
+         "key": "C",
+         "text": "Their working life normally lasts a few weeks."
+        },
+        {
+         "key": "D",
+         "text": "They always search for food in large groups."
+        },
+        {
+         "key": "E",
+         "text": "They are larger than other bees in the colony."
+        }
+       ],
+       "answer": [
+        "A",
+        "C"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-r",
+   "title": "Rethinking the working week",
+   "difficulty": 3,
+   "paragraphs": [
+    "The five-day working week feels so familiar that it is easy to forget it is a relatively recent invention. It was not handed down by nature or by any law of economics; it emerged from particular struggles and agreements in particular industries, and it spread because it suited the economies of its time. In recent years, proposals for a four-day week have attracted a great deal of attention, supported by a series of well-publicised trials in which companies reduced working hours without reducing pay. Advocates claim that a shorter week would make workers healthier and more productive, spread available work more widely and benefit the environment. Critics reply that it would raise costs, weaken competitiveness and prove unworkable in many occupations. My own view is that public enthusiasm has so far run ahead of the evidence, but that the idea is serious and deserves to be examined carefully rather than dismissed.",
+    "It is worth recalling the longer history. For much of the twentieth century, average working hours in industrialised countries fell steadily, as rising productivity allowed workers to produce the same output in less time and labour organisations pressed for shorter shifts. Many economists of the period expected this trend to continue, imagining that their grandchildren would work only a few hours a day. Instead, in many countries the decline slowed considerably and, for some groups of workers, stopped altogether. One explanation is that the gains from greater productivity have since been taken mainly in the form of higher incomes and more consumption rather than more free time. Supporters of a shorter week argue that the balance should now be corrected.",
+    "The most widely reported evidence comes from trials in which organisations moved to a four-day week for several months. Participating companies commonly reported that staff felt less tired, took fewer sick days and were less likely to leave, while output was maintained. These findings are encouraging, but they need to be interpreted with care. The firms that volunteer for such trials are, almost by definition, those whose managers are most confident that a shorter week will work for them; they are unlikely to be typical of businesses in general. Most trials have also been short, and there is a real possibility of a novelty effect, in which employees work especially hard because they are grateful for the change and anxious not to lose it. Whether the same results would be achieved after five or ten years is simply not known.",
+    "There is also the question of which kinds of work can be reorganised in this way. In offices where output is difficult to measure and much time is lost in unnecessary meetings, it may well be possible to do the same work in fewer hours. In hospitals, schools, shops and public transport, by contrast, a service must be provided continuously, and a shorter week for each employee means that more staff must be employed to cover the same hours, which raises costs considerably. It is also important to distinguish genuinely reduced hours from so-called compressed hours, in which the same total is squeezed into four longer days. The latter may suit some people, but long days bring their own problems of fatigue and safety. Manufacturing raises different issues again: where machines run around the clock, the question is how shifts are arranged rather than how many hours each individual works.",
+    "Advocates point to possible benefits beyond the workplace. Fewer journeys to work would mean less traffic and lower emissions, and a free weekday would give people more time for caring for children or elderly relatives, for volunteering and for exercise. These are attractive possibilities, but they are not guaranteed. Some evidence suggests that a proportion of people would use the extra day to take on additional paid work, or would spend it travelling and shopping in ways that increase rather than reduce their environmental impact. The wider effects of a shorter week will depend heavily on how people choose to use their time, and that is difficult to predict.",
+    "What, then, should be done? It would be a mistake, in my view, for governments to require all employers to adopt a four-day week, since the evidence does not yet justify a single rule for an economy as varied as ours. A more sensible approach would be gradual experimentation, sector by sector, combined with careful measurement over periods of several years. Governments could play a useful part by funding independent evaluations, so that the results do not depend on the reports of enthusiastic participants. Such trials should include organisations that are sceptical as well as those that are keen, and they should report failures as openly as successes, since an idea that works only for the most willing tells us little about how it would work for everyone else. The real question is not whether working time will change again, since it always has, but how the change can be managed so that its benefits are shared fairly."
+   ],
+   "groups": [
+    {
+     "type": "headings",
+     "instructions": "Reading Passage 3 has six paragraphs, A–F. Choose the correct heading for paragraphs B–F from the list of headings below.",
+     "options": [
+      {
+       "key": "i",
+       "text": "Not every job can be reorganised in the same way"
+      },
+      {
+       "key": "ii",
+       "text": "A long-term trend that has slowed"
+      },
+      {
+       "key": "iii",
+       "text": "The opposition of employers' organisations"
+      },
+      {
+       "key": "iv",
+       "text": "Why early results may be misleading"
+      },
+      {
+       "key": "v",
+       "text": "How technology will replace human workers"
+      },
+      {
+       "key": "vi",
+       "text": "Possible gains beyond the workplace"
+      },
+      {
+       "key": "vii",
+       "text": "A comparison of public holidays in different countries"
+      },
+      {
+       "key": "viii",
+       "text": "A call for patient and careful testing"
+      }
+     ],
+     "questions": [
+      {
+       "text": "Paragraph B",
+       "answer": [
+        "ii"
+       ]
+      },
+      {
+       "text": "Paragraph C",
+       "answer": [
+        "iv"
+       ]
+      },
+      {
+       "text": "Paragraph D",
+       "answer": [
+        "i"
+       ]
+      },
+      {
+       "text": "Paragraph E",
+       "answer": [
+        "vi"
+       ]
+      },
+      {
+       "text": "Paragraph F",
+       "answer": [
+        "viii"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "ynng",
+     "instructions": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.",
+     "questions": [
+      {
+       "text": "The five-day week reflects the natural limits of human working capacity.",
+       "answer": [
+        "NO"
+       ]
+      },
+      {
+       "text": "Companies that take part in four-day-week trials may not be representative of businesses in general.",
+       "answer": [
+        "YES"
+       ]
+      },
+      {
+       "text": "Most employees in the trials would prefer a shorter week to a pay rise.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      },
+      {
+       "text": "Governments should make a four-day week compulsory for all employers.",
+       "answer": [
+        "NO"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "summary-box",
+     "instructions": "Complete the summary using the list of words, A–I, below.",
+     "context": "Evidence and doubts\nTrials of a four-day week have found that employees felt less (36) ______ and took fewer sick days, while (37) ______ did not fall. However, the trials have mostly been (38) ______, and a (39) ______ effect may have made staff work harder than usual. In services such as hospitals and public transport, shorter weeks would require more staff, which would increase (40) ______.",
+     "options": [
+      {
+       "key": "A",
+       "text": "profits"
+      },
+      {
+       "key": "B",
+       "text": "novelty"
+      },
+      {
+       "key": "C",
+       "text": "tired"
+      },
+      {
+       "key": "D",
+       "text": "productivity"
+      },
+      {
+       "key": "E",
+       "text": "short"
+      },
+      {
+       "key": "F",
+       "text": "costs"
+      },
+      {
+       "key": "G",
+       "text": "lengthy"
+      },
+      {
+       "key": "H",
+       "text": "output"
+      },
+      {
+       "key": "I",
+       "text": "stressful"
+      }
+     ],
+     "questions": [
+      {
+       "text": "(36) ______",
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "(37) ______",
+       "answer": [
+        "H"
+       ]
+      },
+      {
+       "text": "(38) ______",
+       "answer": [
+        "E"
+       ]
+      },
+      {
+       "text": "(39) ______",
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "(40) ______",
+       "answer": [
+        "F"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-w",
+   "task": 1,
+   "visual": "process",
+   "prompt": "The table below shows the stages in recycling used glass bottles at one processing plant, and the average time each stage takes.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.",
+   "table": {
+    "title": "Recycling glass bottles: stages and average time",
+    "rows": [
+     [
+      "Stage",
+      "What happens",
+      "Average time"
+     ],
+     [
+      "1. Collection",
+      "Bottles collected from homes and public bins",
+      "2 days"
+     ],
+     [
+      "2. Sorting",
+      "Separated by colour; labels and caps removed",
+      "6 hours"
+     ],
+     [
+      "3. Crushing",
+      "Broken into small pieces",
+      "1 hour"
+     ],
+     [
+      "4. Cleaning",
+      "Washed; paper and metal removed",
+      "2 hours"
+     ],
+     [
+      "5. Melting",
+      "Heated with sand in a furnace at 1,500°C",
+      "12 hours"
+     ],
+     [
+      "6. Moulding",
+      "Shaped into new bottles and cooled",
+      "30 minutes"
+     ],
+     [
+      "7. Delivery",
+      "Sent to drinks companies for refilling",
+      "3 days"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "ielts-w",
+   "task": 2,
+   "essayType": "two-part",
+   "prompt": "In many countries, people now spend less time cooking at home and more often buy ready-made meals or eat in restaurants.\n\nWhy is this happening? Is it a positive or a negative development?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words."
+  }
+ ]
+}

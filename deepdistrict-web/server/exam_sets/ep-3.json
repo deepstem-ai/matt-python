@@ -1,0 +1,868 @@
+{
+ "exam": "ep",
+ "set": 3,
+ "title": {
+  "en": "Suankularb M.1 English Program (EPLUS+) — Practice set 3",
+  "th": "สวนกุหลาบ ม.1 English Program (EPLUS+) — ชุดฝึก 3"
+ },
+ "minutes": 90,
+ "note": {
+  "en": "40 questions in English: English 20, Mathematics 10, Science 10. The real admission also has an English interview. DeepDistrict practice format — not an official or past paper.",
+  "th": "40 ข้อ เป็นภาษาอังกฤษ: ภาษาอังกฤษ 20 คณิตศาสตร์ 10 วิทยาศาสตร์ 10 (การสอบจริงมีสัมภาษณ์ภาษาอังกฤษด้วย) — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: \"We ___ football every Saturday morning.\"",
+   "choices": [
+    "playing",
+    "plays",
+    "play",
+    "are play"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Every Saturday\" is a habit, so we use the present simple. With \"we\" the verb has no -s: \"play\".",
+    "th": "\"every Saturday\" เป็นกิจวัตร ใช้ present simple ประธาน we ไม่เติม -s จึงเป็น \"play\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: \"The cat is hiding ___ the bed. We can only see its tail sticking out from below.\"",
+   "choices": [
+    "on",
+    "under",
+    "over",
+    "above"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The tail is \"sticking out from below\", so the cat is under the bed.",
+    "th": "หางโผล่ออกมา \"จากข้างล่าง\" แมวจึงอยู่ใต้เตียง \"under\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct words: \"By the time we arrived at the cinema, the film ___.\"",
+   "choices": [
+    "is already starting",
+    "already starts",
+    "has already started",
+    "had already started"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The film started before another past action (we arrived), so we use the past perfect: \"had already started\".",
+    "th": "หนังเริ่มก่อนเหตุการณ์ในอดีตอีกเหตุการณ์ (เรามาถึง) จึงใช้ past perfect \"had already started\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct words: \"Of all the planets in our solar system, Jupiter is ___.\"",
+   "choices": [
+    "the largest",
+    "most large",
+    "the larger",
+    "larger"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Of all the planets\" compares more than two things, so we use the superlative \"the largest\".",
+    "th": "\"Of all the planets\" เปรียบเทียบมากกว่าสองสิ่ง จึงใช้ขั้นสูงสุด \"the largest\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct question tag: \"Let's go to the beach this weekend, ___?\"",
+   "choices": [
+    "let we",
+    "will we",
+    "don't we",
+    "shall we"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Sentences beginning with \"Let's\" always take the tag \"shall we\".",
+    "th": "ประโยคที่ขึ้นต้นด้วย Let's ใช้ question tag \"shall we\" เสมอ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: \"Unless you ___ harder, you will fail the test.\"",
+   "choices": [
+    "study",
+    "will study",
+    "don't study",
+    "studied"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Unless\" means \"if … not\" and works like a first conditional, so it takes the present simple without another \"not\": \"study\".",
+    "th": "\"Unless\" แปลว่า ถ้าไม่ และใช้แบบเงื่อนไขที่ 1 จึงใช้ present simple บอกเล่า \"study\" (ไม่ใส่ not ซ้ำ)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct words: \"The winners ___ their prizes by the principal next Monday.\"",
+   "choices": [
+    "gave",
+    "will be given",
+    "are giving",
+    "will give"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The principal gives the prizes, so the winners receive the action: passive. \"Next Monday\" is the future: \"will be given\".",
+    "th": "ผู้ชนะเป็นผู้ได้รับรางวัล (ถูกกระทำ) จึงใช้ passive และเป็นอนาคต (next Monday) \"will be given\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best word: \"Mai is very ___. She always keeps her room tidy and plans everything carefully.\"",
+   "choices": [
+    "lazy",
+    "organised",
+    "forgetful",
+    "messy"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Keeping things tidy and planning carefully describes someone who is \"organised\".",
+    "th": "การเก็บห้องเรียบร้อยและวางแผนอย่างดีแสดงว่าเป็นคนมีระเบียบ \"organised\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: \"The doctor gave me some useful ___ about healthy eating.\"",
+   "choices": [
+    "advisor",
+    "advise",
+    "advice",
+    "advised"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "After \"some useful\" we need an uncountable noun meaning suggestions: \"advice\". \"Advise\" is the verb.",
+    "th": "หลัง some useful ต้องใช้คำนามนับไม่ได้ \"advice\" (คำแนะนำ) ส่วน advise เป็นกริยา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Which word is closest in meaning to \"compulsory\"? \"Wearing a helmet is compulsory for all students who ride to school.\"",
+   "choices": [
+    "optional",
+    "required",
+    "difficult",
+    "unfair"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Compulsory\" means something you must do, so it is closest to \"required\". \"Optional\" is the opposite.",
+    "th": "\"compulsory\" แปลว่า บังคับ ต้องทำ ใกล้เคียงกับ \"required\" ส่วน optional มีความหมายตรงข้าม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Which part of this sentence contains a mistake? \"If he will come to the party, I will introduce him to my cousin.\"",
+   "choices": [
+    "If he will come",
+    "to the party",
+    "to my cousin",
+    "I will introduce"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "In a first conditional the if-clause uses the present simple, not will. It should be \"If he comes\".",
+    "th": "เงื่อนไขแบบที่ 1 ส่วน if ใช้ present simple ไม่ใช้ will ที่ถูกคือ If he comes จึงผิดที่ \"If he will come\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Complete the dialogue.\nA: I'm afraid I can't come to your birthday party on Sunday.\nB: ___\nA: Thanks for understanding. I'll give you your present on Monday.",
+   "choices": [
+    "That's a pity, but don't worry about it.",
+    "Yes, I'd love to come.",
+    "How kind of you to come!",
+    "Great! See you on Sunday, then."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A cannot come and then thanks B \"for understanding\", so B must accept the news kindly: \"That's a pity, but don't worry about it.\"",
+    "th": "A มาไม่ได้และขอบคุณที่ \"เข้าใจ\" B จึงต้องตอบอย่างเข้าใจ \"That's a pity, but don't worry about it.\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Which sentence is grammatically correct?",
+   "choices": [
+    "Neither the teacher nor the students were late.",
+    "Neither the teacher nor the students weren't late.",
+    "Neither the teacher or the students were late.",
+    "Neither of the teacher nor students were late."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The pair is \"neither … nor\" (not \"or\"), it already has a negative meaning (so no \"weren't\"), and the verb agrees with the nearer subject \"the students\": were.",
+    "th": "ใช้คู่ neither … nor (ไม่ใช่ or) ซึ่งมีความหมายปฏิเสธอยู่แล้ว (ไม่ใช้ weren't) และกริยาสอดคล้องกับประธานที่อยู่ใกล้ (the students) จึงใช้ were"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "On a hot afternoon, the centre of Bangkok can be several degrees warmer than the farmland outside the city. Scientists call this the \"urban heat island\" effect. Roads, roofs and concrete walls absorb sunlight during the day and slowly release the heat at night, so the city does not cool down as quickly as the countryside. Air conditioners make the problem worse, because they push hot air out of buildings into the streets. Trees, on the other hand, help in two ways: their leaves give shade, and the water they release through their leaves cools the air around them. Some cities have started painting roofs white, since light colours reflect more sunlight than dark ones. Others are building \"green roofs\" covered with plants. None of these ideas will solve the problem alone, but together they could make city life far more comfortable.",
+   "table": null,
+   "stem": "According to the passage, which place is usually cooler on a hot afternoon?",
+   "choices": [
+    "Streets near air conditioners",
+    "Rooms with concrete walls",
+    "The centre of Bangkok",
+    "The farmland outside the city"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The first sentence says the centre of Bangkok can be several degrees warmer than the farmland outside the city, so the farmland is cooler.",
+    "th": "ประโยคแรกบอกว่าใจกลางกรุงเทพฯ ร้อนกว่าพื้นที่เกษตรนอกเมือง พื้นที่เกษตรนอกเมืองจึงเย็นกว่า"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "On a hot afternoon, the centre of Bangkok can be several degrees warmer than the farmland outside the city. Scientists call this the \"urban heat island\" effect. Roads, roofs and concrete walls absorb sunlight during the day and slowly release the heat at night, so the city does not cool down as quickly as the countryside. Air conditioners make the problem worse, because they push hot air out of buildings into the streets. Trees, on the other hand, help in two ways: their leaves give shade, and the water they release through their leaves cools the air around them. Some cities have started painting roofs white, since light colours reflect more sunlight than dark ones. Others are building \"green roofs\" covered with plants. None of these ideas will solve the problem alone, but together they could make city life far more comfortable.",
+   "table": null,
+   "stem": "What is the passage mainly about?",
+   "choices": [
+    "How to build air conditioners that use less power",
+    "Why farmers are moving to Bangkok",
+    "The history of Bangkok's roads",
+    "Why cities are hotter than the countryside and how this can be reduced"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The text explains the urban heat island effect (the cause) and then describes trees, white roofs and green roofs (ways to reduce it).",
+    "th": "เรื่องอธิบายสาเหตุที่เมืองร้อนกว่าชนบท แล้วเสนอวิธีลดความร้อน เช่น ต้นไม้ หลังคาสีขาว และหลังคาเขียว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "On a hot afternoon, the centre of Bangkok can be several degrees warmer than the farmland outside the city. Scientists call this the \"urban heat island\" effect. Roads, roofs and concrete walls absorb sunlight during the day and slowly release the heat at night, so the city does not cool down as quickly as the countryside. Air conditioners make the problem worse, because they push hot air out of buildings into the streets. Trees, on the other hand, help in two ways: their leaves give shade, and the water they release through their leaves cools the air around them. Some cities have started painting roofs white, since light colours reflect more sunlight than dark ones. Others are building \"green roofs\" covered with plants. None of these ideas will solve the problem alone, but together they could make city life far more comfortable.",
+   "table": null,
+   "stem": "Why does the city stay warm at night?",
+   "choices": [
+    "White roofs trap heat inside buildings.",
+    "Roads and concrete release heat they absorbed during the day.",
+    "Trees give out hot air at night.",
+    "The sun shines for longer in cities."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Roads, roofs and walls absorb sunlight during the day \"and slowly release the heat at night\", so the city cools down slowly.",
+    "th": "ถนน หลังคา และผนังคอนกรีตดูดความร้อนตอนกลางวันและ \"ค่อย ๆ คายความร้อนออกมาตอนกลางคืน\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "On a hot afternoon, the centre of Bangkok can be several degrees warmer than the farmland outside the city. Scientists call this the \"urban heat island\" effect. Roads, roofs and concrete walls absorb sunlight during the day and slowly release the heat at night, so the city does not cool down as quickly as the countryside. Air conditioners make the problem worse, because they push hot air out of buildings into the streets. Trees, on the other hand, help in two ways: their leaves give shade, and the water they release through their leaves cools the air around them. Some cities have started painting roofs white, since light colours reflect more sunlight than dark ones. Others are building \"green roofs\" covered with plants. None of these ideas will solve the problem alone, but together they could make city life far more comfortable.",
+   "table": null,
+   "stem": "What does the writer mean by \"None of these ideas will solve the problem alone\"?",
+   "choices": [
+    "Several solutions need to be used together.",
+    "Only green roofs really work.",
+    "All of the ideas are useless.",
+    "People should move to the countryside."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The sentence continues \"but together they could make city life far more comfortable\", so the writer means the ideas work best when combined.",
+    "th": "ประโยคต่อด้วย \"แต่ถ้าใช้ร่วมกันจะทำให้เมืองน่าอยู่ขึ้น\" จึงหมายถึงต้องใช้หลายวิธีร่วมกัน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "READING CHALLENGE 2026\nOpen to all Grade 6 and Grade 7 students\n\nRead as many books as you can between 1 June and 31 August. For every book you finish, write a short review of at least 50 words and hand it to the librarian. Books must come from the school library and must have at least 80 pages; comics and magazines do not count. The three students with the most accepted reviews will win book vouchers, and every student who completes ten accepted reviews will receive a certificate. Reviews copied from the internet will not be accepted, and the student will lose all their points.\n\nQuestions? Visit the library or ask Mr. Somchai.",
+   "table": null,
+   "stem": "Which book could count for the challenge?",
+   "choices": [
+    "A 150-page novel bought at a bookshop",
+    "A 200-page comic from the school library",
+    "A 60-page storybook from the school library",
+    "A 120-page novel borrowed from the school library"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "A book must come from the school library, have at least 80 pages and not be a comic. Only the 120-page library novel meets all three rules.",
+    "th": "หนังสือต้องมาจากห้องสมุดโรงเรียน มีอย่างน้อย 80 หน้า และไม่ใช่การ์ตูน มีเพียงนิยาย 120 หน้าจากห้องสมุดที่ผ่านทุกเงื่อนไข"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "READING CHALLENGE 2026\nOpen to all Grade 6 and Grade 7 students\n\nRead as many books as you can between 1 June and 31 August. For every book you finish, write a short review of at least 50 words and hand it to the librarian. Books must come from the school library and must have at least 80 pages; comics and magazines do not count. The three students with the most accepted reviews will win book vouchers, and every student who completes ten accepted reviews will receive a certificate. Reviews copied from the internet will not be accepted, and the student will lose all their points.\n\nQuestions? Visit the library or ask Mr. Somchai.",
+   "table": null,
+   "stem": "Kanya finished twelve library books and wrote a 40-word review for each one. What will she receive?",
+   "choices": [
+    "A certificate",
+    "A certificate and a book voucher",
+    "A book voucher",
+    "Nothing, because her reviews are too short"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Each review must be at least 50 words. Kanya's reviews have only 40 words, so none of them is accepted and she receives nothing.",
+    "th": "บทวิจารณ์ต้องยาวอย่างน้อย 50 คำ ของกันยามีเพียง 40 คำ จึงไม่ได้รับการยอมรับและไม่ได้รับอะไรเลย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "READING CHALLENGE 2026\nOpen to all Grade 6 and Grade 7 students\n\nRead as many books as you can between 1 June and 31 August. For every book you finish, write a short review of at least 50 words and hand it to the librarian. Books must come from the school library and must have at least 80 pages; comics and magazines do not count. The three students with the most accepted reviews will win book vouchers, and every student who completes ten accepted reviews will receive a certificate. Reviews copied from the internet will not be accepted, and the student will lose all their points.\n\nQuestions? Visit the library or ask Mr. Somchai.",
+   "table": null,
+   "stem": "What is the main purpose of the notice?",
+   "choices": [
+    "To encourage students to read and explain the competition rules",
+    "To tell students to stop reading comics",
+    "To sell books from the school library",
+    "To teach students how to write for a magazine"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The notice invites students to join a reading challenge and sets out its rules and prizes.",
+    "th": "ประกาศนี้เชิญชวนนักเรียนเข้าร่วมกิจกรรมการอ่านและอธิบายกติกากับรางวัล"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "What is 0.75 written as a fraction in its simplest form?",
+   "choices": [
+    "75/10",
+    "7/5",
+    "3/4",
+    "3/5"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "0.75 = 75/100. Divide top and bottom by 25: 3/4.",
+    "th": "0.75 = 75/100 หารด้วย 25 ทั้งเศษและส่วน ได้ 3/4"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "A bag has red and blue marbles in the ratio 2 : 7. There are 35 more blue marbles than red ones. How many marbles are in the bag altogether?",
+   "choices": [
+    "49",
+    "63",
+    "45",
+    "70"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The difference is 7 − 2 = 5 parts = 35, so 1 part = 7. Total = 9 parts = 63 marbles.",
+    "th": "ต่างกัน 7 − 2 = 5 ส่วน = 35 ลูก ส่วนละ 7 ลูก รวม 9 ส่วน = 63 ลูก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Solve: 3(x + 4) = 2x + 19. What is x?",
+   "choices": [
+    "9",
+    "7",
+    "5",
+    "31"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Expand: 3x + 12 = 2x + 19. Subtract 2x: x + 12 = 19, so x = 7.",
+    "th": "กระจาย 3x + 12 = 2x + 19 ลบ 2x ทั้งสองข้าง x + 12 = 19 ดังนั้น x = 7"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Three angles on a straight line are in the ratio 2 : 3 : 4. What is the size of the largest angle?",
+   "choices": [
+    "60°",
+    "40°",
+    "80°",
+    "160°"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Angles on a straight line add up to 180°. 2 + 3 + 4 = 9 parts, so 1 part = 20°. Largest = 4 × 20 = 80°.",
+    "th": "มุมบนเส้นตรงรวม 180° รวม 9 ส่วน ส่วนละ 20° มุมใหญ่สุด 4 × 20 = 80°"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "A jug holds 2.4 litres of juice. How many 150 mL cups can be filled completely?",
+   "choices": [
+    "15",
+    "6",
+    "16",
+    "160"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "2.4 litres = 2,400 mL, and 2,400 ÷ 150 = 16 cups.",
+    "th": "2.4 ลิตร = 2,400 มล. หารด้วย 150 ได้ 16 แก้ว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "The mean of five numbers is 18. Four of the numbers are 12, 20, 15 and 25. What is the fifth number?",
+   "choices": [
+    "18",
+    "16",
+    "20",
+    "72"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The five numbers total 5 × 18 = 90. The four known numbers total 72, so the fifth is 90 − 72 = 18.",
+    "th": "ผลรวมทั้งห้าจำนวน 5 × 18 = 90 สี่จำนวนรวม 72 จำนวนที่ห้า = 90 − 72 = 18"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "After a 20% discount, a bag costs 1,440 baht. What was the original price?",
+   "choices": [
+    "1,800 baht",
+    "1,152 baht",
+    "1,200 baht",
+    "1,728 baht"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "After a 20% discount you pay 80% of the price. 80% = 1,440, so 100% = 1,440 ÷ 0.8 = 1,800 baht. (Adding 20% of 1,440 gives the wrong 1,728.)",
+    "th": "ลด 20% ต้องจ่าย 80% ของราคาเดิม 80% = 1,440 บาท ราคาเดิม = 1,440 ÷ 0.8 = 1,800 บาท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Squares are made in a row with matchsticks: 1 square uses 4 sticks, 2 squares use 7 sticks and 3 squares use 10 sticks. How many sticks are needed for 25 squares?",
+   "choices": [
+    "100",
+    "75",
+    "79",
+    "76"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Each new square adds 3 sticks, so n squares need 3n + 1 sticks. For 25 squares: 3 × 25 + 1 = 76.",
+    "th": "เพิ่มสี่เหลี่ยม 1 รูปใช้ไม้เพิ่ม 3 ก้าน n รูปใช้ 3n + 1 ก้าน 25 รูปใช้ 3 × 25 + 1 = 76 ก้าน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": {
+    "title": "Drink sales",
+    "rows": [
+     [
+      "Drink",
+      "Price per cup (baht)",
+      "Cups sold"
+     ],
+     [
+      "Tea",
+      "25",
+      "40"
+     ],
+     [
+      "Coffee",
+      "35",
+      "30"
+     ],
+     [
+      "Juice",
+      "30",
+      "50"
+     ],
+     [
+      "Milk",
+      "20",
+      "20"
+     ]
+    ]
+   },
+   "stem": "The table shows drink sales at a school stall on one day. What was the total money taken, and which drink earned the most?",
+   "choices": [
+    "3,950 baht; coffee",
+    "3,850 baht; juice",
+    "3,950 baht; juice",
+    "140 baht; tea"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Money = price × cups: tea 1,000, coffee 1,050, juice 1,500, milk 400. Total = 3,950 baht, and juice earned the most.",
+    "th": "รายได้ = ราคา × จำนวนแก้ว ชา 1,000 กาแฟ 1,050 น้ำผลไม้ 1,500 นม 400 รวม 3,950 บาท น้ำผลไม้ได้มากที่สุด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "A rectangular tank is 40 cm long and 25 cm wide, with water 12 cm deep. A stone is dropped in and sinks, and the water rises to 15 cm. What is the volume of the stone?",
+   "choices": [
+    "12,000 cm³",
+    "15,000 cm³",
+    "3,000 cm³",
+    "300 cm³"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The stone pushes up the water by 15 − 12 = 3 cm. Volume of stone = 40 × 25 × 3 = 3,000 cm³.",
+    "th": "น้ำสูงขึ้น 15 − 12 = 3 ซม. ปริมาตรหิน = 40 × 25 × 3 = 3,000 ลบ.ซม."
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Which of these is true of ALL living things?",
+   "choices": [
+    "They have bones.",
+    "They make their own food.",
+    "They grow and reproduce.",
+    "They can move from place to place."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Every living thing grows and reproduces. Plants cannot walk about, animals do not make their own food, and many living things have no bones.",
+    "th": "สิ่งมีชีวิตทุกชนิดเจริญเติบโตและสืบพันธุ์ได้ พืชเคลื่อนที่ไปมาไม่ได้ สัตว์สร้างอาหารเองไม่ได้ และหลายชนิดไม่มีกระดูก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Which planet is closest to the Sun?",
+   "choices": [
+    "Venus",
+    "Mercury",
+    "Earth",
+    "Mars"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The order from the Sun is Mercury, Venus, Earth, Mars …, so Mercury is closest.",
+    "th": "ลำดับจากดวงอาทิตย์คือ พุธ ศุกร์ โลก อังคาร ดาวพุธจึงอยู่ใกล้ที่สุด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Which part of a cell controls the cell's activities?",
+   "choices": [
+    "The cell wall",
+    "The nucleus",
+    "The cytoplasm",
+    "The cell membrane"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The nucleus holds the genetic information and controls what the cell does. The membrane controls what enters and leaves.",
+    "th": "นิวเคลียสเก็บสารพันธุกรรมและควบคุมการทำงานของเซลล์ ส่วนเยื่อหุ้มเซลล์ควบคุมการผ่านเข้าออกของสาร"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Which of these is a mixture?",
+   "choices": [
+    "Pure water",
+    "Gold",
+    "Sea water",
+    "Oxygen gas"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Sea water is water with salts and other substances mixed in, so it is a mixture. Pure water, oxygen and gold are pure substances.",
+    "th": "น้ำทะเลมีน้ำ เกลือ และสารอื่นผสมกัน จึงเป็นสารผสม ส่วนน้ำบริสุทธิ์ ออกซิเจน และทองคำเป็นสารบริสุทธิ์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Where is most digested food absorbed into the blood?",
+   "choices": [
+    "The small intestine",
+    "The mouth",
+    "The large intestine",
+    "The stomach"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The small intestine is long and lined with tiny villi, which absorb most digested food into the blood. The large intestine mainly absorbs water.",
+    "th": "ลำไส้เล็กยาวและมีวิลลัสจำนวนมาก ดูดซึมสารอาหารเข้าสู่เลือดได้มากที่สุด ลำไส้ใหญ่ดูดซึมน้ำเป็นหลัก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "A bottle opener that lifts off a bottle cap is an example of which simple machine?",
+   "choices": [
+    "An inclined plane",
+    "A lever",
+    "A screw",
+    "A pulley"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The opener turns about a point (the fulcrum) on the cap, so a small force on the handle makes a bigger force on the cap: it is a lever.",
+    "th": "ที่เปิดขวดหมุนรอบจุดหมุนบนฝาขวด ใช้แรงน้อยที่ด้ามได้แรงมากที่ฝา จึงเป็นคาน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "A ball is thrown straight up. Which statement is true at its highest point?",
+   "choices": [
+    "Gravity stops acting on it.",
+    "Its kinetic energy is at its greatest.",
+    "Its speed is zero for a moment, and gravity is still pulling it down.",
+    "Its potential energy is at its lowest."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "At the top the ball stops for an instant (kinetic energy is lowest, potential energy highest), but gravity never switches off, so it falls back.",
+    "th": "ที่จุดสูงสุดลูกบอลหยุดชั่วขณะ (พลังงานจลน์ต่ำสุด พลังงานศักย์สูงสุด) แต่แรงโน้มถ่วงยังกระทำอยู่ จึงตกลงมา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": {
+    "title": "Average height after 14 days",
+    "rows": [
+     [
+      "Light colour",
+      "Height (cm)"
+     ],
+     [
+      "White",
+      "13.0"
+     ],
+     [
+      "Red",
+      "12.4"
+     ],
+     [
+      "Blue",
+      "11.8"
+     ],
+     [
+      "Green",
+      "4.1"
+     ]
+    ]
+   },
+   "stem": "Identical seedlings were grown for 14 days under lights of different colours (same brightness). Which explanation fits the data best?",
+   "choices": [
+    "Plants grow equally well in all colours of light.",
+    "Blue light stops photosynthesis completely.",
+    "Green light is the brightest, so plants grow most in it.",
+    "Leaves reflect most green light, so plants use little of it."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Growth in green light (4.1 cm) is much lower than in red, blue or white. Leaves look green because they reflect green light, so little of it is used for photosynthesis.",
+    "th": "ต้นกล้าภายใต้แสงสีเขียวโตน้อยที่สุด (4.1 ซม.) เพราะใบสะท้อนแสงสีเขียวเป็นส่วนใหญ่ จึงนำไปสังเคราะห์ด้วยแสงได้น้อย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Two identical bulbs are connected in parallel to a battery. If one bulb breaks, what happens to the other bulb?",
+   "choices": [
+    "It flashes on and off.",
+    "It goes out, because the circuit is broken.",
+    "It becomes much brighter and burns out.",
+    "It stays lit, because it still has its own complete path."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "In a parallel circuit each bulb is on its own branch. When one branch breaks, current still flows through the other branch, so that bulb stays lit.",
+    "th": "วงจรขนานแต่ละหลอดอยู่คนละสาขา เมื่อสาขาหนึ่งขาด กระแสยังไหลผ่านอีกสาขาได้ หลอดที่เหลือจึงยังสว่าง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "On a cool morning, a metal bench feels colder than a wooden bench, even though both are at the same temperature. Why?",
+   "choices": [
+    "Metal soaks up coldness from the air.",
+    "Metal is always at a lower temperature than wood.",
+    "Wood produces its own heat.",
+    "Metal conducts heat away from your hand faster than wood."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Both benches are at the same temperature. Metal is a good conductor, so it carries heat away from your skin quickly, which makes it feel colder. Wood is an insulator.",
+    "th": "ม้านั่งทั้งสองมีอุณหภูมิเท่ากัน แต่โลหะนำความร้อนได้ดี จึงดึงความร้อนจากมือออกไปเร็ว ทำให้รู้สึกเย็นกว่า ส่วนไม้เป็นฉนวน"
+   }
+  }
+ ]
+}

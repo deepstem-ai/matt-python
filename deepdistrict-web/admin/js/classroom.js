@@ -65,13 +65,21 @@
       setsCache = d.items;
       var el = $("[data-sets]"); if (!el) return;
       el.innerHTML = d.items.length ? d.items.map(function (x) {
-        return '<section class="box qset"><div class="qset__head"><div><h2>' + esc(x.title) + "</h2><p class=\"muted\">" + (x.kind === "sat" ? "SAT Reading & Writing" : "IELTS Academic Reading") + " · " + x.questions + L(" questions", " ข้อ") + " · " + L("answer order v", "ลำดับตัวเลือก v") + (x.variant || 1) + (x.note ? " · " + esc(x.note) : "") +
+        return '<section class="box qset"><div class="qset__head"><div><h2>' + esc(x.title) + "</h2><p class=\"muted\">" + ({ sat: "SAT Reading & Writing", "ielts-r": "IELTS Academic Reading", "ielts-w": "IELTS Academic Writing", m1: x.exam === "ep" ? "Suankularb M.1 · EP" : "Suankularb M.1 · GATE" }[x.kind] || x.kind) + " · " + x.questions + (x.kind === "ielts-w" ? L(" tasks", " งาน") : L(" questions", " ข้อ")) + (x.minutes ? " · " + x.minutes + L(" min", " นาที") : "") +
+          (x.source === "ready-made" ? " · " + L("ready-made", "ชุดสำเร็จรูป") : "") + (x.published ? " · ✅ " + L("open to learners", "เปิดให้นักเรียนทำ") : "") + " · " + L("answer order v", "ลำดับตัวเลือก v") + (x.variant || 1) + (x.note ? " · " + esc(x.note) : "") +
           " · " + L("updated ", "แก้ไข ") + esc(when(x.updatedAt)) + (A.isAdmin() && x.ownerName ? " · " + esc(x.ownerName) : "") + "</p></div>" +
-          '<div class="btnrow"><button class="btn btn--primary" data-live-set="' + esc(x.id) + '">▶ ' + L("Start live class", "เปิดห้องเรียนสด") + '</button><button class="btn" data-pdf-set="' + esc(x.id) + '" data-key="0">' + L("Student PDF (notes)", "PDF นักเรียน (ช่องโน้ต)") + '</button>' +
-          '<button class="btn" data-pdf-set="' + esc(x.id) + '" data-key="1">' + L("Teacher PDF (key)", "PDF ครู (เฉลย)") + '</button><button class="btn" data-reorder-set="' + esc(x.id) + '" title="' + esc(L("Same questions, answer options in a new order", "ข้อเดิม แต่สลับลำดับตัวเลือกใหม่")) + '">⇄ ' + L("New answer order", "สลับตัวเลือกใหม่") + '</button><button class="btn" data-edit-set="' + esc(x.id) + '">' + L("Edit", "แก้ไข") + "</button></div></div>" +
+          '<div class="btnrow">' + (x.kind === "ielts-w" ? "" : '<button class="btn btn--primary" data-live-set="' + esc(x.id) + '">▶ ' + L("Start live class", "เปิดห้องเรียนสด") + "</button>") + '<button class="btn" data-pdf-set="' + esc(x.id) + '" data-key="0">' + L("Student PDF (notes)", "PDF นักเรียน (ช่องโน้ต)") + '</button>' +
+          '<button class="btn" data-pdf-set="' + esc(x.id) + '" data-key="1">' + L("Teacher PDF (key)", "PDF ครู (เฉลย)") + '</button><button class="btn" data-reorder-set="' + esc(x.id) + '" title="' + esc(L("Same questions, answer options in a new order", "ข้อเดิม แต่สลับลำดับตัวเลือกใหม่")) + '">⇄ ' + L("New answer order", "สลับตัวเลือกใหม่") + '</button>' + (x.source === "ready-made" && !A.isAdmin() ? "" : '<button class="btn" data-pub-set="' + esc(x.id) + '" data-pub="' + (x.published ? 0 : 1) + '">' + (x.published ? L("Close to learners", "ปิดไม่ให้นักเรียนทำ") : L("Open to learners", "เปิดให้นักเรียนทำ")) + "</button>") +
+          (x.kind === "sat" || x.kind === "ielts-r" ? '<button class="btn" data-edit-set="' + esc(x.id) + '">' + L("Edit", "แก้ไข") + "</button>" : "") + "</div></div>" +
           '<details><summary>' + L("Questions in order", "รายการข้อตามลำดับ") + "</summary><ol class=\"qset__list\">" + x.items.map(function (i) { return "<li>" + esc(i.label) + (i.difficulty ? ' <small class="muted">' + esc(i.domain || "") + " · " + esc(i.difficulty) + "</small>" : "") + "</li>"; }).join("") + "</ol></details></section>";
       }).join("") : A.empty("No question sets yet.", "ยังไม่มีชุดข้อสอบ", '<button class="btn btn--primary" data-act="set-new">+ ' + L("New question set", "สร้างชุดข้อสอบ") + "</button>");
       $$("[data-live-set]", el).forEach(function (b) { b.addEventListener("click", function () { A.startLive(b.getAttribute("data-live-set")); }); });
+      $$("[data-pub-set]", el).forEach(function (b) {
+        b.addEventListener("click", function () {
+          var x = setsCache.filter(function (y) { return y.id === b.getAttribute("data-pub-set"); })[0];
+          A.api("POST", "qset/save", { id: x.id, title: x.title, published: b.getAttribute("data-pub") === "1" }).then(function () { drawSets(); }).catch(function (e) { A.toast(e.message, "err"); });
+        });
+      });
       $$("[data-reorder-set]", el).forEach(function (b) {
         b.addEventListener("click", function () {
           var x = setsCache.filter(function (y) { return y.id === b.getAttribute("data-reorder-set"); })[0];

@@ -1,0 +1,565 @@
+{
+ "exam": "ielts",
+ "set": 2,
+ "title": {
+  "en": "IELTS Academic — Practice test 2 (Reading + Writing)",
+  "th": "IELTS Academic — ชุดฝึก 2 (Reading + Writing)"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "Reading: 3 passages, 40 questions, 60 minutes. Writing: Task 1 + Task 2, 60 minutes. DeepDistrict practice — not an official IELTS test.",
+  "th": "Reading 3 บทความ 40 ข้อ 60 นาที · Writing Task 1 + Task 2 60 นาที — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบทางการ"
+ },
+ "items": [
+  {
+   "kind": "ielts-r",
+   "title": "Forests at the edge of the sea",
+   "difficulty": 1,
+   "paragraphs": [
+    "Along many tropical and subtropical coastlines, where rivers meet the sea, grow forests unlike any others. Mangroves are trees and shrubs that live in salty water, rooted in soft mud that is flooded by the tide twice a day. Few other trees can survive in such conditions, and for a long time mangrove areas were regarded as useless swamps, unpleasant to visit and difficult to cross. Large areas were cleared to make way for farms, ports, housing and ponds for raising shrimp. Today, scientists and coastal communities increasingly see mangroves in a very different light, as some of the most valuable ecosystems on the planet.",
+    "The first challenge for any plant growing in seawater is salt, which damages most plants by drawing water out of their cells. Mangrove species have developed several solutions. Some prevent most of the salt from entering in the first place, filtering it out at the surface of their roots. Others allow salt to enter but get rid of it through special glands on their leaves; on a dry day, small white salt crystals can sometimes be seen on the leaf surface. A third group stores salt in older leaves, which turn yellow and eventually fall, taking the salt with them.",
+    "The second challenge lies underground. The thick mud in which mangroves grow contains very little oxygen, which roots need in order to function. Some species solve this problem by sending up narrow, pencil-like roots that stick out above the mud, sometimes in their thousands around a single tree. These roots have tiny openings through which the tree can obtain oxygen directly from the air when the tide is low. Other species produce prop roots, which arch out from the trunk like the legs of a table and help to keep the tree stable in mud that would not otherwise support it.",
+    "Mangroves also have an unusual way of producing new plants. In many species, the seed begins to grow while it is still attached to the parent tree, forming a long, pointed seedling. When it is ready, the seedling drops. If it falls at low tide, it may push straight into the mud and begin to root. If it falls into the water, it floats, and it can survive for several weeks in seawater before it reaches a suitable place to settle. This allows mangroves to spread along coastlines and to colonise new mudbanks.",
+    "For people living on the coast, one of the most important services that mangroves provide is protection. The dense mass of roots and trunks slows down waves and reduces the force with which they reach the shore. The roots also trap sediment carried by rivers and tides, so that over time the level of the land may actually rise. After severe storms, villages that lay behind wide belts of mangroves have often suffered less damage than similar villages on open coasts. Researchers stress, however, that mangroves reduce the effects of storms rather than preventing them completely, and that a very large wave can pass through even a healthy forest.",
+    "Mangroves are also nurseries for marine life. The calm, shaded water among the roots provides shelter for young fish, crabs and shrimp, which would be eaten quickly in open water. Many of these animals move out to sea as they grow, so the health of offshore fisheries often depends on the survival of mangroves along the coast. In addition, the waterlogged mud beneath the trees stores large amounts of carbon, because dead leaves and roots decay very slowly when there is little oxygen.",
+    "Recognising these benefits, many countries have begun to replant mangroves, but the results have been mixed. In some projects, millions of seedlings were planted in places where mangroves had never grown naturally, such as mudflats that are covered by the sea for too long each day, and most of them died. Experience suggests that success depends less on the number of trees planted than on choosing the right location and the right species. The most successful projects often begin by restoring the natural flow of tidal water, for example by removing old walls built for shrimp ponds, and then allowing seedlings carried by the tide to settle by themselves."
+   ],
+   "groups": [
+    {
+     "type": "tfng",
+     "instructions": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.",
+     "questions": [
+      {
+       "text": "Mangroves can grow in conditions where most other trees cannot survive.",
+       "answer": [
+        "TRUE"
+       ]
+      },
+      {
+       "text": "Mangrove areas were traditionally protected because of their value to farmers.",
+       "answer": [
+        "FALSE"
+       ]
+      },
+      {
+       "text": "Salt crystals can sometimes be seen on the leaves of certain mangrove species.",
+       "answer": [
+        "TRUE"
+       ]
+      },
+      {
+       "text": "Mangrove seedlings die within a few hours if they fall into seawater.",
+       "answer": [
+        "FALSE"
+       ]
+      },
+      {
+       "text": "Mangrove wood is widely used by coastal communities for building boats.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      },
+      {
+       "text": "Planting seedlings is cheaper than restoring the natural flow of tidal water.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "table-completion",
+     "instructions": "Complete the table below. Choose ONE WORD ONLY from the passage for each answer.",
+     "wordLimit": {
+      "words": 1,
+      "number": false
+     },
+     "context": "How mangroves survive\nFeature | Description | Function\nSalt glands | found on the (7) ______ | remove salt from the plant\nPencil-like roots | stick out above the mud | allow the tree to obtain (8) ______\nProp roots | arch out from the trunk | keep the tree (9) ______ in soft mud\nSeedlings | float in seawater | can survive for several (10) ______ before settling",
+     "questions": [
+      {
+       "text": "(7) ______",
+       "answer": [
+        "leaves"
+       ]
+      },
+      {
+       "text": "(8) ______",
+       "answer": [
+        "oxygen"
+       ]
+      },
+      {
+       "text": "(9) ______",
+       "answer": [
+        "stable"
+       ]
+      },
+      {
+       "text": "(10) ______",
+       "answer": [
+        "weeks"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "mcq",
+     "instructions": "Choose the correct letter, A, B, C or D.",
+     "questions": [
+      {
+       "text": "According to paragraph E, mangrove roots can help to raise the level of the land by",
+       "options": [
+        {
+         "key": "A",
+         "text": "absorbing large amounts of rainwater."
+        },
+        {
+         "key": "B",
+         "text": "trapping sediment carried by rivers and tides."
+        },
+        {
+         "key": "C",
+         "text": "breaking up rocks along the shore."
+        },
+        {
+         "key": "D",
+         "text": "producing new soil from fallen leaves."
+        }
+       ],
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "Why are mangroves described as nurseries for marine life?",
+       "options": [
+        {
+         "key": "A",
+         "text": "They provide food for fish that live far out at sea."
+        },
+        {
+         "key": "B",
+         "text": "They keep the sea water cool during the hottest months."
+        },
+        {
+         "key": "C",
+         "text": "Young sea animals can shelter safely among their roots."
+        },
+        {
+         "key": "D",
+         "text": "Fishermen raise young fish there in special ponds."
+        }
+       ],
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "According to the writer, replanting projects are most likely to succeed when",
+       "options": [
+        {
+         "key": "A",
+         "text": "the natural movement of the tides is restored first."
+        },
+        {
+         "key": "B",
+         "text": "very large numbers of seedlings are planted quickly."
+        },
+        {
+         "key": "C",
+         "text": "seedlings are planted on mudflats far from the shore."
+        },
+        {
+         "key": "D",
+         "text": "only one species of mangrove is used."
+        }
+       ],
+       "answer": [
+        "A"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-r",
+   "title": "Telling the time before clocks",
+   "difficulty": 2,
+   "paragraphs": [
+    "Today it is almost impossible to escape the time. It appears on phones, computers, ovens and car dashboards, and most of us organise our days around appointments measured to the minute. For most of human history, however, there were no mechanical clocks at all. People who needed to divide the day into smaller parts had to rely on the movements of the sun and stars, or on processes such as the flow of water and the burning of fire. The devices they invented reveal a great deal of ingenuity, and they also tell us something about why, and for whom, precise time mattered.",
+    "The simplest method was to watch shadows. A vertical stick placed in the ground casts a shadow that changes in length and direction as the sun crosses the sky, and by marking these positions people created the first sundials. Sundials could be remarkably accurate, but they had obvious limitations: they were useless at night and on cloudy days. Their hours were also different from ours. Many early societies divided the period of daylight into a fixed number of equal parts, whatever its length, so an hour in summer was considerably longer than an hour in winter. To people who worked from sunrise to sunset, this seemed entirely natural.",
+    "At night, specialists turned to the sky. Over many generations, observers learned that particular stars rise above the horizon at predictable intervals through the night, and that the pattern shifts gradually through the year. By noting which stars had risen, a trained observer could estimate the hour with reasonable confidence. This method was valuable to priests, who needed to perform ceremonies at the correct moment, and to travellers, but it required clear skies and years of experience, and it was never available to ordinary people.",
+    "The water clock offered an answer to many of these problems, because it worked indoors, at night and in any weather. The earliest versions were simple vessels with a small hole near the bottom. As water dripped out, the level inside fell past a series of marks. The difficulty was that water escapes more slowly as the vessel empties, because there is less weight of water above the hole to push it out. Later designers found an elegant solution. They kept an upper vessel constantly full: water was poured in continuously, and any extra water escaped through an overflow channel, so the level remained the same. Water then dripped at a steady rate through a small hole into a lower vessel. As this vessel filled, a float on the surface rose, and a pointer attached to the float indicated the hour on a scale.",
+    "Fire provided another way of measuring time. Candles could be marked with evenly spaced lines, each of which took roughly the same time to burn. In parts of Asia, sticks of incense made from carefully prepared powder burned at a known rate, and they were used in temples and homes to mark the passing of the hours. Some incense clocks even worked as alarms: threads carrying small metal weights were tied across the incense stick, and when the glowing tip reached a thread and burned through it, the weights dropped noisily onto a metal plate below.",
+    "The hourglass, in which sand runs from one glass bulb into another, solved a problem that affected water clocks. Water can freeze in cold weather and flows less freely as it cools, whereas dry sand is hardly affected by changes in temperature. The hourglass was also well suited to ships, where the constant movement of the deck made a water clock unreliable. Sailors used small sand glasses, together with a rope tied with knots at regular intervals, to estimate the speed of their vessel, and larger glasses to divide the day into periods of duty.",
+    "What these devices have in common is that each was designed for a particular group with particular needs. Priests needed to know when to pray, courts in some ancient cities used water clocks to limit the length of speeches, and sailors needed to calculate their position. Most people, by contrast, lived by daylight, by the needs of their animals and crops, and by the ringing of local bells. The arrival of the mechanical clock gradually spread the idea of equal hours throughout society, yet the older methods did not disappear quickly; in many places sundials and sand glasses remained in everyday use for centuries afterwards."
+   ],
+   "groups": [
+    {
+     "type": "headings",
+     "instructions": "Reading Passage 2 has seven paragraphs, A–G. Choose the correct heading for paragraphs B–G from the list of headings below.",
+     "options": [
+      {
+       "key": "i",
+       "text": "Measuring time by burning"
+      },
+      {
+       "key": "ii",
+       "text": "Using the sun and its limitations"
+      },
+      {
+       "key": "iii",
+       "text": "The invention of the pendulum"
+      },
+      {
+       "key": "iv",
+       "text": "Reading the night sky"
+      },
+      {
+       "key": "v",
+       "text": "How early clocks were decorated"
+      },
+      {
+       "key": "vi",
+       "text": "Solving the problem of an uneven flow"
+      },
+      {
+       "key": "vii",
+       "text": "A device suited to life at sea"
+      },
+      {
+       "key": "viii",
+       "text": "Why precise time mattered only to some groups"
+      },
+      {
+       "key": "ix",
+       "text": "The high cost of early timekeeping"
+      }
+     ],
+     "questions": [
+      {
+       "text": "Paragraph B",
+       "answer": [
+        "ii"
+       ]
+      },
+      {
+       "text": "Paragraph C",
+       "answer": [
+        "iv"
+       ]
+      },
+      {
+       "text": "Paragraph D",
+       "answer": [
+        "vi"
+       ]
+      },
+      {
+       "text": "Paragraph E",
+       "answer": [
+        "i"
+       ]
+      },
+      {
+       "text": "Paragraph F",
+       "answer": [
+        "vii"
+       ]
+      },
+      {
+       "text": "Paragraph G",
+       "answer": [
+        "viii"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "flowchart-completion",
+     "instructions": "Complete the flow-chart below. Choose ONE WORD ONLY from the passage for each answer.",
+     "wordLimit": {
+      "words": 1,
+      "number": false
+     },
+     "context": "An improved water clock\nWater is poured continuously into the upper vessel.\n↓\nExtra water escapes through an (20) ______ channel, so the level stays the same.\n↓\nWater drips at a steady rate through a small (21) ______ into the lower vessel.\n↓\nA (22) ______ on the surface of the water in the lower vessel rises.\n↓\nA (23) ______ attached to it shows the hour on a scale.",
+     "questions": [
+      {
+       "text": "(20) ______",
+       "answer": [
+        "overflow"
+       ]
+      },
+      {
+       "text": "(21) ______",
+       "answer": [
+        "hole"
+       ]
+      },
+      {
+       "text": "(22) ______",
+       "answer": [
+        "float"
+       ]
+      },
+      {
+       "text": "(23) ______",
+       "answer": [
+        "pointer"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "mcq-multi",
+     "instructions": "Choose THREE letters, A–G.",
+     "questions": [
+      {
+       "text": "Which THREE of the following problems with early methods of telling the time are mentioned in the passage?",
+       "options": [
+        {
+         "key": "A",
+         "text": "Sundials could not be used without sunlight."
+        },
+        {
+         "key": "B",
+         "text": "Observing the stars required clear skies."
+        },
+        {
+         "key": "C",
+         "text": "Water in clocks could freeze in cold weather."
+        },
+        {
+         "key": "D",
+         "text": "Sand for hourglasses was expensive to obtain."
+        },
+        {
+         "key": "E",
+         "text": "Candles produced too much smoke to be used indoors."
+        },
+        {
+         "key": "F",
+         "text": "Incense clocks were not permitted in private homes."
+        },
+        {
+         "key": "G",
+         "text": "Hourglasses stopped working on moving ships."
+        }
+       ],
+       "answer": [
+        "A",
+        "B",
+        "C"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-r",
+   "title": "The uses of boredom",
+   "difficulty": 3,
+   "paragraphs": [
+    "Boredom has a poor reputation. It is usually treated as a problem to be solved as quickly as possible, whether by parents searching for activities to occupy restless children or by adults reaching for their phones in a queue. For the first time in history, it has become possible for many people never to be bored at all, since an endless supply of entertainment is always within reach. This is generally regarded as progress. I want to argue that it is a more mixed blessing than it appears, and that the near-disappearance of boredom from everyday life may carry costs that we are only beginning to recognise.",
+    "It helps to be clear about what boredom is. Psychologists generally describe it as an unpleasant state in which a person wants to be engaged in something satisfying but is unable to find it. This distinguishes boredom from relaxation, which is pleasant precisely because nothing is demanded of us. The distinction matters, because it suggests that boredom is not simply the absence of activity. Several psychologists have proposed that it works as a signal, rather like hunger or pain: just as hunger tells us that we need food, boredom tells us that what we are currently doing is not meeting our needs and that we should look for something more meaningful.",
+    "Neuroscientists have added a further dimension to this picture. When people are not concentrating on an external task, the brain does not simply switch off. Instead, a group of connected regions becomes more active, and this activity is associated with remembering past events, imagining the future and letting the mind wander from one thought to another. The period of apparent idleness that we experience as boredom may therefore be one in which the brain is busy organising experience and making unexpected connections.",
+    "This possibility has been explored in experiments on creativity. In a typical study, one group of participants first completes a deliberately dull task, such as copying numbers from a telephone directory, while a second group goes straight to the main task. Both groups are then asked to list as many uses as they can for an everyday object, such as a cup or a brick. In several studies of this kind, the participants who had been bored produced more ideas, and more unusual ones. These results should be treated with some caution. Most of the studies have been small, the effects have been modest, and laboratory tasks are very different from the creative work people do in real life. Nonetheless, the pattern has appeared often enough to be taken seriously.",
+    "If boredom does have value, then one feature of modern life deserves closer attention. The designers of digital products, from games to social media, work hard to capture and hold attention, and they are very good at it. Feeds that never end and videos that start playing automatically ensure that users need never face an empty moment. The boredom signal is now answered almost instantly, but rarely with anything that satisfies it. The result is a curious state in which people are constantly stimulated yet often report feeling restless and unfulfilled.",
+    "Teachers are divided on what this means for education. Some worry that pupils who have rarely had to tolerate boredom lack the patience needed for demanding tasks, such as reading a long novel or working through a difficult problem, which inevitably involve stretches of effort without immediate reward. Others reply that if pupils are bored in class, the fault usually lies with lessons that are poorly designed, and that it is unfair to blame children for losing interest. Both positions seem to me partly right. A good lesson should not be boring, but no worthwhile learning is entirely free of moments that require persistence.",
+    "Historians offer a reminder that boredom, as we understand it, is closely connected with freedom. They note that complaints about boredom became much more common as larger numbers of people gained leisure time and a choice of how to spend it. People whose days are filled with the struggle to survive have little opportunity to be bored. In this sense, boredom is a problem that only becomes possible when life offers alternatives, and the ability to deal with it is part of learning how to use freedom well.",
+    "None of this means that we should seek out boredom in large doses. Long-term boredom, especially at work, is associated with poor well-being, and nobody benefits from being trapped for years in a role that offers no satisfaction. My suggestion is more modest. It is that we should stop filling every small gap in the day automatically: that we might occasionally take a walk without headphones, or wait for a train without looking at a screen. The aim is not to suffer, but to give the mind enough room to notice what it actually wants."
+   ],
+   "groups": [
+    {
+     "type": "matching-features",
+     "instructions": "Look at the following statements and the list of groups below. Match each statement with the correct group, A–F.",
+     "options": [
+      {
+       "key": "A",
+       "text": "psychologists"
+      },
+      {
+       "key": "B",
+       "text": "neuroscientists"
+      },
+      {
+       "key": "C",
+       "text": "designers of digital products"
+      },
+      {
+       "key": "D",
+       "text": "teachers"
+      },
+      {
+       "key": "E",
+       "text": "historians"
+      },
+      {
+       "key": "F",
+       "text": "economists"
+      }
+     ],
+     "questions": [
+      {
+       "text": "They suggest that boredom indicates that a current activity is not satisfying a person's needs.",
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "They have found that parts of the brain become more active when a person is not focused on a task.",
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "They try to ensure that people are never left without something to occupy them.",
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "They disagree about who should be blamed when pupils lose interest.",
+       "answer": [
+        "D"
+       ]
+      },
+      {
+       "text": "They connect the growth of boredom with an increase in free time.",
+       "answer": [
+        "E"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "ynng",
+     "instructions": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.",
+     "questions": [
+      {
+       "text": "The fact that many people need never be bored is entirely a positive development.",
+       "answer": [
+        "NO"
+       ]
+      },
+      {
+       "text": "Boredom should be distinguished from relaxation.",
+       "answer": [
+        "YES"
+       ]
+      },
+      {
+       "text": "The results of the creativity experiments should be accepted with some care.",
+       "answer": [
+        "YES"
+       ]
+      },
+      {
+       "text": "People who use social media frequently are less creative than those who do not.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      },
+      {
+       "text": "People should try to experience boredom for long periods.",
+       "answer": [
+        "NO"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "summary-completion",
+     "instructions": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+     "wordLimit": {
+      "words": 2,
+      "number": false
+     },
+     "context": "Boredom and creativity\nIn one kind of experiment, some participants first complete a dull task, such as (37) ______ from a telephone directory. All participants are then asked to think of uses for an everyday (38) ______. Those who were bored tend to produce more ideas. The writer recommends leaving small gaps in the day, for example by taking a (39) ______ without headphones, while recognising that long-term boredom is linked with poor (40) ______.",
+     "questions": [
+      {
+       "text": "(37) ______",
+       "answer": [
+        "copying numbers"
+       ]
+      },
+      {
+       "text": "(38) ______",
+       "answer": [
+        "object"
+       ]
+      },
+      {
+       "text": "(39) ______",
+       "answer": [
+        "walk"
+       ]
+      },
+      {
+       "text": "(40) ______",
+       "answer": [
+        "well-being",
+        "wellbeing"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-w",
+   "task": 1,
+   "visual": "table",
+   "prompt": "The table below shows the number of visitors to four types of tourist attraction in one city in 2015, 2020 and 2025.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.",
+   "table": {
+    "title": "Visitors to tourist attractions (thousands)",
+    "rows": [
+     [
+      "Type of attraction",
+      "2015",
+      "2020",
+      "2025"
+     ],
+     [
+      "Museums and galleries",
+      "420",
+      "180",
+      "510"
+     ],
+     [
+      "Theme parks",
+      "650",
+      "240",
+      "720"
+     ],
+     [
+      "Zoos and aquariums",
+      "310",
+      "150",
+      "280"
+     ],
+     [
+      "Historic sites",
+      "280",
+      "120",
+      "390"
+     ],
+     [
+      "All attractions",
+      "1,660",
+      "690",
+      "1,900"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "ielts-w",
+   "task": 2,
+   "essayType": "problem-solution",
+   "prompt": "In many large cities, young adults are finding it increasingly difficult to afford a home of their own.\n\nWhat problems does this cause? What measures could be taken to solve these problems?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words."
+  }
+ ]
+}

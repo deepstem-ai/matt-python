@@ -79,7 +79,7 @@
      Zoom, Line Reader, Highlights & Notes. Kept in this browser only (they are the learner's own marks). */
   var zoom = 1, lineOn = false, notesOpen = false;
   function store(k, v) { try { if (v === undefined) return JSON.parse(localStorage.getItem("dd-ex-" + id + "-" + k) || "null"); localStorage.setItem("dd-ex-" + id + "-" + k, JSON.stringify(v)); } catch (e) { return null; } }
-  function curKey() { if (!A || A.status !== "active") return null; var it = sec().items; return A.kind === "sat" ? (it[idx] || {}).id : A.kind === "ielts-r" ? (it[part] || {}).id : null; }
+  function curKey() { if (!A || A.status !== "active") return null; var it = sec().items; return choiceKind() ? (it[idx] || {}).id : A.kind === "ielts-r" ? (it[part] || {}).id : null; }
   function toolbar() {
     if (A.kind === "ielts-w") return "";
     return '<div class="ex-tools"><button type="button" class="ex-link" data-tool="hl" title="' + esc(L("Select text in the passage, then press Highlight", "เลือกข้อความในบทอ่าน แล้วกด ไฮไลต์")) + '">🖍 ' + L("Highlight", "ไฮไลต์") + '</button>' +
@@ -123,11 +123,14 @@
   document.addEventListener("mousemove", function (e) { var lr = $("[data-linereader]"); if (lr && !lr.hidden) lr.style.top = (e.clientY - 22) + "px"; });
 
   /* ---------------------------------------------------------------- shell */
-  var KN = { sat: "SAT Reading and Writing", "ielts-r": "IELTS Academic Reading", "ielts-w": "IELTS Academic Writing" };
+  var KN = { sat: "SAT Reading and Writing", "ielts-r": "IELTS Academic Reading", "ielts-w": "IELTS Academic Writing", m1: "Suankularb M.1 entrance" };
+  var SUBJ = { math: ["Mathematics", "คณิตศาสตร์"], sci: ["Science", "วิทยาศาสตร์"], eng: ["English", "ภาษาอังกฤษ"], thai: ["Thai", "ภาษาไทย"] };
+  function choiceKind() { return A.kind === "sat" || A.kind === "m1"; }
+  function m1Name() { var it = ((A.sections[0] || {}).items || [])[0] || {}; return it.program === "ep" ? "Suankularb M.1 · English Program (EPLUS+)" : it.program === "gate" ? L("Suankularb M.1 · GATE Program", "สวนกุหลาบ ม.1 · GATE Program") : KN.m1; }
   function shell(main, foot) {
     var active = A.status === "active";
-    root.innerHTML = '<header class="ex-top"><div><b>' + esc(KN[A.kind]) + "</b>" + (A.preview ? ' <span class="ex-tag">' + L("staff preview", "ทดลองโดยเจ้าหน้าที่") + "</span>" : "") +
-      "<br><small>" + esc(active ? sec().title : (A.mode === "mock" ? L("Full test", "ข้อสอบเต็ม") : L("Practice", "ฝึกทำ")) + " · " + L("results", "ผลสอบ")) + "</small></div>" +
+    root.innerHTML = '<header class="ex-top"><div><b>' + esc(A.kind === "m1" ? m1Name() : KN[A.kind]) + "</b>" + (A.preview ? ' <span class="ex-tag">' + L("staff preview", "ทดลองโดยเจ้าหน้าที่") + "</span>" : "") +
+      "<br><small>" + esc(active ? sec().title : (A.mode === "set" ? (A.sections[0] || {}).title : A.mode === "mock" ? L("Full test", "ข้อสอบเต็ม") : L("Practice", "ฝึกทำ")) + " · " + L("results", "ผลสอบ")) + "</small></div>" +
       (active ? '<div class="ex-timer"><span data-time></span><button type="button" class="ex-link" data-hide>' + (hideTime ? L("Show time", "แสดงเวลา") : L("Hide", "ซ่อน")) + "</button></div>" : "") +
       '<div class="ex-right">' + (active ? '<span class="ex-save" data-save></span>' : "") + '<a class="ex-link" href="index.html#/tests" data-leave>' + (active ? L("Leave (time keeps running)", "ออก (เวลายังเดินต่อ)") : L("Back to Tests", "กลับไปหน้าข้อสอบ")) + "</a></div></header>" +
       (active ? toolbar() : "") + '<main class="ex-main ex-main--' + A.kind + '">' + main + "</main>" + (foot ? '<footer class="ex-foot">' + foot + "</footer>" : "") +
@@ -139,7 +142,7 @@
   }
   function draw() {
     clearInterval(timer);
-    if (A.status === "active") { timer = setInterval(tick, 1000); A.kind === "sat" ? drawSat() : A.kind === "ielts-r" ? drawReading() : drawWriting(); }
+    if (A.status === "active") { timer = setInterval(tick, 1000); choiceKind() ? drawSat() : A.kind === "ielts-r" ? drawReading() : drawWriting(); }
     else drawResult();
   }
   function table(t) { return t && t.rows && t.rows.length ? '<div class="ex-table">' + (t.title ? "<b>" + esc(t.title) + "</b>" : "") + "<table>" + t.rows.map(function (r, i) { return "<tr>" + r.map(function (c) { return i ? "<td>" + esc(c) + "</td>" : "<th>" + esc(c) + "</th>"; }).join("") + "</tr>"; }).join("") + "</table></div>" : ""; }
@@ -156,8 +159,9 @@
       bindNav(); return;
     }
     var it = items[idx], ans = answers()[it.id], marked = !!sec().marked[it.id], struck = sec().struck[it.id] || [];
-    shell('<section class="ex-pane ex-passage">' + passageText(it.passage) + table(it.table) + (it.image ? '<img class="ex-diagram" src="' + esc(it.image) + '" alt="">' : "") + "</section>" +
-      '<section class="ex-pane ex-q"><div class="ex-qhead"><span class="ex-num">' + (idx + 1) + '</span><button type="button" class="ex-mark' + (marked ? " on" : "") + '" data-flag>⚑ ' + L("Mark for review", "ทำเครื่องหมายทบทวน") + "</button>" +
+    var hasPassage = !!(it.passage || (it.table && it.table.rows) || it.image);
+    shell((hasPassage ? '<section class="ex-pane ex-passage">' + passageText(it.passage || "") + table(it.table) + (it.image ? '<img class="ex-diagram" src="' + esc(it.image) + '" alt="">' : "") + "</section>" : "") +
+      '<section class="ex-pane ex-q' + (hasPassage ? "" : " ex-q--solo") + '"><div class="ex-qhead"><span class="ex-num">' + (idx + 1) + '</span>' + (it.subject && SUBJ[it.subject] ? '<span class="ex-subj">' + L(SUBJ[it.subject][0], SUBJ[it.subject][1]) + "</span>" : "") + '<button type="button" class="ex-mark' + (marked ? " on" : "") + '" data-flag>⚑ ' + L("Mark for review", "ทำเครื่องหมายทบทวน") + "</button>" +
       '<button type="button" class="ex-link" data-elim title="' + esc(L("Cross out choices you think are wrong", "ขีดฆ่าตัวเลือกที่คิดว่าผิด")) + '">A̶B̶C̶</button></div><p class="ex-stem">' + esc(it.stem) + "</p>" +
       '<div class="ex-choices">' + it.choices.map(function (c, i) {
         return '<div class="ex-choice' + (String(i) === ans ? " sel" : "") + (struck.indexOf(String(i)) !== -1 ? " struck" : "") + '"><button type="button" data-choice="' + i + '"><b>' + LET[i] + "</b><span>" + esc(c) + "</span></button>" +
@@ -251,7 +255,17 @@
   /* ---------------------------------------------------------------- results & review */
   function drawResult() {
     var r = A.result || {}, html = "";
-    if (A.kind === "sat") {
+    if (A.kind === "m1") {
+      html = '<div class="ex-score"><b>' + r.percent + "%</b><span>" + r.correct + "/" + r.total + " " + L("correct", "ข้อที่ถูก") + "</span></div>" +
+        '<div class="ex-doms">' + Object.keys(r.bySubject || {}).map(function (k) { var x = r.bySubject[k]; return "<div><span>" + esc(SUBJ[k] ? L(SUBJ[k][0], SUBJ[k][1]) : k) + "</span><b>" + x.c + "/" + x.t + '</b><i style="width:' + Math.round(x.c / x.t * 100) + '%"></i></div>'; }).join("") + "</div>";
+      if (A.review) html += A.sections.map(function (s) {
+        return (s.items || []).map(function (it, i) {
+          var a = s.answers[it.id], ok = a === String(it.answer);
+          return '<details class="ex-rev ' + (ok ? "ok" : "bad") + '"><summary><b>' + (i + 1) + "</b> " + (ok ? "✓" : "✗") + " " + esc(it.stem) + "</summary>" + (it.passage ? passageText(it.passage) : "") + table(it.table) + (it.image ? '<img class="ex-diagram" src="' + esc(it.image) + '" alt="">' : "") +
+            "<ol type=A>" + it.choices.map(function (c, k) { return '<li class="' + (k === it.answer ? "right" : String(k) === a ? "wrong" : "") + '">' + esc(c) + "</li>"; }).join("") + "</ol><p>" + esc(lang === "th" ? it.explanation.th || it.explanation.en : it.explanation.en || it.explanation.th) + "</p></details>";
+        }).join("");
+      }).join("");
+    } else if (A.kind === "sat") {
       html = '<div class="ex-score">' + (r.estimate ? "<b>" + r.estimate + "</b><span>" + L("estimated Reading and Writing score (200–800)", "คะแนน Reading and Writing โดยประมาณ (200–800)") + "</span>" : "<b>" + r.correct + "/" + r.total + "</b><span>" + L("correct", "ข้อที่ถูก") + "</span>") + "</div>" +
         (r.modules ? '<p class="ex-sub">' + r.modules.map(function (m) { return (m.key === "m1" ? L("Module 1", "โมดูล 1") : m.key === "m2" ? L("Module 2", "โมดูล 2") : L("Practice", "ฝึกทำ")) + ": " + m.correct + "/" + m.total; }).join(" · ") +
           (r.route ? " · " + L("module 2 was the ", "โมดูล 2 เป็นชุด") + (r.route === "hard" ? L("harder set", "ยาก") : L("easier set (our unofficial estimate of the ceiling: about " + r.ceiling + ")", "ง่าย (เพดานคะแนนประมาณ " + r.ceiling + " เป็นค่าประมาณของเรา ไม่ใช่ตัวเลขทางการ)")) : "") + "</p>" : "") +
@@ -353,7 +367,7 @@
   if (!id) { root.innerHTML = '<div class="ex-msg"><p><a class="btn" href="index.html#/tests">' + L("Back to Tests", "กลับไปหน้าข้อสอบ") + "</a></p></div>"; return; }
   load().then(function () { var f = markMode && $("[data-markform]"); if (f) f.scrollIntoView(); });
   document.addEventListener("keydown", function (e) {
-    if (!A || A.status !== "active" || A.kind !== "sat" || view !== "q" || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
+    if (!A || A.status !== "active" || !choiceKind() || view !== "q" || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) return;
     if (e.key === "ArrowRight") { var n = $("[data-next]"); if (n) n.click(); }
     if (e.key === "ArrowLeft") { var p = $("[data-prev]"); if (p) p.click(); }
     var k = "abcd".indexOf(e.key.toLowerCase()); if (k !== -1) { var c = $('[data-choice="' + k + '"]'); if (c) c.click(); }

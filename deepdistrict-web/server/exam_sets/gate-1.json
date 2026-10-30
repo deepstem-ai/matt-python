@@ -1,0 +1,851 @@
+{
+ "exam": "gate",
+ "set": 1,
+ "title": {
+  "en": "Suankularb M.1 GATE Program — Practice set 1",
+  "th": "สวนกุหลาบ ม.1 GATE Program — ชุดฝึก 1"
+ },
+ "minutes": 90,
+ "note": {
+  "en": "40 questions: Mathematics 15, Science 15, English 5, Thai 5. DeepDistrict practice format based on the school's published subjects — not an official or past paper.",
+  "th": "40 ข้อ: คณิตศาสตร์ 15 วิทยาศาสตร์ 15 ภาษาอังกฤษ 5 ภาษาไทย 5 — แบบฝึกของ DeepDistrict ตามวิชาที่โรงเรียนประกาศ ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "ห.ร.ม. ของ 84 และ 126 เท่ากับเท่าใด",
+   "choices": [
+    "252",
+    "42",
+    "14",
+    "21"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "84 = 2²×3×7 and 126 = 2×3²×7. The HCF takes the common primes with the smaller powers: 2×3×7 = 42. (252 is the LCM, not the HCF.)",
+    "th": "84 = 2²×3×7 และ 126 = 2×3²×7 ห.ร.ม. คือผลคูณของตัวประกอบเฉพาะที่ซ้ำกันโดยใช้เลขชี้กำลังน้อยกว่า = 2×3×7 = 42 (252 คือ ค.ร.น. ไม่ใช่ ห.ร.ม.)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "2 1/3 + 1 3/4 − 5/6 มีค่าเท่าใด",
+   "choices": [
+    "3 5/12",
+    "2 3/4",
+    "3 1/2",
+    "3 1/4"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Use denominator 12: 28/12 + 21/12 − 10/12 = 39/12 = 13/4 = 3 1/4.",
+    "th": "ทำตัวส่วนเป็น 12: 28/12 + 21/12 − 10/12 = 39/12 = 13/4 = 3 1/4"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "เสื้อตัวหนึ่งติดราคา 800 บาท ร้านลดราคา 15% แล้วลดเพิ่มอีก 10% จากราคาที่ลดแล้ว ผู้ซื้อต้องจ่ายเงินกี่บาท",
+   "choices": [
+    "620",
+    "680",
+    "600",
+    "612"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "After 15% off: 800 × 0.85 = 680 baht. Another 10% off 680: 680 × 0.9 = 612 baht. Adding the discounts to 25% would wrongly give 600.",
+    "th": "ลด 15%: 800 × 0.85 = 680 บาท ลดอีก 10% ของ 680: 680 × 0.9 = 612 บาท (ถ้านำส่วนลดมาบวกกันเป็น 25% จะได้ 600 ซึ่งผิด)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "จำนวนนับที่น้อยที่สุดซึ่งมากกว่า 100 เมื่อหารด้วย 4, 5 และ 6 เหลือเศษ 3 ทุกครั้ง และหารด้วย 7 ลงตัว คือจำนวนใด",
+   "choices": [
+    "423",
+    "483",
+    "363",
+    "123"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The number is 3 more than a multiple of LCM(4,5,6) = 60, so it is 60k + 3: 123, 183, 243, 303, 363, 423, 483 … The first one divisible by 7 is 483 = 7 × 69.",
+    "th": "จำนวนนั้นต้องเท่ากับพหุคูณของ ค.ร.น.(4,5,6) = 60 บวก 3 คือ 60k + 3 ได้ 123, 183, 243, 303, 363, 423, 483 … ตัวแรกที่หารด้วย 7 ลงตัวคือ 483 = 7 × 69"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "เงิน 620 บาท แบ่งให้ ก ข และ ค โดย อัตราส่วนเงินของ ก : ข = 3 : 4 และ ข : ค = 6 : 5 ค ได้เงินกี่บาท",
+   "choices": [
+    "240",
+    "180",
+    "200",
+    "250"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Make B the same in both ratios: A:B = 9:12 and B:C = 12:10, so A:B:C = 9:12:10 (total 31 parts). One part = 620 ÷ 31 = 20, so C gets 10 × 20 = 200 baht.",
+    "th": "ทำให้ ข เท่ากัน: ก:ข = 9:12 และ ข:ค = 12:10 จึงได้ ก:ข:ค = 9:12:10 รวม 31 ส่วน ส่วนละ 620 ÷ 31 = 20 บาท ค ได้ 10 × 20 = 200 บาท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "รถยนต์คันหนึ่งขับจากเมือง ก ไปเมือง ข ด้วยอัตราเร็ว 60 กิโลเมตรต่อชั่วโมง และขับกลับทางเดิมด้วยอัตราเร็ว 40 กิโลเมตรต่อชั่วโมง อัตราเร็วเฉลี่ยตลอดการเดินทางไป–กลับเป็นกี่กิโลเมตรต่อชั่วโมง",
+   "choices": [
+    "48",
+    "45",
+    "52",
+    "50"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Average speed = total distance ÷ total time, not the mean of the speeds. Take the distance as 120 km: time = 2 h + 3 h = 5 h, total 240 km, so 240 ÷ 5 = 48 km/h.",
+    "th": "อัตราเร็วเฉลี่ย = ระยะทางทั้งหมด ÷ เวลาทั้งหมด ไม่ใช่ค่าเฉลี่ยของอัตราเร็ว สมมติระยะทาง 120 กม. ไปใช้ 2 ชม. กลับใช้ 3 ชม. รวม 240 กม. ใน 5 ชม. ได้ 240 ÷ 5 = 48 กม./ชม."
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "แดงทำงานชิ้นหนึ่งคนเดียวเสร็จใน 12 วัน ดำทำคนเดียวเสร็จใน 18 วัน ทั้งสองช่วยกันทำ 4 วัน แล้วแดงหยุดไป ดำทำต่อจนเสร็จ งานชิ้นนี้ใช้เวลาทั้งหมดกี่วัน",
+   "choices": [
+    "8",
+    "12",
+    "10",
+    "7 1/5"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Together they do 1/12 + 1/18 = 5/36 of the job per day; in 4 days that is 20/36 = 5/9. The remaining 4/9 takes Dam 4/9 × 18 = 8 days. Total = 4 + 8 = 12 days.",
+    "th": "ช่วยกันทำได้วันละ 1/12 + 1/18 = 5/36 ของงาน 4 วันได้ 20/36 = 5/9 เหลือ 4/9 ดำทำคนเดียวใช้ 4/9 × 18 = 8 วัน รวมทั้งหมด 4 + 8 = 12 วัน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "แบบรูปของจำนวน 2, 5, 10, 17, 26, … พจน์ที่ 20 คือจำนวนใด",
+   "choices": [
+    "362",
+    "441",
+    "401",
+    "400"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The differences are 3, 5, 7, 9, … so the n-th term is n² + 1 (1+1, 4+1, 9+1, …). The 20th term = 20² + 1 = 401.",
+    "th": "ผลต่างเป็น 3, 5, 7, 9, … พจน์ที่ n คือ n² + 1 (1+1, 4+1, 9+1, …) พจน์ที่ 20 = 20² + 1 = 401"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "รูปหลายเหลี่ยมด้านเท่ามุมเท่ารูปหนึ่งมีมุมภายในมุมละ 140° รูปนี้มีเส้นทแยงมุมทั้งหมดกี่เส้น",
+   "choices": [
+    "18",
+    "27",
+    "36",
+    "9"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Each exterior angle is 180° − 140° = 40°, so there are 360° ÷ 40° = 9 sides. Diagonals = n(n − 3) ÷ 2 = 9 × 6 ÷ 2 = 27.",
+    "th": "มุมภายนอกมุมละ 180° − 140° = 40° จึงมี 360° ÷ 40° = 9 ด้าน จำนวนเส้นทแยงมุม = n(n − 3) ÷ 2 = 9 × 6 ÷ 2 = 27 เส้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "นำเลขโดด 0, 1, 2, 3, 4 มาเขียนเป็นจำนวนสามหลักที่เป็นจำนวนคู่ โดยใช้เลขโดดไม่ซ้ำกัน ได้ทั้งหมดกี่จำนวน",
+   "choices": [
+    "48",
+    "30",
+    "36",
+    "24"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Ending in 0: the hundreds digit has 4 choices and the tens 3 → 12. Ending in 2 or 4: the hundreds digit cannot be 0 or the last digit → 3 choices, tens 3 choices → 2 × 9 = 18. Total 12 + 18 = 30.",
+    "th": "หลักหน่วยเป็น 0: หลักร้อยเลือกได้ 4 แบบ หลักสิบ 3 แบบ ได้ 12 จำนวน หลักหน่วยเป็น 2 หรือ 4: หลักร้อยห้ามเป็น 0 และห้ามซ้ำหลักหน่วย เหลือ 3 แบบ หลักสิบ 3 แบบ ได้ 2 × 9 = 18 จำนวน รวม 12 + 18 = 30 จำนวน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "รูปสี่เหลี่ยมจัตุรัสยาวด้านละ 14 เซนติเมตร ที่มุมทั้งสี่วาดส่วนของวงกลม (เสี้ยววงกลม 1/4) รัศมี 7 เซนติเมตร โดยมีจุดศูนย์กลางที่มุมแต่ละมุม พื้นที่ส่วนของจัตุรัสที่ไม่อยู่ในเสี้ยววงกลมใด ๆ เป็นกี่ตารางเซนติเมตร (ใช้ π ≈ 22/7)",
+   "choices": [
+    "56",
+    "42",
+    "49",
+    "154"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Four quarter circles of radius 7 make one full circle: 22/7 × 7 × 7 = 154 cm². The square is 14 × 14 = 196 cm². Uncovered area = 196 − 154 = 42 cm².",
+    "th": "เสี้ยววงกลม 4 ชิ้นรัศมี 7 รวมกันเป็นวงกลม 1 วง พื้นที่ 22/7 × 7 × 7 = 154 ตร.ซม. จัตุรัสมีพื้นที่ 14 × 14 = 196 ตร.ซม. ส่วนที่เหลือ = 196 − 154 = 42 ตร.ซม."
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ตู้ปลาทรงสี่เหลี่ยมมุมฉาก กว้าง 40 ซม. ยาว 50 ซม. สูง 30 ซม. มีน้ำสูง 20 ซม. นำลูกบาศก์โลหะขนาด 5 × 5 × 5 ซม. จำนวน 12 ลูก ใส่ลงไปจมมิดน้ำ ระดับน้ำใหม่สูงกี่เซนติเมตร",
+   "choices": [
+    "20.6",
+    "21.5",
+    "20.75",
+    "21"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Water volume = 50 × 40 × 20 = 40,000 cm³. The cubes add 12 × 125 = 1,500 cm³. New height = 41,500 ÷ (50 × 40) = 41,500 ÷ 2,000 = 20.75 cm (a rise of 0.75 cm).",
+    "th": "ปริมาตรน้ำ = 50 × 40 × 20 = 40,000 ลบ.ซม. ลูกบาศก์เพิ่มปริมาตร 12 × 125 = 1,500 ลบ.ซม. ความสูงใหม่ = 41,500 ÷ (50 × 40) = 20.75 ซม. (สูงขึ้น 0.75 ซม.)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ทอดลูกเต๋าที่เที่ยงตรง 2 ลูกพร้อมกัน ความน่าจะเป็นที่ผลรวมของแต้มเป็นจำนวนเฉพาะเท่ากับเท่าใด",
+   "choices": [
+    "7/18",
+    "1/3",
+    "5/12",
+    "1/2"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "There are 36 outcomes. Prime sums: 2 (1 way), 3 (2), 5 (4), 7 (6), 11 (2) → 15 ways. Probability = 15/36 = 5/12.",
+    "th": "ผลลัพธ์ทั้งหมด 36 แบบ ผลรวมที่เป็นจำนวนเฉพาะ: 2 (1 แบบ), 3 (2 แบบ), 5 (4 แบบ), 7 (6 แบบ), 11 (2 แบบ) รวม 15 แบบ ความน่าจะเป็น = 15/36 = 5/12"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "จำนวนนับตั้งแต่ 1 ถึง 200 มีกี่จำนวนที่หารด้วย 3 หรือ 5 ลงตัว แต่หารด้วย 7 ไม่ลงตัว",
+   "choices": [
+    "74",
+    "80",
+    "66",
+    "93"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Divisible by 3 or 5: 66 + 40 − 13 = 93. Of these, the ones also divisible by 7 are multiples of 21 (9) or 35 (5), minus multiples of 105 (1): 13. Answer = 93 − 13 = 80.",
+    "th": "หารด้วย 3 หรือ 5 ลงตัว: 66 + 40 − 13 = 93 จำนวน ในนั้นที่หารด้วย 7 ลงตัวด้วยคือพหุคูณของ 21 (9 จำนวน) หรือ 35 (5 จำนวน) ลบพหุคูณของ 105 (1 จำนวน) = 13 จำนวน คำตอบ = 93 − 13 = 80"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ปัจจุบันพ่ออายุเป็น 4 เท่าของอายุลูก อีก 20 ปีข้างหน้า พ่อจะมีอายุเป็น 2 เท่าของอายุลูก ปัจจุบันพ่อและลูกมีอายุรวมกันกี่ปี",
+   "choices": [
+    "45",
+    "40",
+    "50",
+    "60"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Let the son be x now; the father is 4x. In 20 years: 4x + 20 = 2(x + 20), so 2x = 20 and x = 10. Father 40, son 10, total 50 years.",
+    "th": "ให้ลูกอายุ x ปี พ่ออายุ 4x ปี อีก 20 ปี: 4x + 20 = 2(x + 20) ได้ 2x = 20, x = 10 ลูก 10 ปี พ่อ 40 ปี รวม 50 ปี"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "โครงสร้างใดพบในเซลล์พืช แต่ไม่พบในเซลล์สัตว์",
+   "choices": [
+    "เยื่อหุ้มเซลล์",
+    "นิวเคลียส",
+    "ไมโทคอนเดรีย",
+    "ผนังเซลล์"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Plant cells have a cell wall (and chloroplasts) that animal cells lack. Both cell types have a cell membrane, a nucleus and mitochondria.",
+    "th": "เซลล์พืชมีผนังเซลล์ (และคลอโรพลาสต์) ซึ่งเซลล์สัตว์ไม่มี ส่วนเยื่อหุ้มเซลล์ นิวเคลียส และไมโทคอนเดรียพบได้ในเซลล์ทั้งสองชนิด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "ลูกเหม็นที่วางไว้ในตู้เสื้อผ้าค่อย ๆ มีขนาดเล็กลงโดยไม่กลายเป็นของเหลว เกิดจากการเปลี่ยนสถานะแบบใด",
+   "choices": [
+    "การหลอมเหลว",
+    "การควบแน่น",
+    "การระเหย",
+    "การระเหิด"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Mothballs change directly from solid to gas without becoming liquid: this is sublimation. Evaporation starts from a liquid; melting gives a liquid; condensation is gas to liquid.",
+    "th": "ลูกเหม็นเปลี่ยนจากของแข็งเป็นแก๊สโดยตรงไม่ผ่านของเหลว เรียกว่าการระเหิด การระเหยเริ่มจากของเหลว การหลอมเหลวได้ของเหลว และการควบแน่นคือแก๊สเป็นของเหลว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "หินชนิดใดเกิดจากการเย็นตัวและแข็งตัวของแมกมา",
+   "choices": [
+    "หินแกรนิต",
+    "หินปูน",
+    "หินอ่อน",
+    "หินทราย"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Granite is an igneous rock formed when magma cools slowly underground. Sandstone and limestone are sedimentary rocks; marble is a metamorphic rock.",
+    "th": "หินแกรนิตเป็นหินอัคนีที่เกิดจากแมกมาเย็นตัวช้า ๆ ใต้เปลือกโลก หินทรายและหินปูนเป็นหินตะกอน ส่วนหินอ่อนเป็นหินแปร"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "ในโซ่อาหาร ต้นข้าว → ตั๊กแตน → กบ → งู → เหยี่ยว ถ้างูในบริเวณนั้นถูกจับไปจนหมด ในช่วงแรกจะเกิดการเปลี่ยนแปลงใด",
+   "choices": [
+    "กบเพิ่มขึ้น และตั๊กแตนลดลง",
+    "กบลดลง และตั๊กแตนเพิ่มขึ้น",
+    "กบเพิ่มขึ้น และตั๊กแตนเพิ่มขึ้น",
+    "เหยี่ยวเพิ่มขึ้น และกบลดลง"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Snakes eat frogs, so without snakes the frogs increase at first. More frogs eat more grasshoppers, so grasshoppers decrease. Hawks lose a food source and tend to decrease.",
+    "th": "งูกินกบ เมื่องูหมดไป กบจะเพิ่มขึ้นในช่วงแรก กบที่มากขึ้นจะกินตั๊กแตนมากขึ้น ตั๊กแตนจึงลดลง ส่วนเหยี่ยวขาดอาหารจึงมีแนวโน้มลดลง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "ของผสมประกอบด้วยทราย เกลือ และผงเหล็ก ลำดับวิธีแยกข้อใดได้สารทั้งสามชนิดกลับคืนมาครบ",
+   "choices": [
+    "ใช้แม่เหล็กดูดผงเหล็ก → เติมน้ำคนให้เกลือละลายแล้วกรองแยกทราย → ระเหยน้ำออกจากสารละลายจะได้เกลือ",
+    "เติมน้ำแล้วระเหยทันที → ใช้แม่เหล็กดูดผงเหล็ก → กรองแยกทราย",
+    "กรองของผสมที่แห้งด้วยกระดาษกรอง → ใช้แม่เหล็กดูดผงเหล็ก → ระเหยแห้ง",
+    "ใช้แม่เหล็กดูดผงเหล็ก → ระเหยแห้ง → เติมน้ำแล้วกรองแยกทราย"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Iron is magnetic, so a magnet removes it first. Salt dissolves in water but sand does not, so dissolving and filtering separates the sand. Evaporating the filtrate leaves the salt.",
+    "th": "เหล็กถูกแม่เหล็กดูดจึงแยกออกก่อน เกลือละลายน้ำแต่ทรายไม่ละลาย จึงเติมน้ำแล้วกรองแยกทราย จากนั้นระเหยน้ำออกจากสารละลายที่กรองได้ จะเหลือเกลือ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "วงจรไฟฟ้ามีถ่านไฟฉาย 1 ชุด หลอดไฟ A ต่ออนุกรมกับหลอดไฟ B และ C ซึ่งต่อขนานกันอยู่ (หลอดทั้งสามเหมือนกันทุกประการ) ถ้าคลายหลอด B ออก ความสว่างของหลอด A และ C จะเปลี่ยนไปอย่างไร",
+   "choices": [
+    "A ไม่เปลี่ยน แต่ C สว่างขึ้น",
+    "A สว่างขึ้น และ C สว่างขึ้น",
+    "A หรี่ลง และ C หรี่ลง",
+    "A หรี่ลง แต่ C สว่างขึ้น"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Before: the circuit resistance is R + R/2 = 1.5R, so bulb A carries V/1.5R and C carries half of that, V/3R. After removing B: resistance = 2R, so A and C both carry V/2R. A's current falls (dimmer) and C's current rises (brighter).",
+    "th": "ก่อนคลาย: ความต้านทานรวม R + R/2 = 1.5R กระแสผ่าน A = V/1.5R และผ่าน C ครึ่งหนึ่ง = V/3R หลังคลาย B: ความต้านทานรวม 2R กระแสผ่าน A และ C = V/2R กระแสใน A ลดลงจึงหรี่ลง ส่วนกระแสใน C เพิ่มขึ้นจึงสว่างขึ้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "เมื่อจุ่มดินสอแท่งหนึ่งลงในแก้วน้ำใส มองจากด้านข้างจะเห็นดินสอเหมือนหักงอที่ผิวน้ำ ปรากฏการณ์นี้เกิดจากสาเหตุใด",
+   "choices": [
+    "แสงหักเหเมื่อเดินทางผ่านรอยต่อระหว่างน้ำกับอากาศ",
+    "น้ำดูดกลืนแสงบางสีไว้",
+    "แสงกระจายเป็นสีต่าง ๆ แบบรุ้ง",
+    "แสงสะท้อนที่ผิวแก้ว"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Light changes speed and direction when it passes between water and air. This bending is refraction, which makes the pencil look broken at the surface.",
+    "th": "แสงเปลี่ยนอัตราเร็วและทิศทางเมื่อเคลื่อนผ่านรอยต่อระหว่างน้ำกับอากาศ เรียกว่าการหักเหของแสง ทำให้เห็นดินสอเหมือนหักที่ผิวน้ำ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "เห็นฟ้าแลบแล้วได้ยินเสียงฟ้าร้องตามมาหลังจากนั้น 3 วินาที ถ้าเสียงเดินทางในอากาศด้วยอัตราเร็ว 340 เมตรต่อวินาที ฟ้าแลบเกิดห่างจากผู้สังเกตประมาณกี่เมตร",
+   "choices": [
+    "2040",
+    "510",
+    "113",
+    "1020"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Light arrives almost instantly, so the 3 s delay is the sound's travel time. Distance = 340 × 3 = 1,020 m. (Halving to 510 m would only be right for an echo, which travels there and back.)",
+    "th": "แสงมาถึงเกือบทันที เวลา 3 วินาทีจึงเป็นเวลาที่เสียงเดินทาง ระยะทาง = 340 × 3 = 1,020 เมตร (การหารสองเป็น 510 เมตร ใช้กับเสียงสะท้อนที่เดินทางไป–กลับเท่านั้น)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "หลังคืนวันเพ็ญ (ขึ้น 15 ค่ำ) ไปประมาณ 7 วัน ผู้สังเกตในประเทศไทยจะเห็นดวงจันทร์มีลักษณะอย่างไร และดวงจันทร์ขึ้นจากขอบฟ้าประมาณเวลาใด",
+   "choices": [
+    "สว่างครึ่งดวงด้านขวา ขึ้นประมาณเที่ยงคืน",
+    "สว่างเต็มดวง ขึ้นประมาณหกโมงเย็น",
+    "สว่างครึ่งดวงด้านซ้าย ขึ้นประมาณเที่ยงคืน",
+    "สว่างครึ่งดวงด้านขวา ขึ้นประมาณเที่ยงวัน"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "About 7 days after full moon is the last quarter (แรม 7–8 ค่ำ). Seen from the northern hemisphere its left half is lit, and it rises around midnight, staying in the sky into the morning.",
+    "th": "หลังวันเพ็ญประมาณ 7 วันคือช่วงแรม 7–8 ค่ำ ผู้สังเกตในซีกโลกเหนือจะเห็นดวงจันทร์สว่างครึ่งดวงด้านซ้าย ขึ้นประมาณเที่ยงคืน และยังเห็นอยู่บนท้องฟ้าจนถึงช่วงเช้า"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "เลือดที่ได้รับแก๊สออกซิเจนจากปอดแล้ว จะไหลกลับเข้าสู่หัวใจห้องใดเป็นห้องแรก",
+   "choices": [
+    "ห้องบนซ้าย",
+    "ห้องล่างซ้าย",
+    "ห้องล่างขวา",
+    "ห้องบนขวา"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Oxygen-rich blood returns from the lungs through the pulmonary veins into the left atrium (upper left chamber), then passes to the left ventricle, which pumps it to the body.",
+    "th": "เลือดที่มีออกซิเจนสูงจากปอดไหลผ่านหลอดเลือดดำจากปอดเข้าสู่หัวใจห้องบนซ้ายก่อน แล้วจึงลงสู่ห้องล่างซ้ายซึ่งสูบฉีดเลือดไปเลี้ยงร่างกาย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": {
+    "title": "ความสูงของต้นถั่วเขียวหลัง 2 สัปดาห์",
+    "rows": [
+     [
+      "แสงต่อวัน (ชั่วโมง)",
+      "0",
+      "4",
+      "8",
+      "12"
+     ],
+     [
+      "ความสูง (ซม.)",
+      "2",
+      "6",
+      "11",
+      "15"
+     ]
+    ]
+   },
+   "stem": "นักเรียนปลูกต้นถั่วเขียวในกระถาง 4 กระถาง ใช้ดิน น้ำ และพันธุ์เดียวกัน แต่ให้ได้รับแสงต่อวันต่างกัน แล้ววัดความสูงหลัง 2 สัปดาห์ ได้ผลดังตาราง ข้อสรุปใดเหมาะสมที่สุด",
+   "choices": [
+    "ในช่วงที่ทดลอง ยิ่งได้รับแสงต่อวันนานขึ้น ต้นถั่วเขียวยิ่งสูงมากขึ้น",
+    "ถ้าให้แสงวันละ 16 ชั่วโมง ต้นถั่วเขียวจะสูง 19 เซนติเมตรอย่างแน่นอน",
+    "ระยะเวลาที่ได้รับแสงเป็นตัวแปรควบคุมของการทดลองนี้",
+    "ปริมาณน้ำที่รดเป็นตัวแปรต้นของการทดลองนี้"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Light time is the independent variable (changed on purpose); water, soil and seed type are controlled. Height rises as light time rises from 0 to 12 hours, so that is the supported conclusion. Predicting an exact value at 16 hours goes beyond the data.",
+    "th": "ระยะเวลาที่ได้รับแสงเป็นตัวแปรต้น ส่วนน้ำ ดิน และพันธุ์เป็นตัวแปรควบคุม ข้อมูลแสดงว่าเมื่อแสงเพิ่มจาก 0 ถึง 12 ชั่วโมง ความสูงเพิ่มขึ้น จึงสรุปได้ว่ายิ่งได้แสงนานขึ้นยิ่งสูงมากขึ้นในช่วงที่ทดลอง การทำนายค่าแน่นอนที่ 16 ชั่วโมงเกินกว่าข้อมูลที่มี"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "วัตถุก้อนหนึ่งมีมวล 60 กรัม ปริมาตร 80 ลูกบาศก์เซนติเมตร นำไปใส่ในน้ำ (ความหนาแน่น 1 กรัมต่อลูกบาศก์เซนติเมตร) วัตถุส่วนที่จมอยู่ในน้ำมีปริมาตรกี่ลูกบาศก์เซนติเมตร",
+   "choices": [
+    "80",
+    "60",
+    "20",
+    "45"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Density = 60 ÷ 80 = 0.75 g/cm³, less than water, so it floats. A floating object displaces its own mass of water: 60 g of water = 60 cm³ under the surface (20 cm³ stays above).",
+    "th": "ความหนาแน่น = 60 ÷ 80 = 0.75 g/cm³ น้อยกว่าน้ำจึงลอย วัตถุที่ลอยจะแทนที่น้ำที่มีมวลเท่ากับมวลของตัวเอง คือน้ำ 60 กรัม = 60 ลูกบาศก์เซนติเมตร จึงจมอยู่ 60 ลบ.ซม. (โผล่พ้นน้ำ 20 ลบ.ซม.)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "บนไม้กระดานหก เด็กมวล 30 กิโลกรัมนั่งห่างจุดหมุน 2 เมตร และเด็กมวล 20 กิโลกรัมนั่งข้างเดียวกันห่างจุดหมุน 1.5 เมตร เด็กมวล 40 กิโลกรัมต้องนั่งอีกข้างหนึ่งห่างจุดหมุนกี่เมตร กระดานจึงจะสมดุล",
+   "choices": [
+    "3",
+    "1.25",
+    "2",
+    "2.25"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Balance needs equal moments on both sides: 30 × 2 + 20 × 1.5 = 60 + 30 = 90. So 40 × d = 90 and d = 2.25 m.",
+    "th": "สมดุลเมื่อโมเมนต์สองข้างเท่ากัน: 30 × 2 + 20 × 1.5 = 60 + 30 = 90 ดังนั้น 40 × d = 90 ได้ d = 2.25 เมตร"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": {
+    "title": "ค่าการละลายของสาร X (กรัมต่อน้ำ 100 กรัม)",
+    "rows": [
+     [
+      "อุณหภูมิ (°C)",
+      "20",
+      "40",
+      "60",
+      "80"
+     ],
+     [
+      "สาร X ที่ละลายได้ (g)",
+      "32",
+      "64",
+      "110",
+      "169"
+     ]
+    ]
+   },
+   "stem": "จากตาราง นักเรียนละลายสาร X ในน้ำ 50 กรัมที่อุณหภูมิ 60 °C จนได้สารละลายอิ่มตัว แล้วทำให้เย็นลงเหลือ 20 °C จะมีผลึกสาร X ตกออกมากี่กรัม",
+   "choices": [
+    "78",
+    "16",
+    "39",
+    "55"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The table is per 100 g of water, so halve it for 50 g: 55 g dissolve at 60 °C and only 16 g at 20 °C. Crystals = 55 − 16 = 39 g. (78 g would be the answer for 100 g of water.)",
+    "th": "ค่าในตารางคิดต่อน้ำ 100 กรัม เมื่อใช้น้ำ 50 กรัมจึงหารสอง: ที่ 60 °C ละลายได้ 55 กรัม ที่ 20 °C ละลายได้ 16 กรัม ผลึกที่ตกออกมา = 55 − 16 = 39 กรัม (78 กรัมเป็นคำตอบเมื่อใช้น้ำ 100 กรัม)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "กาต้มน้ำไฟฟ้ากำลัง 2,000 วัตต์ ใช้งานวันละ 15 นาที เป็นเวลา 30 วัน ถ้าค่าไฟหน่วยละ 4 บาท ต้องจ่ายค่าไฟสำหรับกาต้มน้ำนี้กี่บาท",
+   "choices": [
+    "15",
+    "600",
+    "60",
+    "120"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Energy = 2 kW × 0.25 h × 30 days = 15 kWh = 15 units. Cost = 15 × 4 = 60 baht.",
+    "th": "พลังงาน = 2 กิโลวัตต์ × 0.25 ชั่วโมง × 30 วัน = 15 กิโลวัตต์-ชั่วโมง = 15 หน่วย ค่าไฟ = 15 × 4 = 60 บาท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: My brother ___ to school by bus every day.",
+   "choices": [
+    "goes",
+    "go",
+    "gone",
+    "going"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Every day\" shows a habit, so we use the present simple. With a singular subject (my brother) the verb takes -es: goes.",
+    "th": "\"every day\" บอกกิจวัตร จึงใช้ present simple ประธานเอกพจน์ (my brother) กริยาต้องเติม -es เป็น goes"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best word: Dr. Suda is very ___. She checks every result three times before she writes her report.",
+   "choices": [
+    "careless",
+    "careful",
+    "lazy",
+    "noisy"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Checking every result three times shows she pays close attention, so \"careful\" fits. \"Careless\" means the opposite.",
+    "th": "การตรวจผลทุกครั้งถึงสามรอบแสดงว่าเธอละเอียดรอบคอบ จึงใช้ careful ส่วน careless มีความหมายตรงข้าม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "A: \"Would you mind closing the door? It's cold.\"\nB: \"___\"",
+   "choices": [
+    "You're welcome.",
+    "Yes, I would like to.",
+    "No, thank you.",
+    "Not at all. I'll do it now."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Would you mind …?\" literally asks if you object. To agree politely we say \"Not at all\" (I don't mind) and then do it.",
+    "th": "\"Would you mind …?\" ถามว่ารังเกียจหรือไม่ ถ้ายินดีทำให้ต้องตอบว่า \"Not at all\" (ไม่รังเกียจ) แล้วทำตามที่ขอ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "Mangroves grow where rivers meet the sea. Their tangled roots slow down the waves, so the soil behind them is not washed away. Small fish and crabs hide among the roots while they are young, and many of them later move out to the open sea. In the past, large areas of mangroves in Thailand were cut down to make shrimp farms. Today, some villages plant young mangrove trees every year, because they have learned that fewer mangroves mean fewer fish to catch.",
+   "table": null,
+   "stem": "What can we infer about many of the fish that the villagers catch in the sea?",
+   "choices": [
+    "They eat the leaves of mangrove trees.",
+    "They can only live where rivers meet the sea.",
+    "They spent their early life among mangrove roots.",
+    "They are raised in shrimp farms."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The text says young fish hide among the roots and later move to the open sea, and that fewer mangroves mean fewer fish to catch. So many fish caught at sea grew up among the mangrove roots.",
+    "th": "บทความบอกว่าปลาตัวเล็กหลบซ่อนอยู่ตามรากโกงกาง แล้วจึงออกไปสู่ทะเลเปิด และป่าชายเลนที่ลดลงทำให้จับปลาได้น้อยลง จึงอนุมานได้ว่าปลาที่จับได้ในทะเลจำนวนมากเคยเติบโตอยู่ตามรากโกงกาง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer: By the time we reached the cinema, the film ___.",
+   "choices": [
+    "already starts",
+    "was already start",
+    "had already started",
+    "has already started"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Two past actions: the film started before we reached the cinema. The earlier past action uses the past perfect: had already started.",
+    "th": "มีเหตุการณ์ในอดีตสองเหตุการณ์ ภาพยนตร์เริ่มก่อนที่เราจะไปถึง เหตุการณ์ที่เกิดก่อนใช้ past perfect คือ had already started"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "คำราชาศัพท์ที่ใช้แทนคำว่า \"กิน\" สำหรับพระมหากษัตริย์คือคำใด",
+   "choices": [
+    "เสวย",
+    "ประทับ",
+    "ทรงพระดำเนิน",
+    "บรรทม"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "For the king, \"to eat\" is เสวย. บรรทม means to sleep, ประทับ means to sit or stay, and ทรงพระดำเนิน means to walk.",
+    "th": "คำว่า \"กิน\" สำหรับพระมหากษัตริย์ใช้ว่า เสวย ส่วนบรรทม แปลว่า นอน ประทับ แปลว่า นั่งหรืออยู่ และทรงพระดำเนิน แปลว่า เดิน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "ในประโยค \"น้องวิ่งเร็วมาก\" คำว่า \"เร็ว\" เป็นคำชนิดใด",
+   "choices": [
+    "คำกริยา",
+    "คำบุพบท",
+    "คำนาม",
+    "คำวิเศษณ์"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "เร็ว (fast) describes how the verb วิ่ง (run) is done, so it is an adverb-type word, คำวิเศษณ์. The verb in the sentence is วิ่ง.",
+    "th": "\"เร็ว\" ขยายคำกริยา \"วิ่ง\" ว่าวิ่งอย่างไร จึงเป็นคำวิเศษณ์ ส่วนคำกริยาในประโยคคือ \"วิ่ง\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "สำนวน \"น้ำขึ้นให้รีบตัก\" มีความหมายตรงกับข้อใด",
+   "choices": [
+    "อย่าทำสิ่งใดรีบร้อนจนเกินไป",
+    "เมื่อมีโอกาสดีควรรีบทำ ไม่ปล่อยให้ผ่านไป",
+    "ควรช่วยเหลือผู้อื่นเมื่อเขาเดือดร้อน",
+    "ควรประหยัดน้ำไว้ใช้ในยามจำเป็น"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The saying means \"when the water rises, scoop it quickly\": when a good chance comes, take it at once before it passes.",
+    "th": "สำนวนนี้หมายถึง เมื่อมีโอกาสดีเข้ามา ควรรีบฉวยโอกาสนั้นไว้ก่อนที่จะผ่านพ้นไป"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "h",
+   "passage": "ในอดีต ชาวบ้านริมแม่น้ำเจ้าพระยาใช้เรือเป็นพาหนะหลัก บ้านเรือนจึงหันหน้าเข้าหาแม่น้ำ ตลาดสำคัญก็ตั้งอยู่ริมน้ำ เมื่อมีการตัดถนนมากขึ้น ผู้คนหันไปใช้รถยนต์ บ้านที่สร้างใหม่จึงหันหน้าออกสู่ถนน ตลาดน้ำหลายแห่งค่อย ๆ ซบเซาลง ปัจจุบันบางชุมชนพยายามฟื้นฟูตลาดน้ำให้เป็นแหล่งท่องเที่ยว เพื่อสร้างรายได้และรักษาวิถีชีวิตดั้งเดิมไว้",
+   "table": null,
+   "stem": "ใจความสำคัญของข้อความนี้คือข้อใด",
+   "choices": [
+    "การคมนาคมที่เปลี่ยนจากทางน้ำเป็นทางบก ทำให้วิถีชีวิตริมน้ำเปลี่ยนแปลงไป",
+    "รถยนต์สะดวกกว่าเรือในทุกด้าน",
+    "ชาวบ้านริมแม่น้ำเจ้าพระยาไม่ชอบใช้ถนน",
+    "ตลาดน้ำเป็นแหล่งท่องเที่ยวที่สำคัญที่สุดของประเทศไทย"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Every sentence links the change from boats to roads with changes in riverside life: houses turned to face roads, floating markets declined, and some are now revived. That cause-and-effect is the main idea; the other statements are not stated or go too far.",
+    "th": "ทุกประโยคเชื่อมโยงการเปลี่ยนจากเรือมาใช้ถนนกับการเปลี่ยนแปลงวิถีชีวิตริมน้ำ ทั้งการหันหน้าบ้าน ตลาดน้ำที่ซบเซา และการฟื้นฟูในปัจจุบัน ใจความสำคัญจึงเป็นเรื่องการคมนาคมที่เปลี่ยนไปทำให้วิถีชีวิตริมน้ำเปลี่ยนแปลง ส่วนข้อความอื่นไม่ได้กล่าวไว้หรือสรุปเกินข้อมูล"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "gate",
+   "subject": "thai",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "ประโยคใดเป็นประโยคความซ้อน",
+   "choices": [
+    "ฝนตกหนักแต่เขาก็ยังมาโรงเรียน",
+    "นกกระจอกบินอยู่บนท้องฟ้า",
+    "พี่ชายเล่นฟุตบอลและน้องสาวเล่นแบดมินตัน",
+    "นักเรียนที่ตั้งใจเรียนสอบได้คะแนนดี"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"ที่ตั้งใจเรียน\" is a clause inside the main sentence that describes นักเรียน, so it is a complex sentence (ความซ้อน). The sentences joined by และ / แต่ are compound (ความรวม), and the sentence about the sparrow is simple (ความเดียว).",
+    "th": "\"ที่ตั้งใจเรียน\" เป็นอนุประโยคที่ซ้อนอยู่และขยายคำว่า \"นักเรียน\" จึงเป็นประโยคความซ้อน ประโยคที่เชื่อมด้วย \"และ\" หรือ \"แต่\" เป็นประโยคความรวม ส่วนประโยคเรื่องนกกระจอกเป็นประโยคความเดียว"
+   }
+  }
+ ]
+}

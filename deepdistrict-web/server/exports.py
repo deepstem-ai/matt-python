@@ -45,8 +45,8 @@ def log(con, code, me, action):
 
 def _strip(it, key):
     """Item content for the paper; keys/explanations only in the teacher copy."""
-    if it["kind"] == "sat":
-        out = {k: it.get(k) for k in ("id", "kind", "version", "passage", "table", "image", "stem", "choices", "domain", "skill", "difficulty")}
+    if it["kind"] in exams.CHOICE_KINDS:
+        out = {k: it.get(k) for k in ("id", "kind", "version", "passage", "table", "image", "stem", "choices", "domain", "skill", "difficulty", "subject", "program")}
         if key:
             out.update({"answer": it["answer"], "explanation": it.get("explanation")})
         return out
@@ -69,12 +69,12 @@ def create_paper(con, me, body):
     if body.get("setId"):
         import qsets
         qset = qsets.get(con, body["setId"])
-        if not qset or (qset["owner"] != me["id"] and me["role"] != "admin"):
+        if not qset or (qset["owner"] != me["id"] and me["role"] != "admin" and qset.get("source") != "ready-made"):
             raise ValueError("question set not found")
         body = dict(body, kind=qset["kind"])
     kind = body.get("kind")
     if kind not in exams.KINDS:
-        raise ValueError("choose SAT, IELTS Reading or IELTS Writing")
+        raise ValueError("choose SAT, IELTS Reading, IELTS Writing or M.1 entrance")
     approved = exams.items(con, kind, "approved")
     ids = [i for i in (body.get("itemIds") or []) if isinstance(i, str)]
     if qset:
@@ -97,7 +97,7 @@ def create_paper(con, me, body):
     if len(chosen) > 60:
         raise ValueError("at most 60 items in one paper")
     code = new_code(con)
-    title = str(body.get("title") or "").strip()[:120] or (qset and qset["title"]) or {"sat": "SAT Reading and Writing practice", "ielts-r": "IELTS Academic Reading practice", "ielts-w": "IELTS Academic Writing practice"}[kind]
+    title = str(body.get("title") or "").strip()[:120] or (qset and qset["title"]) or {"sat": "SAT Reading and Writing practice", "ielts-r": "IELTS Academic Reading practice", "ielts-w": "IELTS Academic Writing practice", "m1": "M.1 entrance practice"}[kind]
     data = {"kind": "paper", "exam": kind, "title": title, "note": str(body.get("note") or (qset or {}).get("note") or "").strip()[:200], "withKey": bool(body.get("withKey")),
             "notes": bool(body.get("notes")) and not body.get("withKey"), "setId": qset and qset["id"],
             "seed": qset.get("seed", qset["id"]) if qset else secrets.randbits(48), "shuffle": exams.settings(con)["shuffle"],
@@ -112,7 +112,7 @@ def create_paper(con, me, body):
 
 def create_report(con, me, att, names):
     code = new_code(con)
-    title = {"sat": "SAT Reading and Writing", "ielts-r": "IELTS Academic Reading", "ielts-w": "IELTS Academic Writing"}[att["kind"]] + " — score report"
+    title = (att.get("setTitle") or exams.SET_TITLES[att["kind"]]) + " — score report"
     data = {"kind": "report", "attemptId": att["id"], "learner": names.get(att["userId"], ""), "learnerId": att["userId"]}
     con.execute("INSERT INTO doc_exports (code, kind, title, created_at, created_by, created_by_name, role, data) VALUES (?,?,?,?,?,?,?,?)",
                 (code, "report", title, exams.iso(), me["id"], me.get("name"), me["role"], json.dumps(data, ensure_ascii=False)))
@@ -147,7 +147,9 @@ def report_view(a):
     r = a.get("result") or {}
     out = {"id": a["id"], "kind": a["kind"], "mode": a["mode"], "status": a["status"], "startedAt": bkk(a["createdAt"]),
            "finishedAt": bkk(a["finishedAt"]) if a.get("finishedAt") else None}
-    if a["kind"] == "sat":
+    if a["kind"] == "m1":
+        out.update({k: r.get(k) for k in ("correct", "total", "percent", "bySubject")})
+    elif a["kind"] == "sat":
         out.update({k: r.get(k) for k in ("estimate", "ceiling", "correct", "total", "route", "modules", "byDomain")})
     elif a["kind"] == "ielts-r":
         out.update({k: r.get(k) for k in ("band", "correct", "total", "scaled", "passages")})

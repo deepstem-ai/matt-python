@@ -3,7 +3,8 @@
    Reads published posts from the DeepDistrict server (GET /api/blog, /api/blog/post).
    * pages/blog.html            list, with the two branches and their categories
    * pages/blog.html?p=<slug>   one article
-   * [data-blog-latest]         "latest news" cards on any page (e.g. the home page)
+   * [data-blog-latest]         "latest news" cards on any page (e.g. admissions)
+   * [data-blog-slider]         sliding latest-news cards (home page)
    Text from the server is always escaped; the article body uses a tiny, safe
    Markdown subset (## headings, - lists, **bold**, [links](https://…)).
    ========================================================================== */
@@ -69,6 +70,63 @@
       el.innerHTML = d.items.map(card).join("");
     }).catch(function () { if (sec) sec.hidden = true; });
   });
+
+  /* ---------------------------------------------------------------- sliding news (home page) */
+  // [data-blog-slider="8"]: the latest posts as cards that move on by themselves every few seconds.
+  // Stops while the pointer or keyboard focus is on it, when the tab is hidden, and never moves on its
+  // own for people who ask for reduced motion. Every card opens its article on the blog page.
+  document.querySelectorAll("[data-blog-slider]").forEach(function (el) {
+    var n = +el.getAttribute("data-blog-slider") || 8, sec = el.closest("section");
+    if (!online) { if (sec) sec.hidden = true; return; }
+    get("blog?limit=" + n).then(function (d) {
+      if (!d.items.length) { if (sec) sec.hidden = true; return; }
+      slider(el, d.items);
+    }).catch(function () { if (sec) sec.hidden = true; });
+  });
+  function slider(el, items) {
+    var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    el.innerHTML = '<div class="news-slider__track" tabindex="0" aria-live="off">' + items.map(function (p, i) {
+      return '<div class="news-slide" role="group" aria-roledescription="slide" aria-label="' + (i + 1) + " / " + items.length + '">' + card(p).replace('class="card card--link news-card"', 'class="card card--link news-card news-card--slide"') + "</div>";
+    }).join("") + "</div>" +
+      (items.length > 1 ? '<div class="news-slider__ctl"><button type="button" class="news-slider__btn" data-dir="-1" aria-label="Previous">‹</button><div class="news-slider__dots">' +
+        items.map(function (_, i) { return '<button type="button" data-dot="' + i + '" aria-label="' + (i + 1) + '"></button>'; }).join("") +
+        '</div><button type="button" class="news-slider__btn" data-dir="1" aria-label="Next">›</button>' +
+        (calm ? "" : '<button type="button" class="news-slider__btn news-slider__pause" data-pause aria-label="Pause">❚❚</button>') + "</div>" : "");
+    var track = el.querySelector(".news-slider__track"), slides = el.querySelectorAll(".news-slide"), dots = el.querySelectorAll("[data-dot]");
+    var cur = 0, hold = false, stopped = false, timer = null;
+    function perView() { var w = slides[0].getBoundingClientRect().width || 1; return Math.max(1, Math.round(track.clientWidth / w)); }
+    function go(i, smooth) {
+      var last = Math.max(0, slides.length - perView());
+      cur = i > last ? 0 : i < 0 ? last : i;
+      track.scrollTo({ left: slides[cur].offsetLeft - track.offsetLeft, behavior: smooth === false || calm ? "auto" : "smooth" });
+      mark();
+    }
+    function mark() { dots.forEach(function (d, k) { d.setAttribute("aria-current", k === cur ? "true" : "false"); }); }
+    function tick() { if (!hold && !stopped && !document.hidden) go(cur + 1); }
+    function run() { clearInterval(timer); if (!calm && slides.length > 1) timer = setInterval(tick, 5500); }
+    el.addEventListener("click", function (e) {
+      var b = e.target.closest("button"); if (!b) return;
+      if (b.hasAttribute("data-dir")) go(cur + (+b.getAttribute("data-dir")));
+      else if (b.hasAttribute("data-dot")) go(+b.getAttribute("data-dot"));
+      else if (b.hasAttribute("data-pause")) { stopped = !stopped; b.textContent = stopped ? "▶" : "❚❚"; b.setAttribute("aria-label", stopped ? "Play" : "Pause"); }
+      run();
+    });
+    el.addEventListener("mouseenter", function () { hold = true; });
+    el.addEventListener("mouseleave", function () { hold = false; });
+    el.addEventListener("focusin", function () { hold = true; });
+    el.addEventListener("focusout", function () { hold = false; });
+    track.addEventListener("keydown", function (e) { if (e.key === "ArrowRight") { go(cur + 1); e.preventDefault(); } if (e.key === "ArrowLeft") { go(cur - 1); e.preventDefault(); } });
+    var t = null;
+    track.addEventListener("scroll", function () {     // swiping by hand updates the dots
+      clearTimeout(t);
+      t = setTimeout(function () {
+        var x = track.scrollLeft, best = 0;
+        slides.forEach(function (s, k) { if (Math.abs(s.offsetLeft - track.offsetLeft - x) < Math.abs(slides[best].offsetLeft - track.offsetLeft - x)) best = k; });
+        cur = best; mark();
+      }, 120);
+    }, { passive: true });
+    mark(); run();
+  }
 
   /* ---------------------------------------------------------------- the blog page */
   var root = document.querySelector("[data-blog]");

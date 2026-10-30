@@ -1,0 +1,557 @@
+{
+ "exam": "sat",
+ "set": 3,
+ "title": {
+  "en": "SAT Reading and Writing — Practice module 3",
+  "th": "SAT Reading and Writing — ชุดฝึก 3"
+ },
+ "minutes": 32,
+ "note": {
+  "en": "One 27-question module in Digital SAT format. DeepDistrict practice — not an official College Board test.",
+  "th": "1 โมดูล 27 ข้อ รูปแบบ Digital SAT — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบทางการของ College Board"
+ },
+ "items": [
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "words-in-context",
+   "difficulty": "e",
+   "passage": "Muay Thai is often called \"the art of eight limbs\" because, unlike boxers, who strike only with their fists, muay Thai fighters ______ their fists, elbows, knees, and shins to strike an opponent.",
+   "stem": "Which choice completes the text with the most logical and precise word or phrase?",
+   "choices": [
+    "decorate",
+    "neglect",
+    "employ",
+    "conceal"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The 'eight limbs' are the body parts fighters use to strike, so they 'employ' (use) them. 'Conceal' (hide) and 'neglect' (fail to use) contradict the idea of striking with them, and 'decorate' has nothing to do with fighting.",
+    "th": "'แปดอวัยวะ' คือส่วนของร่างกายที่นักมวยใช้ในการโจมตี จึงใช้ employ (ใช้) ส่วน conceal (ซ่อน) และ neglect (ละเลย) ขัดกับการใช้โจมตี และ decorate (ตกแต่ง) ไม่เกี่ยวกับการต่อสู้"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "words-in-context",
+   "difficulty": "m",
+   "passage": "Photographs of Bangkok taken in the 1890s are ______ to historians of the city: because few written records describe ordinary street life at that time, the images preserve details of clothing, transport, and trade that cannot be found anywhere else.",
+   "stem": "Which choice completes the text with the most logical and precise word or phrase?",
+   "choices": [
+    "familiar",
+    "trivial",
+    "misleading",
+    "invaluable"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The photos contain details 'that cannot be found anywhere else', so they are extremely useful: 'invaluable'. 'Trivial' (unimportant) is the opposite, 'misleading' contradicts the idea that they preserve real details, and 'familiar' does not explain why historians depend on them.",
+    "th": "ภาพถ่ายเก็บรายละเอียดที่หาจากที่อื่นไม่ได้ จึงมีค่ามหาศาล คือ invaluable ส่วน trivial (ไม่สำคัญ) ตรงข้าม misleading (ทำให้เข้าใจผิด) ขัดกับการที่ภาพเก็บรายละเอียดจริงไว้ และ familiar (คุ้นเคย) ไม่ได้อธิบายว่าทำไมนักประวัติศาสตร์ต้องพึ่งภาพเหล่านี้"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "words-in-context",
+   "difficulty": "m",
+   "passage": "Engineers estimated that the new flood barrier could hold back rising water for at least three days. That figure, they stressed, was conservative: in every test so far, the barrier had performed considerably better than the estimate suggested.",
+   "stem": "As used in the text, what does the word \"conservative\" most nearly mean?",
+   "choices": [
+    "old-fashioned",
+    "carefully protected",
+    "cautiously low",
+    "politically traditional"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The barrier performed 'considerably better than the estimate', so the estimate was deliberately low to be safe: 'cautiously low'. 'Politically traditional' and 'old-fashioned' are other senses of the word that do not describe a number, and 'carefully protected' relates to 'conserve' but does not fit an estimate.",
+    "th": "แนวกั้นทำงานได้ดีกว่าตัวเลขที่ประมาณไว้มาก แสดงว่าวิศวกรประมาณไว้ต่ำเพื่อความปลอดภัย conservative จึงหมายถึง cautiously low ส่วน politically traditional และ old-fashioned เป็นความหมายอื่นของคำนี้ซึ่งใช้กับตัวเลขไม่ได้ และ carefully protected ใกล้กับคำว่า conserve แต่ไม่เข้ากับการประมาณค่า"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "text-structure",
+   "difficulty": "m",
+   "passage": "It is often said that a goldfish can remember things for only a few seconds. Experiments tell a different story. In one study, goldfish learned to push a small lever to receive food and still performed the task correctly several months later. In others, fish trained to associate a particular sound with feeding time swam to the feeding spot whenever they heard it, long after training had ended.",
+   "stem": "Which choice best describes the main purpose of the text?",
+   "choices": [
+    "To argue that goldfish learn faster than any other fish",
+    "To challenge a popular belief by presenting evidence that contradicts it",
+    "To explain the best way to feed and care for goldfish",
+    "To describe the design of a single experiment in detail"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The text states a common belief (a few seconds of memory) and then gives experiments showing goldfish remember for months, so its purpose is to challenge the belief. It gives no feeding advice, it mentions more than one study only briefly, and it never compares goldfish with other fish.",
+    "th": "ข้อความเริ่มด้วยความเชื่อทั่วไป (ปลาทองจำได้ไม่กี่วินาที) แล้วยกการทดลองที่แสดงว่าจำได้หลายเดือน จึงมีจุดประสงค์เพื่อโต้แย้งความเชื่อนั้น ข้อความไม่ได้แนะนำวิธีเลี้ยง กล่าวถึงการศึกษามากกว่าหนึ่งเรื่องอย่างสั้น ๆ และไม่ได้เปรียบเทียบกับปลาชนิดอื่น"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "words-in-context",
+   "difficulty": "h",
+   "passage": "Economist Arthit Wongsa's new model of informal labour markets does not ______ earlier theories so much as refine them: it keeps their central assumptions about how workers move between jobs while correcting the way those theories treated seasonal farm work.",
+   "stem": "Which choice completes the text with the most logical and precise word or phrase?",
+   "choices": [
+    "overturn",
+    "resemble",
+    "inform",
+    "extend"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The structure 'does not X so much as refine' requires X to contrast with refining, and the colon says the model 'keeps their central assumptions'. 'Overturn' (reject entirely) is the opposite of keeping assumptions. 'Extend' is close in meaning to 'refine', so there would be no contrast; 'resemble' and 'inform' do not describe what a new model does to older theories in a way that contrasts with refining.",
+    "th": "โครงสร้าง does not X so much as refine ต้องการคำที่ตรงข้ามกับการปรับปรุง และข้อความบอกว่าแบบจำลองยังคงสมมติฐานหลักไว้ จึงเป็น overturn (ล้มล้าง) ส่วน extend (ขยาย) มีความหมายใกล้กับ refine จึงไม่เกิดความขัดแย้ง resemble (คล้าย) และ inform (ให้ข้อมูล) ไม่ได้ตรงข้ามกับการปรับปรุง"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "text-structure",
+   "difficulty": "h",
+   "passage": "The following text is from a short story.\nSomchai had always believed that his father disliked the sea. The old man never swam, never fished, and turned his face away whenever the family drove along the coast road. So when Somchai found, in the bottom drawer of his father's desk, a thick stack of hand-drawn charts of the Gulf of Thailand, every reef and sandbar marked in careful ink, he sat down slowly, the pages trembling in his hands.",
+   "stem": "Which choice best describes the function of the first two sentences in the text as a whole?",
+   "choices": [
+    "They explain why Somchai's father kept the charts hidden in his desk.",
+    "They establish a belief that the discovery described in the final sentence calls into question.",
+    "They describe the room in which Somchai finds the charts.",
+    "They suggest that Somchai shares his father's dislike of the sea."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The first two sentences set up Somchai's belief and the evidence for it; the charts, drawn with great care, suggest his father had a deep interest in the sea, which is why Somchai is shaken. The text never gives a reason for hiding the charts, the opening sentences describe the father's habits rather than a room, and nothing indicates Somchai himself dislikes the sea.",
+    "th": "สองประโยคแรกวางความเชื่อของสมชายและเหตุผลที่เขาเชื่อ แผนที่ทะเลที่วาดอย่างประณีตในประโยคสุดท้ายทำให้ความเชื่อนั้นสั่นคลอน ข้อความไม่ได้บอกเหตุผลที่พ่อซ่อนแผนที่ สองประโยคแรกบรรยายพฤติกรรมของพ่อ ไม่ใช่ห้อง และไม่มีอะไรบอกว่าสมชายไม่ชอบทะเล"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "cs",
+   "skill": "cross-text",
+   "difficulty": "h",
+   "passage": "Text 1\nMurals in many nineteenth-century Thai temples share striking similarities: the same graceful postures for human figures, the same zigzag borders separating one scene from the next, the same palette of deep red, green, and gold. Art historian Wichai Thongdee argues that this uniformity is best explained by the existence of a few large workshops, each directed by a master painter who designed the murals and closely supervised assistants who carried out his plans.\nText 2\nA close study of brushwork in murals at a dozen temples has shown that several different hands often worked on a single wall, each with recognizable habits; one painter's trees, for instance, always lean slightly to the left. Temple records also show that painters moved frequently from one project to another rather than staying with a single group. These findings suggest that the murals' shared style came less from the direction of a master than from a widespread training tradition in which painters learned to copy common models.",
+   "stem": "Based on the texts, how would the author of Text 2 most likely respond to Thongdee's explanation?",
+   "choices": [
+    "By agreeing that a single master designed each mural, while adding that assistants did most of the painting",
+    "By arguing that the similarities Thongdee observes are better explained by a shared training tradition than by close supervision within workshops",
+    "By suggesting that the murals were painted much later than the nineteenth century",
+    "By questioning whether the murals are actually as similar in style as Thongdee claims"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Text 2 does not deny the shared style; it offers a different cause for it ('a widespread training tradition') and gives evidence against fixed workshops (painters moved often). So the author would accept the similarities but reject Thongdee's explanation. Questioning the similarities misreads Text 2, agreeing that one master designed each mural contradicts its conclusion, and the dating of the murals is never disputed.",
+    "th": "ข้อความที่ 2 ไม่ได้ปฏิเสธว่าภาพมีลักษณะคล้ายกัน แต่เสนอสาเหตุอื่น คือขนบการฝึกที่ช่างเรียนรู้แบบเดียวกัน และให้หลักฐานว่าช่างย้ายงานบ่อย จึงไม่น่าจะอยู่ในโรงงานภายใต้ครูช่างคนเดียว การตั้งคำถามว่าภาพคล้ายกันจริงหรือไม่จึงอ่านผิด การเห็นด้วยว่าครูช่างคนเดียวออกแบบแต่ละภาพขัดกับข้อสรุป และไม่มีการโต้แย้งเรื่องยุคสมัยของภาพ"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "central-ideas",
+   "difficulty": "e",
+   "passage": "During the twentieth century, many rice farmers in Asia replaced traditional rice varieties with new high-yield ones. The new varieties produced much more grain per field, but they also needed more fertilizer and more water. Today, some farmers are returning to older varieties, which need fewer of these inputs and often sell for higher prices in specialty markets.",
+   "stem": "Which choice best states the main idea of the text?",
+   "choices": [
+    "Farmers have weighed the benefits and costs of different rice varieties, and some now prefer older ones.",
+    "High-yield rice varieties can be grown without any fertilizer.",
+    "Older rice varieties produce more grain per field than high-yield varieties.",
+    "Specialty markets in Asia sell only traditional rice varieties."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The text sets the advantage of high-yield rice (more grain) against its costs (fertilizer, water) and explains why some farmers now return to older varieties. It says high-yield rice needs more fertilizer, that the new varieties produce more grain, and only that older rice 'often' sells for more in specialty markets, not that these markets sell nothing else.",
+    "th": "ข้อความเปรียบเทียบข้อดีของข้าวพันธุ์ให้ผลผลิตสูง (ได้ผลผลิตมาก) กับต้นทุน (ปุ๋ย น้ำ) และอธิบายว่าทำไมชาวนาบางคนกลับไปปลูกพันธุ์ดั้งเดิม ข้อความบอกว่าข้าวพันธุ์ใหม่ต้องใช้ปุ๋ยมากขึ้น ให้ผลผลิตมากกว่า และบอกเพียงว่าข้าวพันธุ์เก่ามักขายได้ราคาดีในตลาดเฉพาะ ไม่ได้บอกว่าตลาดนั้นขายแต่ข้าวพันธุ์เก่า"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "central-ideas",
+   "difficulty": "m",
+   "passage": "The following text is from a poem.\nMy grandmother's hands remember\nwhat her memory has let go:\nthe fold that shapes a banana-leaf cup,\nthe twist that closes a jasmine garland,\nthe exact pinch of salt for the curry\nwhose name she can no longer say.",
+   "stem": "Which choice best states the main idea of the text?",
+   "choices": [
+    "The grandmother has forgotten how to make garlands and banana-leaf cups.",
+    "The speaker is learning to cook traditional dishes from her grandmother.",
+    "Skills learned through long practice can remain even after other memories have faded.",
+    "Folding banana-leaf cups is more difficult than making jasmine garlands."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The grandmother has lost some memories (the curry's name) but her hands still know how to fold, twist and season, so practised skills outlast other memories. The poem never shows the speaker learning to cook, it says the hands do remember how to make the cups and garlands, and it does not compare the difficulty of the tasks.",
+    "th": "คุณยายลืมบางอย่าง (ชื่อแกง) แต่มือยังจำวิธีพับกระทง ร้อยมาลัย และปรุงรสได้ ใจความหลักคือทักษะที่ฝึกมานานยังคงอยู่แม้ความทรงจำอื่นจะเลือนไป บทกวีไม่ได้บอกว่าผู้พูดกำลังเรียนทำอาหาร บอกว่ามือยังจำวิธีทำกระทงและมาลัยได้ และไม่ได้เปรียบเทียบความยาก"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "evidence-textual",
+   "difficulty": "m",
+   "passage": "Males of a small frog species found in Southeast Asian forests often call from inside hollow bamboo stems. Researchers hypothesize that the frogs choose these sites because the hollow stems amplify their calls, allowing the calls to reach females that are farther away.",
+   "stem": "Which finding, if true, would most directly support the researchers' hypothesis?",
+   "choices": [
+    "Calls of frogs inside bamboo stems were measurably louder at a distance of ten metres than calls of similar-sized frogs calling from open leaves.",
+    "Males calling from bamboo stems were, on average, larger than males calling from open leaves.",
+    "Females of the species often lay their eggs in rainwater that collects inside bamboo stems.",
+    "Males of the species call most often on rainy nights, whether from bamboo stems or from leaves."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The hypothesis is that bamboo stems make calls louder at a distance. Calls from stems being louder at ten metres than calls of similar-sized frogs on leaves shows this while ruling out size as the cause. Egg-laying suggests a different reason for using bamboo, larger males could explain louder calls without any amplification, and calling on rainy nights says nothing about volume.",
+    "th": "สมมติฐานคือกระบอกไผ่ช่วยขยายเสียงให้ดังไปได้ไกล ผลที่ว่าเสียงจากในกระบอกไผ่ดังกว่าที่ระยะ 10 เมตร เมื่อเทียบกับกบขนาดเท่ากันบนใบไม้ สนับสนุนโดยตรงและตัดเรื่องขนาดตัวออก การวางไข่ในน้ำในกระบอกไผ่เป็นเหตุผลอื่น กบตัวผู้ที่ใหญ่กว่าอาจทำให้เสียงดังโดยไม่เกี่ยวกับไผ่ และการร้องในคืนฝนตกไม่เกี่ยวกับความดังของเสียง"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "evidence-quantitative",
+   "difficulty": "m",
+   "passage": "Durian flowers open in the late afternoon and are visited by several kinds of animals during the night. A student researcher recorded the average number of visits that three types of visitors made to a group of durian flowers during three periods. Bats made the most visits overall. However, bats were not the most frequent visitors in every period: ______",
+   "table": {
+    "title": "Average visits to durian flowers per night",
+    "rows": [
+     [
+      "Visitor",
+      "Before 8 p.m.",
+      "8 p.m. to midnight",
+      "After midnight"
+     ],
+     [
+      "Bats",
+      "2",
+      "14",
+      "9"
+     ],
+     [
+      "Moths",
+      "5",
+      "3",
+      "1"
+     ],
+     [
+      "Honeybees",
+      "1",
+      "0",
+      "0"
+     ]
+    ]
+   },
+   "stem": "Which choice most effectively uses data from the table to complete the statement?",
+   "choices": [
+    "after midnight, bats made more visits than moths and honeybees combined.",
+    "before 8 p.m., honeybees visited the flowers more often than moths did.",
+    "between 8 p.m. and midnight, bats made more visits than in any other period.",
+    "before 8 p.m., moths visited the flowers more often than bats did."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The statement needs a period in which another visitor beat the bats. Before 8 p.m., moths made 5 visits and bats only 2. The figures after midnight (9 for bats against 1 and 0) and between 8 p.m. and midnight (14) are true but show bats leading, and honeybees (1) did not visit more often than moths (5) before 8 p.m.",
+    "th": "ต้องหาช่วงเวลาที่มีผู้มาเยือนชนิดอื่นมากกว่าค้างคาว คือก่อน 20.00 น. ผีเสื้อกลางคืนมา 5 ครั้ง ค้างคาวมาเพียง 2 ครั้ง ข้อมูลหลังเที่ยงคืน (ค้างคาว 9 ครั้ง) และช่วง 20.00–24.00 น. (14 ครั้ง) เป็นจริงแต่ค้างคาวยังนำอยู่ และผึ้ง (1 ครั้ง) ไม่ได้มามากกว่าผีเสื้อกลางคืน (5 ครั้ง) ก่อน 20.00 น."
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "evidence-textual",
+   "difficulty": "h",
+   "passage": "Thai social media posts often include English loanwords. Linguist Nattaya Srisuk claims that this use of English mainly reflects users' desire to signal membership in particular online communities, rather than a lack of suitable Thai words for the ideas being expressed.",
+   "stem": "Which finding, if true, would most directly weaken Srisuk's claim?",
+   "choices": [
+    "English loanwords appear most often in posts that users address to close friends in the same online groups.",
+    "Most of the English loanwords in the posts are terms for new technologies that have no widely used Thai equivalents.",
+    "Younger users include more English loanwords in their posts than older users do.",
+    "For centuries, Thai has borrowed words from languages such as Pali, Sanskrit, and Khmer."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Srisuk says the English words are used for social signalling, not because Thai lacks the words. If most loanwords name technologies with no common Thai equivalent, a lack of Thai words would explain their use, which weakens her claim. More use by younger users and more use among friends in the same groups are consistent with social signalling, and the history of borrowing from other languages does not address why English is used today.",
+    "th": "ข้ออ้างของศรีสุขคือคนใช้คำภาษาอังกฤษเพื่อแสดงความเป็นสมาชิกกลุ่ม ไม่ใช่เพราะภาษาไทยไม่มีคำ ถ้าคำยืมส่วนใหญ่เป็นศัพท์เทคโนโลยีที่ไม่มีคำไทยใช้กันแพร่หลาย ก็แสดงว่าคนใช้เพราะขาดคำไทย จึงหักล้างข้ออ้าง การที่คนอายุน้อยใช้มากกว่าและใช้มากในกลุ่มเพื่อนสนับสนุนข้ออ้าง ส่วนประวัติการยืมคำจากบาลี สันสกฤต และเขมรไม่เกี่ยวกับเหตุผลการใช้ภาษาอังกฤษในปัจจุบัน"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "inferences",
+   "difficulty": "h",
+   "passage": "At a coastal site in southern Thailand dating to roughly 2,000 years ago, archaeologists have found fragments of pottery whose clay chemistry matches that of kilns in southern China, along with beads made from a type of glass produced at the time in South Asia. No kilns or glass workshops have been found at the site itself. Taken together, these findings suggest that the site's inhabitants ______",
+   "stem": "Which choice most logically completes the text?",
+   "choices": [
+    "produced the pottery and glass beads themselves using local materials.",
+    "traded with southern China but had no contact with South Asia.",
+    "obtained goods through trade connections that reached both China and South Asia.",
+    "were the main suppliers of pottery to communities in South Asia."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The pottery came from Chinese kilns and the beads from South Asian glass, and nothing was made at the site, so the people most likely got these goods through trade in both directions. Local production contradicts the missing kilns and workshops and the chemical evidence, the South Asian beads rule out the idea that the site traded only with China, and the text gives no evidence that the site exported pottery anywhere.",
+    "th": "เครื่องปั้นดินเผามาจากเตาเผาในจีนตอนใต้ ลูกปัดมาจากแก้วของเอเชียใต้ และไม่พบเตาเผาหรือโรงงานแก้วที่แหล่งนี้ จึงสรุปได้ว่าคนที่นี่ได้สินค้ามาจากการค้ากับทั้งสองภูมิภาค การผลิตเองขัดกับหลักฐาน ลูกปัดจากเอเชียใต้แสดงว่าไม่ได้ติดต่อกับจีนเพียงแห่งเดียว และไม่มีหลักฐานว่าแหล่งนี้ส่งออกเครื่องปั้นดินเผา"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "ii",
+   "skill": "inferences",
+   "difficulty": "h",
+   "passage": "A psychologist found that students who studied a list of vocabulary words in the evening and were tested after a night's sleep recalled more words than students who studied in the morning and were tested that evening, the same number of hours later. Some critics suggested that the morning group simply encountered more distracting information during the day. To test this, the psychologist added a third group that studied in the morning and then rested quietly, awake, in a dim room until the test. If this group's recall turns out to be similar to that of the original morning group, it would suggest that ______",
+   "stem": "Which choice most logically completes the text?",
+   "choices": [
+    "studying in the morning generally leads to better recall than studying in the evening.",
+    "resting quietly while awake helps memory just as much as sleeping does.",
+    "daytime distractions were the main reason the morning group recalled fewer words.",
+    "sleep itself, rather than simply avoiding daytime distractions, helped the evening group remember more words."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The quiet-rest group avoids distractions but does not sleep. If it does no better than the morning group, avoiding distractions did not help, so sleep is the likelier reason for the evening group's advantage. That result would count against distractions as the main cause and against quiet rest being as good as sleep, and the original finding showed the evening group, not the morning group, recalling more.",
+    "th": "กลุ่มที่พักเงียบ ๆ ไม่เจอสิ่งรบกวนแต่ไม่ได้นอน ถ้าจำได้ไม่ต่างจากกลุ่มเช้า แสดงว่าการเลี่ยงสิ่งรบกวนไม่ได้ช่วย การนอนหลับจึงน่าจะเป็นเหตุที่กลุ่มเย็นจำได้มากกว่า ผลนี้ขัดกับการบอกว่าสิ่งรบกวนเป็นสาเหตุหลัก ขัดกับการบอกว่าการพักผ่อนช่วยได้เท่าการนอน และผลเดิมแสดงว่ากลุ่มเย็นจำได้มากกว่ากลุ่มเช้า"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "boundaries",
+   "difficulty": "e",
+   "passage": "Water monitor lizards are a common sight in Bangkok's Lumphini ______ visitors often see them swimming slowly across the lakes or resting on the grassy banks in the afternoon sun.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "Park and,",
+    "Park",
+    "Park,",
+    "Park;"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "'Water monitor lizards are a common sight in Bangkok's Lumphini Park' and 'visitors often see them…' are independent clauses, and a semicolon joins them correctly. A comma alone creates a comma splice, no punctuation creates a run-on, and a comma placed after 'and' wrongly separates the conjunction from its clause.",
+    "th": "ทั้งสองส่วนเป็นอนุประโยคอิสระ ใช้ ; เชื่อมได้ถูกต้อง การใช้จุลภาคอย่างเดียวเป็น comma splice การไม่ใส่เครื่องหมายเป็นประโยคต่อกันผิดหลัก และการใส่จุลภาคหลัง and เป็นการแยกคำเชื่อมออกจากอนุประโยคของมัน"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "boundaries",
+   "difficulty": "m",
+   "passage": "Rafflesia kerrii, a parasitic plant that grows in the rainforests of southern Thailand and northern ______ produces some of the largest single flowers of any plant, each one opening for only a few days before it begins to rot.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "Malaysia,",
+    "Malaysia;",
+    "Malaysia",
+    "Malaysia—"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The appositive 'a parasitic plant … Malaysia' interrupts the subject and its verb 'produces'. It opens with a comma after 'kerrii', so it must close with a comma: 'Malaysia,'. No punctuation leaves the pair incomplete, a semicolon would cut the subject off from its verb, and a dash cannot close a phrase opened with a comma.",
+    "th": "วลีขยาย a parasitic plant … Malaysia คั่นระหว่างประธานกับกริยา produces และเปิดด้วยจุลภาคหลัง kerrii จึงต้องปิดด้วยจุลภาค การไม่ใส่เครื่องหมายทำให้ไม่ครบคู่ ; แยกประธานออกจากกริยา และขีดยาว (—) ใช้ปิดวลีที่เปิดด้วยจุลภาคไม่ได้"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "form-structure-sense",
+   "difficulty": "m",
+   "passage": "The film about a family of fishermen in Trang Province was kept secret until its premiere. Neither the director nor the actors ______ willing to discuss its surprising ending with reporters before the opening night.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "is",
+    "were",
+    "has been",
+    "was"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "With 'neither … nor', the verb agrees with the nearer subject, 'the actors', which is plural, and the story is set in the past, so 'were' is correct. 'Was' and 'has been' are singular, and 'is' is singular and in the present tense.",
+    "th": "เมื่อใช้ neither … nor กริยาต้องสอดคล้องกับประธานตัวที่ใกล้กว่า คือ the actors ซึ่งเป็นพหูพจน์ และเหตุการณ์เป็นอดีต จึงใช้ were ส่วน was และ has been เป็นเอกพจน์ และ is เป็นเอกพจน์ปัจจุบัน"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "boundaries",
+   "difficulty": "h",
+   "passage": "The river festival's evening programme includes three main events: a lantern parade, which begins at ______ a shadow-puppet performance, which runs until ten o'clock; and a fireworks display over the water.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "dusk",
+    "dusk,",
+    "dusk;",
+    "dusk:"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The items in this list already contain commas ('a lantern parade, which…'), so the items must be separated by semicolons, as the second item is: 'ten o'clock;'. A comma would make the items hard to tell apart and breaks the pattern, a colon cannot separate items in a list, and leaving out punctuation runs two items together.",
+    "th": "รายการแต่ละรายการมีจุลภาคอยู่ข้างในแล้ว (a lantern parade, which…) จึงต้องคั่นรายการด้วย ; เหมือนที่ใช้หลัง ten o'clock การใช้จุลภาคทำให้แยกรายการไม่ออกและไม่สอดคล้องกัน : ใช้คั่นรายการไม่ได้ และการไม่ใส่เครื่องหมายทำให้สองรายการติดกัน"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "boundaries",
+   "difficulty": "h",
+   "passage": "After the severe floods of 2011, engineers who studied Bangkok's drainage system reached a sobering ______ the city's canals, many of them narrowed by decades of construction along their banks, could carry only a fraction of the water they had once handled.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "conclusion, which",
+    "conclusion, that",
+    "conclusion,",
+    "conclusion:"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The first part is a complete clause, and what follows states the conclusion itself, so a colon is correct. A comma would create a comma splice between two independent clauses, a comma before 'that' wrongly separates the noun 'conclusion' from the clause that tells what the conclusion was, and 'which' makes the sentence ungrammatical because the clause after it already has its own subject, 'the city's canals'.",
+    "th": "ส่วนแรกเป็นประโยคสมบูรณ์ และส่วนหลังบอกเนื้อหาของข้อสรุป จึงใช้ : การใช้จุลภาคเป็น comma splice การใส่จุลภาคหน้า that แยกคำนาม conclusion ออกจากอนุประโยคที่บอกเนื้อหาของข้อสรุปโดยไม่ถูกต้อง และการใช้ which ทำให้ผิดไวยากรณ์เพราะอนุประโยคหลังมีประธานของตัวเองแล้ว (the city's canals)"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "form-structure-sense",
+   "difficulty": "h",
+   "passage": "Excavations in a limestone cave in Mae Hong Son Province have changed researchers' picture of the region's past. The discovery of several stone tools, along with the remains of an ancient hearth, ______ that people occupied the cave far earlier than previously thought.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "are suggesting",
+    "suggests",
+    "have suggested",
+    "suggest"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The subject is 'The discovery', which is singular; 'of several stone tools' and 'along with the remains…' are phrases that do not change the subject. So the singular 'suggests' is needed. 'Suggest', 'have suggested' and 'are suggesting' are plural forms.",
+    "th": "ประธานคือ The discovery ซึ่งเป็นเอกพจน์ ส่วน of several stone tools และ along with the remains… เป็นวลีขยายที่ไม่เปลี่ยนประธาน จึงใช้ suggests ส่วน suggest, have suggested และ are suggesting เป็นรูปพหูพจน์"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "sec",
+   "skill": "form-structure-sense",
+   "difficulty": "h",
+   "passage": "The Thai solar calendar uses the same months as the Gregorian calendar but numbers its years differently. Unlike ______ it counts years from the traditional date of the Buddha's passing, so the Gregorian year 2026 is the year 2569 in Thailand.",
+   "stem": "Which choice completes the text so that it conforms to the conventions of Standard English?",
+   "choices": [
+    "in the Gregorian calendar,",
+    "people who use the Gregorian calendar,",
+    "the Gregorian calendar,",
+    "the Gregorian calendar's users,"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The sentence compares two calendars: 'it' (the Thai calendar) counts years differently from 'the Gregorian calendar'. Comparing the Thai calendar with people or users is illogical, and 'Unlike in the Gregorian calendar' turns the comparison into a place, which does not match the subject 'it'.",
+    "th": "ประโยคเปรียบเทียบปฏิทินกับปฏิทิน คือ it (ปฏิทินไทย) กับ the Gregorian calendar การเปรียบเทียบปฏิทินกับ people หรือ users ไม่สมเหตุสมผล และ Unlike in the Gregorian calendar ทำให้เปรียบเทียบกับสถานที่ ซึ่งไม่ตรงกับประธาน it"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "eoi",
+   "skill": "transitions",
+   "difficulty": "e",
+   "passage": "Bamboo is a type of grass, not a tree, and it is one of the fastest-growing plants on Earth. ______ some species can grow nearly a metre in a single day under ideal conditions.",
+   "stem": "Which choice completes the text with the most logical transition?",
+   "choices": [
+    "Instead,",
+    "Otherwise,",
+    "In fact,",
+    "However,"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The second sentence gives a striking detail that strengthens the claim that bamboo grows very fast, so 'In fact' fits. 'However' would signal a contrast, 'Instead' a replacement, and 'Otherwise' an alternative outcome, none of which matches a supporting detail.",
+    "th": "ประโยคที่สองให้รายละเอียดที่ย้ำว่าไผ่โตเร็วมาก จึงใช้ In fact ส่วน However แสดงความขัดแย้ง Instead แสดงการแทนที่ และ Otherwise แสดงผลที่ต่างออกไป ซึ่งไม่ตรงกับการเสริมข้อมูล"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "eoi",
+   "skill": "transitions",
+   "difficulty": "m",
+   "passage": "Most spiders build webs and wait for insects to fly into them. Jumping spiders, ______ build no webs for hunting; they stalk their prey and then leap onto it from a distance of many times their own body length.",
+   "stem": "Which choice completes the text with the most logical transition?",
+   "choices": [
+    "by contrast,",
+    "for example,",
+    "therefore,",
+    "similarly,"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Jumping spiders behave differently from 'most spiders': they hunt without webs. 'By contrast' signals this difference. 'For example' would present jumping spiders as an example of web-building, 'therefore' implies a cause-and-effect link, and 'similarly' suggests they behave like other spiders.",
+    "th": "แมงมุมกระโดดมีพฤติกรรมต่างจากแมงมุมส่วนใหญ่ คือล่าเหยื่อโดยไม่ใช้ใย จึงใช้ by contrast ส่วน for example ทำให้ดูเหมือนเป็นตัวอย่างของแมงมุมที่ชักใย therefore แสดงเหตุและผล และ similarly แสดงความเหมือน"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "eoi",
+   "skill": "rhetorical-synthesis",
+   "difficulty": "m",
+   "passage": "While researching a topic, a student has taken the following notes:\n- Jim Thompson was an American businessman who settled in Bangkok after the Second World War.\n- He helped revive the Thai silk industry in the 1950s and 1960s.\n- He promoted Thai silk to buyers and designers in Europe and the United States.\n- In 1967, he disappeared while on holiday in the Cameron Highlands of Malaysia.\n- His former home in Bangkok is now a museum.",
+   "stem": "The student wants to emphasize Thompson's contribution to the Thai silk industry. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "By promoting Thai silk to buyers and designers in Europe and the United States, Jim Thompson helped revive the industry in the 1950s and 1960s.",
+    "Jim Thompson's former home in Bangkok, where he settled after the Second World War, is now a museum.",
+    "An American businessman, Jim Thompson settled in Bangkok after the Second World War.",
+    "In 1967, Jim Thompson disappeared while on holiday in the Cameron Highlands of Malaysia."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Only the sentence about promoting silk abroad and reviving the industry describes his contribution to Thai silk. The others mention his disappearance, his house or where he settled, which are facts about his life but not about what he did for the industry.",
+    "th": "มีเพียงประโยคที่กล่าวถึงการส่งเสริมผ้าไหมไทยในต่างประเทศและการฟื้นฟูอุตสาหกรรมที่แสดงผลงานของเขาต่ออุตสาหกรรมผ้าไหม ประโยคอื่นพูดถึงการหายตัว บ้าน หรือการมาตั้งรกราก ซึ่งเป็นเรื่องชีวิตส่วนตัว ไม่ใช่ผลงานต่ออุตสาหกรรม"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "eoi",
+   "skill": "transitions",
+   "difficulty": "h",
+   "passage": "For years, the coral reef around a small island in the Gulf of Thailand had been in decline. After fishing near the reef was banned in 2010, the number of fish there began to rise steadily. ______ coral cover continued to fall until 2016, when divers began removing the coral-eating starfish that had multiplied on the reef; only after that did the coral start to recover.",
+   "stem": "Which choice completes the text with the most logical transition?",
+   "choices": [
+    "Likewise,",
+    "As a result,",
+    "For instance,",
+    "Even so,"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The fishing ban helped the fish, but the coral kept declining anyway, so the third sentence contrasts with what came before: 'Even so'. 'As a result' would make the falling coral a result of more fish, 'For instance' would treat it as an example of fish numbers rising, and 'Likewise' would suggest the coral improved in the same way.",
+    "th": "การห้ามประมงทำให้ปลาเพิ่มขึ้น แต่ปะการังยังคงลดลง ประโยคที่สามจึงขัดแย้งกับสิ่งที่กล่าวมาก่อน ต้องใช้ Even so ส่วน As a result ทำให้ปะการังลดลงดูเป็นผลจากปลาเพิ่มขึ้น For instance ทำให้ดูเป็นตัวอย่างของการที่ปลาเพิ่มขึ้น และ Likewise ทำให้ดูเหมือนปะการังดีขึ้นเช่นกัน"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "eoi",
+   "skill": "rhetorical-synthesis",
+   "difficulty": "h",
+   "passage": "While researching a topic, a student has taken the following notes:\n- Wat Arun stands on the west bank of the Chao Phraya River in Bangkok.\n- Its central tower is decorated with pieces of coloured porcelain.\n- Much of this porcelain came from broken ceramics.\n- Park Güell in Barcelona, Spain, was designed by the architect Antoni Gaudí.\n- Its benches and walls are covered in trencadís, a mosaic made from broken tiles and pieces of ceramic.",
+   "stem": "The student wants to emphasize a similarity between the decoration of Wat Arun and that of Park Güell. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "Wat Arun's central tower is decorated with coloured porcelain, much of which came from broken ceramics.",
+    "Both Wat Arun's central tower and Park Güell's benches and walls are decorated with pieces of broken ceramics.",
+    "Park Güell, designed by Antoni Gaudí, features trencadís, a mosaic made from broken tiles and pieces of ceramic.",
+    "Wat Arun stands beside a river in Bangkok, while Park Güell is located in Barcelona."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The goal is a similarity between the two places' decoration, so the sentence must mention both and what they share: decoration made from broken ceramics. The sentence about Bangkok and Barcelona states a difference in location, and the sentences about trencadís and about Wat Arun's porcelain each describe only one of the two places.",
+    "th": "เป้าหมายคือความเหมือนของการตกแต่งทั้งสองสถานที่ ประโยคจึงต้องกล่าวถึงทั้งสองแห่งและสิ่งที่เหมือนกัน คือการตกแต่งด้วยเศษเครื่องเคลือบที่แตกแล้ว ประโยคเรื่องกรุงเทพฯ กับบาร์เซโลนาเป็นความต่างด้านที่ตั้ง ส่วนประโยคเรื่อง trencadís และเรื่องกระเบื้องของวัดอรุณพูดถึงสถานที่เพียงแห่งเดียว"
+   }
+  },
+  {
+   "kind": "sat",
+   "domain": "eoi",
+   "skill": "rhetorical-synthesis",
+   "difficulty": "h",
+   "passage": "While researching a topic, a student has taken the following notes:\n- Coral reefs cover less than 1 percent of the ocean floor.\n- They are home to roughly a quarter of all known marine species.\n- Many reef fish depend on coral structures for shelter from predators.\n- Rising ocean temperatures can cause coral bleaching, in which corals expel the algae living in their tissues.\n- Repeated bleaching can kill corals.",
+   "stem": "The student wants to emphasize how important coral reefs are to marine life relative to the small area they occupy. Which choice most effectively uses relevant information from the notes to accomplish this goal?",
+   "choices": [
+    "Although coral reefs cover less than 1 percent of the ocean floor, they are home to roughly a quarter of all known marine species.",
+    "Coral reefs, which cover less than 1 percent of the ocean floor, can be killed by repeated bleaching.",
+    "Rising ocean temperatures can cause coral bleaching, in which corals expel the algae living in their tissues.",
+    "Coral reefs are home to roughly a quarter of all known marine species, many of which depend on coral structures for shelter."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The goal links two ideas: the reefs' small area and their great importance to marine life. Only the 'Although' sentence sets the small area (less than 1 percent) against the large share of species (a quarter). The sentence about shelter shows importance but leaves out the small area, the sentence about bleaching mentions the area but discusses a threat rather than importance, and the sentence about temperature mentions neither.",
+    "th": "เป้าหมายเชื่อมสองแนวคิด คือพื้นที่เล็กของแนวปะการังกับความสำคัญต่อสิ่งมีชีวิตในทะเล มีเพียงประโยคที่ขึ้นต้นด้วย Although ที่เปรียบเทียบพื้นที่ไม่ถึง 1% กับสัตว์ทะเลราวหนึ่งในสี่ ประโยคเรื่องที่หลบภัยแสดงความสำคัญแต่ไม่พูดถึงพื้นที่ ประโยคเรื่องการฟอกขาวพูดถึงพื้นที่แต่เน้นภัยคุกคาม และประโยคเรื่องอุณหภูมิไม่ได้พูดถึงทั้งสองเรื่อง"
+   }
+  }
+ ]
+}

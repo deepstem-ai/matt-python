@@ -40,7 +40,7 @@ def save_settings(con, body):
 def responses(con):
     """[(item key, user, correct, rest-of-test fraction, source)] from tests and live classes."""
     out = []
-    for r in con.execute("SELECT data FROM exam_attempts WHERE kind IN ('sat','ielts-r') AND status='finished'"):
+    for r in con.execute("SELECT data FROM exam_attempts WHERE kind IN ('sat','ielts-r','m1') AND status='finished'"):
         a = json.loads(r["data"])
         if a.get("preview"):
             continue
@@ -48,7 +48,7 @@ def responses(con):
         for sec in a["sections"]:
             for iid in sec["items"]:
                 it = a["snap"][iid]
-                if it["kind"] == "sat":
+                if it["kind"] in exams.CHOICE_KINDS:
                     rows.append((iid, exams.is_correct(it, sec["answers"].get(iid, ""))))
                 else:
                     for gi, g in enumerate(it["groups"]):
@@ -108,7 +108,7 @@ def compute(con):
     questions = {k: dict(_stats(v), flags=flags(_stats(v), min_n)) for k, v in by.items()}
     items = {}
     for it in exams.items(con):
-        if it["kind"] == "sat":
+        if it["kind"] in exams.CHOICE_KINDS:
             st = questions.get(it["id"], {"n": 0, "flags": []})
             sug = sat_level(st["p"]) if st.get("n", 0) >= min_n else None
             items[it["id"]] = dict(st, current=it["difficulty"], suggest=sug, change=bool(sug and sug != it["difficulty"]),
@@ -135,7 +135,7 @@ def apply(con, ids, by, promote=False):
             continue
         note = []
         if s.get("change"):
-            if it["kind"] == "sat":
+            if it["kind"] in exams.CHOICE_KINDS:
                 note.append(f"difficulty {it['difficulty']}→{s['suggest']}")
                 it["difficulty"] = s["suggest"]
             else:

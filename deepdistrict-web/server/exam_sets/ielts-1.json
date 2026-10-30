@@ -1,0 +1,635 @@
+{
+ "exam": "ielts",
+ "set": 1,
+ "title": {
+  "en": "IELTS Academic — Practice test 1 (Reading + Writing)",
+  "th": "IELTS Academic — ชุดฝึก 1 (Reading + Writing)"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "Reading: 3 passages, 40 questions, 60 minutes. Writing: Task 1 + Task 2, 60 minutes. DeepDistrict practice — not an official IELTS test.",
+  "th": "Reading 3 บทความ 40 ข้อ 60 นาที · Writing Task 1 + Task 2 60 นาที — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบทางการ"
+ },
+ "items": [
+  {
+   "kind": "ielts-r",
+   "title": "Gardens above the street",
+   "difficulty": 1,
+   "paragraphs": [
+    "Look down on almost any large city from a tall building and you will see a landscape of grey and black: flat roofs covered in tar, gravel or metal, broken only by water tanks and air-conditioning units. For decades these surfaces were treated as wasted space, visited only when something needed repairing. In recent years, however, architects, local governments and ordinary residents have begun to look at them differently. Across Asia, Europe and the Americas, roofs are being covered with soil and plants, and some of them now produce vegetables, herbs and even eggs. The idea itself is not entirely new. In many hot countries, families have long kept pots of herbs and climbing plants on flat roofs. What has changed is the scale of the projects and the range of reasons that people give for building them.",
+    "The most widely discussed benefit is temperature. A dark roof absorbs a great deal of sunlight, and on a clear afternoon its surface can become far hotter than the air around it. This heat passes into the rooms below, and the people inside respond by switching on fans and air-conditioners. A layer of soil and plants changes this pattern in two ways. First, the leaves shade the roof so that less sunlight reaches it directly. Second, plants release water through their leaves, and the evaporation of this water removes heat, in much the same way that sweat cools human skin. Measurements taken on planted roofs regularly show surface temperatures well below those of bare roofs nearby, and the floors immediately beneath them are usually the ones that benefit most.",
+    "A second advantage concerns rain. In a city, most rainwater falls on hard surfaces such as roads, car parks and roofs, and it runs almost immediately into drains. During heavy storms, the drains can fill faster than they can empty, and streets flood. A planted roof behaves more like a sponge. The soil absorbs part of the rain and releases it slowly over the following hours, some of it through the plants and some through the building's pipes. For cities that experience intense monsoon rains, this delay can be valuable, because it reduces the peak amount of water that the drainage system must handle at any one moment.",
+    "Turning a roof into a garden is not simply a matter of carrying up some bags of earth. Wet soil is extremely heavy, and many older buildings were never designed to support such a load. Before any work begins, an engineer must check how much weight the structure can carry safely. Designers often reduce the load by using a special lightweight growing material, such as a mixture of coconut fibre and crushed volcanic rock, instead of ordinary garden soil. Water is the other great enemy. Beneath the plants, a roof garden needs a waterproof layer to protect the building, and a root barrier to stop roots from forcing their way into cracks. If either layer fails, repairs can be expensive, because the whole garden may have to be removed to find the leak.",
+    "The conditions on a roof are also harsher than those at ground level. Wind speeds are higher, there is often no shade at all, and the shallow soil dries out quickly. As a result, the most successful rooftop farms concentrate on crops with short roots and short growing seasons, such as leafy greens, herbs and chillies. Fruit trees are rarely attempted, because they need deep soil and can be damaged by strong winds. Some projects avoid soil completely and grow plants in channels of water to which nutrients have been added, a method known as hydroponics. This system is lighter than a soil garden and uses less water, but it depends on pumps and requires more technical knowledge to run.",
+    "For many of the people involved, the social side of rooftop gardening matters as much as the practical benefits. In crowded neighbourhoods where there are few parks, a shared roof garden can become a meeting place for residents who might otherwise never speak to one another. Schools use their roofs to teach children where food comes from, and older residents, some of whom grew up on farms, are often keen to share what they know. In several cities, groups of volunteers sell their surplus vegetables to local restaurants, and the money they earn helps to pay for seeds and tools for the following season.",
+    "It would be a mistake, however, to expect roof gardens to feed whole cities. Even if every suitable roof were planted, the amount of food produced would be small compared with what a large urban population eats each day. Building and maintaining a garden also costs money, and without regular care a roof can quickly return to bare concrete. Supporters of the movement accept these limits. They argue that the true value of rooftop farms lies not in the number of vegetables they grow, but in the combination of cooler buildings, reduced flooding and stronger communities that they bring together."
+   ],
+   "groups": [
+    {
+     "type": "headings",
+     "instructions": "Reading Passage 1 has seven paragraphs, A–G. Choose the correct heading for paragraphs B–G from the list of headings below.",
+     "options": [
+      {
+       "key": "i",
+       "text": "Bringing neighbours together"
+      },
+      {
+       "key": "ii",
+       "text": "Keeping buildings cool"
+      },
+      {
+       "key": "iii",
+       "text": "Why farmers are leaving the countryside"
+      },
+      {
+       "key": "iv",
+       "text": "Slowing the flow of rainwater"
+      },
+      {
+       "key": "v",
+       "text": "The technical demands of a heavy garden"
+      },
+      {
+       "key": "vi",
+       "text": "Crops that can cope with difficult conditions"
+      },
+      {
+       "key": "vii",
+       "text": "The rising cost of imported vegetables"
+      },
+      {
+       "key": "viii",
+       "text": "Realistic expectations about food production"
+      },
+      {
+       "key": "ix",
+       "text": "New laws that require green roofs"
+      }
+     ],
+     "questions": [
+      {
+       "text": "Paragraph B",
+       "answer": [
+        "ii"
+       ]
+      },
+      {
+       "text": "Paragraph C",
+       "answer": [
+        "iv"
+       ]
+      },
+      {
+       "text": "Paragraph D",
+       "answer": [
+        "v"
+       ]
+      },
+      {
+       "text": "Paragraph E",
+       "answer": [
+        "vi"
+       ]
+      },
+      {
+       "text": "Paragraph F",
+       "answer": [
+        "i"
+       ]
+      },
+      {
+       "text": "Paragraph G",
+       "answer": [
+        "viii"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "tfng",
+     "instructions": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.",
+     "questions": [
+      {
+       "text": "In the past, city roofs were usually visited only when repairs were needed.",
+       "answer": [
+        "TRUE"
+       ]
+      },
+      {
+       "text": "Rooftop gardens are more common in Asia than in Europe.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      },
+      {
+       "text": "The top floors of a building with a planted roof gain less cooling benefit than the lower floors.",
+       "answer": [
+        "FALSE"
+       ]
+      },
+      {
+       "text": "Hydroponic systems need more water than gardens that use soil.",
+       "answer": [
+        "FALSE"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "note-completion",
+     "instructions": "Complete the notes below. Choose ONE WORD ONLY from the passage for each answer.",
+     "wordLimit": {
+      "words": 1,
+      "number": false
+     },
+     "context": "Creating a rooftop garden\n• Before work starts: an (11) ______ checks how much weight the structure can carry\n• To reduce weight: coconut fibre mixed with crushed volcanic (12) ______\n• Below the plants: a waterproof layer and a root (13) ______",
+     "questions": [
+      {
+       "text": "(11) ______",
+       "answer": [
+        "engineer"
+       ]
+      },
+      {
+       "text": "(12) ______",
+       "answer": [
+        "rock"
+       ]
+      },
+      {
+       "text": "(13) ______",
+       "answer": [
+        "barrier"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-r",
+   "title": "Bamboo: an old material for new buildings",
+   "difficulty": 2,
+   "paragraphs": [
+    "For thousands of years, bamboo has been used to build houses, bridges and scaffolding across large parts of Asia, Africa and Latin America. In many places it is still the first material that comes to hand: it grows nearby, it can be cut with simple tools, and a small team can raise a frame in a few days. Yet for most of the twentieth century, engineers in industrialised countries paid it little attention, regarding it as a temporary material suitable for sheds and fences rather than permanent structures. That attitude has begun to change. As the construction industry searches for ways to reduce the carbon released by concrete and steel, bamboo is being studied in university laboratories with a seriousness it has rarely received before.",
+    "Part of the interest lies in the biology of the plant. Despite its woody appearance, bamboo is a grass, not a tree, and some species are among the fastest-growing plants on Earth. A new shoot emerges from the ground already at its final diameter and reaches its full height within a single growing season. Over the following years, the walls of the stem, known as the culm, gradually harden as the plant deposits more fibre. Most builders prefer to harvest culms that are between three and five years old. Crucially, cutting a culm does not kill the plant, because new shoots continue to grow from the underground root system. A well-managed bamboo forest can therefore be harvested every year without being replanted.",
+    "The structure of the culm explains much of its strength. It is a hollow tube, divided at intervals by solid walls called nodes, which prevent it from collapsing when it is bent. Long, tough fibres run along its length, concentrated near the outer surface where they are most effective. As a result, bamboo performs remarkably well when it is pulled or bent, and for its weight it compares favourably with many conventional materials. Its lightness and flexibility are particularly useful in regions where earthquakes are common: when the ground shakes, a well-built bamboo frame tends to sway and bend rather than break, and because the material is light, any part that does fall is less likely to cause serious injury.",
+    "Natural bamboo, however, has weaknesses that have limited its use in modern construction. No two culms are identical. Their diameter, wall thickness and straightness vary from one stem to the next and even along a single stem, which makes it difficult for engineers to calculate exactly how a structure will behave. Bamboo is also attractive to insects and fungi, which feed on the starch stored inside the culm. Untreated bamboo left exposed to rain and sun may last only a few years, and it burns easily. For an engineer who is used to steel beams produced to precise measurements, these uncertainties can be a serious obstacle.",
+    "Builders in bamboo-growing regions developed ways of dealing with some of these problems long ago. A common traditional method is to soak freshly cut culms in water for several weeks, which removes much of the starch and makes the material less attractive to insects. Today, culms are often treated by forcing a solution of mineral salts through them, and heat is also used to make the material more durable. Just as important is good design. A bamboo building that lasts for decades is one in which the bamboo is kept dry: experienced builders give their houses wide roofs that throw rain away from the walls, and they raise the structure on stone or concrete foundations so that the culms never touch damp ground.",
+    "A more radical solution to the problem of irregularity is to turn bamboo into an engineered product. In this process, culms are cut into thin strips, which are flattened, dried, coated with glue and pressed together under great force. The result is a board or beam of standard dimensions, which looks and behaves much like plywood or other manufactured wood products. Because its properties are regular, it can be tested and specified in the same way as other building materials. The disadvantage is that the glue and the energy needed for pressing reduce some of the environmental benefit that made bamboo attractive in the first place.",
+    "Perhaps the greatest barriers to wider use are not technical but social. In many countries there are no building codes that cover bamboo, so architects who want to use it must persuade officials, insurers and banks that their designs are safe. In regions where bamboo has traditionally been the material of rural housing, many families associate it with poverty and would rather live in a concrete house as soon as they can afford one. A number of striking public buildings made from bamboo have begun to challenge this image, but changing attitudes is likely to take longer than solving the engineering problems."
+   ],
+   "groups": [
+    {
+     "type": "matching-info",
+     "instructions": "Reading Passage 2 has seven paragraphs, A–G. Which paragraph contains the following information? Write the correct letter, A–G.",
+     "questions": [
+      {
+       "text": "a comparison between bamboo and a manufactured wood product",
+       "answer": [
+        "F"
+       ]
+      },
+      {
+       "text": "a reason why bamboo buildings may cope well with earthquakes",
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "an explanation of how the plant survives after it has been cut",
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "a reference to the view that bamboo is linked with being poor",
+       "answer": [
+        "G"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "summary-box",
+     "instructions": "Complete the summary using the list of words, A–H, below.",
+     "context": "Protecting bamboo\nUntreated bamboo can be damaged by insects and fungi, which feed on the (18) ______ inside the culm. A traditional way of reducing this risk is (19) ______ newly cut culms in water. Modern treatments include forcing salt solutions through the culms and using (20) ______. Good design also matters: a long-lasting building keeps its bamboo (21) ______, with a wide roof and raised (22) ______ that stop the culms touching damp ground.",
+     "options": [
+      {
+       "key": "A",
+       "text": "metal"
+      },
+      {
+       "key": "B",
+       "text": "dry"
+      },
+      {
+       "key": "C",
+       "text": "starch"
+      },
+      {
+       "key": "D",
+       "text": "painting"
+      },
+      {
+       "key": "E",
+       "text": "heat"
+      },
+      {
+       "key": "F",
+       "text": "foundations"
+      },
+      {
+       "key": "G",
+       "text": "cold"
+      },
+      {
+       "key": "H",
+       "text": "soaking"
+      }
+     ],
+     "questions": [
+      {
+       "text": "(18) ______",
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "(19) ______",
+       "answer": [
+        "H"
+       ]
+      },
+      {
+       "text": "(20) ______",
+       "answer": [
+        "E"
+       ]
+      },
+      {
+       "text": "(21) ______",
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "(22) ______",
+       "answer": [
+        "F"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "mcq-multi",
+     "instructions": "Choose TWO letters, A–E.",
+     "questions": [
+      {
+       "text": "Which TWO statements about engineered bamboo are made in the passage?",
+       "options": [
+        {
+         "key": "A",
+         "text": "Its boards and beams are made to standard sizes."
+        },
+        {
+         "key": "B",
+         "text": "It is cheaper to produce than natural bamboo."
+        },
+        {
+         "key": "C",
+         "text": "Making it requires glue and a large amount of energy."
+        },
+        {
+         "key": "D",
+         "text": "It is stronger than steel of the same weight."
+        },
+        {
+         "key": "E",
+         "text": "It can only be made from one species of bamboo."
+        }
+       ],
+       "answer": [
+        "A",
+        "C"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "short-answer",
+     "instructions": "Answer the questions below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+     "wordLimit": {
+      "words": 2,
+      "number": false
+     },
+     "questions": [
+      {
+       "text": "What type of plant is bamboo?",
+       "answer": [
+        "a grass",
+        "grass"
+       ]
+      },
+      {
+       "text": "What do many countries not have that would make it easier to approve bamboo buildings?",
+       "answer": [
+        "building codes"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-r",
+   "title": "Why memory still matters",
+   "difficulty": 3,
+   "paragraphs": [
+    "It has become common to hear that schools should stop asking students to memorise information. Since almost any fact can now be found in a few seconds on a phone, the argument goes, time spent learning dates, formulae or vocabulary by heart is time wasted. The claim is repeated by teachers, parents and business leaders alike, and it has an obvious appeal: few people have happy memories of reciting lists in a classroom. I want to suggest, however, that it rests on a misunderstanding of how human thinking actually works, and that if it were taken seriously it would make students less able, not more able, to use the vast amount of information that technology places at their fingertips.",
+    "It is worth acknowledging first what the critics get right. A great deal of traditional memorisation was poorly designed. Students were required to repeat material that had no meaning for them, and examinations often rewarded the ability to reproduce a textbook rather than to understand it. A student could recite the stages of a scientific process perfectly and still have no idea why any of them occurred. When critics call for an education that values understanding, analysis and creativity over mechanical repetition, they are describing a goal that almost everyone shares. The disagreement is about how that goal is to be reached.",
+    "The central problem with the 'just look it up' position is that thinking does not take place on a screen; it takes place in the mind, and the part of the mind that does our conscious thinking, often called working memory, is severely limited. It can hold only a handful of new pieces of information at once. When we read a passage on an unfamiliar subject, every unknown term competes for this limited space. A reader who already knows the vocabulary and the background can devote attention to the argument itself; a reader who must stop to look up every second word soon loses the thread. Studies of chess players illustrate the same principle. Experienced players do not calculate more moves than beginners; rather, they recognise familiar patterns on the board instantly, because thousands of earlier positions are stored in their long-term memory.",
+    "Searching, too, depends on knowledge. To search well, one must know what to search for and must be able to judge which of the results are reliable. Novices tend to accept the first answer they find, even when it is incomplete or wrong, while people who know a subject well notice immediately when something does not fit. There is a paradox here: the more a person already knows, the more useful the internet becomes to them. Far from making knowledge unnecessary, easy access to information increases the advantage of those who have plenty of it.",
+    "Similar reasoning applies to creativity, which is often presented as the alternative to memorisation. New ideas typically arise when a person connects things that were previously separate: a technique from one field applied to a problem in another, or an observation that suddenly explains a puzzle. But nobody can connect ideas that are not in their head. The notion that creativity and knowledge pull in opposite directions seems to me one of the most damaging myths in modern education, because it encourages schools to offer students the appearance of creative work without the material that real creativity requires.",
+    "None of this is an argument for a return to endless drills. The important distinction is between meaningless repetition and the building of organised knowledge, in which new facts are linked to what is already understood. Research on learning offers practical guidance here. One consistent finding is that the act of trying to recall information strengthens memory far more than reading the same material again. Another is that practice spread over several days produces longer-lasting learning than the same amount of practice crammed into a single evening. Neither technique needs to be unpleasant. Short, low-stakes quizzes, in which a wrong answer carries no penalty, can even be enjoyable, and students often discover that they know more than they had realised.",
+    "Nor am I suggesting that every fact deserves to be memorised. Some information changes so quickly, such as the commands of a particular computer program, that it is more sensibly looked up when it is needed. Curriculum designers must make choices, and a useful test is to ask whether knowing something will help a student to understand many other things. The basic vocabulary of a subject, its central concepts and the key events in its history pass this test easily; a list of minor details may not.",
+    "Digital devices are remarkable tools for extending human memory, but they cannot replace it, any more than a library can replace the ability to read. There is also a question of fairness. Children from homes full of books and conversation absorb a great deal of knowledge outside school. If schools decide that teaching knowledge is old-fashioned, those children will hardly notice the difference, while those who depend on school for that knowledge will be left further behind. Abandoning memorisation would therefore not only weaken students' thinking; it would also widen the gap between children from different backgrounds."
+   ],
+   "groups": [
+    {
+     "type": "ynng",
+     "instructions": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.",
+     "questions": [
+      {
+       "text": "The view that memorisation is unnecessary is held mainly by young people.",
+       "answer": [
+        "NO"
+       ]
+      },
+      {
+       "text": "Some traditional methods of memorisation deserved criticism.",
+       "answer": [
+        "YES"
+       ]
+      },
+      {
+       "text": "Students today have weaker memories than students in the past.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      },
+      {
+       "text": "Creativity and knowledge should be regarded as opposing qualities.",
+       "answer": [
+        "NO"
+       ]
+      },
+      {
+       "text": "Schools should spend more of their budgets on digital devices.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "mcq",
+     "instructions": "Choose the correct letter, A, B, C or D.",
+     "questions": [
+      {
+       "text": "According to the writer, a reader who lacks background knowledge of a subject",
+       "options": [
+        {
+         "key": "A",
+         "text": "reads unfamiliar texts more quickly."
+        },
+        {
+         "key": "B",
+         "text": "finds it hard to follow the argument of a text."
+        },
+        {
+         "key": "C",
+         "text": "remembers new vocabulary more easily."
+        },
+        {
+         "key": "D",
+         "text": "prefers to read texts on a screen."
+        }
+       ],
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "The writer mentions chess players in order to",
+       "options": [
+        {
+         "key": "A",
+         "text": "show that recognising patterns depends on stored knowledge."
+        },
+        {
+         "key": "B",
+         "text": "argue that games should be taught in schools."
+        },
+        {
+         "key": "C",
+         "text": "compare the memories of children and adults."
+        },
+        {
+         "key": "D",
+         "text": "suggest that experts think more slowly than beginners."
+        }
+       ],
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "What does the writer say about information that changes quickly?",
+       "options": [
+        {
+         "key": "A",
+         "text": "It should be memorised as early as possible."
+        },
+        {
+         "key": "B",
+         "text": "It is usually more reliable than older information."
+        },
+        {
+         "key": "C",
+         "text": "It may be more sensible to look it up when necessary."
+        },
+        {
+         "key": "D",
+         "text": "It is rarely available on the internet."
+        }
+       ],
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "What is the writer's main purpose in the passage?",
+       "options": [
+        {
+         "key": "A",
+         "text": "to describe the history of school examinations"
+        },
+        {
+         "key": "B",
+         "text": "to recommend that phones be banned from classrooms"
+        },
+        {
+         "key": "C",
+         "text": "to prove that traditional teaching methods were the best"
+        },
+        {
+         "key": "D",
+         "text": "to argue that knowledge held in memory remains essential for thinking"
+        }
+       ],
+       "answer": [
+        "D"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "sentence-endings",
+     "instructions": "Complete each sentence with the correct ending, A–H, below.",
+     "options": [
+      {
+       "key": "A",
+       "text": "is more effective than cramming the same amount of practice into one evening."
+      },
+      {
+       "key": "B",
+       "text": "strengthens memory more than reading the same material again."
+      },
+      {
+       "key": "C",
+       "text": "would make examinations unnecessary."
+      },
+      {
+       "key": "D",
+       "text": "tend to accept the first answer they find."
+      },
+      {
+       "key": "E",
+       "text": "can make practice enjoyable."
+      },
+      {
+       "key": "F",
+       "text": "is the main cause of poor reading skills."
+      },
+      {
+       "key": "G",
+       "text": "could widen the gap between children from different backgrounds."
+      },
+      {
+       "key": "H",
+       "text": "depends mainly on the speed of a person's internet connection."
+      }
+     ],
+     "questions": [
+      {
+       "text": "Trying to recall information",
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "Spreading practice over several days",
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "People who are new to a subject",
+       "answer": [
+        "D"
+       ]
+      },
+      {
+       "text": "Short quizzes with no penalty for wrong answers",
+       "answer": [
+        "E"
+       ]
+      },
+      {
+       "text": "Abandoning memorisation in schools",
+       "answer": [
+        "G"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-w",
+   "task": 1,
+   "visual": "table",
+   "prompt": "The table below shows the average amount of water used per person each day for different purposes in one city in 2000, 2010 and 2020.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.",
+   "table": {
+    "title": "Average daily household water use per person (litres)",
+    "rows": [
+     [
+      "Purpose",
+      "2000",
+      "2010",
+      "2020"
+     ],
+     [
+      "Showering and bathing",
+      "62",
+      "58",
+      "49"
+     ],
+     [
+      "Toilet flushing",
+      "45",
+      "36",
+      "28"
+     ],
+     [
+      "Laundry",
+      "30",
+      "26",
+      "22"
+     ],
+     [
+      "Cooking and drinking",
+      "8",
+      "9",
+      "9"
+     ],
+     [
+      "Garden and outdoor use",
+      "25",
+      "21",
+      "12"
+     ],
+     [
+      "Other",
+      "10",
+      "12",
+      "15"
+     ],
+     [
+      "Total",
+      "180",
+      "162",
+      "135"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "ielts-w",
+   "task": 2,
+   "essayType": "discussion",
+   "prompt": "Some people believe that the best way to reduce traffic congestion in cities is to build more and wider roads. Others think that the money would be better spent on improving public transport.\n\nDiscuss both these views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words."
+  }
+ ]
+}

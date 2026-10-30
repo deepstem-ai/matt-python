@@ -1,0 +1,855 @@
+{
+ "exam": "ep",
+ "set": 2,
+ "title": {
+  "en": "Suankularb M.1 English Program (EPLUS+) — Practice set 2",
+  "th": "สวนกุหลาบ ม.1 English Program (EPLUS+) — ชุดฝึก 2"
+ },
+ "minutes": 90,
+ "note": {
+  "en": "40 questions in English: English 20, Mathematics 10, Science 10. The real admission also has an English interview. DeepDistrict practice format — not an official or past paper.",
+  "th": "40 ข้อ เป็นภาษาอังกฤษ: ภาษาอังกฤษ 20 คณิตศาสตร์ 10 วิทยาศาสตร์ 10 (การสอบจริงมีสัมภาษณ์ภาษาอังกฤษด้วย) — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct words: \"Look! The children ___ in the garden.\"",
+   "choices": [
+    "plays",
+    "play",
+    "played",
+    "are playing"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Look!\" tells us the action is happening now, so we use the present continuous: \"are playing\".",
+    "th": "\"Look!\" แสดงว่ากำลังเกิดขึ้นขณะนี้ จึงใช้ present continuous \"are playing\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: \"She is ___ honest girl.\"",
+   "choices": [
+    "a",
+    "any",
+    "some",
+    "an"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The h in \"honest\" is silent, so the word starts with a vowel sound. We use \"an\" before a vowel sound.",
+    "th": "ตัว h ใน honest ไม่ออกเสียง คำจึงขึ้นต้นด้วยเสียงสระ ต้องใช้ \"an\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct words: \"I ___ my keys, so I can't open the door now.\"",
+   "choices": [
+    "am losing",
+    "lose",
+    "was lose",
+    "have lost"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "A past action with a result now (I can't open the door) uses the present perfect: \"have lost\".",
+    "th": "เหตุการณ์ในอดีตที่ส่งผลถึงปัจจุบัน (เปิดประตูไม่ได้) ใช้ present perfect \"have lost\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: \"Tom is not as tall ___ his brother.\"",
+   "choices": [
+    "than",
+    "so",
+    "as",
+    "like"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The pattern is \"(not) as + adjective + as\", so \"not as tall as his brother\".",
+    "th": "โครงสร้าง (not) as + adj + as จึงเป็น \"not as tall as\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: \"If you heat water to 100 °C, it ___.\"",
+   "choices": [
+    "boiling",
+    "boils",
+    "boiled",
+    "will boiled"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "This is a scientific fact, so we use the zero conditional: present simple in both parts, \"it boils\".",
+    "th": "เป็นข้อเท็จจริงทางวิทยาศาสตร์ ใช้เงื่อนไขแบบที่ 0 ซึ่งใช้ present simple ทั้งสองส่วน \"boils\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct question tag: \"She didn't go to the party, ___?\"",
+   "choices": [
+    "does she",
+    "was she",
+    "didn't she",
+    "did she"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "A negative sentence takes a positive tag with the same helping verb (did): \"did she\".",
+    "th": "ประโยคปฏิเสธใช้ tag บอกเล่า และใช้กริยาช่วย did จึงเป็น \"did she\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct words: \"English ___ in many countries around the world.\"",
+   "choices": [
+    "is speaking",
+    "spoke",
+    "speaks",
+    "is spoken"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "A language does not speak; people speak it. So we use the present simple passive: \"is spoken\".",
+    "th": "ภาษาพูดเองไม่ได้ คนเป็นผู้พูด จึงใช้ passive ปัจจุบัน \"is spoken\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best word: \"We had to ___ the football match until next week because of the heavy storm.\"",
+   "choices": [
+    "postpone",
+    "explain",
+    "attend",
+    "celebrate"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Moving an event to a later time is to \"postpone\" it, which fits \"until next week because of the storm\".",
+    "th": "การเลื่อนกิจกรรมไปภายหลังคือ \"postpone\" ซึ่งเข้ากับ until next week"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: \"The ___ of the new library made everyone in the town happy.\"",
+   "choices": [
+    "opening",
+    "opens",
+    "opened",
+    "open"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "After \"The\" and before \"of\" we need a noun. The noun form here is \"opening\".",
+    "th": "หลัง The และก่อน of ต้องเป็นคำนาม จึงใช้ \"opening\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word that is OPPOSITE in meaning to \"ancient\".",
+   "choices": [
+    "modern",
+    "famous",
+    "huge",
+    "old"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Ancient\" means very old, from long ago. Its opposite is \"modern\" (new, of the present time).",
+    "th": "\"ancient\" แปลว่า โบราณ คำตรงข้ามคือ \"modern\" ทันสมัย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Which part of this sentence contains a mistake? \"My brother and I was very excited when we saw the elephants at the zoo yesterday.\"",
+   "choices": [
+    "yesterday",
+    "very excited",
+    "when we saw",
+    "was"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"My brother and I\" is a plural subject, so the verb must be \"were\", not \"was\".",
+    "th": "\"My brother and I\" เป็นประธานพหูพจน์ กริยาต้องเป็น were ไม่ใช่ \"was\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Complete the dialogue.\nA: I've got a terrible headache.\nB: ___\nA: Good idea. I'll lie down for a while.",
+   "choices": [
+    "Sorry, I can't hear you.",
+    "How often do you go there?",
+    "Why don't you have a rest?",
+    "Congratulations!"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "A answers \"Good idea\", so B must make a suggestion. \"Why don't you have a rest?\" is a suggestion that matches lying down.",
+    "th": "A ตอบว่า Good idea แสดงว่า B ต้องให้คำแนะนำ \"Why don't you have a rest?\" สอดคล้องกับการนอนพัก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "Every year, female green turtles swim thousands of kilometres to lay their eggs on the same beaches where they were born. On some islands in the Gulf of Thailand, volunteers walk along the sand at night to look for new nests. Because a turtle may lay more than a hundred eggs at a time, every nest is precious. The volunteers carefully move the eggs to a protected hatchery, where they are safe from dogs, crabs and people who might sell them. After about two months, the baby turtles break out of their shells and are released into the sea at night. Even so, scientists believe that only about one in a thousand will survive to become an adult. Plastic bags, which look like jellyfish in the water, are one of the biggest dangers, because turtles often eat them by mistake.",
+   "table": null,
+   "stem": "Where do female green turtles lay their eggs?",
+   "choices": [
+    "On the beaches where they were born",
+    "On any beach near a city",
+    "Inside the volunteers' hatchery",
+    "In the deep sea"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The first sentence says they lay their eggs \"on the same beaches where they were born\". Volunteers move the eggs to the hatchery later.",
+    "th": "ประโยคแรกบอกว่าวางไข่ \"บนชายหาดเดียวกับที่ตัวเองเกิด\" อาสาสมัครจึงย้ายไข่ไปที่โรงเพาะฟักภายหลัง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "Every year, female green turtles swim thousands of kilometres to lay their eggs on the same beaches where they were born. On some islands in the Gulf of Thailand, volunteers walk along the sand at night to look for new nests. Because a turtle may lay more than a hundred eggs at a time, every nest is precious. The volunteers carefully move the eggs to a protected hatchery, where they are safe from dogs, crabs and people who might sell them. After about two months, the baby turtles break out of their shells and are released into the sea at night. Even so, scientists believe that only about one in a thousand will survive to become an adult. Plastic bags, which look like jellyfish in the water, are one of the biggest dangers, because turtles often eat them by mistake.",
+   "table": null,
+   "stem": "Why do the volunteers move the eggs to a hatchery?",
+   "choices": [
+    "Because the turtles cannot find the beach",
+    "To keep them safe from animals and people",
+    "To make them hatch faster",
+    "To sell them to tourists"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The hatchery keeps the eggs \"safe from dogs, crabs and people who might sell them\".",
+    "th": "โรงเพาะฟักช่วยให้ไข่ \"ปลอดภัยจากสุนัข ปู และคนที่อาจนำไปขาย\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "Every year, female green turtles swim thousands of kilometres to lay their eggs on the same beaches where they were born. On some islands in the Gulf of Thailand, volunteers walk along the sand at night to look for new nests. Because a turtle may lay more than a hundred eggs at a time, every nest is precious. The volunteers carefully move the eggs to a protected hatchery, where they are safe from dogs, crabs and people who might sell them. After about two months, the baby turtles break out of their shells and are released into the sea at night. Even so, scientists believe that only about one in a thousand will survive to become an adult. Plastic bags, which look like jellyfish in the water, are one of the biggest dangers, because turtles often eat them by mistake.",
+   "table": null,
+   "stem": "According to the passage, out of 1,000 baby turtles, about how many survive to become adults?",
+   "choices": [
+    "About one",
+    "About two hundred",
+    "Almost all of them",
+    "About one hundred"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Scientists believe \"only about one in a thousand\" survives to become an adult.",
+    "th": "นักวิทยาศาสตร์เชื่อว่ารอด \"ประมาณหนึ่งในพันตัว\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "Every year, female green turtles swim thousands of kilometres to lay their eggs on the same beaches where they were born. On some islands in the Gulf of Thailand, volunteers walk along the sand at night to look for new nests. Because a turtle may lay more than a hundred eggs at a time, every nest is precious. The volunteers carefully move the eggs to a protected hatchery, where they are safe from dogs, crabs and people who might sell them. After about two months, the baby turtles break out of their shells and are released into the sea at night. Even so, scientists believe that only about one in a thousand will survive to become an adult. Plastic bags, which look like jellyfish in the water, are one of the biggest dangers, because turtles often eat them by mistake.",
+   "table": null,
+   "stem": "Why are plastic bags especially dangerous to turtles?",
+   "choices": [
+    "They break the turtles' eggs.",
+    "Turtles mistake them for jellyfish and eat them.",
+    "They make the sea water hotter.",
+    "They cover the beaches so turtles cannot nest."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The passage says plastic bags look like jellyfish, so turtles \"eat them by mistake\".",
+    "th": "เรื่องบอกว่าถุงพลาสติกดูเหมือนแมงกะพรุน เต่าจึง \"กินเข้าไปโดยไม่ตั้งใจ\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "Saturday, 8 March\n\nToday I tried to cook dinner for my family for the first time. I chose fried rice because it looked easy in the video. First, I forgot to cook the rice early, so I had to wait forty minutes before I could start. Then I added far too much fish sauce, and my little brother made a face after one spoonful. Mum laughed and showed me how to taste the food while cooking instead of only at the end. In the end, we rescued the dish by adding more rice and an egg. It wasn't perfect, but Dad asked for a second plate, which made me proud. Next week I want to try making tom yum, but this time I will read the whole recipe before I begin.",
+   "table": null,
+   "stem": "What did the writer cook?",
+   "choices": [
+    "Fried rice",
+    "Fish soup",
+    "Egg noodles",
+    "Tom yum"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The writer says \"I chose fried rice\". Tom yum is the plan for next week.",
+    "th": "ผู้เขียนบอกว่า \"I chose fried rice\" ส่วนต้มยำเป็นแผนสัปดาห์หน้า"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "Saturday, 8 March\n\nToday I tried to cook dinner for my family for the first time. I chose fried rice because it looked easy in the video. First, I forgot to cook the rice early, so I had to wait forty minutes before I could start. Then I added far too much fish sauce, and my little brother made a face after one spoonful. Mum laughed and showed me how to taste the food while cooking instead of only at the end. In the end, we rescued the dish by adding more rice and an egg. It wasn't perfect, but Dad asked for a second plate, which made me proud. Next week I want to try making tom yum, but this time I will read the whole recipe before I begin.",
+   "table": null,
+   "stem": "Why did the writer have to wait forty minutes?",
+   "choices": [
+    "The video was too long.",
+    "The fish sauce had run out.",
+    "Mum was using the kitchen.",
+    "The rice had not been cooked in advance."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The writer \"forgot to cook the rice early\", so they had to wait before starting.",
+    "th": "ผู้เขียน \"ลืมหุงข้าวไว้ก่อน\" จึงต้องรอ 40 นาที"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "Saturday, 8 March\n\nToday I tried to cook dinner for my family for the first time. I chose fried rice because it looked easy in the video. First, I forgot to cook the rice early, so I had to wait forty minutes before I could start. Then I added far too much fish sauce, and my little brother made a face after one spoonful. Mum laughed and showed me how to taste the food while cooking instead of only at the end. In the end, we rescued the dish by adding more rice and an egg. It wasn't perfect, but Dad asked for a second plate, which made me proud. Next week I want to try making tom yum, but this time I will read the whole recipe before I begin.",
+   "table": null,
+   "stem": "What did Mum teach the writer?",
+   "choices": [
+    "To taste the food while cooking",
+    "To use more fish sauce",
+    "To cook only easy dishes",
+    "To watch more cooking videos"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Mum showed the writer \"how to taste the food while cooking instead of only at the end\".",
+    "th": "แม่สอนให้ \"ชิมอาหารระหว่างทำ ไม่ใช่ชิมตอนท้ายเท่านั้น\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "Saturday, 8 March\n\nToday I tried to cook dinner for my family for the first time. I chose fried rice because it looked easy in the video. First, I forgot to cook the rice early, so I had to wait forty minutes before I could start. Then I added far too much fish sauce, and my little brother made a face after one spoonful. Mum laughed and showed me how to taste the food while cooking instead of only at the end. In the end, we rescued the dish by adding more rice and an egg. It wasn't perfect, but Dad asked for a second plate, which made me proud. Next week I want to try making tom yum, but this time I will read the whole recipe before I begin.",
+   "table": null,
+   "stem": "How did the writer most likely feel at the end of the day?",
+   "choices": [
+    "Worried that Dad was ill",
+    "Proud, and ready to plan better next time",
+    "Angry and unwilling to cook again",
+    "Bored, because cooking was too easy"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Dad's second plate \"made me proud\", and the writer plans to read the whole recipe next time, so they are proud and want to do better.",
+    "th": "ผู้เขียนภูมิใจที่พ่อขอเพิ่มอีกจาน และวางแผนอ่านสูตรให้ครบครั้งหน้า จึงรู้สึกภูมิใจและพร้อมปรับปรุง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "What is 2.5 × 0.4?",
+   "choices": [
+    "2.9",
+    "0.1",
+    "10",
+    "1"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "2.5 × 0.4 = 25 × 4 ÷ 100 = 100 ÷ 100 = 1.",
+    "th": "2.5 × 0.4 = 25 × 4 ÷ 100 = 1"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Write 7/20 as a percentage.",
+   "choices": [
+    "0.35%",
+    "35%",
+    "7%",
+    "20%"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "7/20 = 35/100 (multiply top and bottom by 5) = 35%.",
+    "th": "7/20 = 35/100 (คูณ 5 ทั้งเศษและส่วน) = 35%"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "What is the lowest common multiple (LCM) of 6 and 8?",
+   "choices": [
+    "48",
+    "2",
+    "14",
+    "24"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Multiples of 8: 8, 16, 24 … The first one that is also a multiple of 6 is 24.",
+    "th": "พหุคูณของ 8 คือ 8, 16, 24 ตัวแรกที่ 6 หารลงตัวคือ 24"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Two angles of a triangle are 48° and 67°. What is the third angle?",
+   "choices": [
+    "115°",
+    "65°",
+    "55°",
+    "75°"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The angles of a triangle add up to 180°: 180 − 48 − 67 = 65°.",
+    "th": "มุมภายในสามเหลี่ยมรวม 180° ดังนั้น 180 − 48 − 67 = 65°"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Pim had 240 baht. She spent 3/8 of it on a book, and then 1/3 of the money left on snacks. How much money does she have now?",
+   "choices": [
+    "100 baht",
+    "50 baht",
+    "70 baht",
+    "150 baht"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Book: 3/8 × 240 = 90, so 150 baht is left. Snacks: 1/3 × 150 = 50. Money now: 150 − 50 = 100 baht.",
+    "th": "ค่าหนังสือ 3/8 × 240 = 90 เหลือ 150 บาท ค่าขนม 1/3 × 150 = 50 เหลือ 150 − 50 = 100 บาท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "A car travels 180 km in 2 hours 15 minutes. What is its average speed?",
+   "choices": [
+    "90 km/h",
+    "80 km/h",
+    "75 km/h",
+    "85 km/h"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "2 hours 15 minutes = 2.25 hours. Speed = 180 ÷ 2.25 = 80 km/h.",
+    "th": "2 ชั่วโมง 15 นาที = 2.25 ชั่วโมง อัตราเร็ว = 180 ÷ 2.25 = 80 กม./ชม."
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "What is the value of 3x + 2y when x = 4 and y = 5?",
+   "choices": [
+    "26",
+    "20",
+    "22",
+    "17"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "3 × 4 + 2 × 5 = 12 + 10 = 22.",
+    "th": "3 × 4 + 2 × 5 = 12 + 10 = 22"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Bus A leaves the station every 12 minutes and Bus B every 18 minutes. Both leave together at 7:00 a.m. When will they next leave together?",
+   "choices": [
+    "7:06 a.m.",
+    "7:30 a.m.",
+    "7:36 a.m.",
+    "10:36 a.m."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "They leave together again after the LCM of 12 and 18, which is 36 minutes: 7:00 + 36 min = 7:36 a.m.",
+    "th": "ออกพร้อมกันอีกครั้งหลัง ค.ร.น. ของ 12 และ 18 คือ 36 นาที จึงเป็นเวลา 7:36 น."
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": {
+    "title": "Apples sold",
+    "rows": [
+     [
+      "Day",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+     ],
+     [
+      "Apples",
+      "30",
+      "45",
+      "25",
+      "40",
+      "60"
+     ]
+    ]
+   },
+   "stem": "The table shows how many apples a shop sold each day. What percentage of the week's apples were sold on Friday?",
+   "choices": [
+    "20%",
+    "60%",
+    "25%",
+    "30%"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Total = 30 + 45 + 25 + 40 + 60 = 200. Friday: 60 ÷ 200 × 100 = 30%.",
+    "th": "รวม 30 + 45 + 25 + 40 + 60 = 200 ผล วันศุกร์ 60 ÷ 200 × 100 = 30%"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "An L-shaped floor is a 10 m × 6 m rectangle with a 4 m × 3 m rectangle cut out of one corner. Tiles cost 150 baht per square metre. How much does it cost to tile the floor?",
+   "choices": [
+    "4,800 baht",
+    "10,800 baht",
+    "7,200 baht",
+    "9,000 baht"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Area = 10 × 6 − 4 × 3 = 60 − 12 = 48 m². Cost = 48 × 150 = 7,200 baht.",
+    "th": "พื้นที่ = 10 × 6 − 4 × 3 = 48 ตร.ม. ค่าปู = 48 × 150 = 7,200 บาท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Which gas do plants take in from the air for photosynthesis?",
+   "choices": [
+    "Carbon dioxide",
+    "Oxygen",
+    "Nitrogen",
+    "Hydrogen"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Plants use carbon dioxide and water, with light energy, to make sugar; oxygen is given out.",
+    "th": "พืชใช้คาร์บอนไดออกไซด์และน้ำ ร่วมกับพลังงานแสง สร้างน้ำตาล และปล่อยออกซิเจนออกมา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "What causes day and night on Earth?",
+   "choices": [
+    "The Sun moving around the Earth",
+    "The Moon moving around the Earth",
+    "The Earth spinning on its axis",
+    "The Earth moving around the Sun"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The Earth rotates once every 24 hours. The side facing the Sun has day; the other side has night. Orbiting the Sun causes the year.",
+    "th": "โลกหมุนรอบตัวเองทุก 24 ชั่วโมง ด้านที่หันเข้าหาดวงอาทิตย์เป็นกลางวัน อีกด้านเป็นกลางคืน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Which material is a good conductor of electricity?",
+   "choices": [
+    "Rubber",
+    "Dry wood",
+    "Copper",
+    "Plastic"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Metals such as copper let electricity flow easily, which is why wires are made of copper. Plastic, rubber and dry wood are insulators.",
+    "th": "โลหะอย่างทองแดงนำไฟฟ้าได้ดี สายไฟจึงทำจากทองแดง ส่วนพลาสติก ยาง และไม้แห้งเป็นฉนวน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Which of these animals is a mammal?",
+   "choices": [
+    "Shark",
+    "Whale",
+    "Penguin",
+    "Frog"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Whales breathe air with lungs, are warm-blooded and feed their young on milk, so they are mammals. A shark is a fish, a penguin a bird, a frog an amphibian.",
+    "th": "วาฬหายใจด้วยปอดและเลี้ยงลูกด้วยนม จึงเป็นสัตว์เลี้ยงลูกด้วยนม ฉลามเป็นปลา เพนกวินเป็นนก กบเป็นสัตว์สะเทินน้ำสะเทินบก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Sound travels fastest through which of these?",
+   "choices": [
+    "Steel",
+    "Water",
+    "Empty space (a vacuum)",
+    "Air"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Sound moves by particles vibrating. Particles are closest in solids, so sound is fastest in steel. It cannot travel through a vacuum at all.",
+    "th": "เสียงเดินทางโดยการสั่นของอนุภาค ของแข็งมีอนุภาคชิดกันมากที่สุด เสียงจึงเร็วที่สุดในเหล็ก และเดินทางในสุญญากาศไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Water drops form on the outside of a glass of iced water. What is this change called?",
+   "choices": [
+    "Freezing",
+    "Condensation",
+    "Melting",
+    "Evaporation"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Water vapour in the air cools on the cold glass and turns into liquid water. Gas → liquid is condensation.",
+    "th": "ไอน้ำในอากาศเย็นตัวลงเมื่อสัมผัสแก้วเย็นและกลายเป็นหยดน้ำ แก๊สเป็นของเหลวเรียกว่าการควบแน่น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "A box is pushed to the right with a force of 50 N. Friction acts on it with a force of 20 N to the left. What is the net (overall) force on the box?",
+   "choices": [
+    "70 N to the right",
+    "0 N",
+    "30 N to the right",
+    "30 N to the left"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The forces act in opposite directions, so subtract: 50 − 20 = 30 N, in the direction of the bigger force (right).",
+    "th": "แรงมีทิศตรงข้ามกันจึงนำมาลบกัน 50 − 20 = 30 N ทิศตามแรงที่มากกว่า คือไปทางขวา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": {
+    "title": "Spring length",
+    "rows": [
+     [
+      "Mass (g)",
+      "0",
+      "100",
+      "200",
+      "300",
+      "400"
+     ],
+     [
+      "Length (cm)",
+      "10",
+      "12",
+      "14",
+      "16",
+      "18"
+     ]
+    ]
+   },
+   "stem": "The table shows the length of a spring when different masses hang from it. If the pattern continues, how long will the spring be with 500 g?",
+   "choices": [
+    "22 cm",
+    "18 cm",
+    "20 cm",
+    "25 cm"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The spring starts at 10 cm and grows 2 cm for every 100 g. With 500 g: 10 + 5 × 2 = 20 cm.",
+    "th": "สปริงยาวเริ่มต้น 10 ซม. และยืดเพิ่ม 2 ซม. ทุก 100 กรัม เมื่อแขวน 500 กรัม ยาว 10 + 5 × 2 = 20 ซม."
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "In a field, snakes eat mice and mice eat seeds. If all the snakes were removed, what would most likely happen first to the number of mice?",
+   "choices": [
+    "It would decrease.",
+    "It would stay the same.",
+    "It would increase.",
+    "All the mice would die at once."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Snakes are the mice's predator. Without them, fewer mice are eaten, so the mouse population would grow (at least until food runs short).",
+    "th": "งูเป็นผู้ล่าหนู เมื่อไม่มีงู หนูถูกกินน้อยลง จำนวนหนูจึงเพิ่มขึ้น (อย่างน้อยจนกว่าอาหารจะไม่พอ)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Ploy tests which brand of paper towel soaks up the most water. She uses towels of the same size and water at the same temperature. What is the independent variable (the thing she changes)?",
+   "choices": [
+    "The amount of water soaked up",
+    "The brand of paper towel",
+    "The size of each towel",
+    "The temperature of the water"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "She deliberately changes the brand; the amount of water soaked up is what she measures (dependent); size and temperature are kept the same (controlled).",
+    "th": "ยี่ห้อกระดาษคือสิ่งที่เปลี่ยน (ตัวแปรต้น) ปริมาณน้ำที่ซับได้คือตัวแปรตาม ขนาดและอุณหภูมิน้ำคือตัวแปรควบคุม"
+   }
+  }
+ ]
+}

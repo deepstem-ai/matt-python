@@ -32,6 +32,12 @@ Demo sign-ins: `parent@demo.test` / `demo-parent-1`, `student@demo.test` / `demo
 
 Students and parents get a login only when an admin sets an email + password on them.
 
+**Menu & permissions.** Everyone sees every page in the menu, grouped as Learning · Teaching ·
+Administration · General; pages a level cannot open show a lock and the level they need. Admins can
+take pages away from teachers, students or parents (Settings → Menu & permissions) and hide locked
+pages altogether. Rights can only be limited, never raised above the table above, and admins always
+keep every page (`server/access.py`).
+
 ## Hours — how they are counted
 
 | Number | Meaning |

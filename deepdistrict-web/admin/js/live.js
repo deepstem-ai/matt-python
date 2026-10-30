@@ -164,7 +164,7 @@
     var head = (reveal && S.score ? '<div class="lv-res ok"><b>' + S.score.correct + "/" + S.total + "</b> " + L("correct — tap a number to see each answer.", "ข้อที่ถูก — แตะหมายเลขเพื่อดูเฉลยแต่ละข้อ") + "</div>" : "") +
       (S.phase === "locked" ? '<p class="lv-note">' + L("Answers are closed. Wait for the teacher to show the answers…", "ปิดรับคำตอบแล้ว รอครูเฉลย…") + "</p>" : "");
     var main;
-    if (S.kind === "sat") {
+    if ((S.kind === "sat" || S.kind === "m1")) {
       var Q = Qs[Math.min(cur, Qs.length - 1)];
       main = '<section class="ex-pane ex-passage">' + passFor(Q) + '</section><section class="ex-pane ex-q">' + head + '<div class="ex-qhead"><span class="ex-num">' + Q.number + "</span><span class=\"muted\">" + L("of ", "จาก ") + S.total + "</span></div>" +
         qBody(Q, { mine: mine[Q.key], canAnswer: can, key: reveal, result: reveal ? !!res[Q.key] : null }) +
@@ -177,7 +177,7 @@
     }
     var done = Object.keys(mine).length;
     root.innerHTML = top + '<main class="ex-main ex-main--' + S.kind + '">' + main + '</main><footer class="ex-foot">' + nav + '<span class="spacer"></span><span class="muted">' + L("Answered ", "ตอบแล้ว ") + done + "/" + S.total + "</span></footer>";
-    $$("[data-go]").forEach(function (b) { b.addEventListener("click", function () { cur = +b.getAttribute("data-go"); if (S.kind === "sat") drawLearner(); else { var t = $("#lq" + cur); if (t) t.scrollIntoView({ block: "center" }); } }); });
+    $$("[data-go]").forEach(function (b) { b.addEventListener("click", function () { cur = +b.getAttribute("data-go"); if ((S.kind === "sat" || S.kind === "m1")) drawLearner(); else { var t = $("#lq" + cur); if (t) t.scrollIntoView({ block: "center" }); } }); });
     $$("[data-step]").forEach(function (b) { b.addEventListener("click", function () { cur += +b.getAttribute("data-step"); drawLearner(); }); });
     bindAnswers(function () { var y = ($(".ex-rqs") || {}).scrollTop; drawLearner(); var r = $(".ex-rqs"); if (r && y != null) r.scrollTop = y; });
     tick();

@@ -53,7 +53,11 @@ See `admin/README.md` (features), `docs/LOCAL-TEST-TH.md` (step-by-step local te
   Set-up: `server/DEPLOY.md` → "AI (Claude)".
 - **Online tests** (back office → Online tests): SAT Reading & Writing (adaptive 2 × 27 questions),
   IELTS Academic Reading (40 questions) and Writing (Task 1 + 2) in the real formats, with an item
-  bank, AI-drafted items approved by teachers, and teacher-confirmed Writing bands.
+  bank, AI-drafted items approved by teachers, and teacher-confirmed Writing bands. Plus 12
+  ready-made admission / practice sets — SAT RW, IELTS Academic, Suankularb M.1 GATE Program and
+  English Program (EPLUS+), 3 each — in `server/exam_sets/` (check with `python3 tools/check_sets.py`).
+- **News slider** on the home page (latest posts, auto-advancing, linked to the blog) and
+  **menu with rights by user level** in the back office (Settings → Menu & permissions).
 - **Live class, audited PDFs and calibration** (back office): a teacher screen for the projector and
   the same question on every learner's screen; test papers and score reports as PDFs with a
   verification code, QR code, creator, time and legal notice (check them at `pages/verify.html`);

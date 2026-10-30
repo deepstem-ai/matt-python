@@ -11,7 +11,7 @@ import secrets
 
 import exams
 
-KINDS = ("sat", "ielts-r")
+KINDS = ("sat", "ielts-r", "ielts-w", "m1")
 
 
 def init(con):
@@ -29,10 +29,16 @@ def put(con, s):
                 (s["id"], s["owner"], s["updatedAt"], json.dumps(s, ensure_ascii=False)))
 
 
+def published(con):
+    """Sets learners may start themselves (Online tests → Admission & practice sets)."""
+    out = [json.loads(r["data"]) for r in con.execute("SELECT data FROM question_sets ORDER BY updated_at DESC")]
+    return [x for x in out if x.get("published")]
+
+
 def listing(con, me):
     q, a = "SELECT data FROM question_sets", []
     if me["role"] != "admin":
-        q += " WHERE owner=?"; a.append(me["id"])
+        q += " WHERE owner=? OR data LIKE '%\"source\": \"ready-made\"%'"; a.append(me["id"])
     return [json.loads(r["data"]) for r in con.execute(q + " ORDER BY updated_at DESC", a)]
 
 
@@ -53,14 +59,29 @@ def create(con, me, body, old=None):
         raise ValueError("give the set a name")
     approved = exams.items(con, kind, "approved")
     ids = [i for i in (body.get("itemIds") or []) if isinstance(i, str)]
-    if kind == "ielts-r":
-        sid = body.get("setId") or (ids[0] if ids else None)
-        chosen = [i for i in approved if i["id"] == sid][:1]
+    if kind == "ielts-r" and not ids and body.get("setId"):
+        ids = [body["setId"]]
+    if kind == "ielts-r" and ids:
+        by = {i["id"]: i for i in approved}
+        chosen = [by[i] for i in ids if i in by][:3]                # 1 passage (practice) … 3 passages (full Reading test)
+    elif kind == "ielts-w" and ids:
+        by = {i["id"]: i for i in approved}
+        chosen = sorted([by[i] for i in ids if i in by][:2], key=lambda t: t["task"])
     elif ids:
         by = {i["id"]: i for i in approved}
         chosen = [by[i] for i in ids if i in by]
     elif old and not body.get("reshuffle"):
         chosen = None
+    elif kind in ("ielts-r", "ielts-w"):
+        raise ValueError("choose the passages / tasks for this set")
+    elif kind == "m1":
+        prog = body.get("program") if body.get("program") in exams.M1_PROGRAMS else "gate"
+        subs = [x for x in (body.get("subjects") or exams.M1_PROGRAMS[prog]["subjects"]) if x in exams.M1_PROGRAMS[prog]["subjects"]] or exams.M1_PROGRAMS[prog]["subjects"]
+        cand = [i for i in approved if i["program"] == prog and i["subject"] in subs]
+        n = max(1, min(60, int(body.get("count") or 20)))
+        if len(cand) < n:
+            raise ValueError(f"only {len(cand)} approved M.1 questions match")
+        chosen = sorted(random.Random(secrets.randbits(32)).sample(cand, n), key=lambda i: (exams.M1_PROGRAMS[prog]["subjects"].index(i["subject"]), exams.DIFF.index(i["difficulty"])))
     else:
         doms = [d for d in (body.get("domains") or exams.SAT_ORDER) if d in exams.SAT_DOMAINS] or exams.SAT_ORDER
         want = body.get("difficulty") if body.get("difficulty") in exams.DIFF else None
@@ -74,6 +95,13 @@ def create(con, me, body, old=None):
     if old and body.get("newOrder"):                  # same questions, answer options in a new order
         s["seed"], s["variant"] = secrets.randbits(48), int(s.get("variant") or 1) + 1
     s.update({"title": title, "kind": kind})
+    if "published" in body or not old:
+        s["published"] = bool(body.get("published"))          # learners can start it themselves from Online tests
+    if "minutes" in body or not old:
+        s["minutes"] = max(0, min(240, int(body.get("minutes") or 0))) or None
+    for k in ("exam", "source", "titleTh"):
+        if k in body:
+            s[k] = str(body.get(k) or "")[:120]
     if "note" in body or not old:
         s["note"] = str(body.get("note") or "").strip()[:200]
     if chosen is not None:
@@ -86,8 +114,8 @@ def create(con, me, body, old=None):
 
 def summary(con, s):
     its = items_of(con, s)
-    n = len(its) if s["kind"] == "sat" else sum(exams.total_marks(it) for it in its)
-    out = {k: s.get(k) for k in ("id", "title", "kind", "note", "ownerName", "createdAt", "updatedAt", "variant")}
-    out.update({"questions": n, "items": [{"id": i["id"], "version": i["version"], "label": (i.get("stem") or i.get("title") or "")[:90],
-                                          "domain": i.get("domain"), "difficulty": i.get("difficulty")} for i in its]})
+    n = sum(exams.total_marks(it) for it in its) if s["kind"] == "ielts-r" else len(its)
+    out = {k: s.get(k) for k in ("id", "title", "titleTh", "kind", "note", "ownerName", "createdAt", "updatedAt", "variant", "published", "minutes", "exam", "source")}
+    out.update({"questions": n, "items": [{"id": i["id"], "version": i["version"], "label": (i.get("stem") or i.get("title") or i.get("prompt") or "")[:90],
+                                          "domain": i.get("domain") or i.get("subject"), "difficulty": i.get("difficulty")} for i in its]})
     return out

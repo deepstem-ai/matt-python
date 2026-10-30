@@ -1,0 +1,867 @@
+{
+ "exam": "ep",
+ "set": 1,
+ "title": {
+  "en": "Suankularb M.1 English Program (EPLUS+) — Practice set 1",
+  "th": "สวนกุหลาบ ม.1 English Program (EPLUS+) — ชุดฝึก 1"
+ },
+ "minutes": 90,
+ "note": {
+  "en": "40 questions in English: English 20, Mathematics 10, Science 10. The real admission also has an English interview. DeepDistrict practice format — not an official or past paper.",
+  "th": "40 ข้อ เป็นภาษาอังกฤษ: ภาษาอังกฤษ 20 คณิตศาสตร์ 10 วิทยาศาสตร์ 10 (การสอบจริงมีสัมภาษณ์ภาษาอังกฤษด้วย) — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: \"My sister ___ to school by bus every day.\"",
+   "choices": [
+    "is go",
+    "goes",
+    "going",
+    "go"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Every day\" shows a habit, so we use the present simple. With he/she/it the verb takes -s/-es: \"goes\".",
+    "th": "\"every day\" บอกกิจวัตร จึงใช้ present simple และประธานเอกพจน์บุรุษที่ 3 (my sister) ต้องเติม -es เป็น \"goes\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: \"There isn't ___ milk left in the fridge.\"",
+   "choices": [
+    "many",
+    "a",
+    "some",
+    "any"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "In negative sentences with uncountable nouns like milk we use \"any\". \"Many\" is for countable nouns and \"a\" cannot go with milk.",
+    "th": "ประโยคปฏิเสธกับนามนับไม่ได้ (milk) ใช้ \"any\" ส่วน many ใช้กับนามนับได้ และ a ใช้กับ milk ไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct words: \"This is ___ film I have ever seen.\"",
+   "choices": [
+    "the more exciting",
+    "most exciting than",
+    "more exciting",
+    "the most exciting"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"I have ever seen\" compares one film with all others, so we need the superlative: \"the most exciting\".",
+    "th": "\"I have ever seen\" เป็นการเปรียบเทียบกับทุกเรื่อง จึงใช้ขั้นสูงสุด \"the most exciting\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct pair: \"The meeting starts ___ 9 o'clock ___ Monday.\"",
+   "choices": [
+    "at / in",
+    "at / on",
+    "in / on",
+    "on / at"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "We use \"at\" with clock times and \"on\" with days, so \"at 9 o'clock on Monday\".",
+    "th": "ใช้ at กับเวลาบนนาฬิกา และ on กับวัน จึงเป็น \"at 9 o'clock on Monday\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct question tag: \"You have finished your homework, ___?\"",
+   "choices": [
+    "didn't you",
+    "have you",
+    "haven't you",
+    "don't you"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "A positive sentence takes a negative tag with the same helping verb. The helping verb is \"have\", so the tag is \"haven't you\".",
+    "th": "ประโยคบอกเล่าใช้ tag ปฏิเสธ และใช้กริยาช่วยตัวเดียวกัน (have) จึงเป็น \"haven't you\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: \"If it ___ tomorrow, we will stay at home.\"",
+   "choices": [
+    "rains",
+    "rained",
+    "raining",
+    "will rain"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "In a first conditional, the if-clause uses the present simple and the main clause uses will: \"If it rains, we will stay\".",
+    "th": "เงื่อนไขแบบที่ 1: ประโยค if ใช้ present simple ส่วนประโยคหลักใช้ will จึงเป็น \"rains\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct words: \"This bridge ___ in 1932.\"",
+   "choices": [
+    "built",
+    "was built",
+    "is building",
+    "was build"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "A bridge cannot build itself, so we need the passive. It happened in the past: was + past participle = \"was built\".",
+    "th": "สะพานสร้างตัวเองไม่ได้ จึงใช้ passive และเป็นอดีต (1932): was + V3 = \"was built\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best word: \"The old man was so ___ that he gave all his savings to the hospital.\"",
+   "choices": [
+    "curious",
+    "nervous",
+    "generous",
+    "selfish"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Giving all your savings to help others shows that you are \"generous\" (happy to give).",
+    "th": "การบริจาคเงินเก็บทั้งหมดให้โรงพยาบาลแสดงว่าเป็นคนใจกว้าง \"generous\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct word: \"Please drive ___. The road is wet.\"",
+   "choices": [
+    "careless",
+    "carefully",
+    "care",
+    "careful"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "We need an adverb to describe how someone drives: \"carefully\". \"Careless\" is an adjective with the opposite meaning.",
+    "th": "ต้องใช้คำวิเศษณ์ (adverb) ขยายกริยา drive จึงเป็น \"carefully\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Which word is closest in meaning to \"remarkable\" in this sentence? \"The scientist made a remarkable discovery.\"",
+   "choices": [
+    "recent",
+    "extraordinary",
+    "ordinary",
+    "accidental"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Remarkable\" means unusual and worth noticing, which is closest to \"extraordinary\". \"Ordinary\" is the opposite.",
+    "th": "\"remarkable\" แปลว่า น่าทึ่ง โดดเด่น ใกล้เคียงกับ \"extraordinary\" ส่วน ordinary มีความหมายตรงข้าม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Which part of this sentence contains a mistake? \"Each of the students have a locker in the hall, but few of them use it every day.\"",
+   "choices": [
+    "every day",
+    "have",
+    "few of them",
+    "in the hall"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Each of the students\" is singular (each = one by one), so the verb must be \"has\", not \"have\".",
+    "th": "\"Each of the students\" เป็นเอกพจน์ กริยาต้องเป็น has ไม่ใช่ \"have\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Complete the dialogue.\nA: Would you mind closing the window? It's a bit cold.\nB: ___",
+   "choices": [
+    "I don't mind you.",
+    "Yes, please close it.",
+    "Not at all. I'll do it now.",
+    "Never mind, thank you."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Would you mind…?\" asks if something is a problem. \"Not at all\" means it is no problem, so B agrees: \"Not at all. I'll do it now.\"",
+    "th": "\"Would you mind...?\" ถามว่ารังเกียจไหม การตอบ \"Not at all. I'll do it now.\" หมายถึงไม่รังเกียจและยินดีทำให้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "Last year, the students of Class 6/2 turned an empty corner of their school field into a vegetable garden. At first, the soil was hard and full of stones, so they mixed in compost made from fallen leaves and fruit peel from the canteen. Each group looked after one bed and kept a notebook about watering and growth. The morning glory grew fastest and was ready to pick in less than a month, while the pumpkins took almost four months. In the rainy season, some seedlings were washed away, so the class learned to build low bamboo walls around the beds. Today the canteen buys the vegetables at a fair price, and the money pays for new seeds. Their teacher says the garden has taught the children more than any textbook: patience, teamwork and how food really reaches their plates.",
+   "table": null,
+   "stem": "Where did the students make their garden?",
+   "choices": [
+    "In their teacher's backyard",
+    "On a farm near the school",
+    "In an empty corner of the school field",
+    "On the roof of the canteen"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The first sentence says they turned \"an empty corner of their school field\" into a garden.",
+    "th": "ประโยคแรกบอกว่าทำสวนที่ \"มุมว่างของสนามโรงเรียน\""
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "Last year, the students of Class 6/2 turned an empty corner of their school field into a vegetable garden. At first, the soil was hard and full of stones, so they mixed in compost made from fallen leaves and fruit peel from the canteen. Each group looked after one bed and kept a notebook about watering and growth. The morning glory grew fastest and was ready to pick in less than a month, while the pumpkins took almost four months. In the rainy season, some seedlings were washed away, so the class learned to build low bamboo walls around the beds. Today the canteen buys the vegetables at a fair price, and the money pays for new seeds. Their teacher says the garden has taught the children more than any textbook: patience, teamwork and how food really reaches their plates.",
+   "table": null,
+   "stem": "Why did the students add compost to the soil?",
+   "choices": [
+    "It was the rainy season.",
+    "The soil was hard and full of stones.",
+    "The seeds were too old.",
+    "The canteen asked them to."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The text says the soil was hard and full of stones, \"so\" they mixed in compost.",
+    "th": "เรื่องบอกว่าดินแข็งและมีหินมาก \"so\" จึงผสมปุ๋ยหมัก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "Last year, the students of Class 6/2 turned an empty corner of their school field into a vegetable garden. At first, the soil was hard and full of stones, so they mixed in compost made from fallen leaves and fruit peel from the canteen. Each group looked after one bed and kept a notebook about watering and growth. The morning glory grew fastest and was ready to pick in less than a month, while the pumpkins took almost four months. In the rainy season, some seedlings were washed away, so the class learned to build low bamboo walls around the beds. Today the canteen buys the vegetables at a fair price, and the money pays for new seeds. Their teacher says the garden has taught the children more than any textbook: patience, teamwork and how food really reaches their plates.",
+   "table": null,
+   "stem": "Which plant took the longest to be ready?",
+   "choices": [
+    "All plants took the same time",
+    "Morning glory",
+    "Pumpkin",
+    "Bamboo"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Morning glory was ready in less than a month, but pumpkins took almost four months, so pumpkin took the longest.",
+    "th": "ผักบุ้งใช้เวลาไม่ถึงเดือน แต่ฟักทองใช้เกือบ 4 เดือน ฟักทองจึงนานที่สุด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "Last year, the students of Class 6/2 turned an empty corner of their school field into a vegetable garden. At first, the soil was hard and full of stones, so they mixed in compost made from fallen leaves and fruit peel from the canteen. Each group looked after one bed and kept a notebook about watering and growth. The morning glory grew fastest and was ready to pick in less than a month, while the pumpkins took almost four months. In the rainy season, some seedlings were washed away, so the class learned to build low bamboo walls around the beds. Today the canteen buys the vegetables at a fair price, and the money pays for new seeds. Their teacher says the garden has taught the children more than any textbook: patience, teamwork and how food really reaches their plates.",
+   "table": null,
+   "stem": "What does the teacher's comment at the end suggest?",
+   "choices": [
+    "The children should stop using textbooks.",
+    "The garden made a lot of money for the teacher.",
+    "Pumpkins are easier to grow than morning glory.",
+    "The garden gave the children important life lessons."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The teacher lists patience, teamwork and where food comes from: these are life lessons learned from the garden. She does not say textbooks should stop.",
+    "th": "ครูกล่าวถึงความอดทน การทำงานเป็นทีม และที่มาของอาหาร ซึ่งเป็นบทเรียนชีวิตจากการทำสวน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "e",
+   "passage": "Dear Parents,\n\nOn Friday 14 November, Grade 6 students will visit the National Science Museum. The bus will leave school at 8:00 a.m. sharp, so students must arrive by 7:40 a.m. We will return at about 3:30 p.m. The ticket costs 120 baht, but students with a library card pay only half price. Please send the money and the signed form to the class teacher by Wednesday. Students should wear their PE uniform and bring a hat, a water bottle and a notebook. Lunch will be provided at the museum, so there is no need to bring food. Mobile phones are allowed, but students may use them only to take photos.\n\nMs. Pranee\nGrade 6 Coordinator",
+   "table": null,
+   "stem": "What time must students arrive at school?",
+   "choices": [
+    "3:30 p.m.",
+    "7:00 a.m.",
+    "8:00 a.m.",
+    "7:40 a.m."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The email says the bus leaves at 8:00, \"so students must arrive by 7:40 a.m.\"",
+    "th": "จดหมายบอกว่ารถออก 8:00 น. นักเรียนจึงต้องมาถึงภายใน 7:40 น."
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "Dear Parents,\n\nOn Friday 14 November, Grade 6 students will visit the National Science Museum. The bus will leave school at 8:00 a.m. sharp, so students must arrive by 7:40 a.m. We will return at about 3:30 p.m. The ticket costs 120 baht, but students with a library card pay only half price. Please send the money and the signed form to the class teacher by Wednesday. Students should wear their PE uniform and bring a hat, a water bottle and a notebook. Lunch will be provided at the museum, so there is no need to bring food. Mobile phones are allowed, but students may use them only to take photos.\n\nMs. Pranee\nGrade 6 Coordinator",
+   "table": null,
+   "stem": "How much does a student with a library card pay for the ticket?",
+   "choices": [
+    "60 baht",
+    "240 baht",
+    "30 baht",
+    "120 baht"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The ticket is 120 baht and library-card holders pay half price: 120 ÷ 2 = 60 baht.",
+    "th": "ตั๋วราคา 120 บาท ผู้มีบัตรห้องสมุดจ่ายครึ่งราคา 120 ÷ 2 = 60 บาท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "m",
+   "passage": "Dear Parents,\n\nOn Friday 14 November, Grade 6 students will visit the National Science Museum. The bus will leave school at 8:00 a.m. sharp, so students must arrive by 7:40 a.m. We will return at about 3:30 p.m. The ticket costs 120 baht, but students with a library card pay only half price. Please send the money and the signed form to the class teacher by Wednesday. Students should wear their PE uniform and bring a hat, a water bottle and a notebook. Lunch will be provided at the museum, so there is no need to bring food. Mobile phones are allowed, but students may use them only to take photos.\n\nMs. Pranee\nGrade 6 Coordinator",
+   "table": null,
+   "stem": "Which of these do students NOT need to bring?",
+   "choices": [
+    "A packed lunch",
+    "A hat",
+    "A water bottle",
+    "A notebook"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Lunch will be provided at the museum, so there is no need to bring food. A hat, a water bottle and a notebook are on the list.",
+    "th": "พิพิธภัณฑ์มีอาหารกลางวันให้ จึงไม่ต้องนำอาหารมา ส่วนหมวก ขวดน้ำ และสมุดต้องนำมา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "eng",
+   "difficulty": "h",
+   "passage": "Dear Parents,\n\nOn Friday 14 November, Grade 6 students will visit the National Science Museum. The bus will leave school at 8:00 a.m. sharp, so students must arrive by 7:40 a.m. We will return at about 3:30 p.m. The ticket costs 120 baht, but students with a library card pay only half price. Please send the money and the signed form to the class teacher by Wednesday. Students should wear their PE uniform and bring a hat, a water bottle and a notebook. Lunch will be provided at the museum, so there is no need to bring food. Mobile phones are allowed, but students may use them only to take photos.\n\nMs. Pranee\nGrade 6 Coordinator",
+   "table": null,
+   "stem": "In the email, the word \"sharp\" in \"8:00 a.m. sharp\" is closest in meaning to",
+   "choices": [
+    "exactly on time",
+    "with a pointed end",
+    "very cold",
+    "clever"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "After a time, \"sharp\" means exactly at that time, not later, so it means \"exactly on time\".",
+    "th": "\"sharp\" ที่ตามหลังเวลา แปลว่า ตรงเวลาเป๊ะ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "What is 3/4 + 1/6?",
+   "choices": [
+    "1 1/12",
+    "4/10",
+    "10/12",
+    "11/12"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Use the common denominator 12: 3/4 = 9/12 and 1/6 = 2/12, so 9/12 + 2/12 = 11/12.",
+    "th": "ทำส่วนให้เท่ากันเป็น 12: 3/4 = 9/12, 1/6 = 2/12 รวมได้ 11/12"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "What is 25% of 360?",
+   "choices": [
+    "90",
+    "36",
+    "120",
+    "72"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "25% = 1/4, and 360 ÷ 4 = 90.",
+    "th": "25% = 1/4 ดังนั้น 360 ÷ 4 = 90"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "What is the highest common factor (HCF) of 36 and 48?",
+   "choices": [
+    "144",
+    "4",
+    "6",
+    "12"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "36 = 2×2×3×3 and 48 = 2×2×2×2×3. The common factors multiply to 2×2×3 = 12. (144 is the LCM.)",
+    "th": "36 = 2×2×3×3, 48 = 2×2×2×2×3 ตัวประกอบร่วมคือ 2×2×3 = 12 (144 คือ ค.ร.น.)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "A rectangle is 12 cm long and its perimeter is 40 cm. What is its area?",
+   "choices": [
+    "64 cm²",
+    "120 cm²",
+    "96 cm²",
+    "80 cm²"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Length + width = 40 ÷ 2 = 20, so the width is 8 cm. Area = 12 × 8 = 96 cm².",
+    "th": "ยาว + กว้าง = 40 ÷ 2 = 20 กว้าง = 8 ซม. พื้นที่ = 12 × 8 = 96 ตร.ซม."
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "The ratio of boys to girls in a class is 3 : 5. There are 40 students. How many girls are there?",
+   "choices": [
+    "25",
+    "24",
+    "8",
+    "15"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "There are 3 + 5 = 8 parts, so one part = 40 ÷ 8 = 5. Girls = 5 × 5 = 25.",
+    "th": "รวม 8 ส่วน ส่วนละ 40 ÷ 8 = 5 คน นักเรียนหญิง = 5 × 5 = 25 คน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Solve: 4x − 7 = 29. What is x?",
+   "choices": [
+    "9",
+    "5.5",
+    "8",
+    "36"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Add 7 to both sides: 4x = 36. Divide by 4: x = 9.",
+    "th": "บวก 7 ทั้งสองข้าง ได้ 4x = 36 หารด้วย 4 ได้ x = 9"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "What is the next number in the pattern 2, 5, 10, 17, 26, …?",
+   "choices": [
+    "35",
+    "37",
+    "36",
+    "39"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The differences are 3, 5, 7, 9, so the next difference is 11: 26 + 11 = 37. (Each term is n × n + 1.)",
+    "th": "ผลต่างเป็น 3, 5, 7, 9 ตัวถัดไปเพิ่ม 11 ได้ 26 + 11 = 37"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "A shirt costs 800 baht. Its price goes up by 10%, and then the new price goes down by 10%. What is the final price?",
+   "choices": [
+    "808 baht",
+    "800 baht",
+    "720 baht",
+    "792 baht"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "800 × 1.1 = 880 baht. Then 10% of 880 is 88, so 880 − 88 = 792 baht. The second 10% is taken from a bigger number.",
+    "th": "800 × 1.1 = 880 บาท ลด 10% ของ 880 คือ 88 บาท เหลือ 880 − 88 = 792 บาท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": {
+    "title": "Books read in one term",
+    "rows": [
+     [
+      "Student",
+      "Books"
+     ],
+     [
+      "Ann",
+      "12"
+     ],
+     [
+      "Ben",
+      "8"
+     ],
+     [
+      "Chai",
+      "15"
+     ],
+     [
+      "Dao",
+      "9"
+     ],
+     [
+      "Eve",
+      "11"
+     ]
+    ]
+   },
+   "stem": "The table shows how many books five students read in a term. What is the mean (average), and how many students read MORE than the mean?",
+   "choices": [
+    "Mean 11 books; 3 students",
+    "Mean 10 books; 3 students",
+    "Mean 11 books; 2 students",
+    "Mean 12 books; 2 students"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Total = 12 + 8 + 15 + 9 + 11 = 55, and 55 ÷ 5 = 11. Only Ann (12) and Chai (15) read more than 11, so 2 students.",
+    "th": "รวม 12 + 8 + 15 + 9 + 11 = 55 หาร 5 ได้ค่าเฉลี่ย 11 เล่ม มีเพียง Ann (12) และ Chai (15) ที่อ่านมากกว่า 11 จึงเป็น 2 คน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "math",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "A cube-shaped tank has edges of 50 cm. It is filled with water to 4/5 of its height. How many litres of water are in the tank? (1 litre = 1,000 cm³)",
+   "choices": [
+    "125 litres",
+    "1,000 litres",
+    "100 litres",
+    "80 litres"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Full volume = 50 × 50 × 50 = 125,000 cm³ = 125 litres. 4/5 of 125 = 100 litres.",
+    "th": "ปริมาตรเต็มถัง 50 × 50 × 50 = 125,000 ลบ.ซม. = 125 ลิตร น้ำ 4/5 ของ 125 = 100 ลิตร"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Which part of a plant takes in water from the soil?",
+   "choices": [
+    "The roots",
+    "The leaves",
+    "The fruit",
+    "The flowers"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Roots grow into the soil and absorb water and minerals; the stem then carries the water up to the leaves.",
+    "th": "รากชอนไชในดินและดูดน้ำกับแร่ธาตุ แล้วลำต้นลำเลียงน้ำขึ้นไปยังใบ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Which of these is a non-renewable source of energy?",
+   "choices": [
+    "Solar energy",
+    "Coal",
+    "Wind",
+    "Hydropower"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Coal formed over millions of years and cannot be replaced quickly, so it is non-renewable. Sun, wind and moving water are renewable.",
+    "th": "ถ่านหินใช้เวลาหลายล้านปีในการเกิด ใช้แล้วหมดไป จึงเป็นพลังงานที่ใช้แล้วหมดไป ส่วนแสงอาทิตย์ ลม และน้ำเป็นพลังงานหมุนเวียน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "e",
+   "passage": "",
+   "table": null,
+   "stem": "Which organ pumps blood around the body?",
+   "choices": [
+    "The liver",
+    "The lungs",
+    "The kidneys",
+    "The heart"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The heart is a muscle that pumps blood through the blood vessels. The lungs exchange gases, and the kidneys clean the blood.",
+    "th": "หัวใจเป็นกล้ามเนื้อที่สูบฉีดเลือดไปทั่วร่างกาย ปอดแลกเปลี่ยนแก๊ส ไตกรองของเสีย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "In the food chain grass → grasshopper → frog → snake, which organism is the primary consumer?",
+   "choices": [
+    "Snake",
+    "Frog",
+    "Grasshopper",
+    "Grass"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The primary consumer is the first animal that eats the producer. Grass is the producer, and the grasshopper eats it.",
+    "th": "ผู้บริโภคลำดับที่ 1 คือสัตว์ที่กินผู้ผลิต หญ้าเป็นผู้ผลิต ตั๊กแตนกินหญ้า"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "Which of these is a chemical change?",
+   "choices": [
+    "Dissolving sugar in water",
+    "Cutting wood into pieces",
+    "Burning paper",
+    "Melting ice"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Burning makes new substances (ash, smoke, carbon dioxide) and cannot be reversed, so it is a chemical change. The others are physical changes.",
+    "th": "การเผากระดาษได้สารใหม่ (เถ้า ควัน คาร์บอนไดออกไซด์) และย้อนกลับไม่ได้ จึงเป็นการเปลี่ยนแปลงทางเคมี"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "m",
+   "passage": "",
+   "table": null,
+   "stem": "How can you get the salt back from salt water?",
+   "choices": [
+    "By evaporating the water",
+    "By using a magnet",
+    "By pouring it through a sieve",
+    "By filtering the salt water"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Dissolved salt passes through filter paper and sieves. Heating makes the water evaporate and leaves the salt behind.",
+    "th": "เกลือที่ละลายแล้วผ่านกระดาษกรองได้ ต้องระเหยน้ำออก เกลือจึงเหลืออยู่"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Nida wants to find out whether the amount of sunlight affects how tall bean plants grow. Which variable must she keep the same for every plant?",
+   "choices": [
+    "The amount of sunlight each plant gets",
+    "Nothing; every variable may change",
+    "The final height of each plant",
+    "The amount of water each plant gets"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Sunlight is the variable she changes and height is what she measures. To make it a fair test, other things such as water must stay the same.",
+    "th": "แสงแดดคือตัวแปรต้น ความสูงคือตัวแปรตาม ปริมาณน้ำต้องควบคุมให้เท่ากันจึงเป็นการทดลองที่ยุติธรรม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": {
+    "title": "Time for one spoon of sugar to dissolve",
+    "rows": [
+     [
+      "Water temperature (°C)",
+      "Time (seconds)"
+     ],
+     [
+      "20",
+      "120"
+     ],
+     [
+      "40",
+      "80"
+     ],
+     [
+      "60",
+      "50"
+     ],
+     [
+      "80",
+      "30"
+     ]
+    ]
+   },
+   "stem": "Look at the table. Which conclusion does the data support?",
+   "choices": [
+    "Water temperature has no effect on dissolving.",
+    "Sugar dissolves faster in hotter water.",
+    "At 100 °C the sugar would take 120 seconds to dissolve.",
+    "Sugar dissolves faster in colder water."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "As the temperature rises from 20 °C to 80 °C, the time falls from 120 s to 30 s, so sugar dissolves faster in hotter water.",
+    "th": "เมื่ออุณหภูมิสูงขึ้นจาก 20 °C เป็น 80 °C เวลาลดจาก 120 วินาทีเหลือ 30 วินาที น้ำตาลจึงละลายเร็วขึ้นในน้ำร้อน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "Two identical bulbs are connected in series with a battery and both are lit. One bulb is taken out of its holder. What happens to the other bulb?",
+   "choices": [
+    "It goes out, because the circuit is broken.",
+    "It stays exactly the same.",
+    "It flashes on and off.",
+    "It becomes brighter."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "In a series circuit there is only one path for the current. Removing a bulb breaks that path, so no current flows and the other bulb goes out.",
+    "th": "วงจรอนุกรมมีทางเดินกระแสทางเดียว เมื่อถอดหลอดหนึ่งวงจรจะขาด อีกหลอดจึงดับ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "ep",
+   "subject": "sci",
+   "difficulty": "h",
+   "passage": "",
+   "table": null,
+   "stem": "A pencil standing in a glass of water looks bent at the water surface. Why?",
+   "choices": [
+    "The water makes the pencil soft.",
+    "Light travels faster in water than in air.",
+    "Light reflects off the glass like a mirror.",
+    "Light changes direction when it passes from water into air."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "This is refraction: light bends when it moves between water and air because its speed changes (it is slower in water).",
+    "th": "เป็นการหักเหของแสง แสงเปลี่ยนทิศเมื่อผ่านจากน้ำสู่อากาศเพราะอัตราเร็วเปลี่ยน (แสงช้ากว่าในน้ำ)"
+   }
+  }
+ ]
+}

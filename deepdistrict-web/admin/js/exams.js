@@ -8,7 +8,11 @@
   var A = window.DDA, L = A.L, esc = A.esc, $ = A.$, $$ = A.$$;
   var home = null, bank = null;
 
-  var KIND = { sat: ["SAT Reading & Writing", "SAT Reading & Writing"], "ielts-r": ["IELTS Academic Reading", "IELTS Academic Reading"], "ielts-w": ["IELTS Academic Writing", "IELTS Academic Writing"] };
+  var KIND = { sat: ["SAT Reading & Writing", "SAT Reading & Writing"], "ielts-r": ["IELTS Academic Reading", "IELTS Academic Reading"], "ielts-w": ["IELTS Academic Writing", "IELTS Academic Writing"], m1: ["M.1 entrance (Suankularb GATE / EP)", "สอบเข้า ม.1 (สวนกุหลาบ GATE / EP)"] };
+  var EXAM = { sat: ["SAT Reading & Writing", "SAT Reading & Writing"], ielts: ["IELTS Academic", "IELTS Academic"], gate: ["Suankularb M.1 · GATE Program", "สวนกุหลาบ ม.1 · GATE Program"], ep: ["Suankularb M.1 · English Program (EPLUS+)", "สวนกุหลาบ ม.1 · English Program (EPLUS+)"], other: ["Teacher sets", "ชุดข้อสอบจากครู"] };
+  var SUBJ = { math: ["Mathematics", "คณิตศาสตร์"], sci: ["Science", "วิทยาศาสตร์"], eng: ["English", "ภาษาอังกฤษ"], thai: ["Thai", "ภาษาไทย"] };
+  function setTitle(x) { return A.lang === "th" && x.titleTh ? x.titleTh : x.title; }
+  function modeName(a) { return a.mode === "set" ? (a.setTitle || L("Test set", "ชุดข้อสอบ")) : a.mode === "mock" ? L("Full test", "ข้อสอบเต็ม") : L("Practice", "ฝึกทำ"); }
   var STAT = { draft: ["Draft", "ฉบับร่าง", "paused"], review: ["To review", "รอตรวจ", "scheduled"], approved: ["Approved", "อนุมัติแล้ว", "done"], retired: ["Retired", "เลิกใช้", "cancelled"] };
   var DIFF = { e: ["Easy", "ง่าย"], m: ["Medium", "กลาง"], h: ["Hard", "ยาก"] };
   function kname(k) { var x = KIND[k]; return x ? L(x[0], x[1]) : k; }
@@ -23,6 +27,7 @@
 
   function score(a) {
     if (a.status === "active") return '<span class="muted">' + L("in progress", "กำลังทำ") + "</span>";
+    if (a.kind === "m1") return "<b>" + a.percent + "%</b> <small class=muted>(" + a.correct + "/" + a.total + ")</small>";
     if (a.kind === "sat") return a.estimate ? "<b>" + a.estimate + "</b> <small class=muted>(" + a.correct + "/" + a.total + ")</small>" : a.correct + "/" + a.total;
     if (a.kind === "ielts-r") return "Band <b>" + a.band + "</b> <small class=muted>(" + a.correct + "/" + a.total + ")</small>";
     return a.marked ? "Band <b>" + a.band + "</b>" : (a.aiBand != null ? "AI ≈ " + a.aiBand + " · " : "") + '<span class="muted">' + L("waiting for teacher", "รอครูตรวจ") + "</span>";
@@ -33,7 +38,17 @@
     function btn(kind, mode, label, ok, extra) {
       return '<button class="btn ' + (mode === "mock" ? "btn--primary" : "") + '" data-start="' + kind + '" data-mode="' + mode + '"' + (extra || "") + (ok ? "" : " disabled") + ">" + esc(label) + "</button>";
     }
-    var cards = parent ? "" :
+    function m1n(p) { var x = (r.m1 || {})[p] || {}; return Object.keys(x).reduce(function (t, k) { return t + x[k]; }, 0); }
+    var groups = {};
+    (home.sets || []).forEach(function (x) { var g = EXAM[x.exam] ? x.exam : "other"; (groups[g] = groups[g] || []).push(x); });
+    var sets = parent || !(home.sets || []).length ? "" : '<section class="box"><h2>' + L("Admission & practice test sets", "ชุดข้อสอบเตรียมสอบเข้าและชุดฝึก") + '</h2><p class="muted">' + L("Complete, timed sets — the same questions for everyone, with the answer order shuffled each time. Answers and explanations are shown at the end.", "ชุดข้อสอบครบชุดพร้อมจับเวลา ทุกคนได้ข้อเดียวกันแต่สลับลำดับตัวเลือกทุกครั้ง แสดงเฉลยและคำอธิบายเมื่อทำเสร็จ") + "</p>" +
+      Object.keys(EXAM).filter(function (g) { return groups[g]; }).map(function (g) {
+        return '<h3 class="set-group">' + L(EXAM[g][0], EXAM[g][1]) + '</h3><div class="set-grid">' + groups[g].map(function (x) {
+          return '<div class="set-card"><b>' + esc(setTitle(x)) + '</b><small class="muted">' + x.questions + " " + (x.kind === "ielts-w" ? L("tasks", "งาน") : L("questions", "ข้อ")) + (x.minutes ? " · " + x.minutes + " " + L("min", "นาที") : "") + "</small>" +
+            '<button class="btn btn--sm btn--primary" data-startset="' + esc(x.id) + '"' + (learner && !home.settings.studentsCanStart ? " disabled" : "") + ">" + L("Start", "เริ่มทำ") + "</button></div>";
+        }).join("") + "</div>";
+      }).join("") + "</section>";
+    var cards = parent ? "" : sets +
       '<div class="test-grid">' +
       '<section class="box test-card"><h2>SAT Reading &amp; Writing</h2><p>' + L("2 adaptive modules · 27 questions · 32 minutes each. Module 2 gets harder or easier depending on module 1.", "2 โมดูลแบบปรับระดับ · โมดูลละ 27 ข้อ 32 นาที โมดูล 2 ยากหรือง่ายขึ้นตามผลโมดูล 1") + "</p>" +
       '<div class="btnrow">' + btn("sat", "mock", L("Full test (64 min)", "ข้อสอบเต็ม (64 นาที)"), r.sat.mock) + btn("sat", "practice", L("Practice by topic", "ฝึกตามหัวข้อ"), r.sat.approved >= 5) + "</div>" +
@@ -42,7 +57,9 @@
       '<div class="btnrow">' + btn("ielts-r", "mock", L("Full test (60 min)", "ข้อสอบเต็ม (60 นาที)"), r["ielts-r"].mock) + btn("ielts-r", "practice", L("One passage (20 min)", "1 บทอ่าน (20 นาที)"), r["ielts-r"].sets > 0) + "</div></section>" +
       '<section class="box test-card"><h2>IELTS Academic Writing</h2><p>' + L("Task 1 (150+ words) and Task 2 (250+ words) in 60 minutes. Your teacher confirms the band.", "Task 1 (150 คำขึ้นไป) และ Task 2 (250 คำขึ้นไป) ใน 60 นาที ครูเป็นผู้ยืนยันคะแนน") + "</p>" +
       '<div class="btnrow">' + btn("ielts-w", "mock", L("Full test (60 min)", "ข้อสอบเต็ม (60 นาที)"), r["ielts-w"].mock) + btn("ielts-w", "practice", L("Task 1 (20 min)", "Task 1 (20 นาที)"), r["ielts-w"].task1 > 0, ' data-task="1"') +
-      btn("ielts-w", "practice", L("Task 2 (40 min)", "Task 2 (40 นาที)"), r["ielts-w"].task2 > 0, ' data-task="2"') + "</div></section></div>" +
+      btn("ielts-w", "practice", L("Task 2 (40 min)", "Task 2 (40 นาที)"), r["ielts-w"].task2 > 0, ' data-task="2"') + "</div></section>" +
+      '<section class="box test-card"><h2>' + L("Suankularb M.1 entrance", "สอบเข้า ม.1 สวนกุหลาบ") + "</h2><p>" + L("GATE Program: Maths, Science, English, Thai. English Program (EPLUS+): English, Maths, Science in English. Practise any mix of subjects.", "GATE Program: คณิต วิทย์ อังกฤษ ไทย · English Program (EPLUS+): อังกฤษ คณิต วิทย์ (เป็นภาษาอังกฤษ) เลือกฝึกวิชาที่ต้องการได้") + "</p>" +
+      '<div class="btnrow">' + btn("m1", "practice", "GATE · " + L("practice", "ฝึกทำ"), m1n("gate") >= 5, ' data-program="gate"') + btn("m1", "practice", "EP · " + L("practice", "ฝึกทำ"), m1n("ep") >= 5, ' data-program="ep"') + "</div></section></div>" +
       '<p class="muted small">' + L("Questions are written by DeepDistrict and scores are practice estimates, not official scores. SAT is a trademark of the College Board; IELTS belongs to the British Council, IDP and Cambridge. We are not affiliated with them.",
         "ข้อสอบเขียนโดย DeepDistrict และคะแนนเป็นค่าประมาณเพื่อการฝึก ไม่ใช่คะแนนทางการ SAT เป็นเครื่องหมายการค้าของ College Board ส่วน IELTS เป็นของ British Council, IDP และ Cambridge เราไม่มีส่วนเกี่ยวข้องกับองค์กรเหล่านี้") + "</p>";
     var list = home.attempts;
@@ -53,12 +70,21 @@
       (list.length ? '<div class="tbl-wrap"><table class="tbl tbl--click"><thead><tr><th>' + L("Date", "วันที่") + "</th>" + (learner ? "" : "<th>" + L("Learner", "ผู้สอบ") + "</th>") + "<th>" + L("Test", "ข้อสอบ") + "</th><th>" + L("Score", "คะแนน") + "</th></tr></thead><tbody>" +
         list.map(function (a) {
           return '<tr data-attempt="' + esc(a.id) + '"><td class="nowrap">' + esc(when(a.createdAt)) + "</td>" + (learner ? "" : "<td>" + esc(a.userName) + (a.preview ? ' <small class="muted">(' + L("preview", "ทดลอง") + ")</small>" : "") + "</td>") +
-            "<td>" + esc(kname(a.kind)) + '<br><small class="muted">' + (a.mode === "mock" ? L("Full test", "ข้อสอบเต็ม") : L("Practice", "ฝึกทำ")) + "</small></td><td>" + score(a) + "</td></tr>";
+            "<td>" + esc(kname(a.kind)) + '<br><small class="muted">' + esc(modeName(a)) + "</small></td><td>" + score(a) + "</td></tr>";
         }).join("") + "</tbody></table></div>" : A.empty("No tests yet.", "ยังไม่มีผลสอบ")) + "</section>";
     var jf = $("[data-joinlive]", el);
     if (jf) jf.addEventListener("submit", function (e) { e.preventDefault(); location.href = "live.html?code=" + encodeURIComponent(jf.elements.code.value.trim()); });
     $$("[data-attempt]", el).forEach(function (tr) { tr.addEventListener("click", function () { open(tr.getAttribute("data-attempt")); }); });
-    $$("[data-start]", el).forEach(function (b) { b.addEventListener("click", function () { start(b.getAttribute("data-start"), b.getAttribute("data-mode"), b.getAttribute("data-task")); }); });
+    $$("[data-start]", el).forEach(function (b) { b.addEventListener("click", function () { start(b.getAttribute("data-start"), b.getAttribute("data-mode"), b.getAttribute("data-task"), b.getAttribute("data-program")); }); });
+    $$("[data-startset]", el).forEach(function (b) { b.addEventListener("click", function () { startSet(b.getAttribute("data-startset")); }); });
+  }
+  function startSet(id) {
+    var x = (home.sets || []).filter(function (s) { return s.id === id; })[0]; if (!x) return;
+    var rule = RULES[x.kind] || RULES.m1;
+    A.form({ title: setTitle(x), intro: (x.note ? esc(x.note) + "<br><br>" : "") + "<b>" + (x.minutes || "") + (x.minutes ? " " + L("minutes", "นาที") + " · " : "") + x.questions + " " + (x.kind === "ielts-w" ? L("tasks", "งาน") : L("questions", "ข้อ")) + "</b><br><br>" +
+      esc(x.kind === "sat" ? L("One module: move back and forth and change answers until you submit. No penalty for wrong answers.", "1 โมดูล ย้อนกลับและแก้คำตอบได้จนกว่าจะส่ง ตอบผิดไม่หักคะแนน") : L(rule[0], rule[1])) + "<br><br>" +
+      esc(L("The timer runs on our server and keeps going if you close the page.", "ระบบจับเวลาบนเซิร์ฟเวอร์ และเวลายังเดินต่อแม้ปิดหน้า")), fields: [], submit: L("Start now", "เริ่มทำข้อสอบ"),
+      onSave: function () { return A.api("POST", "exam/start", { setId: id }).then(function (r) { open(r.id); }).catch(function (e) { A.toast(e.message, "err"); return false; }); } });
   }
 
   var RULES = {
@@ -66,10 +92,12 @@
       "2 โมดูล โมดูลละ 27 ข้อ 32 นาที ย้อนกลับและแก้คำตอบได้ภายในโมดูลเดียวกันเท่านั้น เมื่อส่งแล้วแก้ไม่ได้ โมดูล 2 เริ่มทันที ตอบผิดไม่หักคะแนน ควรตอบทุกข้อ"],
     "ielts-r": ["60 minutes for 3 passages and 40 questions. There is no extra time to transfer answers. Spelling must be correct and answers must keep to the word limit.",
       "60 นาที 3 บทอ่าน 40 ข้อ ไม่มีเวลาเพิ่มสำหรับย้ายคำตอบ ต้องสะกดถูกและไม่เกินจำนวนคำที่กำหนด"],
+    m1: ["Four-choice questions. You can move back and forth and change answers until you submit. Each question has one best answer; there is no penalty for a wrong answer in this practice.",
+      "ข้อสอบแบบ 4 ตัวเลือก ย้อนกลับและแก้คำตอบได้จนกว่าจะส่ง แต่ละข้อมีคำตอบที่ถูกที่สุดเพียงข้อเดียว แบบฝึกนี้ตอบผิดไม่หักคะแนน"],
     "ielts-w": ["Write at least 150 words for Task 1 and 250 words for Task 2. Spend about 20 minutes on Task 1 and 40 minutes on Task 2 — Task 2 counts twice as much. There is no spell-checker.",
       "Task 1 อย่างน้อย 150 คำ Task 2 อย่างน้อย 250 คำ ควรใช้เวลา Task 1 ประมาณ 20 นาที และ Task 2 ประมาณ 40 นาที (Task 2 มีน้ำหนักเป็นสองเท่า) ไม่มีตัวตรวจคำสะกด"]
   };
-  function start(kind, mode, task) {
+  function start(kind, mode, task, program) {
     var fields = [], intro = esc(L(RULES[kind][0], RULES[kind][1])) + "<br><br>" + esc(L("The timer runs on our server and keeps going if you close the page. Use a computer or tablet with a stable connection.", "ระบบจับเวลาบนเซิร์ฟเวอร์ และเวลายังเดินต่อแม้ปิดหน้า ควรใช้คอมพิวเตอร์หรือแท็บเล็ตที่อินเทอร์เน็ตเสถียร"));
     if (kind === "sat" && mode === "practice") {
       fields = [{ name: "domains", label: L("Topics", "หัวข้อ"), type: "checks", value: Object.keys(home.domains), options: Object.keys(home.domains).map(function (d) { return [d, A.tx(home.domains[d])]; }) },
@@ -77,10 +105,16 @@
         { name: "difficulty", label: L("Difficulty", "ระดับความยาก"), type: "select", value: "", options: [["", L("Mixed", "คละ")], ["e", L("Easy", "ง่าย")], ["m", L("Medium", "กลาง")], ["h", L("Hard", "ยาก")]] }];
       intro = esc(L("About 71 seconds per question, like the real test. Answers and explanations are shown at the end.", "ประมาณ 71 วินาทีต่อข้อเหมือนข้อสอบจริง เฉลยและคำอธิบายแสดงตอนจบ"));
     }
-    A.form({ title: kname(kind) + " · " + (mode === "mock" ? L("Full test", "ข้อสอบเต็ม") : L("Practice", "ฝึกทำ")), intro: intro, fields: fields, submit: L("Start now", "เริ่มทำข้อสอบ"),
+    if (kind === "m1") {
+      var subs = home.m1.programs[program].subjects;
+      fields = [{ name: "subjects", label: L("Subjects", "วิชา"), type: "checks", value: subs, options: subs.map(function (k) { return [k, L(SUBJ[k][0], SUBJ[k][1])]; }) },
+        { name: "count", label: L("Number of questions (5–40)", "จำนวนข้อ (5–40)"), type: "number", min: 5, value: 10 }];
+    }
+    A.form({ title: (kind === "m1" ? A.tx(home.m1.programs[program]) : kname(kind)) + " · " + (mode === "mock" ? L("Full test", "ข้อสอบเต็ม") : L("Practice", "ฝึกทำ")), intro: intro, fields: fields, submit: L("Start now", "เริ่มทำข้อสอบ"),
       onSave: function (v) {
         var body = { kind: kind, mode: mode, task: task };
         if (v.domains) { body.domains = v.domains; body.count = v.count; body.difficulty = v.difficulty; }
+        if (v.subjects) { body.program = program; body.subjects = v.subjects; body.count = v.count; }
         return A.api("POST", "exam/start", body).then(function (r) { open(r.id); }).catch(function (e) { A.toast(e.message, "err"); return false; });
       } });
   }
@@ -98,6 +132,7 @@
 
   function summary(it) {
     if (it.kind === "sat") return esc((bank.domains[it.domain] || {}).en || it.domain) + " · " + esc(it.skill) + " · " + L(DIFF[it.difficulty][0], DIFF[it.difficulty][1]) + (it.pretest ? " · <i>pretest</i>" : "") + '<br><small class="muted">' + esc((it.stem || "").slice(0, 110)) + "</small>";
+    if (it.kind === "m1") return esc(it.program.toUpperCase()) + " · " + L(SUBJ[it.subject][0], SUBJ[it.subject][1]) + " · " + L(DIFF[it.difficulty][0], DIFF[it.difficulty][1]) + '<br><small class="muted">' + esc((it.stem || "").slice(0, 110)) + "</small>";
     if (it.kind === "ielts-r") return "<b>" + esc(it.title) + "</b> · " + it.words + L(" words", " คำ") + '<br><small class="muted">' + it.groups.map(function (g) { return esc(g.type) + " ×" + g.n; }).join(" · ") + "</small>";
     return "Task " + it.task + (it.essayType ? " · " + esc(it.essayType) : "") + '<br><small class="muted">' + esc((it.prompt || "").slice(0, 110)) + "</small>";
   }
@@ -112,6 +147,8 @@
       '<br><small class="muted">' + L("Aim for about 250+ so students rarely see the same question twice. Pretest (unscored) items: ", "ควรมี 250 ข้อขึ้นไปเพื่อไม่ให้นักเรียนเจอข้อซ้ำบ่อย ข้อ pretest (ไม่นับคะแนน): ") + r.sat.pretest + "</small></p>" +
       "<p><b>IELTS Reading</b> " + (r["ielts-r"].mock ? "✅" : "⏳") + " " + r["ielts-r"].sets + L(" approved passages · a full test needs 3 that add up to exactly 40 questions and 2,150–2,750 words", " บทอ่านที่อนุมัติ · ข้อสอบเต็มต้องมี 3 บทที่รวมกันได้ 40 ข้อพอดี และ 2,150–2,750 คำ") + "</p>" +
       "<p><b>IELTS Writing</b> " + (r["ielts-w"].mock ? "✅" : "⏳") + " Task 1: " + r["ielts-w"].task1 + " · Task 2: " + r["ielts-w"].task2 + "</p>" +
+      ["gate", "ep"].map(function (p) { var x = (r.m1 || {})[p] || {}; return "<p><b>M.1 " + p.toUpperCase() + "</b> " + Object.keys(x).map(function (k) { return L(SUBJ[k][0], SUBJ[k][1]) + ": " + x[k]; }).join(" · ") + "</p>"; }).join("") +
+      '<p><button class="btn" data-act="bank-ready">' + L("Load ready-made sets (SAT, IELTS, GATE, EP)", "โหลดชุดข้อสอบสำเร็จรูป (SAT, IELTS, GATE, EP)") + '</button> <small class="muted">' + L("Adds anything missing; never overwrites your edits.", "เพิ่มเฉพาะที่ยังไม่มี ไม่เขียนทับที่แก้ไขไว้") + "</small></p>" +
       (bank.items.length ? "" : '<button class="btn" data-act="bank-samples">' + L("Load sample items to try the system", "โหลดข้อสอบตัวอย่างเพื่อทดลองระบบ") + "</button>") + "</section>" +
       '<div class="filters" data-filters><select name="kind"><option value="">' + L("All types", "ทุกประเภท") + "</option>" + Object.keys(KIND).map(function (k) { return '<option value="' + k + '"' + (k === kind ? " selected" : "") + ">" + kname(k) + "</option>"; }).join("") + "</select>" +
       '<select name="status"><option value="">' + L("All statuses", "ทุกสถานะ") + "</option>" + Object.keys(STAT).map(function (k) { return '<option value="' + k + '"' + (k === status ? " selected" : "") + ">" + L(STAT[k][0], STAT[k][1]) + "</option>"; }).join("") + "</select></div>" +
@@ -184,6 +221,19 @@
           { name: "answer", label: L("Correct answer", "คำตอบที่ถูก"), type: "select", value: it.answer, options: [[0, "A"], [1, "B"], [2, "C"], [3, "D"]] },
           { name: "expEn", label: L("Explanation (English)", "คำอธิบาย (อังกฤษ)"), type: "textarea", value: (it.explanation || {}).en, full: true },
           { name: "expTh", label: L("Explanation (Thai)", "คำอธิบาย (ไทย)"), type: "textarea", value: (it.explanation || {}).th, full: true }];
+      } else if (it.kind === "m1") {
+        var prog = it.program || "gate";
+        f = [{ name: "program", label: L("Programme", "โครงการ"), type: "select", value: prog, options: [["gate", "GATE Program"], ["ep", "English Program (EPLUS+)"]] },
+          { name: "subject", label: L("Subject", "วิชา"), type: "select", value: it.subject || "math", options: Object.keys(SUBJ).map(function (k) { return [k, L(SUBJ[k][0], SUBJ[k][1])]; }), hint: L("EP has no Thai paper.", "EP ไม่มีวิชาภาษาไทย") },
+          { name: "difficulty", label: L("Difficulty", "ความยาก"), type: "select", value: it.difficulty || "m", options: [["e", L("Easy", "ง่าย")], ["m", L("Medium", "กลาง")], ["h", L("Hard", "ยาก")]] },
+          { name: "passage", label: L("Reading text / situation (optional, shared by the question)", "บทอ่าน / สถานการณ์ (ถ้ามี)"), type: "textarea", value: it.passage, full: true },
+          { name: "table", label: L("Data table (optional; one row per line, cells separated by |)", "ตารางข้อมูล (ถ้ามี; บรรทัดละแถว คั่นช่องด้วย |)"), type: "textarea", value: tableToText(it.table), full: true },
+          { name: "image", label: L("Picture (optional)", "รูปภาพ (ถ้ามี)"), type: "image", value: it.image },
+          { name: "stem", label: L("Question", "คำถาม"), type: "textarea", value: it.stem, full: true },
+          { name: "c0", label: "A", value: (it.choices || [])[0] }, { name: "c1", label: "B", value: (it.choices || [])[1] }, { name: "c2", label: "C", value: (it.choices || [])[2] }, { name: "c3", label: "D", value: (it.choices || [])[3] },
+          { name: "answer", label: L("Correct answer", "คำตอบที่ถูก"), type: "select", value: it.answer, options: [[0, "A"], [1, "B"], [2, "C"], [3, "D"]] },
+          { name: "expEn", label: L("Explanation (English)", "คำอธิบาย (อังกฤษ)"), type: "textarea", value: (it.explanation || {}).en, full: true },
+          { name: "expTh", label: L("Explanation (Thai)", "คำอธิบาย (ไทย)"), type: "textarea", value: (it.explanation || {}).th, full: true }];
       } else if (it.kind === "ielts-r") {
         f = [{ name: "title", label: L("Passage title", "ชื่อบทอ่าน"), value: it.title, full: true },
           { name: "difficulty", label: L("Level (order in a full test)", "ระดับ (ลำดับในข้อสอบเต็ม)"), type: "select", value: it.difficulty || 2, options: [[1, L("1 — easier", "1 — ง่ายกว่า")], [2, L("2 — medium", "2 — กลาง")], [3, L("3 — harder", "3 — ยากกว่า")]] },
@@ -208,6 +258,8 @@
           var out = { id: it.id, kind: it.kind, status: v.status, rightsOk: v.rightsOk, origin: it.origin, tags: v.tags.split(",").map(function (s) { return s.trim(); }).filter(Boolean), note: it.note };
           if (it.kind === "sat") Object.assign(out, { domain: v.domain, skill: v.skill, difficulty: v.difficulty, pretest: v.pretest, passage: v.passage, table: textToTable(v.table), image: v.image, stem: v.stem,
             choices: [v.c0, v.c1, v.c2, v.c3], answer: +v.answer, explanation: { en: v.expEn, th: v.expTh } });
+          else if (it.kind === "m1") Object.assign(out, { program: v.program, subject: v.subject, difficulty: v.difficulty, passage: v.passage, table: textToTable(v.table), image: v.image, stem: v.stem,
+            choices: [v.c0, v.c1, v.c2, v.c3], answer: +v.answer, explanation: { en: v.expEn, th: v.expTh } });
           else if (it.kind === "ielts-r") Object.assign(out, { title: v.title, difficulty: +v.difficulty, labelled: true, paragraphs: v.paragraphs.split(/\n\s*\n/).map(function (p) { return p.replace(/\s*\n\s*/g, " ").trim(); }).filter(Boolean),
             groups: textToGroups(v.groups).map(function (g, i) { var old = (it.groups || [])[i]; if (old && old.image && old.type === g.type) g.image = old.image; return g; }) });
           else Object.assign(out, { task: +v.task, prompt: v.prompt, image: v.image, table: textToTable(v.table, v.tableTitle), visual: it.visual, essayType: it.essayType });
@@ -231,7 +283,7 @@
     A.form({
       title: L("Draft items with AI", "ให้ AI ร่างข้อสอบ"),
       intro: esc(L("The AI writes ORIGINAL items in the official format. They arrive as drafts: a teacher checks every answer, confirms originality and approves before students see them.", "AI จะเขียนข้อสอบใหม่ตามรูปแบบทางการ ข้อสอบจะอยู่ในสถานะฉบับร่าง ครูต้องตรวจคำตอบทุกข้อ ยืนยันความเป็นต้นฉบับ และอนุมัติก่อนนักเรียนจะเห็น")),
-      fields: [{ name: "kind", label: L("Type", "ประเภท"), type: "select", options: Object.keys(KIND).map(function (k) { return [k, kname(k)]; }), value: "sat" },
+      fields: [{ name: "kind", label: L("Type", "ประเภท"), type: "select", options: Object.keys(KIND).filter(function (k) { return k !== "m1"; }).map(function (k) { return [k, kname(k)]; }), value: "sat" },
         { name: "domain", label: "SAT · " + L("domain", "หมวด"), type: "select", options: Object.keys(bank.domains).map(function (k) { return [k, bank.domains[k].en]; }) },
         { name: "difficulty", label: L("SAT difficulty / IELTS passage level", "ความยาก SAT / ระดับบทอ่าน IELTS"), type: "select", options: [["", L("Mixed", "คละ")], ["e", L("Easy / level 1", "ง่าย / ระดับ 1")], ["m", L("Medium / level 2", "กลาง / ระดับ 2")], ["h", L("Hard / level 3", "ยาก / ระดับ 3")]] },
         { name: "count", label: L("SAT: how many (1–10)", "SAT: จำนวนข้อ (1–10)"), type: "number", min: 1, value: 5 },
@@ -300,6 +352,7 @@
   A.onAct = function (a, b, ev) {
     if (a === "bank-settings") bankSettings();
     else if (a === "bank-ai") aiDraft();
+    else if (a === "bank-ready") A.api("POST", "exam/sets-load", {}).then(function (r) { A.toast(L(r.items + " items and " + r.sets + " sets added", "เพิ่มข้อสอบ " + r.items + " ข้อ และ " + r.sets + " ชุด")); return loadBank().then(drawBank); }).catch(function (e) { A.toast(e.message, "err"); });
     else if (a === "bank-samples") bankAct({ samples: true }).then(function (r) { A.toast(L(r.added + " sample items added", "เพิ่มข้อสอบตัวอย่าง " + r.added + " ข้อ")); return loadBank().then(drawBank); });
     else if (a === "bank-new") A.form({ title: L("New item", "เพิ่มข้อสอบ"), fields: [{ name: "kind", label: L("Type", "ประเภท"), type: "select", options: Object.keys(KIND).map(function (k) { return [k, kname(k)]; }) }],
       submit: L("Next", "ถัดไป"), onSave: function (v) { setTimeout(function () { editItem(null, v.kind); }, 0); } });
