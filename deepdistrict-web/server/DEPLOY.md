@@ -13,7 +13,7 @@ python.org and tick "Add Python to PATH"). No other installs.
 - The browser opens by itself. If port 8000 is busy (often an older DeepDistrict window still open), the server says so and uses 8001, 8002, …; close old windows first. The footer and the start-up message show the version (e.g. 4.6 r2).
 - First visit: create the admin account.
 - Data: `server/data/deepdistrict.db` (one file). A copy is made every day in
-  `server/data/backups/` (last 30 days). **Never commit or share this folder** — it holds
+  `server/data/backups/` (last 30 days plus the 1st of every month, kept for good). Nothing in the database is ever deleted — every earlier version and every archived record stays in the `archive` table. **Never commit or share this folder** — it holds
   learners' personal data.
 - Teachers or parents on the **same Wi-Fi**: run `./start.sh --lan` and give them
   `http://<your-computer's-IP>:8000/admin/`. This is plain HTTP, fine inside your own

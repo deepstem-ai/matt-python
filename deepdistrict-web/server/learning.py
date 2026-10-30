@@ -41,6 +41,8 @@ def init(con):
     live.init(con)
     qsets.init(con)
     exports.init(con)
+    import history
+    history.init(con)                                # keep-forever triggers before anything is replaced
     if os.environ.get("DD_SEED", "1") != "0":       # DD_SEED=0: start empty (no ready-made sets or starter news)
         autoload_sets(con)
         blog_seed.seed(con)

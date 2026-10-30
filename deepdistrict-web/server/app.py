@@ -618,7 +618,7 @@ def api(environ, start, path):
 
         if path == "consent" and method == "POST":
             # proof of cookie consent (PDPA): random reference, time, policy version and choices only —
-            # no name, email, IP address or other personal data. Kept for 3 years.
+            # no name, email, IP address or other personal data. Kept permanently.
             ref = str(body.get("id") or "")
             choices = body.get("choices") if isinstance(body.get("choices"), dict) else None
             if not re.fullmatch(r"[a-z0-9]{6,32}", ref) or choices is None:

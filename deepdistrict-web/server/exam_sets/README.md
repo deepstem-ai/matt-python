@@ -72,16 +72,17 @@ Same shape as `exam_samples.WRITING`. Task 1 needs a `table`, the official instr
 ### `m1` item
 
 ```json
-{"kind": "m1", "program": "gate", "subject": "math", "format": "mcq", "difficulty": "h",
- "skill": {"en": "Multi-step problem solving with ratios", "th": "การแก้โจทย์ปัญหาอัตราส่วนหลายขั้นตอน"},
- "topic": {"en": "Ratio and proportion", "th": "อัตราส่วนและสัดส่วน"},
- "passage": "", "table": null, "lang": "th",
+{"kind": "m1", "program": "sk1", "subject": "eng", "part": "grammar", "format": "mcq", "difficulty": "h",
+ "skill": {"en": "Inversion after negative adverbials", "th": "การสลับที่หลังคำวิเศษณ์เชิงปฏิเสธ"},
+ "topic": {"en": "Inversion", "th": "การสลับที่ประธานกับกริยา"},
+ "passage": "", "table": null, "lang": "en",
  "stem": "…", "choices": ["…", "…", "…", "…"], "answer": 2,
  "explanation": {"en": "…", "th": "…"}}
 
-{"kind": "m1", "program": "gate", "subject": "math", "format": "fill", "accept": ["84"], "unit": "ตร.ซม.", …}
+{"kind": "m1", "program": "tu4", "subject": "eng", "part": "error",
+ "stem": "Hardly [[had]] we arrived [[when]] it [[starts]] [[to rain]].", "choices": ["had", "when", "starts", "to rain"], "answer": 2, …}
 ```
 
-`passage` is optional (a reading text or a situation shared by the question). Suankularb and Satit questions are in
-Thai except the English part and the English-language maths/science items (`"lang": "en"`). Explanations name the right answer by
+`passage` is optional (a reading text shared by several questions is repeated in full on each). Error items mark exactly four
+parts with `[[…]]`, and the choices are those parts in sentence order. Explanations (English and Thai) name the right answer by
 its content, never by a letter or position (ก ข ค ง / A B C D), because answer order is shuffled.

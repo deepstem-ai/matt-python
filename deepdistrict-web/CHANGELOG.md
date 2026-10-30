@@ -1,5 +1,31 @@
 # Changelog
 
+## 6.0 r1 — October 2026
+- **Every school and test has its own English paper — never combined.** 3 original papers each, every
+  question labelled with what it measures and its topic, difficulty rising from paper 1 to 3:
+  | Paper | Questions · time | Parts | Level |
+  |---|---|---|---|
+  | Suankularb M.1 (GATE / EPLUS+ — EPLUS+ needs the higher score) | 40 · 50 min | conversation 8 · vocabulary 8 · grammar 8 · cloze 6 · reading 10 | A2+ → B1+ |
+  | Satit Prasarnmit M.1 (reading and reasoning) | 50 · 60 min | conversation 6 · vocabulary 8 · grammar 8 · reading 28 | B1 → B2 |
+  | Suankularb M.4 (GATE / EPLUS+) | 50 · 60 min | conversation 6 · vocabulary 8 · grammar 10 · error 6 · cloze 8 · reading 12 | B1+ → B2 |
+  | Satit Prasarnmit M.4 (standardised-test style) | 50 · 60 min | vocabulary 10 · grammar 12 · error 8 · academic reading 20 | B2 → C1 |
+  | Triam Udom Suksa M.4 (cloze + reading core) | 50 · 60 min | conversation 5 · error 10 · cloze 15 · reading 20 | B2 → C1 |
+  | A-Level English (TCAS, official blueprint) | 80 · 90 min | short conv. 12 · long conv. 8 · ads 6 · review 6 · news 8 · visuals 8 · articles 12 · text completion 15 · paragraph organisation 5 | B1+ → C1 |
+  Practice targets: Suankularb GATE 70 % / EPLUS+ 85 %, Satit 75 %, Triam Udom 80 %, A-Level 70 %. The
+  earlier combined papers are replaced automatically on start (past results kept).
+- **Nothing is ever deleted.** Database triggers copy every earlier version and every removed row into
+  a permanent archive (the archive itself refuses changes). "Delete" in the back office now **archives**
+  a person, enrolment, lesson, payment or request; **Settings → Archive & history** lists and restores
+  them, and the **History** button on a record shows its earlier versions. "Erase all data" is gone,
+  restoring a backup archives instead of removing, the consent log is kept, and the database copy from
+  the 1st of each month is kept for good.
+- **5 example learners** (with parents, 2 example teachers, enrolments, payments, a pending request and
+  lessons placed from their weekly days and times) are added once on start, tagged with an amber
+  **Example** label in lists, the enrolment page and the calendar.
+- **Schedule PDF: full or remaining.** Each enrolment (back office and the parent / learner portal) prints
+  the full schedule from the first lesson or only the remaining lessons from today, at any time.
+- Home page shows all 8 free full tests; test pages, menus and reports use the new papers.
+
 ## 5.9 r1 — October 2026
 - **M.1 and M.4 entrance papers are now English only** — 60 four-choice questions in six parts, 3 papers each:
   | Paper | A conv. | B vocab. | C grammar | D error | E cloze | F reading | Time |
