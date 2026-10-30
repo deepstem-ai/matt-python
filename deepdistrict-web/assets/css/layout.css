@@ -335,3 +335,22 @@ html[lang="th"] .footer-col h3 { font-family: var(--f-sans-th); font-size: var(-
 /* Keep header items on one line; drop the CTA before the nav gets crowded */
 .nav-primary a, .header-cta { white-space: nowrap; }
 @media (max-width: 1640px) { .header-actions .header-cta { display: none; } }
+
+/* ---------- grouped top menu (v5.8) */
+.nav-menu { position: relative; }
+.nav-menu__btn { display: inline-flex; align-items: center; gap: 4px; padding: 8px 12px; border: 0; border-radius: 999px; background: none; color: inherit; font: inherit; font-size: .92rem; font-weight: 500; opacity: .86; cursor: pointer; white-space: nowrap; }
+.nav-menu__btn:hover, .nav-menu.is-open .nav-menu__btn, .nav-menu.is-current .nav-menu__btn { opacity: 1; background: rgba(140, 150, 255, 0.16); }
+.nav-menu__btn svg { transition: transform .2s ease; }
+.nav-menu.is-open .nav-menu__btn svg { transform: rotate(180deg); }
+.nav-menu__panel { position: absolute; top: calc(100% + 8px); left: 50%; transform: translateX(-50%); min-width: 300px; display: none; flex-direction: column; gap: 2px; padding: 10px;
+  border-radius: 18px; background: var(--surface); color: var(--text); border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(10, 20, 60, .22); z-index: 60; }
+.nav-menu.is-open .nav-menu__panel { display: flex; }
+@media (hover: hover) { .nav-menu:hover .nav-menu__panel { display: flex; } .nav-menu:hover .nav-menu__btn { opacity: 1; } }
+.nav-menu__panel::before { content: ""; position: absolute; left: 0; right: 0; top: -10px; height: 10px; }
+.nav-menu__panel a { display: flex; flex-direction: column; gap: 2px; padding: 10px 14px; border-radius: 12px; color: var(--text); text-decoration: none; opacity: 1; white-space: normal; }
+.nav-menu__panel a:hover, .nav-menu__panel a:focus-visible { background: color-mix(in srgb, var(--blue) 10%, var(--surface)); }
+.nav-menu__panel b { font-size: .98rem; }
+.nav-menu__panel small { color: var(--text-dim); font-size: .82rem; }
+.drawer-group { padding-top: 6px; }
+.drawer-group__title { display: block; margin: 10px 0 4px; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; opacity: .7; }
+.drawer-group ul { list-style: none; margin: 0; padding: 0 0 0 10px; }

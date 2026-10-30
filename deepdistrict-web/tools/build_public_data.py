@@ -5,8 +5,9 @@
 Writes
   assets/data/news.js   window.DD_NEWS  — starter news (server/blog_posts/*.json), shown on the home-page
                                           slider and the blog when the site runs without the server
-  assets/data/tests.js  window.DD_TESTS — the 12 ready-made sets (server/exam_sets/*.json) with a few
-                                          sample questions each, for the public "Free practice tests" page
+  assets/data/tests.js  window.DD_TESTS — every ready-made set (server/exam_sets/*.json) with sample
+                                          questions, for the public "Free practice tests" page
+  assets/data/tests/<exam>-1.js           set 1 of each exam in full (free, timed), loaded on demand
 Run it again after editing either folder.
 """
 import json
@@ -44,32 +45,52 @@ def spread(lst, n):
     return [lst[int(i * step)] for i in range(n)]
 
 
+FREE_FULL = 1          # set 1 of every exam is free in full on the public page; the others show a sample
+
+
+def clean(x):
+    """Public copy of an item (drops bank-only fields)."""
+    return {k: v for k, v in x.items() if k not in ("status", "origin", "rightsOk", "tags", "note", "version", "pretest")}
+
+
 def sample_items(d):
     its = d["items"]
     if d["exam"] == "ielts":
         r = [x for x in its if x["kind"] == "ielts-r"][0]
         w = [x for x in its if x["kind"] == "ielts-w"]
-        return {"reading": r, "writing": w}
+        return {"reading": [clean(r)], "writing": [clean(x) for x in w]}
     if d["exam"] == "sat":
-        return {"questions": spread(its, 6)}
+        return {"questions": [clean(x) for x in spread(its, 10)]}
     by = {}
     for x in its:
         by.setdefault(x["subject"], []).append(x)
     out = []
     for sub, lst in by.items():
-        out += spread(lst, 3 if sub in ("math", "sci", "eng") else 2)
-    return {"questions": out}
+        out += spread(lst, 3)
+    return {"questions": [clean(x) for x in out]}
+
+
+def full_items(d):
+    its = d["items"]
+    if d["exam"] == "ielts":
+        return {"reading": [clean(x) for x in its if x["kind"] == "ielts-r"], "writing": [clean(x) for x in its if x["kind"] == "ielts-w"]}
+    return {"questions": [clean(x) for x in its]}
 
 
 def tests():
-    out = []
+    out, full = [], {}
     for d in ready_sets.files():
-        kinds = {}
+        kinds, subj = {}, {}
         for x in d["items"]:
             kinds[x["kind"]] = kinds.get(x["kind"], 0) + 1
+            if x.get("subject"):
+                subj[x["subject"]] = subj.get(x["subject"], 0) + 1
+        free = int(d.get("set") or 0) == FREE_FULL
         out.append({"exam": d["exam"], "set": d.get("set"), "title": d.get("title"), "note": d.get("note"), "minutes": d.get("minutes"),
-                    "kinds": kinds, "sample": sample_items(d)})
-    return out
+                    "kinds": kinds, "subjects": subj, "free": free, "file": d["_file"].replace(".json", ""), "sample": sample_items(d)})
+        if free:
+            full[d["_file"].replace(".json", "")] = full_items(d)
+    return out, full
 
 
 def write(name, var, data):
@@ -81,4 +102,11 @@ def write(name, var, data):
 
 if __name__ == "__main__":
     write("news.js", "DD_NEWS", news())
-    write("tests.js", "DD_TESTS", tests())
+    meta, full = tests()
+    write("tests.js", "DD_TESTS", meta)
+    os.makedirs(os.path.join(ROOT, "assets", "data", "tests"), exist_ok=True)
+    for f in os.listdir(os.path.join(ROOT, "assets", "data", "tests")):
+        if f.endswith(".js"):
+            os.remove(os.path.join(ROOT, "assets", "data", "tests", f))
+    for name, data in full.items():                      # loaded only when someone starts that full test
+        write(os.path.join("tests", name + ".js"), "DD_FULL = window.DD_FULL || {}; window.DD_FULL[" + json.dumps(name) + "]", data)

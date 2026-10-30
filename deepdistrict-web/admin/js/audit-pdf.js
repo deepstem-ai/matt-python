@@ -135,7 +135,8 @@
       if (it.kind === "sat" || it.kind === "m1") {
         n++;
         out.push(block(noted(p, '<div class="ap-q"><div class="n">' + n + "</div><div>" + lines(it.passage) + tbl(it.table) + (it.image ? '<img src="' + esc(it.image) + '" style="max-width:100%;margin:6px 0" alt="">' : "") + '<p class="ap-stem">' + esc(it.stem) + "</p>" +
-          it.choices.map(function (c, i) { return '<div class="ap-ch"><b>' + LET[i] + ")</b>" + esc(c) + "</div>"; }).join("") + "</div></div>", wc(it.passage) + 30)));
+          (it.format === "fill" ? '<div class="ap-ch">Answer · คำตอบ: ______________________ ' + esc(it.unit || "") + "</div>" : "") +
+          (it.choices || []).map(function (c, i) { return '<div class="ap-ch"><b>' + LET[i] + ")</b>" + esc(c) + "</div>"; }).join("") + "</div></div>", wc(it.passage) + 30)));
       } else if (it.kind === "ielts-r") {
         out.push(block('<h2 class="ap-h2">' + esc(it.title) + "</h2>"));
         it.paragraphs.forEach(function (para, i) { out.push(block('<p class="ap-para">' + (it.labelled ? "<b>" + String.fromCharCode(65 + i) + "</b>" : "") + esc(para) + "</p>")); });
@@ -167,7 +168,7 @@
   function answerKey(p) {
     var out = [block('<h2 class="ap-h2">Answer key · เฉลย (teacher copy)</h2>', "ap-break")], n = 0, rows = [];
     p.items.forEach(function (it) {
-      if (it.kind === "m1") { n++; rows.push("<tr><td><b>" + n + "</b></td><td><b>" + LET[it.answer] + "</b></td><td>" + esc({ math: "Mathematics", sci: "Science", eng: "English", thai: "Thai" }[it.subject] || "") + " · " + esc({ e: "easy", m: "medium", h: "hard" }[it.difficulty] || "") + "<br>" + esc((it.explanation || {}).en || "") + (it.explanation && it.explanation.th ? "<br>" + esc(it.explanation.th) : "") + "</td></tr>"); }
+      if (it.kind === "m1") { n++; rows.push("<tr><td><b>" + n + "</b></td><td><b>" + (it.format === "fill" ? esc((it.accept || []).join(" / ") + " " + (it.unit || "")) : LET[it.answer]) + "</b></td><td>" + esc({ math: "Mathematics", sci: "Science", eng: "English", thai: "Thai" }[it.subject] || "") + " · " + esc({ e: "easy", m: "medium", h: "hard" }[it.difficulty] || "") + (it.skill ? " · " + esc((it.skill.th || it.skill.en) + " / " + ((it.topic || {}).th || "")) : "") + "<br>" + esc((it.explanation || {}).en || "") + (it.explanation && it.explanation.th ? "<br>" + esc(it.explanation.th) : "") + "</td></tr>"); }
       else if (it.kind === "sat") { n++; rows.push("<tr><td><b>" + n + "</b></td><td><b>" + LET[it.answer] + "</b></td><td>" + esc(DOM[it.domain] || "") + " · " + esc(it.skill) + " · " + esc({ e: "easy", m: "medium", h: "hard" }[it.difficulty] || "") + "<br>" + esc((it.explanation || {}).en || "") + (it.explanation && it.explanation.th ? "<br>" + esc(it.explanation.th) : "") + "</td></tr>"); }
       else if (it.kind === "ielts-r") it.groups.forEach(function (g) { g.questions.forEach(function (q) { n++; var m = q.marks || 1; rows.push("<tr><td><b>" + n + (m > 1 ? "–" + (n + m - 1) : "") + "</b></td><td><b>" + esc((q.answer || []).join(m > 1 ? ", " : " / ")) + "</b>" + (m > 1 ? "<br><small>any order; one mark per letter</small>" : "") + "</td><td>" + esc(g.type) + "</td></tr>"); n += m - 1; }); });
     });
@@ -178,10 +179,25 @@
     var a = p.attempt || {}, out = [];
     var big = a.kind === "m1" ? a.percent + "%" : a.kind === "sat" ? (a.estimate ? a.estimate : a.correct + "/" + a.total) : a.kind === "ielts-r" ? a.band : (a.band != null ? a.band : "—");
     var label = a.kind === "m1" ? "Correct answers (" + a.correct + "/" + a.total + ")" : a.kind === "sat" ? (a.estimate ? "Estimated Reading and Writing score (200–800)" : "Correct answers") : a.kind === "ielts-r" ? "Estimated Reading band (" + a.correct + "/" + a.total + ")" : (a.band != null ? "Writing band confirmed by " + (a.markedBy || "teacher") : "Waiting for the teacher's marks");
-    out.push(block('<div class="ap-score"><b>' + esc(big) + "</b><div>" + esc(label) + "<br><small>" + esc(a.mode === "mock" ? "Full test" : "Practice") + " · " + esc(a.startedAt || "") + (a.finishedAt ? " → " + esc(a.finishedAt) : "") + " (UTC+7)</small></div></div>"));
+    out.push(block('<div class="ap-score"><b>' + esc(big) + "</b><div>" + esc(label) + "<br><small>" + esc(a.mode === "mock" ? "Full test" : a.mode === "set" ? "Full practice set" : "Practice") + " · " + esc(a.startedAt || "") + (a.finishedAt ? " → " + esc(a.finishedAt) : "") + " (UTC+7)</small></div></div>"));
     if (a.kind === "sat" && a.byDomain) out.push(block('<table class="ap-tbl" style="width:100%"><tr><th>Domain</th><th>Correct</th></tr>' + Object.keys(a.byDomain).filter(function (d) { return a.byDomain[d].t; }).map(function (d) { return "<tr><td>" + esc(DOM[d]) + "</td><td>" + a.byDomain[d].c + " / " + a.byDomain[d].t + "</td></tr>"; }).join("") + "</table>" +
       (a.modules ? "<p>" + a.modules.map(function (m) { return esc(m.key === "m1" ? "Module 1" : m.key === "m2" ? "Module 2" : "Practice") + ": " + m.correct + "/" + m.total; }).join(" · ") + (a.route ? " · module 2: " + (a.route === "hard" ? "harder set" : "easier set (ceiling ≈ " + a.ceiling + ")") : "") + "</p>" : "")));
     if (a.kind === "m1" && a.bySubject) out.push(block('<table class="ap-tbl" style="width:100%"><tr><th>Subject</th><th>Correct</th></tr>' + Object.keys(a.bySubject).map(function (k) { return "<tr><td>" + esc({ math: "Mathematics", sci: "Science", eng: "English", thai: "Thai" }[k] || k) + "</td><td>" + a.bySubject[k].c + " / " + a.bySubject[k].t + "</td></tr>"; }).join("") + "</table>"));
+    var SUB = { math: "Mathematics · คณิตศาสตร์", sci: "Science · วิทยาศาสตร์", eng: "English · ภาษาอังกฤษ", thai: "Thai · ภาษาไทย", RW: "Reading & Writing", Reading: "Reading" };
+    function bi(x) { x = x || {}; return esc(x.th && x.en && x.th !== x.en ? x.en + " · " + x.th : x.en || x.th || ""); }
+    if ((a.targets || []).length) out.push(block('<table class="ap-tbl" style="width:100%"><tr><th>Target · เป้าหมาย</th><th>Result · ผล</th></tr>' + a.targets.map(function (g) {
+      return "<tr><td>" + esc(g.en) + " — overall ≥ " + g.overall + "%" + Object.keys(g.subjects).map(function (k) { return ", " + esc(k) + " ≥ " + g.subjects[k] + "%"; }).join("") + "</td><td><b>" + (g.met ? "On target · ถึงเป้าหมาย" : "Not yet · ยังไม่ถึง") + "</b></td></tr>";
+    }).join("") + '</table><p><small>Practice guidance, not school cut-offs. GATE and English Program applicants take the same Suankularb paper; EP applicants need a higher English score. · เป็นแนวทางฝึก ไม่ใช่เกณฑ์ของโรงเรียน</small></p>'));
+    if ((a.byTopic || []).length) {
+      var tops = a.byTopic.slice().sort(function (x, y) { return x.c / x.t - y.c / y.t; });
+      for (var i = 0; i < tops.length; i += 18) out.push(block((i ? "" : '<h2 class="ap-h2">By topic (weakest first) · แยกตามเรื่อง</h2>') + '<table class="ap-tbl" style="width:100%"><tr><th>Subject</th><th>Topic · เรื่อง</th><th>Correct</th></tr>' +
+        tops.slice(i, i + 18).map(function (x) { return "<tr><td>" + esc(SUB[x.subject] || x.subject) + "</td><td>" + bi(x.topic) + "</td><td>" + x.c + " / " + x.t + " (" + Math.round(x.c / x.t * 100) + "%)</td></tr>"; }).join("") + "</table>"));
+    }
+    if ((a.bySkill || []).length) out.push(block('<h2 class="ap-h2">By skill · แยกตามทักษะ</h2><table class="ap-tbl" style="width:100%"><tr><th>Domain</th><th>Skill</th><th>Correct</th></tr>' + a.bySkill.map(function (x) { return "<tr><td>" + esc(DOM[x.domain] || x.domain) + "</td><td>" + esc(x.skill.replace(/-/g, " ")) + "</td><td>" + x.c + " / " + x.t + "</td></tr>"; }).join("") + "</table>"));
+    if ((a.rows || []).length) {
+      for (var j = 0; j < a.rows.length; j += 22) out.push(block((j ? "" : '<h2 class="ap-h2">Every question · สรุปรายข้อ (what it measures · วัดอะไร เรื่องอะไร)</h2>') + '<table class="ap-tbl" style="width:100%;font-size:11px"><tr><th>No.</th><th>Subject</th><th>Measures · วัด</th><th>Topic · เรื่อง</th><th>Answer</th><th>Key</th><th></th></tr>' +
+        a.rows.slice(j, j + 22).map(function (r) { return "<tr><td>" + esc(r.n) + "</td><td>" + esc(SUB[r.subject] || r.subject) + "</td><td>" + bi(r.skill) + "</td><td>" + bi(r.topic) + "</td><td>" + esc(r.answer) + "</td><td><b>" + esc(r.key) + "</b></td><td>" + (r.ok ? "✓" : "✗") + "</td></tr>"; }).join("") + "</table>"));
+    }
     if (a.kind === "ielts-r" && a.passages) out.push(block('<table class="ap-tbl" style="width:100%"><tr><th>Passage</th><th>Correct</th></tr>' + a.passages.map(function (x) { return "<tr><td>" + esc(x.title) + "</td><td>" + x.correct + "</td></tr>"; }).join("") + "</table>"));
     if (a.kind === "ielts-w") {
       Object.keys(a.tasksInfo || {}).forEach(function (iid) {

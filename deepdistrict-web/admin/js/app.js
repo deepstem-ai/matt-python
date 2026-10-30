@@ -39,6 +39,11 @@
     ["requests", "Change requests", "คำขอเปลี่ยนแปลง", "all", "sessions"],
     ["inbox", "Notifications", "การแจ้งเตือน", "all", "bell"],
     ["tests", "Online tests", "ข้อสอบออนไลน์", "all", "tests"],
+    ["bank", "Exam item bank", "คลังข้อสอบ", "staff", "bank"],
+    ["sets", "Question sets", "ชุดข้อสอบ", "staff", "tests"],
+    ["live", "Live class", "ห้องเรียนสด", "staff", "live"],
+    ["marking", "Writing marking", "ตรวจ Writing", "staff", "marking"],
+    ["docs", "PDF documents", "เอกสาร PDF", "staff", "pdf"],
     ["enrolments", "Enrolments", "การลงทะเบียน", "staff", "enrol"],
     ["sessions", "Lessons log", "บันทึกการสอน", "staff"],
     ["people", "People", "ผู้ใช้และนักเรียน", "staff"],
@@ -46,11 +51,6 @@
     ["courses", "Courses", "หลักสูตร", "admin"],
     ["content", "Website content", "เนื้อหาเว็บไซต์", "admin", "reports"],
     ["popups", "Pop-ups", "ป๊อปอัป", "admin", "promo"],
-    ["bank", "Exam item bank", "คลังข้อสอบ", "staff", "bank"],
-    ["marking", "Writing marking", "ตรวจ Writing", "staff", "marking"],
-    ["sets", "Question sets", "ชุดข้อสอบ", "staff", "tests"],
-    ["live", "Live class", "ห้องเรียนสด", "staff", "live"],
-    ["docs", "PDF documents", "เอกสาร PDF", "staff", "pdf"],
     ["blog", "News blog", "บล็อกข่าวสาร", "admin", "news"],
     ["ai", "AI settings", "ตั้งค่า AI", "admin", "ai"],
     ["search", "Search", "ค้นหา", "staff"],
@@ -59,7 +59,7 @@
   ];
 
   /* ------------------------------------------------------------ menu & permissions by role (server: access.py) */
-  var NAV_GROUPS = [["learn", "Learning", "การเรียน"], ["teach", "Teaching", "งานสอน"], ["admin", "Administration", "ผู้ดูแลระบบ"], ["general", "General", "ทั่วไป"]];
+  var NAV_GROUPS = [["learn", "Learning", "การเรียน"], ["tests", "Tests & classes", "ข้อสอบและห้องเรียน"], ["teach", "Teaching", "งานสอน"], ["admin", "Administration", "ผู้ดูแลระบบ"], ["general", "General", "ทั่วไป"]];
   var CEIL = { all: ["admin", "teacher", "student", "parent"], staff: ["admin", "teacher"], admin: ["admin"], learner: ["student", "parent"] };
   function accessPage(p) {
     var m = A.db && A.db.access && A.db.access.pages && A.db.access.pages[p];

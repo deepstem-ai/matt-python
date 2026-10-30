@@ -17,10 +17,10 @@ ALL, STAFF, LEARNER, ADMIN = list(ROLES), ["admin", "teacher"], ["student", "par
 # page → (group, ceiling)
 PAGES = {
     "home": ("learn", LEARNER), "calendar": ("learn", ALL), "requests": ("learn", ALL), "inbox": ("learn", ALL),
-    "tests": ("learn", ALL),
+    "tests": ("tests", ALL), "bank": ("tests", STAFF), "sets": ("tests", STAFF), "live": ("tests", STAFF), "marking": ("tests", STAFF),
+    "docs": ("tests", STAFF),
     "dashboard": ("teach", STAFF), "enrolments": ("teach", STAFF), "sessions": ("teach", STAFF), "people": ("teach", STAFF),
-    "bank": ("teach", STAFF), "sets": ("teach", STAFF), "live": ("teach", STAFF), "marking": ("teach", STAFF),
-    "docs": ("teach", STAFF), "search": ("teach", STAFF),
+    "search": ("teach", STAFF),
     "payments": ("admin", ADMIN), "courses": ("admin", ADMIN), "content": ("admin", ADMIN), "popups": ("admin", ADMIN),
     "blog": ("admin", ADMIN), "ai": ("admin", ADMIN),
     "reports": ("general", ALL), "settings": ("general", ALL),

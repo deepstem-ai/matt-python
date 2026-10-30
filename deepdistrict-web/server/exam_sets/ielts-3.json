@@ -13,16 +13,21 @@
  "items": [
   {
    "kind": "ielts-r",
-   "title": "Saving seeds for the future",
-   "difficulty": 1,
+   "title": "Lessons from Roman concrete",
+   "difficulty": 2,
+   "labelled": true,
+   "topic": {
+    "en": "Materials science and engineering",
+    "th": "วัสดุศาสตร์และวิศวกรรม"
+   },
    "paragraphs": [
-    "Over the past century, farming has changed dramatically. In many parts of the world, farmers who once grew dozens of local varieties of rice, wheat, beans or maize have switched to a small number of modern varieties that produce higher yields. This change has helped to feed a rapidly growing population, but it has had an unexpected cost. As the old varieties stopped being planted, many of them disappeared. Seed banks were created to slow this loss. Their aim is simple: to collect and store seeds from as many types of crop as possible, so that the diversity built up by farmers over thousands of years is not lost for ever.",
-    "Why should anyone care about varieties that farmers no longer want? The answer is that an old local variety may carry characteristics that modern crops lack, such as resistance to a particular disease, or the ability to survive drought or high temperatures. Plant breeders can cross these varieties with modern ones to produce new crops that combine high yields with greater resilience. A variety that seems unimportant today may become extremely valuable if the climate changes or a new pest appears, and once a variety has vanished, it cannot be brought back.",
-    "Building a collection begins in the field. Collectors travel to farms, markets and wild areas, often in remote regions, to find plants that have not yet been stored. For each sample, they record where it was found, the conditions in which it was growing and the name that local farmers use for it. Because plants of the same variety are not identical, collectors take seeds from many different plants rather than from just one, in order to capture as much variation as possible. They must also obtain permission from landowners and governments, and many collections are now made under agreements that share any future benefits with the communities that provided the seeds.",
-    "Once the seeds arrive at the bank, they are cleaned and checked for pests and disease. They are then dried carefully until they contain very little moisture, because water inside a seed allows the chemical processes of ageing to continue. The dried seeds are sealed in airtight foil packets or glass jars and placed in cold rooms, where the temperature is kept at around minus twenty degrees Celsius. Under these conditions, the seeds of many crops can remain alive for decades, and some may survive for much longer.",
-    "Not every plant can be stored in this way. The seeds of many tropical trees, along with some fruit and nut crops, are killed by drying, so they cannot simply be placed in a freezer. Seed banks deal with these species in other ways. Some are kept as living plants in field collections, where they must be watered, protected from pests and eventually replaced. Others are stored as small pieces of plant tissue frozen in liquid nitrogen, at temperatures far below those of an ordinary cold room. Both methods are considerably more expensive than storing dried seed.",
-    "Even well-stored seeds slowly lose their ability to grow, so seed banks must check their collections regularly. In a germination test, a small number of seeds from a sample are planted, and staff count how many of them begin to grow. If the proportion falls too low, the sample must be grown in a field or greenhouse to produce fresh seed, a process known as regeneration. This is slow and costly work, and for crops that are pollinated by insects or wind, great care is needed to prevent different varieties from mixing.",
-    "Seed banks themselves are not completely safe. Collections have been damaged by floods, fires, wars and failures of electricity supply. For this reason, most banks send duplicate samples to other institutions, and a few secure back-up stores have been built inside mountains in cold regions, where the seeds would stay frozen even if the power were cut. Experts emphasise, however, that seed banks are not a substitute for farmers. Crops that continue to be grown in fields keep adapting to changing conditions, while seeds in storage remain exactly as they were on the day they were collected."
+    "Concrete is the most widely used manufactured material on Earth; after water, it is often said to be the substance that people consume in the greatest quantity. Its essential ingredient, cement, is made by heating limestone and clay to around 1,450°C in a kiln, a process that releases carbon dioxide both from the fuel that is burnt and from the limestone itself as it breaks down. Cement manufacture is estimated to account for roughly 8 per cent of global carbon dioxide emissions. Modern reinforced concrete is also surprisingly short-lived: many bridges and buildings from the twentieth century required major repairs within fifty to a hundred years. It is a striking irony, then, that some structures built by the Romans two thousand years ago are still standing, and that a few appear to be stronger now than when they were completed.",
+    "Roman builders did not use Portland cement, which was patented in England only in 1824. Instead, they combined lime, produced by heating limestone at lower temperatures than modern kilns reach, with volcanic ash, the finest of which came from deposits around the Bay of Naples. The ash, rich in silica and alumina, reacted with the lime and water to form a binding paste. Writers of the period describe how this mixture was packed down together with chunks of rock or broken brick, rather than poured as a liquid in the way that modern concrete is. The result was denser than might be expected, and its chemistry differed fundamentally from that of the modern material.",
+    "The most remarkable examples are the harbour walls and piers that Roman engineers built directly in the sea. For modern concrete, seawater is an enemy: salt penetrates the material and corrodes the steel bars inside, and as the steel rusts and swells, the surrounding concrete cracks. Roman marine concrete contains no steel, and analysis of cores drilled from ancient harbours has revealed something more surprising still. As seawater seeped through the structures over centuries, it dissolved part of the volcanic material and allowed rare minerals to crystallise in the gaps, among them a plate-shaped mineral called aluminous tobermorite. These interlocking crystals appear to have reinforced the material from within, so that contact with the sea, rather than weakening it, gradually made it more cohesive.",
+    "A second puzzle concerned the small white lumps of lime scattered through many samples of Roman concrete. Researchers had long dismissed these 'lime clasts' as signs of careless mixing or poor raw materials. More recent studies have proposed another explanation: that the Romans mixed their concrete 'hot', adding quicklime directly instead of first combining it with water. The intense heat of this reaction would have left behind lumps of brittle, calcium-rich material. When a crack later formed and water entered it, the lumps could dissolve and recrystallise as calcium carbonate, sealing the crack. To test the idea, one team made new samples using the hot-mixing method, cracked them deliberately and ran water through them. Within about two weeks the cracks had closed, whereas in otherwise identical samples made without quicklime the water continued to flow.",
+    "It would be wrong, however, to conclude that Roman concrete is simply superior. It is considerably weaker in compression than its modern equivalent and takes far longer to reach its full strength, which would be unacceptable on a modern building site, where the timber or metal moulds must be removed and work on the next floor begun within days. Nor could it be used for the slender beams and tall towers of contemporary architecture, which depend on the steel reinforcement that Roman builders did without. Moreover, suitable volcanic ash occurs only in certain regions, and supplying it in the quantities that today's construction industry consumes would be impractical.",
+    "What engineers hope to borrow, therefore, is not the Roman recipe but some of its principles. One line of research adds volcanic ash or industrial by-products such as fly ash from power stations to modern mixes, reducing the amount of cement required and, with it, carbon emissions. Another seeks to reproduce the self-healing effect by other means. Some experimental concretes contain dormant bacteria, packed with a food source in tiny capsules; when a crack lets in water, the bacteria become active and produce limestone that fills the gap. Others contain capsules of a liquid healing agent that burst open when the concrete around them cracks.",
+    "Whether such materials are adopted widely will depend less on chemistry than on economics and regulation. Self-healing concretes currently cost considerably more than conventional mixes, and building codes, which are based on decades of experience with Portland cement, are slow to accept materials whose long-term behaviour is unknown. Supporters argue that the higher initial price should be weighed against the cost of repairs over a structure's whole life, which can exceed the cost of building it in the first place. If they are right, the most valuable lesson of Roman concrete may be one of perspective: a material should be judged not only by how quickly it can be built with, but by how long it lasts."
    ],
    "groups": [
     {
@@ -30,61 +35,21 @@
      "instructions": "Reading Passage 1 has seven paragraphs, A–G. Which paragraph contains the following information? Write the correct letter, A–G.",
      "questions": [
       {
-       "text": "the temperature at which seeds are usually stored",
+       "text": "the date when the modern type of cement was first given legal protection",
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "a feature of the material that was once taken as evidence of poor workmanship",
        "answer": [
         "D"
        ]
       },
       {
-       "text": "examples of events that could destroy a seed collection",
+       "text": "a reason why the ancient material would delay modern construction projects",
        "answer": [
-        "G"
-       ]
-      },
-      {
-       "text": "details of the information noted down when seeds are collected",
-       "answer": [
-        "C"
-       ]
-      },
-      {
-       "text": "a reason why a variety that seems unimportant may be useful in the future",
-       "answer": [
-        "B"
-       ]
-      }
-     ]
-    },
-    {
-     "type": "sentence-completion",
-     "instructions": "Complete the sentences below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
-     "wordLimit": {
-      "words": 2,
-      "number": false
-     },
-     "questions": [
-      {
-       "text": "Before collecting seeds, collectors must get permission from landowners and ______.",
-       "answer": [
-        "governments"
-       ]
-      },
-      {
-       "text": "Seeds that cannot survive drying may be stored as plant tissue frozen in ______.",
-       "answer": [
-        "liquid nitrogen"
-       ]
-      },
-      {
-       "text": "Growing stored seeds to produce a fresh supply is called ______.",
-       "answer": [
-        "regeneration"
-       ]
-      },
-      {
-       "text": "Some back-up stores have been built inside ______ in cold regions.",
-       "answer": [
-        "mountains"
+        "E"
        ]
       }
      ]
@@ -94,232 +59,62 @@
      "instructions": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.",
      "questions": [
       {
-       "text": "Many farmers now grow fewer crop varieties than farmers did in the past.",
-       "answer": [
-        "TRUE"
-       ]
-      },
-      {
-       "text": "Collectors normally take seeds from a single plant of each variety.",
+       "text": "The carbon dioxide released in making cement comes only from the fuel burnt in the kilns.",
        "answer": [
         "FALSE"
        ]
       },
       {
-       "text": "Under the right conditions, the seeds of many crops can survive in storage for decades.",
-       "answer": [
-        "TRUE"
-       ]
-      },
-      {
-       "text": "Germination tests are carried out once every year.",
+       "text": "Roman writers recorded the exact proportions of lime and ash used in their concrete.",
        "answer": [
         "NOT GIVEN"
        ]
       },
       {
-       "text": "Seeds kept in storage continue to adapt to changes in the climate.",
+       "text": "In Roman harbour structures, new minerals formed as a result of seawater passing through the concrete.",
+       "answer": [
+        "TRUE"
+       ]
+      },
+      {
+       "text": "The hot-mixing experiment was carried out on samples taken from ancient buildings.",
        "answer": [
         "FALSE"
        ]
-      }
-     ]
-    }
-   ]
-  },
-  {
-   "kind": "ielts-r",
-   "title": "How honeybees find their way",
-   "difficulty": 2,
-   "paragraphs": [
-    "A honeybee searching for food may fly several kilometres from its hive, visit hundreds of flowers, and then return directly home, often carrying a load of nectar or pollen almost as heavy as itself. It does all this with a brain smaller than a grain of rice. How such a tiny nervous system achieves such reliable navigation has fascinated biologists for more than a century, and the answers they have found have turned out to be both surprising and useful.",
-    "The most important tool in a bee's navigation is the sun. By keeping the sun at a particular angle as it flies, a bee can hold a steady direction, in much the same way that a sailor might use a compass. The difficulty is that the sun moves across the sky during the day, so an angle that leads to a patch of flowers in the morning would lead somewhere quite different in the afternoon. Bees solve this problem by means of an internal clock, which allows them to adjust for the sun's movement. On cloudy days, when the sun itself is hidden, they can still find their direction by detecting patterns of polarised light in the sky, which are invisible to human eyes but are picked up by a specialised region of the bee's eye.",
-    "Close to the hive, bees also rely heavily on landmarks such as trees, buildings and the edges of fields. Young bees preparing to become foragers make a series of short orientation flights, during which they fly in loops around the entrance while facing the hive, apparently learning what the area looks like. One way in which researchers have demonstrated the importance of these memories is by moving a hive a short distance while its bees are out foraging. Returning bees fly to the place where the hive used to stand and search there in confusion, which shows that they had been relying on a remembered picture of the surroundings rather than on the hive itself.",
-    "Measuring distance proved more puzzling. Early researchers placed feeders containing sugar water at measured distances from the hive and trained bees to visit them, which made it possible to study how bees judged how far they had travelled. It was once assumed that bees measured distance by the time or energy a flight required. Later experiments, however, suggested that they use the amount of visual movement they experience, known as optic flow: the image of the ground and nearby objects passing across their eyes. When bees were trained to fly through a narrow tunnel whose walls were covered with a busy pattern, they behaved as if they had flown much further than they really had.",
-    "A forager that finds a good source of food does not keep the information to itself. Back in the hive, it performs the so-called waggle dance on the vertical surface of the comb, running forward while shaking its body from side to side, then circling back to repeat the movement. The angle of the waggling run in relation to the vertical indicates the direction of the food in relation to the sun, while the length of the run indicates how far away the food is. Much of what is known about the dance comes from glass-walled observation hives, in which dances can be filmed and then analysed frame by frame.",
-    "More recently, researchers have attached tiny radar transponders to individual bees and followed their flights across open countryside. Radar tracking has shown that bees recruited by a dance fly fairly directly towards the advertised food. It has also revealed that experienced bees can take new shortcuts between familiar places, routes they have never flown before. Some scientists interpret this as evidence that bees possess something like a mental map of their surroundings, although others argue that the behaviour can be explained by simpler mechanisms, and the question remains open.",
-    "Older techniques continue to play a part. By marking individual bees with small dots of paint, researchers can recognise the same insects day after day and record how many trips each one makes. Such studies have shown that the working life of a forager usually lasts only a few weeks, and that individual foragers tend to visit flowers of one type at a time, ignoring others nearby, a habit that makes them efficient pollinators.",
-    "The study of bee navigation is not only of academic interest. Engineers designing small flying robots have borrowed the idea of optic flow, because it allows a machine to judge distance and avoid obstacles using a simple camera rather than heavy and expensive sensors. At the same time, the research has raised concern. Laboratory and field studies suggest that some agricultural chemicals may interfere with the ability of bees to navigate, so that foragers fail to return to the hive, a loss that a colony can afford only up to a point."
-   ],
-   "groups": [
-    {
-     "type": "mcq",
-     "instructions": "Choose the correct letter, A, B, C or D.",
-     "questions": [
-      {
-       "text": "On cloudy days, bees are able to find their direction by",
-       "options": [
-        {
-         "key": "A",
-         "text": "following the scent of other bees."
-        },
-        {
-         "key": "B",
-         "text": "flying towards the nearest landmark."
-        },
-        {
-         "key": "C",
-         "text": "detecting patterns of polarised light."
-        },
-        {
-         "key": "D",
-         "text": "remembering the time of their last flight."
-        }
-       ],
-       "answer": [
-        "C"
-       ]
       },
       {
-       "text": "What is the purpose of the orientation flights made by young bees?",
-       "options": [
-        {
-         "key": "A",
-         "text": "to learn the appearance of the area around the hive"
-        },
-        {
-         "key": "B",
-         "text": "to search for new sources of food"
-        },
-        {
-         "key": "C",
-         "text": "to strengthen their wings before foraging"
-        },
-        {
-         "key": "D",
-         "text": "to warn other bees of danger"
-        }
-       ],
+       "text": "Concrete containing capsules of healing agent was developed after concrete containing bacteria.",
        "answer": [
-        "A"
-       ]
-      },
-      {
-       "text": "Bees that flew through a narrow patterned tunnel",
-       "options": [
-        {
-         "key": "A",
-         "text": "refused to enter it a second time."
-        },
-        {
-         "key": "B",
-         "text": "lost their sense of direction."
-        },
-        {
-         "key": "C",
-         "text": "flew more slowly than usual."
-        },
-        {
-         "key": "D",
-         "text": "overestimated the distance they had travelled."
-        }
-       ],
-       "answer": [
-        "D"
-       ]
-      },
-      {
-       "text": "In the waggle dance, the length of the waggling run shows",
-       "options": [
-        {
-         "key": "A",
-         "text": "the amount of food available."
-        },
-        {
-         "key": "B",
-         "text": "how far away the food is."
-        },
-        {
-         "key": "C",
-         "text": "the type of flower that was visited."
-        },
-        {
-         "key": "D",
-         "text": "the direction of the sun."
-        }
-       ],
-       "answer": [
-        "B"
+        "NOT GIVEN"
        ]
       }
      ]
     },
     {
-     "type": "matching-features",
-     "instructions": "Look at the following findings and the list of research methods below. Match each finding with the correct method, A–E.",
-     "options": [
-      {
-       "key": "A",
-       "text": "marking bees with paint"
-      },
-      {
-       "key": "B",
-       "text": "moving the hive"
-      },
-      {
-       "key": "C",
-       "text": "radar tracking"
-      },
-      {
-       "key": "D",
-       "text": "placing feeders at measured distances"
-      },
-      {
-       "key": "E",
-       "text": "filming in observation hives"
-      }
-     ],
-     "questions": [
-      {
-       "text": "Bees sometimes travel along routes they have never used before.",
-       "answer": [
-        "C"
-       ]
-      },
-      {
-       "text": "Dance movements can be examined in great detail.",
-       "answer": [
-        "E"
-       ]
-      },
-      {
-       "text": "Bees remember what the surroundings of the hive look like.",
-       "answer": [
-        "B"
-       ]
-      },
-      {
-       "text": "Foragers tend to concentrate on one type of flower at a time.",
-       "answer": [
-        "A"
-       ]
-      }
-     ]
-    },
-    {
-     "type": "short-answer",
-     "instructions": "Answer the questions below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+     "type": "table-completion",
+     "instructions": "Complete the table below. Choose ONE WORD ONLY from the passage for each answer.",
      "wordLimit": {
-      "words": 2,
+      "words": 1,
       "number": false
      },
+     "context": "Roman and modern concrete compared\nFeature | Roman concrete | Modern concrete\nBinder | lime combined with volcanic (9) ______ | Portland cement\nHow it is placed | packed down with chunks of rock or brick | poured as a liquid\nEffect of seawater | crystals strengthen it from within | salt attacks the steel (10) ______ inside\nMain drawbacks | slow to reach full strength; weaker in (11) ______ | short-lived; high carbon emissions",
      "questions": [
       {
-       "text": "What allows bees to adjust for the movement of the sun during the day?",
+       "text": "(9) ______",
        "answer": [
-        "internal clock"
+        "ash"
        ]
       },
       {
-       "text": "What name is given to the image of the ground passing across a bee's eyes?",
+       "text": "(10) ______",
        "answer": [
-        "optic flow"
+        "bars"
        ]
       },
       {
-       "text": "What kind of machines have engineers designed using ideas from bee navigation?",
+       "text": "(11) ______",
        "answer": [
-        "flying robots"
+        "compression"
        ]
       }
      ]
@@ -329,32 +124,32 @@
      "instructions": "Choose TWO letters, A–E.",
      "questions": [
       {
-       "text": "Which TWO statements about forager bees are made in the passage?",
+       "text": "Which TWO ways of improving modern concrete are being investigated, according to the passage?",
        "options": [
         {
          "key": "A",
-         "text": "They may fly several kilometres from the hive."
+         "text": "replacing part of the cement with volcanic ash or industrial waste"
         },
         {
          "key": "B",
-         "text": "They usually live for several years."
+         "text": "removing steel reinforcement from tall buildings"
         },
         {
          "key": "C",
-         "text": "Their working life normally lasts a few weeks."
+         "text": "heating limestone to higher temperatures in the kiln"
         },
         {
          "key": "D",
-         "text": "They always search for food in large groups."
+         "text": "importing volcanic ash from the Bay of Naples"
         },
         {
          "key": "E",
-         "text": "They are larger than other bees in the colony."
+         "text": "adding inactive bacteria that produce limestone when water gets in"
         }
        ],
        "answer": [
         "A",
-        "C"
+        "E"
        ]
       }
      ]
@@ -363,188 +158,410 @@
   },
   {
    "kind": "ielts-r",
-   "title": "Rethinking the working week",
+   "title": "Reading the bones: isotopes and ancient diets",
    "difficulty": 3,
+   "labelled": true,
+   "topic": {
+    "en": "Archaeology (archaeological science)",
+    "th": "โบราณคดี (วิทยาศาสตร์ทางโบราณคดี)"
+   },
    "paragraphs": [
-    "The five-day working week feels so familiar that it is easy to forget it is a relatively recent invention. It was not handed down by nature or by any law of economics; it emerged from particular struggles and agreements in particular industries, and it spread because it suited the economies of its time. In recent years, proposals for a four-day week have attracted a great deal of attention, supported by a series of well-publicised trials in which companies reduced working hours without reducing pay. Advocates claim that a shorter week would make workers healthier and more productive, spread available work more widely and benefit the environment. Critics reply that it would raise costs, weaken competitiveness and prove unworkable in many occupations. My own view is that public enthusiasm has so far run ahead of the evidence, but that the idea is serious and deserves to be examined carefully rather than dismissed.",
-    "It is worth recalling the longer history. For much of the twentieth century, average working hours in industrialised countries fell steadily, as rising productivity allowed workers to produce the same output in less time and labour organisations pressed for shorter shifts. Many economists of the period expected this trend to continue, imagining that their grandchildren would work only a few hours a day. Instead, in many countries the decline slowed considerably and, for some groups of workers, stopped altogether. One explanation is that the gains from greater productivity have since been taken mainly in the form of higher incomes and more consumption rather than more free time. Supporters of a shorter week argue that the balance should now be corrected.",
-    "The most widely reported evidence comes from trials in which organisations moved to a four-day week for several months. Participating companies commonly reported that staff felt less tired, took fewer sick days and were less likely to leave, while output was maintained. These findings are encouraging, but they need to be interpreted with care. The firms that volunteer for such trials are, almost by definition, those whose managers are most confident that a shorter week will work for them; they are unlikely to be typical of businesses in general. Most trials have also been short, and there is a real possibility of a novelty effect, in which employees work especially hard because they are grateful for the change and anxious not to lose it. Whether the same results would be achieved after five or ten years is simply not known.",
-    "There is also the question of which kinds of work can be reorganised in this way. In offices where output is difficult to measure and much time is lost in unnecessary meetings, it may well be possible to do the same work in fewer hours. In hospitals, schools, shops and public transport, by contrast, a service must be provided continuously, and a shorter week for each employee means that more staff must be employed to cover the same hours, which raises costs considerably. It is also important to distinguish genuinely reduced hours from so-called compressed hours, in which the same total is squeezed into four longer days. The latter may suit some people, but long days bring their own problems of fatigue and safety. Manufacturing raises different issues again: where machines run around the clock, the question is how shifts are arranged rather than how many hours each individual works.",
-    "Advocates point to possible benefits beyond the workplace. Fewer journeys to work would mean less traffic and lower emissions, and a free weekday would give people more time for caring for children or elderly relatives, for volunteering and for exercise. These are attractive possibilities, but they are not guaranteed. Some evidence suggests that a proportion of people would use the extra day to take on additional paid work, or would spend it travelling and shopping in ways that increase rather than reduce their environmental impact. The wider effects of a shorter week will depend heavily on how people choose to use their time, and that is difficult to predict.",
-    "What, then, should be done? It would be a mistake, in my view, for governments to require all employers to adopt a four-day week, since the evidence does not yet justify a single rule for an economy as varied as ours. A more sensible approach would be gradual experimentation, sector by sector, combined with careful measurement over periods of several years. Governments could play a useful part by funding independent evaluations, so that the results do not depend on the reports of enthusiastic participants. Such trials should include organisations that are sceptical as well as those that are keen, and they should report failures as openly as successes, since an idea that works only for the most willing tells us little about how it would work for everyone else. The real question is not whether working time will change again, since it always has, but how the change can be managed so that its benefits are shared fairly."
+    "Archaeologists have long tried to reconstruct what people in the past ate, but the traditional evidence is frustratingly partial. Animal bones discarded in rubbish pits show which creatures were butchered, not who ate them; charred seeds survive only if they happened to fall into a fire; and cooking pots preserve traces of little more than the last meals prepared in them. Over the past four decades, a different kind of evidence has transformed the field. Instead of examining the remains of food, researchers now analyse the remains of the eaters themselves, reading in the chemistry of human bone a record of what an individual consumed over many years.",
+    "The method rests on the fact that most chemical elements exist in several forms, or isotopes, which differ slightly in mass. Carbon, for example, occurs mainly as carbon-12, with about one per cent as the heavier carbon-13. Plants take up these forms in different proportions as they photosynthesise. Most plants of cooler regions, including wheat, rice and barley, discriminate strongly against the heavier isotope, whereas a group of mainly tropical grasses, among them maize, millet and sugar cane, use a different photosynthetic pathway and retain more of it. Because the saying 'you are what you eat' holds at the molecular level, these differences pass into the tissues of the animals and people who consume the plants, where they can still be detected thousands of years later.",
+    "Nitrogen adds a second dimension. Each time nitrogen moves one step up a food chain, from plant to herbivore or from herbivore to carnivore, the proportion of heavy nitrogen-15 increases by a small but fairly predictable amount. A person whose nitrogen values are well above those of the local cattle and sheep therefore probably obtained much of their protein from animals, and especially high values may point to fish from the sea or from lakes, whose food chains are long. Taken together, carbon and nitrogen allow researchers to place individuals on a simple map of diet, distinguishing, say, a farmer who lived largely on cereals from a neighbour who ate a great deal of meat or fish.",
+    "Obtaining these numbers is a painstaking process. A small piece of bone, usually from a rib, is first cleaned mechanically to remove soil and any contaminated outer surface. It is then soaked in dilute acid for several days until the mineral component dissolves, leaving behind collagen, the protein that gives bone its flexibility. The collagen is gently heated in weakly acidic water so that it dissolves, filtered to remove remaining impurities and freeze-dried into a fluffy white solid. Less than a milligram of this is then burnt in an instrument called a mass spectrometer, which separates the isotopes by weight and measures their ratio. Before any result is accepted, the laboratory checks the ratio of carbon to nitrogen in the sample, since values outside a narrow range suggest that the collagen has degraded or been contaminated.",
+    "Which part of the skeleton is sampled matters a great deal. Bone is living tissue that is constantly broken down and rebuilt, so the collagen in an adult's rib reflects an average of the diet over perhaps the last ten years of life. Teeth behave differently. The dentine inside a tooth forms in layers during childhood and is not afterwards replaced, so thin slices cut along a tooth can reveal how a child's diet changed from year to year, for example the gradual fall in nitrogen values as an infant stopped being breastfed. Comparing the two tissues from the same skeleton can show whether a person ate differently as a child and as an adult, a contrast that has sometimes been read as evidence of migration or of a change in social position.",
+    "The technique is not without pitfalls. Collagen survives poorly in hot, wet environments, so the method has worked far better in northern Europe than in much of tropical Asia or Africa, and comparisons between regions are correspondingly lopsided. More fundamentally, isotope values do not identify particular foods. The same reading might result from a diet of millet with a little meat or from rice with plenty of freshwater fish, and other evidence is needed to decide between them. Nor can values be interpreted in isolation, because the isotopic make-up of plants varies with rainfall, soil and even the density of the forest canopy. For this reason, each study must measure the bones of local animals to establish a baseline against which humans can be compared.",
+    "Specialists continue to disagree, sometimes sharply, about what the results mean. Dr Ana Ribeiro, who has studied cemeteries in coastal Iberia, argues that differences between men and women in the same community are more common than once supposed, and that they usually reflect unequal access to meat rather than different tastes. Professor Kenji Watanabe has cautioned that many studies rely on too few animal bones, so that apparent contrasts between sites may simply be artefacts of the local environment. Dr Helen Okafor contends that some early farming communities continued to depend heavily on wild foods for centuries, which sits uneasily with the idea of a sudden agricultural revolution. Dr Tomas Lind sees the greatest promise in tooth sections, which he believes offer a rare window on children, who are often invisible in the archaeological record. Dr Priya Nair, finally, insists that isotope results should never stand alone but be read alongside plant remains and residues from pots."
    ],
    "groups": [
     {
      "type": "headings",
-     "instructions": "Reading Passage 3 has six paragraphs, A–F. Choose the correct heading for paragraphs B–F from the list of headings below.",
+     "instructions": "Reading Passage 2 has seven paragraphs, A–G. Choose the correct heading for paragraphs B–G from the list of headings below.",
      "options": [
       {
        "key": "i",
-       "text": "Not every job can be reorganised in the same way"
+       "text": "Reasons for caution when reading the results"
       },
       {
        "key": "ii",
-       "text": "A long-term trend that has slowed"
+       "text": "Using teeth to trace long-distance migration"
       },
       {
        "key": "iii",
-       "text": "The opposition of employers' organisations"
+       "text": "From fragment of skeleton to final figure"
       },
       {
        "key": "iv",
-       "text": "Why early results may be misleading"
+       "text": "Competing interpretations among experts"
       },
       {
        "key": "v",
-       "text": "How technology will replace human workers"
+       "text": "How a chemical difference between plants is passed on to those who eat them"
       },
       {
        "key": "vi",
-       "text": "Possible gains beyond the workplace"
+       "text": "The scarcity of usable material from tropical sites"
       },
       {
        "key": "vii",
-       "text": "A comparison of public holidays in different countries"
+       "text": "Different tissues record different stages of a life"
       },
       {
        "key": "viii",
-       "text": "A call for patient and careful testing"
+       "text": "Estimating how high up the food chain a person fed"
+      },
+      {
+       "key": "ix",
+       "text": "Why animal bones are more informative than human remains"
       }
      ],
      "questions": [
       {
        "text": "Paragraph B",
        "answer": [
-        "ii"
+        "v"
        ]
       },
       {
        "text": "Paragraph C",
        "answer": [
-        "iv"
+        "viii"
        ]
       },
       {
        "text": "Paragraph D",
        "answer": [
-        "i"
+        "iii"
        ]
       },
       {
        "text": "Paragraph E",
        "answer": [
-        "vi"
+        "vii"
        ]
       },
       {
        "text": "Paragraph F",
        "answer": [
-        "viii"
+        "i"
+       ]
+      },
+      {
+       "text": "Paragraph G",
+       "answer": [
+        "iv"
        ]
       }
      ]
     },
     {
-     "type": "ynng",
-     "instructions": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.",
+     "type": "flowchart-completion",
+     "instructions": "Complete the flow-chart below. Choose ONE WORD ONLY from the passage for each answer.",
+     "wordLimit": {
+      "words": 1,
+      "number": false
+     },
+     "context": "Preparing a bone sample for isotope analysis\nA piece of rib is cleaned to remove soil and the contaminated outer surface.\n↓\nThe bone is left in dilute (20) ______ for several days until only collagen remains.\n↓\nThe collagen is dissolved in warm, weakly acidic water and filtered.\n↓\nThe solution is (21) ______ to produce a white solid.\n↓\nA tiny amount is burnt in a mass spectrometer, which measures the isotope ratio.\n↓\nThe carbon-to-nitrogen ratio is checked: an unusual value shows that the collagen has (22) ______ or is contaminated.",
      "questions": [
       {
-       "text": "The five-day week reflects the natural limits of human working capacity.",
+       "text": "(20) ______",
        "answer": [
-        "NO"
+        "acid"
        ]
       },
       {
-       "text": "Companies that take part in four-day-week trials may not be representative of businesses in general.",
+       "text": "(21) ______",
        "answer": [
-        "YES"
+        "freeze-dried"
        ]
       },
       {
-       "text": "Most employees in the trials would prefer a shorter week to a pay rise.",
+       "text": "(22) ______",
        "answer": [
-        "NOT GIVEN"
-       ]
-      },
-      {
-       "text": "Governments should make a four-day week compulsory for all employers.",
-       "answer": [
-        "NO"
+        "degraded"
        ]
       }
      ]
     },
     {
-     "type": "summary-box",
-     "instructions": "Complete the summary using the list of words, A–I, below.",
-     "context": "Evidence and doubts\nTrials of a four-day week have found that employees felt less (36) ______ and took fewer sick days, while (37) ______ did not fall. However, the trials have mostly been (38) ______, and a (39) ______ effect may have made staff work harder than usual. In services such as hospitals and public transport, shorter weeks would require more staff, which would increase (40) ______.",
+     "type": "matching-features",
+     "instructions": "Look at the following statements and the list of researchers below. Match each statement with the correct researcher, A–E.",
      "options": [
       {
        "key": "A",
-       "text": "profits"
+       "text": "Ana Ribeiro"
       },
       {
        "key": "B",
-       "text": "novelty"
+       "text": "Kenji Watanabe"
       },
       {
        "key": "C",
-       "text": "tired"
+       "text": "Helen Okafor"
       },
       {
        "key": "D",
-       "text": "productivity"
+       "text": "Tomas Lind"
       },
       {
        "key": "E",
-       "text": "short"
-      },
-      {
-       "key": "F",
-       "text": "costs"
-      },
-      {
-       "key": "G",
-       "text": "lengthy"
-      },
-      {
-       "key": "H",
-       "text": "output"
-      },
-      {
-       "key": "I",
-       "text": "stressful"
+       "text": "Priya Nair"
       }
      ],
      "questions": [
       {
-       "text": "(36) ______",
-       "answer": [
-        "C"
-       ]
-      },
-      {
-       "text": "(37) ______",
-       "answer": [
-        "H"
-       ]
-      },
-      {
-       "text": "(38) ______",
-       "answer": [
-        "E"
-       ]
-      },
-      {
-       "text": "(39) ______",
+       "text": "Variation between locations may have more to do with natural conditions than with what people ate.",
        "answer": [
         "B"
        ]
       },
       {
-       "text": "(40) ______",
+       "text": "A major change in the way people obtained food took place more gradually than is often assumed.",
        "answer": [
-        "F"
+        "C"
+       ]
+      },
+      {
+       "text": "Conclusions about diet should be based on several different kinds of evidence.",
+       "answer": [
+        "E"
+       ]
+      },
+      {
+       "text": "Dietary differences within a group can arise from social inequality rather than personal preference.",
+       "answer": [
+        "A"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-r",
+   "title": "What should restorers restore?",
+   "difficulty": 3,
+   "labelled": true,
+   "topic": {
+    "en": "Art history and cultural heritage (conservation ethics)",
+    "th": "ประวัติศาสตร์ศิลปะและมรดกวัฒนธรรม (จริยธรรมการอนุรักษ์)"
+   },
+   "paragraphs": [
+    "In the popular imagination, the restorer of paintings is a kind of rescuer, removing centuries of grime to reveal a work as its maker intended it to be seen. Exhibitions of newly cleaned masterpieces attract large crowds, and the before-and-after photographs that accompany them suggest a simple story of loss followed by recovery. Restorers themselves are seldom so confident, but the language of museums and the press frequently is. I want to suggest that this story, however appealing, misrepresents both what restoration can achieve and what it ought to attempt. The question is not whether old works of art should be cared for, since plainly they should, but whether 'returning a work to its original state' is a coherent goal at all.",
+    "Consider first the practical difficulty. Paintings begin to change chemically from the moment they are finished. Some pigments fade in the light while others darken; varnishes turn yellow; canvas and wooden panels expand and contract with changes in humidity, producing networks of fine cracks. Removing a discoloured varnish can certainly bring back brighter colours, but it cannot restore pigments that have themselves altered, and the colours that emerge may therefore be out of balance with one another in a way that the artist never saw. A cleaned painting is not the original painting rediscovered; it is a new state of the object, produced by a modern intervention.",
+    "Advocates of thorough cleaning sometimes reply that, whatever its imperfections, a cleaned work is at least closer to the original than a dirty one. This assumes that we know what the original looked like, and often we do not. Documents describing an artist's intentions are rare, and those that survive are open to interpretation. Some painters are known to have applied thin, tinted glazes over the finished surface to soften or unify it, and there is evidence that some of these layers were taken off in past cleanings along with the varnish, because restorers could not distinguish them from later dirt. The confidence with which earlier generations removed such layers should give their successors pause.",
+    "There is also the matter of what a work has become over time. An altarpiece that was cut into pieces and sold to different collectors, or a marble statue that lost its painted colours centuries ago, has acquired a history that is now part of what it is. The same is true of buildings: a cathedral altered over five centuries has no single original state to which it could be returned. To 'restore' such an object to an imagined first state is to erase the evidence of that history in favour of a reconstruction that may be largely guesswork. I am not arguing that every effect of time should be preserved untouched; a layer of soot from the candles of a church has little claim to our respect. But the decision about which changes count as damage and which as history is a judgement, not a technical finding, and it should be made openly.",
+    "For these reasons, I believe that the guiding principles adopted by most professional conservators over the past half-century are broadly correct. They emerged partly in reaction to the practices of the nineteenth century, when restorers routinely repainted damaged areas in their own style, supplied missing limbs to ancient statues and occasionally 'improved' compositions that they found awkward. Interventions should be the minimum necessary to stabilise a work; any additions should be distinguishable from the original material on close inspection; and, as far as possible, treatments should be reversible, so that a future generation with better knowledge can undo them. These principles reflect a proper humility about the limits of present understanding.",
+    "Yet the principles are not as straightforward as they sound. Few treatments are fully reversible in practice: a solvent that removes varnish cannot put it back, and even modern synthetic materials, chosen precisely because they can be dissolved later, may leave traces in the paint. 'Minimum intervention' is also open to dispute, since leaving a damaged area untreated may allow decay to spread. The principles are better understood as aspirations that guide judgement than as rules that settle it, and it is a mistake to present them to the public as guarantees.",
+    "Some critics of restoration go further, arguing that works should be left entirely alone except to halt active deterioration. I do not share this view. A painting so obscured by darkened varnish that its subject can barely be made out is not being respected by our inaction; it is simply being lost in a different way. It is worth remembering, too, that such varnish was often applied long after the artist's death and has no special claim to authenticity of its own. Museums exist partly so that people can see works of art, and there are cases in which careful cleaning genuinely serves that purpose. My objection is not to cleaning as such but to cleaning undertaken in the belief that it recovers a single, authentic original.",
+    "What, then, should change? Above all, I would like museums to explain their decisions more candidly. Labels and exhibitions could describe not only what was done to a work but also what remained uncertain, which alternatives were considered and what was deliberately left untouched. A few institutions have begun to do this, displaying images made with X-rays or ultraviolet light beside the works themselves. Visitors are perfectly capable of understanding that a painting is a physical object with a history, and many may find that history at least as interesting as the myth of a perfect original. Restoration presented in this way would become not a promise of recovery but an invitation to look more closely."
+   ],
+   "groups": [
+    {
+     "type": "ynng",
+     "instructions": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.",
+     "questions": [
+      {
+       "text": "The way cleaned paintings are presented to the public gives a misleading idea of what restoration does.",
+       "answer": [
+        "YES"
+       ]
+      },
+      {
+       "text": "Exhibitions of recently cleaned paintings attract more visitors than other art exhibitions.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      },
+      {
+       "text": "Removing old varnish can return all of a painting's colours to their original appearance.",
+       "answer": [
+        "NO"
+       ]
+      },
+      {
+       "text": "Today's restorers receive better training than restorers of earlier generations.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      },
+      {
+       "text": "Soot left by church candles should be kept because it forms part of a work's history.",
+       "answer": [
+        "NO"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "mcq",
+     "instructions": "Choose the correct letter, A, B, C or D.",
+     "questions": [
+      {
+       "text": "What point does the writer make about a cleaned painting in paragraph B?",
+       "options": [
+        {
+         "key": "A",
+         "text": "It is closer to the artist's intentions than an uncleaned one."
+        },
+        {
+         "key": "B",
+         "text": "It is likely to develop cracks more quickly."
+        },
+        {
+         "key": "C",
+         "text": "It reveals pigments that were painted over by later artists."
+        },
+        {
+         "key": "D",
+         "text": "It shows the painting in a condition it has never had before."
+        }
+       ],
+       "answer": [
+        "D"
+       ]
+      },
+      {
+       "text": "The writer refers to tinted glazes in paragraph C as an example of",
+       "options": [
+        {
+         "key": "A",
+         "text": "a technique that modern conservators have rediscovered."
+        },
+        {
+         "key": "B",
+         "text": "original material that may have been removed by mistake."
+        },
+        {
+         "key": "C",
+         "text": "a type of damage caused by light and humidity."
+        },
+        {
+         "key": "D",
+         "text": "evidence that artists' intentions are well documented."
+        }
+       ],
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "In paragraph F, the writer suggests that the principles of conservation",
+       "options": [
+        {
+         "key": "A",
+         "text": "are useful ideals that cannot simply be applied mechanically."
+        },
+        {
+         "key": "B",
+         "text": "should be replaced with stricter and more precise rules."
+        },
+        {
+         "key": "C",
+         "text": "cannot be applied to modern synthetic materials."
+        },
+        {
+         "key": "D",
+         "text": "are already well understood by the general public."
+        }
+       ],
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "Why does the writer disagree with critics who believe works of art should be left alone?",
+       "options": [
+        {
+         "key": "A",
+         "text": "Any deterioration can be reversed at a later date."
+        },
+        {
+         "key": "B",
+         "text": "Museums depend on cleaned paintings to attract funding."
+        },
+        {
+         "key": "C",
+         "text": "Doing nothing can also result in a work being lost to viewers."
+        },
+        {
+         "key": "D",
+         "text": "Most damage to paintings was caused by earlier restorers."
+        }
+       ],
+       "answer": [
+        "C"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "sentence-endings",
+     "instructions": "Complete each sentence with the correct ending, A–H, below.",
+     "options": [
+      {
+       "key": "A",
+       "text": "may still leave residues in the paint."
+      },
+      {
+       "key": "B",
+       "text": "should be returned to the appearance it had when first completed."
+      },
+      {
+       "key": "C",
+       "text": "could help visitors to value a work's history as well as its appearance."
+      },
+      {
+       "key": "D",
+       "text": "can be removed later without leaving any trace."
+      },
+      {
+       "key": "E",
+       "text": "has a history that has become part of its identity."
+      },
+      {
+       "key": "F",
+       "text": "would discourage people from visiting museums."
+      },
+      {
+       "key": "G",
+       "text": "may allow the deterioration to spread."
+      },
+      {
+       "key": "H",
+       "text": "should be possible to tell apart from the original when examined closely."
+      }
+     ],
+     "questions": [
+      {
+       "text": "An altarpiece that has been divided among several owners",
+       "answer": [
+        "E"
+       ]
+      },
+      {
+       "text": "Anything a conservator adds to a work",
+       "answer": [
+        "H"
+       ]
+      },
+      {
+       "text": "Synthetic materials selected because they can be dissolved",
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "Leaving a damaged area without treatment",
+       "answer": [
+        "G"
+       ]
+      },
+      {
+       "text": "More open explanations of restoration decisions",
+       "answer": [
+        "C"
        ]
       }
      ]
@@ -554,50 +571,52 @@
   {
    "kind": "ielts-w",
    "task": 1,
-   "visual": "process",
-   "prompt": "The table below shows the stages in recycling used glass bottles at one processing plant, and the average time each stage takes.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.",
+   "visual": "table",
+   "prompt": "The table below gives information about the use of public libraries in one country in 2005, 2015 and 2025.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.",
    "table": {
-    "title": "Recycling glass bottles: stages and average time",
+    "title": "Public libraries in one country, 2005–2025",
     "rows": [
      [
-      "Stage",
-      "What happens",
-      "Average time"
+      "",
+      "2005",
+      "2015",
+      "2025"
      ],
      [
-      "1. Collection",
-      "Bottles collected from homes and public bins",
-      "2 days"
+      "Number of libraries",
+      "4,620",
+      "4,130",
+      "3,580"
      ],
      [
-      "2. Sorting",
-      "Separated by colour; labels and caps removed",
-      "6 hours"
+      "Visits (millions)",
+      "312",
+      "268",
+      "241"
      ],
      [
-      "3. Crushing",
-      "Broken into small pieces",
-      "1 hour"
+      "Printed books borrowed (millions)",
+      "405",
+      "290",
+      "176"
      ],
      [
-      "4. Cleaning",
-      "Washed; paper and metal removed",
-      "2 hours"
+      "E-books and audiobooks borrowed (millions)",
+      "0.4",
+      "38",
+      "121"
      ],
      [
-      "5. Melting",
-      "Heated with sand in a furnace at 1,500°C",
-      "12 hours"
+      "Average opening hours per week",
+      "46",
+      "41",
+      "43"
      ],
      [
-      "6. Moulding",
-      "Shaped into new bottles and cooled",
-      "30 minutes"
-     ],
-     [
-      "7. Delivery",
-      "Sent to drinks companies for refilling",
-      "3 days"
+      "Events held (thousands)",
+      "58",
+      "84",
+      "131"
      ]
     ]
    }
@@ -605,8 +624,8 @@
   {
    "kind": "ielts-w",
    "task": 2,
-   "essayType": "two-part",
-   "prompt": "In many countries, people now spend less time cooking at home and more often buy ready-made meals or eat in restaurants.\n\nWhy is this happening? Is it a positive or a negative development?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words."
+   "essayType": "discussion",
+   "prompt": "Some people argue that governments should fund scientific research only when it is likely to produce practical benefits, such as new medicines or technologies. Others believe that research driven purely by curiosity deserves equal public support, even if it has no obvious use.\n\nDiscuss both these views and give your own opinion.\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words."
   }
  ]
 }

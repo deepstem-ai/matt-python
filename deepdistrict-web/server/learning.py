@@ -548,16 +548,22 @@ def routes(con, me, path, method, body, environ):
             p = exports.create_report(con, me, a, names)
             H["audit"](con, me, f"Created score report {p['code']} for test {a['id']}")
             return "200 OK", p
+        if path == "doc/set-paper" and method == "POST":
+            if role == "parent":
+                return "403 Forbidden", {"error": "papers are downloaded from the student's own account"}
+            p = exports.create_paper(con, me, {"setId": body.get("setId")}, learner=not staff)
+            H["audit"](con, me, f"Created paper {p['code']} from set {body.get('setId')}")
+            return "200 OK", p
         if path == "doc/get" and method == "GET":
             d = exports.get(con, one("code"))
-            if not d or (d["kind"] == "paper" and not staff) or (d["kind"] == "report" and not (staff or d["created_by"] == me["id"])):
+            if not d or not (staff or d["created_by"] == me["id"]):
                 return "404 Not Found", {"error": "document not found"}
             if d["revoked"]:
                 return "410 Gone", {"error": "this document was revoked"}
             return "200 OK", exports.payload(con, d["code"], me)
         if path == "doc/log" and method == "POST":
             d = exports.get(con, body.get("code"))
-            if not d or (d["kind"] == "paper" and not staff) or (d["kind"] == "report" and not (staff or d["created_by"] == me["id"])):
+            if not d or not (staff or d["created_by"] == me["id"]):
                 return "404 Not Found", {"error": "document not found"}
             exports.log(con, d["code"], me, "print" if body.get("action") == "print" else "download")
             return "200 OK", {"ok": True}

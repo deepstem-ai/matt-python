@@ -25,12 +25,20 @@ python3 tools/check_sets.py
  "items": [ … ]}
 ```
 
+Every set is **full length** — the real number and kinds of questions of each test, as far as they are
+published (M.1 schools do not publish their papers; their formats below follow public tutor summaries and
+must be checked against each year's announcement).
+
 | exam  | items | time | mix |
 |-------|-------|------|-----|
-| sat   | 27 × `sat` (one Reading and Writing module) | 32 min | cs 7 · ii 7 · sec 7 · eoi 6 |
+| sat   | 54 × `sat`: items 1–27 = Module 1, 28–54 = Module 2 (harder) | 2 × 32 min | each module cs 7 · ii 7 · sec 7 · eoi 6 |
 | ielts | 3 × `ielts-r` (40 marks, 2,150–2,750 words) + `ielts-w` Task 1 and Task 2 | 60 + 60 min | — |
-| gate  | 40 × `m1` with `"program": "gate"` | 90 min | math 15 · sci 15 · eng 5 · thai 5 |
-| ep    | 40 × `m1` with `"program": "ep"` | 90 min | eng 20 · math 10 · sci 10 |
+| gate  | 120 × `m1` `"program": "gate"` | 180 min | math 40 (10 written) · sci 40 (5 written) · eng 20 · thai 20 |
+| ep    | 130 × `m1` `"program": "ep"` (all in English) | 180 min | eng 50 · math 40 (10 written) · sci 40 (5 written) |
+| satit | 185 × `m1` `"program": "satit"` | 240 min | math 25 (20 Thai + 5 English) · sci 50 (40 Thai + 10 English) · thai 60 · eng 50 |
+
+Every item says **what it measures** and **what it is about** — `skill` and `topic` for M.1 items,
+`topic` for SAT items and IELTS passages — so results show strengths and weaknesses by skill and topic.
 
 ### `sat` item
 
@@ -57,10 +65,14 @@ Same shape as `exam_samples.WRITING`. Task 1 needs a `table`, the official instr
 ### `m1` item
 
 ```json
-{"kind": "m1", "program": "gate", "subject": "math", "difficulty": "m",
- "passage": "", "table": null,
+{"kind": "m1", "program": "gate", "subject": "math", "format": "mcq", "difficulty": "h",
+ "skill": {"en": "Multi-step problem solving with ratios", "th": "การแก้โจทย์ปัญหาอัตราส่วนหลายขั้นตอน"},
+ "topic": {"en": "Ratio and proportion", "th": "อัตราส่วนและสัดส่วน"},
+ "passage": "", "table": null, "lang": "th",
  "stem": "…", "choices": ["…", "…", "…", "…"], "answer": 2,
  "explanation": {"en": "…", "th": "…"}}
+
+{"kind": "m1", "program": "gate", "subject": "math", "format": "fill", "accept": ["84"], "unit": "ตร.ซม.", …}
 ```
 
 `passage` is optional (a reading text or a situation shared by the question). GATE questions are in

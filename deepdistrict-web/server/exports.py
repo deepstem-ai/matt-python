@@ -46,9 +46,9 @@ def log(con, code, me, action):
 def _strip(it, key):
     """Item content for the paper; keys/explanations only in the teacher copy."""
     if it["kind"] in exams.CHOICE_KINDS:
-        out = {k: it.get(k) for k in ("id", "kind", "version", "passage", "table", "image", "stem", "choices", "domain", "skill", "difficulty", "subject", "program")}
+        out = {k: it.get(k) for k in ("id", "kind", "version", "passage", "table", "image", "stem", "choices", "domain", "skill", "difficulty", "subject", "program", "format", "unit", "topic")}
         if key:
-            out.update({"answer": it["answer"], "explanation": it.get("explanation")})
+            out.update({"answer": it["answer"], "accept": it.get("accept"), "explanation": it.get("explanation")})
         return out
     if it["kind"] == "ielts-r":
         groups = [{"type": g["type"], "instructions": g["instructions"], "options": g["options"], "wordLimit": g.get("wordLimit"), "image": g.get("image", ""),
@@ -64,12 +64,14 @@ def _version(con, iid, ver):
     return json.loads(r["data"]) if r else exams.get_item(con, iid)
 
 
-def create_paper(con, me, body):
+def create_paper(con, me, body, learner=False):
     qset = None
     if body.get("setId"):
         import qsets
         qset = qsets.get(con, body["setId"])
-        if not qset or (qset["owner"] != me["id"] and me["role"] != "admin" and qset.get("source") != "ready-made"):
+        if learner and qset and qset.get("published"):
+            body = {"setId": qset["id"], "notes": True}            # learners: student copy with a notes column, never the key
+        elif not qset or (qset["owner"] != me["id"] and me["role"] != "admin" and qset.get("source") != "ready-made"):
             raise ValueError("question set not found")
         body = dict(body, kind=qset["kind"])
     kind = body.get("kind")
@@ -148,16 +150,52 @@ def report_view(a):
     out = {"id": a["id"], "kind": a["kind"], "mode": a["mode"], "status": a["status"], "startedAt": bkk(a["createdAt"]),
            "finishedAt": bkk(a["finishedAt"]) if a.get("finishedAt") else None}
     if a["kind"] == "m1":
-        out.update({k: r.get(k) for k in ("correct", "total", "percent", "bySubject")})
+        out.update({k: r.get(k) for k in ("correct", "total", "percent", "bySubject", "byTopic", "targets", "program")})
     elif a["kind"] == "sat":
-        out.update({k: r.get(k) for k in ("estimate", "ceiling", "correct", "total", "route", "modules", "byDomain")})
+        out.update({k: r.get(k) for k in ("estimate", "ceiling", "correct", "total", "route", "modules", "byDomain", "bySkill", "percentile")})
     elif a["kind"] == "ielts-r":
         out.update({k: r.get(k) for k in ("band", "correct", "total", "scaled", "passages")})
+    if a["kind"] != "ielts-w" and a["status"] != "active":
+        out["rows"] = question_rows(a)
     else:
         t = r.get("teacher") or {}
         out.update({"words": r.get("words"), "band": t.get("band"), "tasks": t.get("tasks"), "criteria": t.get("criteria"), "comment": t.get("comment"),
                     "markedBy": t.get("byName"), "tasksInfo": {iid: a["snap"][iid]["task"] for iid in a["sections"][0]["items"]}})
     return out
+
+
+LET = "ABCD"
+
+
+def question_rows(a):
+    """One row per question for the score report: what it measures, its topic, the learner's answer and the key."""
+    rows, n = [], 0
+    for sec in a["sections"]:
+        for iid in sec["items"]:
+            it = a["snap"][iid]
+            if it["kind"] in exams.CHOICE_KINDS:
+                n += 1
+                v = sec["answers"].get(iid, "")
+                fill = it.get("format") == "fill"
+                key = " / ".join(it.get("accept") or []) if fill else LET[it["answer"]] if 0 <= it["answer"] <= 3 else "?"
+                mine = v if fill else (LET[int(v)] if str(v).isdigit() and int(v) < 4 else "–")
+                if it["kind"] == "sat":
+                    what = {"en": exams.SAT_DOMAINS[it["domain"]]["en"] + " · " + it["skill"].replace("-", " "), "th": exams.SAT_DOMAINS[it["domain"]]["th"] + " · " + it["skill"].replace("-", " ")}
+                    subj = "RW"
+                else:
+                    what, subj = it.get("skill") or {}, it["subject"]
+                rows.append({"n": n, "subject": subj, "skill": what, "topic": it.get("topic") or {}, "answer": mine or "–", "key": key,
+                             "ok": exams.is_correct(it, v), "difficulty": it.get("difficulty")})
+            elif it["kind"] == "ielts-r":
+                for gi, g in enumerate(it["groups"]):
+                    for qi, q in enumerate(g["questions"]):
+                        n0 = n + 1
+                        n += exams.marks(g, q)
+                        v = sec["answers"].get(f"{iid}:{gi}:{qi}", "")
+                        rows.append({"n": n0 if n == n0 else f"{n0}–{n}", "subject": "Reading", "skill": {"en": exams.IELTS_TYPES[g["type"]], "th": exams.IELTS_TYPES[g["type"]]},
+                                     "topic": it.get("topic") or {"en": it["title"], "th": it["title"]}, "answer": v or "–", "key": " / ".join(q["answer"]),
+                                     "ok": exams.points(g, q, v) == exams.marks(g, q)})
+    return rows
 
 
 def mask(name):

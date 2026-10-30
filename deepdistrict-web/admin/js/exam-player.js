@@ -57,14 +57,19 @@
     if (!A || A.status !== "active") return;
     var left = Math.max(0, Math.round((new Date(sec().deadline).getTime() - (Date.now() + offset)) / 1000));
     var t = $("[data-time]");
-    if (t) { t.textContent = hideTime ? "" : Math.floor(left / 60) + ":" + ("0" + left % 60).slice(-2); t.classList.toggle("low", left <= 300); }
+    if (t) {
+      var h = Math.floor(left / 3600), m = Math.floor(left % 3600 / 60), sx = ("0" + left % 60).slice(-2);
+      t.textContent = hideTime ? "" : (h ? h + ":" + ("0" + m).slice(-2) : m) + ":" + sx;
+      t.classList.toggle("low", left <= 300);
+      var box = t.closest(".ex-timer"); if (box) box.classList.toggle("is-urgent", left <= 60 && !hideTime);
+    }
     if (left === 300 && !tick.warned) { tick.warned = true; alert(L("5 minutes left in this part.", "เหลือเวลา 5 นาทีในส่วนนี้")); }
     if (left <= 0 && !submitting) submit(true);
   }
 
   function submit(auto) {
     if (submitting) return;
-    if (!auto && !confirm(A.kind === "sat" && A.mode === "mock" && A.current === 0 ? L("Submit module 1? You cannot come back to it. Module 2 starts straight away.", "ส่งโมดูล 1 ใช่ไหม? จะกลับมาแก้ไม่ได้ และโมดูล 2 จะเริ่มทันที")
+    if (!auto && !confirm(A.kind === "sat" && A.current === 0 && A.sections.length + (A.mode === "mock" ? 1 : 0) > 1 ? L("Submit module 1? You cannot come back to it. Module 2 starts straight away.", "ส่งโมดูล 1 ใช่ไหม? จะกลับมาแก้ไม่ได้ และโมดูล 2 จะเริ่มทันที")
       : L("Submit your answers? You cannot change them afterwards.", "ส่งคำตอบใช่ไหม? หลังส่งจะแก้ไขไม่ได้"))) return;
     submitting = true;
     var body = { id: id, answers: Object.assign({}, dirty.answers || {}) }; dirty = {};
@@ -153,7 +158,7 @@
     var items = sec().items, n = items.length;
     if (view === "check") {
       shell('<div class="ex-check"><h2>' + L("Check your work", "ตรวจทานคำตอบ") + "</h2><p>" + L("Unanswered and marked questions are highlighted. Click a number to go back to it.", "ข้อที่ยังไม่ตอบและข้อที่ทำเครื่องหมายไว้จะเน้นสี คลิกหมายเลขเพื่อกลับไปแก้") + "</p>" + navGrid() + "</div>",
-        '<button class="btn" data-back>' + L("Back", "ย้อนกลับ") + '</button><span class="spacer"></span><button class="btn btn--primary" data-submit>' + (A.mode === "mock" && A.current === 0 ? L("Submit module 1", "ส่งโมดูล 1") : L("Submit", "ส่งคำตอบ")) + "</button>");
+        '<button class="btn" data-back>' + L("Back", "ย้อนกลับ") + '</button><span class="spacer"></span><button class="btn btn--primary" data-submit>' + (A.kind === "sat" && A.current === 0 && (A.mode === "mock" || A.sections.length > 1) ? L("Submit module 1", "ส่งโมดูล 1") : L("Submit", "ส่งคำตอบ")) + "</button>");
       $("[data-back]").addEventListener("click", function () { view = "q"; idx = n - 1; drawSat(); });
       $("[data-submit]").addEventListener("click", function () { submit(false); });
       bindNav(); return;
@@ -161,15 +166,18 @@
     var it = items[idx], ans = answers()[it.id], marked = !!sec().marked[it.id], struck = sec().struck[it.id] || [];
     var hasPassage = !!(it.passage || (it.table && it.table.rows) || it.image);
     shell((hasPassage ? '<section class="ex-pane ex-passage">' + passageText(it.passage || "") + table(it.table) + (it.image ? '<img class="ex-diagram" src="' + esc(it.image) + '" alt="">' : "") + "</section>" : "") +
-      '<section class="ex-pane ex-q' + (hasPassage ? "" : " ex-q--solo") + '"><div class="ex-qhead"><span class="ex-num">' + (idx + 1) + '</span>' + (it.subject && SUBJ[it.subject] ? '<span class="ex-subj">' + L(SUBJ[it.subject][0], SUBJ[it.subject][1]) + "</span>" : "") + '<button type="button" class="ex-mark' + (marked ? " on" : "") + '" data-flag>⚑ ' + L("Mark for review", "ทำเครื่องหมายทบทวน") + "</button>" +
+      '<section class="ex-pane ex-q' + (hasPassage ? "" : " ex-q--solo") + '">' + subTabs(items, it) + '<div class="ex-qhead"><span class="ex-num">' + (idx + 1) + '</span>' + (it.subject && SUBJ[it.subject] ? '<span class="ex-subj ex-subj--' + it.subject + '">' + L(SUBJ[it.subject][0], SUBJ[it.subject][1]) + (it.format === "fill" ? " · " + L("written answer", "อัตนัย") : "") + "</span>" : "") + '<button type="button" class="ex-mark' + (marked ? " on" : "") + '" data-flag>⚑ ' + L("Mark for review", "ทำเครื่องหมายทบทวน") + "</button>" +
       '<button type="button" class="ex-link" data-elim title="' + esc(L("Cross out choices you think are wrong", "ขีดฆ่าตัวเลือกที่คิดว่าผิด")) + '">A̶B̶C̶</button></div><p class="ex-stem">' + esc(it.stem) + "</p>" +
+      (it.format === "fill" ? '<div class="ex-fill"><input data-fill inputmode="text" autocomplete="off" aria-label="' + esc(L("Your answer", "คำตอบ")) + '" value="' + esc(ans || "") + '">' + (it.unit ? "<span>" + esc(it.unit) + "</span>" : "") + "</div>" : "") +
       '<div class="ex-choices">' + it.choices.map(function (c, i) {
         return '<div class="ex-choice' + (String(i) === ans ? " sel" : "") + (struck.indexOf(String(i)) !== -1 ? " struck" : "") + '"><button type="button" data-choice="' + i + '"><b>' + LET[i] + "</b><span>" + esc(c) + "</span></button>" +
           (window.__elim ? '<button type="button" class="ex-x" data-strike="' + i + '" aria-label="' + esc(L("Cross out ", "ขีดฆ่า ") + LET[i]) + '">' + (struck.indexOf(String(i)) !== -1 ? "↺" : "✕") + "</button>" : "") + "</div>";
       }).join("") + "</div></section>",
       '<button class="btn" data-nav-open>' + L("Question ", "ข้อ ") + (idx + 1) + L(" of ", " จาก ") + n + ' ▾</button><div class="ex-navpop" hidden>' + navGrid() + '</div><span class="spacer"></span>' +
       (idx > 0 ? '<button class="btn" data-prev>' + L("Back", "ย้อนกลับ") + "</button>" : "") + '<button class="btn btn--primary" data-next>' + L("Next", "ถัดไป") + "</button>");
+    $$("[data-subtab]").forEach(function (b) { b.addEventListener("click", function () { idx = +b.getAttribute("data-subtab"); drawSat(); }); });
     $$("[data-choice]").forEach(function (b) { b.addEventListener("click", function () { var v = b.getAttribute("data-choice"); answers()[it.id] = v; queue(it.id, v); drawSat(); }); });
+    var fi = $("[data-fill]"); if (fi) { fi.addEventListener("input", function () { answers()[it.id] = fi.value; queue(it.id, fi.value); }); fi.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); $("[data-next]").click(); } }); }
     $$("[data-strike]").forEach(function (b) { b.addEventListener("click", function () { var v = b.getAttribute("data-strike"), s = (sec().struck[it.id] || []).slice(), k = s.indexOf(v); if (k === -1) s.push(v); else s.splice(k, 1); sec().struck[it.id] = s; queue(it.id, s, "struck"); drawSat(); }); });
     $("[data-flag]").addEventListener("click", function () { var on = !sec().marked[it.id]; if (on) sec().marked[it.id] = true; else delete sec().marked[it.id]; queue(it.id, on, "marked"); drawSat(); });
     $("[data-elim]").addEventListener("click", function () { window.__elim = !window.__elim; drawSat(); });
@@ -178,10 +186,24 @@
     $("[data-nav-open]").addEventListener("click", function () { var pop = $(".ex-navpop"); pop.hidden = !pop.hidden; });
     bindNav();
   }
+  function subTabs(items, it) {           // M.1 papers: jump straight to a subject
+    if (!it.subject) return "";
+    var first = {};
+    items.forEach(function (x, i) { if (x.subject && first[x.subject] == null) first[x.subject] = i; });
+    var keys = Object.keys(first);
+    if (keys.length < 2) return "";
+    return '<div class="ex-subtabs">' + keys.map(function (k) {
+      var n = items.filter(function (x) { return x.subject === k; }), done = n.filter(function (x) { var v = answers()[x.id]; return v != null && v !== ""; }).length;
+      return '<button type="button" data-subtab="' + first[k] + '" class="' + (k === it.subject ? "on" : "") + '">' + L(SUBJ[k][0], SUBJ[k][1]) + " " + done + "/" + n.length + "</button>";
+    }).join("") + "</div>";
+  }
   function navGrid() {
+    var last = null;
     return '<div class="ex-grid">' + sec().items.map(function (it, i) {
       var a = answers()[it.id] != null && answers()[it.id] !== "", m = sec().marked[it.id];
-      return '<button type="button" data-go="' + i + '" class="' + (a ? "ans" : "unans") + (m ? " flag" : "") + (i === idx && view === "q" ? " cur" : "") + '">' + (m ? "⚑" : "") + (i + 1) + "</button>";
+      var head = it.subject && it.subject !== last && SUBJ[it.subject] ? "<h4>" + L(SUBJ[it.subject][0], SUBJ[it.subject][1]) + "</h4>" : "";
+      last = it.subject;
+      return head + '<button type="button" data-go="' + i + '" class="' + (a ? "ans" : "unans") + (m ? " flag" : "") + (i === idx && view === "q" ? " cur" : "") + '">' + (m ? "⚑" : "") + (i + 1) + "</button>";
     }).join("") + '</div><p class="ex-legend"><span class="ans"></span>' + L("answered", "ตอบแล้ว") + ' <span class="unans"></span>' + L("unanswered", "ยังไม่ตอบ") + " ⚑ " + L("for review", "ทบทวน") + "</p>";
   }
   function bindNav() { $$("[data-go]").forEach(function (b) { b.addEventListener("click", function () { idx = +b.getAttribute("data-go"); view = "q"; drawSat(); }); }); }
@@ -253,16 +275,41 @@
   }
 
   /* ---------------------------------------------------------------- results & review */
+  // Every question in one table: what it measures, its topic, your answer, the key.
+  function rowTable() {
+    var n = 0, LETS = ["A", "B", "C", "D"];
+    var rows = A.sections.map(function (s) {
+      return (s.items || []).map(function (it) {
+        n++;
+        var a = s.answers[it.id], ok = (s.correct || {})[it.id];
+        var mine = it.format === "fill" ? (a || "–") : (a !== undefined && a !== "" ? LETS[+a] : "–"), key = it.format === "fill" ? (it.accept || []).join(" / ") : LETS[it.answer];
+        var what = A.kind === "sat" ? (DOMN[it.domain] || "") + " · " + String(it.skill || "").replace(/-/g, " ") : L((it.skill || {}).en || "", (it.skill || {}).th || "");
+        var subj = A.kind === "sat" ? "RW" : (SUBJ[it.subject] ? L(SUBJ[it.subject][0], SUBJ[it.subject][1]) : it.subject);
+        return '<tr class="' + (ok ? "ok" : "bad") + '"><td><b>' + n + "</b></td><td>" + esc(subj) + "</td><td>" + esc(what) + "</td><td>" + esc(L((it.topic || {}).en || "", (it.topic || {}).th || "")) + "</td><td>" + esc(mine) + "</td><td><b>" + esc(key) + "</b></td><td>" + (ok ? "✓" : "✗") + "</td></tr>";
+      }).join("");
+    }).join("");
+    return "<h2>" + L("Every question: what it measures", "สรุปรายข้อ: แต่ละข้อวัดอะไร เรื่องอะไร") + '</h2><div class="tbl-wrap"><table class="ex-rowtbl"><tr><th>' + L("No.", "ข้อ") + "</th><th>" + L("Subject", "วิชา") + "</th><th>" + L("Measures", "วัดอะไร") + "</th><th>" + L("Topic", "เรื่อง") + "</th><th>" + L("You", "ตอบ") + "</th><th>" + L("Key", "เฉลย") + "</th><th></th></tr>" + rows + "</table></div>";
+  }
   function drawResult() {
     var r = A.result || {}, html = "";
     if (A.kind === "m1") {
-      html = '<div class="ex-score"><b>' + r.percent + "%</b><span>" + r.correct + "/" + r.total + " " + L("correct", "ข้อที่ถูก") + "</span></div>" +
-        '<div class="ex-doms">' + Object.keys(r.bySubject || {}).map(function (k) { var x = r.bySubject[k]; return "<div><span>" + esc(SUBJ[k] ? L(SUBJ[k][0], SUBJ[k][1]) : k) + "</span><b>" + x.c + "/" + x.t + '</b><i style="width:' + Math.round(x.c / x.t * 100) + '%"></i></div>'; }).join("") + "</div>";
-      if (A.review) html += A.sections.map(function (s) {
+      var tg = (r.targets || []).map(function (g) {
+        return '<div class="ex-kpi ex-target ' + (g.met ? "met" : "notmet") + '"><b>' + (g.met ? "✓" : "…") + '</b><span>' + esc(L(g.en, g.th)) + " — " + (g.met ? L("on target", "ถึงเป้าหมาย") : L("not yet", "ยังไม่ถึง")) + "<br><small>" +
+          L("Target: overall ", "เป้าหมาย: รวม ") + g.overall + "%" + Object.keys(g.subjects).map(function (k) { return " · " + L(SUBJ[k][0], SUBJ[k][1]) + " " + g.subjects[k] + "%"; }).join("") + "</small></span></div>";
+      }).join("");
+      html = '<div class="ex-summary"><div class="ex-kpi"><b>' + r.percent + "%</b><span>" + r.correct + " / " + r.total + " " + L("correct", "ข้อที่ถูก") + "</span></div>" + tg + "</div>" +
+        (tg ? '<p class="ex-note">' + L("Targets are DeepDistrict practice guidance, not school cut-offs. GATE and English Program applicants take the same Suankularb paper; EP applicants need a higher English score.", "เป้าหมายเป็นแนวทางฝึกของ DeepDistrict ไม่ใช่เกณฑ์ของโรงเรียน ผู้สมัคร GATE และ English Program ใช้ข้อสอบชุดเดียวกัน ผู้สมัคร EP ต้องได้คะแนนภาษาอังกฤษสูงกว่า") + "</p>" : "") +
+        "<h2>" + L("By subject", "แยกตามวิชา") + '</h2><div class="ex-doms">' + Object.keys(r.bySubject || {}).map(function (k) { var x = r.bySubject[k]; return "<div><span>" + esc(SUBJ[k] ? L(SUBJ[k][0], SUBJ[k][1]) : k) + "</span><b>" + x.c + "/" + x.t + " (" + Math.round(x.c / x.t * 100) + '%)</b><i style="width:' + Math.round(x.c / x.t * 100) + '%"></i></div>'; }).join("") + "</div>" +
+        ((r.byTopic || []).length ? "<h2>" + L("By topic — weakest first", "แยกตามเรื่อง — เรียงจากเรื่องที่ควรฝึกเพิ่ม") + '</h2><div class="tbl-wrap"><table class="ex-rowtbl"><tr><th>' + L("Subject", "วิชา") + "</th><th>" + L("Topic", "เรื่อง") + "</th><th>" + L("Correct", "ถูก") + "</th><th></th></tr>" +
+          r.byTopic.slice().sort(function (a, b) { return a.c / a.t - b.c / b.t; }).map(function (x) { var pc = Math.round(x.c / x.t * 100); return "<tr><td>" + esc(SUBJ[x.subject] ? L(SUBJ[x.subject][0], SUBJ[x.subject][1]) : x.subject) + "</td><td>" + esc(L(x.topic.en, x.topic.th)) + "</td><td>" + x.c + "/" + x.t + '</td><td><div class="ex-bar"><i style="width:' + pc + '%"></i></div></td></tr>'; }).join("") + "</table></div>" : "");
+      if (A.review) html += rowTable() + "<h2>" + L("Answers and explanations", "เฉลยและคำอธิบาย") + "</h2>" + A.sections.map(function (s) {
         return (s.items || []).map(function (it, i) {
-          var a = s.answers[it.id], ok = a === String(it.answer);
+          var a = s.answers[it.id], ok = (s.correct || {})[it.id];
           return '<details class="ex-rev ' + (ok ? "ok" : "bad") + '"><summary><b>' + (i + 1) + "</b> " + (ok ? "✓" : "✗") + " " + esc(it.stem) + "</summary>" + (it.passage ? passageText(it.passage) : "") + table(it.table) + (it.image ? '<img class="ex-diagram" src="' + esc(it.image) + '" alt="">' : "") +
-            "<ol type=A>" + it.choices.map(function (c, k) { return '<li class="' + (k === it.answer ? "right" : String(k) === a ? "wrong" : "") + '">' + esc(c) + "</li>"; }).join("") + "</ol><p>" + esc(lang === "th" ? it.explanation.th || it.explanation.en : it.explanation.en || it.explanation.th) + "</p></details>";
+            (it.format === "fill" ? "<p>" + L("Your answer: ", "คำตอบของคุณ: ") + "<b>" + esc(a || "–") + "</b> · " + L("Accepted: ", "คำตอบที่ถูก: ") + "<b>" + esc((it.accept || []).join(" / ")) + "</b> " + esc(it.unit || "") + "</p>"
+              : "<ol type=A>" + it.choices.map(function (c, k) { return '<li class="' + (k === it.answer ? "right" : String(k) === a ? "wrong" : "") + '">' + esc(c) + "</li>"; }).join("") + "</ol>") +
+            '<p class="ex-note">' + L("Measures: ", "วัด: ") + esc(L((it.skill || {}).en || "", (it.skill || {}).th || "")) + " · " + L("Topic: ", "เรื่อง: ") + esc(L((it.topic || {}).en || "", (it.topic || {}).th || "")) + "</p>" +
+            "<p>" + esc(lang === "th" ? it.explanation.th || it.explanation.en : it.explanation.en || it.explanation.th) + "</p></details>";
         }).join("");
       }).join("");
     } else if (A.kind === "sat") {
@@ -271,7 +318,9 @@
           (r.route ? " · " + L("module 2 was the ", "โมดูล 2 เป็นชุด") + (r.route === "hard" ? L("harder set", "ยาก") : L("easier set (our unofficial estimate of the ceiling: about " + r.ceiling + ")", "ง่าย (เพดานคะแนนประมาณ " + r.ceiling + " เป็นค่าประมาณของเรา ไม่ใช่ตัวเลขทางการ)")) : "") + "</p>" : "") +
         (r.percentile ? '<p class="ex-sub">' + L("About the " + r.percentile + "th percentile among SAT takers (College Board's published RW percentiles).", "ประมาณเปอร์เซ็นไทล์ที่ " + r.percentile + " ของผู้สอบ SAT (อ้างอิงตารางเปอร์เซ็นไทล์ RW ของ College Board)") + "</p>" : "") +
         '<div class="ex-doms">' + Object.keys(r.byDomain || {}).filter(function (d) { return r.byDomain[d].t; }).map(function (d) { var x = r.byDomain[d]; return '<div><span>' + esc({ cs: "Craft and Structure", ii: "Information and Ideas", sec: "Standard English Conventions", eoi: "Expression of Ideas" }[d]) + "</span><b>" + x.c + "/" + x.t + '</b><i style="width:' + Math.round(x.c / x.t * 100) + '%"></i></div>'; }).join("") + "</div>";
-      if (A.review) html += errorLog() + A.sections.map(function (s, si) {
+      if ((r.bySkill || []).length) html += "<h2>" + L("By skill", "แยกตามทักษะ") + '</h2><div class="tbl-wrap"><table class="ex-rowtbl"><tr><th>' + L("Domain", "หมวด") + "</th><th>" + L("Skill", "ทักษะ") + "</th><th>" + L("Correct", "ถูก") + "</th><th></th></tr>" +
+        r.bySkill.map(function (x) { var pc = Math.round(x.c / x.t * 100); return "<tr><td>" + esc(DOMN[x.domain]) + "</td><td>" + esc(x.skill.replace(/-/g, " ")) + "</td><td>" + x.c + "/" + x.t + '</td><td><div class="ex-bar"><i style="width:' + pc + '%"></i></div></td></tr>'; }).join("") + "</table></div>";
+      if (A.review) html += errorLog() + rowTable() + A.sections.map(function (s, si) {
         return "<h2>" + esc(s.title) + "</h2>" + (s.items || []).map(function (it, i) {
           var a = s.answers[it.id], ok = a === String(it.answer);
           return '<details class="ex-rev ' + (ok ? "ok" : "bad") + '"><summary><b>' + (i + 1) + "</b> " + (ok ? "✓" : "✗") + " " + esc(it.stem) + (it.pretest ? ' <small>(pretest)</small>' : "") + "</summary>" + passageText(it.passage) + table(it.table) + (it.image ? '<img class="ex-diagram" src="' + esc(it.image) + '" alt="">' : "") +
@@ -290,9 +339,10 @@
         }); });
       });
     } else html = writingResult(r);
-    html += '<p class="ex-note">' + L("DeepDistrict practice estimate — not an official score.", "คะแนนประมาณการเพื่อการฝึกของ DeepDistrict ไม่ใช่คะแนนทางการ") + "</p>" +
-      '<p><button class="btn" data-report>' + L("Download score report (PDF)", "ดาวน์โหลดรายงานผลสอบ (PDF)") + "</button></p>";
-    shell('<div class="ex-result">' + html + "</div>");
+    html += '<p class="ex-note">' + L("DeepDistrict practice estimate — not an official score.", "คะแนนประมาณการเพื่อการฝึกของ DeepDistrict ไม่ใช่คะแนนทางการ") + "</p>";
+    var acts = '<h1 class="ex-result__title">' + L("Results summary", "สรุปผลการสอบ") + '</h1><div class="ex-actions"><button class="btn btn--primary" data-report>' + L("Download results summary (PDF)", "ดาวน์โหลดสรุปผล (PDF)") + "</button>" +
+      '<button class="btn" type="button" onclick="window.print()">' + L("Print this page", "พิมพ์หน้านี้") + '</button><a class="btn" href="index.html#/tests">' + L("Back to tests", "กลับหน้าข้อสอบ") + "</a></div>";
+    shell('<div class="ex-result">' + acts + html + "</div>");
     bindMarking();
     $$("[data-tag]").forEach(function (sel) {
       sel.addEventListener("change", function () { api("POST", "exam/tag", { id: id, item: sel.getAttribute("data-tag"), cause: sel.value }).then(function (r) { A.tags = r.tags; var det = $$("details[open]").map(function (d) { return $$("details").indexOf(d); }); drawResult(); det.forEach(function (i) { var d = $$("details")[i]; if (d) d.open = true; }); }); });
@@ -300,7 +350,7 @@
     $("[data-report]").addEventListener("click", function () {
       var b = this; b.disabled = true; b.textContent = L("Creating…", "กำลังสร้าง…");
       api("POST", "doc/report", { attemptId: id }).then(function (p) { return window.DDPDF.save(p, api); })
-        .then(function () { b.disabled = false; b.textContent = L("Download score report (PDF)", "ดาวน์โหลดรายงานผลสอบ (PDF)"); })
+        .then(function () { b.disabled = false; b.textContent = L("Download results summary (PDF)", "ดาวน์โหลดสรุปผล (PDF)"); })
         .catch(function (e) { alert(e.message); b.disabled = false; });
     });
     if (A.kind === "ielts-w" && r.aiPending) setTimeout(load, 5000);

@@ -14,7 +14,7 @@ import exams
 import qsets
 
 DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "exam_sets")
-EXAMS = {"sat": "SAT Reading and Writing", "ielts": "IELTS Academic", "gate": "Suankularb M.1 GATE Program", "ep": "Suankularb M.1 English Program (EPLUS+)"}
+EXAMS = {"sat": "SAT Reading and Writing", "ielts": "IELTS Academic", "gate": "Suankularb M.1 GATE Program", "ep": "Suankularb M.1 English Program (EPLUS+)", "satit": "Satit Prasarnmit M.1 (Trilingual Plus+)"}
 
 
 def _id(prefix, *parts):

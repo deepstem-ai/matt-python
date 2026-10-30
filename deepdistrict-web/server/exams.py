@@ -40,9 +40,16 @@ CHOICE_KINDS = ("sat", "m1")      # one passage/stem + four answer choices
 # most of the weight); English Program (EPLUS+) tests Mathematics, Science and English in English, plus an
 # interview that is not part of this bank. Items here are DeepDistrict originals in a 4-choice format.
 M1_PROGRAMS = {
-    "gate": {"en": "Suankularb M.1 GATE Program", "th": "สวนกุหลาบ ม.1 GATE Program", "subjects": ["math", "sci", "eng", "thai"]},
-    "ep": {"en": "Suankularb M.1 English Program (EPLUS+)", "th": "สวนกุหลาบ ม.1 English Program (EPLUS+)", "subjects": ["math", "sci", "eng"]},
+    "gate": {"en": "Suankularb M.1 (GATE Program and English Program)", "th": "สวนกุหลาบ ม.1 (GATE และ English Program)", "subjects": ["math", "sci", "eng", "thai"]},
+    "ep": {"en": "Suankularb M.1 English Program (older items)", "th": "สวนกุหลาบ ม.1 English Program (ข้อเดิม)", "subjects": ["math", "sci", "eng"], "legacy": True},
+    "satit": {"en": "Satit Prasarnmit M.1 (Trilingual Plus+)", "th": "สาธิตประสานมิตร ม.1 (Trilingual Plus+)", "subjects": ["math", "sci", "thai", "eng"]},
 }
+# Practice targets shown with results (DeepDistrict guidance, not school cut-offs). GATE and EP applicants
+# take the same Suankularb paper; EP applicants need a higher English score.
+M1_TARGETS = {"gate": [{"key": "gate", "en": "GATE Program", "th": "GATE Program", "overall": 70, "subjects": {"math": 70, "sci": 70}},
+                       {"key": "ep", "en": "English Program (EPLUS+)", "th": "English Program (EPLUS+)", "overall": 60, "subjects": {"eng": 80}}],
+              "satit": [{"key": "satit", "en": "Satit Prasarnmit", "th": "สาธิตประสานมิตร", "overall": 70, "subjects": {}}]}
+M1_FORMATS = ("mcq", "fill")       # four choices, or a short written answer (number / word) — อัตนัยแบบเติมคำตอบ
 M1_SUBJECTS = {"math": {"en": "Mathematics", "th": "คณิตศาสตร์"}, "sci": {"en": "Science", "th": "วิทยาศาสตร์"},
                "eng": {"en": "English", "th": "ภาษาอังกฤษ"}, "thai": {"en": "Thai", "th": "ภาษาไทย"}}
 STATUSES = ("draft", "review", "approved", "retired")
@@ -262,7 +269,7 @@ def clean_item(raw, old=None):
         it.update({"domain": dom, "skill": skill, "difficulty": raw.get("difficulty") if raw.get("difficulty") in DIFF else "m",
                    "passage": _s(raw.get("passage"), 3000), "table": table, "image": _s(raw.get("image"), 1_600_000), "stem": _s(raw.get("stem"), 600), "choices": choices,
                    "answer": int(raw.get("answer")) if str(raw.get("answer", "")).lstrip("-").isdigit() else -1,
-                   "explanation": _bi(raw.get("explanation"), 1500), "pretest": bool(raw.get("pretest"))})
+                   "explanation": _bi(raw.get("explanation"), 1500), "pretest": bool(raw.get("pretest")), "topic": _bi(raw.get("topic"), 160)})
         w, limit = words(it["passage"]), (300 if skill == "cross-text" else 150)
         if not (25 <= w <= limit):
             probs.append(f"passage must be 25–{limit} words (now {w})")
@@ -290,20 +297,29 @@ def clean_item(raw, old=None):
         if table:
             rows = [[_s(c, 60) for c in r][:8] for r in (table.get("rows") or []) if isinstance(r, list)][:12]
             table = {"title": _s(table.get("title"), 160), "rows": rows} if rows else None
-        it.update({"program": prog, "subject": subj, "difficulty": raw.get("difficulty") if raw.get("difficulty") in DIFF else "m",
-                   "passage": _s(raw.get("passage"), 3000), "table": table, "image": _s(raw.get("image"), 1_600_000), "stem": _s(raw.get("stem"), 1200),
-                   "choices": choices, "answer": int(raw.get("answer")) if str(raw.get("answer", "")).lstrip("-").isdigit() else -1,
-                   "explanation": _bi(raw.get("explanation"), 1500)})
+        fmt = raw.get("format") if raw.get("format") in M1_FORMATS else "mcq"
+        it.update({"program": prog, "subject": subj, "format": fmt, "difficulty": raw.get("difficulty") if raw.get("difficulty") in DIFF else "m",
+                   "passage": _s(raw.get("passage"), 4000), "table": table, "image": _s(raw.get("image"), 1_600_000), "stem": _s(raw.get("stem"), 1500),
+                   "choices": choices if fmt == "mcq" else [], "answer": int(raw.get("answer")) if fmt == "mcq" and str(raw.get("answer", "")).lstrip("-").isdigit() else -1,
+                   "accept": [_s(a, 60) for a in (raw.get("accept") or []) if _s(a, 60)][:8] if fmt == "fill" else [],
+                   "unit": _s(raw.get("unit"), 30) if fmt == "fill" else "",
+                   "skill": _bi(raw.get("skill"), 160), "topic": _bi(raw.get("topic"), 160), "lang": "en" if raw.get("lang") == "en" else "th" if raw.get("lang") == "th" else "",
+                   "explanation": _bi(raw.get("explanation"), 2000)})
         if it["image"] and not re.match(r"^(data:image/(png|jpeg|webp);base64,|https://)", it["image"]):
             raise ValueError("picture must be a PNG/JPEG/WebP upload or https:// address")
         if not it["stem"]:
             probs.append("question missing")
-        if len(choices) != 4 or any(not c for c in choices) or len({c.strip() for c in choices}) != 4:
-            probs.append("exactly 4 different answer choices are needed")
-        if not 0 <= it["answer"] <= 3:
-            probs.append("mark the correct choice")
+        if fmt == "mcq":
+            if len(choices) != 4 or any(not c for c in choices) or len({c.strip() for c in choices}) != 4:
+                probs.append("exactly 4 different answer choices are needed")
+            if not 0 <= it["answer"] <= 3:
+                probs.append("mark the correct choice")
+        elif not it["accept"]:
+            probs.append("written-answer question: give the accepted answer(s)")
         if not (it["explanation"]["en"] or it["explanation"]["th"]):
             probs.append("explanation missing")
+        if not (it["skill"]["en"] or it["skill"]["th"]) or not (it["topic"]["en"] or it["topic"]["th"]):
+            probs.append("say what the question measures (skill) and its topic")
         if re.search(r"\b(?i:choice|option|answer)s?\s*\(?[A-D]\)?(?![A-Za-z])|\([A-D]\)|ตัวเลือก\s*[A-Dก-ง]\b|ข้อ\s*[A-Dกขคง](?![ก-๛])", it["explanation"]["en"] + " " + it["explanation"]["th"]):
             probs.append("explanations must name choices by their content, not by letter (answer order is shuffled)")
     elif kind == "ielts-r":
@@ -329,7 +345,7 @@ def clean_item(raw, old=None):
                 grp["questions"].append(qq)
             total_q += sum(marks(grp, q) for q in grp["questions"])
             groups.append(grp)
-        it.update({"title": _s(raw.get("title"), 160), "paragraphs": paras, "labelled": bool(raw.get("labelled", True)),
+        it.update({"title": _s(raw.get("title"), 160), "topic": _bi(raw.get("topic"), 160), "paragraphs": paras, "labelled": bool(raw.get("labelled", True)),
                    "difficulty": max(1, min(3, int(raw.get("difficulty") or 2))), "groups": groups})
         w = sum(words(p) for p in paras)
         it["words"] = w
@@ -560,12 +576,17 @@ def start_set(con, me, qs, cfg):
     rng = random.Random(secrets.randbits(64))
     t0 = now()
     secs = int(qs.get("minutes") or 0) * 60 or SET_SECONDS[qs["kind"]]
-    if qs["kind"] == "sat":
+    if qs["kind"] == "sat" and len(its) != 2 * SAT_MODULE_Q:
         its = _sat_order(its)
-    sec = _section("s", qs["title"], secs, [i["id"] for i in its], t0)
+    if qs["kind"] == "sat" and len(its) == 2 * SAT_MODULE_Q:        # a full SAT: two timed modules, as in Bluebook
+        secs_list = [_section("s1", qs["title"] + " · Module 1", SAT_MODULE_S, [i["id"] for i in _sat_order(its[:SAT_MODULE_Q])], t0),
+                     {"key": "s2", "title": qs["title"] + " · Module 2", "seconds": SAT_MODULE_S, "items": [i["id"] for i in _sat_order(its[SAT_MODULE_Q:])],
+                      "answers": {}, "marked": {}, "struck": {}, "submittedAt": None, "pending": True}]
+    else:
+        secs_list = [_section("s", qs["title"], secs, [i["id"] for i in its], t0)]
     snap = {i["id"]: i for i in (its if qs["kind"] == "ielts-w" else arrange(its, rng.random(), cfg["shuffle"]))}
     att = {"id": "t" + secrets.token_hex(8), "userId": me["id"], "kind": qs["kind"], "mode": "set", "setId": qs["id"], "setTitle": qs["title"],
-           "status": "active", "preview": me["role"] in ("admin", "teacher"), "sections": [sec], "current": 0, "route": None, "snap": snap, "createdAt": iso(t0)}
+           "status": "active", "preview": me["role"] in ("admin", "teacher"), "sections": secs_list, "current": 0, "route": None, "snap": snap, "createdAt": iso(t0)}
     put_attempt(con, att)
     return att
 
@@ -719,6 +740,15 @@ def question_keys(a, sec):
 def submit_section(con, a, cfg, timed_out=False):
     sec = a["sections"][a["current"]]
     sec["submittedAt"], sec["timedOut"] = iso(), bool(timed_out)
+    nxt = a["current"] + 1
+    if nxt < len(a["sections"]) and a["sections"][nxt].get("pending"):   # next timed part of a saved set (e.g. SAT Module 2)
+        t0 = now()
+        n = a["sections"][nxt]
+        n.pop("pending", None)
+        n.update({"startedAt": iso(t0), "deadline": iso(datetime.fromtimestamp(t0.timestamp() + n["seconds"], timezone.utc))})
+        a["current"] = nxt
+        put_attempt(con, a)
+        return a
     if a["kind"] == "sat" and a["mode"] == "mock" and sec["key"] == "m1":
         sc = [i for i in sec["items"] if not a["snap"][i].get("pretest")]
         right = sum(1 for i in sc if sec["answers"].get(i) == str(a["snap"][i]["answer"]))
@@ -750,6 +780,8 @@ def finish(con, a, cfg):
 
 def is_correct(item, value, gi=None, qi=None):
     """Is this answer right? SAT: value is the choice index; IELTS Reading: group gi, question qi."""
+    if item["kind"] == "m1" and item.get("format") == "fill":
+        return fill_ok(value, item.get("accept") or [])
     if item["kind"] in CHOICE_KINDS:
         return str(value) == str(item["answer"])
     g = item["groups"][gi]
@@ -766,6 +798,28 @@ def points(g, q, value):
     if g["type"] in TEXT_TYPES:
         return int(check_text(value, q["answer"], g["wordLimit"]))
     return int(norm(value) in {norm(x) for x in q["answer"]})
+
+
+def fill_ok(value, accept):
+    """Written answers: same words or the same number (spaces, commas, a trailing unit and 3/4 vs 0.75 allowed)."""
+    def nums(v):
+        v = norm(v).replace(",", "").replace(" ", "")
+        m = re.fullmatch(r"(-?\d+(?:\.\d+)?)(?:/(\d+(?:\.\d+)?))?[^\d]*", v)
+        if not m:
+            return None
+        try:
+            return float(m.group(1)) / (float(m.group(2)) if m.group(2) else 1)
+        except ZeroDivisionError:
+            return None
+    v = str(value or "").strip()
+    if not v:
+        return False
+    nv = nums(v)
+    for a in accept:
+        na = nums(a)
+        if (nv is not None and na is not None and abs(nv - na) < 1e-6) or norm(v) == norm(a):
+            return True
+    return False
 
 
 NUMBER_WORDS = {w: str(i) for i, w in enumerate("zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty".split())}
@@ -786,14 +840,24 @@ def check_text(ans, accepted, wl):
 
 def score(a, cfg):
     if a["kind"] == "m1":
-        by, c, t = {}, 0, 0
+        by, topics, c, t, prog = {}, {}, 0, 0, None
         for sec in a["sections"]:
             for iid in sec["items"]:
                 it = a["snap"][iid]
-                ok = sec["answers"].get(iid) == str(it["answer"])
+                prog = prog or it.get("program")
+                ok = is_correct(it, sec["answers"].get(iid, ""))
                 b = by.setdefault(it["subject"], {"c": 0, "t": 0})
                 b["c"] += ok; b["t"] += 1; c += ok; t += 1
-        return {"correct": c, "total": t, "percent": round(100 * c / t) if t else 0, "bySubject": by}
+                tp = (it.get("topic") or {}).get("en") or ""
+                if tp:
+                    x = topics.setdefault(it["subject"] + "|" + tp, {"subject": it["subject"], "topic": it.get("topic"), "c": 0, "t": 0})
+                    x["c"] += ok; x["t"] += 1
+        pct = round(100 * c / t) if t else 0
+        res = {"correct": c, "total": t, "percent": pct, "bySubject": by, "byTopic": sorted(topics.values(), key=lambda x: (x["subject"], x["c"] / x["t"])), "program": prog}
+        if a.get("mode") == "set" or t >= 40:
+            res["targets"] = [dict(g, met=pct >= g["overall"] and all(by.get(k) and 100 * by[k]["c"] / by[k]["t"] >= v for k, v in g["subjects"].items()))
+                              for g in M1_TARGETS.get(prog, [])]
+        return res
     if a["kind"] == "sat":
         dom = {d: {"c": 0, "t": 0} for d in SAT_DOMAINS}
         mods, got, maxw = [], 0.0, 0.0
@@ -818,6 +882,17 @@ def score(a, cfg):
             res["estimate"] = int(max(200, min(800, round(est / 10) * 10)))
             res["ceiling"] = cfg["easyCap"] if a.get("route") == "easy" else 800     # unofficial: College Board publishes no ceiling
             res["percentile"] = rw_percentile(res["estimate"])
+        elif a["mode"] == "set" and res["total"] >= 2 * SAT_MODULE_Q - 4 and maxw:   # full-length practice set (not adaptive)
+            res["estimate"] = int(max(200, min(800, round((200 + 600 * got / maxw) / 10) * 10)))
+            res["percentile"] = rw_percentile(res["estimate"])
+        topics = {}
+        for sec in a["sections"]:
+            for iid in sec["items"]:
+                it = a["snap"][iid]
+                k = it["domain"] + "|" + it["skill"]
+                x = topics.setdefault(k, {"domain": it["domain"], "skill": it["skill"], "c": 0, "t": 0})
+                x["c"] += sec["answers"].get(iid) == str(it["answer"]); x["t"] += 1
+        res["bySkill"] = sorted(topics.values(), key=lambda x: (SAT_ORDER.index(x["domain"]), x["skill"]))
         return res
     if a["kind"] == "ielts-r":
         sec, c, t, per = a["sections"][0], 0, 0, []
@@ -899,10 +974,12 @@ def view(a, cfg, staff=False):
     secs = []
     for idx, sec in enumerate(a["sections"]):
         open_ = idx == a["current"] and not done
-        s = {k: sec[k] for k in ("key", "title", "seconds", "startedAt", "deadline", "submittedAt")}
+        s = {k: sec.get(k) for k in ("key", "title", "seconds", "startedAt", "deadline", "submittedAt")}
         if open_ or review:
             s["answers"], s["marked"], s["struck"] = sec["answers"], sec["marked"], sec["struck"]
             s["items"] = [_public_item(a["snap"][i], review) for i in sec["items"]]
+            if review and a["kind"] in CHOICE_KINDS:
+                s["correct"] = {i: is_correct(a["snap"][i], sec["answers"].get(i, "")) for i in sec["items"]}
             if a["kind"] == "ielts-r":
                 n = 1
                 for it in s["items"]:
@@ -937,14 +1014,14 @@ def writing_view(a, cfg, staff):
 
 def _public_item(it, review):
     if it["kind"] == "m1":
-        out = {k: it.get(k) for k in ("id", "passage", "table", "image", "stem", "choices", "subject", "program")}
+        out = {k: it.get(k) for k in ("id", "passage", "table", "image", "stem", "choices", "subject", "program", "format", "unit", "lang")}
         if review:
-            out.update({"answer": it["answer"], "explanation": it["explanation"], "difficulty": it["difficulty"]})
+            out.update({"answer": it["answer"], "accept": it.get("accept"), "explanation": it["explanation"], "difficulty": it["difficulty"], "skill": it.get("skill"), "topic": it.get("topic")})
         return out
     if it["kind"] == "sat":
         out = {k: it.get(k) for k in ("id", "passage", "table", "image", "stem", "choices")}
         if review:
-            out.update({"answer": it["answer"], "explanation": it["explanation"], "domain": it["domain"], "skill": it["skill"], "difficulty": it["difficulty"], "pretest": it.get("pretest", False)})
+            out.update({"answer": it["answer"], "explanation": it["explanation"], "domain": it["domain"], "skill": it["skill"], "difficulty": it["difficulty"], "pretest": it.get("pretest", False), "topic": it.get("topic")})
         return out
     if it["kind"] == "ielts-r":
         groups = []

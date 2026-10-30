@@ -13,54 +13,52 @@
  "items": [
   {
    "kind": "ielts-r",
-   "title": "Forests at the edge of the sea",
-   "difficulty": 1,
+   "title": "Frozen assets: the rise and fall of the ice trade",
+   "difficulty": 2,
+   "topic": {
+    "en": "Economic history",
+    "th": "ประวัติศาสตร์เศรษฐกิจ"
+   },
    "paragraphs": [
-    "Along many tropical and subtropical coastlines, where rivers meet the sea, grow forests unlike any others. Mangroves are trees and shrubs that live in salty water, rooted in soft mud that is flooded by the tide twice a day. Few other trees can survive in such conditions, and for a long time mangrove areas were regarded as useless swamps, unpleasant to visit and difficult to cross. Large areas were cleared to make way for farms, ports, housing and ponds for raising shrimp. Today, scientists and coastal communities increasingly see mangroves in a very different light, as some of the most valuable ecosystems on the planet.",
-    "The first challenge for any plant growing in seawater is salt, which damages most plants by drawing water out of their cells. Mangrove species have developed several solutions. Some prevent most of the salt from entering in the first place, filtering it out at the surface of their roots. Others allow salt to enter but get rid of it through special glands on their leaves; on a dry day, small white salt crystals can sometimes be seen on the leaf surface. A third group stores salt in older leaves, which turn yellow and eventually fall, taking the salt with them.",
-    "The second challenge lies underground. The thick mud in which mangroves grow contains very little oxygen, which roots need in order to function. Some species solve this problem by sending up narrow, pencil-like roots that stick out above the mud, sometimes in their thousands around a single tree. These roots have tiny openings through which the tree can obtain oxygen directly from the air when the tide is low. Other species produce prop roots, which arch out from the trunk like the legs of a table and help to keep the tree stable in mud that would not otherwise support it.",
-    "Mangroves also have an unusual way of producing new plants. In many species, the seed begins to grow while it is still attached to the parent tree, forming a long, pointed seedling. When it is ready, the seedling drops. If it falls at low tide, it may push straight into the mud and begin to root. If it falls into the water, it floats, and it can survive for several weeks in seawater before it reaches a suitable place to settle. This allows mangroves to spread along coastlines and to colonise new mudbanks.",
-    "For people living on the coast, one of the most important services that mangroves provide is protection. The dense mass of roots and trunks slows down waves and reduces the force with which they reach the shore. The roots also trap sediment carried by rivers and tides, so that over time the level of the land may actually rise. After severe storms, villages that lay behind wide belts of mangroves have often suffered less damage than similar villages on open coasts. Researchers stress, however, that mangroves reduce the effects of storms rather than preventing them completely, and that a very large wave can pass through even a healthy forest.",
-    "Mangroves are also nurseries for marine life. The calm, shaded water among the roots provides shelter for young fish, crabs and shrimp, which would be eaten quickly in open water. Many of these animals move out to sea as they grow, so the health of offshore fisheries often depends on the survival of mangroves along the coast. In addition, the waterlogged mud beneath the trees stores large amounts of carbon, because dead leaves and roots decay very slowly when there is little oxygen.",
-    "Recognising these benefits, many countries have begun to replant mangroves, but the results have been mixed. In some projects, millions of seedlings were planted in places where mangroves had never grown naturally, such as mudflats that are covered by the sea for too long each day, and most of them died. Experience suggests that success depends less on the number of trees planted than on choosing the right location and the right species. The most successful projects often begin by restoring the natural flow of tidal water, for example by removing old walls built for shrimp ponds, and then allowing seedlings carried by the tide to settle by themselves."
+    "Before the age of electricity, keeping anything cold in a hot climate was a luxury reserved for the very wealthy. Rulers in Persia, China and the Mediterranean had stored winter snow in pits and thick-walled buildings for centuries, but the quantities were small and the cold rarely travelled far. That changed in the nineteenth century, when an unlikely industry grew up around a resource that seemed, to most people, entirely worthless: the ice that formed each winter on the lakes and ponds of New England. Within a few decades, frozen water cut from those ponds was being sold in the Caribbean, in South America and as far away as India.",
+    "The industry is usually traced to Frederic Tudor, a young Boston merchant who in 1806 sent a ship loaded with ice to the Caribbean island of Martinique. His contemporaries thought the plan absurd, and the first voyages appeared to prove them right. Much of the cargo melted before it could be sold, and the islanders who received the rest had little idea what to do with it. Tudor's difficulty, however, was not the crossing itself; ice packed tightly in a ship's hold melts far more slowly than most people expected. The real problem lay at the destination, where there was nowhere to keep the ice once it had been unloaded. Only after years of heavy losses, including a spell in prison for debt, did he begin to build insulated ice houses in the ports he supplied.",
+    "Two developments turned this fragile business into a profitable one. The first was the choice of insulation. Early shippers had experimented with straw, hay and rice husks, but sawdust proved the most effective, and it had the additional merit of being almost free, since the timber mills of Maine produced it in enormous quantities as waste. The second was the mechanisation of harvesting. Cutting ice by hand with axes and saws produced blocks of uneven size that wasted space in storage and in transit. A horse-drawn cutter, introduced by one of Tudor's suppliers, Nathaniel Wyeth, scored the frozen surface of a pond in a regular grid, so that workers could split it into identical blocks that could be stacked with almost no gaps between them. Tightly stacked blocks melted more slowly, because less of their surface was exposed to warm air.",
+    "With these improvements, the trade expanded rapidly. In 1833 a cargo of ice left Boston for Calcutta, a voyage of around four months that took the ship twice across the equator; more than half of the ice was still frozen when it arrived. By the middle of the century, ships were carrying ice to ports throughout the tropics, and the ponds around Boston had become so valuable that the rights to harvest them were bought and sold like farmland. The writer Henry David Thoreau, who lived for two years beside Walden Pond, recorded watching a large team of labourers remove ice from its surface one winter, and reflected that the water he drank might one day cool a glass in India.",
+    "Yet the largest market for natural ice was never overseas. As cities in the United States grew, so did the demand for ice at home. Households bought it to fill wooden iceboxes, in which food could be kept fresh for several days, while brewers needed it to produce lager, a style of beer that must be fermented at low temperatures. Meat-packers in the Midwest packed ice into railway wagons to send fresh beef to the cities of the east coast, an innovation that changed the national diet. In Europe a similar pattern emerged, although most of the supply came not from America but from Norway, whose lakes provided ice that was shipped across the North Sea to British ports in huge quantities.",
+    "The success of the industry concealed two weaknesses. The first was its dependence on the weather. A mild winter could leave the ponds too thin to cut, and in such years the price of ice rose sharply; the shortages that followed were known as ice famines. The second weakness was purity. As towns grew along rivers and lakes, the water that froze into ice was increasingly polluted by sewage and industrial waste, and doctors began to warn that the same ice that preserved food could also spread disease. Public confidence, once lost, proved hard to restore.",
+    "These problems created an opening for a competitor. Machines that produced ice by compressing and expanding gases had existed since the middle of the century, but they had been expensive and unreliable. As the technology improved, factory-made ice, known in the trade as plant ice, became cheaper; made from filtered water, it could be produced in any season and in any town, close to the customers who needed it. The arrival of affordable electric refrigerators in private homes during the 1920s and 1930s removed the need for regular ice deliveries, and an industry that had once employed tens of thousands of people faded almost entirely from public memory."
    ],
    "groups": [
     {
      "type": "tfng",
-     "instructions": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.",
+     "instructions": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.\n\nQuestions 1–5",
      "questions": [
       {
-       "text": "Mangroves can grow in conditions where most other trees cannot survive.",
-       "answer": [
-        "TRUE"
-       ]
-      },
-      {
-       "text": "Mangrove areas were traditionally protected because of their value to farmers.",
+       "text": "Tudor's early ventures failed chiefly because the ice melted quickly during the sea voyage.",
        "answer": [
         "FALSE"
        ]
       },
       {
-       "text": "Salt crystals can sometimes be seen on the leaves of certain mangrove species.",
+       "text": "One reason for using sawdust as insulation was its low cost.",
        "answer": [
         "TRUE"
        ]
       },
       {
-       "text": "Mangrove seedlings die within a few hours if they fall into seawater.",
-       "answer": [
-        "FALSE"
-       ]
-      },
-      {
-       "text": "Mangrove wood is widely used by coastal communities for building boats.",
+       "text": "Blocks of ice cut by hand were generally heavier than those cut with Wyeth's equipment.",
        "answer": [
         "NOT GIVEN"
        ]
       },
       {
-       "text": "Planting seedlings is cheaper than restoring the natural flow of tidal water.",
+       "text": "European demand for ice was met largely by imports from the United States.",
+       "answer": [
+        "FALSE"
+       ]
+      },
+      {
+       "text": "Warnings from doctors led to a ban on selling ice taken from polluted rivers.",
        "answer": [
         "NOT GIVEN"
        ]
@@ -68,114 +66,76 @@
      ]
     },
     {
-     "type": "table-completion",
-     "instructions": "Complete the table below. Choose ONE WORD ONLY from the passage for each answer.",
-     "wordLimit": {
-      "words": 1,
-      "number": false
-     },
-     "context": "How mangroves survive\nFeature | Description | Function\nSalt glands | found on the (7) ______ | remove salt from the plant\nPencil-like roots | stick out above the mud | allow the tree to obtain (8) ______\nProp roots | arch out from the trunk | keep the tree (9) ______ in soft mud\nSeedlings | float in seawater | can survive for several (10) ______ before settling",
+     "type": "matching-info",
+     "instructions": "Reading Passage 1 has seven paragraphs, A–G. Which paragraph contains the following information? Write the correct letter, A–G.\n\nQuestions 6–8",
      "questions": [
       {
-       "text": "(7) ______",
-       "answer": [
-        "leaves"
-       ]
-      },
-      {
-       "text": "(8) ______",
-       "answer": [
-        "oxygen"
-       ]
-      },
-      {
-       "text": "(9) ______",
-       "answer": [
-        "stable"
-       ]
-      },
-      {
-       "text": "(10) ______",
-       "answer": [
-        "weeks"
-       ]
-      }
-     ]
-    },
-    {
-     "type": "mcq",
-     "instructions": "Choose the correct letter, A, B, C or D.",
-     "questions": [
-      {
-       "text": "According to paragraph E, mangrove roots can help to raise the level of the land by",
-       "options": [
-        {
-         "key": "A",
-         "text": "absorbing large amounts of rainwater."
-        },
-        {
-         "key": "B",
-         "text": "trapping sediment carried by rivers and tides."
-        },
-        {
-         "key": "C",
-         "text": "breaking up rocks along the shore."
-        },
-        {
-         "key": "D",
-         "text": "producing new soil from fallen leaves."
-        }
-       ],
+       "text": "a contrast between the assumed cause of a commercial failure and its actual cause",
        "answer": [
         "B"
        ]
       },
       {
-       "text": "Why are mangroves described as nurseries for marine life?",
-       "options": [
-        {
-         "key": "A",
-         "text": "They provide food for fish that live far out at sea."
-        },
-        {
-         "key": "B",
-         "text": "They keep the sea water cool during the hottest months."
-        },
-        {
-         "key": "C",
-         "text": "Young sea animals can shelter safely among their roots."
-        },
-        {
-         "key": "D",
-         "text": "Fishermen raise young fish there in special ponds."
-        }
-       ],
+       "text": "a reference to methods of preserving cold that existed long before the ice trade",
        "answer": [
-        "C"
+        "A"
        ]
       },
       {
-       "text": "According to the writer, replanting projects are most likely to succeed when",
-       "options": [
-        {
-         "key": "A",
-         "text": "the natural movement of the tides is restored first."
-        },
-        {
-         "key": "B",
-         "text": "very large numbers of seedlings are planted quickly."
-        },
-        {
-         "key": "C",
-         "text": "seedlings are planted on mudflats far from the shore."
-        },
-        {
-         "key": "D",
-         "text": "only one species of mangrove is used."
-        }
-       ],
+       "text": "an explanation of why a rival product was more convenient for buyers",
        "answer": [
-        "A"
+        "G"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "note-completion",
+     "instructions": "Complete the notes below. Choose ONE WORD ONLY from the passage for each answer.\n\nQuestions 9–11",
+     "wordLimit": {
+      "words": 1,
+      "number": false
+     },
+     "context": "Uses of natural ice within the United States\n• Households: kept food fresh in (9) ______\n• Brewers: needed low temperatures to make (10) ______\n• Meat-packers: sent beef east in railway (11) ______",
+     "questions": [
+      {
+       "text": "(9) ______",
+       "answer": [
+        "iceboxes"
+       ]
+      },
+      {
+       "text": "(10) ______",
+       "answer": [
+        "lager"
+       ]
+      },
+      {
+       "text": "(11) ______",
+       "answer": [
+        "wagons"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "short-answer",
+     "instructions": "Answer the questions below. Choose NO MORE THAN TWO WORDS from the passage for each answer.\n\nQuestions 12–13",
+     "wordLimit": {
+      "words": 2,
+      "number": false
+     },
+     "questions": [
+      {
+       "text": "What name was given to the shortages that followed unusually warm winters?",
+       "answer": [
+        "ice famines"
+       ]
+      },
+      {
+       "text": "What term did the industry use for ice manufactured by machines?",
+       "answer": [
+        "plant ice"
        ]
       }
      ]
@@ -184,57 +144,69 @@
   },
   {
    "kind": "ielts-r",
-   "title": "Telling the time before clocks",
+   "title": "Losing the dark",
    "difficulty": 2,
+   "topic": {
+    "en": "Light pollution and ecology",
+    "th": "มลพิษทางแสงและนิเวศวิทยา"
+   },
    "paragraphs": [
-    "Today it is almost impossible to escape the time. It appears on phones, computers, ovens and car dashboards, and most of us organise our days around appointments measured to the minute. For most of human history, however, there were no mechanical clocks at all. People who needed to divide the day into smaller parts had to rely on the movements of the sun and stars, or on processes such as the flow of water and the burning of fire. The devices they invented reveal a great deal of ingenuity, and they also tell us something about why, and for whom, precise time mattered.",
-    "The simplest method was to watch shadows. A vertical stick placed in the ground casts a shadow that changes in length and direction as the sun crosses the sky, and by marking these positions people created the first sundials. Sundials could be remarkably accurate, but they had obvious limitations: they were useless at night and on cloudy days. Their hours were also different from ours. Many early societies divided the period of daylight into a fixed number of equal parts, whatever its length, so an hour in summer was considerably longer than an hour in winter. To people who worked from sunrise to sunset, this seemed entirely natural.",
-    "At night, specialists turned to the sky. Over many generations, observers learned that particular stars rise above the horizon at predictable intervals through the night, and that the pattern shifts gradually through the year. By noting which stars had risen, a trained observer could estimate the hour with reasonable confidence. This method was valuable to priests, who needed to perform ceremonies at the correct moment, and to travellers, but it required clear skies and years of experience, and it was never available to ordinary people.",
-    "The water clock offered an answer to many of these problems, because it worked indoors, at night and in any weather. The earliest versions were simple vessels with a small hole near the bottom. As water dripped out, the level inside fell past a series of marks. The difficulty was that water escapes more slowly as the vessel empties, because there is less weight of water above the hole to push it out. Later designers found an elegant solution. They kept an upper vessel constantly full: water was poured in continuously, and any extra water escaped through an overflow channel, so the level remained the same. Water then dripped at a steady rate through a small hole into a lower vessel. As this vessel filled, a float on the surface rose, and a pointer attached to the float indicated the hour on a scale.",
-    "Fire provided another way of measuring time. Candles could be marked with evenly spaced lines, each of which took roughly the same time to burn. In parts of Asia, sticks of incense made from carefully prepared powder burned at a known rate, and they were used in temples and homes to mark the passing of the hours. Some incense clocks even worked as alarms: threads carrying small metal weights were tied across the incense stick, and when the glowing tip reached a thread and burned through it, the weights dropped noisily onto a metal plate below.",
-    "The hourglass, in which sand runs from one glass bulb into another, solved a problem that affected water clocks. Water can freeze in cold weather and flows less freely as it cools, whereas dry sand is hardly affected by changes in temperature. The hourglass was also well suited to ships, where the constant movement of the deck made a water clock unreliable. Sailors used small sand glasses, together with a rope tied with knots at regular intervals, to estimate the speed of their vessel, and larger glasses to divide the day into periods of duty.",
-    "What these devices have in common is that each was designed for a particular group with particular needs. Priests needed to know when to pray, courts in some ancient cities used water clocks to limit the length of speeches, and sailors needed to calculate their position. Most people, by contrast, lived by daylight, by the needs of their animals and crops, and by the ringing of local bells. The arrival of the mechanical clock gradually spread the idea of equal hours throughout society, yet the older methods did not disappear quickly; in many places sundials and sand glasses remained in everyday use for centuries afterwards."
+    "For almost the whole history of life on Earth, night has been reliably dark. The brightness of the night sky varied with the phases of the moon and with the weather, but it never approached that of day, and the daily alternation between light and darkness became built into the bodies of nearly every living thing. In little more than a century, that pattern has been disrupted across much of the planet. Satellite images show continents outlined in light, and a widely cited atlas published in 2016 estimated that more than four-fifths of the world's population lives under skies measurably brightened by artificial lighting. In Europe and North America, almost nobody now lives beneath a truly natural night sky.",
+    "Measuring the change has proved surprisingly difficult. Satellites are the obvious tool, but most of those that photograph the Earth at night are poorly suited to the task. Some cannot detect the blue part of the spectrum, so they record the replacement of orange street lamps by white light-emitting diodes, or LEDs, as a fall in brightness even when the sky above a city is becoming brighter to the human eye. For this reason, some of the most revealing evidence has come from the ground. In a long-running project, thousands of volunteers around the world compared the night sky with a set of star charts, recording the faintest stars visible from where they stood. Analysed together, their observations between 2011 and 2022 suggested that the sky was growing brighter by nearly ten per cent a year, far faster than satellite measurements had indicated.",
+    "The consequences for wildlife are most dramatic among animals that use light to find their way. Sea turtles provide the classic example. Hatchlings emerge from nests on the beach at night and head instinctively towards the brightest part of the horizon, which, on an unlit coast, is the open sea reflecting the glow of the sky. Where hotels and roads line the shore, the young turtles may crawl inland instead, and die from exhaustion, predators or traffic. On some coasts, volunteers now patrol the beaches during the nesting season, asking residents to draw their curtains and switch off outdoor lights. Many migrating birds, which often travel at night, are drawn towards brightly lit buildings, particularly on cloudy nights when the stars are hidden, and may circle them until they collapse or collide with glass.",
+    "The attraction of insects to lamps has been noticed for as long as people have lit fires, yet its cause was poorly understood until recently. It was long suggested that moths steer by keeping the moon at a fixed angle and are confused by nearer lights. In 2024, however, researchers who filmed insects in flight with high-speed cameras proposed a simpler explanation. Flying insects appear to keep their backs turned towards the brightest part of their surroundings, which in nature is the sky. When the brightest point is a lamp to one side, this reflex tips them sideways or even upside down, and they circle helplessly around it. Whatever the mechanism, the scale of the effect is considerable: a single street light can draw in insects from a wide surrounding area, removing them from the food chains and pollination networks on which other species depend.",
+    "Humans are not immune. The body's internal clock is set chiefly by light received through the eyes, and exposure to light in the evening delays the release of melatonin, a hormone associated with the onset of sleep. Light at the blue end of the spectrum, which is abundant in many white LEDs and in the screens of phones, is especially effective at producing this delay. Night-shift workers, whose exposure to light after dark is greater than anyone else's, have been studied particularly closely. Studies have linked high levels of outdoor light at night with poorer sleep and with a range of health problems, although researchers acknowledge that people living in brightly lit areas differ from others in many ways, so that cause and effect are hard to separate.",
+    "Unlike many forms of pollution, light pollution can be reduced almost immediately and at modest cost. A large share of outdoor light shines sideways or upwards, where it illuminates nothing useful. Moreover, because light leaves no residue in soil or water, the benefits of any change begin the moment the lamps are adjusted. Shielded fittings that direct light only downwards, lamps that are dimmed or switched off late at night, and warmer colours containing less blue light can all reduce the problem without making streets less safe. A number of towns and protected areas have been recognised as dark-sky places after adopting such measures, and some report that the resulting views of the stars have attracted visitors.",
+    "The obstacle is less technical than psychological. Brightness is widely associated with security and prosperity, and residents often oppose reductions in street lighting even where there is little evidence that brighter lighting reduces crime. The switch to LEDs illustrates the difficulty. Because the new lamps are far cheaper to run, many authorities have installed more of them, or made them brighter, cancelling much of the expected environmental benefit. Campaigners for darker skies argue that the real task is not to persuade people to accept darkness, but to convince them that well-designed lighting, aimed where it is needed and used when it is needed, is better lighting rather than less."
    ],
    "groups": [
     {
      "type": "headings",
-     "instructions": "Reading Passage 2 has seven paragraphs, A–G. Choose the correct heading for paragraphs B–G from the list of headings below.",
+     "instructions": "Reading Passage 2 has seven paragraphs, A–G. Choose the correct heading for paragraphs B–G from the list of headings below. Write the correct number, i–xi.\n\nQuestions 14–19",
      "options": [
       {
        "key": "i",
-       "text": "Measuring time by burning"
+       "text": "Why astronomers were the first to complain"
       },
       {
        "key": "ii",
-       "text": "Using the sun and its limitations"
+       "text": "Ground-level observation succeeds where technology falls short"
       },
       {
        "key": "iii",
-       "text": "The invention of the pendulum"
+       "text": "Satellites that capture every colour of light"
       },
       {
        "key": "iv",
-       "text": "Reading the night sky"
+       "text": "Creatures misled while trying to navigate"
       },
       {
        "key": "v",
-       "text": "How early clocks were decorated"
+       "text": "Hotels required to switch off their lights"
       },
       {
        "key": "vi",
-       "text": "Solving the problem of an uneven flow"
+       "text": "A fresh explanation for a familiar puzzle"
       },
       {
        "key": "vii",
-       "text": "A device suited to life at sea"
+       "text": "The moon as a guide for travelling insects"
       },
       {
        "key": "viii",
-       "text": "Why precise time mattered only to some groups"
+       "text": "A biological effect, with a warning about the evidence"
       },
       {
        "key": "ix",
-       "text": "The high cost of early timekeeping"
+       "text": "Solutions that are quick and inexpensive"
+      },
+      {
+       "key": "x",
+       "text": "Proof that bright streets reduce crime"
+      },
+      {
+       "key": "xi",
+       "text": "Changing minds rather than changing lamps"
       }
      ],
      "questions": [
@@ -259,98 +231,121 @@
       {
        "text": "Paragraph E",
        "answer": [
-        "i"
+        "viii"
        ]
       },
       {
        "text": "Paragraph F",
        "answer": [
-        "vii"
+        "ix"
        ]
       },
       {
        "text": "Paragraph G",
        "answer": [
-        "viii"
+        "xi"
        ]
       }
      ]
     },
     {
-     "type": "flowchart-completion",
-     "instructions": "Complete the flow-chart below. Choose ONE WORD ONLY from the passage for each answer.",
-     "wordLimit": {
-      "words": 1,
-      "number": false
-     },
-     "context": "An improved water clock\nWater is poured continuously into the upper vessel.\n↓\nExtra water escapes through an (20) ______ channel, so the level stays the same.\n↓\nWater drips at a steady rate through a small (21) ______ into the lower vessel.\n↓\nA (22) ______ on the surface of the water in the lower vessel rises.\n↓\nA (23) ______ attached to it shows the hour on a scale.",
-     "questions": [
+     "type": "matching-features",
+     "instructions": "Look at the following statements and the list of animals below. Match each statement with the correct animal, A–D.\nA sea turtles\nB migrating birds\nC flying insects\nD humans\n\nWrite the correct letter, A–D. NB You may use any letter more than once.\n\nQuestions 20–23",
+     "options": [
       {
-       "text": "(20) ______",
-       "answer": [
-        "overflow"
-       ]
+       "key": "A",
+       "text": "sea turtles"
       },
       {
-       "text": "(21) ______",
-       "answer": [
-        "hole"
-       ]
+       "key": "B",
+       "text": "migrating birds"
       },
       {
-       "text": "(22) ______",
-       "answer": [
-        "float"
-       ]
+       "key": "C",
+       "text": "flying insects"
       },
       {
-       "text": "(23) ______",
-       "answer": [
-        "pointer"
-       ]
+       "key": "D",
+       "text": "humans"
       }
-     ]
-    },
-    {
-     "type": "mcq-multi",
-     "instructions": "Choose THREE letters, A–G.",
+     ],
      "questions": [
       {
-       "text": "Which THREE of the following problems with early methods of telling the time are mentioned in the passage?",
-       "options": [
-        {
-         "key": "A",
-         "text": "Sundials could not be used without sunlight."
-        },
-        {
-         "key": "B",
-         "text": "Observing the stars required clear skies."
-        },
-        {
-         "key": "C",
-         "text": "Water in clocks could freeze in cold weather."
-        },
-        {
-         "key": "D",
-         "text": "Sand for hourglasses was expensive to obtain."
-        },
-        {
-         "key": "E",
-         "text": "Candles produced too much smoke to be used indoors."
-        },
-        {
-         "key": "F",
-         "text": "Incense clocks were not permitted in private homes."
-        },
-        {
-         "key": "G",
-         "text": "Hourglasses stopped working on moving ships."
-        }
-       ],
+       "text": "They are most at risk when natural sources of light in the sky are obscured.",
        "answer": [
-        "A",
-        "B",
+        "B"
+       ]
+      },
+      {
+       "text": "Artificial light can cause them to move away from the place they are trying to reach.",
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "They instinctively keep one part of the body facing the brightest area around them.",
+       "answer": [
         "C"
+       ]
+      },
+      {
+       "text": "A single artificial light can affect individuals gathered from a large area.",
+       "answer": [
+        "C"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "sentence-endings",
+     "instructions": "Complete each sentence with the correct ending, A–G, below. Write the correct letter, A–G.\n\nQuestions 24–26",
+     "options": [
+      {
+       "key": "A",
+       "text": "they are unable to register light at the blue end of the spectrum."
+      },
+      {
+       "key": "B",
+       "text": "white LEDs give out less light than the lamps they replaced."
+      },
+      {
+       "key": "C",
+       "text": "volunteers could not see the faintest stars from cities."
+      },
+      {
+       "key": "D",
+       "text": "people in brightly lit places may differ from others in other respects."
+      },
+      {
+       "key": "E",
+       "text": "most outdoor lighting is already directed downwards."
+      },
+      {
+       "key": "F",
+       "text": "their low running costs encouraged authorities to use more light."
+      },
+      {
+       "key": "G",
+       "text": "residents have complained that the new lamps disturb their sleep."
+      }
+     ],
+     "questions": [
+      {
+       "text": "Some satellites give a misleading picture of changes in night-time brightness because",
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "Researchers are cautious about linking outdoor light with poor health because",
+       "answer": [
+        "D"
+       ]
+      },
+      {
+       "text": "The move to LED street lighting has not always reduced environmental harm because",
+       "answer": [
+        "F"
        ]
       }
      ]
@@ -359,149 +354,237 @@
   },
   {
    "kind": "ielts-r",
-   "title": "The uses of boredom",
+   "title": "Bringing back the dead: the case against de-extinction",
    "difficulty": 3,
+   "topic": {
+    "en": "Conservation biology and genetic engineering",
+    "th": "ชีววิทยาการอนุรักษ์และพันธุวิศวกรรม"
+   },
    "paragraphs": [
-    "Boredom has a poor reputation. It is usually treated as a problem to be solved as quickly as possible, whether by parents searching for activities to occupy restless children or by adults reaching for their phones in a queue. For the first time in history, it has become possible for many people never to be bored at all, since an endless supply of entertainment is always within reach. This is generally regarded as progress. I want to argue that it is a more mixed blessing than it appears, and that the near-disappearance of boredom from everyday life may carry costs that we are only beginning to recognise.",
-    "It helps to be clear about what boredom is. Psychologists generally describe it as an unpleasant state in which a person wants to be engaged in something satisfying but is unable to find it. This distinguishes boredom from relaxation, which is pleasant precisely because nothing is demanded of us. The distinction matters, because it suggests that boredom is not simply the absence of activity. Several psychologists have proposed that it works as a signal, rather like hunger or pain: just as hunger tells us that we need food, boredom tells us that what we are currently doing is not meeting our needs and that we should look for something more meaningful.",
-    "Neuroscientists have added a further dimension to this picture. When people are not concentrating on an external task, the brain does not simply switch off. Instead, a group of connected regions becomes more active, and this activity is associated with remembering past events, imagining the future and letting the mind wander from one thought to another. The period of apparent idleness that we experience as boredom may therefore be one in which the brain is busy organising experience and making unexpected connections.",
-    "This possibility has been explored in experiments on creativity. In a typical study, one group of participants first completes a deliberately dull task, such as copying numbers from a telephone directory, while a second group goes straight to the main task. Both groups are then asked to list as many uses as they can for an everyday object, such as a cup or a brick. In several studies of this kind, the participants who had been bored produced more ideas, and more unusual ones. These results should be treated with some caution. Most of the studies have been small, the effects have been modest, and laboratory tasks are very different from the creative work people do in real life. Nonetheless, the pattern has appeared often enough to be taken seriously.",
-    "If boredom does have value, then one feature of modern life deserves closer attention. The designers of digital products, from games to social media, work hard to capture and hold attention, and they are very good at it. Feeds that never end and videos that start playing automatically ensure that users need never face an empty moment. The boredom signal is now answered almost instantly, but rarely with anything that satisfies it. The result is a curious state in which people are constantly stimulated yet often report feeling restless and unfulfilled.",
-    "Teachers are divided on what this means for education. Some worry that pupils who have rarely had to tolerate boredom lack the patience needed for demanding tasks, such as reading a long novel or working through a difficult problem, which inevitably involve stretches of effort without immediate reward. Others reply that if pupils are bored in class, the fault usually lies with lessons that are poorly designed, and that it is unfair to blame children for losing interest. Both positions seem to me partly right. A good lesson should not be boring, but no worthwhile learning is entirely free of moments that require persistence.",
-    "Historians offer a reminder that boredom, as we understand it, is closely connected with freedom. They note that complaints about boredom became much more common as larger numbers of people gained leisure time and a choice of how to spend it. People whose days are filled with the struggle to survive have little opportunity to be bored. In this sense, boredom is a problem that only becomes possible when life offers alternatives, and the ability to deal with it is part of learning how to use freedom well.",
-    "None of this means that we should seek out boredom in large doses. Long-term boredom, especially at work, is associated with poor well-being, and nobody benefits from being trapped for years in a role that offers no satisfaction. My suggestion is more modest. It is that we should stop filling every small gap in the day automatically: that we might occasionally take a walk without headphones, or wait for a train without looking at a screen. The aim is not to suffer, but to give the mind enough room to notice what it actually wants."
+    "In April 2025, a biotechnology company in the United States announced that it had produced three wolf pups which, it claimed, were the first dire wolves to walk the Earth for more than ten thousand years. The animals were in fact grey wolves whose DNA had been altered at a small number of sites to give them some of the physical features, such as a larger frame and a pale coat, that scientists associate with their extinct relative. The announcement attracted enormous attention, much of it admiring, and a predictable chorus of criticism. Both reactions, I want to suggest, missed the more interesting question. The issue is not whether such animals are really dire wolves, but what we hope to achieve by making them, and whether the same effort could achieve more elsewhere.",
+    "The term de-extinction promises more than any current technique can deliver. An extinct species cannot be recreated from fragments of ancient DNA; what can be produced is a living relative engineered to resemble it in selected respects. Even the one case in which an extinct animal was, briefly, brought back illustrates the limits. In 2003 a team of Spanish and French scientists cloned a Pyrenean ibex, a wild goat whose last known member had died three years earlier, using cells preserved from that individual. The attempt required dozens of embryos to be transferred to surrogate goats, and only one pregnancy went to full term. The newborn kid lived for only a few minutes, killed by a defect in its lungs. Cloning requires intact cells, and for the overwhelming majority of extinct species none exist.",
+    "Defenders of the field reply that resemblance is enough. What matters ecologically, they argue, is not an animal's ancestry but what it does: how it grazes, how it disperses seeds, how it shapes the land. If an elephant engineered to withstand the cold could trample shrubs and maintain open grassland in the Arctic, as mammoths are thought to have done, it would hardly matter whether we called it a mammoth. Some researchers even suggest that such grazing could slow the thawing of frozen ground, since trampled snow allows winter cold to reach deeper into the soil. This is a serious argument, and in principle I accept it. The difficulty is that it turns de-extinction from a question of identity into a question of ecology, and on ecological grounds the proposals look far less persuasive.",
+    "Consider what restoring an ecological role would actually require. A single animal, or even a few dozen, does nothing to a landscape; a functioning population of large herbivores would need to number in the thousands and to be sustained over many generations. Elephants breed slowly, with a pregnancy lasting nearly two years, and their engineered cousins would need habitat, protection and, almost certainly, decades of intensive management. Meanwhile, the ecosystems into which they would be released have not stood still since the mammoths vanished: the climate, the vegetation and the human presence have all changed. There is no guarantee that a role played ten thousand years ago can be filled today, or that filling it would be beneficial.",
+    "The second objection concerns cost, and here the argument becomes uncomfortable for the enthusiasts. Money spent on recreating lost species is money not spent on keeping existing ones alive, and conservation budgets are already small in relation to the scale of the losses they are meant to prevent. One widely discussed analysis, which estimated the cost of maintaining revived species in the wild, concluded that the same sums could protect several times as many species that are threatened but still survive. Supporters respond that the private investors who fund de-extinction would not otherwise give to conservation, so nothing is truly diverted. That may be so, but it overlooks a subtler risk: if the public comes to believe that extinction can be reversed, the sense of urgency that drives support for conservation may weaken.",
+    "This is sometimes called the moral hazard of de-extinction, and I regard it as the strongest argument against the more extravagant claims made on the field's behalf. Few people treat a valuable vase carelessly simply because a restorer could glue the pieces together; but a belief that a lost species can be brought back may well make its loss seem less final, and therefore less serious. Presenting engineered wolves as the return of an extinct predator, as the 2025 announcement did, is precisely the kind of framing that encourages this belief.",
+    "None of this means that the underlying technology is worthless. On the contrary, its most promising uses have little to do with extinct animals. The black-footed ferret, a North American predator that was once reduced to a few dozen individuals, suffers from very low genetic diversity, because every living ferret descends from a handful of survivors. In 2020 scientists produced a clone from cells that had been frozen in the 1980s, reintroducing genetic variation that had been missing from the population for decades. Techniques developed for de-extinction might similarly be used to give endangered species resistance to disease, or to help corals cope with warmer seas.",
+    "The fairest conclusion, then, is that de-extinction is misnamed rather than misguided. As a promise to undo the losses of the past, it is unconvincing and potentially harmful. As a set of tools for protecting the species that remain, it may prove genuinely valuable. The test of the field over the coming decades will be whether its leaders are willing to describe their work in the second, more modest sense, even though that description is far less likely to make headlines. Such modesty would cost the field some publicity, but it would earn something more durable: the trust of the conservationists whose cooperation it will ultimately need."
    ],
    "groups": [
     {
-     "type": "matching-features",
-     "instructions": "Look at the following statements and the list of groups below. Match each statement with the correct group, A–F.",
-     "options": [
-      {
-       "key": "A",
-       "text": "psychologists"
-      },
-      {
-       "key": "B",
-       "text": "neuroscientists"
-      },
-      {
-       "key": "C",
-       "text": "designers of digital products"
-      },
-      {
-       "key": "D",
-       "text": "teachers"
-      },
-      {
-       "key": "E",
-       "text": "historians"
-      },
-      {
-       "key": "F",
-       "text": "economists"
-      }
-     ],
+     "type": "mcq",
+     "instructions": "Choose the correct letter, A, B, C or D.\n\nQuestions 27–29",
      "questions": [
       {
-       "text": "They suggest that boredom indicates that a current activity is not satisfying a person's needs.",
-       "answer": [
-        "A"
-       ]
-      },
-      {
-       "text": "They have found that parts of the brain become more active when a person is not focused on a task.",
+       "text": "What does the writer say about the reactions to the 2025 announcement?",
+       "options": [
+        {
+         "key": "A",
+         "text": "Most of them were hostile to the company."
+        },
+        {
+         "key": "B",
+         "text": "Supporters and critics alike concentrated on the less important issue."
+        },
+        {
+         "key": "C",
+         "text": "The critics were right to say that the animals were not dire wolves."
+        },
+        {
+         "key": "D",
+         "text": "The admiration was justified by the scale of the scientific achievement."
+        }
+       ],
        "answer": [
         "B"
        ]
       },
       {
-       "text": "They try to ensure that people are never left without something to occupy them.",
+       "text": "The writer refers to the Pyrenean ibex in order to show that",
+       "options": [
+        {
+         "key": "A",
+         "text": "cloning is likely to succeed if cells are preserved soon enough."
+        },
+        {
+         "key": "B",
+         "text": "lung defects are common in animals produced by cloning."
+        },
+        {
+         "key": "C",
+         "text": "the most direct method of revival has so far achieved very little."
+        },
+        {
+         "key": "D",
+         "text": "most extinct species have left behind no DNA of any kind."
+        }
+       ],
        "answer": [
         "C"
        ]
       },
       {
-       "text": "They disagree about who should be blamed when pupils lose interest.",
+       "text": "What is the writer's view of the argument that 'resemblance is enough'?",
+       "options": [
+        {
+         "key": "A",
+         "text": "It contains a basic logical error."
+        },
+        {
+         "key": "B",
+         "text": "It applies only to the case of the mammoth."
+        },
+        {
+         "key": "C",
+         "text": "It has been confirmed by experiments in the Arctic."
+        },
+        {
+         "key": "D",
+         "text": "It is reasonable, but it means the proposals must be judged on different grounds."
+        }
+       ],
        "answer": [
         "D"
-       ]
-      },
-      {
-       "text": "They connect the growth of boredom with an increase in free time.",
-       "answer": [
-        "E"
        ]
       }
      ]
     },
     {
      "type": "ynng",
-     "instructions": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.",
+     "instructions": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.\n\nQuestions 30–34",
      "questions": [
       {
-       "text": "The fact that many people need never be bored is entirely a positive development.",
+       "text": "Releasing a few dozen engineered animals could be enough to restore an ecological role.",
        "answer": [
         "NO"
        ]
       },
       {
-       "text": "Boredom should be distinguished from relaxation.",
+       "text": "Arctic ecosystems today are largely unchanged from the time when mammoths lived there.",
+       "answer": [
+        "NO"
+       ]
+      },
+      {
+       "text": "A public belief that extinction can be undone might reduce support for conservation.",
        "answer": [
         "YES"
        ]
       },
       {
-       "text": "The results of the creativity experiments should be accepted with some care.",
-       "answer": [
-        "YES"
-       ]
-      },
-      {
-       "text": "People who use social media frequently are less creative than those who do not.",
+       "text": "The 2025 announcement was intended to discourage people from funding conservation.",
        "answer": [
         "NOT GIVEN"
        ]
       },
       {
-       "text": "People should try to experience boredom for long periods.",
+       "text": "Cloning will become the most important method for rescuing endangered species.",
        "answer": [
-        "NO"
+        "NOT GIVEN"
        ]
       }
      ]
     },
     {
-     "type": "summary-completion",
-     "instructions": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
-     "wordLimit": {
-      "words": 2,
-      "number": false
-     },
-     "context": "Boredom and creativity\nIn one kind of experiment, some participants first complete a dull task, such as (37) ______ from a telephone directory. All participants are then asked to think of uses for an everyday (38) ______. Those who were bored tend to produce more ideas. The writer recommends leaving small gaps in the day, for example by taking a (39) ______ without headphones, while recognising that long-term boredom is linked with poor (40) ______.",
+     "type": "summary-box",
+     "instructions": "Complete the summary using the list of words, A–I, below. Write the correct letter, A–I.\n\nQuestions 35–38",
+     "context": "A better use for the technology\nThe writer believes that the techniques developed for de-extinction are most useful for species that still (35) ______. The black-footed ferret, for instance, has very little genetic (36) ______ because the whole population descends from a few survivors. A ferret produced in 2020 from cells that had been (37) ______ decades earlier helped to restore some of what had been lost. Similar methods might help corals to tolerate warmer seas, or protect endangered species from (38) ______.",
+     "options": [
+      {
+       "key": "A",
+       "text": "survive"
+      },
+      {
+       "key": "B",
+       "text": "migrate"
+      },
+      {
+       "key": "C",
+       "text": "variation"
+      },
+      {
+       "key": "D",
+       "text": "size"
+      },
+      {
+       "key": "E",
+       "text": "frozen"
+      },
+      {
+       "key": "F",
+       "text": "cloned"
+      },
+      {
+       "key": "G",
+       "text": "disease"
+      },
+      {
+       "key": "H",
+       "text": "predators"
+      },
+      {
+       "key": "I",
+       "text": "hunting"
+      }
+     ],
      "questions": [
+      {
+       "text": "(35) ______",
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "(36) ______",
+       "answer": [
+        "C"
+       ]
+      },
       {
        "text": "(37) ______",
        "answer": [
-        "copying numbers"
+        "E"
        ]
       },
       {
        "text": "(38) ______",
        "answer": [
-        "object"
+        "G"
        ]
-      },
+      }
+     ]
+    },
+    {
+     "type": "mcq-multi",
+     "instructions": "Choose TWO letters, A–E.\n\nQuestions 39–40",
+     "questions": [
       {
-       "text": "(39) ______",
+       "text": "Which TWO reasons does the writer give for doubting that engineered animals could restore lost ecosystems?",
+       "options": [
+        {
+         "key": "A",
+         "text": "A population large enough to matter would take a very long time to build up."
+        },
+        {
+         "key": "B",
+         "text": "The places where they would be released have changed since the original species died out."
+        },
+        {
+         "key": "C",
+         "text": "The engineered animals would be unable to digest Arctic plants."
+        },
+        {
+         "key": "D",
+         "text": "Local people would oppose the release of large animals near their homes."
+        },
+        {
+         "key": "E",
+         "text": "The engineered animals would be more vulnerable to disease than the originals."
+        }
+       ],
        "answer": [
-        "walk"
-       ]
-      },
-      {
-       "text": "(40) ______",
-       "answer": [
-        "well-being",
-        "wellbeing"
+        "A",
+        "B"
        ]
       }
      ]
@@ -512,45 +595,57 @@
    "kind": "ielts-w",
    "task": 1,
    "visual": "table",
-   "prompt": "The table below shows the number of visitors to four types of tourist attraction in one city in 2015, 2020 and 2025.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.",
+   "prompt": "The table below gives information about public transport in five cities in 2024.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.",
    "table": {
-    "title": "Visitors to tourist attractions (thousands)",
+    "title": "Public transport in five cities, 2024",
     "rows": [
      [
-      "Type of attraction",
-      "2015",
-      "2020",
-      "2025"
+      "City",
+      "Population (millions)",
+      "Rail/metro network (km)",
+      "Public transport trips per day (millions)",
+      "Commuters using public transport (%)",
+      "Single fare (US$)"
      ],
      [
-      "Museums and galleries",
-      "420",
-      "180",
-      "510"
+      "Halvern",
+      "8.4",
+      "410",
+      "9.8",
+      "63",
+      "1.80"
      ],
      [
-      "Theme parks",
-      "650",
-      "240",
-      "720"
+      "Marlow Bay",
+      "6.9",
+      "40",
+      "1.7",
+      "21",
+      "0.60"
      ],
      [
-      "Zoos and aquariums",
-      "310",
-      "150",
-      "280"
+      "Corrin",
+      "5.2",
+      "95",
+      "2.9",
+      "38",
+      "0.90"
      ],
      [
-      "Historic sites",
-      "280",
-      "120",
-      "390"
+      "Tessaly",
+      "3.6",
+      "210",
+      "3.1",
+      "55",
+      "2.60"
      ],
      [
-      "All attractions",
-      "1,660",
-      "690",
-      "1,900"
+      "Velden",
+      "1.8",
+      "0",
+      "0.9",
+      "34",
+      "1.20"
      ]
     ]
    }
@@ -558,8 +653,8 @@
   {
    "kind": "ielts-w",
    "task": 2,
-   "essayType": "problem-solution",
-   "prompt": "In many large cities, young adults are finding it increasingly difficult to afford a home of their own.\n\nWhat problems does this cause? What measures could be taken to solve these problems?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words."
+   "essayType": "two-part",
+   "prompt": "In many countries, people are living longer than ever before, yet a growing share of those extra years is spent in poor health.\n\nWhy is this happening? What can individuals and governments do to make sure that longer lives are also healthier ones?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words."
   }
  ]
 }

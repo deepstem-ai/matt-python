@@ -14,7 +14,13 @@ import sys
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "server"))
 import exams  # noqa: E402
 
-EXPECT = {"sat": {"sat": 27}, "gate": {"m1": 40}, "ep": {"m1": 40}, "ielts": {"ielts-r": 3, "ielts-w": 2}}
+EXPECT = {"sat": {"sat": 54}, "gate": {"m1": 120}, "ep": {"m1": 130}, "satit": {"m1": 185}, "ielts": {"ielts-r": 3, "ielts-w": 2}}
+# full-length practice formats (see server/exam_sets/README.md)
+M1_MIX = {"gate": {"math": 40, "sci": 40, "eng": 20, "thai": 20},
+          "ep": {"eng": 50, "math": 40, "sci": 40},
+          "satit": {"math": 25, "sci": 50, "thai": 60, "eng": 50}}
+M1_FILL = {"gate": {"math": 10, "sci": 5}, "ep": {"math": 10, "sci": 5}, "satit": {}}
+M1_EN = {"satit": {"math": 5, "sci": 10}}
 
 
 def check(path):
@@ -32,7 +38,9 @@ def check(path):
         count[it["kind"]] = count.get(it["kind"], 0) + 1
         for p in probs:
             bad.append(f"{path} item {n} ({(raw.get('stem') or raw.get('title') or raw.get('prompt') or '')[:50]!r}): {p}")
-        if d["exam"] in ("gate", "ep") and it["kind"] == "m1" and it["program"] != d["exam"]:
+        if it["kind"] in ("sat", "ielts-r") and not (it.get("topic") or {}).get("en"):
+            bad.append(f"{path} item {n}: add \"topic\" {{en, th}} (what the passage is about)")
+        if d["exam"] in M1_MIX and it["kind"] == "m1" and it["program"] != d["exam"]:
             bad.append(f"{path} item {n}: program must be {d['exam']}")
     if count != EXPECT[d["exam"]]:
         bad.append(f"{path}: expected {EXPECT[d['exam']]}, found {count}")
@@ -48,20 +56,29 @@ def check(path):
         if tasks != [1, 2]:
             bad.append(f"{path}: needs one Writing Task 1 and one Task 2")
     if d["exam"] == "sat":
-        doms = {}
+        for m, part in ((1, d["items"][:27]), (2, d["items"][27:])):
+            doms = {}
+            for r in part:
+                doms[r.get("domain")] = doms.get(r.get("domain"), 0) + 1
+            if doms != {"cs": 7, "ii": 7, "sec": 7, "eoi": 6}:
+                bad.append(f"{path}: SAT module {m} mix must be cs 7, ii 7, sec 7, eoi 6 (now {doms})")
+    if d["exam"] in M1_MIX:
+        subj, fill, en = {}, {}, {}
         for r in d["items"]:
-            doms[r.get("domain")] = doms.get(r.get("domain"), 0) + 1
-        if doms != {"cs": 7, "ii": 7, "sec": 7, "eoi": 6}:
-            bad.append(f"{path}: SAT module mix must be cs 7, ii 7, sec 7, eoi 6 (now {doms})")
-    if d["exam"] in ("gate", "ep"):
-        subj = {}
-        for r in d["items"]:
-            subj[r.get("subject")] = subj.get(r.get("subject"), 0) + 1
-        want = {"gate": {"math": 15, "sci": 15, "eng": 5, "thai": 5}, "ep": {"eng": 20, "math": 10, "sci": 10}}[d["exam"]]
-        if subj != want:
-            bad.append(f"{path}: subject mix must be {want} (now {subj})")
-        ans = [r.get("answer") for r in d["items"]]
-        if any(ans.count(k) > 16 for k in range(4)):
+            k = r.get("subject")
+            subj[k] = subj.get(k, 0) + 1
+            if r.get("format") == "fill":
+                fill[k] = fill.get(k, 0) + 1
+            if r.get("lang") == "en" and d["exam"] == "satit":
+                en[k] = en.get(k, 0) + 1
+        if subj != M1_MIX[d["exam"]]:
+            bad.append(f"{path}: subject mix must be {M1_MIX[d['exam']]} (now {subj})")
+        if fill != M1_FILL[d["exam"]]:
+            bad.append(f"{path}: written-answer (fill) questions must be {M1_FILL[d['exam']]} (now {fill})")
+        if d["exam"] in M1_EN and en != M1_EN[d["exam"]]:
+            bad.append(f"{path}: English-language questions must be {M1_EN[d['exam']]} (now {en})")
+        ans = [r.get("answer") for r in d["items"] if r.get("format") != "fill"]
+        if ans and max(ans.count(k) for k in range(4)) > len(ans) * 0.32:
             bad.append(f"{path}: spread the correct answers across all four positions")
     return bad
 

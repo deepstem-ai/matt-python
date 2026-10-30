@@ -9,17 +9,32 @@
   var EMAIL = "info@deepdistrict.si";
   var FOUNDED = 2026;
 
+  // Top menu: similar pages are grouped under one item (opens on hover, click or keyboard).
   var NAV = [
     { href: "pages/si.html", en: "What is SI?", th: "SI คืออะไร", cls: "nav-si" },
-    { href: "pages/programs.html", en: "Programs", th: "หลักสูตร" },
-    { href: "pages/admissions.html", en: "Admissions", th: "สอบเข้ามหาลัย", cls: "nav-adm" },
-    { href: "pages/innovation.html", en: "Innovation Lab", th: "แล็บนวัตกรรม" },
-    { href: "pages/research.html", en: "Research", th: "วิจัย" },
-    { href: "pages/stem.html", en: "Youth STEM", th: "STEM เยาวชน" },
-    { href: "pages/tests.html", en: "Free tests", th: "ลองทำข้อสอบ", cls: "nav-tests" },
+    { en: "Courses", th: "หลักสูตร", key: "courses", children: [
+      { href: "pages/programs.html", en: "All programmes", th: "หลักสูตรทั้งหมด", desc: ["Maths, Physics, English, coding, AI", "คณิต ฟิสิกส์ อังกฤษ โค้ดดิ้ง AI"] },
+      { href: "pages/programs.html#planner", en: "Plan my path", th: "ออกแบบเส้นทางเรียน", desc: ["From M.1 to university", "จาก ม.1 สู่มหาวิทยาลัย"] },
+      { href: "pages/stem.html", en: "Youth STEM", th: "STEM เยาวชน", desc: ["Projects and competitions", "โครงงานและการแข่งขัน"] },
+      { href: "pages/innovation.html", en: "Innovation Lab", th: "แล็บนวัตกรรม", desc: ["Build real AI and SI projects", "สร้างโปรเจกต์ AI และ SI จริง"] },
+      { href: "pages/research.html", en: "Research", th: "วิจัย", desc: ["Publish and compete", "ตีพิมพ์และแข่งขัน"] }
+    ] },
+    { en: "Tests & admissions", th: "ข้อสอบและสอบเข้า", key: "tests", cls: "nav-adm", children: [
+      { href: "pages/tests.html", en: "Free practice tests", th: "ลองทำข้อสอบฟรี", desc: ["SAT, IELTS, Suankularb and Satit M.1 — timed", "SAT, IELTS, ม.1 สวนกุหลาบ และสาธิต — จับเวลา"] },
+      { href: "pages/tests.html?exam=gate&set=1&full=1", en: "M.1 entrance tests", th: "ข้อสอบเข้า ม.1", desc: ["Suankularb GATE + EP, Satit Prasarnmit", "สวนกุหลาบ GATE + EP และสาธิตประสานมิตร"] },
+      { href: "pages/admissions.html", en: "University admissions", th: "สอบเข้ามหาวิทยาลัย", desc: ["IELTS · SAT · TBAT · CU-AAT · TCAS", "IELTS · SAT · TBAT · CU-AAT · TCAS"] },
+      { href: "pages/admissions.html#portfolio", en: "Admissions portfolio", th: "พอร์ตยื่นมหาวิทยาลัย", desc: ["TCAS round 1 and abroad", "TCAS รอบ 1 และต่างประเทศ"] },
+      { href: "admin/index.html#/tests", en: "Student portal (sign in)", th: "ระบบนักเรียน (เข้าสู่ระบบ)", desc: ["All full sets, results, live class", "ชุดเต็มทั้งหมด ผลสอบ ห้องเรียนสด"] }
+    ] },
     { href: "pages/blog.html", en: "News", th: "ข่าวสาร", cls: "nav-news" },
-    { href: "pages/about.html", en: "About", th: "เกี่ยวกับเรา" }
+    { en: "About", th: "เกี่ยวกับเรา", key: "about", children: [
+      { href: "pages/about.html", en: "About us", th: "เกี่ยวกับเรา" },
+      { href: "pages/partners.html", en: "Partners", th: "พันธมิตร" },
+      { href: "pages/contact.html", en: "Contact", th: "ติดต่อเรา" },
+      { href: "pages/verify.html", en: "Verify a document", th: "ตรวจสอบเอกสาร" }
+    ] }
   ];
+
 
   var COLS = [
     { en: "Learn", th: "เรียนรู้", links: [
@@ -59,6 +74,13 @@
     var c = [cls, item.cls].filter(Boolean).join(" ");
     return '<a href="' + base + item.href + '"' + aria + (c ? ' class="' + c + '"' : "") + ">" + bi(item.en, item.th) + "</a>";
   }
+  function navItem(n) {
+    if (!n.children) return link(n);
+    var on = n.children.some(function (c) { return c.href.replace("pages/", "").replace(/\.html.*$/, "") === current; });
+    return '<div class="nav-menu' + (n.cls ? " " + n.cls : "") + (on ? " is-current" : "") + '"><button type="button" class="nav-menu__btn" aria-expanded="false" aria-haspopup="true">' + bi(n.en, n.th) +
+      ' <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="nav-menu__panel" role="menu">' +
+      n.children.map(function (c) { return '<a role="menuitem" href="' + base + c.href + '"><b>' + bi(c.en, c.th) + "</b>" + (c.desc ? "<small>" + bi(c.desc[0], c.desc[1]) + "</small>" : "") + "</a>"; }).join("") + "</div></div>";
+  }
   function ico(name) { return '<img src="' + base + "assets/images/icons/" + name + '.svg" alt="">'; }
   var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   var SUN = '<svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
@@ -74,7 +96,7 @@
     '      <img class="brand__on-dark" src="' + base + 'assets/images/brand/logo-horizontal-white.png" alt="DeepDistrict" width="295" height="36">' +
     '      <img class="brand__on-light" src="' + base + 'assets/images/brand/logo-horizontal.png" alt="" width="295" height="36">' +
     "    </a>" +
-    '    <nav class="nav-primary" aria-label="Primary">' + NAV.map(function (n) { return link(n); }).join("") + "</nav>" +
+    '    <nav class="nav-primary" aria-label="Primary">' + NAV.map(navItem).join("") + "</nav>" +
     '    <div class="header-actions">' +
     '      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Light / dark" title="Light / dark">' + SUN + MOON + "</button>" +
     '      <div class="lang-switch" role="group" aria-label="Language / ภาษา">' +
@@ -89,7 +111,9 @@
     '<div class="scrim" data-close-menu></div>' +
     '<nav class="nav-drawer" id="nav-drawer" aria-label="Menu" aria-hidden="true">' +
     '  <ul role="list"><li>' + link({ href: "index.html", en: "Home", th: "หน้าแรก" }) + "</li>" +
-    NAV.map(function (n) { return "<li>" + link(n) + "</li>"; }).join("") +
+    NAV.map(function (n) {
+      return n.children ? '<li class="drawer-group"><span class="drawer-group__title">' + bi(n.en, n.th) + "</span><ul role=\"list\">" + n.children.map(function (c) { return "<li>" + link(c) + "</li>"; }).join("") + "</ul></li>" : "<li>" + link(n) + "</li>";
+    }).join("") +
     "<li>" + link({ href: "pages/contact.html", en: "Contact", th: "ติดต่อเรา" }) + "</li></ul>" +
     '  <div class="drawer-foot"><a class="btn btn--primary" href="mailto:' + EMAIL + '">' + EMAIL + " " + ARROW + "</a>" +
     bi("Super Intelligence learning & research lab<br>Bangkok, Thailand", "ห้องปฏิบัติการเรียนรู้และวิจัย Super Intelligence<br>กรุงเทพมหานคร ประเทศไทย") + "</div>" +
@@ -152,4 +176,15 @@
 
   body.insertAdjacentHTML("afterbegin", header);
   body.insertAdjacentHTML("beforeend", footer);
+
+  // grouped top-menu items: open on click / Enter / Space, close with Escape or a click elsewhere
+  var menus = Array.prototype.slice.call(document.querySelectorAll(".nav-menu"));
+  function closeAll(except) { menus.forEach(function (m) { if (m !== except) { m.classList.remove("is-open"); m.querySelector(".nav-menu__btn").setAttribute("aria-expanded", "false"); } }); }
+  menus.forEach(function (m) {
+    var btn = m.querySelector(".nav-menu__btn");
+    btn.addEventListener("click", function (e) { e.stopPropagation(); var open = !m.classList.contains("is-open"); closeAll(m); m.classList.toggle("is-open", open); btn.setAttribute("aria-expanded", String(open)); if (open) { var f = m.querySelector("a"); if (f && e.detail === 0) f.focus(); } });
+    m.addEventListener("keydown", function (e) { if (e.key === "Escape") { closeAll(); btn.focus(); } });
+    m.addEventListener("focusout", function (e) { if (!m.contains(e.relatedTarget)) { m.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); } });
+  });
+  document.addEventListener("click", function () { closeAll(); });
 })();

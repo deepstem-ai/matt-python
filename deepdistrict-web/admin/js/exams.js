@@ -9,7 +9,7 @@
   var home = null, bank = null;
 
   var KIND = { sat: ["SAT Reading & Writing", "SAT Reading & Writing"], "ielts-r": ["IELTS Academic Reading", "IELTS Academic Reading"], "ielts-w": ["IELTS Academic Writing", "IELTS Academic Writing"], m1: ["M.1 entrance (Suankularb GATE / EP)", "สอบเข้า ม.1 (สวนกุหลาบ GATE / EP)"] };
-  var EXAM = { sat: ["SAT Reading & Writing", "SAT Reading & Writing"], ielts: ["IELTS Academic", "IELTS Academic"], gate: ["Suankularb M.1 · GATE Program", "สวนกุหลาบ ม.1 · GATE Program"], ep: ["Suankularb M.1 · English Program (EPLUS+)", "สวนกุหลาบ ม.1 · English Program (EPLUS+)"], other: ["Teacher sets", "ชุดข้อสอบจากครู"] };
+  var EXAM = { sat: ["SAT Reading & Writing", "SAT Reading & Writing"], ielts: ["IELTS Academic", "IELTS Academic"], gate: ["Suankularb M.1 · GATE Program and English Program (one paper)", "สวนกุหลาบ ม.1 · GATE และ English Program (ข้อสอบชุดเดียวกัน)"], satit: ["Satit Prasarnmit M.1 · Trilingual Plus+", "สาธิตประสานมิตร ม.1 · Trilingual Plus+"], ep: ["Suankularb M.1 · English Program (older sets)", "สวนกุหลาบ ม.1 · English Program (ชุดเดิม)"], other: ["Teacher sets", "ชุดข้อสอบจากครู"] };
   var SUBJ = { math: ["Mathematics", "คณิตศาสตร์"], sci: ["Science", "วิทยาศาสตร์"], eng: ["English", "ภาษาอังกฤษ"], thai: ["Thai", "ภาษาไทย"] };
   function setTitle(x) { return A.lang === "th" && x.titleTh ? x.titleTh : x.title; }
   function modeName(a) { return a.mode === "set" ? (a.setTitle || L("Test set", "ชุดข้อสอบ")) : a.mode === "mock" ? L("Full test", "ข้อสอบเต็ม") : L("Practice", "ฝึกทำ"); }
@@ -45,7 +45,8 @@
       Object.keys(EXAM).filter(function (g) { return groups[g]; }).map(function (g) {
         return '<h3 class="set-group">' + L(EXAM[g][0], EXAM[g][1]) + '</h3><div class="set-grid">' + groups[g].map(function (x) {
           return '<div class="set-card"><b>' + esc(setTitle(x)) + '</b><small class="muted">' + x.questions + " " + (x.kind === "ielts-w" ? L("tasks", "งาน") : L("questions", "ข้อ")) + (x.minutes ? " · " + x.minutes + " " + L("min", "นาที") : "") + "</small>" +
-            '<button class="btn btn--sm btn--primary" data-startset="' + esc(x.id) + '"' + (learner && !home.settings.studentsCanStart ? " disabled" : "") + ">" + L("Start", "เริ่มทำ") + "</button></div>";
+            '<div class="btnrow"><button class="btn btn--sm btn--primary" data-startset="' + esc(x.id) + '"' + (learner && !home.settings.studentsCanStart ? " disabled" : "") + ">⏱ " + L("Start timed test", "เริ่มทำ (จับเวลา)") + "</button>" +
+            (x.kind !== "ielts-w" ? '<button class="btn btn--sm" data-setpdf="' + esc(x.id) + '">⬇ PDF</button>' : "") + "</div></div>";
         }).join("") + "</div>";
       }).join("") + "</section>";
     var cards = parent ? "" : sets +
@@ -58,8 +59,8 @@
       '<section class="box test-card"><h2>IELTS Academic Writing</h2><p>' + L("Task 1 (150+ words) and Task 2 (250+ words) in 60 minutes. Your teacher confirms the band.", "Task 1 (150 คำขึ้นไป) และ Task 2 (250 คำขึ้นไป) ใน 60 นาที ครูเป็นผู้ยืนยันคะแนน") + "</p>" +
       '<div class="btnrow">' + btn("ielts-w", "mock", L("Full test (60 min)", "ข้อสอบเต็ม (60 นาที)"), r["ielts-w"].mock) + btn("ielts-w", "practice", L("Task 1 (20 min)", "Task 1 (20 นาที)"), r["ielts-w"].task1 > 0, ' data-task="1"') +
       btn("ielts-w", "practice", L("Task 2 (40 min)", "Task 2 (40 นาที)"), r["ielts-w"].task2 > 0, ' data-task="2"') + "</div></section>" +
-      '<section class="box test-card"><h2>' + L("Suankularb M.1 entrance", "สอบเข้า ม.1 สวนกุหลาบ") + "</h2><p>" + L("GATE Program: Maths, Science, English, Thai. English Program (EPLUS+): English, Maths, Science in English. Practise any mix of subjects.", "GATE Program: คณิต วิทย์ อังกฤษ ไทย · English Program (EPLUS+): อังกฤษ คณิต วิทย์ (เป็นภาษาอังกฤษ) เลือกฝึกวิชาที่ต้องการได้") + "</p>" +
-      '<div class="btnrow">' + btn("m1", "practice", "GATE · " + L("practice", "ฝึกทำ"), m1n("gate") >= 5, ' data-program="gate"') + btn("m1", "practice", "EP · " + L("practice", "ฝึกทำ"), m1n("ep") >= 5, ' data-program="ep"') + "</div></section></div>" +
+      '<section class="box test-card"><h2>' + L("M.1 entrance: Suankularb and Satit Prasarnmit", "สอบเข้า ม.1: สวนกุหลาบ และ สาธิตประสานมิตร") + "</h2><p>" + L("Suankularb: one paper for GATE and English Program applicants (EP needs a higher English score). Satit Prasarnmit: Maths, Science, Thai and English. Practise any mix of subjects.", "สวนกุหลาบ: ข้อสอบชุดเดียวกันสำหรับ GATE และ EP (EP ต้องได้คะแนนอังกฤษสูงกว่า) · สาธิตประสานมิตร: คณิต วิทย์ ไทย อังกฤษ เลือกฝึกวิชาที่ต้องการได้") + "</p>" +
+      '<div class="btnrow">' + btn("m1", "practice", L("Suankularb (GATE + EP)", "สวนกุหลาบ (GATE + EP)") + " · " + L("practice", "ฝึกทำ"), m1n("gate") >= 5, ' data-program="gate"') + btn("m1", "practice", L("Satit Prasarnmit", "สาธิตประสานมิตร") + " · " + L("practice", "ฝึกทำ"), m1n("satit") >= 5, ' data-program="satit"') + "</div></section></div>" +
       '<p class="muted small">' + L("Questions are written by DeepDistrict and scores are practice estimates, not official scores. SAT is a trademark of the College Board; IELTS belongs to the British Council, IDP and Cambridge. We are not affiliated with them.",
         "ข้อสอบเขียนโดย DeepDistrict และคะแนนเป็นค่าประมาณเพื่อการฝึก ไม่ใช่คะแนนทางการ SAT เป็นเครื่องหมายการค้าของ College Board ส่วน IELTS เป็นของ British Council, IDP และ Cambridge เราไม่มีส่วนเกี่ยวข้องกับองค์กรเหล่านี้") + "</p>";
     var list = home.attempts;
@@ -77,6 +78,13 @@
     $$("[data-attempt]", el).forEach(function (tr) { tr.addEventListener("click", function () { open(tr.getAttribute("data-attempt")); }); });
     $$("[data-start]", el).forEach(function (b) { b.addEventListener("click", function () { start(b.getAttribute("data-start"), b.getAttribute("data-mode"), b.getAttribute("data-task"), b.getAttribute("data-program")); }); });
     $$("[data-startset]", el).forEach(function (b) { b.addEventListener("click", function () { startSet(b.getAttribute("data-startset")); }); });
+    $$("[data-setpdf]", el).forEach(function (b) {
+      b.addEventListener("click", function () {
+        b.disabled = true; b.textContent = L("Creating…", "กำลังสร้าง…");
+        A.api("POST", "doc/set-paper", { setId: b.getAttribute("data-setpdf") }).then(function (p) { return window.DDPDF.save(p, A.api); })
+          .then(function () { b.disabled = false; b.textContent = "⬇ PDF"; }).catch(function (e) { A.toast(e.message, "err"); b.disabled = false; b.textContent = "⬇ PDF"; });
+      });
+    });
   }
   function startSet(id) {
     var x = (home.sets || []).filter(function (s) { return s.id === id; })[0]; if (!x) return;
@@ -147,7 +155,7 @@
       '<br><small class="muted">' + L("Aim for about 250+ so students rarely see the same question twice. Pretest (unscored) items: ", "ควรมี 250 ข้อขึ้นไปเพื่อไม่ให้นักเรียนเจอข้อซ้ำบ่อย ข้อ pretest (ไม่นับคะแนน): ") + r.sat.pretest + "</small></p>" +
       "<p><b>IELTS Reading</b> " + (r["ielts-r"].mock ? "✅" : "⏳") + " " + r["ielts-r"].sets + L(" approved passages · a full test needs 3 that add up to exactly 40 questions and 2,150–2,750 words", " บทอ่านที่อนุมัติ · ข้อสอบเต็มต้องมี 3 บทที่รวมกันได้ 40 ข้อพอดี และ 2,150–2,750 คำ") + "</p>" +
       "<p><b>IELTS Writing</b> " + (r["ielts-w"].mock ? "✅" : "⏳") + " Task 1: " + r["ielts-w"].task1 + " · Task 2: " + r["ielts-w"].task2 + "</p>" +
-      ["gate", "ep"].map(function (p) { var x = (r.m1 || {})[p] || {}; return "<p><b>M.1 " + p.toUpperCase() + "</b> " + Object.keys(x).map(function (k) { return L(SUBJ[k][0], SUBJ[k][1]) + ": " + x[k]; }).join(" · ") + "</p>"; }).join("") +
+      ["gate", "satit"].map(function (p) { var x = (r.m1 || {})[p] || {}; return "<p><b>M.1 " + p.toUpperCase() + "</b> " + Object.keys(x).map(function (k) { return L(SUBJ[k][0], SUBJ[k][1]) + ": " + x[k]; }).join(" · ") + "</p>"; }).join("") +
       '<p><button class="btn" data-act="bank-ready">' + L("Load ready-made sets (SAT, IELTS, GATE, EP)", "โหลดชุดข้อสอบสำเร็จรูป (SAT, IELTS, GATE, EP)") + '</button> <small class="muted">' + L("Adds anything missing; never overwrites your edits.", "เพิ่มเฉพาะที่ยังไม่มี ไม่เขียนทับที่แก้ไขไว้") + "</small></p>" +
       (bank.items.length ? "" : '<button class="btn" data-act="bank-samples">' + L("Load sample items to try the system", "โหลดข้อสอบตัวอย่างเพื่อทดลองระบบ") + "</button>") + "</section>" +
       '<div class="filters" data-filters><select name="kind"><option value="">' + L("All types", "ทุกประเภท") + "</option>" + Object.keys(KIND).map(function (k) { return '<option value="' + k + '"' + (k === kind ? " selected" : "") + ">" + kname(k) + "</option>"; }).join("") + "</select>" +
@@ -223,7 +231,12 @@
           { name: "expTh", label: L("Explanation (Thai)", "คำอธิบาย (ไทย)"), type: "textarea", value: (it.explanation || {}).th, full: true }];
       } else if (it.kind === "m1") {
         var prog = it.program || "gate";
-        f = [{ name: "program", label: L("Programme", "โครงการ"), type: "select", value: prog, options: [["gate", "GATE Program"], ["ep", "English Program (EPLUS+)"]] },
+        f = [{ name: "program", label: L("Programme", "โครงการ"), type: "select", value: prog, options: [["gate", L("Suankularb (GATE + English Program)", "สวนกุหลาบ (GATE + English Program)")], ["satit", L("Satit Prasarnmit", "สาธิตประสานมิตร")], ["ep", L("Suankularb EP (older items)", "สวนกุหลาบ EP (ข้อเดิม)")]] },
+          { name: "format", label: L("Answer type", "รูปแบบคำตอบ"), type: "select", value: it.format || "mcq", options: [["mcq", L("4 choices", "ปรนัย 4 ตัวเลือก")], ["fill", L("Written answer (number / word)", "อัตนัย เติมคำตอบ")]] },
+          { name: "accept", label: L("Written answer: accepted answers, separated by |", "อัตนัย: คำตอบที่ยอมรับ คั่นด้วย |"), value: (it.accept || []).join(" | ") },
+          { name: "unit", label: L("Unit (optional)", "หน่วย (ถ้ามี)"), value: it.unit },
+          { name: "skillTh", label: L("What it measures (Thai)", "วัดอะไร (ไทย)"), value: (it.skill || {}).th }, { name: "skillEn", label: L("What it measures (English)", "วัดอะไร (อังกฤษ)"), value: (it.skill || {}).en },
+          { name: "topicTh", label: L("Topic (Thai)", "เรื่อง (ไทย)"), value: (it.topic || {}).th }, { name: "topicEn", label: L("Topic (English)", "เรื่อง (อังกฤษ)"), value: (it.topic || {}).en },
           { name: "subject", label: L("Subject", "วิชา"), type: "select", value: it.subject || "math", options: Object.keys(SUBJ).map(function (k) { return [k, L(SUBJ[k][0], SUBJ[k][1])]; }), hint: L("EP has no Thai paper.", "EP ไม่มีวิชาภาษาไทย") },
           { name: "difficulty", label: L("Difficulty", "ความยาก"), type: "select", value: it.difficulty || "m", options: [["e", L("Easy", "ง่าย")], ["m", L("Medium", "กลาง")], ["h", L("Hard", "ยาก")]] },
           { name: "passage", label: L("Reading text / situation (optional, shared by the question)", "บทอ่าน / สถานการณ์ (ถ้ามี)"), type: "textarea", value: it.passage, full: true },
@@ -259,6 +272,8 @@
           if (it.kind === "sat") Object.assign(out, { domain: v.domain, skill: v.skill, difficulty: v.difficulty, pretest: v.pretest, passage: v.passage, table: textToTable(v.table), image: v.image, stem: v.stem,
             choices: [v.c0, v.c1, v.c2, v.c3], answer: +v.answer, explanation: { en: v.expEn, th: v.expTh } });
           else if (it.kind === "m1") Object.assign(out, { program: v.program, subject: v.subject, difficulty: v.difficulty, passage: v.passage, table: textToTable(v.table), image: v.image, stem: v.stem,
+            format: v.format, accept: String(v.accept || "").split("|").map(function (x) { return x.trim(); }).filter(Boolean), unit: v.unit, lang: it.lang,
+            skill: { en: v.skillEn, th: v.skillTh }, topic: { en: v.topicEn, th: v.topicTh },
             choices: [v.c0, v.c1, v.c2, v.c3], answer: +v.answer, explanation: { en: v.expEn, th: v.expTh } });
           else if (it.kind === "ielts-r") Object.assign(out, { title: v.title, difficulty: +v.difficulty, labelled: true, paragraphs: v.paragraphs.split(/\n\s*\n/).map(function (p) { return p.replace(/\s*\n\s*/g, " ").trim(); }).filter(Boolean),
             groups: textToGroups(v.groups).map(function (g, i) { var old = (it.groups || [])[i]; if (old && old.image && old.type === g.type) g.image = old.image; return g; }) });
