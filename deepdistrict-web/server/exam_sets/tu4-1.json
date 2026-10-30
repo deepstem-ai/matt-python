@@ -1,0 +1,1815 @@
+{
+ "exam": "tu4",
+ "set": 1,
+ "title": {
+  "en": "Triam Udom Suksa M.4 English — Practice paper 1",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.4 เตรียมอุดมศึกษา — ชุดที่ 1"
+ },
+ "minutes": 75,
+ "note": {
+  "en": "60 questions in 75 minutes, weighted like the Triam Udom paper towards cloze, reading and error identification (tutor summaries report about 40 questions in recent years; ours is a longer practice paper). DeepDistrict practice — not an official or past paper.",
+  "th": "60 ข้อ 75 นาที เน้นเติมคำในบทความ การอ่าน และหาจุดผิด ตามแนวข้อสอบเตรียมอุดมฯ (ข้อมูลจากสถาบันกวดวิชาระบุราว 40 ข้อในปีหลัง ๆ ชุดนี้เป็นแบบฝึกที่ยาวกว่า) — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Responding to an apology or excuse",
+    "th": "การตอบรับคำขอโทษหรือข้ออ้าง"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: I'm afraid I can't make it to the study group tonight — my grandmother is visiting.\nB: ______ We'll fill you in tomorrow.",
+   "explanation": {
+    "en": "'No worries' is a friendly way to accept someone's excuse, and B then offers to update them. 'You're welcome' answers thanks, not an apology; 'It doesn't matter for me' is a common error (we say 'to me'); 'Never mind me' means 'don't pay attention to me'.",
+    "th": "'No worries' ใช้ตอบรับเมื่ออีกฝ่ายขอโทษหรือบอกว่ามาไม่ได้ แล้ว B ก็เสนอจะเล่าให้ฟังพรุ่งนี้ ส่วน 'You're welcome' ใช้ตอบคำขอบคุณ 'It doesn't matter for me' ผิด (ต้องเป็น to me) และ 'Never mind me' แปลว่าไม่ต้องสนใจฉัน"
+   },
+   "choices": [
+    "No worries.",
+    "You're welcome.",
+    "Never mind me.",
+    "It doesn't matter for me."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Answering 'Would you mind if …?'",
+    "th": "การตอบคำถาม Would you mind if …?"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: Would you mind if I opened the window? It's really stuffy in here.\nB: ______ I was about to do it myself.",
+   "explanation": {
+    "en": "'Would you mind …?' asks whether something bothers you, so agreeing means saying 'Not at all'. 'Yes, of course' would mean B objects, which clashes with 'I was about to do it myself'; 'No, please don't' contradicts itself.",
+    "th": "'Would you mind …?' ถามว่าเรารังเกียจหรือไม่ ถ้ายินยอมต้องตอบ 'Not at all, go ahead.' การตอบ 'Yes' แปลว่ารังเกียจ ซึ่งขัดกับประโยคต่อมาที่ว่า B กำลังจะเปิดเองอยู่แล้ว ส่วน 'No, please don't' ขัดกันในตัวเอง"
+   },
+   "choices": [
+    "Yes, of course you can.",
+    "Yes, I'd mind.",
+    "No, please don't.",
+    "Not at all, go ahead."
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Reassuring someone",
+    "th": "การปลอบใจ ให้กำลังใจ"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: How did your presentation go?\nB: Honestly, I was so nervous that my mind went blank halfway through.\nA: ______ Everyone forgets a line now and then.",
+   "explanation": {
+    "en": "A goes on to say that everyone forgets things, so A is comforting B: 'Don't be too hard on yourself.' 'You should have been more careful' blames B; 'Break a leg!' wishes someone luck before a performance; 'That's a piece of cake' means something is easy.",
+    "th": "ประโยคต่อมาของ A บอกว่าใคร ๆ ก็ลืมได้ แสดงว่า A กำลังปลอบใจ จึงตอบ 'Don't be too hard on yourself.' (อย่าโทษตัวเองมากเกินไป) ส่วน 'You should have been more careful' เป็นการตำหนิ 'Break a leg!' ใช้อวยพรก่อนขึ้นแสดง และ 'That's a piece of cake' แปลว่าง่ายมาก"
+   },
+   "choices": [
+    "You should have been more careful.",
+    "Don't be too hard on yourself.",
+    "That's a piece of cake.",
+    "Break a leg!"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Responding to a suggestion",
+    "th": "การตอบรับคำแนะนำ"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: I've been offered places at two schools and I can't decide between them.\nB: Why don't you list the pros and cons of each?\nA: ______ Putting it on paper might make things clearer.",
+   "explanation": {
+    "en": "A then says writing things down 'might make things clearer', so A accepts the suggestion: 'I suppose that's worth a try.' 'I couldn't agree with you less' rejects it; 'It's up to you' wrongly hands the decision to B; 'I've already decided' contradicts 'I can't decide'.",
+    "th": "A พูดต่อว่าการเขียนลงกระดาษอาจช่วยให้ชัดเจนขึ้น แสดงว่ายอมรับคำแนะนำ จึงตอบ 'I suppose that's worth a try.' ส่วน 'I couldn't agree with you less' คือไม่เห็นด้วยเลย 'It's up to you' คือแล้วแต่คุณ ซึ่งผิดบริบท และ 'I've already decided' ขัดกับที่บอกว่ายังตัดสินใจไม่ได้"
+   },
+   "choices": [
+    "I suppose that's worth a try.",
+    "It's up to you.",
+    "I couldn't agree with you less.",
+    "You've got a point, but I've already decided."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Verb + object + to-infinitive",
+    "th": "กริยา + กรรม + to-infinitive"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "The new policy is designed to ______ students to read more widely by giving them points for every book they review.",
+   "explanation": {
+    "en": "'Encourage someone to do something' fits the pattern and the meaning. 'Suggest' cannot be followed by 'someone to do' (a common error), 'insist' needs 'on', and 'prevent' means the opposite and takes 'from + -ing'.",
+    "th": "ใช้ 'encourage + คน + to + V' (สนับสนุนให้ทำ) ได้ทั้งรูปและความหมาย ส่วน suggest ใช้รูป suggest someone to do ไม่ได้ insist ต้องตามด้วย on และ prevent มีความหมายตรงข้ามและใช้ prevent … from + V-ing"
+   },
+   "choices": [
+    "suggest",
+    "encourage",
+    "insist",
+    "prevent"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Collocation: carry out",
+    "th": "คำปรากฏร่วม carry out"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "Researchers have ______ a series of experiments to find out whether the new drug is safe for children.",
+   "explanation": {
+    "en": "We 'carry out' experiments, research or surveys. 'Make up' means invent, 'take over' means take control, and 'put off' means postpone.",
+    "th": "'carry out an experiment' แปลว่าดำเนินการทดลอง ส่วน make up แปลว่าแต่งขึ้น take over แปลว่าเข้าควบคุม และ put off แปลว่าเลื่อนออกไป"
+   },
+   "choices": [
+    "taken over",
+    "carried out",
+    "put off",
+    "made up"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the adjective form",
+    "th": "การเลือกคำคุณศัพท์ให้ถูกรูป"
+   },
+   "topic": {
+    "en": "Word formation",
+    "th": "การสร้างคำ"
+   },
+   "passage": "",
+   "stem": "The museum's decision to charge an entrance fee proved highly ______, and visitor numbers fell by half within a year.",
+   "explanation": {
+    "en": "After 'proved highly' we need an adjective: 'controversial'. 'Controversy' is a noun, 'controversially' an adverb and 'controvert' a verb.",
+    "th": "หลัง proved highly ต้องใช้คำคุณศัพท์ คือ controversial (เป็นที่ถกเถียง) ส่วน controversy เป็นคำนาม controversially เป็นคำกริยาวิเศษณ์ และ controvert เป็นคำกริยา"
+   },
+   "choices": [
+    "controversy",
+    "controversial",
+    "controversially",
+    "controvert"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Meaning of an adjective in context",
+    "th": "ความหมายของคำคุณศัพท์ตามบริบท"
+   },
+   "topic": {
+    "en": "Academic vocabulary",
+    "th": "คำศัพท์เชิงวิชาการ"
+   },
+   "passage": "",
+   "stem": "Despite the team's meticulous preparation, the experiment failed because of a faulty sensor.\nThe word 'meticulous' is closest in meaning to ______.",
+   "explanation": {
+    "en": "'Despite' signals a contrast: the preparation was good, yet the experiment failed. 'Meticulous' means very careful, paying attention to every detail.",
+    "th": "'Despite' บอกความขัดแย้ง คือเตรียมการดีแต่ก็ยังล้มเหลว meticulous แปลว่าละเอียดรอบคอบมาก (very careful and thorough)"
+   },
+   "choices": [
+    "secret and private",
+    "very careful and thorough",
+    "expensive and complicated",
+    "hurried and careless"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Phrasal verbs with 'give'",
+    "th": "กริยาวลีกับ give"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "Many villagers had to ______ fishing when the river became polluted, and most of them turned to farming instead.",
+   "explanation": {
+    "en": "'Give up' means stop doing something, which matches 'turned to farming instead'. 'Give in' means surrender, 'give off' means produce a smell or heat, and 'give away' means give something for free.",
+    "th": "give up แปลว่าเลิกทำ เข้ากับที่ว่าหันไปทำนาแทน ส่วน give in แปลว่ายอมแพ้ give off แปลว่าปล่อยกลิ่นหรือความร้อนออกมา และ give away แปลว่าแจกให้ฟรี"
+   },
+   "choices": [
+    "give in",
+    "give off",
+    "give away",
+    "give up"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Collocation: narrow the gap",
+    "th": "คำปรากฏร่วม narrow the gap"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "The government has promised to ______ the gap between rich and poor regions by investing in rural schools.",
+   "explanation": {
+    "en": "The fixed collocation is 'narrow (or close) the gap'. 'Shorten' is used for length or time, 'tighten' for screws or rules, and 'lessen down' is not English.",
+    "th": "สำนวนที่ใช้คือ narrow the gap (ลดช่องว่าง) ส่วน shorten ใช้กับความยาวหรือเวลา tighten ใช้กับการขันให้แน่นหรือกฎที่เข้มงวดขึ้น และ lessen down ไม่มีใช้ในภาษาอังกฤษ"
+   },
+   "choices": [
+    "tighten",
+    "shorten",
+    "lessen down",
+    "narrow"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Academic adjective from context",
+    "th": "คำคุณศัพท์เชิงวิชาการจากบริบท"
+   },
+   "topic": {
+    "en": "Academic vocabulary",
+    "th": "คำศัพท์เชิงวิชาการ"
+   },
+   "passage": "",
+   "stem": "The results were ______: some participants improved dramatically, while others showed no change at all.",
+   "explanation": {
+    "en": "The colon introduces evidence that the results varied widely, so 'inconsistent' (not the same throughout) fits. 'Unanimous' means everyone agreed, 'inevitable' means certain to happen, and 'insignificant' means too small to matter — but some changes were dramatic.",
+    "th": "เครื่องหมาย : ตามด้วยหลักฐานว่าผลแตกต่างกันมาก จึงใช้ inconsistent (ไม่สม่ำเสมอ) ส่วน unanimous แปลว่าเป็นเอกฉันท์ inevitable แปลว่าหลีกเลี่ยงไม่ได้ insignificant แปลว่าไม่สำคัญ ซึ่งขัดกับที่บางคนพัฒนาขึ้นอย่างมาก"
+   },
+   "choices": [
+    "inevitable",
+    "unanimous",
+    "insignificant",
+    "inconsistent"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Confusable adjectives",
+    "th": "คำคุณศัพท์ที่สับสนง่าย"
+   },
+   "topic": {
+    "en": "Academic vocabulary",
+    "th": "คำศัพท์เชิงวิชาการ"
+   },
+   "passage": "",
+   "stem": "Her argument was so ______ that even the students who had disagreed with her at first were won over.",
+   "explanation": {
+    "en": "A 'compelling' argument is convincing, which explains why opponents were 'won over'. 'Compulsory' means required by a rule, 'complacent' means too satisfied with oneself, and 'compatible' means able to work together.",
+    "th": "compelling แปลว่าน่าเชื่อถือ โน้มน้าวใจได้ จึงทำให้คนที่ไม่เห็นด้วยเปลี่ยนใจ ส่วน compulsory แปลว่าบังคับ complacent แปลว่าพอใจในตัวเองจนประมาท และ compatible แปลว่าเข้ากันได้"
+   },
+   "choices": [
+    "compulsory",
+    "complacent",
+    "compelling",
+    "compatible"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "Past perfect for an earlier past action",
+    "th": "past perfect กับเหตุการณ์ที่เกิดก่อนในอดีต"
+   },
+   "topic": {
+    "en": "Tenses",
+    "th": "กาล (Tense)"
+   },
+   "passage": "",
+   "stem": "By the time the ambulance arrived, the injured man ______ consciousness.",
+   "explanation": {
+    "en": "'By the time + past simple' shows that the other action was completed earlier, so the past perfect 'had already lost' is needed.",
+    "th": "'By the time + past simple' บอกว่าอีกเหตุการณ์หนึ่งเสร็จไปก่อนแล้ว จึงใช้ past perfect คือ had already lost"
+   },
+   "choices": [
+    "was already losing",
+    "has already lost",
+    "already loses",
+    "had already lost"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "Second conditional: if I were you",
+    "th": "เงื่อนไขแบบที่ 2: If I were you"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "stem": "If I ______ you, I would apologise to her before the rumour spreads any further.",
+   "explanation": {
+    "en": "Advice with 'I would …' uses the second conditional: 'If I were you'. 'Had been' belongs to the third conditional (with 'would have'), and 'am' or 'will be' do not match 'would'.",
+    "th": "การให้คำแนะนำด้วย I would … ใช้เงื่อนไขแบบที่ 2 คือ If I were you ส่วน had been ใช้กับเงื่อนไขแบบที่ 3 (คู่กับ would have) และ am / will be ไม่เข้ากับ would"
+   },
+   "choices": [
+    "were",
+    "had been",
+    "am",
+    "will be"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Non-defining relative clause",
+    "th": "อนุประโยคขยายแบบไม่จำกัดความ"
+   },
+   "topic": {
+    "en": "Clauses and connectors",
+    "th": "อนุประโยคและคำเชื่อม"
+   },
+   "passage": "",
+   "stem": "The bridge, ______ was completed in 1932, is still used by thousands of commuters every day.",
+   "explanation": {
+    "en": "The commas show a non-defining relative clause, which takes 'which' (not 'that') for things. 'What' cannot refer back to a noun, and 'it' would create two clauses with no connector.",
+    "th": "มีเครื่องหมายจุลภาคล้อมรอบ จึงเป็น non-defining relative clause ต้องใช้ which ไม่ใช้ that ส่วน what ใช้แทนคำนามข้างหน้าไม่ได้ และ it จะทำให้มีสองประโยคโดยไม่มีคำเชื่อม"
+   },
+   "choices": [
+    "it",
+    "that",
+    "which",
+    "what"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "suggest + -ing",
+    "th": "suggest + V-ing"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบกริยา (gerund/infinitive)"
+   },
+   "passage": "",
+   "stem": "At the meeting, the head teacher suggested ______ the trip until everyone had read the safety report.",
+   "explanation": {
+    "en": "'Suggest' is followed by a gerund (or a that-clause), not by 'to + verb' or 'someone to + verb'. So 'suggested postponing' is correct.",
+    "th": "suggest ตามด้วย V-ing (หรือ that-clause) ไม่ใช้ to + V หรือ คน + to + V จึงต้องเป็น suggested postponing"
+   },
+   "choices": [
+    "us to postpone",
+    "to postpone",
+    "postpone",
+    "postponing"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Reported question word order",
+    "th": "การเรียงคำในคำถามแบบรายงาน"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "He asked me where ______ the previous weekend.",
+   "explanation": {
+    "en": "In reported questions the word order is like a statement (subject + verb), and the tense moves back: 'where I had been'. 'Had I been' and 'did I go' keep question order.",
+    "th": "คำถามในประโยครายงานต้องเรียงแบบประโยคบอกเล่า (ประธาน + กริยา) และเลื่อน tense ถอยหลัง จึงเป็น where I had been ส่วน had I been และ did I go ยังเรียงแบบคำถาม"
+   },
+   "choices": [
+    "I have been",
+    "I had been",
+    "did I go",
+    "had I been"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Despite vs although",
+    "th": "Despite กับ although"
+   },
+   "topic": {
+    "en": "Clauses and connectors",
+    "th": "อนุประโยคและคำเชื่อม"
+   },
+   "passage": "",
+   "stem": "______ the heavy traffic, we reached the airport in time for our flight.",
+   "explanation": {
+    "en": "A noun phrase ('the heavy traffic') follows, so we need a preposition: 'Despite'. 'Although' needs a clause, 'In spite' needs 'of', and 'However' is an adverb that cannot join a noun to a clause.",
+    "th": "ตามด้วยนามวลี the heavy traffic จึงต้องใช้บุพบท Despite ส่วน Although ต้องตามด้วยประโยค In spite ต้องมี of และ However เป็นคำกริยาวิเศษณ์ที่เชื่อมนามวลีกับประโยคไม่ได้"
+   },
+   "choices": [
+    "Although",
+    "However",
+    "In spite",
+    "Despite"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Passive with modal verbs",
+    "th": "passive กับ modal verb"
+   },
+   "topic": {
+    "en": "Passive voice",
+    "th": "ประโยค passive"
+   },
+   "passage": "",
+   "stem": "All mobile phones must ______ at the front desk before candidates enter the examination room.",
+   "explanation": {
+    "en": "Phones do not leave themselves; they are left by candidates, so the passive 'must be left' is needed.",
+    "th": "โทรศัพท์ไม่ได้ทำกริยาเอง แต่ถูกผู้สอบนำมาฝากไว้ จึงต้องใช้ passive คือ must be left"
+   },
+   "choices": [
+    "leave",
+    "be left",
+    "be leaving",
+    "have left"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion after 'Not until'",
+    "th": "การสลับที่หลัง Not until"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Not until the last guest had left ______ how exhausted she was.",
+   "explanation": {
+    "en": "When a sentence begins with 'Not until …', the main clause uses question-style inversion: 'did she realise'.",
+    "th": "เมื่อขึ้นต้นประโยคด้วย Not until … ประโยคหลักต้องสลับที่แบบคำถาม จึงเป็น did she realise"
+   },
+   "choices": [
+    "she realised",
+    "she had realised",
+    "realised she",
+    "did she realise"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Future perfect passive",
+    "th": "future perfect แบบ passive"
+   },
+   "topic": {
+    "en": "Passive voice",
+    "th": "ประโยค passive"
+   },
+   "passage": "",
+   "stem": "The new library ______ by the end of next year, so students will have to study elsewhere until then.",
+   "explanation": {
+    "en": "'By the end of next year' points to an action finished before a future time (future perfect), and the library is completed by someone else (passive): 'will have been completed'.",
+    "th": "'By the end of next year' บอกว่าจะเสร็จก่อนเวลาหนึ่งในอนาคต (future perfect) และห้องสมุดถูกสร้างโดยผู้อื่น (passive) จึงเป็น will have been completed"
+   },
+   "choices": [
+    "is completing",
+    "has been completed",
+    "will complete",
+    "will have been completed"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "would rather + past simple",
+    "th": "would rather + past simple"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "stem": "I'd rather you ______ my phone without asking me first.",
+   "explanation": {
+    "en": "When 'would rather' is followed by a different subject, the verb goes into the past simple to talk about the present or future: 'I'd rather you didn't use …'.",
+    "th": "เมื่อ would rather ตามด้วยประธานคนละคน กริยาต้องเป็น past simple แม้จะพูดถึงปัจจุบันหรืออนาคต จึงเป็น I'd rather you didn't use …"
+   },
+   "choices": [
+    "not use",
+    "won't use",
+    "didn't use",
+    "don't use"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "e",
+   "skill": {
+    "en": "Subject–verb agreement with 'every one of'",
+    "th": "ความสอดคล้องของประธานกับกริยา: every one of"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: Every one of the students [[who]] [[took]] the test [[were]] given a certificate [[at]] the end of the course.",
+   "explanation": {
+    "en": "The subject is 'every one', which is singular, so the verb must be 'was given', not 'were given'.",
+    "th": "ประธานคือ every one ซึ่งเป็นเอกพจน์ กริยาจึงต้องเป็น was given ไม่ใช่ were given"
+   },
+   "choices": [
+    "who",
+    "took",
+    "were",
+    "at"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "e",
+   "skill": {
+    "en": "Double connector: although … but",
+    "th": "ใช้คำเชื่อมซ้อน although … but"
+   },
+   "topic": {
+    "en": "Clauses and connectors",
+    "th": "อนุประโยคและคำเชื่อม"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[Although]] it was raining heavily, [[but]] the match [[went ahead]] [[as planned]].",
+   "explanation": {
+    "en": "'Although' already links the two clauses, so 'but' must be removed. English does not use 'although … but' together, a common error for Thai speakers (แม้ว่า … แต่).",
+    "th": "Although เชื่อมสองประโยคอยู่แล้ว จึงต้องตัด but ออก ภาษาอังกฤษไม่ใช้ although คู่กับ but แบบภาษาไทย 'แม้ว่า … แต่'"
+   },
+   "choices": [
+    "Although",
+    "but",
+    "went ahead",
+    "as planned"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Agreement with 'the number of'",
+    "th": "ความสอดคล้องกับ the number of"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The number of tourists [[visiting]] the island [[have risen]] sharply [[since]] the new airport [[opened]].",
+   "explanation": {
+    "en": "'The number of …' is singular, so the verb should be 'has risen'. (Compare 'A number of tourists have …', which is plural.)",
+    "th": "'The number of …' เป็นเอกพจน์ กริยาจึงต้องเป็น has risen (ต่างจาก A number of … ที่เป็นพหูพจน์)"
+   },
+   "choices": [
+    "visiting",
+    "have risen",
+    "since",
+    "opened"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Mixed conditional time reference",
+    "th": "การใช้เวลาในประโยคเงื่อนไข"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: She [[failed]] the exam in March; if she [[had studied]] harder, she [[would pass]] it [[easily]].",
+   "explanation": {
+    "en": "The whole sentence is about the past (she failed in March), so it is a third conditional: 'she would have passed it'.",
+    "th": "ทั้งประโยคพูดถึงอดีต (สอบตกเมื่อเดือนมีนาคม) จึงเป็นเงื่อนไขแบบที่ 3 ต้องใช้ would have passed"
+   },
+   "choices": [
+    "failed",
+    "had studied",
+    "would pass",
+    "easily"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "spend time + -ing",
+    "th": "spend time + V-ing"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบกริยา (gerund/infinitive)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The report, [[which]] was published last week, [[suggests]] that teenagers [[should]] spend less time [[to look]] at screens.",
+   "explanation": {
+    "en": "'Spend time' is followed by the -ing form: 'spend less time looking at screens'.",
+    "th": "spend time ต้องตามด้วย V-ing จึงต้องเป็น spend less time looking at screens"
+   },
+   "choices": [
+    "which",
+    "suggests",
+    "should",
+    "to look"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Dangling participle",
+    "th": "participle ที่ประธานไม่ตรงกัน (dangling participle)"
+   },
+   "topic": {
+    "en": "Clauses and connectors",
+    "th": "อนุประโยคและคำเชื่อม"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[Having finished]] the essay, the computer [[suddenly]] crashed and she [[lost]] [[everything]].",
+   "explanation": {
+    "en": "A participle clause takes the subject of the main clause, so this says the computer finished the essay. It should be 'After she had finished the essay, the computer …'.",
+    "th": "วลี participle ต้องมีประธานเดียวกับประโยคหลัก ประโยคนี้จึงแปลว่าคอมพิวเตอร์เขียนเรียงความเสร็จ ต้องแก้เป็น After she had finished the essay, the computer …"
+   },
+   "choices": [
+    "Having finished",
+    "suddenly",
+    "lost",
+    "everything"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "look forward to + -ing",
+    "th": "look forward to + V-ing"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบกริยา (gerund/infinitive)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: I [[really]] hope you [[can]] visit us next month; we are all looking forward [[to]] [[meet]] you.",
+   "explanation": {
+    "en": "In 'look forward to', 'to' is a preposition, so it is followed by the -ing form: 'looking forward to meeting you'.",
+    "th": "to ใน look forward to เป็นบุพบท จึงต้องตามด้วย V-ing คือ looking forward to meeting you"
+   },
+   "choices": [
+    "really",
+    "can",
+    "to",
+    "meet"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Agreement with neither … nor",
+    "th": "ความสอดคล้องกับ neither … nor"
+   },
+   "topic": {
+    "en": "Agreement and word order",
+    "th": "ความสอดคล้องและการเรียงคำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The fire alarm [[had been]] switched off, [[but]] neither the teacher nor the students [[was]] [[aware]] of it.",
+   "explanation": {
+    "en": "With 'neither … nor', the verb agrees with the nearer subject. 'The students' is plural, so the verb must be 'were'.",
+    "th": "เมื่อใช้ neither … nor กริยาต้องสอดคล้องกับประธานตัวที่อยู่ใกล้กว่า คือ the students ซึ่งเป็นพหูพจน์ จึงต้องใช้ were"
+   },
+   "choices": [
+    "had been",
+    "but",
+    "was",
+    "aware"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Subjunctive after 'insist that'",
+    "th": "subjunctive หลัง insist that"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบกริยา (gerund/infinitive)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The professor insisted that every student [[submits]] the assignment [[before]] the deadline, [[which]] was [[only]] two days away.",
+   "explanation": {
+    "en": "After verbs of demand such as 'insist that', formal English uses the base form (subjunctive): 'every student submit'. The past tense 'insisted' also rules out 'submits'.",
+    "th": "หลังกริยาที่แสดงการเรียกร้อง เช่น insist that ภาษาอังกฤษแบบทางการใช้กริยารูปพื้นฐาน (subjunctive) คือ every student submit และ insisted เป็นอดีตอยู่แล้ว จึงใช้ submits ไม่ได้"
+   },
+   "choices": [
+    "submits",
+    "before",
+    "which",
+    "only"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Past perfect continuous for duration before a past event",
+    "th": "past perfect continuous กับระยะเวลาก่อนเหตุการณ์ในอดีต"
+   },
+   "topic": {
+    "en": "Tenses",
+    "th": "กาล (Tense)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: She [[has been working]] at the hospital [[for]] ten years when she [[decided]] to [[retrain]] as a teacher.",
+   "explanation": {
+    "en": "The decision happened in the past, so the ten years of work came before a past point: 'had been working', not the present perfect.",
+    "th": "การตัดสินใจเกิดในอดีต ช่วงสิบปีที่ทำงานจึงเกิดก่อนจุดเวลาในอดีต ต้องใช้ had been working ไม่ใช่ present perfect"
+   },
+   "choices": [
+    "has been working",
+    "for",
+    "decided",
+    "retrain"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "e",
+   "skill": {
+    "en": "Fixed phrase: known as",
+    "th": "วลีตายตัว known as"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Cities are often several degrees warmer than the countryside around them, a phenomenon (1) ______ as the 'urban heat island' effect. The main cause is simple: concrete and asphalt absorb heat during the day and release it slowly at night, (2) ______ trees and soil stay relatively cool. In a city like Bangkok, where temperatures already go above 35°C for much of the year, even a small rise can have serious (3) ______ for health, especially among the elderly and outdoor workers. Planners have proposed several solutions. One is to paint roofs white, which reflects sunlight (4) ______ absorbing it. Another is to plant more trees along streets, since their shade and the water they release through their leaves can lower nearby temperatures noticeably. (5) ______, green spaces are expensive to maintain, and land in city centres is scarce and valuable. Some experts therefore argue that the most effective approach is to combine many small changes — cooler roofs, shaded bus stops, more fountains and canals — (6) ______ relying on a single large project that may take decades to finish.",
+   "stem": "Which choice best fits blank (1)?",
+   "explanation": {
+    "en": "'Known as' is the fixed phrase for giving a name. 'Called' and 'named' are not followed by 'as', and 'said as' is not English.",
+    "th": "known as เป็นวลีตายตัวที่ใช้บอกชื่อเรียก ส่วน called และ named ไม่ใช้ตามด้วย as และ said as ไม่มีใช้"
+   },
+   "choices": [
+    "said",
+    "named",
+    "called",
+    "known"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Contrast connector: whereas",
+    "th": "คำเชื่อมแสดงความแตกต่าง whereas"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Cities are often several degrees warmer than the countryside around them, a phenomenon (1) ______ as the 'urban heat island' effect. The main cause is simple: concrete and asphalt absorb heat during the day and release it slowly at night, (2) ______ trees and soil stay relatively cool. In a city like Bangkok, where temperatures already go above 35°C for much of the year, even a small rise can have serious (3) ______ for health, especially among the elderly and outdoor workers. Planners have proposed several solutions. One is to paint roofs white, which reflects sunlight (4) ______ absorbing it. Another is to plant more trees along streets, since their shade and the water they release through their leaves can lower nearby temperatures noticeably. (5) ______, green spaces are expensive to maintain, and land in city centres is scarce and valuable. Some experts therefore argue that the most effective approach is to combine many small changes — cooler roofs, shaded bus stops, more fountains and canals — (6) ______ relying on a single large project that may take decades to finish.",
+   "stem": "Which choice best fits blank (2)?",
+   "explanation": {
+    "en": "The sentence contrasts hot concrete with cool trees and soil, so 'whereas' fits. 'Because', 'so that' and 'unless' express cause, purpose and condition.",
+    "th": "ประโยคเปรียบเทียบคอนกรีตที่ร้อนกับต้นไม้และดินที่เย็น จึงใช้ whereas ส่วน because, so that และ unless แสดงเหตุผล จุดประสงค์ และเงื่อนไข"
+   },
+   "choices": [
+    "whereas",
+    "so that",
+    "because",
+    "unless"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Collocation: consequences for",
+    "th": "คำปรากฏร่วม consequences for"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Cities are often several degrees warmer than the countryside around them, a phenomenon (1) ______ as the 'urban heat island' effect. The main cause is simple: concrete and asphalt absorb heat during the day and release it slowly at night, (2) ______ trees and soil stay relatively cool. In a city like Bangkok, where temperatures already go above 35°C for much of the year, even a small rise can have serious (3) ______ for health, especially among the elderly and outdoor workers. Planners have proposed several solutions. One is to paint roofs white, which reflects sunlight (4) ______ absorbing it. Another is to plant more trees along streets, since their shade and the water they release through their leaves can lower nearby temperatures noticeably. (5) ______, green spaces are expensive to maintain, and land in city centres is scarce and valuable. Some experts therefore argue that the most effective approach is to combine many small changes — cooler roofs, shaded bus stops, more fountains and canals — (6) ______ relying on a single large project that may take decades to finish.",
+   "stem": "Which choice best fits blank (3)?",
+   "explanation": {
+    "en": "We say 'serious consequences for health'. 'Effects' would need 'on health'; 'reasons' and 'conditions' do not make sense here.",
+    "th": "ใช้ serious consequences for health (ผลกระทบร้ายแรงต่อสุขภาพ) ถ้าใช้ effects ต้องตามด้วย on ส่วน reasons และ conditions ความหมายไม่เข้า"
+   },
+   "choices": [
+    "consequences",
+    "effects",
+    "conditions",
+    "reasons"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "instead of + -ing",
+    "th": "instead of + V-ing"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Cities are often several degrees warmer than the countryside around them, a phenomenon (1) ______ as the 'urban heat island' effect. The main cause is simple: concrete and asphalt absorb heat during the day and release it slowly at night, (2) ______ trees and soil stay relatively cool. In a city like Bangkok, where temperatures already go above 35°C for much of the year, even a small rise can have serious (3) ______ for health, especially among the elderly and outdoor workers. Planners have proposed several solutions. One is to paint roofs white, which reflects sunlight (4) ______ absorbing it. Another is to plant more trees along streets, since their shade and the water they release through their leaves can lower nearby temperatures noticeably. (5) ______, green spaces are expensive to maintain, and land in city centres is scarce and valuable. Some experts therefore argue that the most effective approach is to combine many small changes — cooler roofs, shaded bus stops, more fountains and canals — (6) ______ relying on a single large project that may take decades to finish.",
+   "stem": "Which choice best fits blank (4)?",
+   "explanation": {
+    "en": "White roofs reflect sunlight and do not absorb it, so 'instead of absorbing it'. 'Rather' alone needs 'than'; 'in spite of' and 'as well as' give the wrong meaning.",
+    "th": "หลังคาสีขาวสะท้อนแสงแทนที่จะดูดซับ จึงใช้ instead of absorbing ส่วน rather ต้องมี than 'in spite of' และ 'as well as' ให้ความหมายผิด"
+   },
+   "choices": [
+    "in spite of",
+    "instead of",
+    "rather",
+    "as well as"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Linking adverb of contrast",
+    "th": "คำเชื่อมแสดงความขัดแย้ง"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Cities are often several degrees warmer than the countryside around them, a phenomenon (1) ______ as the 'urban heat island' effect. The main cause is simple: concrete and asphalt absorb heat during the day and release it slowly at night, (2) ______ trees and soil stay relatively cool. In a city like Bangkok, where temperatures already go above 35°C for much of the year, even a small rise can have serious (3) ______ for health, especially among the elderly and outdoor workers. Planners have proposed several solutions. One is to paint roofs white, which reflects sunlight (4) ______ absorbing it. Another is to plant more trees along streets, since their shade and the water they release through their leaves can lower nearby temperatures noticeably. (5) ______, green spaces are expensive to maintain, and land in city centres is scarce and valuable. Some experts therefore argue that the most effective approach is to combine many small changes — cooler roofs, shaded bus stops, more fountains and canals — (6) ______ relying on a single large project that may take decades to finish.",
+   "stem": "Which choice best fits blank (5)?",
+   "explanation": {
+    "en": "After describing the benefits of trees, the writer introduces a problem, so a contrast word is needed: 'However'.",
+    "th": "หลังจากกล่าวถึงข้อดีของต้นไม้ ผู้เขียนเสนอปัญหา จึงต้องใช้คำเชื่อมแสดงความขัดแย้ง คือ However"
+   },
+   "choices": [
+    "For example",
+    "Therefore",
+    "However",
+    "Moreover"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "rather than + -ing",
+    "th": "rather than + V-ing"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Cities are often several degrees warmer than the countryside around them, a phenomenon (1) ______ as the 'urban heat island' effect. The main cause is simple: concrete and asphalt absorb heat during the day and release it slowly at night, (2) ______ trees and soil stay relatively cool. In a city like Bangkok, where temperatures already go above 35°C for much of the year, even a small rise can have serious (3) ______ for health, especially among the elderly and outdoor workers. Planners have proposed several solutions. One is to paint roofs white, which reflects sunlight (4) ______ absorbing it. Another is to plant more trees along streets, since their shade and the water they release through their leaves can lower nearby temperatures noticeably. (5) ______, green spaces are expensive to maintain, and land in city centres is scarce and valuable. Some experts therefore argue that the most effective approach is to combine many small changes — cooler roofs, shaded bus stops, more fountains and canals — (6) ______ relying on a single large project that may take decades to finish.",
+   "stem": "Which choice best fits blank (6)?",
+   "explanation": {
+    "en": "'Combine many small changes rather than relying on a single project' compares two approaches. 'Instead' would need 'of'; 'other than' means 'except'; 'as long as' introduces a condition.",
+    "th": "rather than relying … ใช้เปรียบเทียบสองแนวทาง ส่วน instead ต้องมี of 'other than' แปลว่ายกเว้น และ 'as long as' ใช้บอกเงื่อนไข"
+   },
+   "choices": [
+    "rather than",
+    "other than",
+    "instead",
+    "as long as"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "e",
+   "skill": {
+    "en": "Phrasal verb: stay up",
+    "th": "กริยาวลี stay up"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Many parents complain that their teenage children (7) ______ up late at night and refuse to get out of bed in the morning. It is tempting to blame laziness, but scientists now believe the problem is (8) ______ biological. During adolescence, the body begins to release melatonin, the hormone that makes us feel sleepy, about two hours later than it (9) ______ in childhood. As a result, a typical sixteen-year-old may simply not feel tired until close to midnight, and one who is sent to bed earlier often lies awake for hours, which only adds to the frustration. If school starts at half past seven, that student is likely to be (10) ______ of sleep every weekday. The effects go beyond tiredness: too little sleep has also been linked to low mood and difficulty concentrating. Research in several countries has shown that when schools delay their start time by even forty-five minutes, attendance improves and students (11) ______ better in morning tests. Critics point out that a later start causes problems for parents' working hours and for after-school sports and clubs. Nevertheless, a growing number of education authorities are (12) ______ that the benefits outweigh the inconvenience.",
+   "stem": "Which choice best fits blank (7)?",
+   "explanation": {
+    "en": "'Stay up late' means not go to bed. 'Wake up late' and 'get up late' describe mornings, which would not fit 'late at night'.",
+    "th": "stay up late แปลว่านอนดึก ส่วน wake up และ get up หมายถึงตื่นนอน ซึ่งไม่เข้ากับ late at night"
+   },
+   "choices": [
+    "stay",
+    "keep",
+    "get",
+    "wake"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Adverb of degree",
+    "th": "คำกริยาวิเศษณ์บอกระดับ"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Many parents complain that their teenage children (7) ______ up late at night and refuse to get out of bed in the morning. It is tempting to blame laziness, but scientists now believe the problem is (8) ______ biological. During adolescence, the body begins to release melatonin, the hormone that makes us feel sleepy, about two hours later than it (9) ______ in childhood. As a result, a typical sixteen-year-old may simply not feel tired until close to midnight, and one who is sent to bed earlier often lies awake for hours, which only adds to the frustration. If school starts at half past seven, that student is likely to be (10) ______ of sleep every weekday. The effects go beyond tiredness: too little sleep has also been linked to low mood and difficulty concentrating. Research in several countries has shown that when schools delay their start time by even forty-five minutes, attendance improves and students (11) ______ better in morning tests. Critics point out that a later start causes problems for parents' working hours and for after-school sports and clubs. Nevertheless, a growing number of education authorities are (12) ______ that the benefits outweigh the inconvenience.",
+   "stem": "Which choice best fits blank (8)?",
+   "explanation": {
+    "en": "The writer contrasts laziness with biology, so the problem is 'largely' (mainly) biological. 'Hardly' would reverse the meaning; 'rarely' and 'lately' refer to frequency and time.",
+    "th": "ผู้เขียนเปรียบเทียบความขี้เกียจกับสาเหตุทางชีววิทยา จึงใช้ largely (ส่วนใหญ่) ส่วน hardly ทำให้ความหมายกลับกัน rarely และ lately เกี่ยวกับความถี่และเวลา"
+   },
+   "choices": [
+    "rarely",
+    "lately",
+    "largely",
+    "hardly"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Auxiliary as substitute verb",
+    "th": "กริยาช่วยใช้แทนกริยาหลัก"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Many parents complain that their teenage children (7) ______ up late at night and refuse to get out of bed in the morning. It is tempting to blame laziness, but scientists now believe the problem is (8) ______ biological. During adolescence, the body begins to release melatonin, the hormone that makes us feel sleepy, about two hours later than it (9) ______ in childhood. As a result, a typical sixteen-year-old may simply not feel tired until close to midnight, and one who is sent to bed earlier often lies awake for hours, which only adds to the frustration. If school starts at half past seven, that student is likely to be (10) ______ of sleep every weekday. The effects go beyond tiredness: too little sleep has also been linked to low mood and difficulty concentrating. Research in several countries has shown that when schools delay their start time by even forty-five minutes, attendance improves and students (11) ______ better in morning tests. Critics point out that a later start causes problems for parents' working hours and for after-school sports and clubs. Nevertheless, a growing number of education authorities are (12) ______ that the benefits outweigh the inconvenience.",
+   "stem": "Which choice best fits blank (9)?",
+   "explanation": {
+    "en": "'It' refers to the body, which released melatonin in childhood — a finished past time. 'Did' replaces 'released' and avoids repetition.",
+    "th": "it หมายถึงร่างกาย ซึ่งหลั่งเมลาโทนินในวัยเด็ก เป็นอดีตที่จบแล้ว จึงใช้ did แทน released เพื่อไม่ให้ซ้ำคำ"
+   },
+   "choices": [
+    "had",
+    "did",
+    "was",
+    "does"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Collocation: deprived of",
+    "th": "คำปรากฏร่วม deprived of"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Many parents complain that their teenage children (7) ______ up late at night and refuse to get out of bed in the morning. It is tempting to blame laziness, but scientists now believe the problem is (8) ______ biological. During adolescence, the body begins to release melatonin, the hormone that makes us feel sleepy, about two hours later than it (9) ______ in childhood. As a result, a typical sixteen-year-old may simply not feel tired until close to midnight, and one who is sent to bed earlier often lies awake for hours, which only adds to the frustration. If school starts at half past seven, that student is likely to be (10) ______ of sleep every weekday. The effects go beyond tiredness: too little sleep has also been linked to low mood and difficulty concentrating. Research in several countries has shown that when schools delay their start time by even forty-five minutes, attendance improves and students (11) ______ better in morning tests. Critics point out that a later start causes problems for parents' working hours and for after-school sports and clubs. Nevertheless, a growing number of education authorities are (12) ______ that the benefits outweigh the inconvenience.",
+   "stem": "Which choice best fits blank (10)?",
+   "explanation": {
+    "en": "'Be deprived of sleep' means not get enough sleep. 'Lacked' cannot follow 'be' with 'of', 'lost of' is not English, and 'absent' needs 'from'.",
+    "th": "be deprived of sleep แปลว่าขาดการนอนหลับ ส่วน lacked ใช้คู่กับ be … of ไม่ได้ lost of ไม่มีใช้ และ absent ต้องใช้กับ from"
+   },
+   "choices": [
+    "lost",
+    "absent",
+    "lacked",
+    "deprived"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Collocation: perform well",
+    "th": "คำปรากฏร่วม perform well"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Many parents complain that their teenage children (7) ______ up late at night and refuse to get out of bed in the morning. It is tempting to blame laziness, but scientists now believe the problem is (8) ______ biological. During adolescence, the body begins to release melatonin, the hormone that makes us feel sleepy, about two hours later than it (9) ______ in childhood. As a result, a typical sixteen-year-old may simply not feel tired until close to midnight, and one who is sent to bed earlier often lies awake for hours, which only adds to the frustration. If school starts at half past seven, that student is likely to be (10) ______ of sleep every weekday. The effects go beyond tiredness: too little sleep has also been linked to low mood and difficulty concentrating. Research in several countries has shown that when schools delay their start time by even forty-five minutes, attendance improves and students (11) ______ better in morning tests. Critics point out that a later start causes problems for parents' working hours and for after-school sports and clubs. Nevertheless, a growing number of education authorities are (12) ______ that the benefits outweigh the inconvenience.",
+   "stem": "Which choice best fits blank (11)?",
+   "explanation": {
+    "en": "Students 'perform better in tests'. 'Make' and 'achieve' need an object; 'act better' refers to behaviour or acting.",
+    "th": "ใช้ perform better in tests (ทำข้อสอบได้ดีขึ้น) ส่วน make และ achieve ต้องมีกรรม และ act better หมายถึงพฤติกรรมหรือการแสดง"
+   },
+   "choices": [
+    "perform",
+    "act",
+    "achieve",
+    "make"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "be convinced that",
+    "th": "be convinced that"
+   },
+   "topic": {
+    "en": "Cloze: article",
+    "th": "เติมคำในบทความ"
+   },
+   "passage": "Many parents complain that their teenage children (7) ______ up late at night and refuse to get out of bed in the morning. It is tempting to blame laziness, but scientists now believe the problem is (8) ______ biological. During adolescence, the body begins to release melatonin, the hormone that makes us feel sleepy, about two hours later than it (9) ______ in childhood. As a result, a typical sixteen-year-old may simply not feel tired until close to midnight, and one who is sent to bed earlier often lies awake for hours, which only adds to the frustration. If school starts at half past seven, that student is likely to be (10) ______ of sleep every weekday. The effects go beyond tiredness: too little sleep has also been linked to low mood and difficulty concentrating. Research in several countries has shown that when schools delay their start time by even forty-five minutes, attendance improves and students (11) ______ better in morning tests. Critics point out that a later start causes problems for parents' working hours and for after-school sports and clubs. Nevertheless, a growing number of education authorities are (12) ______ that the benefits outweigh the inconvenience.",
+   "stem": "Which choice best fits blank (12)?",
+   "explanation": {
+    "en": "The authorities themselves are sure, so we need 'are convinced that'. 'Are convincing' and 'are persuading' would need an object; 'are believed that' is not correct English.",
+    "th": "หน่วยงานเหล่านั้นเชื่อมั่นเอง จึงใช้ are convinced that ส่วน are convincing และ are persuading ต้องมีกรรม และ are believed that ใช้ไม่ได้"
+   },
+   "choices": [
+    "believed",
+    "convincing",
+    "convinced",
+    "persuading"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Main idea",
+    "th": "ใจความสำคัญ"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "In a mountain on a remote Arctic island, a tunnel leads to a set of frozen chambers holding more than a million packets of seeds. The facility is often called a 'doomsday vault', but the people who run it dislike the name. Its purpose, they say, is not to prepare for the end of the world but to protect against the far more ordinary losses that happen every year.\n\nAround the world there are more than 1,700 seed banks, most of them national or regional. They store samples of crops such as rice, wheat and maize, along with their wild relatives. These collections matter because modern agriculture depends on a surprisingly small number of varieties. If a new disease attacks one of them, plant breeders need to find genes for resistance, and the most likely place to find them is in older or wild types of the same plant. A seed bank is, in effect, a library of genetic possibilities.\n\nYet many of these libraries are fragile. Some have lost their collections to floods, power cuts or simple lack of funding; others have been damaged by war. In 2015, researchers in the Middle East became the first to withdraw seeds from the Arctic vault after fighting forced them to abandon their own gene bank. Using the copies they had deposited years earlier, they were able to rebuild much of their collection in new locations.\n\nStoring seeds is not as simple as putting them in a freezer. Each sample must be dried carefully, sealed in foil packets and kept at around minus eighteen degrees Celsius. Even then, seeds do not last for ever. Their ability to germinate declines over time, so staff must regularly test samples and grow fresh plants to produce new seed. For some species, such as coconuts and many tropical fruits, freezing does not work at all, because their seeds die when they are dried. These must be conserved as living plants in fields or as tissue samples in laboratories.\n\nCritics argue that seed banks can create a false sense of security. A frozen seed, they point out, is cut off from the changing climate and the evolving pests that a plant in a farmer's field must adapt to. For this reason, many scientists believe that vaults should complement, not replace, the work of farmers who continue to grow traditional varieties.",
+   "stem": "What is the passage mainly about?",
+   "explanation": {
+    "en": "The text explains why seed banks matter (genetic resources, rebuilding lost collections) and then their limits (storage problems, seeds that cannot be frozen, a false sense of security). The vault and the war are only examples.",
+    "th": "บทความอธิบายว่าธนาคารเมล็ดพันธุ์สำคัญอย่างไร (แหล่งพันธุกรรม การกู้คืนคอลเลกชัน) และมีข้อจำกัดอะไร (การเก็บรักษา เมล็ดที่แช่แข็งไม่ได้ ความรู้สึกปลอดภัยที่ไม่จริง) ส่วนห้องนิรภัยและสงครามเป็นเพียงตัวอย่าง"
+   },
+   "choices": [
+    "How war in the Middle East destroyed the world's food supply",
+    "How an Arctic vault was built to survive a global disaster",
+    "Why farmers should stop growing traditional crop varieties",
+    "Why seed banks are valuable and what limits their usefulness"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Detail",
+    "th": "รายละเอียด"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "In a mountain on a remote Arctic island, a tunnel leads to a set of frozen chambers holding more than a million packets of seeds. The facility is often called a 'doomsday vault', but the people who run it dislike the name. Its purpose, they say, is not to prepare for the end of the world but to protect against the far more ordinary losses that happen every year.\n\nAround the world there are more than 1,700 seed banks, most of them national or regional. They store samples of crops such as rice, wheat and maize, along with their wild relatives. These collections matter because modern agriculture depends on a surprisingly small number of varieties. If a new disease attacks one of them, plant breeders need to find genes for resistance, and the most likely place to find them is in older or wild types of the same plant. A seed bank is, in effect, a library of genetic possibilities.\n\nYet many of these libraries are fragile. Some have lost their collections to floods, power cuts or simple lack of funding; others have been damaged by war. In 2015, researchers in the Middle East became the first to withdraw seeds from the Arctic vault after fighting forced them to abandon their own gene bank. Using the copies they had deposited years earlier, they were able to rebuild much of their collection in new locations.\n\nStoring seeds is not as simple as putting them in a freezer. Each sample must be dried carefully, sealed in foil packets and kept at around minus eighteen degrees Celsius. Even then, seeds do not last for ever. Their ability to germinate declines over time, so staff must regularly test samples and grow fresh plants to produce new seed. For some species, such as coconuts and many tropical fruits, freezing does not work at all, because their seeds die when they are dried. These must be conserved as living plants in fields or as tissue samples in laboratories.\n\nCritics argue that seed banks can create a false sense of security. A frozen seed, they point out, is cut off from the changing climate and the evolving pests that a plant in a farmer's field must adapt to. For this reason, many scientists believe that vaults should complement, not replace, the work of farmers who continue to grow traditional varieties.",
+   "stem": "According to the passage, why did researchers withdraw seeds from the Arctic vault in 2015?",
+   "explanation": {
+    "en": "Paragraph 3 says they withdrew seeds 'after fighting forced them to abandon their own gene bank'.",
+    "th": "ย่อหน้าที่ 3 ระบุว่านักวิจัยถอนเมล็ดพันธุ์ออกมาหลังจากการสู้รบบังคับให้ต้องทิ้งธนาคารพันธุกรรมของตนเอง"
+   },
+   "choices": [
+    "The vault's freezers had failed during a power cut.",
+    "Fighting had forced them to leave their own seed bank.",
+    "They wanted to test whether frozen seeds could still grow.",
+    "A new disease had attacked their wheat crop."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำตามบริบท"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "In a mountain on a remote Arctic island, a tunnel leads to a set of frozen chambers holding more than a million packets of seeds. The facility is often called a 'doomsday vault', but the people who run it dislike the name. Its purpose, they say, is not to prepare for the end of the world but to protect against the far more ordinary losses that happen every year.\n\nAround the world there are more than 1,700 seed banks, most of them national or regional. They store samples of crops such as rice, wheat and maize, along with their wild relatives. These collections matter because modern agriculture depends on a surprisingly small number of varieties. If a new disease attacks one of them, plant breeders need to find genes for resistance, and the most likely place to find them is in older or wild types of the same plant. A seed bank is, in effect, a library of genetic possibilities.\n\nYet many of these libraries are fragile. Some have lost their collections to floods, power cuts or simple lack of funding; others have been damaged by war. In 2015, researchers in the Middle East became the first to withdraw seeds from the Arctic vault after fighting forced them to abandon their own gene bank. Using the copies they had deposited years earlier, they were able to rebuild much of their collection in new locations.\n\nStoring seeds is not as simple as putting them in a freezer. Each sample must be dried carefully, sealed in foil packets and kept at around minus eighteen degrees Celsius. Even then, seeds do not last for ever. Their ability to germinate declines over time, so staff must regularly test samples and grow fresh plants to produce new seed. For some species, such as coconuts and many tropical fruits, freezing does not work at all, because their seeds die when they are dried. These must be conserved as living plants in fields or as tissue samples in laboratories.\n\nCritics argue that seed banks can create a false sense of security. A frozen seed, they point out, is cut off from the changing climate and the evolving pests that a plant in a farmer's field must adapt to. For this reason, many scientists believe that vaults should complement, not replace, the work of farmers who continue to grow traditional varieties.",
+   "stem": "The phrase 'in effect' in paragraph 2 is closest in meaning to ______.",
+   "explanation": {
+    "en": "'In effect' means 'in reality, basically': a seed bank is basically a library of genetic possibilities.",
+    "th": "in effect แปลว่าโดยพื้นฐานแล้ว หรือในทางปฏิบัติ (essentially) คือธนาคารเมล็ดพันธุ์ก็เปรียบได้กับห้องสมุดพันธุกรรม"
+   },
+   "choices": [
+    "essentially",
+    "temporarily",
+    "unexpectedly",
+    "officially"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "In a mountain on a remote Arctic island, a tunnel leads to a set of frozen chambers holding more than a million packets of seeds. The facility is often called a 'doomsday vault', but the people who run it dislike the name. Its purpose, they say, is not to prepare for the end of the world but to protect against the far more ordinary losses that happen every year.\n\nAround the world there are more than 1,700 seed banks, most of them national or regional. They store samples of crops such as rice, wheat and maize, along with their wild relatives. These collections matter because modern agriculture depends on a surprisingly small number of varieties. If a new disease attacks one of them, plant breeders need to find genes for resistance, and the most likely place to find them is in older or wild types of the same plant. A seed bank is, in effect, a library of genetic possibilities.\n\nYet many of these libraries are fragile. Some have lost their collections to floods, power cuts or simple lack of funding; others have been damaged by war. In 2015, researchers in the Middle East became the first to withdraw seeds from the Arctic vault after fighting forced them to abandon their own gene bank. Using the copies they had deposited years earlier, they were able to rebuild much of their collection in new locations.\n\nStoring seeds is not as simple as putting them in a freezer. Each sample must be dried carefully, sealed in foil packets and kept at around minus eighteen degrees Celsius. Even then, seeds do not last for ever. Their ability to germinate declines over time, so staff must regularly test samples and grow fresh plants to produce new seed. For some species, such as coconuts and many tropical fruits, freezing does not work at all, because their seeds die when they are dried. These must be conserved as living plants in fields or as tissue samples in laboratories.\n\nCritics argue that seed banks can create a false sense of security. A frozen seed, they point out, is cut off from the changing climate and the evolving pests that a plant in a farmer's field must adapt to. For this reason, many scientists believe that vaults should complement, not replace, the work of farmers who continue to grow traditional varieties.",
+   "stem": "Which of the following can be inferred about coconut seeds?",
+   "explanation": {
+    "en": "Coconut seeds die when dried, so the normal method (drying and freezing, used for crops such as rice and wheat) fails. They are still conserved, but as living plants or tissue samples.",
+    "th": "เมล็ดมะพร้าวตายเมื่อถูกทำให้แห้ง จึงใช้วิธีปกติ (ทำให้แห้งแล้วแช่แข็งแบบข้าวหรือข้าวสาลี) ไม่ได้ แต่ยังคงอนุรักษ์ไว้ในรูปต้นพืชหรือเนื้อเยื่อ"
+   },
+   "choices": [
+    "They cannot be stored in the same way as rice or wheat seeds.",
+    "They are not kept in any form of collection.",
+    "They are more resistant to disease than other crops.",
+    "They last longer than most seeds when frozen."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Writer's purpose",
+    "th": "จุดประสงค์ของผู้เขียน"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่านบทความ"
+   },
+   "passage": "In a mountain on a remote Arctic island, a tunnel leads to a set of frozen chambers holding more than a million packets of seeds. The facility is often called a 'doomsday vault', but the people who run it dislike the name. Its purpose, they say, is not to prepare for the end of the world but to protect against the far more ordinary losses that happen every year.\n\nAround the world there are more than 1,700 seed banks, most of them national or regional. They store samples of crops such as rice, wheat and maize, along with their wild relatives. These collections matter because modern agriculture depends on a surprisingly small number of varieties. If a new disease attacks one of them, plant breeders need to find genes for resistance, and the most likely place to find them is in older or wild types of the same plant. A seed bank is, in effect, a library of genetic possibilities.\n\nYet many of these libraries are fragile. Some have lost their collections to floods, power cuts or simple lack of funding; others have been damaged by war. In 2015, researchers in the Middle East became the first to withdraw seeds from the Arctic vault after fighting forced them to abandon their own gene bank. Using the copies they had deposited years earlier, they were able to rebuild much of their collection in new locations.\n\nStoring seeds is not as simple as putting them in a freezer. Each sample must be dried carefully, sealed in foil packets and kept at around minus eighteen degrees Celsius. Even then, seeds do not last for ever. Their ability to germinate declines over time, so staff must regularly test samples and grow fresh plants to produce new seed. For some species, such as coconuts and many tropical fruits, freezing does not work at all, because their seeds die when they are dried. These must be conserved as living plants in fields or as tissue samples in laboratories.\n\nCritics argue that seed banks can create a false sense of security. A frozen seed, they point out, is cut off from the changing climate and the evolving pests that a plant in a farmer's field must adapt to. For this reason, many scientists believe that vaults should complement, not replace, the work of farmers who continue to grow traditional varieties.",
+   "stem": "Why does the writer mention critics in the final paragraph?",
+   "explanation": {
+    "en": "The critics' point leads to the conclusion that vaults should 'complement, not replace' farmers' work, so seed banks are one part of a bigger approach. The text never says they are a waste of money, and frozen seeds cannot adapt at all.",
+    "th": "ข้อโต้แย้งของผู้วิจารณ์นำไปสู่ข้อสรุปว่าห้องนิรภัยควร 'เสริม ไม่ใช่แทนที่' งานของเกษตรกร แสดงว่าธนาคารเมล็ดพันธุ์เป็นเพียงส่วนหนึ่งของการอนุรักษ์ ไม่ได้บอกว่าสิ้นเปลือง และเมล็ดที่แช่แข็งปรับตัวไม่ได้เลย"
+   },
+   "choices": [
+    "To argue that seed banks are a waste of money",
+    "To suggest that frozen seeds adapt quickly to new pests",
+    "To explain why the vault's staff dislike its nickname",
+    "To show that seed banks should be one part of a wider conservation strategy"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Detail",
+    "th": "รายละเอียด"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่านเรื่องเล่า"
+   },
+   "passage": "Ploy had never intended to enter the debate competition. Her English teacher, Mr Anan, had simply written her name on the list and told her afterwards, as if he were doing her a favour. 'You argue with me in every lesson,' he said. 'You might as well get a certificate for it.'\n\nThe motion was announced two weeks before the contest: 'Homework should be abolished.' Ploy's team was told to oppose it, which struck her as deeply unfair. She had complained about homework for most of her life, and now she was expected to defend it in front of an audience of strangers.\n\nFor the first few days she barely prepared. She told herself that the other team had the easier side and that losing would not be her fault. Then, one evening, she found her younger brother in tears over a page of fractions. She sat down to help him, intending to give him the answers so that they could both go to bed. Instead, she found herself asking him questions, and gradually he worked out the method himself. When he finished, he looked more pleased than she had seen him in weeks.\n\nPloy went to her room and opened her notebook. She did not write that homework was enjoyable, because she did not believe it. What she wrote was that practice done alone, without a teacher nearby, showed students what they actually understood rather than what they thought they understood. She added that the real problem was not homework itself but homework that was set without thought: pages of repetition that taught nothing new.\n\nOn the day of the competition her hands were shaking so badly that she left her notes on the table and spoke without them. She told the story of her brother and the fractions. She admitted that she had thought she was on the wrong side at first, and the audience laughed. Then she argued that abolishing homework would punish students like her brother, who needed quiet practice to build confidence, while doing nothing about the real issue — the quality of the tasks.\n\nHer team did not win. The judges praised their honesty but felt that the other side had used more evidence. On the bus home, Mr Anan asked if she was disappointed. Ploy thought for a moment. 'A little,' she said. 'But I think I changed my own mind, and that's harder than changing anyone else's.'",
+   "stem": "How did Ploy come to take part in the competition?",
+   "explanation": {
+    "en": "Paragraph 1 says Mr Anan 'had simply written her name on the list and told her afterwards'.",
+    "th": "ย่อหน้าแรกบอกว่าครูอนันต์เขียนชื่อเธอลงในรายชื่อแล้วค่อยบอกเธอทีหลัง"
+   },
+   "choices": [
+    "She volunteered because she enjoyed arguing.",
+    "Her team chose her as their leader.",
+    "Her teacher entered her without asking her first.",
+    "Her brother persuaded her to enter."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Inference about feelings",
+    "th": "การอนุมานความรู้สึกของตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่านเรื่องเล่า"
+   },
+   "passage": "Ploy had never intended to enter the debate competition. Her English teacher, Mr Anan, had simply written her name on the list and told her afterwards, as if he were doing her a favour. 'You argue with me in every lesson,' he said. 'You might as well get a certificate for it.'\n\nThe motion was announced two weeks before the contest: 'Homework should be abolished.' Ploy's team was told to oppose it, which struck her as deeply unfair. She had complained about homework for most of her life, and now she was expected to defend it in front of an audience of strangers.\n\nFor the first few days she barely prepared. She told herself that the other team had the easier side and that losing would not be her fault. Then, one evening, she found her younger brother in tears over a page of fractions. She sat down to help him, intending to give him the answers so that they could both go to bed. Instead, she found herself asking him questions, and gradually he worked out the method himself. When he finished, he looked more pleased than she had seen him in weeks.\n\nPloy went to her room and opened her notebook. She did not write that homework was enjoyable, because she did not believe it. What she wrote was that practice done alone, without a teacher nearby, showed students what they actually understood rather than what they thought they understood. She added that the real problem was not homework itself but homework that was set without thought: pages of repetition that taught nothing new.\n\nOn the day of the competition her hands were shaking so badly that she left her notes on the table and spoke without them. She told the story of her brother and the fractions. She admitted that she had thought she was on the wrong side at first, and the audience laughed. Then she argued that abolishing homework would punish students like her brother, who needed quiet practice to build confidence, while doing nothing about the real issue — the quality of the tasks.\n\nHer team did not win. The judges praised their honesty but felt that the other side had used more evidence. On the bus home, Mr Anan asked if she was disappointed. Ploy thought for a moment. 'A little,' she said. 'But I think I changed my own mind, and that's harder than changing anyone else's.'",
+   "stem": "Why did Ploy think her team's position was 'deeply unfair'?",
+   "explanation": {
+    "en": "She 'had complained about homework for most of her life' and now had to defend it, which is why it felt unfair.",
+    "th": "เธอบ่นเรื่องการบ้านมาเกือบทั้งชีวิต แต่ตอนนี้ต้องออกมาปกป้องการบ้าน จึงรู้สึกว่าไม่ยุติธรรม"
+   },
+   "choices": [
+    "The audience would be made up of strangers.",
+    "She had to argue for something she had always opposed.",
+    "Mr Anan had chosen the motion to embarrass her.",
+    "Her team had less time to prepare than the other team."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Turning point in a narrative",
+    "th": "จุดเปลี่ยนของเรื่อง"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่านเรื่องเล่า"
+   },
+   "passage": "Ploy had never intended to enter the debate competition. Her English teacher, Mr Anan, had simply written her name on the list and told her afterwards, as if he were doing her a favour. 'You argue with me in every lesson,' he said. 'You might as well get a certificate for it.'\n\nThe motion was announced two weeks before the contest: 'Homework should be abolished.' Ploy's team was told to oppose it, which struck her as deeply unfair. She had complained about homework for most of her life, and now she was expected to defend it in front of an audience of strangers.\n\nFor the first few days she barely prepared. She told herself that the other team had the easier side and that losing would not be her fault. Then, one evening, she found her younger brother in tears over a page of fractions. She sat down to help him, intending to give him the answers so that they could both go to bed. Instead, she found herself asking him questions, and gradually he worked out the method himself. When he finished, he looked more pleased than she had seen him in weeks.\n\nPloy went to her room and opened her notebook. She did not write that homework was enjoyable, because she did not believe it. What she wrote was that practice done alone, without a teacher nearby, showed students what they actually understood rather than what they thought they understood. She added that the real problem was not homework itself but homework that was set without thought: pages of repetition that taught nothing new.\n\nOn the day of the competition her hands were shaking so badly that she left her notes on the table and spoke without them. She told the story of her brother and the fractions. She admitted that she had thought she was on the wrong side at first, and the audience laughed. Then she argued that abolishing homework would punish students like her brother, who needed quiet practice to build confidence, while doing nothing about the real issue — the quality of the tasks.\n\nHer team did not win. The judges praised their honesty but felt that the other side had used more evidence. On the bus home, Mr Anan asked if she was disappointed. Ploy thought for a moment. 'A little,' she said. 'But I think I changed my own mind, and that's harder than changing anyone else's.'",
+   "stem": "What made Ploy start preparing seriously?",
+   "explanation": {
+    "en": "After helping her brother work out the method himself, she 'went to her room and opened her notebook'. She explicitly did not decide that homework was enjoyable.",
+    "th": "หลังจากช่วยให้น้องชายคิดวิธีทำได้เอง เธอก็กลับห้องไปเปิดสมุดเตรียมตัว และเรื่องระบุชัดว่าเธอไม่ได้คิดว่าการบ้านสนุก"
+   },
+   "choices": [
+    "Seeing how her brother benefited from working through a problem himself",
+    "A warning from Mr Anan that she might lose",
+    "Realising that the other team had the easier side",
+    "Discovering that homework could be enjoyable"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Reference and paraphrase",
+    "th": "การอ้างถึงและการถอดความ"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่านเรื่องเล่า"
+   },
+   "passage": "Ploy had never intended to enter the debate competition. Her English teacher, Mr Anan, had simply written her name on the list and told her afterwards, as if he were doing her a favour. 'You argue with me in every lesson,' he said. 'You might as well get a certificate for it.'\n\nThe motion was announced two weeks before the contest: 'Homework should be abolished.' Ploy's team was told to oppose it, which struck her as deeply unfair. She had complained about homework for most of her life, and now she was expected to defend it in front of an audience of strangers.\n\nFor the first few days she barely prepared. She told herself that the other team had the easier side and that losing would not be her fault. Then, one evening, she found her younger brother in tears over a page of fractions. She sat down to help him, intending to give him the answers so that they could both go to bed. Instead, she found herself asking him questions, and gradually he worked out the method himself. When he finished, he looked more pleased than she had seen him in weeks.\n\nPloy went to her room and opened her notebook. She did not write that homework was enjoyable, because she did not believe it. What she wrote was that practice done alone, without a teacher nearby, showed students what they actually understood rather than what they thought they understood. She added that the real problem was not homework itself but homework that was set without thought: pages of repetition that taught nothing new.\n\nOn the day of the competition her hands were shaking so badly that she left her notes on the table and spoke without them. She told the story of her brother and the fractions. She admitted that she had thought she was on the wrong side at first, and the audience laughed. Then she argued that abolishing homework would punish students like her brother, who needed quiet practice to build confidence, while doing nothing about the real issue — the quality of the tasks.\n\nHer team did not win. The judges praised their honesty but felt that the other side had used more evidence. On the bus home, Mr Anan asked if she was disappointed. Ploy thought for a moment. 'A little,' she said. 'But I think I changed my own mind, and that's harder than changing anyone else's.'",
+   "stem": "In paragraph 4, 'homework that was set without thought' refers to ______.",
+   "explanation": {
+    "en": "The words after the colon explain it: 'pages of repetition that taught nothing new'. 'Without thought' describes the teacher who sets the work, not the students.",
+    "th": "คำหลังเครื่องหมาย : อธิบายไว้ว่าเป็น 'หน้ากระดาษที่ทำซ้ำ ๆ โดยไม่ได้สอนอะไรใหม่' และ without thought หมายถึงครูที่สั่งงานโดยไม่คิด ไม่ใช่นักเรียน"
+   },
+   "choices": [
+    "homework set only before competitions",
+    "repetitive tasks that do not teach anything new",
+    "tasks done alone without a teacher nearby",
+    "homework that students do without thinking"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting a character's final remark",
+    "th": "การตีความคำพูดตอนจบ"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่านเรื่องเล่า"
+   },
+   "passage": "Ploy had never intended to enter the debate competition. Her English teacher, Mr Anan, had simply written her name on the list and told her afterwards, as if he were doing her a favour. 'You argue with me in every lesson,' he said. 'You might as well get a certificate for it.'\n\nThe motion was announced two weeks before the contest: 'Homework should be abolished.' Ploy's team was told to oppose it, which struck her as deeply unfair. She had complained about homework for most of her life, and now she was expected to defend it in front of an audience of strangers.\n\nFor the first few days she barely prepared. She told herself that the other team had the easier side and that losing would not be her fault. Then, one evening, she found her younger brother in tears over a page of fractions. She sat down to help him, intending to give him the answers so that they could both go to bed. Instead, she found herself asking him questions, and gradually he worked out the method himself. When he finished, he looked more pleased than she had seen him in weeks.\n\nPloy went to her room and opened her notebook. She did not write that homework was enjoyable, because she did not believe it. What she wrote was that practice done alone, without a teacher nearby, showed students what they actually understood rather than what they thought they understood. She added that the real problem was not homework itself but homework that was set without thought: pages of repetition that taught nothing new.\n\nOn the day of the competition her hands were shaking so badly that she left her notes on the table and spoke without them. She told the story of her brother and the fractions. She admitted that she had thought she was on the wrong side at first, and the audience laughed. Then she argued that abolishing homework would punish students like her brother, who needed quiet practice to build confidence, while doing nothing about the real issue — the quality of the tasks.\n\nHer team did not win. The judges praised their honesty but felt that the other side had used more evidence. On the bus home, Mr Anan asked if she was disappointed. Ploy thought for a moment. 'A little,' she said. 'But I think I changed my own mind, and that's harder than changing anyone else's.'",
+   "stem": "What does Ploy's final remark suggest?",
+   "explanation": {
+    "en": "She is only 'a little' disappointed and says changing her own mind is harder than changing others' — the personal change matters more to her than losing.",
+    "th": "เธอผิดหวังเพียงเล็กน้อย และบอกว่าการเปลี่ยนความคิดตนเองยากกว่าการเปลี่ยนใจผู้อื่น แสดงว่าเธอให้คุณค่ากับการเปลี่ยนแปลงทางความคิดมากกว่าผลแพ้ชนะ"
+   },
+   "choices": [
+    "She believes the judges made an unfair decision.",
+    "She plans to argue for abolishing homework in future.",
+    "She values the change in her own thinking more than the result.",
+    "She regrets speaking without her notes."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Main argument",
+    "th": "ข้อโต้แย้งหลัก"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Every few months another country or school district announces that it will ban mobile phones from classrooms, and the news is usually greeted with relief. Teachers are tired of competing with screens; parents worry about cyberbullying and sleepless nights. On the surface, a ban seems like the obvious answer. I want to argue, however, that a complete ban is the wrong tool for a real problem.\n\nLet me begin with what the supporters of bans get right. There is solid evidence that the mere presence of a phone on a desk reduces concentration, even when it is switched off. Students who are allowed to check messages during lessons tend to remember less, and the constant comparison encouraged by social media can damage self-esteem. Nobody seriously disputes that unrestricted phone use in school is harmful.\n\nThe difficulty lies in assuming that removing the device removes the problem. Most teenagers will spend several hours a day on their phones whatever the school rules say; the habits that matter are formed at home, on the bus and late at night. A school that simply locks phones away from eight until four teaches students nothing about how to manage them for the other sixteen hours. It is a little like trying to teach road safety by keeping children indoors.\n\nThere is also a question of fairness. For many families, particularly those who cannot afford a laptop, a phone is the only device a student owns. It is their dictionary, their calculator and their way of contacting a parent who works long shifts. A blanket ban treats a tool for learning and a source of distraction as though they were the same thing.\n\nWhat I propose instead is a policy of deliberate use. Phones should be out of sight by default, stored in bags or lockers, but teachers should be free to ask students to take them out for specific tasks: recording an experiment, checking a source, practising pronunciation. Alongside this, schools should teach digital habits as seriously as any other subject — how notifications are designed to capture attention, how to turn them off, how to recognise when scrolling has replaced rest.\n\nBans are attractive because they are simple to announce and easy to measure. Teaching self-control is slower and harder to show in a report. But the aim of education is not to produce students who behave well only when temptation is removed. It is to prepare them for a world in which it never will be.",
+   "stem": "What is the writer's main argument?",
+   "explanation": {
+    "en": "The writer calls a complete ban 'the wrong tool' and proposes 'deliberate use' plus teaching digital habits. Free use in lessons is rejected too ('unrestricted phone use … is harmful').",
+    "th": "ผู้เขียนมองว่าการห้ามโดยสิ้นเชิงเป็น 'เครื่องมือที่ผิด' และเสนอให้ใช้อย่างมีจุดประสงค์ควบคู่กับสอนนิสัยดิจิทัล ผู้เขียนก็ไม่เห็นด้วยกับการใช้อย่างอิสระในห้องเรียนเช่นกัน"
+   },
+   "choices": [
+    "Parents, not schools, are responsible for teenagers' phone habits.",
+    "Students should be allowed to use phones freely during lessons.",
+    "Schools should teach students to manage phones rather than banning them completely.",
+    "Phones should be banned because they damage concentration."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Purpose of a paragraph",
+    "th": "จุดประสงค์ของย่อหน้า"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Every few months another country or school district announces that it will ban mobile phones from classrooms, and the news is usually greeted with relief. Teachers are tired of competing with screens; parents worry about cyberbullying and sleepless nights. On the surface, a ban seems like the obvious answer. I want to argue, however, that a complete ban is the wrong tool for a real problem.\n\nLet me begin with what the supporters of bans get right. There is solid evidence that the mere presence of a phone on a desk reduces concentration, even when it is switched off. Students who are allowed to check messages during lessons tend to remember less, and the constant comparison encouraged by social media can damage self-esteem. Nobody seriously disputes that unrestricted phone use in school is harmful.\n\nThe difficulty lies in assuming that removing the device removes the problem. Most teenagers will spend several hours a day on their phones whatever the school rules say; the habits that matter are formed at home, on the bus and late at night. A school that simply locks phones away from eight until four teaches students nothing about how to manage them for the other sixteen hours. It is a little like trying to teach road safety by keeping children indoors.\n\nThere is also a question of fairness. For many families, particularly those who cannot afford a laptop, a phone is the only device a student owns. It is their dictionary, their calculator and their way of contacting a parent who works long shifts. A blanket ban treats a tool for learning and a source of distraction as though they were the same thing.\n\nWhat I propose instead is a policy of deliberate use. Phones should be out of sight by default, stored in bags or lockers, but teachers should be free to ask students to take them out for specific tasks: recording an experiment, checking a source, practising pronunciation. Alongside this, schools should teach digital habits as seriously as any other subject — how notifications are designed to capture attention, how to turn them off, how to recognise when scrolling has replaced rest.\n\nBans are attractive because they are simple to announce and easy to measure. Teaching self-control is slower and harder to show in a report. But the aim of education is not to produce students who behave well only when temptation is removed. It is to prepare them for a world in which it never will be.",
+   "stem": "In paragraph 2, the writer's purpose is to ______.",
+   "explanation": {
+    "en": "'Let me begin with what the supporters of bans get right' shows the writer is conceding the strong points of the other side before arguing against a full ban.",
+    "th": "'Let me begin with what the supporters of bans get right' แสดงว่าผู้เขียนยอมรับจุดที่ถูกต้องของฝ่ายสนับสนุนการห้ามก่อน แล้วจึงโต้แย้ง"
+   },
+   "choices": [
+    "prove that phones have no effect on learning",
+    "criticise teachers for failing to control their classes",
+    "acknowledge the valid points made by supporters of bans",
+    "describe the results of the writer's own research"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting an analogy",
+    "th": "การตีความการเปรียบเทียบ"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Every few months another country or school district announces that it will ban mobile phones from classrooms, and the news is usually greeted with relief. Teachers are tired of competing with screens; parents worry about cyberbullying and sleepless nights. On the surface, a ban seems like the obvious answer. I want to argue, however, that a complete ban is the wrong tool for a real problem.\n\nLet me begin with what the supporters of bans get right. There is solid evidence that the mere presence of a phone on a desk reduces concentration, even when it is switched off. Students who are allowed to check messages during lessons tend to remember less, and the constant comparison encouraged by social media can damage self-esteem. Nobody seriously disputes that unrestricted phone use in school is harmful.\n\nThe difficulty lies in assuming that removing the device removes the problem. Most teenagers will spend several hours a day on their phones whatever the school rules say; the habits that matter are formed at home, on the bus and late at night. A school that simply locks phones away from eight until four teaches students nothing about how to manage them for the other sixteen hours. It is a little like trying to teach road safety by keeping children indoors.\n\nThere is also a question of fairness. For many families, particularly those who cannot afford a laptop, a phone is the only device a student owns. It is their dictionary, their calculator and their way of contacting a parent who works long shifts. A blanket ban treats a tool for learning and a source of distraction as though they were the same thing.\n\nWhat I propose instead is a policy of deliberate use. Phones should be out of sight by default, stored in bags or lockers, but teachers should be free to ask students to take them out for specific tasks: recording an experiment, checking a source, practising pronunciation. Alongside this, schools should teach digital habits as seriously as any other subject — how notifications are designed to capture attention, how to turn them off, how to recognise when scrolling has replaced rest.\n\nBans are attractive because they are simple to announce and easy to measure. Teaching self-control is slower and harder to show in a report. But the aim of education is not to produce students who behave well only when temptation is removed. It is to prepare them for a world in which it never will be.",
+   "stem": "The comparison with 'teaching road safety by keeping children indoors' suggests that a ban ______.",
+   "explanation": {
+    "en": "Keeping children indoors means they never learn to handle traffic; in the same way, locking phones away means students never learn to manage them.",
+    "th": "การเก็บเด็กไว้ในบ้านทำให้เด็กไม่ได้เรียนรู้วิธีรับมือกับการจราจร เช่นเดียวกับการเก็บโทรศัพท์ไว้ทำให้นักเรียนไม่ได้เรียนรู้การควบคุมการใช้โทรศัพท์"
+   },
+   "choices": [
+    "is dangerous because students may be injured",
+    "avoids the problem instead of preparing students to deal with it",
+    "works well for younger children but not for teenagers",
+    "should also be applied outside school"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำตามบริบท"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Every few months another country or school district announces that it will ban mobile phones from classrooms, and the news is usually greeted with relief. Teachers are tired of competing with screens; parents worry about cyberbullying and sleepless nights. On the surface, a ban seems like the obvious answer. I want to argue, however, that a complete ban is the wrong tool for a real problem.\n\nLet me begin with what the supporters of bans get right. There is solid evidence that the mere presence of a phone on a desk reduces concentration, even when it is switched off. Students who are allowed to check messages during lessons tend to remember less, and the constant comparison encouraged by social media can damage self-esteem. Nobody seriously disputes that unrestricted phone use in school is harmful.\n\nThe difficulty lies in assuming that removing the device removes the problem. Most teenagers will spend several hours a day on their phones whatever the school rules say; the habits that matter are formed at home, on the bus and late at night. A school that simply locks phones away from eight until four teaches students nothing about how to manage them for the other sixteen hours. It is a little like trying to teach road safety by keeping children indoors.\n\nThere is also a question of fairness. For many families, particularly those who cannot afford a laptop, a phone is the only device a student owns. It is their dictionary, their calculator and their way of contacting a parent who works long shifts. A blanket ban treats a tool for learning and a source of distraction as though they were the same thing.\n\nWhat I propose instead is a policy of deliberate use. Phones should be out of sight by default, stored in bags or lockers, but teachers should be free to ask students to take them out for specific tasks: recording an experiment, checking a source, practising pronunciation. Alongside this, schools should teach digital habits as seriously as any other subject — how notifications are designed to capture attention, how to turn them off, how to recognise when scrolling has replaced rest.\n\nBans are attractive because they are simple to announce and easy to measure. Teaching self-control is slower and harder to show in a report. But the aim of education is not to produce students who behave well only when temptation is removed. It is to prepare them for a world in which it never will be.",
+   "stem": "The word 'blanket' in paragraph 4 is closest in meaning to ______.",
+   "explanation": {
+    "en": "A 'blanket ban' covers everything and everyone, which is why the writer says it treats a learning tool and a distraction 'as though they were the same thing'.",
+    "th": "blanket ban คือการห้ามแบบครอบคลุมทุกกรณีไม่มีข้อยกเว้น ผู้เขียนจึงบอกว่ามันมองเครื่องมือการเรียนและสิ่งรบกวนเป็นสิ่งเดียวกัน"
+   },
+   "choices": [
+    "designed to protect students",
+    "lasting only a short time",
+    "applying to everyone with no exceptions",
+    "kept secret from parents"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Scanning for details (NOT question)",
+    "th": "การหารายละเอียดที่ไม่ได้กล่าวถึง"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Every few months another country or school district announces that it will ban mobile phones from classrooms, and the news is usually greeted with relief. Teachers are tired of competing with screens; parents worry about cyberbullying and sleepless nights. On the surface, a ban seems like the obvious answer. I want to argue, however, that a complete ban is the wrong tool for a real problem.\n\nLet me begin with what the supporters of bans get right. There is solid evidence that the mere presence of a phone on a desk reduces concentration, even when it is switched off. Students who are allowed to check messages during lessons tend to remember less, and the constant comparison encouraged by social media can damage self-esteem. Nobody seriously disputes that unrestricted phone use in school is harmful.\n\nThe difficulty lies in assuming that removing the device removes the problem. Most teenagers will spend several hours a day on their phones whatever the school rules say; the habits that matter are formed at home, on the bus and late at night. A school that simply locks phones away from eight until four teaches students nothing about how to manage them for the other sixteen hours. It is a little like trying to teach road safety by keeping children indoors.\n\nThere is also a question of fairness. For many families, particularly those who cannot afford a laptop, a phone is the only device a student owns. It is their dictionary, their calculator and their way of contacting a parent who works long shifts. A blanket ban treats a tool for learning and a source of distraction as though they were the same thing.\n\nWhat I propose instead is a policy of deliberate use. Phones should be out of sight by default, stored in bags or lockers, but teachers should be free to ask students to take them out for specific tasks: recording an experiment, checking a source, practising pronunciation. Alongside this, schools should teach digital habits as seriously as any other subject — how notifications are designed to capture attention, how to turn them off, how to recognise when scrolling has replaced rest.\n\nBans are attractive because they are simple to announce and easy to measure. Teaching self-control is slower and harder to show in a report. But the aim of education is not to produce students who behave well only when temptation is removed. It is to prepare them for a world in which it never will be.",
+   "stem": "Which of the following is NOT mentioned as a way students might use phones for learning?",
+   "explanation": {
+    "en": "Paragraph 5 lists recording an experiment, checking a source and practising pronunciation. Online exams are not mentioned.",
+    "th": "ย่อหน้าที่ 5 กล่าวถึงการบันทึกการทดลอง การตรวจสอบแหล่งข้อมูล และการฝึกออกเสียง แต่ไม่ได้กล่าวถึงการสอบออนไลน์"
+   },
+   "choices": [
+    "Taking online exams",
+    "Recording an experiment",
+    "Checking a source",
+    "Practising pronunciation"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference from the conclusion",
+    "th": "การอนุมานจากบทสรุป"
+   },
+   "topic": {
+    "en": "Reading: argument",
+    "th": "การอ่านบทความแสดงความคิดเห็น"
+   },
+   "passage": "Every few months another country or school district announces that it will ban mobile phones from classrooms, and the news is usually greeted with relief. Teachers are tired of competing with screens; parents worry about cyberbullying and sleepless nights. On the surface, a ban seems like the obvious answer. I want to argue, however, that a complete ban is the wrong tool for a real problem.\n\nLet me begin with what the supporters of bans get right. There is solid evidence that the mere presence of a phone on a desk reduces concentration, even when it is switched off. Students who are allowed to check messages during lessons tend to remember less, and the constant comparison encouraged by social media can damage self-esteem. Nobody seriously disputes that unrestricted phone use in school is harmful.\n\nThe difficulty lies in assuming that removing the device removes the problem. Most teenagers will spend several hours a day on their phones whatever the school rules say; the habits that matter are formed at home, on the bus and late at night. A school that simply locks phones away from eight until four teaches students nothing about how to manage them for the other sixteen hours. It is a little like trying to teach road safety by keeping children indoors.\n\nThere is also a question of fairness. For many families, particularly those who cannot afford a laptop, a phone is the only device a student owns. It is their dictionary, their calculator and their way of contacting a parent who works long shifts. A blanket ban treats a tool for learning and a source of distraction as though they were the same thing.\n\nWhat I propose instead is a policy of deliberate use. Phones should be out of sight by default, stored in bags or lockers, but teachers should be free to ask students to take them out for specific tasks: recording an experiment, checking a source, practising pronunciation. Alongside this, schools should teach digital habits as seriously as any other subject — how notifications are designed to capture attention, how to turn them off, how to recognise when scrolling has replaced rest.\n\nBans are attractive because they are simple to announce and easy to measure. Teaching self-control is slower and harder to show in a report. But the aim of education is not to produce students who behave well only when temptation is removed. It is to prepare them for a world in which it never will be.",
+   "stem": "What does the final sentence imply?",
+   "explanation": {
+    "en": "'A world in which it never will be' means a world in which temptation will never be removed — so students must learn to cope with it.",
+    "th": "'a world in which it never will be' หมายถึงโลกที่สิ่งยั่วยุจะไม่มีวันถูกเอาออกไป นักเรียนจึงต้องเรียนรู้ที่จะรับมือด้วยตนเอง"
+   },
+   "choices": [
+    "Students behave better when phones are taken away.",
+    "Reports on student behaviour are usually inaccurate.",
+    "Temptations like phones will always be present in students' adult lives.",
+    "Schools will eventually find a way to remove all distractions."
+   ],
+   "answer": 2
+  }
+ ]
+}
