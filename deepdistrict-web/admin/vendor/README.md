@@ -7,3 +7,8 @@
 
 Copied unmodified from the npm packages; licences are next to them. They are loaded only by
 the back office (`admin/`), never by the public site.
+
+## qrcode.js
+QR Code Generator for JavaScript 1.4.4 by Kazuhiko Arase (MIT licence; the licence notice is at
+the top of the file). Used for the verification QR code printed on audited PDFs.
+"QR Code" is a registered trademark of DENSO WAVE INCORPORATED.

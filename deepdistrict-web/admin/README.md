@@ -273,6 +273,69 @@ Parents see their children's results. Teachers see their own students' results.
 
 The Writing band is calculated from your marks, with Task 2 counting twice as much as Task 1.
 
+## Live class (teachers)
+
+**Starting a class (teacher)**
+1. Open **Live class** → **Start a live class**.
+2. Choose SAT questions (topics, number, difficulty) or an IELTS Reading passage. Optionally set a
+   number of seconds per question.
+3. The teacher screen opens with a 6-letter **code**.
+
+**Joining (learners):** **Online tests** → *Join a live class* → type the code. Phones work too
+(start the server with `--lan` on a local network).
+
+**Running each question (teacher)**
+1. **Open answers.** The answer bars and the roster fill in as learners answer.
+2. **Close answers.**
+3. **Show answer.** Each learner sees whether they were right, and the explanation.
+4. **Next.**
+
+**At the end:** **End** shows everyone's score. Their answers also feed the item statistics.
+
+**Using a projector:** tick **Hide key** before showing the teacher screen. The correct answer then
+stays hidden until you reveal it.
+
+## PDF documents (audited)
+
+**Making a test paper:** **PDF documents → New test paper**, or **PDF paper** in the item bank, makes
+a paper from approved items. Tick *teacher copy* to add the answer key and explanations; every page
+is then marked TEACHER COPY.
+
+**What every PDF shows:**
+- the verification code and QR code
+- who created it, when, and who generated this copy
+- how to use it
+- the legal notice
+- the code, date and page number on each page
+
+**Score reports:** learners, parents and staff can download a score report (PDF) from a finished
+test's results page.
+
+**Download log:**
+- **PDF documents** lists every document with its log of downloads and prints.
+- **Download again** rebuilds the identical paper.
+- Admins can **Revoke** a document.
+
+**Checking a printed copy:** anyone can do this at `pages/verify.html` (or by scanning the QR code).
+
+## Difficulty from real results
+
+The item bank's **Results & difficulty** box counts answers from finished tests and live classes;
+staff previews are not counted. For each question it shows:
+
+- **n**: how many learners answered it.
+- **p**: the share who got it right.
+- **r**: discrimination — does the question separate stronger from weaker learners? Aim for 0.2 or more.
+
+Once a question has enough answers (default 20; an admin can change this, e.g. to 3 for a trial):
+- **Suggested difficulty:** SAT easy/medium/hard, or IELTS passage level 1–3.
+- **Warnings:**
+  - very hard — check the key
+  - too easy
+  - weak discrimination
+- **Apply** (one, or all): each change is saved as a new version, with the evidence in its note.
+- **Score ready pretest items** turns tried-out pretest questions into scored ones.
+
 ## Search
 
 **Search** finds lessons (topics, notes, rooms), enrolments, people, payments (receipt numbers)

@@ -46,7 +46,8 @@
       '<p class="muted small">' + L("Questions are written by DeepDistrict and scores are practice estimates, not official scores. SAT is a trademark of the College Board; IELTS belongs to the British Council, IDP and Cambridge. We are not affiliated with them.",
         "ข้อสอบเขียนโดย DeepDistrict และคะแนนเป็นค่าประมาณเพื่อการฝึก ไม่ใช่คะแนนทางการ SAT เป็นเครื่องหมายการค้าของ College Board ส่วน IELTS เป็นของ British Council, IDP และ Cambridge เราไม่มีส่วนเกี่ยวข้องกับองค์กรเหล่านี้") + "</p>";
     var list = home.attempts;
-    el.innerHTML = (staff ? '<p class="note">' + L("Staff: tests you start here are previews and are marked as such. Students' results appear below.", "เจ้าหน้าที่: ข้อสอบที่เริ่มจากหน้านี้เป็นการทดลอง (preview) ผลของนักเรียนแสดงด้านล่าง") + "</p>" : "") +
+    var join = learner ? '<section class="box test-join"><h2>' + L("Join a live class", "เข้าห้องเรียนสด") + '</h2><form data-joinlive class="btnrow"><input name="code" maxlength="6" placeholder="ABC123" autocomplete="off" autocapitalize="characters" aria-label="Code"><button class="btn btn--primary">' + L("Join", "เข้าร่วม") + "</button></form></section>" : "";
+    el.innerHTML = join + (staff ? '<p class="note">' + L("Staff: tests you start here are previews and are marked as such. Students' results appear below.", "เจ้าหน้าที่: ข้อสอบที่เริ่มจากหน้านี้เป็นการทดลอง (preview) ผลของนักเรียนแสดงด้านล่าง") + "</p>" : "") +
       (learner && !home.settings.studentsCanStart ? '<p class="note">' + L("Online tests are closed at the moment — ask your teacher.", "ขณะนี้ปิดการทำข้อสอบออนไลน์ — สอบถามครูผู้สอน") + "</p>" : cards) +
       '<section class="box"><h2>' + (parent ? L("My children's results", "ผลสอบของบุตรหลาน") : staff ? L("Results", "ผลสอบ") : L("My results", "ผลสอบของฉัน")) + "</h2>" +
       (list.length ? '<div class="tbl-wrap"><table class="tbl tbl--click"><thead><tr><th>' + L("Date", "วันที่") + "</th>" + (learner ? "" : "<th>" + L("Learner", "ผู้สอบ") + "</th>") + "<th>" + L("Test", "ข้อสอบ") + "</th><th>" + L("Score", "คะแนน") + "</th></tr></thead><tbody>" +
@@ -54,6 +55,8 @@
           return '<tr data-attempt="' + esc(a.id) + '"><td class="nowrap">' + esc(when(a.createdAt)) + "</td>" + (learner ? "" : "<td>" + esc(a.userName) + (a.preview ? ' <small class="muted">(' + L("preview", "ทดลอง") + ")</small>" : "") + "</td>") +
             "<td>" + esc(kname(a.kind)) + '<br><small class="muted">' + (a.mode === "mock" ? L("Full test", "ข้อสอบเต็ม") : L("Practice", "ฝึกทำ")) + "</small></td><td>" + score(a) + "</td></tr>";
         }).join("") + "</tbody></table></div>" : A.empty("No tests yet.", "ยังไม่มีผลสอบ")) + "</section>";
+    var jf = $("[data-joinlive]", el);
+    if (jf) jf.addEventListener("submit", function (e) { e.preventDefault(); location.href = "live.html?code=" + encodeURIComponent(jf.elements.code.value.trim()); });
     $$("[data-attempt]", el).forEach(function (tr) { tr.addEventListener("click", function () { open(tr.getAttribute("data-attempt")); }); });
     $$("[data-start]", el).forEach(function (b) { b.addEventListener("click", function () { start(b.getAttribute("data-start"), b.getAttribute("data-mode"), b.getAttribute("data-task")); }); });
   }
@@ -86,7 +89,7 @@
   A.pages.bank = function (q) {
     if (!A.isStaff()) return A.pages.home(q);
     return { title: L("Exam item bank", "คลังข้อสอบ"),
-      actions: '<button class="btn" data-act="bank-new">+ ' + L("New item", "เพิ่มข้อสอบ") + '</button><button class="btn btn--primary" data-act="bank-ai">✦ ' + L("Draft with AI", "ให้ AI ร่าง") + "</button>",
+      actions: '<button class="btn" data-act="pdf-paper">' + L("PDF paper", "ชุดข้อสอบ PDF") + '</button><button class="btn" data-act="bank-new">+ ' + L("New item", "เพิ่มข้อสอบ") + '</button><button class="btn btn--primary" data-act="bank-ai">✦ ' + L("Draft with AI", "ให้ AI ร่าง") + "</button>",
       html: '<div data-bank data-kind="' + esc(q.get("kind") || "") + '" data-status="' + esc(q.get("status") || "") + '"><p class="muted">' + L("Loading…", "กำลังโหลด…") + "</p></div>",
       after: function () { loadBank().then(drawBank).catch(function (e) { A.toast(e.message, "err"); }); } };
   };
@@ -121,6 +124,7 @@
             (it.status === "approved" ? '<button class="btn btn--sm" data-retire="' + esc(it.id) + '">' + L("Retire", "เลิกใช้") + "</button>" : "") + "</td></tr>";
         }).join("") + "</tbody></table></div>" : A.empty("No items match.", "ไม่มีข้อสอบตามเงื่อนไข"));
     $$("[data-item]", el).forEach(function (tr) { tr.addEventListener("click", function (e) { if (e.target.closest("button")) return; editItem(tr.getAttribute("data-item")); }); });
+    if (A.bankStats) A.bankStats($("section.box", el), function () { loadBank().then(drawBank); });
     $$("[data-approve]", el).forEach(function (b) { b.addEventListener("click", function () { bankAct({ status: { id: b.getAttribute("data-approve"), to: "approved" } }).then(function () { A.toast(L("Approved", "อนุมัติแล้ว")); return loadBank().then(drawBank); }); }); });
     $$("[data-retire]", el).forEach(function (b) { b.addEventListener("click", function () { bankAct({ status: { id: b.getAttribute("data-retire"), to: "retired" } }).then(function () { return loadBank().then(drawBank); }); }); });
   }

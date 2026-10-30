@@ -25,7 +25,7 @@ Plain HTML, CSS and JavaScript. No build step and no dependencies. Works from di
 start.bat             :: Windows
 ```
 
-See `admin/README.md` (features) and `server/DEPLOY.md` (LAN use and free hosting later).
+See `admin/README.md` (features), `docs/LOCAL-TEST-TH.md` (step-by-step local test, Thai) and `server/DEPLOY.md` (LAN use and hosting).
 
 ## Pages
 
@@ -54,6 +54,10 @@ See `admin/README.md` (features) and `server/DEPLOY.md` (LAN use and free hostin
 - **Online tests** (back office → Online tests): SAT Reading & Writing (adaptive 2 × 27 questions),
   IELTS Academic Reading (40 questions) and Writing (Task 1 + 2) in the real formats, with an item
   bank, AI-drafted items approved by teachers, and teacher-confirmed Writing bands.
+- **Live class, audited PDFs and calibration** (back office): a teacher screen for the projector and
+  the same question on every learner's screen; test papers and score reports as PDFs with a
+  verification code, QR code, creator, time and legal notice (check them at `pages/verify.html`);
+  item difficulty suggested from real results. Test it locally first: `docs/LOCAL-TEST-TH.md`.
 - **Thai / English switch:** every text is written in both languages.
 - **Light / dark theme:** the header button switches light ↔ dark (animated circular reveal); the
   footer has *System · Light · Dark*. With no saved choice the site follows the operating system.

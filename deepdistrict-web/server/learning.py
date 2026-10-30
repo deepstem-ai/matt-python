@@ -14,9 +14,12 @@ from urllib.parse import parse_qs
 
 import ai
 import blog
+import calibrate
 import exams
 import exam_samples
+import exports
 import images
+import live
 
 STALE = timedelta(minutes=15)
 H = {}          # filled by app.py: db, lock, audit, load_col, get_rec, now_iso
@@ -30,6 +33,8 @@ def init(con):
     ai.init(con)
     blog.init(con)
     exams.init(con)
+    live.init(con)
+    exports.init(con)
 
 
 # ---------------------------------------------------------------- background AI jobs
@@ -334,6 +339,8 @@ def public_routes(con, path, method, environ):
         except ValueError:
             limit, offset = 12, 0
         return "200 OK", blog.public_list(con, bcfg, one("branch")[:10] or None, one("cat")[:20] or None, limit, offset)
+    if path == "verify":
+        return "200 OK", exports.verify(con, one("c"))
     if path == "blog/post":
         bcfg = blog.settings(con)
         p = blog.public_get(con, bcfg, one("slug")) if bcfg["enabled"] else None
@@ -388,8 +395,51 @@ def routes(con, me, path, method, body, environ):
                     writing_feedback(con, a, me["id"])
             return "200 OK", exams.view(a, ecfg)
 
+        # ---------- live class: students join and answer; staff host
+        if path == "live/join" and method == "POST":
+            if role == "parent":
+                return "403 Forbidden", {"error": "learners join from their own account"}
+            s = live.by_code(con, body.get("code"))
+            if not s:
+                return "404 Not Found", {"error": "no live class with this code is running"}
+            live.join(con, s, me)
+            return "200 OK", {"id": s["id"]}
+        if path in ("live/state", "live/answer"):
+            s = live.get(con, one("id") if method == "GET" else body.get("id"))
+            if not s or (me["id"] not in s["participants"] and not staff):
+                return "404 Not Found", {"error": "live class not found"}
+            if path == "live/state":
+                if str(s["version"]) == one("v") and s["phase"] != "open":
+                    return "200 OK", {"same": True}
+                live.touch(con, s)
+                return "200 OK", live.student_view(s, me["id"])
+            live.answer(con, s, me, body.get("value"))
+            return "200 OK", {"ok": True}
+        # ---------- documents: score reports for learners, parents and staff
+        if path == "doc/report" and method == "POST":
+            a = exams.get_attempt(con, body.get("attemptId"))
+            if not a or not can_see(con, me, a) or a["status"] == "active":
+                return "404 Not Found", {"error": "finished test not found"}
+            names = {u["id"]: u.get("name", "") for u in H["load_col"](con, "users")}
+            p = exports.create_report(con, me, a, names)
+            H["audit"](con, me, f"Created score report {p['code']} for test {a['id']}")
+            return "200 OK", p
+        if path == "doc/get" and method == "GET":
+            d = exports.get(con, one("code"))
+            if not d or (d["kind"] == "paper" and not staff) or (d["kind"] == "report" and not (staff or d["created_by"] == me["id"])):
+                return "404 Not Found", {"error": "document not found"}
+            if d["revoked"]:
+                return "410 Gone", {"error": "this document was revoked"}
+            return "200 OK", exports.payload(con, d["code"], me)
+        if path == "doc/log" and method == "POST":
+            d = exports.get(con, body.get("code"))
+            if not d or (d["kind"] == "paper" and not staff) or (d["kind"] == "report" and not (staff or d["created_by"] == me["id"])):
+                return "404 Not Found", {"error": "document not found"}
+            exports.log(con, d["code"], me, "print" if body.get("action") == "print" else "download")
+            return "200 OK", {"ok": True}
+
         # ---------- exams: staff
-        if path.startswith("exam/") and not staff:
+        if path.startswith(("exam/", "live/", "doc/")) and not staff:
             return "403 Forbidden", {"error": "staff only"}
         if path == "exam/bank" and method == "GET":
             kind = one("kind")
@@ -489,6 +539,51 @@ def routes(con, me, path, method, body, environ):
                 return "404 Not Found", {"error": "not found"}
             jid = writing_feedback(con, a, me["id"])
             return ("200 OK", {"ok": True, "job": jid}) if jid else ("400 Bad Request", {"error": a["result"].get("aiError") or "AI is not ready"})
+        if path == "exam/stats" and method == "GET":
+            return "200 OK", calibrate.compute(con)
+        if path == "exam/calibrate" and method == "POST":
+            if "minN" in body:
+                if not admin:
+                    return "403 Forbidden", {"error": "admin only"}
+                calibrate.save_settings(con, body)
+            ids = body.get("ids") or []
+            if body.get("all"):
+                ids = [k for k, v in calibrate.compute(con)["items"].items() if v.get("change") or (body.get("promote") and v.get("promote"))]
+            n = calibrate.apply(con, [str(i) for i in ids][:2000], me["id"], promote=bool(body.get("promote"))) if ids else 0
+            if n:
+                H["audit"](con, me, f"Exam bank: applied difficulty from results to {n} item(s)")
+            return "200 OK", {"ok": True, "changed": n}
+        if path == "live/create" and method == "POST":
+            s = live.create(con, me, body)
+            H["audit"](con, me, f"Started live class {s['code']} ({len(s['questions'])} questions)")
+            return "200 OK", {"id": s["id"], "code": s["code"]}
+        if path == "live/list" and method == "GET":
+            out = [{k: x.get(k) for k in ("id", "code", "title", "kind", "phase", "createdAt", "endedAt", "ownerName")} | {"questions": len(x["questions"]), "people": len(x["participants"])}
+                   for x in live.all_sessions(con, None if admin else me["id"])]
+            return "200 OK", {"items": out}
+        if path in ("live/host", "live/control"):
+            s = live.get(con, one("id") if method == "GET" else body.get("id"))
+            if not s or (s["owner"] != me["id"] and not admin):
+                return "404 Not Found", {"error": "live class not found"}
+            if path == "live/host":
+                live.touch(con, s)
+                return "200 OK", live.host_view(s)
+            live.control(con, s, body.get("action"), body.get("index"))
+            if s["phase"] == "ended":
+                H["audit"](con, me, f"Ended live class {s['code']}")
+            return "200 OK", live.host_view(s)
+        if path == "doc/paper" and method == "POST":
+            p = exports.create_paper(con, me, body)
+            H["audit"](con, me, f"Created PDF paper {p['code']} ({len(p['items'])} items{', with answer key' if p['withKey'] else ''})")
+            return "200 OK", p
+        if path == "doc/list" and method == "GET":
+            return "200 OK", {"items": exports.listing(con, me)}
+        if path == "doc/revoke" and method == "POST":
+            if not admin:
+                return "403 Forbidden", {"error": "admin only"}
+            con.execute("UPDATE doc_exports SET revoked=? WHERE code=?", (1 if body.get("revoke", True) else 0, str(body.get("code") or "")))
+            H["audit"](con, me, f"{'Revoked' if body.get('revoke', True) else 'Restored'} document {body.get('code')}")
+            return "200 OK", {"ok": True}
         if path == "exam/settings" and method == "POST":
             if not admin:
                 return "403 Forbidden", {"error": "admin only"}
@@ -574,17 +669,20 @@ def routes(con, me, path, method, body, environ):
 
 
 # ---------------------------------------------------------------- backup / restore / erase
-TABLES = ("blog_posts", "exam_items", "exam_item_versions", "exam_attempts", "ai_jobs")
+TABLES = ("blog_posts", "exam_items", "exam_item_versions", "exam_attempts", "ai_jobs", "live_sessions", "doc_exports", "doc_export_log")
 
 
 def backup(con):
     return {"blog": blog.all_posts(con), "blogSettings": blog.settings(con), "examItems": exams.items(con),
             "examAttempts": [json.loads(r["data"]) for r in con.execute("SELECT data FROM exam_attempts")],
-            "examSettings": exams.settings(con), "aiSettings": ai.settings(con)}
+            "examSettings": exams.settings(con), "aiSettings": ai.settings(con), "calibration": calibrate.settings(con),
+            "liveSessions": [json.loads(r["data"]) for r in con.execute("SELECT data FROM live_sessions")],
+            "docExports": [dict(r) for r in con.execute("SELECT * FROM doc_exports")],
+            "docExportLog": [dict(r) for r in con.execute("SELECT * FROM doc_export_log")]}
 
 
 def restore(con, body):
-    for t in ("blog_posts", "exam_items", "exam_attempts"):
+    for t in ("blog_posts", "exam_items", "exam_attempts", "live_sessions", "doc_exports", "doc_export_log"):
         con.execute(f"DELETE FROM {t}")
     if isinstance(body.get("blogSettings"), dict):
         blog.save_settings(con, body["blogSettings"])
@@ -610,3 +708,16 @@ def restore(con, body):
         exams.save_settings(con, body["examSettings"])
     if isinstance(body.get("aiSettings"), dict):
         ai.save_settings(con, body["aiSettings"])
+    if isinstance(body.get("calibration"), dict):
+        calibrate.save_settings(con, body["calibration"])
+    for s in body.get("liveSessions") or []:
+        if isinstance(s, dict) and s.get("id") and s.get("code") and s.get("owner"):
+            s["version"] = max(0, int(s.get("version") or 1) - 1)
+            live.put(con, s)
+    for d in body.get("docExports") or []:
+        if isinstance(d, dict) and d.get("code") and d.get("data"):
+            con.execute("INSERT OR REPLACE INTO doc_exports (code, kind, title, created_at, created_by, created_by_name, role, revoked, data) VALUES (?,?,?,?,?,?,?,?,?)",
+                        tuple(d.get(k) for k in ("code", "kind", "title", "created_at", "created_by", "created_by_name", "role")) + (int(d.get("revoked") or 0), d["data"]))
+    for l in body.get("docExportLog") or []:
+        if isinstance(l, dict) and l.get("code"):
+            con.execute("INSERT INTO doc_export_log (code, at, user_id, user_name, action) VALUES (?,?,?,?,?)", tuple(l.get(k) for k in ("code", "at", "user_id", "user_name", "action")))

@@ -21,6 +21,8 @@
     tests: '<path d="M9 3h6l1 3H8z"/><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 11l2 2 4-4M8 17h8"/>',
     bank: '<ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>',
     marking: '<path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/>',
+    live: '<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="12" cy="10.5" r="2.5"/>',
+    pdf: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><rect x="8" y="12" width="5" height="5"/><path d="M15 13h1M15 16h1"/>',
     news: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h6M7 16h10M15 12h2"/>',
     ai: '<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
     promo: '<path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1zM15 9a3 3 0 0 1 0 6M18 6a7 7 0 0 1 0 12"/>',
@@ -45,6 +47,8 @@
     ["popups", "Pop-ups", "ป๊อปอัป", "admin", "promo"],
     ["bank", "Exam item bank", "คลังข้อสอบ", "staff", "bank"],
     ["marking", "Writing marking", "ตรวจ Writing", "staff", "marking"],
+    ["live", "Live class", "ห้องเรียนสด", "staff", "live"],
+    ["docs", "PDF documents", "เอกสาร PDF", "staff", "pdf"],
     ["blog", "News blog", "บล็อกข่าวสาร", "admin", "news"],
     ["ai", "AI settings", "ตั้งค่า AI", "admin", "ai"],
     ["search", "Search", "ค้นหา", "staff"],
@@ -623,7 +627,7 @@
     if (!$("#view")) shell();
     var h = location.hash.replace(/^#\/?/, "") || (A.isStaff() ? "dashboard" : "home");
     var parts = h.split("?"), path = parts[0].split("/"), q = new URLSearchParams(parts[1] || "");
-    var staffOnly = ["dashboard", "enrolments", "enrolment", "sessions", "people", "payments", "courses", "search", "popups", "content", "bank", "marking", "blog", "ai"];
+    var staffOnly = ["dashboard", "enrolments", "enrolment", "sessions", "people", "payments", "courses", "search", "popups", "content", "bank", "marking", "blog", "ai", "docs"];
     var name = path[0];
     if (!A.isStaff() && staffOnly.indexOf(name) !== -1) name = "home";
     if (A.isStaff() && name === "home") name = "dashboard";

@@ -540,6 +540,17 @@ def finish(con, a, cfg):
     put_attempt(con, a)
 
 
+def is_correct(item, value, gi=None, qi=None):
+    """Is this answer right? SAT: value is the choice index; IELTS Reading: group gi, question qi."""
+    if item["kind"] == "sat":
+        return str(value) == str(item["answer"])
+    g = item["groups"][gi]
+    q = g["questions"][qi]
+    if g["type"] in TEXT_TYPES:
+        return check_text(value, q["answer"], g["wordLimit"])
+    return norm(value) in {norm(x) for x in q["answer"]}
+
+
 def check_text(ans, accepted, wl):
     if not within_limit(ans, wl):
         return False

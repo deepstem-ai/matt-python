@@ -107,3 +107,38 @@
   .ex-foot { padding: 8px 12px; }
   .ex-grid--inline { display: none; }
 }
+
+/* ---------------------------------------------------------------- live class */
+#live { display: flex; flex-direction: column; min-height: 100vh; }
+.lv-join { max-width: 420px; margin: 14vh auto; padding: 0 16px; text-align: center; display: grid; gap: 12px; }
+.lv-join input { font: 700 2rem/1 var(--f-mono); text-align: center; letter-spacing: .25em; text-transform: uppercase; min-height: 64px; }
+.lv-hosttop { flex-wrap: wrap; }
+.lv-code { margin: 0 auto; font-size: 1rem; text-align: center; }
+.lv-code span { font-family: var(--f-mono); font-size: .85rem; color: var(--text-dim); }
+.lv-code b { font: 700 1.8rem/1 var(--f-mono); letter-spacing: .15em; color: var(--accent); vertical-align: -3px; }
+.lv-phase { padding: 3px 10px; border-radius: 99px; background: var(--surface-2); font-size: .8rem; font-weight: 700; }
+.lv-phase--open { background: #dcfce7; color: #166534; } .lv-phase--locked { background: #fef3c7; color: #92400e; } .lv-phase--reveal { background: #dbeafe; color: #1e40af; }
+.lv-hide { display: flex; align-items: center; gap: 4px; font-size: .8rem; }
+.lv-hide input { width: 16px; min-height: 0; height: 16px; }
+.ex-choice > button { position: relative; overflow: hidden; }
+.ex-choice > button[disabled] { cursor: default; }
+.lv-bar { position: absolute; left: 0; top: 0; bottom: 0; background: color-mix(in srgb, var(--accent) 14%, transparent); pointer-events: none; }
+.lv-n { position: relative; margin-left: auto; font-style: normal; font-weight: 700; }
+.ex-choice > button > b, .ex-choice > button > span { position: relative; }
+.ex-choice.lv-right > button { border-color: var(--ok); box-shadow: inset 0 0 0 1px var(--ok); }
+.ex-choice.lv-right b { background: var(--ok); color: #fff; border-color: var(--ok); }
+.lv-host .ex-stem, .lv-host .ex-passage { font-size: 1.15rem; }
+.lv-stat { margin-top: 14px; font-size: 1.05rem; }
+.lv-exp { padding: 10px 14px; border-radius: 10px; background: var(--surface-2); }
+.lv-key { margin-top: 10px; font-size: 1.05rem; color: var(--ok); }
+.lv-texts { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.lv-texts li { padding: 3px 10px; border-radius: 99px; background: var(--surface-2); }
+.lv-text { margin-right: 8px; }
+.lv-note { color: var(--text-dim); margin-top: 12px; }
+.lv-res { margin-top: 14px; padding: 12px 16px; border-radius: 12px; font-size: 1.05rem; }
+.lv-res.ok { background: #dcfce7; color: #14532d; } .lv-res.bad { background: #fee2e2; color: #7f1d1d; }
+.lv-roster { display: flex; flex-wrap: wrap; gap: 4px; max-width: 50%; }
+.lv-roster span { padding: 2px 8px; border-radius: 99px; border: 1px solid var(--line-strong); font-size: .78rem; color: var(--text-faint); }
+.lv-roster span.on { background: var(--accent); border-color: var(--accent); color: #fff; }
+.lv-qn { pointer-events: none; }
+@media (max-width: 860px) { .lv-roster { max-width: 100%; order: 5; } .lv-code { order: 2; width: 100%; } }

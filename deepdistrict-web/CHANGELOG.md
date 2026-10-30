@@ -1,5 +1,42 @@
 # Changelog
 
+## 5.4 r1 — October 2026
+- **Live class** (back office → Live class; `admin/live.html`, `server/live.py`).
+  - **Teacher screen:** for the projector. Shows a 6-letter join code, the same question on
+    every screen, live answer bars, the roster of who has answered, and the controls
+    Open / Close / Show answer / Next / End.
+  - **Teacher options:** an optional timer per question, and "hide key" for the projector.
+  - **Learners:** join from Online tests → "Join a live class". They see whether they were right,
+    and the explanation, after the reveal; at the end they see their score.
+  - **Content:** SAT questions or the questions of an IELTS Reading passage.
+  - **How it runs:** screens poll every 1.5 s, which works on any WSGI host.
+  - **Answer key:** sent only to the teacher until the reveal.
+- **Audited PDFs** (back office → PDF documents; `server/exports.py`, `admin/js/audit-pdf.js`).
+  - **Two kinds:** test papers made from approved items, with an optional teacher copy that has
+    the answer key; and learner score reports, available from the results page.
+  - **What every PDF carries:**
+    - the logo
+    - who created it and when, and who generated this copy and when (Bangkok time)
+    - a verification code and QR code
+    - usage instructions
+    - the legal, copyright and trademark notice (plus a PDPA note on reports)
+  - **On every page:** a footer with the code, date and page number, and a faint watermark of the code.
+  - **What the server records:** the exact item versions used (so a re-download is identical) and
+    every download. Admins can revoke a document.
+  - **Public verify page** (`pages/verify.html`): shows whether a printed copy is genuine, with
+    names partly masked and no questions.
+- **Difficulty from real results** (Exam item bank → "Results & difficulty"; `server/calibrate.py`).
+  - **Data used:** finished tests and live classes; staff previews are not counted.
+  - **Per question:** p (share correct) and r (discrimination).
+  - **Suggestions:** easy, medium or hard (SAT) and level 1–3 (IELTS passages), shown once
+    there are enough answers (default 20).
+  - **Flags:** very hard (check the key), too easy, weak discrimination.
+  - **Applying:** apply one or all suggestions; each change becomes a new item version with the
+    evidence in its note. Pretest items with enough data can be switched to scored.
+- **Other:** backup, restore and erase include live classes, documents and their logs.
+  Added `docs/LOCAL-TEST-TH.md`, a Thai checklist for testing everything on your own computer
+  first. QR codes use qrcode-generator (MIT) in `admin/vendor`.
+
 ## 5.3 r1 — October 2026
 - **News blog written with AI, checked by people** (`server/blog.py`, `pages/blog.html`, back office → News blog).
   - Two branches: **STEM, AI & SI technologies** (AI & SI, coding & Apple tech, STEM & innovation,

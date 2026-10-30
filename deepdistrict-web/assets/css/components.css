@@ -1200,3 +1200,16 @@ html[lang="th"] .punchline p { font-family: var(--f-display-th); }
 .test-cards .card { gap: 10px; }
 .test-cards .card .btn { align-self: flex-start; margin-top: auto; }
 .test-rule { font-size: var(--fs-xs); color: var(--text-faint); }
+
+/* v5.4 — document verification page */
+.vf-wrap { max-width: 720px; padding-top: calc(var(--header-h) + 30px); }
+.vf-wrap h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin: 8px 0 12px; }
+.vf-form { display: flex; gap: 10px; margin: 20px 0; flex-wrap: wrap; }
+.vf-form input { flex: 1 1 220px; min-height: 48px; padding: 10px 14px; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--surface); color: var(--text); font: 600 1.1rem/1 var(--f-mono); letter-spacing: .08em; text-transform: uppercase; }
+.vf { padding: 18px 20px; border-radius: var(--r-md); border: 2px solid var(--line); background: var(--surface); }
+.vf b { font-size: 1.15rem; }
+.vf--ok { border-color: var(--emerald); } .vf--ok > b { color: var(--emerald); }
+.vf--bad { border-color: #dc2626; } .vf--bad > b { color: #dc2626; }
+.vf-tbl { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: var(--fs-sm); }
+.vf-tbl th, .vf-tbl td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--line); vertical-align: top; overflow-wrap: anywhere; }
+.vf-tbl th { width: 38%; color: var(--text-dim); font-weight: 600; }

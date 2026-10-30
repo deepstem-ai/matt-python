@@ -42,7 +42,8 @@
       { href: "pages/about.html", en: "About us", th: "เกี่ยวกับเรา" },
       { href: "pages/partners.html", en: "Partners", th: "พันธมิตร" },
       { href: "pages/contact.html", en: "Contact", th: "ติดต่อเรา" },
-      { href: "pages/legal.html#privacy", en: "Privacy (PDPA)", th: "ความเป็นส่วนตัว (PDPA)" }
+      { href: "pages/legal.html#privacy", en: "Privacy (PDPA)", th: "ความเป็นส่วนตัว (PDPA)" },
+      { href: "pages/verify.html", en: "Verify a document", th: "ตรวจสอบเอกสาร" }
     ] }
   ];
 

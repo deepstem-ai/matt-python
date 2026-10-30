@@ -210,9 +210,16 @@
         }); });
       });
     } else html = writingResult(r);
-    html += '<p class="ex-note">' + L("DeepDistrict practice estimate — not an official score.", "คะแนนประมาณการเพื่อการฝึกของ DeepDistrict ไม่ใช่คะแนนทางการ") + "</p>";
+    html += '<p class="ex-note">' + L("DeepDistrict practice estimate — not an official score.", "คะแนนประมาณการเพื่อการฝึกของ DeepDistrict ไม่ใช่คะแนนทางการ") + "</p>" +
+      '<p><button class="btn" data-report>' + L("Download score report (PDF)", "ดาวน์โหลดรายงานผลสอบ (PDF)") + "</button></p>";
     shell('<div class="ex-result">' + html + "</div>");
     bindMarking();
+    $("[data-report]").addEventListener("click", function () {
+      var b = this; b.disabled = true; b.textContent = L("Creating…", "กำลังสร้าง…");
+      api("POST", "doc/report", { attemptId: id }).then(function (p) { return window.DDPDF.save(p, api); })
+        .then(function () { b.disabled = false; b.textContent = L("Download score report (PDF)", "ดาวน์โหลดรายงานผลสอบ (PDF)"); })
+        .catch(function (e) { alert(e.message); b.disabled = false; });
+    });
     if (A.kind === "ielts-w" && r.aiPending) setTimeout(load, 5000);
   }
   var CRIT = { ta: ["Task Achievement / Response", "การตอบโจทย์"], cc: ["Coherence & Cohesion", "การเชื่อมโยงและลำดับความคิด"], lr: ["Lexical Resource", "คำศัพท์"], gra: ["Grammatical Range & Accuracy", "ไวยากรณ์"] };
