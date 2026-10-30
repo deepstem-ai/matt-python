@@ -69,7 +69,7 @@ def check(path):
             subj[k] = subj.get(k, 0) + 1
             if r.get("format") == "fill":
                 fill[k] = fill.get(k, 0) + 1
-            if r.get("lang") == "en" and d["exam"] == "satit":
+            if r.get("lang") == "en" and d["exam"] == "satit" and k in ("math", "sci"):     # maths/science asked in English
                 en[k] = en.get(k, 0) + 1
         if subj != M1_MIX[d["exam"]]:
             bad.append(f"{path}: subject mix must be {M1_MIX[d['exam']]} (now {subj})")
