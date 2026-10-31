@@ -129,7 +129,7 @@
   document.addEventListener("mousemove", function (e) { var lr = $("[data-linereader]"); if (lr && !lr.hidden) lr.style.top = (e.clientY - 22) + "px"; });
 
   /* ---------------------------------------------------------------- shell */
-  var KN = { sat: "SAT Reading and Writing", "ielts-r": "IELTS Academic Reading", "ielts-w": "IELTS Academic Writing", m1: "Suankularb M.1 entrance" };
+  var KN = { sat: "SAT Reading and Writing", "ielts-r": "IELTS Academic Reading", "ielts-w": "IELTS Academic Writing", m1: "Entrance test practice" };
   var SUBJ = { math: ["Mathematics", "คณิตศาสตร์"], sci: ["Science", "วิทยาศาสตร์"], eng: ["English", "ภาษาอังกฤษ"], thai: ["Thai", "ภาษาไทย"] };
   var PARTS = { conversation: ["Conversation", "บทสนทนา"], "conversation-short": ["Short conversations", "บทสนทนาสั้น"], "conversation-long": ["Long conversation", "บทสนทนายาว"],
     vocabulary: ["Vocabulary in context", "คำศัพท์ในบริบท"], grammar: ["Grammar and structure", "ไวยากรณ์และโครงสร้าง"], error: ["Error identification", "หาจุดผิด"],
@@ -139,7 +139,11 @@
     "text-completion": ["Writing: text completion", "การเขียน: เติมข้อความ"], paragraph: ["Writing: paragraph organization", "การเขียน: เรียงประโยคเป็นย่อหน้า"] };
   function partLabel(k) { var x = PARTS[k]; return x ? L(x[0], x[1]) : k || ""; }
   function choiceKind() { return A.kind === "sat" || A.kind === "m1"; }
-  function m1Name() { var it = ((A.sections[0] || {}).items || [])[0] || {}; return it.program === "ep" ? "Suankularb M.1 · English Program (EPLUS+)" : it.program === "gate" ? L("Suankularb M.1 · GATE Program", "สวนกุหลาบ ม.1 · GATE Program") : KN.m1; }
+  var PROG = { sk1: ["Suankularb M.1 English · GATE / EPLUS+", "อังกฤษ ม.1 สวนกุหลาบ · GATE / EPLUS+"], sp1: ["Satit Prasarnmit M.1 English", "อังกฤษ ม.1 สาธิตประสานมิตร"],
+    sk4: ["Suankularb M.4 English · GATE / EPLUS+", "อังกฤษ ม.4 สวนกุหลาบ · GATE / EPLUS+"], sp4: ["Satit Prasarnmit M.4 English", "อังกฤษ ม.4 สาธิตประสานมิตร"],
+    tu4: ["Triam Udom Suksa M.4 English", "อังกฤษ ม.4 เตรียมอุดมศึกษา"], alevel: ["A-Level English (TCAS)", "A-Level ภาษาอังกฤษ (TCAS)"],
+    gate: ["Suankularb M.1 · GATE Program", "สวนกุหลาบ ม.1 · GATE Program"], ep: ["Suankularb M.1 · English Program", "สวนกุหลาบ ม.1 · English Program"] };
+  function m1Name() { var it = ((A.sections[0] || {}).items || [])[0] || {}, x = PROG[it.program]; return x ? L(x[0], x[1]) : L("Entrance test practice", "ข้อสอบฝึกสอบเข้า"); }
   function shell(main, foot) {
     var active = A.status === "active";
     root.innerHTML = '<header class="ex-top"><div><b>' + esc(A.kind === "m1" ? m1Name() : KN[A.kind]) + "</b>" + (A.preview ? ' <span class="ex-tag">' + L("staff preview", "ทดลองโดยเจ้าหน้าที่") + "</span>" : "") +
@@ -155,6 +159,12 @@
   }
   function draw() {
     clearInterval(timer);
+    if (window.DDProtect) {
+      if (A.status === "active" && A.viewer) window.DDProtect.start({ name: A.viewer.name, email: A.viewer.email, leaves: A.leftScreen, onLeave: function (n) {
+        api("POST", "exam/answer", { id: id, section: A.current, answers: {}, marked: {}, struck: {}, leftScreen: n }).catch(function () {});
+      } });
+      else window.DDProtect.stop();
+    }
     if (A.status === "active") { timer = setInterval(tick, 1000); choiceKind() ? drawSat() : A.kind === "ielts-r" ? drawReading() : drawWriting(); }
     else drawResult();
   }
@@ -350,14 +360,16 @@
         }); });
       });
     } else html = writingResult(r);
+    if (A.leftScreen) html += '<p class="ex-note ex-note--warn">' + L("Left the test screen " + A.leftScreen + " time(s) during the test.", "ออกจากหน้าข้อสอบระหว่างสอบ " + A.leftScreen + " ครั้ง") + "</p>";
     html += '<p class="ex-note">' + L("DeepDistrict practice estimate — not an official score.", "คะแนนประมาณการเพื่อการฝึกของ DeepDistrict ไม่ใช่คะแนนทางการ") + "</p>";
     var acts = '<h1 class="ex-result__title">' + L("Results summary", "สรุปผลการสอบ") + '</h1><div class="ex-actions"><button class="btn btn--primary" data-report>' + L("Download results summary (PDF)", "ดาวน์โหลดสรุปผล (PDF)") + "</button>" +
-      '<button class="btn" type="button" onclick="window.print()">' + L("Print this page", "พิมพ์หน้านี้") + '</button><a class="btn" href="index.html#/tests">' + L("Back to tests", "กลับหน้าข้อสอบ") + "</a></div>";
+      '<button class="btn" type="button" data-print>' + L("Print this page", "พิมพ์หน้านี้") + '</button><a class="btn" href="index.html#/tests">' + L("Back to tests", "กลับหน้าข้อสอบ") + "</a></div>";
     shell('<div class="ex-result">' + acts + html + "</div>");
     bindMarking();
     $$("[data-tag]").forEach(function (sel) {
       sel.addEventListener("change", function () { api("POST", "exam/tag", { id: id, item: sel.getAttribute("data-tag"), cause: sel.value }).then(function (r) { A.tags = r.tags; var det = $$("details[open]").map(function (d) { return $$("details").indexOf(d); }); drawResult(); det.forEach(function (i) { var d = $$("details")[i]; if (d) d.open = true; }); }); });
     });
+    $("[data-print]").addEventListener("click", function () { window.print(); });
     $("[data-report]").addEventListener("click", function () {
       var b = this; b.disabled = true; b.textContent = L("Creating…", "กำลังสร้าง…");
       api("POST", "doc/report", { attemptId: id }).then(function (p) { return window.DDPDF.save(p, api); })

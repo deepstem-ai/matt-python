@@ -235,3 +235,16 @@ mark.ex-hl { background: #fde68a; color: inherit; cursor: pointer; border-radius
 .ex-result__title { font-size: 1.6rem; margin: 6px 0 4px; }
 @media print { .ex-top, .ex-actions, .ex-tools { display: none !important; } .ex-result details { break-inside: avoid; } }
 u.ul-part { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; font-weight: 600; }
+
+/* ---------- content protection (admin/js/protect.js) ---------- */
+.is-protected .ex-main, .is-protected .lv { -webkit-touch-callout: none; }
+.dd-watermark { position: fixed; inset: 0; z-index: 9998; pointer-events: none; background-repeat: repeat; }
+.dd-shield { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; padding: 24px; background: var(--bg, #0b1324); color: var(--text, #fff); text-align: center; }
+.dd-shield[hidden] { display: none; }
+.dd-shield div { max-width: 460px; display: grid; gap: 10px; font-size: 1.15rem; }
+.is-shielded #exam, .is-shielded #live { filter: blur(18px); }
+@media print {
+  .is-protected #exam, .is-protected #live, .is-protected .dd-watermark { display: none !important; }
+  .is-protected::after { content: "Printing is turned off during a test · ไม่สามารถพิมพ์ข้อสอบระหว่างการสอบ"; display: block; padding: 40px; font: 20px Arial, sans-serif; }
+}
+.ex-note--warn { color: #b45309; font-weight: 700; }

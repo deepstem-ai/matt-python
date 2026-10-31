@@ -15,6 +15,10 @@ python.org and tick "Add Python to PATH"). No other installs.
 - Data: `server/data/deepdistrict.db` (one file). A copy is made every day in
   `server/data/backups/` (last 30 days plus the 1st of every month, kept for good). Nothing in the database is ever deleted — every earlier version and every archived record stays in the `archive` table. **Never commit or share this folder** — it holds
   learners' personal data.
+- **Updating to a new version:** extract the new zip over the old folder (the zip never contains
+  `server/data/`, so your data stays). The database is also copied every day to `~/deepdistrict-safe-copies/`
+  (outside the website folder; set `DD_SAFE_DIR` to choose another place). If `server/data/` is ever
+  missing, the newest safe copy is restored automatically when the server starts.
 - Teachers or parents on the **same Wi-Fi**: run `./start.sh --lan` and give them
   `http://<your-computer's-IP>:8000/admin/`. This is plain HTTP, fine inside your own
   network but not across the internet.

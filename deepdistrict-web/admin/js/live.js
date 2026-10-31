@@ -42,7 +42,11 @@
         if (e.status === 401) throw e;
         return api("GET", "live/state?id=" + id).then(function (d) { role = "learner"; return d; });
       });
-    first.then(function (d) { S = d; loop(); }).catch(function (e) { if (e.status === 401) return signIn(); joinForm(""); });
+    first.then(function (d) {
+      S = d;
+      if (role === "learner" && d.viewer && window.DDProtect) window.DDProtect.start({ name: d.viewer.name, email: d.viewer.email });   // watermark + no copying
+      loop();
+    }).catch(function (e) { if (e.status === 401) return signIn(); joinForm(""); });
   }
   function signIn() { root.innerHTML = '<div class="ex-msg"><h1>' + L("Please sign in first", "กรุณาเข้าสู่ระบบก่อน") + '</h1><p><a class="btn btn--primary" href="index.html">' + L("Sign in", "เข้าสู่ระบบ") + "</a></p></div>"; }
   function joinForm(code, err) {

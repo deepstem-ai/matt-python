@@ -410,7 +410,7 @@ def apply_ai(p, data, found, cfg):
 # ---------------------------------------------------------------- public view
 def public(p, cfg, full=True):
     c = category(cfg, p.get("category"))
-    out = {k: p.get(k) for k in ("id", "slug", "branch", "category", "title", "summary", "tags", "cover", "coverKind", "coverCredit", "publishedAt", "updatedAt")}
+    out = {k: p.get(k) for k in ("id", "slug", "branch", "category", "title", "summary", "tags", "cover", "coverKind", "coverCredit", "publishedAt", "updatedAt", "photoQuery")}
     out["categoryName"] = c["name"] if c else {"en": p.get("category"), "th": p.get("category")}
     out["aiLabel"] = cfg["label"] if p.get("ai", {}).get("used") else None
     out["reviewedAt"] = p.get("reviewedAt")

@@ -512,10 +512,17 @@ def routes(con, me, path, method, body, environ):
             if path == "exam/attempt":
                 if exams.tick(con, a, ecfg) and a["kind"] == "ielts-w" and a["status"] == "submitted":
                     writing_feedback(con, a, me["id"])
-                return "200 OK", exams.view(a, ecfg, staff=staff and not own)
+                out = exams.view(a, ecfg, staff=staff and not own)
+                out["leftScreen"] = int(a.get("leftScreen") or 0)       # times the learner left the test screen
+                if own:
+                    out["viewer"] = {"name": me.get("name", ""), "email": me.get("email", "")}   # for the on-screen watermark
+                return "200 OK", out
             if not own:
                 return "403 Forbidden", {"error": "only the person taking the test can answer"}
             if path == "exam/answer":
+                if isinstance(body.get("leftScreen"), int) and a["status"] == "active":
+                    a["leftScreen"] = max(int(a.get("leftScreen") or 0), min(body["leftScreen"], 10000))
+                    exams.put_attempt(con, a)
                 exams.save_answers(con, a, body, ecfg)
                 return "200 OK", {"ok": True, "serverNow": exams.iso(), "deadline": a["sections"][a["current"]]["deadline"]}
             if a["status"] != "active":
@@ -546,7 +553,7 @@ def routes(con, me, path, method, body, environ):
                 live.touch(con, s)
                 if one("pv") and str(s.get("pv", 0)) == one("pv"):     # nothing the learner needs has changed
                     return "200 OK", {"same": True, "serverNow": exams.iso()}
-                return "200 OK", live.student_view(s, me["id"])
+                return "200 OK", dict(live.student_view(s, me["id"]), viewer={"name": me.get("name", ""), "email": me.get("email", "")})
             live.answer(con, s, me, body.get("value"), body.get("key"))
             return "200 OK", {"ok": True}
         # ---------- documents: score reports for learners, parents and staff

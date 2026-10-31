@@ -354,3 +354,10 @@ html[lang="th"] .footer-col h3 { font-family: var(--f-sans-th); font-size: var(-
 .drawer-group { padding-top: 6px; }
 .drawer-group__title { display: block; margin: 10px 0 4px; font-size: .78rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; opacity: .7; }
 .drawer-group ul { list-style: none; margin: 0; padding: 0 0 0 10px; }
+
+/* ---------- sign-in button (students, parents, teachers, admin → back office) ---------- */
+.header-signin { display: inline-flex; align-items: center; gap: .45em; white-space: nowrap; }
+.header-signin svg { width: 18px; height: 18px; flex: none; }
+@media (max-width: 720px) { .header-signin__txt { display: none; } .header-signin { padding-inline: .6em; } }
+.drawer-signin { display: inline-flex; align-items: center; gap: .5em; font-weight: 700; }
+.drawer-signin svg { width: 20px; height: 20px; flex: none; }

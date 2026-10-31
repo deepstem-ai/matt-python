@@ -65,11 +65,58 @@
     var off = +q.get("offset") || 0, lim = +q.get("limit") || 12;
     return Promise.resolve({ items: list.slice(off, off + lim), total: list.length, branches: D.branches, categories: D.categories });
   }
+  /* ---------------------------------------------------------------- real photos
+     A post without its own photo gets a free-licence photograph from Wikimedia Commons, looked up by the
+     visitor's browser with the post's photo words (public domain, CC0, CC BY or CC BY-SA only), shown
+     with the photographer and licence. Results are remembered for a week; the drawn cover stays if
+     there is no internet or nothing suitable is found. */
+  var PHOTO_OK = /^(cc0( 1\.0)?|public domain|pdm?|cc by(-sa)? [0-9.]+( [a-z]+)?)$/i;   // never NC (non-commercial) or ND
+  function strip(h) { var d = document.createElement("div"); d.innerHTML = String(h || ""); return (d.textContent || "").replace(/\s+/g, " ").trim().slice(0, 80); }
+  function commons(q) {
+    var key = "dd-photo:" + q;
+    try { var c = JSON.parse(localStorage.getItem(key) || "null"); if (c && Date.now() - c.at < 7 * 864e5) return Promise.resolve(c.photo); } catch (e) {}
+    var url = "https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*&generator=search&gsrnamespace=6&gsrlimit=20" +
+      "&gsrsearch=" + encodeURIComponent(q + " filetype:bitmap") + "&prop=imageinfo&iiprop=url|extmetadata|mime|size&iiurlwidth=1200";
+    return fetch(url, { credentials: "omit" }).then(function (r) { return r.json(); }).then(function (d) {
+      var pages = d.query && d.query.pages ? Object.keys(d.query.pages).map(function (k) { return d.query.pages[k]; }) : [];
+      pages.sort(function (a, b) { return (a.index || 0) - (b.index || 0); });
+      var best = null;
+      pages.some(function (pg) {
+        var ii = (pg.imageinfo || [])[0], m = ii && ii.extmetadata || {};
+        var lic = strip((m.LicenseShortName || {}).value);
+        if (!ii || ii.mime !== "image/jpeg" || ii.width < 1000 || ii.width < ii.height * 1.2 || !PHOTO_OK.test(lic)) return false;
+        best = { src: ii.thumburl || ii.url, creator: strip((m.Artist || {}).value) || "Wikimedia Commons", license: lic, page: ii.descriptionurl };
+        return true;
+      });
+      try { localStorage.setItem(key, JSON.stringify({ at: Date.now(), photo: best })); } catch (e) {}
+      return best;
+    });
+  }
+  function photos(root) {
+    if (!window.fetch || !/^https?:$|^file:$/.test(location.protocol)) return;
+    root.querySelectorAll("[data-photo-q]").forEach(function (box) {
+      var q = box.getAttribute("data-photo-q"); box.removeAttribute("data-photo-q");
+      commons(q).then(function (ph) {
+        if (!ph || !/^https:\/\/upload\.wikimedia\.org\//.test(ph.src)) return;
+        var im = new Image(); im.alt = "";
+        im.onload = function () {
+          var old = box.querySelector("img"); if (old) old.replaceWith(im); else box.prepend(im);
+          box.classList.add("is-photo");
+          var cr = box.querySelector(".news-card__credit") || document.createElement("small");
+          cr.className = "news-card__credit"; cr.textContent = "Photo: " + ph.creator + " · " + ph.license + " · Wikimedia Commons";
+          cr.title = ph.page || ""; box.appendChild(cr);
+        };
+        im.src = ph.src;
+      }).catch(function () {});
+    });
+  }
+  window.DDNewsPhotos = photos;
+
   function postUrl(p) { return base + "pages/blog.html?p=" + encodeURIComponent(p.slug); }
   function card(p) {
     var c = img(p.cover);
     return '<a class="card card--link news-card" href="' + postUrl(p) + '">' +
-      (c ? '<div class="news-card__img"><img src="' + c + '" alt="" loading="lazy">' + (p.coverKind === "photo" && p.coverCredit && p.coverCredit.license ? '<small class="news-card__credit">' + esc(["Photo", p.coverCredit.creator, p.coverCredit.license].filter(Boolean).join(" · ")) + "</small>" : "") + "</div>" : '<div class="news-card__img news-card__img--none" aria-hidden="true"></div>') +
+      (c ? '<div class="news-card__img"' + (p.coverKind !== "photo" && p.photoQuery ? ' data-photo-q="' + esc(p.photoQuery) + '"' : "") + '><img src="' + c + '" alt="" loading="lazy">' + (p.coverKind === "photo" && p.coverCredit && p.coverCredit.license ? '<small class="news-card__credit">' + esc(["Photo", p.coverCredit.creator, p.coverCredit.license].filter(Boolean).join(" · ")) + "</small>" : "") + "</div>" : '<div class="news-card__img news-card__img--none" aria-hidden="true"></div>') +
       '<div class="news-card__body"><span class="news-card__cat">' + both(p.categoryName) + "</span>" +
       "<h3>" + both(p.title) + "</h3><p>" + both(p.summary, 180) + '</p><span class="news-card__date">' + date(p.publishedAt) + "</span></div></a>";
   }
@@ -84,8 +131,35 @@
     if (!online && !window.DD_NEWS) { if (sec) sec.hidden = true; return; }
     get("blog?limit=" + n + (branch ? "&branch=" + branch : "")).then(function (d) {
       if (!d.items.length) { if (sec) sec.hidden = true; return; }
-      el.innerHTML = d.items.map(card).join("");
+      el.innerHTML = d.items.map(card).join(""); photos(el);
     }).catch(function () { if (sec) sec.hidden = true; });
+  });
+
+  /* ---------------------------------------------------------------- headline ticker (home hero) */
+  // [data-blog-ticker="10"]: the newest headlines run along the bottom of the hero; hover or focus stops
+  // it, the pause button stops it for good, and with "reduce motion" the headlines change one at a time.
+  document.querySelectorAll("[data-blog-ticker]").forEach(function (el) {
+    var n = +el.getAttribute("data-blog-ticker") || 10;
+    if (!online && !window.DD_NEWS) return;
+    get("blog?limit=" + n).then(function (d) {
+      if (!d.items.length) return;
+      var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var line = d.items.map(function (p) { return '<a href="' + postUrl(p) + '"><b>' + both(p.categoryName) + "</b> " + both(p.title, 110) + "</a>"; }).join('<span class="news-ticker__dot" aria-hidden="true">•</span>');
+      el.innerHTML = '<span class="news-ticker__label">' + bi("Latest news", "ข่าวล่าสุด") + '</span><div class="news-ticker__win"><div class="news-ticker__run' + (calm ? " is-calm" : "") + '">' +
+        line + '<span class="news-ticker__dot" aria-hidden="true">•</span><span aria-hidden="true">' + line.replace(/<a /g, '<a tabindex="-1" ') + "</span></div></div>" +
+        '<button type="button" class="news-ticker__pause" aria-label="Pause">❚❚</button>';
+      el.hidden = false;
+      var run = el.querySelector(".news-ticker__run");
+      run.style.setProperty("--dur", Math.max(40, d.items.length * 9) + "s");
+      el.querySelector(".news-ticker__pause").addEventListener("click", function () {
+        var off = el.classList.toggle("is-paused"); this.textContent = off ? "▶" : "❚❚"; this.setAttribute("aria-label", off ? "Play" : "Pause");
+      });
+      if (calm) {                                          // one headline at a time, no sliding
+        var links = run.querySelectorAll(":scope > a"), i = 0;
+        var show = function () { links.forEach(function (a, k) { a.hidden = k !== i; }); };
+        show(); setInterval(function () { if (!el.classList.contains("is-paused") && !el.matches(":hover")) { i = (i + 1) % links.length; show(); } }, 4500);
+      }
+    }).catch(function () {});
   });
 
   /* ---------------------------------------------------------------- sliding news (home page) */
@@ -108,7 +182,7 @@
       (items.length > 1 ? '<div class="news-slider__ctl"><button type="button" class="news-slider__btn" data-dir="-1" aria-label="Previous">‹</button><div class="news-slider__dots">' +
         items.map(function (_, i) { return '<button type="button" data-dot="' + i + '" aria-label="' + (i + 1) + '"></button>'; }).join("") +
         '</div><button type="button" class="news-slider__btn" data-dir="1" aria-label="Next">›</button>' +
-        (calm ? "" : '<button type="button" class="news-slider__btn news-slider__pause" data-pause aria-label="Pause">❚❚</button>') + "</div>" : "");
+        '<button type="button" class="news-slider__btn news-slider__pause" data-pause aria-label="Pause">❚❚</button></div>' : "");
     var track = el.querySelector(".news-slider__track"), slides = el.querySelectorAll(".news-slide"), dots = el.querySelectorAll("[data-dot]");
     var cur = 0, hold = false, stopped = false, timer = null;
     function perView() { var w = slides[0].getBoundingClientRect().width || 1; return Math.max(1, Math.round(track.clientWidth / w)); }
@@ -120,7 +194,8 @@
     }
     function mark() { dots.forEach(function (d, k) { d.setAttribute("aria-current", k === cur ? "true" : "false"); }); }
     function tick() { if (!hold && !stopped && !document.hidden) go(cur + 1); }
-    function run() { clearInterval(timer); if (!calm && slides.length > 1) timer = setInterval(tick, 5500); }
+    // moves on for everyone (a pause button is always there); with "reduce motion" it jumps instead of gliding
+    function run() { clearInterval(timer); if (slides.length > 1) timer = setInterval(tick, 4500); }
     el.addEventListener("click", function (e) {
       var b = e.target.closest("button"); if (!b) return;
       if (b.hasAttribute("data-dir")) go(cur + (+b.getAttribute("data-dir")));
@@ -142,7 +217,7 @@
         cur = best; mark();
       }, 120);
     }, { passive: true });
-    mark(); run();
+    mark(); run(); photos(el);
   }
 
   /* ---------------------------------------------------------------- the blog page */
@@ -167,6 +242,7 @@
         (d.items.length ? '<div class="grid grid--3 news-grid">' + d.items.map(card).join("") + "</div>"
           : '<p class="news-empty">' + (d.off ? bi("The news section is being prepared.", "หน้าข่าวสารกำลังเตรียมเนื้อหา") : bi("No articles here yet — check back soon.", "ยังไม่มีบทความในหมวดนี้ แวะกลับมาเร็ว ๆ นี้")) + "</p>") +
         (d.total > offset + 12 ? '<div class="btn-row news-more"><button class="btn" type="button" data-more>' + bi("Older articles", "บทความก่อนหน้า") + "</button></div>" : "");
+      photos(root);
       var more = root.querySelector("[data-more]");
       if (more) more.addEventListener("click", function () { list(branch, cat, offset + 12); window.scrollTo({ top: root.offsetTop - 80 }); });
     }).catch(function () { root.innerHTML = '<p class="news-empty">' + bi("News could not be loaded. Please try again later.", "โหลดข่าวไม่สำเร็จ กรุณาลองใหม่ภายหลัง") + "</p>"; });
@@ -193,7 +269,7 @@
         '<span class="news-card__cat">' + both(p.categoryName) + "</span>" +
         "<h1>" + both(p.title) + "</h1>" +
         '<p class="news-meta">' + date(p.publishedAt) + (p.aiLabel ? ' · <span class="news-ai">' + both(p.aiLabel) + "</span>" : "") + "</p>" +
-        (c ? '<figure class="news-cover"><img src="' + c + '" alt="">' + credit + "</figure>" : "") +
+        (c ? '<figure class="news-cover"' + (p.coverKind !== "photo" && p.photoQuery ? ' data-photo-q="' + esc(p.photoQuery) + '"' : "") + '><img src="' + c + '" alt="">' + (p.coverKind === "photo" ? credit : "") + "</figure>" : "") +
         '<p class="news-lead">' + both(p.summary) + "</p>" +
         '<div class="news-body"><div lang="en">' + md(p.body.en || p.body.th) + '</div><div lang="th">' + md(p.body.th || p.body.en) + "</div></div>" +
         (p.sources && p.sources.length ? '<aside class="news-sources"><h2>' + bi("Sources", "แหล่งอ้างอิง") + "</h2><ul>" + p.sources.map(function (s) {
@@ -204,6 +280,7 @@
         ' <a class="btn btn--sm btn--primary" href="contact.html">' + bi("Ask our staff", "สอบถามเจ้าหน้าที่") + "</a></aside>" +
         (p.tags && p.tags.length ? '<p class="chips chips--tech">' + p.tags.map(function (t) { return "<span>#" + esc(t) + "</span>"; }).join("") + "</p>" : "") +
         "</article>";
+      photos(root);
     }).catch(function () {
       root.innerHTML = '<p class="news-empty">' + bi("This article is not available.", "ไม่พบบทความนี้") + ' <a href="blog.html">' + bi("See all news", "ดูข่าวทั้งหมด") + "</a></p>";
     });

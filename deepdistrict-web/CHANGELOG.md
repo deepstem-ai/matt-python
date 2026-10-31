@@ -1,5 +1,31 @@
 # Changelog
 
+## 6.1 r1 — October 2026
+- **Passwords (all roles — admin, teacher, student, parent):** never stored, only a salted
+  PBKDF2-HMAC-SHA256 hash, now with 600,000 rounds (was 200,000). Older passwords are upgraded
+  automatically at the next sign-in; old hashes are not kept in the archive.
+- **Data survives every update:** the database is copied each day to `server/data/backups/` **and** to a
+  folder outside the website folder (`~/deepdistrict-safe-copies`, or `DD_SAFE_DIR`), last 30 days plus the
+  1st of every month. If a new version is installed without `server/data/`, the newest safe copy is
+  restored automatically. On hosting (WSGI) the copy is made by the first request of each day.
+- **Sign-in button** (นักเรียน ผู้ปกครอง ครู ผู้ดูแลระบบ) in the header of every public page and in the menu.
+- **Security:** Content-Security-Policy (only the site's own scripts run; no inline scripts), Permissions-Policy,
+  HSTS on https, Cross-Origin-Opener-Policy; inline handlers removed.
+- **Test and live-class protection:** a watermark with the learner's name, email and time over the whole
+  screen; copy, cut, right-click, drag, Ctrl/⌘+C/P/S/U and Print Screen are blocked; printing shows a
+  notice; the questions are hidden while the window is in the background, and every time the learner
+  leaves the test screen is counted and shown to the teacher with the result. (No website can stop a
+  phone camera — the watermark makes any leak traceable.) Test header now shows the right school.
+- **News:** 10 new real news articles (TCAS70 registration, SAT class of 2026, IELTS 2026, DPST
+  scholarships, กสพท. 2027, PISA 2025, Thai olympiad medals, ChatGPT for Teens rating, NARIT moon
+  instrument, Swift Student Challenge winner), each 1,300+ words in English and a full Thai version, with
+  sources. The older guides move behind them.
+- **Home page:** a moving "ข่าวล่าสุด / Latest news" headline ticker at the top of the hero, and the news
+  slider now moves for everyone (pause button always there; with "reduce motion" it jumps instead of
+  gliding). Posts without their own photo show a **real free-licence photograph from Wikimedia Commons**
+  (CC0 / public domain / CC BY / CC BY-SA only, with photographer and licence), looked up by the visitor's
+  browser; new editorial drawn covers are the fallback.
+
 ## 6.0 r1 — October 2026
 - **Every school and test has its own English paper — never combined.** 3 original papers each, every
   question labelled with what it measures and its topic, difficulty rising from paper 1 to 3:

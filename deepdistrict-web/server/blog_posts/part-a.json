@@ -2,7 +2,7 @@
  {
   "slug": "suankularb-m1-gate-ep-practice-sets",
   "category": "tcas",
-  "days": 0,
+  "days": 61,
   "photoQuery": "students taking exam classroom",
   "cover": [
    "#1d3fb8",
@@ -34,7 +34,7 @@
  {
   "slug": "digital-sat-reading-writing-format-practice-modules",
   "category": "sat",
-  "days": 2,
+  "days": 63,
   "photoQuery": "student studying laptop library",
   "cover": [
    "#0e1f6b",
@@ -78,7 +78,7 @@
  {
   "slug": "ielts-academic-reading-question-types",
   "category": "ielts",
-  "days": 4,
+  "days": 65,
   "photoQuery": "student reading book notes",
   "cover": [
    "#7c1d6f",
@@ -118,7 +118,7 @@
  {
   "slug": "tcas70-round-1-portfolio-check-dates",
   "category": "tcas",
-  "days": 6,
+  "days": 67,
   "photoQuery": "student portfolio planning desk",
   "cover": [
    "#0f5132",
@@ -154,7 +154,7 @@
  {
   "slug": "swift-student-challenge-2027-get-ready",
   "category": "coding",
-  "days": 8,
+  "days": 69,
   "photoQuery": "teenager coding laptop app",
   "cover": [
    "#111827",

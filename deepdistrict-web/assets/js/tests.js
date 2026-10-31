@@ -166,7 +166,7 @@
     var tabs = s.qs ? subjectTabs(s.qs) : "";
     root.innerHTML = '<div class="pt-bar"><div class="pt-bar__title"><b>' + both(S.meta.title) + "</b>" + (s.title ? "<small>" + esc(s.title) + "</small>" : "") + '</div><div class="pt-timer" data-timer>--:--</div>' +
       '<div class="pt-bar__right"><span data-progress></span><button class="btn btn--primary" data-submit>' + (S.cur < S.sections.length - 1 ? bi("Submit this part →", "ส่งส่วนนี้ →") : bi("Submit &amp; see results", "ส่งคำตอบและดูผล")) + "</button></div></div>" + tabs +
-      '<form class="pt-form" data-form onsubmit="return false">' + body + "</form>";
+      '<form class="pt-form" data-form>' + body + "</form>";
     progress(); tick();
     stop(); timer = setInterval(tick, 1000);
     window.scrollTo({ top: root.getBoundingClientRect().top + window.scrollY - 80 });
@@ -215,6 +215,7 @@
   }
   function collect() {
     var f = root.querySelector("[data-form]"); if (!f) return;
+    f.addEventListener("submit", function (e) { e.preventDefault(); });
     f.querySelectorAll("[data-q]").forEach(function (el) {
       var k = el.getAttribute("data-q");
       if (el.type === "radio") { if (el.checked) S.answers[k] = el.value; }

@@ -49,8 +49,10 @@ ROOT = Path(__file__).resolve().parent.parent          # deepdistrict-web/
 DATA_DIR = Path(os.environ.get("DD_DATA_DIR", Path(__file__).resolve().parent / "data"))
 DB_PATH = Path(os.environ.get("DD_DB", DATA_DIR / "deepdistrict.db"))
 BACKUP_DIR = DATA_DIR / "backups"
+# a second copy outside the website folder, so replacing the folder with a new version can never lose data
+SAFE_DIR = Path(os.environ.get("DD_SAFE_DIR", Path.home() / "deepdistrict-safe-copies"))
 SESSION_HOURS = 12
-PBKDF2_ROUNDS = 200_000
+PBKDF2_ROUNDS = 600_000          # OWASP 2023 level for PBKDF2-HMAC-SHA256; older hashes are upgraded at sign-in
 COLLECTIONS = ("users", "enrolments", "sessions", "payments", "requests")
 KV_KEYS = ("org", "courseOverrides", "customCourses", "prepCatalog", "pathways")   # prepCatalog/pathways: None = website defaults
 STATIC_DIRS = ("assets", "pages", "admin")
@@ -73,8 +75,20 @@ def db():
     return con
 
 
+def recover_if_missing():
+    """A new install of the code with no database yet: bring back the newest safe copy, if there is one."""
+    if DB_PATH.exists() or os.environ.get("DD_NO_RECOVER") == "1":
+        return
+    copies = sorted(SAFE_DIR.glob("deepdistrict-*.db")) if SAFE_DIR.is_dir() and "DD_DATA_DIR" not in os.environ else []
+    if copies:
+        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(copies[-1], DB_PATH)
+        print(f"No database in {DATA_DIR} — restored the newest safe copy {copies[-1]}")
+
+
 def init_db():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
+    recover_if_missing()
     with db() as con:
         con.executescript("""
         CREATE TABLE IF NOT EXISTS records (col TEXT NOT NULL, id TEXT NOT NULL, data TEXT NOT NULL,
@@ -86,6 +100,8 @@ def init_db():
         CREATE TABLE IF NOT EXISTS consent_log (ref TEXT NOT NULL, at TEXT NOT NULL, received TEXT NOT NULL, version INTEGER, choices TEXT NOT NULL, page TEXT);
         """)
         history.prepare(con)
+        if "rounds" not in [c[1] for c in con.execute("PRAGMA table_info(credentials)")]:
+            con.execute("ALTER TABLE credentials ADD COLUMN rounds INTEGER")     # NULL = the old 200,000
         notify.init(con)
         learning.init(con)
         history.init(con)          # last, so every table gets its keep-forever triggers
@@ -133,40 +149,53 @@ def audit(con, user, text):
 
 
 def daily_backup():
-    """Copy the database once per day; keep the last 30 copies."""
+    """Copy the database once per day, in server/data/backups and in a safe folder outside the website
+    folder (DD_SAFE_DIR, default ~/deepdistrict-safe-copies). Keep the last 30 days and the 1st of every month."""
     if not DB_PATH.exists():
         return
-    BACKUP_DIR.mkdir(parents=True, exist_ok=True)
-    target = BACKUP_DIR / f"deepdistrict-{datetime.now():%Y-%m-%d}.db"
-    if target.exists():
-        return
-    src = sqlite3.connect(DB_PATH)
-    dst = sqlite3.connect(target)
-    with dst:
-        src.backup(dst)
-    src.close(); dst.close()
-    for old in sorted(BACKUP_DIR.glob("deepdistrict-*.db"))[:-30]:
-        if not old.stem.endswith("-01"):      # the copy from the 1st of each month is kept for good
-            old.unlink()
+    folders = [BACKUP_DIR] + ([SAFE_DIR] if "DD_DATA_DIR" not in os.environ or "DD_SAFE_DIR" in os.environ else [])
+    for folder in folders:
+        try:
+            folder.mkdir(parents=True, exist_ok=True)
+            target = folder / f"deepdistrict-{datetime.now():%Y-%m-%d}.db"
+            if target.exists():
+                continue
+            src = sqlite3.connect(DB_PATH)
+            dst = sqlite3.connect(target)
+            with dst:
+                src.backup(dst)
+            src.close(); dst.close()
+            for old in sorted(folder.glob("deepdistrict-*.db"))[:-30]:
+                if not old.stem.endswith("-01"):      # the copy from the 1st of each month is kept for good
+                    old.unlink()
+        except OSError as e:                          # a read-only home folder must not stop the site
+            print("backup copy skipped:", folder, e, file=sys.stderr)
 
 
 # ---------------------------------------------------------------- passwords & sessions
-def hash_pw(password, salt=None):
+# Passwords of every role (admin, teacher, student, parent) are never stored: only a salted
+# PBKDF2-HMAC-SHA256 hash (random 128-bit salt per password). Nobody, not even an admin, can read them back.
+def hash_pw(password, salt=None, rounds=PBKDF2_ROUNDS):
     salt = salt or secrets.token_hex(16)
-    h = hashlib.pbkdf2_hmac("sha256", password.encode(), salt.encode(), PBKDF2_ROUNDS).hex()
+    h = hashlib.pbkdf2_hmac("sha256", password.encode(), salt.encode(), rounds).hex()
     return salt, h
 
 
-def set_password(con, uid, password):
+def set_password(con, uid, password, sign_out=True):
     salt, h = hash_pw(password)
-    con.execute("INSERT INTO credentials (user_id, salt, hash) VALUES (?,?,?) "
-                "ON CONFLICT(user_id) DO UPDATE SET salt=excluded.salt, hash=excluded.hash", (uid, salt, h))
-    con.execute("DELETE FROM auth_sessions WHERE user_id=?", (uid,))   # sign out everywhere
+    con.execute("INSERT INTO credentials (user_id, salt, hash, rounds) VALUES (?,?,?,?) "
+                "ON CONFLICT(user_id) DO UPDATE SET salt=excluded.salt, hash=excluded.hash, rounds=excluded.rounds", (uid, salt, h, PBKDF2_ROUNDS))
+    if sign_out:
+        con.execute("DELETE FROM auth_sessions WHERE user_id=?", (uid,))   # sign out everywhere
 
 
 def check_password(con, uid, password):
-    r = con.execute("SELECT salt, hash FROM credentials WHERE user_id=?", (uid,)).fetchone()
-    return bool(r) and hmac.compare_digest(hash_pw(password, r["salt"])[1], r["hash"])
+    r = con.execute("SELECT salt, hash, rounds FROM credentials WHERE user_id=?", (uid,)).fetchone()
+    if not r or not hmac.compare_digest(hash_pw(password, r["salt"], r["rounds"] or 200_000)[1], r["hash"]):
+        return False
+    if (r["rounds"] or 0) < PBKDF2_ROUNDS:                 # stored with fewer rounds: upgrade silently
+        set_password(con, uid, password, sign_out=False)
+    return True
 
 
 def token_hash(t):
@@ -521,7 +550,17 @@ SECURITY_HEADERS = [
     ("X-Content-Type-Options", "nosniff"),
     ("Referrer-Policy", "strict-origin-when-cross-origin"),
     ("X-Frame-Options", "SAMEORIGIN"),
+    # only our own scripts run (no inline or third-party scripts), the site cannot be framed by others,
+    # and plugins are off; photos may come from free-licence libraries over https
+    ("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; "
+                                "font-src 'self' data:; connect-src 'self' https:; frame-src 'self' blob:; worker-src 'self' blob:; object-src 'none'; "
+                                "base-uri 'self'; form-action 'self'; frame-ancestors 'self'"),
+    ("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=(), usb=(), display-capture=()"),
+    ("Cross-Origin-Opener-Policy", "same-origin"),
 ]
+
+
+_https = threading.local()      # per request: was it served over https?
 
 
 def respond(start, status, body=b"", ctype="application/json; charset=utf-8", extra=None):
@@ -530,6 +569,8 @@ def respond(start, status, body=b"", ctype="application/json; charset=utf-8", ex
     elif isinstance(body, str):
         body = body.encode()
     headers = [("Content-Type", ctype), ("Content-Length", str(len(body)))] + SECURITY_HEADERS + (extra or [])
+    if getattr(_https, "on", False):
+        headers.append(("Strict-Transport-Security", "max-age=31536000"))     # browsers keep using https
     start(status, headers)
     return [body]
 
@@ -818,7 +859,7 @@ def api(environ, start, path):
             for col in COLLECTIONS:
                 data[col] = load_col(con, col)
             data.update(learning.backup(con))
-            data["credentials"] = [dict(r) for r in con.execute("SELECT user_id, salt, hash FROM credentials")]
+            data["credentials"] = [dict(r) for r in con.execute("SELECT user_id, salt, hash, rounds FROM credentials")]
             audit(con, me, "Exported backup")
             return respond(start, "200 OK", data, extra=[("Content-Disposition", f'attachment; filename="deepdistrict-backup-{datetime.now():%Y-%m-%d}.json"')])
 
@@ -835,7 +876,7 @@ def api(environ, start, path):
                     rec.pop("pass", None); rec.pop("hasLogin", None)
                     put_rec(con, col, rec, me["id"])
             for c in body.get("credentials") or []:
-                con.execute("INSERT INTO credentials (user_id, salt, hash) VALUES (?,?,?)", (c["user_id"], c["salt"], c["hash"]))
+                con.execute("INSERT INTO credentials (user_id, salt, hash, rounds) VALUES (?,?,?,?)", (c["user_id"], c["salt"], c["hash"], c.get("rounds")))
             for key in KV_KEYS:
                 if key in body:
                     set_kv(con, key, body[key])
@@ -899,8 +940,29 @@ def static(environ, start, path):
     return respond(start, "200 OK", target.read_bytes(), ctype, cache)
 
 
+_backup_day = [""]
+
+
+def backup_once_a_day():
+    """Hosted under WSGI there is no main loop, so the first request of each day makes the safety copies."""
+    day = datetime.now().strftime("%Y-%m-%d")
+    if _backup_day[0] != day:
+        _backup_day[0] = day
+        threading.Thread(target=lambda: _locked(daily_backup), daemon=True).start()
+
+
+def _locked(fn):
+    try:
+        with _lock:
+            fn()
+    except Exception as e:  # noqa: BLE001
+        print("backup error", repr(e), file=sys.stderr)
+
+
 def application(environ, start):
     path = environ.get("PATH_INFO", "/")
+    _https.on = environ.get("wsgi.url_scheme") == "https" or environ.get("HTTP_X_FORWARDED_PROTO") == "https"
+    backup_once_a_day()
     try:
         if path.startswith("/api/"):
             return api(environ, start, path[5:].strip("/"))

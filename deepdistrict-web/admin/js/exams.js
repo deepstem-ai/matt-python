@@ -8,7 +8,7 @@
   var A = window.DDA, L = A.L, esc = A.esc, $ = A.$, $$ = A.$$;
   var home = null, bank = null;
 
-  var KIND = { sat: ["SAT Reading & Writing", "SAT Reading & Writing"], "ielts-r": ["IELTS Academic Reading", "IELTS Academic Reading"], "ielts-w": ["IELTS Academic Writing", "IELTS Academic Writing"], m1: ["M.1 entrance (Suankularb GATE / EP)", "สอบเข้า ม.1 (สวนกุหลาบ GATE / EP)"] };
+  var KIND = { sat: ["SAT Reading & Writing", "SAT Reading & Writing"], "ielts-r": ["IELTS Academic Reading", "IELTS Academic Reading"], "ielts-w": ["IELTS Academic Writing", "IELTS Academic Writing"], m1: ["M.1 / M.4 / A-Level English", "อังกฤษ ม.1 / ม.4 / A-Level"] };
   var EXAM = { sat: ["SAT Reading & Writing", "SAT Reading & Writing"], ielts: ["IELTS Academic", "IELTS Academic"], sk1: ["M.1 English · Suankularb (GATE / EPLUS+)", "อังกฤษ ม.1 · สวนกุหลาบ (GATE / EPLUS+)"], sp1: ["M.1 English · Satit Prasarnmit", "อังกฤษ ม.1 · สาธิตประสานมิตร"],
     sk4: ["M.4 English · Suankularb (GATE / EPLUS+)", "อังกฤษ ม.4 · สวนกุหลาบ (GATE / EPLUS+)"], sp4: ["M.4 English · Satit Prasarnmit", "อังกฤษ ม.4 · สาธิตประสานมิตร"],
     tu4: ["M.4 English · Triam Udom Suksa", "อังกฤษ ม.4 · เตรียมอุดมศึกษา"], alevel: ["A-Level English (TCAS)", "A-Level ภาษาอังกฤษ (TCAS)"], ep: ["Suankularb M.1 · English Program (older sets)", "สวนกุหลาบ ม.1 · English Program (ชุดเดิม)"], other: ["Teacher sets", "ชุดข้อสอบจากครู"] };
@@ -234,7 +234,7 @@
           { name: "expEn", label: L("Explanation (English)", "คำอธิบาย (อังกฤษ)"), type: "textarea", value: (it.explanation || {}).en, full: true },
           { name: "expTh", label: L("Explanation (Thai)", "คำอธิบาย (ไทย)"), type: "textarea", value: (it.explanation || {}).th, full: true }];
       } else if (it.kind === "m1") {
-        var prog = it.program || "gate";
+        var prog = it.program || "sk1";
         f = [{ name: "program", label: L("Programme", "โครงการ"), type: "select", value: prog, options: [["sk1", L("M.1 Suankularb (GATE / EPLUS+)", "ม.1 สวนกุหลาบ (GATE / EPLUS+)")], ["sp1", L("M.1 Satit Prasarnmit", "ม.1 สาธิตประสานมิตร")], ["sk4", L("M.4 Suankularb (GATE / EPLUS+)", "ม.4 สวนกุหลาบ (GATE / EPLUS+)")], ["sp4", L("M.4 Satit Prasarnmit", "ม.4 สาธิตประสานมิตร")], ["tu4", L("M.4 Triam Udom", "ม.4 เตรียมอุดม")], ["alevel", "A-Level (TCAS)"]] },
           { name: "part", label: L("Part", "ตอน"), type: "select", value: it.part || "", options: [["", "–"], ["conversation", "Conversation"], ["conversation-short", "Short conversations (A-Level)"], ["conversation-long", "Long conversation (A-Level)"], ["vocabulary", "Vocabulary"], ["grammar", "Grammar"], ["error", L("Error identification — mark 4 parts as [[text]]", "หาจุดผิด — ใส่ 4 ส่วนเป็น [[ข้อความ]]")], ["cloze", "Cloze"], ["reading", "Reading"], ["reading-academic", "Academic reading"], ["reading-ads", "Reading: ads (A-Level)"], ["reading-review", "Reading: review (A-Level)"], ["reading-news", "Reading: news (A-Level)"], ["reading-visual", "Reading: visuals (A-Level)"], ["reading-article", "Reading: articles (A-Level)"], ["text-completion", "Writing: text completion (A-Level)"], ["paragraph", "Writing: paragraph organization (A-Level)"]] },
           { name: "format", label: L("Answer type", "รูปแบบคำตอบ"), type: "select", value: it.format || "mcq", options: [["mcq", L("4 choices", "ปรนัย 4 ตัวเลือก")], ["fill", L("Written answer (number / word)", "อัตนัย เติมคำตอบ")]] },

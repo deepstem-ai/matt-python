@@ -8,11 +8,11 @@ refuse). People, enrolments, lessons, payments and requests are never removed fr
 
 import json
 
-SKIP = {"archive", "auth_sessions", "line_codes", "sqlite_sequence"}    # sign-in tokens are not data
+SKIP = {"archive", "auth_sessions", "line_codes", "credentials", "sqlite_sequence"}   # sign-in secrets are not kept
 UPDATES = {"records": "OLD.data IS NOT NEW.data OR OLD.archived IS NOT NEW.archived",
            "kv": "OLD.value IS NOT NEW.value AND OLD.key NOT IN ('line_usage')",
            "exam_items": "OLD.data IS NOT NEW.data", "question_sets": "OLD.data IS NOT NEW.data",
-           "blog_posts": "OLD.data IS NOT NEW.data", "credentials": "OLD.hash IS NOT NEW.hash"}
+           "blog_posts": "OLD.data IS NOT NEW.data"}
 NOW = "strftime('%Y-%m-%dT%H:%M:%SZ','now')"
 
 
@@ -26,6 +26,9 @@ def init(con):
     """)
     prepare(con)
     tables = [r[0] for r in con.execute("SELECT name FROM sqlite_master WHERE type='table'") if r[0] not in SKIP]
+    for t in SKIP:                                   # triggers from earlier versions on tables now skipped
+        for action in ("delete", "update"):
+            con.execute(f"DROP TRIGGER IF EXISTS keep_{action}_{t}")
     for t in tables:
         cols = [c[1] for c in con.execute(f"PRAGMA table_info({t})")]
         row = "json_object(" + ", ".join(f"'{c}', OLD.\"{c}\"" for c in cols) + ")"

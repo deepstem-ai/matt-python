@@ -10,21 +10,31 @@ import json
 
 import images
 
-V = 5        # bump to add newly written starter posts (existing ones are never touched again)
+V = 6        # bump to add newly written starter posts (existing ones are never touched again)
 
 
 def _cover(c1, c2, label, glyph):
-    """A simple branded drawing (gradient, shapes and a short label), cleaned like any AI drawing."""
+    """A branded editorial drawing (shown until a real photo is found): gradient, light beams, dot grid,
+    a large faint glyph and the label on a dark band. Cleaned like any other drawing."""
     from xml.sax.saxutils import escape
     label, glyph = escape(label), escape(glyph)
+    dots = "".join(f'<circle cx="{x}" cy="{y}" r="2.2"/>' for x in range(640, 1200, 36) for y in range(36, 600, 36))
     svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">'
-           f'<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{c1}"/><stop offset="1" stop-color="{c2}"/></linearGradient></defs>'
-           f'<rect width="1200" height="630" fill="url(#g)"/>'
-           f'<circle cx="1010" cy="120" r="220" fill="#ffffff" fill-opacity="0.08"/><circle cx="160" cy="560" r="260" fill="#ffffff" fill-opacity="0.06"/>'
-           f'<path d="M0 470 C 300 390 520 560 820 470 S 1200 420 1200 420 L1200 630 L0 630 Z" fill="#ffffff" fill-opacity="0.07"/>'
-           f'<text x="90" y="300" font-family="Arial, Helvetica, sans-serif" font-size="150" font-weight="700" fill="#ffffff" fill-opacity="0.95">{glyph}</text>'
-           f'<text x="92" y="400" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="700" fill="#ffffff">{label}</text>'
-           f'<text x="92" y="560" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="#ffffff" fill-opacity="0.8">DeepDistrict.si</text></svg>')
+           f'<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="{c1}"/><stop offset="1" stop-color="{c2}"/></linearGradient>'
+           f'<linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000000" stop-opacity="0"/><stop offset="1" stop-color="#000000" stop-opacity="0.55"/></linearGradient>'
+           f'<radialGradient id="l" cx="0.82" cy="0.18" r="0.7"><stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></radialGradient></defs>'
+           f'<rect width="1200" height="630" fill="url(#g)"/><rect width="1200" height="630" fill="url(#l)"/>'
+           f'<g fill="#ffffff" fill-opacity="0.13">{dots}</g>'
+           f'<path d="M760 -40 L1240 -40 L1240 120 L560 700 L330 700 Z" fill="#ffffff" fill-opacity="0.06"/>'
+           f'<path d="M980 -40 L1240 -40 L1240 330 L900 700 L760 700 Z" fill="#ffffff" fill-opacity="0.05"/>'
+           f'<circle cx="980" cy="300" r="210" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="3"/>'
+           f'<circle cx="980" cy="300" r="150" fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="2" stroke-dasharray="6 10"/>'
+           f'<text x="980" y="345" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="128" font-weight="700" fill="#ffffff" fill-opacity="0.92">{glyph}</text>'
+           f'<rect y="430" width="1200" height="200" fill="url(#b)"/>'
+           f'<rect x="80" y="84" width="16" height="16" rx="3" fill="#fbbf24"/>'
+           f'<text x="108" y="99" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="3" fill="#ffffff" fill-opacity="0.9">DEEPDISTRICT NEWS</text>'
+           f'<text x="80" y="540" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" fill="#ffffff">{label}</text>'
+           f'<rect x="80" y="566" width="120" height="6" rx="3" fill="#fbbf24"/></svg>')
     return images.svg_data_url(images.clean_svg(svg))
 
 
@@ -201,6 +211,7 @@ def seed(con):
             untouched = p.get("seedHash") == _hash(p) if p.get("seedHash") else all(h.get("by") == "DeepDistrict" for h in p.get("history", []))
             if not p.get("seed") or not untouched:     # a post staff have edited is left as it is
                 continue
+            p["publishedAt"] = (now - timedelta(days=int(x.get("days") or 0), hours=2)).isoformat()   # newest news first
         elif x["slug"] in done["slugs"]:
             continue                              # deleted by staff: keep it deleted
         else:

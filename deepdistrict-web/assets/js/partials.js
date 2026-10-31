@@ -87,6 +87,7 @@
   var MOON = '<svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>';
   var AUTO = '<svg class="i-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>';
 
+  var USER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>';
   var header =
     '<a class="skip-link" href="#main">' + bi("Skip to content", "ข้ามไปยังเนื้อหา") + "</a>" +
     '<div class="scroll-progress" aria-hidden="true"></div>' +
@@ -103,6 +104,7 @@
     '        <button type="button" data-set-lang="th" aria-pressed="false" title="ภาษาไทย">TH</button>' +
     '        <button type="button" data-set-lang="en" aria-pressed="false" title="English">EN</button>' +
     "      </div>" +
+    '      <a class="btn btn--sm header-signin" href="' + base + 'admin/index.html" rel="nofollow" title="Students, parents, teachers and admin / นักเรียน ผู้ปกครอง ครู และผู้ดูแลระบบ">' + USER + '<span class="header-signin__txt">' + bi("Sign in", "เข้าสู่ระบบ") + "</span></a>" +
     '      <a class="btn btn--primary btn--sm header-cta" data-magnetic href="' + base + 'pages/contact.html">' + bi("Ask about a course", "สอบถามหลักสูตร") + "</a>" +
     '      <button class="icon-btn menu-toggle" type="button" aria-controls="nav-drawer" aria-expanded="false" aria-label="Menu"><span></span></button>' +
     "    </div>" +
@@ -114,7 +116,8 @@
     NAV.map(function (n) {
       return n.children ? '<li class="drawer-group"><span class="drawer-group__title">' + bi(n.en, n.th) + "</span><ul role=\"list\">" + n.children.map(function (c) { return "<li>" + link(c) + "</li>"; }).join("") + "</ul></li>" : "<li>" + link(n) + "</li>";
     }).join("") +
-    "<li>" + link({ href: "pages/contact.html", en: "Contact", th: "ติดต่อเรา" }) + "</li></ul>" +
+    "<li>" + link({ href: "pages/contact.html", en: "Contact", th: "ติดต่อเรา" }) + "</li>" +
+    '<li><a class="drawer-signin" href="' + base + 'admin/index.html" rel="nofollow">' + USER + bi("Sign in — students, parents, teachers, admin", "เข้าสู่ระบบ — นักเรียน ผู้ปกครอง ครู ผู้ดูแลระบบ") + "</a></li></ul>" +
     '  <div class="drawer-foot"><a class="btn btn--primary" href="mailto:' + EMAIL + '">' + EMAIL + " " + ARROW + "</a>" +
     bi("Super Intelligence learning & research lab<br>Bangkok, Thailand", "ห้องปฏิบัติการเรียนรู้และวิจัย Super Intelligence<br>กรุงเทพมหานคร ประเทศไทย") + "</div>" +
     "</nav>";
