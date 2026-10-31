@@ -1,0 +1,1255 @@
+{
+ "exam": "sk1",
+ "set": 1,
+ "title": {
+  "en": "Suankularb M.1 English (GATE / EPLUS+) — Practice paper 1",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.1 สวนกุหลาบ (GATE / EPLUS+) — ชุดที่ 1"
+ },
+ "minutes": 50,
+ "note": {
+  "en": "40 questions in 50 minutes: conversation, vocabulary, grammar, cloze and reading, in the style of the Suankularb M.1 pre-test. GATE and EPLUS+ applicants take the same paper; EPLUS+ needs a higher score. DeepDistrict practice — not an official or past paper.",
+  "th": "40 ข้อ 50 นาที: บทสนทนา คำศัพท์ ไวยากรณ์ เติมคำในบทความ และการอ่าน ตามแนวข้อสอบเข้า ม.1 สวนกุหลาบ ผู้สมัคร GATE และ EPLUS+ ใช้ข้อสอบชุดเดียวกัน EPLUS+ ต้องได้คะแนนสูงกว่า — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Responding to thanks",
+    "th": "การตอบรับคำขอบคุณ"
+   },
+   "topic": {
+    "en": "School conversation",
+    "th": "บทสนทนาในโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Thanks so much for helping me carry these books to the library.\nB: ______",
+   "choices": [
+    "Never mind.",
+    "Help yourself.",
+    "I'm afraid not.",
+    "Don't mention it."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Don't mention it\" is a polite reply to thanks. \"Never mind\" answers an apology or a problem, \"Help yourself\" invites someone to take something, and \"I'm afraid not\" is a negative answer to a question.",
+    "th": "Don't mention it ใช้ตอบเมื่อมีคนขอบคุณ (ไม่เป็นไรเลย) ส่วน Never mind ใช้ตอบคำขอโทษหรือบอกว่าไม่ต้องกังวล Help yourself ใช้เชิญให้หยิบเอง และ I'm afraid not เป็นการตอบปฏิเสธคำถาม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Answering a 'How often…?' question",
+    "th": "การตอบคำถาม How often…?"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: How often do you take the BTS to school?\nB: ______",
+   "choices": [
+    "With my older brother.",
+    "Since last year.",
+    "About twenty minutes.",
+    "Almost every day, unless my dad drives me."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"How often\" asks about frequency, so \"Almost every day, unless my dad drives me\" fits. \"About twenty minutes\" answers \"How long\", \"With my older brother\" answers \"Who with\", and \"Since last year\" answers \"Since when\".",
+    "th": "How often ถามความถี่ จึงตอบ Almost every day, unless my dad drives me (เกือบทุกวัน) ส่วน About twenty minutes ตอบคำถาม How long, With my older brother ตอบว่าไปกับใคร และ Since last year ตอบว่าตั้งแต่เมื่อไร"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Responding to a request to borrow",
+    "th": "การตอบรับคำขอยืมของ"
+   },
+   "topic": {
+    "en": "School conversation",
+    "th": "บทสนทนาในโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Could I borrow your ruler for a second?\nB: ______",
+   "choices": [
+    "Yes, you could.",
+    "Of course, I'd love to.",
+    "Sure, here you are.",
+    "No, I couldn't."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Sure, here you are\" agrees and hands the ruler over. \"Could\" in a request is not repeated in the reply, so \"Yes, you could\" and \"No, I couldn't\" sound wrong, and \"Of course, I'd love to\" accepts an invitation, not a request.",
+    "th": "Sure, here you are แปลว่า ได้สิ นี่ไง เป็นการให้ยืมพร้อมยื่นของให้ คำขอที่ขึ้นต้นด้วย Could I… ไม่ตอบซ้ำด้วย could จึงไม่ใช้ Yes, you could หรือ No, I couldn't ส่วน Of course, I'd love to ใช้ตอบรับคำเชิญ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Giving advice to someone who is unwell",
+    "th": "การให้คำแนะนำเมื่อมีคนไม่สบาย"
+   },
+   "topic": {
+    "en": "School conversation",
+    "th": "บทสนทนาในโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: I've got a terrible headache, and we still have two more lessons.\nB: ______",
+   "choices": [
+    "You should go and see the school nurse.",
+    "It doesn't matter to me.",
+    "Same to you.",
+    "I'm glad to hear that."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A friend with a headache needs advice, so \"You should go and see the school nurse\" is right. \"I'm glad to hear that\" answers good news, \"It doesn't matter to me\" sounds uncaring, and \"Same to you\" returns a wish such as \"Happy New Year\".",
+    "th": "เพื่อนปวดหัวจึงควรให้คำแนะนำ You should go and see the school nurse (ควรไปห้องพยาบาล) ส่วน I'm glad to hear that ใช้กับข่าวดี It doesn't matter to me ฟังดูไม่ใส่ใจ และ Same to you ใช้อวยพรกลับ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Accepting an apology",
+    "th": "การตอบรับคำขอโทษ"
+   },
+   "topic": {
+    "en": "School conversation",
+    "th": "บทสนทนาในโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: I'm sorry I'm late. The traffic on Rama IV Road was awful.\nB: ______ We've only just started.",
+   "choices": [
+    "Me neither.",
+    "Don't mention it.",
+    "Never mind.",
+    "You're welcome."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Never mind\" accepts an apology and tells the person not to worry, which fits \"We've only just started\". \"Don't mention it\" and \"You're welcome\" answer thanks, not an apology, and \"Me neither\" agrees with a negative sentence.",
+    "th": "Never mind ใช้ตอบคำขอโทษ แปลว่า ไม่เป็นไร เข้ากับ We've only just started (เพิ่งเริ่มเอง) ส่วน Don't mention it และ You're welcome ใช้ตอบคำขอบคุณ และ Me neither ใช้เห็นด้วยกับประโยคปฏิเสธ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Refusing an invitation politely",
+    "th": "การปฏิเสธคำชวนอย่างสุภาพ"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Shall we go to the science fair at the shopping mall on Saturday?\nB: ______ I have a piano exam that morning.",
+   "choices": [
+    "I'd love to, but I can't.",
+    "I don't think so, either.",
+    "Yes, let's do that.",
+    "Good idea, so I'll go."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The reason \"I have a piano exam\" shows B is refusing, so \"I'd love to, but I can't\" is the polite refusal. \"Yes, let's do that\" and \"Good idea, so I'll go\" accept, and \"either\" needs a negative sentence before it.",
+    "th": "เหตุผล I have a piano exam แสดงว่า B ปฏิเสธ จึงตอบ I'd love to, but I can't (อยากไปแต่ไปไม่ได้) ส่วน Yes, let's do that และ Good idea, so I'll go เป็นการตอบรับ และ either ต้องตามหลังประโยคปฏิเสธ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Using 'No wonder' to show something is not surprising",
+    "th": "การใช้ No wonder แสดงว่าไม่แปลกใจ"
+   },
+   "topic": {
+    "en": "Idiomatic responses",
+    "th": "สำนวนในการโต้ตอบ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Pim got full marks in the maths test again!\nB: ______ She studies harder than anyone I know.",
+   "choices": [
+    "What a shame.",
+    "No wonder.",
+    "I doubt it.",
+    "Don't be silly."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"No wonder\" means \"that is not surprising\", and B gives the reason: Pim studies very hard. \"I doubt it\" shows disbelief, \"What a shame\" reacts to bad news, and \"Don't be silly\" tells someone they are wrong — none fits the reason that follows.",
+    "th": "No wonder แปลว่า ไม่แปลกเลย แล้ว B ให้เหตุผลว่าพิมขยันมาก ส่วน I doubt it แสดงว่าไม่เชื่อ What a shame ใช้กับเรื่องน่าเสียดาย และ Don't be silly แปลว่า อย่าพูดเหลวไหล จึงไม่เข้ากับเหตุผลที่ตามมา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Encouraging someone with an idiom",
+    "th": "การให้กำลังใจด้วยสำนวน"
+   },
+   "topic": {
+    "en": "Idiomatic responses",
+    "th": "สำนวนในการโต้ตอบ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: I'm thinking of joining the debate club, but I'm afraid I'll make mistakes in front of everyone.\nB: ______ Everybody makes mistakes at first.",
+   "choices": [
+    "It's a piece of cake for me.",
+    "Mind your own business.",
+    "Give it a shot — you'll learn as you go.",
+    "Take it or leave it."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Give it a shot\" means \"try it\", which encourages A and matches \"Everybody makes mistakes at first\". \"Take it or leave it\" is a final offer, \"It's a piece of cake for me\" talks about B, not A, and \"Mind your own business\" is rude.",
+    "th": "Give it a shot แปลว่า ลองดูสิ เป็นการให้กำลังใจ เข้ากับ Everybody makes mistakes at first ส่วน Take it or leave it แปลว่า จะเอาหรือไม่เอาก็เรื่องของคุณ It's a piece of cake for me พูดถึงตัว B เอง และ Mind your own business เป็นคำพูดไม่สุภาพ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Choosing the right word form (adjective)",
+    "th": "การเลือกชนิดของคำ (คำคุณศัพท์)"
+   },
+   "topic": {
+    "en": "School life",
+    "th": "ชีวิตในโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nPlease be ______ in the library; other students are reading.",
+   "choices": [
+    "loudly",
+    "quiet",
+    "silence",
+    "noise"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "After \"be\" we need an adjective: \"be quiet\". \"Silence\" and \"noise\" are nouns, and \"loudly\" is an adverb with the opposite meaning.",
+    "th": "หลัง be ต้องใช้คำคุณศัพท์ จึงใช้ quiet (เงียบ) ส่วน silence และ noise เป็นคำนาม และ loudly เป็นคำกริยาวิเศษณ์ที่ความหมายตรงข้าม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Everyday objects",
+    "th": "สิ่งของในชีวิตประจำวัน"
+   },
+   "topic": {
+    "en": "Family and home",
+    "th": "ครอบครัวและบ้าน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nMy grandmother can't read small letters without her ______.",
+   "choices": [
+    "mirror",
+    "goggles",
+    "glasses",
+    "window"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "People wear glasses to read small letters. Goggles protect the eyes when swimming, and a mirror and a window do not help you read.",
+    "th": "glasses คือแว่นสายตาที่ใช้อ่านหนังสือ ส่วน goggles คือแว่นว่ายน้ำ mirror คือกระจกเงา และ window คือหน้าต่าง ซึ่งไม่ช่วยในการอ่าน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Confusing verbs: win / beat",
+    "th": "คำกริยาที่สับสนบ่อย: win / beat"
+   },
+   "topic": {
+    "en": "Sport",
+    "th": "กีฬา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nThe school football team ______ the match 3–1, so everyone celebrated.",
+   "choices": [
+    "earned",
+    "beat",
+    "won",
+    "gained"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "You \"win\" a match, a game or a prize, but you \"beat\" a person or team. \"Gain\" and \"earn\" are not used with \"match\".",
+    "th": "win ใช้กับการแข่งขันหรือรางวัล (win the match) ส่วน beat ใช้กับคู่แข่ง (beat the other team) gained และ earned ไม่ใช้กับ match"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Confusing verbs: lend / borrow",
+    "th": "คำกริยาที่สับสนบ่อย: lend / borrow"
+   },
+   "topic": {
+    "en": "School life",
+    "th": "ชีวิตในโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nCould you ______ me your dictionary? I left mine at home.",
+   "choices": [
+    "rent",
+    "lend",
+    "borrow",
+    "give back"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Lend\" means give something for a short time: \"lend me your dictionary\". You \"borrow\" something from someone, \"rent\" involves paying, and \"give back\" means return it.",
+    "th": "lend แปลว่า ให้ยืม (lend me) ส่วน borrow แปลว่า ขอยืม ใช้ว่า borrow something from someone, rent ต้องจ่ายเงินเช่า และ give back แปลว่า คืน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Adjectives of feeling (-ing / -ed)",
+    "th": "คำคุณศัพท์บอกความรู้สึก (-ing / -ed)"
+   },
+   "topic": {
+    "en": "Media and entertainment",
+    "th": "สื่อและความบันเทิง"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nThe documentary about the ocean was so ______ that I watched it twice.",
+   "choices": [
+    "fascinated",
+    "exhausted",
+    "fascinating",
+    "disappointing"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The documentary causes the feeling, so we use the -ing form \"fascinating\". \"Fascinated\" describes how a person feels, \"exhausted\" means very tired, and a \"disappointing\" film would not make you watch it twice.",
+    "th": "สารคดีเป็นสิ่งที่ทำให้เกิดความรู้สึก จึงใช้รูป -ing คือ fascinating (น่าทึ่ง) ส่วน fascinated ใช้บอกความรู้สึกของคน exhausted แปลว่า เหนื่อยมาก และสารคดีที่ disappointing (น่าผิดหวัง) คงไม่มีใครดูซ้ำ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Adjectives of quantity (scarce)",
+    "th": "คำคุณศัพท์บอกปริมาณ (scarce)"
+   },
+   "topic": {
+    "en": "Environment",
+    "th": "สิ่งแวดล้อม"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nWater is ______ in this village during the dry season, so people collect rainwater in large jars.",
+   "choices": [
+    "scarce",
+    "spare",
+    "plentiful",
+    "empty"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "People collect rainwater because there is not enough water, so \"scarce\" (in short supply) is right. \"Plentiful\" is the opposite, \"spare\" means extra, and water itself cannot be \"empty\".",
+    "th": "ชาวบ้านต้องเก็บน้ำฝนเพราะน้ำขาดแคลน จึงใช้ scarce (หายาก ขาดแคลน) ส่วน plentiful แปลว่า มีมาก spare แปลว่า เหลือ สำรอง และน้ำเองจะ empty (ว่างเปล่า) ไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Verb patterns: remind someone to do",
+    "th": "รูปแบบคำกริยา: remind someone to do"
+   },
+   "topic": {
+    "en": "School life",
+    "th": "ชีวิตในโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nBefore the exam, the teacher ______ us to check our answers carefully.",
+   "choices": [
+    "noticed",
+    "suggested",
+    "remembered",
+    "reminded"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Remind someone to do something\" means help them not to forget. We cannot say \"remember us to\", \"notice us to\" or \"suggest us to\" (we say \"suggested that we check\").",
+    "th": "remind someone to do something แปลว่า เตือนให้ทำ ส่วน remember, notice และ suggest ใช้รูป ___ us to ไม่ได้ (suggest ต้องใช้ suggested that we check)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Health vocabulary: recover / cure / treat",
+    "th": "คำศัพท์สุขภาพ: recover / cure / treat"
+   },
+   "topic": {
+    "en": "Health",
+    "th": "สุขภาพ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nIt took Nong a long time to ______ from the flu, so she missed a week of school.",
+   "choices": [
+    "treat",
+    "repair",
+    "recover",
+    "cure"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "A person \"recovers from\" an illness. A doctor or medicine \"cures\" or \"treats\" a patient, and we \"repair\" machines, not people.",
+    "th": "คนป่วยจะ recover from (หายจาก) โรค ส่วน cure และ treat เป็นสิ่งที่หมอหรือยาทำกับผู้ป่วย และ repair ใช้กับการซ่อมสิ่งของ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "There is / there are with uncountable nouns",
+    "th": "There is / There are กับนามนับไม่ได้"
+   },
+   "topic": {
+    "en": "Countable and uncountable nouns",
+    "th": "นามนับได้และนับไม่ได้"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nThere ______ some milk in the fridge if you're thirsty.",
+   "choices": [
+    "is",
+    "are",
+    "has",
+    "have"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Milk\" is uncountable, so it takes \"there is\". \"There are\" is for plural nouns, and we never say \"there have\" or \"there has\" to show that something exists.",
+    "th": "milk เป็นนามนับไม่ได้ จึงใช้ There is ส่วน There are ใช้กับนามพหูพจน์ และไม่ใช้ there have หรือ there has เพื่อบอกว่ามีสิ่งใดอยู่"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Present perfect with since / for",
+    "th": "Present perfect กับ since / for"
+   },
+   "topic": {
+    "en": "Present perfect",
+    "th": "Present perfect"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nI have lived in Bangkok ______ I was five years old.",
+   "choices": [
+    "since",
+    "when",
+    "ago",
+    "for"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Since\" is followed by a starting point (\"I was five\"). \"For\" needs a length of time, \"ago\" comes after a time phrase, and \"when\" does not go with the present perfect here.",
+    "th": "since ตามด้วยจุดเริ่มต้นของเวลา (ตั้งแต่ตอนอายุห้าขวบ) ส่วน for ตามด้วยช่วงเวลา ago วางหลังช่วงเวลา และ when ไม่ใช้กับ present perfect ในประโยคนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "First conditional",
+    "th": "ประโยคเงื่อนไขแบบที่ 1"
+   },
+   "topic": {
+    "en": "Conditionals",
+    "th": "ประโยคเงื่อนไข"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nIf it ______ tomorrow, our field trip to Ayutthaya will be cancelled.",
+   "choices": [
+    "is going to rain",
+    "rains",
+    "will rain",
+    "rained"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "In a first conditional the if-clause uses the present simple (\"If it rains\") and the main clause uses \"will\". We do not put \"will\" or \"going to\" after \"if\" here, and \"rained\" belongs to the second conditional.",
+    "th": "ประโยคเงื่อนไขแบบที่ 1 ใช้ present simple ในส่วน if (If it rains) และใช้ will ในประโยคหลัก จึงไม่ใช้ will rain หรือ is going to rain หลัง if ส่วน rained ใช้กับเงื่อนไขแบบที่ 2"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Superlative adjectives",
+    "th": "คำคุณศัพท์ขั้นสูงสุด"
+   },
+   "topic": {
+    "en": "Comparison",
+    "th": "การเปรียบเทียบ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nWat Arun is the ______ temple I have ever visited.",
+   "choices": [
+    "most beautiful",
+    "more beautiful",
+    "most beautifully",
+    "beautifulest"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"The … I have ever visited\" needs a superlative. Long adjectives use \"most\": \"the most beautiful\". \"More beautiful\" is comparative, \"beautifulest\" is not a word, and \"beautifully\" is an adverb.",
+    "th": "the … I have ever visited ต้องใช้ขั้นสูงสุด คำคุณศัพท์ยาวใช้ most จึงเป็น the most beautiful ส่วน more beautiful เป็นขั้นกว่า beautifulest ไม่มีในภาษาอังกฤษ และ beautifully เป็นคำกริยาวิเศษณ์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "make + object + bare infinitive",
+    "th": "make + กรรม + กริยาช่องที่ 1 ไม่มี to"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบคำกริยา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nMy mother made me ______ my room before I could play games.",
+   "choices": [
+    "to tidy",
+    "tidy",
+    "tidying",
+    "tidied"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Make someone do something\" uses the base form without \"to\": \"made me tidy\". \"To tidy\", \"tidying\" and \"tidied\" are wrong after \"make + object\".",
+    "th": "make + กรรม + กริยาช่องที่ 1 ไม่มี to จึงเป็น made me tidy ส่วน to tidy, tidying และ tidied ใช้หลัง make + กรรม ไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Subject–verb agreement with neither … nor",
+    "th": "การใช้กริยาให้ตรงกับประธานใน neither … nor"
+   },
+   "topic": {
+    "en": "Subject–verb agreement",
+    "th": "ความสอดคล้องของประธานและกริยา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nNeither my brother nor I ______ good at swimming.",
+   "choices": [
+    "is",
+    "am",
+    "be",
+    "are"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "With \"neither … nor\", the verb agrees with the subject closest to it. That subject is \"I\", so we use \"am\". \"Are\" is a common mistake from thinking of two people.",
+    "th": "neither … nor ให้ใช้กริยาตามประธานตัวที่อยู่ใกล้กริยาที่สุด ซึ่งคือ I จึงใช้ am การใช้ are เป็นความผิดพลาดที่พบบ่อยเพราะคิดว่ามีสองคน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Past perfect",
+    "th": "Past perfect"
+   },
+   "topic": {
+    "en": "Narrative tenses",
+    "th": "กาลที่ใช้ในการเล่าเรื่อง"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nBy the time we arrived at the cinema, the film ______.",
+   "choices": [
+    "already starts",
+    "has already started",
+    "was already start",
+    "had already started"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The film started before we arrived (another past action), so we use the past perfect: \"had already started\". \"Has already started\" is present perfect, \"already starts\" is present, and \"was already start\" is not correct English.",
+    "th": "หนังเริ่มก่อนที่เราจะไปถึง ซึ่งเป็นเหตุการณ์ในอดีตเหมือนกัน จึงใช้ past perfect คือ had already started ส่วน has already started เป็น present perfect, already starts เป็นปัจจุบัน และ was already start ผิดไวยากรณ์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "be used to + -ing",
+    "th": "be used to + -ing"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบคำกริยา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nI moved to Bangkok last month, and I'm still not used to ______ up so early for the school bus.",
+   "choices": [
+    "got",
+    "get",
+    "be getting",
+    "getting"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "In \"be used to\" (= be familiar with), \"to\" is a preposition, so it is followed by the -ing form: \"used to getting up\". \"Used to get up\" without \"be\" describes a past habit, which is a different structure.",
+    "th": "ใน be used to (เคยชินกับ) คำว่า to เป็นคำบุพบท จึงตามด้วย -ing คือ used to getting up ส่วน used to get up (ไม่มี be) หมายถึงนิสัยในอดีต เป็นคนละโครงสร้าง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "e",
+   "skill": {
+    "en": "Possessive adjective in context",
+    "th": "คำคุณศัพท์แสดงความเป็นเจ้าของในบริบท"
+   },
+   "topic": {
+    "en": "School news cloze",
+    "th": "เติมคำในข่าวโรงเรียน"
+   },
+   "passage": "Our school held its first Plastic-Free Week last month. All students were asked to bring (1) ______ own water bottle instead of buying drinks in plastic cups. At first, many students found it difficult, (2) ______ by Wednesday almost everyone remembered. The canteen also (3) ______ plastic bags with banana leaves for wrapping snacks. The student council counted the rubbish every afternoon, and by the end of the week the amount of plastic waste had (4) ______ by nearly half. \"We were surprised at how easy it was (5) ______ small changes,\" said council president Natcha. The school now hopes to make Plastic-Free Week a monthly event, and teachers are asking students for ideas to (6) ______ waste at home, too.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (1).",
+   "choices": [
+    "their",
+    "your",
+    "his",
+    "its"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The owner is \"All students\", which is plural, so we need \"their own water bottle\". \"Its\" refers to a thing, \"his\" to one male, and \"your\" to the person spoken to.",
+    "th": "เจ้าของคือ All students ซึ่งเป็นพหูพจน์ จึงใช้ their own water bottle ส่วน its ใช้กับสิ่งของ his ใช้กับผู้ชายคนเดียว และ your ใช้กับคนที่เราพูดด้วย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Linking contrasting ideas",
+    "th": "คำเชื่อมความขัดแย้ง"
+   },
+   "topic": {
+    "en": "School news cloze",
+    "th": "เติมคำในข่าวโรงเรียน"
+   },
+   "passage": "Our school held its first Plastic-Free Week last month. All students were asked to bring (1) ______ own water bottle instead of buying drinks in plastic cups. At first, many students found it difficult, (2) ______ by Wednesday almost everyone remembered. The canteen also (3) ______ plastic bags with banana leaves for wrapping snacks. The student council counted the rubbish every afternoon, and by the end of the week the amount of plastic waste had (4) ______ by nearly half. \"We were surprised at how easy it was (5) ______ small changes,\" said council president Natcha. The school now hopes to make Plastic-Free Week a monthly event, and teachers are asking students for ideas to (6) ______ waste at home, too.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (2).",
+   "choices": [
+    "because",
+    "but",
+    "or",
+    "so"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Found it difficult\" and \"almost everyone remembered\" show a contrast, so \"but\" links them. \"So\" shows a result, \"because\" a reason and \"or\" a choice.",
+    "th": "found it difficult กับ almost everyone remembered มีความหมายขัดแย้งกัน จึงเชื่อมด้วย but ส่วน so บอกผลลัพธ์ because บอกเหตุผล และ or บอกทางเลือก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Verb pattern: replace A with B",
+    "th": "รูปแบบคำกริยา: replace A with B"
+   },
+   "topic": {
+    "en": "School news cloze",
+    "th": "เติมคำในข่าวโรงเรียน"
+   },
+   "passage": "Our school held its first Plastic-Free Week last month. All students were asked to bring (1) ______ own water bottle instead of buying drinks in plastic cups. At first, many students found it difficult, (2) ______ by Wednesday almost everyone remembered. The canteen also (3) ______ plastic bags with banana leaves for wrapping snacks. The student council counted the rubbish every afternoon, and by the end of the week the amount of plastic waste had (4) ______ by nearly half. \"We were surprised at how easy it was (5) ______ small changes,\" said council president Natcha. The school now hopes to make Plastic-Free Week a monthly event, and teachers are asking students for ideas to (6) ______ waste at home, too.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (3).",
+   "choices": [
+    "exchanged",
+    "replaced",
+    "moved",
+    "changed"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Replace A with B\" means use B instead of A: the canteen used banana leaves instead of plastic bags. \"Changed\", \"moved\" and \"exchanged\" do not form this pattern with \"with\".",
+    "th": "replace A with B แปลว่า ใช้ B แทน A คือโรงอาหารใช้ใบตองแทนถุงพลาสติก ส่วน changed, moved และ exchanged ไม่ใช้รูปนี้กับ with"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Past participle after 'had'",
+    "th": "กริยาช่องที่ 3 หลัง had"
+   },
+   "topic": {
+    "en": "School news cloze",
+    "th": "เติมคำในข่าวโรงเรียน"
+   },
+   "passage": "Our school held its first Plastic-Free Week last month. All students were asked to bring (1) ______ own water bottle instead of buying drinks in plastic cups. At first, many students found it difficult, (2) ______ by Wednesday almost everyone remembered. The canteen also (3) ______ plastic bags with banana leaves for wrapping snacks. The student council counted the rubbish every afternoon, and by the end of the week the amount of plastic waste had (4) ______ by nearly half. \"We were surprised at how easy it was (5) ______ small changes,\" said council president Natcha. The school now hopes to make Plastic-Free Week a monthly event, and teachers are asking students for ideas to (6) ______ waste at home, too.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (4).",
+   "choices": [
+    "fallen",
+    "fell",
+    "falling",
+    "fall"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Had\" + past participle forms the past perfect: \"had fallen\". \"Fell\" is the past simple, and \"falling\" and \"fall\" cannot follow \"had\" here.",
+    "th": "had + กริยาช่องที่ 3 เป็น past perfect จึงใช้ had fallen ส่วน fell เป็นกริยาช่องที่ 2 และ falling กับ fall ใช้หลัง had ในประโยคนี้ไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "it + be + adjective + to-infinitive",
+    "th": "it + be + คุณศัพท์ + to-infinitive"
+   },
+   "topic": {
+    "en": "School news cloze",
+    "th": "เติมคำในข่าวโรงเรียน"
+   },
+   "passage": "Our school held its first Plastic-Free Week last month. All students were asked to bring (1) ______ own water bottle instead of buying drinks in plastic cups. At first, many students found it difficult, (2) ______ by Wednesday almost everyone remembered. The canteen also (3) ______ plastic bags with banana leaves for wrapping snacks. The student council counted the rubbish every afternoon, and by the end of the week the amount of plastic waste had (4) ______ by nearly half. \"We were surprised at how easy it was (5) ______ small changes,\" said council president Natcha. The school now hopes to make Plastic-Free Week a monthly event, and teachers are asking students for ideas to (6) ______ waste at home, too.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (5).",
+   "choices": [
+    "made",
+    "making",
+    "make",
+    "to make"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The pattern is \"it is/was + adjective + to + verb\": \"how easy it was to make small changes\". The other forms do not complete this pattern.",
+    "th": "โครงสร้าง it is/was + คุณศัพท์ + to + กริยา จึงเป็น how easy it was to make small changes รูปอื่นไม่เข้ากับโครงสร้างนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Phrasal verbs in context",
+    "th": "กริยาวลีในบริบท"
+   },
+   "topic": {
+    "en": "School news cloze",
+    "th": "เติมคำในข่าวโรงเรียน"
+   },
+   "passage": "Our school held its first Plastic-Free Week last month. All students were asked to bring (1) ______ own water bottle instead of buying drinks in plastic cups. At first, many students found it difficult, (2) ______ by Wednesday almost everyone remembered. The canteen also (3) ______ plastic bags with banana leaves for wrapping snacks. The student council counted the rubbish every afternoon, and by the end of the week the amount of plastic waste had (4) ______ by nearly half. \"We were surprised at how easy it was (5) ______ small changes,\" said council president Natcha. The school now hopes to make Plastic-Free Week a monthly event, and teachers are asking students for ideas to (6) ______ waste at home, too.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (6).",
+   "choices": [
+    "cut down on",
+    "run out of",
+    "cut off",
+    "put up with"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The aim of the week is to make less waste, so \"cut down on\" (reduce) fits. \"Put up with\" means tolerate, \"run out of\" means have none left, and \"cut off\" means stop a supply or separate.",
+    "th": "เป้าหมายคือลดขยะ จึงใช้ cut down on (ลด) ส่วน put up with แปลว่า ทนกับ run out of แปลว่า หมด และ cut off แปลว่า ตัดขาด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Identifying the main purpose",
+    "th": "การระบุจุดประสงค์หลัก"
+   },
+   "topic": {
+    "en": "Notice / poster",
+    "th": "ประกาศ / โปสเตอร์"
+   },
+   "passage": "THONBURI PUBLIC LIBRARY — VOLUNTEER READERS WANTED\n\nDo you love stories? We are looking for students aged 11–15 to read aloud to young children at our Children's Book Fair, 14–16 March.\n\nWhat you will do:\n• Read picture books to groups of 4- to 6-year-olds for 20 minutes at a time\n• Help children choose books and fill in their \"My Reading Passport\"\n• Join one short training session on Saturday 7 March, 9:00–11:00\n\nWhat we need from you:\n• A clear reading voice in Thai or English (English readers are especially needed this year)\n• At least two three-hour shifts during the fair\n• A permission form signed by a parent or guardian\n\nWhat you will get:\n• A volunteer T-shirt and a free lunch on each shift\n• A certificate signed by the library director\n• A free book of your choice on your final day\n\nHow to apply: Fill in the online form on the library website by 28 February. Places are limited to 40 volunteers, and students who have not volunteered with us before will be chosen first.\nQuestions? Call Khun Areerat on 02-123-4567 (Tuesday–Saturday, 10:00–17:00).",
+   "table": null,
+   "stem": "What is the main purpose of the notice?",
+   "choices": [
+    "To invite parents to a training session",
+    "To advertise books for sale at the fair",
+    "To ask young children to fill in a reading passport",
+    "To find students who will read stories to young children"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The heading \"Volunteer Readers Wanted\" and the first lines show the library wants students to read aloud to children. Selling books, inviting parents and asking children to fill in passports are not the purpose.",
+    "th": "หัวเรื่อง Volunteer Readers Wanted และประโยคแรกบอกว่าห้องสมุดต้องการนักเรียนมาอ่านนิทานให้เด็กเล็กฟัง ไม่ได้ขายหนังสือ เชิญผู้ปกครอง หรือให้เด็กกรอกสมุดสะสมการอ่าน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Finding information that is NOT stated",
+    "th": "การหาข้อมูลที่ไม่ได้ระบุไว้"
+   },
+   "topic": {
+    "en": "Notice / poster",
+    "th": "ประกาศ / โปสเตอร์"
+   },
+   "passage": "THONBURI PUBLIC LIBRARY — VOLUNTEER READERS WANTED\n\nDo you love stories? We are looking for students aged 11–15 to read aloud to young children at our Children's Book Fair, 14–16 March.\n\nWhat you will do:\n• Read picture books to groups of 4- to 6-year-olds for 20 minutes at a time\n• Help children choose books and fill in their \"My Reading Passport\"\n• Join one short training session on Saturday 7 March, 9:00–11:00\n\nWhat we need from you:\n• A clear reading voice in Thai or English (English readers are especially needed this year)\n• At least two three-hour shifts during the fair\n• A permission form signed by a parent or guardian\n\nWhat you will get:\n• A volunteer T-shirt and a free lunch on each shift\n• A certificate signed by the library director\n• A free book of your choice on your final day\n\nHow to apply: Fill in the online form on the library website by 28 February. Places are limited to 40 volunteers, and students who have not volunteered with us before will be chosen first.\nQuestions? Call Khun Areerat on 02-123-4567 (Tuesday–Saturday, 10:00–17:00).",
+   "table": null,
+   "stem": "Which of the following is NOT required of every volunteer?",
+   "choices": [
+    "Bringing a signed permission form",
+    "Attending the training session",
+    "Working at least two shifts",
+    "Being able to read aloud in English"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Volunteers need a clear voice \"in Thai or English\", so English is welcome but not required. Training, two shifts and a permission form are all listed as needed.",
+    "th": "ประกาศระบุว่าอ่านได้ in Thai or English ดังนั้นการอ่านภาษาอังกฤษจึงไม่ใช่สิ่งที่ทุกคนต้องทำ ส่วนการเข้าอบรม การทำงานอย่างน้อยสองกะ และใบอนุญาตผู้ปกครอง เป็นสิ่งที่ต้องมี"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์"
+   },
+   "topic": {
+    "en": "Notice / poster",
+    "th": "ประกาศ / โปสเตอร์"
+   },
+   "passage": "THONBURI PUBLIC LIBRARY — VOLUNTEER READERS WANTED\n\nDo you love stories? We are looking for students aged 11–15 to read aloud to young children at our Children's Book Fair, 14–16 March.\n\nWhat you will do:\n• Read picture books to groups of 4- to 6-year-olds for 20 minutes at a time\n• Help children choose books and fill in their \"My Reading Passport\"\n• Join one short training session on Saturday 7 March, 9:00–11:00\n\nWhat we need from you:\n• A clear reading voice in Thai or English (English readers are especially needed this year)\n• At least two three-hour shifts during the fair\n• A permission form signed by a parent or guardian\n\nWhat you will get:\n• A volunteer T-shirt and a free lunch on each shift\n• A certificate signed by the library director\n• A free book of your choice on your final day\n\nHow to apply: Fill in the online form on the library website by 28 February. Places are limited to 40 volunteers, and students who have not volunteered with us before will be chosen first.\nQuestions? Call Khun Areerat on 02-123-4567 (Tuesday–Saturday, 10:00–17:00).",
+   "table": null,
+   "stem": "Ploy, aged 12, was a volunteer reader at last year's fair. What does the notice suggest about her application this year?",
+   "choices": [
+    "She must apply by phone instead of online.",
+    "She will be chosen first because she has experience.",
+    "She may be chosen only after students who are new volunteers.",
+    "She cannot apply because she has volunteered before."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The notice says students \"who have not volunteered with us before will be chosen first\", so Ploy can apply but new students get priority. Nothing says she cannot apply or must phone, and experience does not put her first.",
+    "th": "ประกาศบอกว่าคนที่ไม่เคยเป็นอาสาสมัครจะได้รับเลือกก่อน พลอยจึงสมัครได้แต่จะได้รับพิจารณาหลังคนใหม่ ไม่มีการห้ามสมัครหรือให้สมัครทางโทรศัพท์ และประสบการณ์ไม่ได้ทำให้ได้รับเลือกก่อน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำศัพท์ในบริบท"
+   },
+   "topic": {
+    "en": "Notice / poster",
+    "th": "ประกาศ / โปสเตอร์"
+   },
+   "passage": "THONBURI PUBLIC LIBRARY — VOLUNTEER READERS WANTED\n\nDo you love stories? We are looking for students aged 11–15 to read aloud to young children at our Children's Book Fair, 14–16 March.\n\nWhat you will do:\n• Read picture books to groups of 4- to 6-year-olds for 20 minutes at a time\n• Help children choose books and fill in their \"My Reading Passport\"\n• Join one short training session on Saturday 7 March, 9:00–11:00\n\nWhat we need from you:\n• A clear reading voice in Thai or English (English readers are especially needed this year)\n• At least two three-hour shifts during the fair\n• A permission form signed by a parent or guardian\n\nWhat you will get:\n• A volunteer T-shirt and a free lunch on each shift\n• A certificate signed by the library director\n• A free book of your choice on your final day\n\nHow to apply: Fill in the online form on the library website by 28 February. Places are limited to 40 volunteers, and students who have not volunteered with us before will be chosen first.\nQuestions? Call Khun Areerat on 02-123-4567 (Tuesday–Saturday, 10:00–17:00).",
+   "table": null,
+   "stem": "The word \"shifts\" in the notice is closest in meaning to ______.",
+   "choices": [
+    "types of book",
+    "changes of place",
+    "periods of work",
+    "groups of children"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Two three-hour shifts\" are two periods of work, each three hours long. \"Shift\" can mean a change in other contexts, but not here.",
+    "th": "two three-hour shifts คือ ช่วงเวลาทำงานสองช่วง ช่วงละสามชั่วโมง คำว่า shift ในบริบทอื่นอาจแปลว่า การเปลี่ยน แต่ในประกาศนี้หมายถึงกะการทำงาน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Scanning for details",
+    "th": "การอ่านหารายละเอียด"
+   },
+   "topic": {
+    "en": "Notice / poster",
+    "th": "ประกาศ / โปสเตอร์"
+   },
+   "passage": "THONBURI PUBLIC LIBRARY — VOLUNTEER READERS WANTED\n\nDo you love stories? We are looking for students aged 11–15 to read aloud to young children at our Children's Book Fair, 14–16 March.\n\nWhat you will do:\n• Read picture books to groups of 4- to 6-year-olds for 20 minutes at a time\n• Help children choose books and fill in their \"My Reading Passport\"\n• Join one short training session on Saturday 7 March, 9:00–11:00\n\nWhat we need from you:\n• A clear reading voice in Thai or English (English readers are especially needed this year)\n• At least two three-hour shifts during the fair\n• A permission form signed by a parent or guardian\n\nWhat you will get:\n• A volunteer T-shirt and a free lunch on each shift\n• A certificate signed by the library director\n• A free book of your choice on your final day\n\nHow to apply: Fill in the online form on the library website by 28 February. Places are limited to 40 volunteers, and students who have not volunteered with us before will be chosen first.\nQuestions? Call Khun Areerat on 02-123-4567 (Tuesday–Saturday, 10:00–17:00).",
+   "table": null,
+   "stem": "On which day could you NOT get an answer by calling Khun Areerat?",
+   "choices": [
+    "Monday",
+    "Tuesday",
+    "Saturday",
+    "Thursday"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The phone line is open Tuesday to Saturday, so Monday is the only day listed here when nobody will answer.",
+    "th": "โทรติดต่อได้วันอังคารถึงวันเสาร์ ดังนั้น Monday (วันจันทร์) จึงเป็นวันที่ไม่มีคนรับสาย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding a character's reason",
+    "th": "การเข้าใจเหตุผลของตัวละคร"
+   },
+   "topic": {
+    "en": "Narrative text",
+    "th": "เรื่องเล่า"
+   },
+   "passage": "Krit had always believed that his grandfather's old radio was useless. It sat on a shelf in the living room, covered in dust, and nobody had turned it on for years. So when his class was given a project called \"Objects That Tell Stories\", Krit decided to bring something more modern — his new smartwatch.\n\nThat evening, however, his grandfather noticed him looking at the radio. \"That radio,\" he said quietly, \"is the reason I met your grandmother.\" Krit put down his watch. His grandfather explained that in 1975, while he was studying in Bangkok, he had written to a radio programme that played songs requested by listeners. A young woman in Chiang Mai heard her favourite song played \"for everyone who feels far from home\", and she wrote to the programme to find out who had asked for it. The presenter passed her letter on, and the two wrote to each other for two years before they finally met.\n\nThe next week, Krit carried the radio carefully to school. He did not win first prize, but when he finished his talk, his teacher asked whether she could invite his grandfather to tell the story to the whole school. For the first time, Krit realised that old things are sometimes valuable not for what they can do, but for what they remember.",
+   "table": null,
+   "stem": "Why did Krit first plan to bring his smartwatch to school?",
+   "choices": [
+    "His teacher asked for modern objects.",
+    "The radio was too heavy to carry.",
+    "His grandfather would not lend him the radio.",
+    "He thought the old radio was useless."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The story begins by saying Krit believed the radio was useless, so he chose something modern. The teacher did not ask for modern objects, and weight or his grandfather refusing are never mentioned.",
+    "th": "เรื่องเริ่มว่ากฤษคิดว่าวิทยุเก่าไม่มีประโยชน์ จึงเลือกนำของทันสมัยไป ครูไม่ได้สั่งให้นำของทันสมัย และไม่มีการพูดถึงน้ำหนักวิทยุหรือคุณตาไม่ยอมให้ยืม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Following a sequence of events",
+    "th": "การลำดับเหตุการณ์"
+   },
+   "topic": {
+    "en": "Narrative text",
+    "th": "เรื่องเล่า"
+   },
+   "passage": "Krit had always believed that his grandfather's old radio was useless. It sat on a shelf in the living room, covered in dust, and nobody had turned it on for years. So when his class was given a project called \"Objects That Tell Stories\", Krit decided to bring something more modern — his new smartwatch.\n\nThat evening, however, his grandfather noticed him looking at the radio. \"That radio,\" he said quietly, \"is the reason I met your grandmother.\" Krit put down his watch. His grandfather explained that in 1975, while he was studying in Bangkok, he had written to a radio programme that played songs requested by listeners. A young woman in Chiang Mai heard her favourite song played \"for everyone who feels far from home\", and she wrote to the programme to find out who had asked for it. The presenter passed her letter on, and the two wrote to each other for two years before they finally met.\n\nThe next week, Krit carried the radio carefully to school. He did not win first prize, but when he finished his talk, his teacher asked whether she could invite his grandfather to tell the story to the whole school. For the first time, Krit realised that old things are sometimes valuable not for what they can do, but for what they remember.",
+   "table": null,
+   "stem": "How did Krit's grandparents first get in touch with each other?",
+   "choices": [
+    "The grandmother asked the programme to play a song for the grandfather.",
+    "The radio presenter passed the grandmother's letter to the grandfather.",
+    "They were both guests on a radio programme.",
+    "They met at a radio station in Chiang Mai."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The grandfather requested the song; the grandmother wrote to find out who requested it, and \"the presenter passed her letter on\" to him. They did not meet at the station, she did not request the song, and neither was a guest.",
+    "th": "คุณตาเป็นคนขอเพลง คุณยายเขียนจดหมายถามว่าใครขอ และผู้จัดรายการส่งต่อจดหมายให้คุณตา ทั้งสองไม่ได้พบกันที่สถานีวิทยุ คุณยายไม่ได้เป็นคนขอเพลง และไม่มีใครเป็นแขกรับเชิญ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Narrative text",
+    "th": "เรื่องเล่า"
+   },
+   "passage": "Krit had always believed that his grandfather's old radio was useless. It sat on a shelf in the living room, covered in dust, and nobody had turned it on for years. So when his class was given a project called \"Objects That Tell Stories\", Krit decided to bring something more modern — his new smartwatch.\n\nThat evening, however, his grandfather noticed him looking at the radio. \"That radio,\" he said quietly, \"is the reason I met your grandmother.\" Krit put down his watch. His grandfather explained that in 1975, while he was studying in Bangkok, he had written to a radio programme that played songs requested by listeners. A young woman in Chiang Mai heard her favourite song played \"for everyone who feels far from home\", and she wrote to the programme to find out who had asked for it. The presenter passed her letter on, and the two wrote to each other for two years before they finally met.\n\nThe next week, Krit carried the radio carefully to school. He did not win first prize, but when he finished his talk, his teacher asked whether she could invite his grandfather to tell the story to the whole school. For the first time, Krit realised that old things are sometimes valuable not for what they can do, but for what they remember.",
+   "table": null,
+   "stem": "The message \"for everyone who feels far from home\" suggests that, in 1975, the grandfather ______.",
+   "choices": [
+    "already knew the young woman in Chiang Mai",
+    "missed his home while living in Bangkok",
+    "did not like the song he requested",
+    "worked for the radio programme"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "He was studying in Bangkok and dedicated the song to people far from home, so he probably felt homesick himself. He chose the song, so he liked it; he did not know the woman yet, and he was a listener, not a worker.",
+    "th": "คุณตาเรียนอยู่ที่กรุงเทพฯ และมอบเพลงให้คนที่อยู่ไกลบ้าน แสดงว่าคุณตาเองก็คงคิดถึงบ้าน คุณตาเลือกเพลงเองจึงน่าจะชอบเพลงนั้น ยังไม่รู้จักผู้หญิงคนนั้น และเป็นผู้ฟังไม่ใช่พนักงานของรายการ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding change in a character's attitude",
+    "th": "การเข้าใจการเปลี่ยนแปลงทัศนคติของตัวละคร"
+   },
+   "topic": {
+    "en": "Narrative text",
+    "th": "เรื่องเล่า"
+   },
+   "passage": "Krit had always believed that his grandfather's old radio was useless. It sat on a shelf in the living room, covered in dust, and nobody had turned it on for years. So when his class was given a project called \"Objects That Tell Stories\", Krit decided to bring something more modern — his new smartwatch.\n\nThat evening, however, his grandfather noticed him looking at the radio. \"That radio,\" he said quietly, \"is the reason I met your grandmother.\" Krit put down his watch. His grandfather explained that in 1975, while he was studying in Bangkok, he had written to a radio programme that played songs requested by listeners. A young woman in Chiang Mai heard her favourite song played \"for everyone who feels far from home\", and she wrote to the programme to find out who had asked for it. The presenter passed her letter on, and the two wrote to each other for two years before they finally met.\n\nThe next week, Krit carried the radio carefully to school. He did not win first prize, but when he finished his talk, his teacher asked whether she could invite his grandfather to tell the story to the whole school. For the first time, Krit realised that old things are sometimes valuable not for what they can do, but for what they remember.",
+   "table": null,
+   "stem": "How did Krit's attitude towards the radio change during the story?",
+   "choices": [
+    "He felt embarrassed to show it at school.",
+    "He decided the radio should be repaired.",
+    "He became more interested in modern technology.",
+    "He stopped seeing it as useless and began to value it."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "At first he thought it was useless; at the end he understands old things can be valuable \"for what they remember\" and carries it \"carefully\" to school. He does not turn to modern technology, plan repairs or feel embarrassed.",
+    "th": "ตอนแรกกฤษคิดว่าวิทยุไร้ประโยชน์ แต่ตอนจบเข้าใจว่าของเก่ามีค่าเพราะความทรงจำ และถือไปโรงเรียนอย่างระมัดระวัง เขาไม่ได้หันไปสนใจเทคโนโลยี ไม่ได้คิดจะซ่อม และไม่ได้รู้สึกอาย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Identifying the main message",
+    "th": "การระบุแนวคิดหลักของเรื่อง"
+   },
+   "topic": {
+    "en": "Narrative text",
+    "th": "เรื่องเล่า"
+   },
+   "passage": "Krit had always believed that his grandfather's old radio was useless. It sat on a shelf in the living room, covered in dust, and nobody had turned it on for years. So when his class was given a project called \"Objects That Tell Stories\", Krit decided to bring something more modern — his new smartwatch.\n\nThat evening, however, his grandfather noticed him looking at the radio. \"That radio,\" he said quietly, \"is the reason I met your grandmother.\" Krit put down his watch. His grandfather explained that in 1975, while he was studying in Bangkok, he had written to a radio programme that played songs requested by listeners. A young woman in Chiang Mai heard her favourite song played \"for everyone who feels far from home\", and she wrote to the programme to find out who had asked for it. The presenter passed her letter on, and the two wrote to each other for two years before they finally met.\n\nThe next week, Krit carried the radio carefully to school. He did not win first prize, but when he finished his talk, his teacher asked whether she could invite his grandfather to tell the story to the whole school. For the first time, Krit realised that old things are sometimes valuable not for what they can do, but for what they remember.",
+   "table": null,
+   "stem": "What is the main message of the story?",
+   "choices": [
+    "Old belongings should be kept clean and in good condition.",
+    "Winning a prize is the most important part of a project.",
+    "An object's value can come from the memories it holds.",
+    "Modern technology is always better than old technology."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The last sentence states the message: old things can be valuable \"for what they remember\". The story shows the opposite of preferring modern technology, Krit did not even win, and cleanliness is not the point.",
+    "th": "ประโยคสุดท้ายบอกแนวคิดหลักว่าของเก่ามีค่าเพราะความทรงจำที่อยู่ในนั้น เรื่องไม่ได้บอกว่าเทคโนโลยีใหม่ดีกว่า กฤษก็ไม่ได้รางวัลชนะเลิศ และไม่ได้เน้นเรื่องความสะอาด"
+   }
+  }
+ ]
+}

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en" class="no-js" data-theme="light" data-theme-pref="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programs & Courses | DeepDistrict.si</title>
+  <meta name="description" content="Personalised courses from foundation to SI research: Python, C/C++, Java, web apps, Swift and iOS, AI, NVIDIA Jetson, Raspberry Pi, Arduino and research. Live on Zoom, onsite in Bangkok or hybrid.">
+  <meta name="theme-color" content="#f6f7fd">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Programs & Courses | DeepDistrict.si">
+  <meta property="og:description" content="Personalised courses from foundation to SI research: Python, C/C++, Java, web apps, Swift and iOS, AI, NVIDIA Jetson, Raspberry Pi, Arduino and research. Live on Zoom, onsite in Bangkok or hybrid.">
+  <meta property="og:image" content="../assets/images/brand/og-image.png">
+  <link rel="icon" href="../assets/images/brand/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="../assets/images/brand/favicon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="../assets/images/brand/apple-touch-icon.png">
+  <script src="../assets/js/prefs.js?v=6.3r1"></script>
+  <link rel="stylesheet" href="../assets/css/main.css?v=6.3r1">
+</head>
+<body class="page-programs" data-base="../" data-page="programs" data-title-en="Programs & Courses | DeepDistrict.si" data-title-th="หลักสูตร | DeepDistrict.si">
+
+<main id="main">
+
+  <section class="panel page-hero" aria-labelledby="page-title">
+    <div class="panel__bg"><img src="../assets/images/sections/academy-orbit.svg" alt="A planet horizon at dawn with satellites on orbit paths"></div>
+    <canvas class="hero-canvas" data-neural aria-hidden="true"></canvas>
+    <div class="container">
+      <div class="panel__content intro">
+        <span class="eyebrow"><span lang="en">Programs &amp; courses</span><span lang="th">หลักสูตรและรายวิชา</span></span>
+        <h1 id="page-title" data-split><span lang="en">Courses designed <span class="text-si">around you</span></span><span lang="th">หลักสูตรที่ออกแบบ<span class="text-si">มาเพื่อคุณ</span></span></h1>
+        <p lang="en">From the programming essentials to advanced AI and SI research. Every course is customised to your goals, level and schedule, live on Zoom, onsite in Bangkok or hybrid.</p>
+        <p lang="th">ตั้งแต่พื้นฐานการเขียนโปรแกรมที่สำคัญ จนถึง AI ขั้นสูงและงานวิจัยด้าน SI ทุกหลักสูตรปรับให้ตรงกับเป้าหมาย ระดับ และตารางเวลาของคุณ เรียนสดผ่าน Zoom ที่แล็บในกรุงเทพฯ หรือแบบไฮบริด</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" data-magnetic href="#catalog"><span lang="en">Browse courses</span><span lang="th">ดูคอร์สทั้งหมด</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn" href="#planner"><span lang="en">Build my plan</span><span lang="th">ออกแบบแผนของฉัน</span></a>
+        </div>
+        <div class="hero-badges">
+          <span class="badge"><img src="../assets/images/icons/video.svg" alt=""><span lang="en">Live on Zoom</span><span lang="th">เรียนสดผ่าน Zoom</span></span>
+          <span class="badge"><img src="../assets/images/icons/pin.svg" alt=""><span lang="en">Onsite, Bangkok</span><span lang="th">ที่แล็บ กรุงเทพฯ</span></span>
+          <span class="badge"><img src="../assets/images/icons/hybrid.svg" alt=""><span lang="en">Hybrid</span><span lang="th">ไฮบริด</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ CATALOGUE -->
+  <section class="section" id="catalog" aria-labelledby="catalog-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal"><span lang="en">Course catalogue</span><span lang="th">รายวิชาทั้งหมด</span></span>
+          <h2 id="catalog-title" data-split><span lang="en">Find a course that fits</span><span lang="th">ค้นหาคอร์สที่ใช่สำหรับคุณ</span></h2>
+        </div>
+        <p class="reveal" lang="en">Start with the picks, or open a group. Tap any course for a short summary.</p>
+        <p class="reveal" lang="th">เริ่มจากคอร์สเด่น หรือเปิดดูทีละกลุ่ม แตะที่คอร์สเพื่อดูสรุปสั้น ๆ ในหน้าเดียว</p>
+      </div>
+      <div class="notice reveal" data-render="notice" data-source="courseNotice"></div>
+      <div class="catalog-tools" data-course-filters></div>
+      <p class="catalog-count" data-course-count aria-live="polite"></p>
+      <div class="courses" data-render="courses"></div>
+
+      <p class="reveal adm-pointer"><span lang="en">Preparing for COMPAS, HKICO, POSN, IELTS, SAT, TBAT or CU-AAT? See </span><span lang="th">กำลังเตรียมสอบ COMPAS, HKICO, สอวน., IELTS, SAT, TBAT หรือ CU-AAT? ดูที่ </span><a href="admissions.html"><span lang="en">Standard Tests &amp; Admissions →</span><span lang="th">สอบมาตรฐานและเข้ามหาวิทยาลัย →</span></a></p>
+      <div class="ask-banner reveal">
+        <div>
+          <h3><span lang="en">Don't see the course you need?</span><span lang="th">ไม่พบหลักสูตรที่ต้องการใช่ไหม?</span></h3>
+          <p lang="en">We teach more than what is listed here, and we design new courses for individuals, schools and companies. Ask us about any topic.</p>
+          <p lang="th">เราสอนมากกว่าที่แสดงไว้บนเว็บไซต์ และออกแบบหลักสูตรใหม่ให้ทั้งบุคคล โรงเรียน และองค์กร สอบถามเราได้ทุกหัวข้อ</p>
+        </div>
+        <a class="btn btn--primary" data-magnetic href="contact.html?topic=unlisted#form"><span lang="en">Ask about another course</span><span lang="th">สอบถามหลักสูตรอื่น</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================ HOW WE TEACH -->
+  <section class="section grid-bg" id="custom" aria-labelledby="custom-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal"><span lang="en">How personalisation works</span><span lang="th">การออกแบบเฉพาะบุคคลทำงานอย่างไร</span></span>
+          <h2 id="custom-title" data-split><span lang="en">Your course, <span class="text-si">built step by step with you</span></span><span lang="th">หลักสูตรของคุณ <span class="text-si">สร้างไปพร้อมกับคุณทีละขั้น</span></span></h2>
+        </div>
+        <p class="reveal" lang="en">We don't put you into a fixed class. We start from who you are, then shape the content, pace and project around you.</p>
+        <p class="reveal" lang="th">เราไม่จับคุณใส่ห้องเรียนแบบตายตัว แต่เริ่มจากตัวคุณ แล้วออกแบบเนื้อหา ความเร็ว และโปรเจกต์ให้เหมาะกับคุณ</p>
+      </div>
+      <ol class="flow" data-render="flow" data-source="personalSteps" role="list"></ol>
+    </div>
+  </section>
+
+  <!-- ============================================================ MODES -->
+  <section class="section section--alt" id="modes" aria-labelledby="modes-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal"><span lang="en">Study modes</span><span lang="th">รูปแบบการเรียน</span></span>
+          <h2 id="modes-title" data-split><span lang="en">Zoom, onsite or hybrid: you choose</span><span lang="th">Zoom ที่แล็บ หรือไฮบริด: คุณเป็นผู้เลือก</span></h2>
+        </div>
+        <p class="reveal" lang="en">Each course card shows the modes it is available in. Online classes are live and interactive, not pre-recorded videos.</p>
+        <p class="reveal" lang="th">การ์ดของแต่ละรายวิชาแสดงรูปแบบการเรียนที่เปิดสอน คลาสออนไลน์เป็นการเรียนสดแบบโต้ตอบ ไม่ใช่วิดีโอที่อัดไว้ล่วงหน้า</p>
+      </div>
+      <div class="grid grid--3" data-render="modes"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ PLANNER -->
+  <section class="section aurora" id="planner" aria-labelledby="planner-title">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow reveal"><span lang="en">Plan builder</span><span lang="th">ออกแบบแผนการเรียน</span></span>
+          <h2 id="planner-title" data-split><span lang="en">See your <span class="text-si">personal path</span> in seconds</span><span lang="th">เห็น<span class="text-si">เส้นทางเฉพาะของคุณ</span>ในไม่กี่วินาที</span></h2>
+        </div>
+        <p class="reveal" lang="en">Pick a few options and get a suggested course sequence. Send it to us and we'll refine it with you in a free consultation.</p>
+        <p class="reveal" lang="th">เลือกตัวเลือกเพียงไม่กี่ข้อ แล้วรับลำดับรายวิชาที่แนะนำ ส่งให้เรา แล้วเราจะปรับให้ละเอียดขึ้นร่วมกับคุณในการปรึกษาฟรี</p>
+      </div>
+      <div class="planner reveal" data-render="planner"></div>
+    </div>
+  </section>
+
+  <!-- ============================================================ FAQ -->
+  <section class="section section--alt" aria-labelledby="faq-title">
+    <div class="container split split--top">
+      <div>
+        <span class="eyebrow reveal">FAQ</span>
+        <h2 id="faq-title" data-split><span lang="en">Questions about courses</span><span lang="th">คำถามเกี่ยวกับหลักสูตร</span></h2>
+        <p class="reveal" lang="en">Something else? Email <a class="link-arrow" href="mailto:info@deepdistrict.si">info@deepdistrict.si</a></p>
+        <p class="reveal" lang="th">มีคำถามอื่น? อีเมล <a class="link-arrow" href="mailto:info@deepdistrict.si">info@deepdistrict.si</a></p>
+      </div>
+      <div class="faq reveal">
+        <details><summary><span lang="en">How is a course customised for me?</span><span lang="th">หลักสูตรถูกปรับให้เหมาะกับฉันอย่างไร?</span></summary>
+          <p lang="en">After a free consultation and a short skill check, we choose the modules, pace, study mode, group size and a project in your own area of interest. We review progress regularly and adjust the plan.</p>
+          <p lang="th">หลังการปรึกษาฟรีและการประเมินพื้นฐานสั้น ๆ เราจะเลือกบทเรียน ความเร็ว รูปแบบการเรียน ขนาดกลุ่ม และโปรเจกต์ในเรื่องที่คุณสนใจ จากนั้นทบทวนความก้าวหน้าสม่ำเสมอและปรับแผนตามความเหมาะสม</p></details>
+        <details><summary><span lang="en">Are online classes live?</span><span lang="th">คลาสออนไลน์เป็นการเรียนสดหรือไม่?</span></summary>
+          <p lang="en">Yes. Online classes are live on Zoom with an instructor, screen sharing and breakout rooms. Sessions are recorded for review only with the consent of everyone present.</p>
+          <p lang="th">ใช่ คลาสออนไลน์เรียนสดผ่าน Zoom กับผู้สอน มีการแชร์หน้าจอและห้องย่อย การบันทึกเพื่อทบทวนจะทำเฉพาะเมื่อผู้เข้าเรียนทุกคนให้ความยินยอม</p></details>
+        <details><summary><span lang="en">How much do courses cost and when do they start?</span><span lang="th">ค่าเรียนเท่าไร และเริ่มเรียนเมื่อไร?</span></summary>
+          <p lang="en">Fees and schedules depend on the format (one-to-one, small group or class) and on how much time each learner needs, which we agree together after a free skills check. Contact us for a quotation and the current timetable.</p>
+          <p lang="th">ค่าเรียนและตารางเรียนขึ้นอยู่กับรูปแบบ (ตัวต่อตัว กลุ่มเล็ก หรือชั้นเรียน) และเวลาที่ผู้เรียนแต่ละคนต้องใช้ ซึ่งเราตกลงร่วมกันหลังประเมินพื้นฐานฟรี ติดต่อเราเพื่อขอใบเสนอราคาและตารางเรียนล่าสุด</p></details>
+        <details><summary><span lang="en">Can I learn a topic that isn't listed?</span><span lang="th">เรียนหัวข้อที่ไม่ได้แสดงไว้ได้หรือไม่?</span></summary>
+          <p lang="en">Yes. Many of our courses are designed on request. Tell us what you want to learn and we will propose a course.</p>
+          <p lang="th">ได้ หลายหลักสูตรของเราออกแบบตามคำขอ บอกเราว่าคุณอยากเรียนอะไร แล้วเราจะเสนอหลักสูตรให้</p></details>
+        <details><summary><span lang="en">Do I receive a certificate?</span><span lang="th">จะได้รับประกาศนียบัตรหรือไม่?</span></summary>
+          <p lang="en">Yes, a DeepDistrict certificate of completion for each course, plus a portfolio of the projects you built.</p>
+          <p lang="th">ได้ ประกาศนียบัตรจาก DeepDistrict เมื่อเรียนจบแต่ละหลักสูตร พร้อมพอร์ตโฟลิโอผลงานที่คุณสร้าง</p></details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="../assets/data/content.js?v=6.3r1"></script>
+<script src="../assets/data/courses-details.js?v=6.3r1"></script>
+<script src="../assets/data/courses-more.js?v=6.3r1"></script>
+<script src="../assets/data/admissions.js?v=6.3r1"></script>
+<script src="../assets/data/catalogue.js?v=6.3r1"></script>
+<script src="../assets/data/pathways.js?v=6.3r1"></script>
+<script src="../assets/data/prep.js?v=6.3r1"></script>
+<script src="../assets/data/insights.js?v=6.3r1"></script>
+<script src="../assets/js/config.js?v=6.3r1"></script>
+<script src="../assets/data/si.js?v=6.3r1"></script>
+<script src="../assets/js/partials.js?v=6.3r1"></script>
+<script src="../assets/js/consent.js?v=6.3r1"></script>
+<script src="../assets/js/popup.js?v=6.3r1"></script>
+<script src="../assets/js/app.js?v=6.3r1"></script>
+<script src="../assets/js/effects.js?v=6.3r1"></script>
+</body>
+</html>

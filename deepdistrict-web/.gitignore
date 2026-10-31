@@ -1,0 +1,12 @@
+.DS_Store
+Thumbs.db
+node_modules/
+dist/
+.env
+
+# back-office data (personal data - never commit)
+server/data/
+__pycache__/
+*.db
+*.db-wal
+*.db-shm

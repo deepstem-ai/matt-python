@@ -1,0 +1,904 @@
+/* ==========================================================================
+   DeepDistrict.si — application: preferences, rendering, catalogue,
+   course dialog, plan builder, SI explainer widgets and forms.
+   Loads after the data files, partials.js and consent.js.
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  var doc = document.documentElement;
+  var DATA = window.DD_CONTENT || {};
+  var base = document.body.getAttribute("data-base") || "";
+  var page = document.body.getAttribute("data-page") || "";
+  var EMAIL = "info@deepdistrict.si";
+  var DD = window.DD = window.DD || {};
+  var store = DD.store || { get: function () { return null; }, set: function () {} };
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  doc.classList.remove("no-js");
+  // read before the catalogue rewrites the URL
+  var initialCourse = location.hash.indexOf("#course-") === 0 ? decodeURIComponent(location.hash.slice(8)) : null;
+
+  /* ------------------------------------------------------------ Helpers */
+  function $(s, c) { return (c || document).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function lang() { return doc.lang === "th" ? "th" : "en"; }
+  function t(v) { if (v == null) return ""; if (typeof v !== "object") return esc(v); return '<span lang="en">' + esc(v.en) + '</span><span lang="th">' + esc(v.th) + "</span>"; }
+  function tx(v) { return v && typeof v === "object" ? v[lang()] : String(v == null ? "" : v); }
+  function plain(v) { return v && typeof v === "object" ? v.en + " " + v.th : String(v || ""); }
+  function icon(n) { return '<img src="' + base + "assets/images/icons/" + n + '.svg" alt="">'; }
+  function L(en, th) { return { en: en, th: th }; }
+  var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5 9-10"/></svg>';
+  var CLOSE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  DD.t = t; DD.esc = esc; DD.lang = lang;
+
+  var courses = DATA.courses || [];
+  var details = DATA.details || {};
+  var byCode = {};
+  courses.forEach(function (c) { byCode[c.code] = c; });
+  function level(id) { return (DATA.levels || [])[id - 1]; }
+  function track(id) { return (DATA.tracks || []).filter(function (x) { return x.id === id; })[0]; }
+  function group(id) { return (DATA.groups || []).filter(function (x) { return x.id === id; })[0]; }
+  function lvlChip(c) {
+    return c.anyLevel ? '<span class="lvl lvl--any">' + t(L("All levels · custom", "ทุกระดับ · ออกแบบเฉพาะ")) + "</span>"
+      : '<span class="lvl lv-' + c.level + '">' + t(level(c.level).short) + "</span>";
+  }
+  // approximate length as a range: the catalogue hours are a midpoint, real length depends on the learner
+  function duration(c) {
+    if (typeof c.hours !== "number") return { main: t(c.hours), sub: t(L("Depends on your goal", "ขึ้นอยู่กับเป้าหมายของคุณ")) };
+    var lo = Math.max(6, Math.round(c.hours * 0.75 / 2) * 2), hi = Math.max(lo + 4, Math.round(c.hours * 1.25 / 2) * 2);
+    var wLo = Math.max(2, Math.ceil(lo / 3)), wHi = Math.max(wLo + 2, Math.ceil(hi / 2));
+    return { main: t(L("About " + lo + "–" + hi + " hours", "ประมาณ " + lo + "–" + hi + " ชั่วโมง")),
+             sub: t(L("Usually " + wLo + "–" + wHi + " weeks with 1–2 lessons a week; depends on your level and pace", "โดยทั่วไป " + wLo + "–" + wHi + " สัปดาห์ เรียนสัปดาห์ละ 1–2 ครั้ง ขึ้นกับพื้นฐานและความเร็วของผู้เรียน")) };
+  }
+  DD.duration = duration;
+
+  // course status from the back office (live data): closed for now / cancelled
+  function statusBadge(c) {
+    return c.status === "cancelled" ? '<span class="st-badge st-badge--cancelled">' + t(L("Cancelled", "ยกเลิก")) + "</span>"
+      : c.status === "closed" ? '<span class="st-badge st-badge--closed">' + t(L("Closed for now", "ปิดรับชั่วคราว")) + "</span>" : "";
+  }
+
+  // standard tests: what it measures, where it is used, how long the result lasts, which score for which target
+  function testBlock(code) {
+    var x = (DATA.testInfo || {})[code];
+    if (!x) return "";
+    return '<section class="cd-test"><h3>' + icon("trophy") + t(L("About the test: ", "ข้อมูลการสอบ: ")) + esc(x.name) + "</h3>" +
+      '<dl class="cd-test__dl"><dt>' + t(L("What it measures", "วัดอะไร")) + "</dt><dd>" + t(x.measures) + (x.format ? "<br><small>" + t(x.format) + "</small>" : "") + "</dd>" +
+      "<dt>" + t(L("How long the result lasts", "ผลสอบมีอายุ")) + "</dt><dd>" + t(x.validity) + "</dd></dl>" +
+      (x.where ? '<table class="cd-test__scores cd-test__where"><caption>' + t(L("Where you can use it: university · faculty / programme · admission round", "ใช้ยื่นที่ไหนได้บ้าง: มหาวิทยาลัย · คณะ / หลักสูตร · รอบ")) + "</caption><thead><tr><th>" + t(L("University", "มหาวิทยาลัย")) + "</th><th>" + t(L("Faculty / programme", "คณะ / หลักสูตร")) + "</th><th>" + t(L("Round", "รอบ")) + "</th></tr></thead><tbody>" +
+        x.where.map(function (r) { return "<tr><td>" + t(r[0]) + "</td><td>" + t(r[1]) + "</td><td>" + t(r[2]) + "</td></tr>"; }).join("") + "</tbody></table>" : "") +
+      '<table class="cd-test__scores"><caption>' + t(L("Which score for which target (examples)", "ต้องใช้คะแนนเท่าไรเพื่อเข้าที่ไหน (ตัวอย่าง)")) + "</caption><thead><tr><th>" + t(L("Target", "เป้าหมาย")) + "</th><th>" + t(L("Score / requirement", "คะแนน / เงื่อนไข")) + "</th></tr></thead><tbody>" +
+      x.targets.map(function (r) { return "<tr><td>" + t(r[0]) + "</td><td>" + t(r[1]) + "</td></tr>"; }).join("") + "</tbody></table>" +
+      (DATA.testScoreNote ? '<p class="cd-test__note cd-test__note--score">' + t(DATA.testScoreNote) + "</p>" : "") +
+      '<p class="cd-test__note">' + t(DATA.testCheckedNote) + ' <a href="' + esc(x.url) + '" target="_blank" rel="noopener">' + t(L("Official site ↗", "เว็บไซต์ทางการ ↗")) + "</a></p></section>";
+  }
+  function modesIcons(code) {
+    var m = (details[code] && details[code].modes) || ["online", "onsite", "hybrid"];
+    return '<span class="modes">' + m.map(function (k) {
+      var md = DATA.modes[k];
+      return '<span class="mode-ico" title="' + esc(md.name.en + " / " + md.name.th) + '">' + icon(md.icon) + "</span>";
+    }).join("") + "</span>";
+  }
+  function codeChip(code) {
+    var c = byCode[code];
+    if (!c) return "";
+    return '<a class="code-chip lv-' + c.level + '" data-course="' + code + '" href="' + base + "pages/programs.html#course-" + code + '" title="' + esc(c.title.en) + '">' + code + "</a>";
+  }
+  function contactUrl(params) {
+    var q = Object.keys(params).map(function (k) { return k + "=" + encodeURIComponent(params[k]); }).join("&");
+    return base + "pages/contact.html?" + q + "#form";
+  }
+
+  /* ------------------------------------------------------------ Language */
+  function setLang(l, save) {
+    doc.lang = l;
+    if (save) store.set("dd-lang", l);
+    $$("[data-set-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-set-lang") === l)); });
+    var title = document.body.getAttribute("data-title-" + l);
+    if (title) document.title = title;
+    $$("[data-en][data-th]").forEach(function (el) { el.textContent = el.getAttribute("data-" + l); });
+    $$("[data-i18n-attrs]").forEach(function (el) {
+      el.getAttribute("data-i18n-attrs").split(",").forEach(function (a) {
+        var v = el.getAttribute("data-" + l + "-" + a);
+        if (v != null) el.setAttribute(a, v);
+      });
+    });
+    document.dispatchEvent(new CustomEvent("dd:lang", { detail: l }));
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-set-lang]");
+    if (b) setLang(b.getAttribute("data-set-lang"), true);
+  });
+
+  /* ------------------------------------------------------------ Theme
+     Header button flips light <-> dark. The footer offers System / Light / Dark.
+     With no saved choice the site follows the operating system.            */
+  var mq = window.matchMedia("(prefers-color-scheme: dark)");
+  function applyTheme(pref) {
+    doc.setAttribute("data-theme-pref", pref);
+    var dark = pref === "dark" || (pref === "auto" && mq.matches);
+    doc.setAttribute("data-theme", dark ? "dark" : "light");
+    var meta = $('meta[name="theme-color"]');
+    if (meta) meta.setAttribute("content", dark ? "#070b14" : "#f7f8fb");
+    $$("[data-theme-set]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-theme-set") === pref)); });
+    $$("[data-theme-toggle]").forEach(function (b) {
+      var label = dark ? L("Switch to light mode", "เปลี่ยนเป็นโหมดสว่าง") : L("Switch to dark mode", "เปลี่ยนเป็นโหมดมืด");
+      b.setAttribute("aria-label", tx(label)); b.title = tx(label);
+    });
+  }
+  function setTheme(pref, origin) {
+    store.set("dd-theme", pref);
+    if (origin) {
+      var r = origin.getBoundingClientRect();
+      doc.style.setProperty("--tx", (r.left + r.width / 2) + "px");
+      doc.style.setProperty("--ty", (r.top + r.height / 2) + "px");
+    }
+    if (document.startViewTransition && !reduceMotion) {
+      doc.classList.add("theme-anim");
+      var vt = document.startViewTransition(function () { applyTheme(pref); });
+      var clear = function () { doc.classList.remove("theme-anim"); };
+      vt.ready.catch(clear);
+      if (vt.updateCallbackDone) vt.updateCallbackDone.catch(function () {});   // an aborted transition is harmless
+      vt.finished.then(clear, clear);
+    } else applyTheme(pref);
+  }
+  DD.setTheme = setTheme;
+  mq.addEventListener && mq.addEventListener("change", function () { if (doc.getAttribute("data-theme-pref") === "auto") applyTheme("auto"); });
+  document.addEventListener("dd:lang", function () { applyTheme(doc.getAttribute("data-theme-pref") || "auto"); });
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-theme-toggle]");
+    if (b) return setTheme(doc.getAttribute("data-theme") === "dark" ? "light" : "dark", b);
+    var s = e.target.closest("[data-theme-set]");
+    if (s) setTheme(s.getAttribute("data-theme-set"), s);
+  });
+
+  /* ------------------------------------------------------------ Header, menu, back to top */
+  var header = $("#site-header");
+  function onScroll() { if (header) header.classList.toggle("is-solid", window.scrollY > 30); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  var toggle = $(".menu-toggle"), drawer = $("#nav-drawer");
+  function setMenu(open) {
+    doc.classList.toggle("menu-open", open);
+    document.body.classList.toggle("menu-open", open);
+    if (toggle) toggle.setAttribute("aria-expanded", String(open));
+    if (drawer) { drawer.setAttribute("aria-hidden", String(!open)); if (open) { var a = $("a", drawer); if (a) a.focus(); } }
+  }
+  if (toggle) toggle.addEventListener("click", function () { setMenu(!doc.classList.contains("menu-open")); });
+  $$("[data-close-menu]").forEach(function (el) { el.addEventListener("click", function () { setMenu(false); }); });
+  if (drawer) $$("a", drawer).forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && doc.classList.contains("menu-open")) { setMenu(false); if (toggle) toggle.focus(); } });
+  document.addEventListener("click", function (e) { if (e.target.closest("[data-to-top]")) window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); });
+
+  /* ------------------------------------------------------------ Renderers */
+  var R = {};
+
+  R.stats = function (el) {
+    var items = [
+      { n: courses.length, label: L("Courses, each customisable", "รายวิชา ปรับให้เหมาะกับแต่ละคนได้") },
+      { n: 3, label: L("Ways to learn: Zoom, onsite, hybrid", "รูปแบบการเรียน: Zoom ที่แล็บ ไฮบริด") },
+      { n: (DATA.domains || []).length, label: L("Domain learning paths", "เส้นทางเฉพาะสาขา") },
+      { n: (DATA.researchSteps || []).length, label: L("Steps from topic to publication", "ขั้นตอน จากหัวข้อสู่การตีพิมพ์") }
+    ];
+    el.innerHTML = items.map(function (s, i) {
+      return '<div class="stat reveal reveal-delay-' + i + '"><span class="stat__num" data-count="' + s.n + '">0</span><span class="stat__label">' + t(s.label) + "</span></div>";
+    }).join("");
+  };
+
+  R.marquee = function (el) {
+    var items = (DATA.tech || []).map(function (x) { return "<span>" + esc(x) + "</span>"; });
+    items.splice(6, 0, '<span class="si">SI · Super Intelligence</span>');
+    items.push('<span class="si">AI → SI</span>');
+    el.innerHTML = '<div class="marquee__track">' + items.join("") + items.join("") + "</div>";
+  };
+
+  R.levels = function (el) {
+    var compact = el.hasAttribute("data-compact");
+    el.innerHTML = (DATA.levels || []).map(function (l) {
+      var list = courses.filter(function (c) { return c.level === l.id && !c.anyLevel; });
+      var chips = (compact ? list.slice(0, 4) : list).map(function (c) { return codeChip(c.code); }).join("");
+      return '<li class="path__step lv-' + l.id + ' reveal"><span class="path__node" aria-hidden="true">' + l.id + "</span>" +
+        '<div class="path__body"><span class="path__tag">' + t(l.tag) + "</span><h3>" + t(l.short) + "</h3><p>" + t(l.text) + "</p>" +
+        (compact ? "" : '<p class="path__outcome">' + CHECK + t(l.outcome) + "</p>") +
+        '<div class="chips">' + chips + (compact && list.length > 4 ? '<a class="code-chip code-chip--more" href="' + base + "pages/programs.html?level=" + l.id + '#catalog">+' + (list.length - 4) + "</a>" : "") + "</div></div></li>";
+    }).join("");
+  };
+
+  // new-era highlights: a short, curated list (DATA.highlights)
+  function highlightCard(h, i, plainCard) {
+    var c = byCode[h.code]; if (!c) return "";
+    return '<article role="button" tabindex="0" class="pick' + (plainCard ? "" : " reveal reveal-delay-" + (i % 4)) + '" data-course="' + c.code + '" aria-haspopup="dialog"><span class="pick__tag">' + (h.mark || "★") + " " + t(h.tag) + "</span>" +
+      '<span class="course__top"><span class="course__code">' + c.code + "</span>" + statusBadge(c) + lvlChip(c) + "</span><h3>" + t(c.title) + "</h3><p>" + t(h.why) + '</p><span class="course__go" aria-hidden="true">' + ARROW + "</span></article>";
+  }
+  R.highlights = function (el) { el.innerHTML = (DATA.highlights || []).map(highlightCard).join(""); };
+
+  // home: one card per course group, listing its tracks
+  R.groups = function (el) {
+    el.innerHTML = (DATA.groups || []).map(function (g, i) {
+      var n = courses.filter(function (c) { return c.group === g.id; }).length;
+      return '<article class="card group-card reveal reveal-delay-' + (i % 3) + '" data-tilt><div class="card__icon">' + icon(g.icon) + "</div><h3>" + t(g.name) + "</h3><p>" + t(g.text) + "</p>" +
+        '<div class="chips chips--tech">' + g.tracks.map(function (id) { var tr = track(id); return tr ? '<a href="' + base + "pages/programs.html?track=" + id + '#catalog">' + t(tr.name) + "</a>" : ""; }).join("") + "</div>" +
+        '<a class="card__meta card__meta--row" href="' + base + (g.href || "pages/programs.html?group=" + g.id + "#catalog") + '">' + t(L(n + " courses", n + " รายวิชา")) + ARROW + "</a></article>";
+    }).join("");
+  };
+
+  R.tracks = function (el) {
+    el.innerHTML = (DATA.tracks || []).map(function (tr, i) {
+      var n = courses.filter(function (c) { return c.track === tr.id; }).length;
+      return '<a class="card card--link reveal reveal-delay-' + (i % 3) + '" data-tilt href="' + base + (tr.href || "pages/programs.html?track=" + tr.id + "#catalog") + '">' +
+        '<div class="card__icon">' + icon(tr.icon) + "</div><h3>" + t(tr.name) + "</h3><p>" + t(tr.text) + "</p>" +
+        '<div class="chips chips--tech">' + tr.tech.map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("") + "</div>" +
+        '<span class="card__meta card__meta--row">' + t(L(n + " courses", n + " รายวิชา")) + ARROW + "</span></a>";
+    }).join("");
+  };
+
+  R.domains = function (el) {
+    el.innerHTML = (DATA.domains || []).map(function (d, i) {
+      return '<article class="card reveal reveal-delay-' + (i % 4) + '"><div class="card__icon">' + icon(d.icon) + "</div><h3>" + t(d.name) + "</h3><p>" + t(d.text) + "</p>" +
+        '<div class="chips" style="padding:12px;border-radius:12px;background:var(--surface-2)">' + d.path.map(codeChip).join('<span aria-hidden="true" style="color:var(--text-faint)">→</span>') + "</div>" +
+        '<p class="card__meta" style="border:0;padding-top:4px"><strong style="display:block;font-size:var(--fs-xs)">' + t(L("Example projects", "ตัวอย่างโปรเจกต์")) + "</strong>" + t(d.projects) + "</p></article>";
+    }).join("");
+  };
+
+  function stepsHtml(list, opts) {
+    return list.map(function (s, i) {
+      return '<li class="step reveal reveal-delay-' + (i % 4) + '">' + (s.icon ? '<img class="step__icon" src="' + base + "assets/images/icons/" + s.icon + '.svg" alt="">' : "") +
+        "<h3>" + t(s.name) + "</h3><p>" + t(s.text) + "</p>" + (s.output ? '<span class="step__out">' + CHECK + t(s.output) + "</span>" : "") + "</li>";
+    }).join("");
+  }
+  R["research-steps"] = function (el) { el.innerHTML = stepsHtml(DATA.researchSteps || []); };
+
+  R.flow = function (el) {
+    var list = DATA[el.getAttribute("data-source")] || [];
+    el.style.setProperty("--cols", list.length);
+    el.innerHTML = list.map(function (s) {
+      return '<li><span class="flow__dot">' + icon(s.icon || "spark") + "</span><h3>" + t(s.name) + "</h3><p>" + t(s.text) + "</p></li>";
+    }).join("");
+  };
+
+  R["custom-options"] = function (el) {
+    el.innerHTML = (DATA.customOptions || []).map(function (o, i) {
+      return '<article class="card reveal reveal-delay-' + (i % 3) + '"><span class="card__index">0' + (i + 1) + "</span><h3>" + t(o.name) + "</h3><p>" + t(o.text) + "</p></article>";
+    }).join("");
+  };
+
+  R.modes = function (el) {
+    el.innerHTML = ["online", "onsite", "hybrid"].map(function (k, i) {
+      var m = DATA.modes[k];
+      return '<article class="card mode-card reveal reveal-delay-' + i + '" data-tilt><div class="card__icon">' + icon(m.icon) + "</div><h3>" + t(m.name) + "</h3><p>" + t(m.text) + "</p></article>";
+    }).join("");
+  };
+
+  R["research-areas"] = function (el) {
+    el.innerHTML = (DATA.researchAreas || []).map(function (a, i) {
+      return '<article class="card reveal reveal-delay-' + (i % 3) + '"><div class="card__icon">' + icon(a.icon) + "</div><h3>" + t(a.name) + "</h3><p>" + t(a.text) + "</p></article>";
+    }).join("");
+  };
+
+  R.venues = function (el) {
+    el.innerHTML = (DATA.venues || []).map(function (v, i) {
+      return '<article class="venue reveal reveal-delay-' + (i % 4) + '"><span class="venue__scope">' + t(v.scope) + "</span><h3>" + t(v.name) + "</h3><p>" + t(v.text) + "</p></article>";
+    }).join("");
+  };
+
+  R["stem-bands"] = function (el) {
+    el.innerHTML = (DATA.stemBands || []).map(function (b, i) {
+      return '<article class="card band ' + b.color + ' reveal reveal-delay-' + i + '"><span class="band__age">' + t(b.age) + "</span><h3>" + t(b.name) + "</h3><p>" + t(b.text) + "</p>" +
+        '<div class="chips chips--tech">' + b.focus.map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("") + "</div>" +
+        '<div class="card__meta"><span class="band__label">' + t(L("Suggested courses", "รายวิชาที่แนะนำ")) + '</span><div class="chips">' + b.courses.map(codeChip).join("") + "</div></div></article>";
+    }).join("");
+  };
+
+  R["partner-models"] = function (el) {
+    el.innerHTML = (DATA.partnerModels || []).map(function (m, i) {
+      return '<article class="card reveal reveal-delay-' + (i % 4) + '"><div class="card__icon">' + icon(m.icon) + '</div><span class="card__tag">' + t(m.duration) + "</span><h3>" + t(m.name) + "</h3><p>" + t(m.text) + "</p></article>";
+    }).join("");
+  };
+
+  R.audiences = function (el) {
+    var list = DATA.audiences || [];
+    el.innerHTML = '<div class="aud-tabs" role="tablist" aria-label="Audience">' + list.map(function (a, i) {
+      return '<button class="aud-tab" role="tab" type="button" id="aud-tab-' + a.id + '" aria-controls="aud-' + a.id + '" aria-selected="' + (i === 0) + '" tabindex="' + (i === 0 ? 0 : -1) + '">' + icon(a.icon) + t(a.label) + "</button>";
+    }).join("") + "</div>" + list.map(function (a, i) {
+      return '<div class="aud-panel" role="tabpanel" id="aud-' + a.id + '" aria-labelledby="aud-tab-' + a.id + '"' + (i ? " hidden" : "") + '><div><h3>' + t(a.title) + "</h3><p>" + t(a.text) + "</p>" +
+        '<a class="btn btn--primary" href="' + base + a.cta.href + '">' + t(a.cta.label) + ARROW + '</a></div><ul class="aud-points" role="list">' +
+        a.points.map(function (p) { return "<li>" + CHECK + t(p) + "</li>"; }).join("") + "</ul></div>";
+    }).join("");
+    var tabs = $$(".aud-tab", el);
+    function select(tab) { tabs.forEach(function (x) { var on = x === tab; x.setAttribute("aria-selected", String(on)); x.tabIndex = on ? 0 : -1; $("#" + x.getAttribute("aria-controls")).hidden = !on; }); }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { select(tab); });
+      tab.addEventListener("keydown", function (e) {
+        var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (d) { var n = tabs[(i + d + tabs.length) % tabs.length]; n.focus(); select(n); }
+      });
+    });
+  };
+
+  /* ---------- SI explainer widgets ---------- */
+  R["si-ladder"] = function (el) {
+    var list = DATA.siLadder || [];
+    el.innerHTML = list.map(function (s, i) {
+      return '<li class="' + (i === list.length - 1 ? "is-si" : "") + '" style="--i:' + i + '"><span class="when">' + t(s.when) + "</span><h3>" + t(s.name) + "</h3><p>" + t(s.text) + "</p></li>";
+    }).join("");
+  };
+
+  R["si-compare"] = function (el) {
+    el.innerHTML =
+      '<div class="vs-toggle" role="group" aria-label="AI or SI"><button type="button" data-vs="ai" aria-pressed="true">AI ' + t(L("today", "วันนี้")) + '</button><button type="button" data-vs="si" aria-pressed="false">SI ' + t(L("goal", "เป้าหมาย")) + "</button></div>" +
+      '<div class="vs-grid">' + (DATA.siCompare || []).map(function (c, i) {
+        return '<article class="vs-card reveal reveal-delay-' + (i % 4) + '"><span class="vs-tag" aria-hidden="true"></span><h3>' + icon(c.icon) + t(c.name) + '</h3><div class="vs-text"><p class="vs-ai">' + t(c.ai) + '</p><p class="vs-si">' + t(c.si) + "</p></div></article>";
+      }).join("") + "</div>";
+    var grid = $(".vs-grid", el), btns = $$("[data-vs]", el), touched = false;
+    function set(mode) {
+      grid.classList.toggle("is-si", mode === "si");
+      btns.forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-vs") === mode)); });
+      $$(".vs-tag", el).forEach(function (s) { s.textContent = mode === "si" ? "SI" : "AI"; });
+    }
+    btns.forEach(function (b) { b.addEventListener("click", function () { touched = true; set(b.getAttribute("data-vs")); }); });
+    set("ai");
+    // play the AI -> SI change once when the visitor first sees it
+    if ("IntersectionObserver" in window && !reduceMotion) {
+      var io = new IntersectionObserver(function (es) {
+        if (es[0].isIntersecting) { io.disconnect(); setTimeout(function () { if (!touched) set("si"); }, 1600); }
+      }, { threshold: 0.4 });
+      io.observe(grid);
+    }
+  };
+
+  R["si-blocks"] = function (el) {
+    el.innerHTML = (DATA.siBlocks || []).map(function (b, i) {
+      return '<article class="card reveal reveal-delay-' + (i % 3) + '" data-tilt><div class="card__icon">' + icon(b.icon) + "</div><h3>" + t(b.name) + "</h3><p>" + t(b.text) + "</p>" +
+        '<div class="card__meta"><span style="display:block;margin-bottom:8px">' + t(L("Learn it in", "เรียนได้ใน")) + '</span><div class="chips">' + b.courses.map(codeChip).join("") + "</div></div></article>";
+    }).join("");
+  };
+
+  R["si-myths"] = function (el) {
+    el.innerHTML = (DATA.siMyths || []).map(function (m, i) {
+      return '<div class="flip reveal reveal-delay-' + (i % 4) + '" role="button" tabindex="0" aria-pressed="false"><div class="flip__inner">' +
+        '<div class="flip__face"><span class="flip__label">' + t(L("Myth", "ความเชื่อ")) + "</span><h3>" + t(m.myth) + '</h3><span class="flip__hint">' + t(L("Tap to see the fact →", "แตะเพื่อดูข้อเท็จจริง →")) + "</span></div>" +
+        '<div class="flip__face flip__face--back"><span class="flip__label">' + t(L("Fact", "ข้อเท็จจริง")) + "</span><p>" + t(m.fact) + "</p></div></div></div>";
+    }).join("");
+    $$(".flip", el).forEach(function (f) {
+      function flip() { var on = f.classList.toggle("is-flipped"); f.setAttribute("aria-pressed", String(on)); }
+      f.addEventListener("click", flip);
+      f.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); flip(); } });
+    });
+  };
+
+  R.faq = function (el) {
+    el.innerHTML = (DATA[el.getAttribute("data-source")] || []).map(function (f) {
+      return "<details><summary>" + t(f.q) + "</summary><p>" + t(f.a) + "</p></details>";
+    }).join("");
+  };
+
+  /* ---------- v4 explainers ---------- */
+  R.notice = function (el) {
+    var v = DATA[el.getAttribute("data-source") || "courseNotice"];
+    if (!v) return;
+    el.innerHTML = el.classList.contains("punchline") ? "<p>" + t(v) + "</p>" : '<img src="' + base + 'assets/images/icons/review.svg" alt=""><p>' + t(v) + "</p>";
+  };
+
+  // generic icon cards: data-source = whyStart | researchWhy | siSimple
+  R["icon-cards"] = function (el) {
+    el.innerHTML = (DATA[el.getAttribute("data-source")] || []).map(function (c, i) {
+      return '<article class="card reveal reveal-delay-' + (i % 4) + '"><div class="card__icon">' + icon(c.icon) + "</div>" +
+        (c.tag ? '<span class="card__tag">' + t(c.tag) + "</span>" : "") + "<h3>" + t(c.title) + "</h3><p>" + t(c.text) + "</p></article>";
+    }).join("");
+  };
+
+  R["si-enough"] = function (el) {
+    var d = DATA.siEnough;
+    if (!d) return;
+    el.innerHTML = '<p class="enough__yes">' + CHECK + t(d.yes) + "</p><p><strong>" + t(d.but) + '</strong></p><ul class="enough__gaps" role="list">' +
+      d.gaps.map(function (g, i) { return '<li class="reveal reveal-delay-' + (i % 4) + '">' + t(g) + "</li>"; }).join("") + '</ul><p class="enough__so">' + t(d.so) + "</p>";
+  };
+
+  R["research-fields"] = function (el) {
+    el.innerHTML = (DATA.researchFields || []).map(function (f, i) {
+      return '<article class="card field-card reveal reveal-delay-' + (i % 4) + '"><div class="card__icon">' + icon(f.icon) + "</div><h3>" + t(f.field) + "</h3><p>" + t(f.project) + "</p>" +
+        '<div class="field-out">' + f.outputs.map(function (o) { return "<span>" + t(o) + "</span>"; }).join("") + "</div>" +
+        '<div class="card__meta"><div class="chips">' + f.codes.map(codeChip).join("") + "</div></div></article>";
+    }).join("");
+  };
+
+  R["future-skills"] = function (el) {
+    el.innerHTML = (DATA.futureSkills || []).map(function (s, i) {
+      return '<article class="skill reveal reveal-delay-' + (i % 3) + '"><span class="skill__num">0' + (i + 1) + '</span><div class="card__icon">' + icon(s.icon) + "</div><h3>" + t(s.name) + "</h3><p>" + t(s.text) + '</p><p class="skill__how">' + t(s.how) + "</p></article>";
+    }).join("");
+  };
+
+  R["exam-tips"] = function (el) {
+    el.innerHTML = (DATA.examTips || []).map(function (s, i) {
+      return '<li class="tip reveal reveal-delay-' + i + '"><span class="tip__key">' + esc(s.key) + "</span><h3>" + t(s.title) + "</h3><p>" + t(s.text) + "</p></li>";
+    }).join("");
+  };
+
+  R.exams = function (el) {
+    var tc = DATA.tcas;
+    el.innerHTML = '<div class="exam-cards">' + (DATA.exams || []).map(function (x, i) {
+      return '<article class="card exam-card reveal reveal-delay-' + i + '"><span class="card__tag">' + esc(x.lang) + "</span><h3>" + esc(x.name) + '</h3><p>' + t(x.by) + "</p>" +
+        '<p class="exam-award">' + icon("trophy") + t(x.award) + "</p>" +
+        '<div class="card__meta"><span>' + t(L("Prep course", "หลักสูตรเตรียมสอบ")) + "</span> " + codeChip(x.code) + "</div></article>";
+    }).join("") + "</div>" +
+      (tc ? '<div class="tcas reveal"><h3>' + t(tc.title) + "</h3><p>" + t(tc.lead) + '</p><ol class="tcas__list" role="list">' +
+        tc.items.map(function (it, i) { return '<li><span class="tcas__n">' + (i + 1) + "</span><div><strong>" + t(it.prog) + "</strong><span>" + t(it.ref) + "</span></div></li>"; }).join("") +
+        '</ol><p class="note">' + t(tc.note) + "</p></div>" : "");
+  };
+
+  /* ---------- Admissions & Test Prep branch ---------- */
+  function admTest(id) { return (DATA.admTests || []).filter(function (x) { return x.id === id; })[0]; }
+
+  // tabbed explorer: one panel per test with its format, scoring, key facts and prep course
+  R["adm-tests"] = function (el) {
+    var list = DATA.admTests || [];
+    el.innerHTML = '<div class="adm-tabs" role="tablist" aria-label="Tests">' + list.map(function (x, i) {
+      return '<button class="adm-tab" role="tab" type="button" id="adm-tab-' + x.id + '" aria-controls="adm-' + x.id + '" aria-selected="' + (i === 0) + '" tabindex="' + (i === 0 ? 0 : -1) + '">' + icon(x.icon) + "<span>" + esc(x.name) + "</span></button>";
+    }).join("") + "</div>" + list.map(function (x, i) {
+      return '<article class="adm-panel" role="tabpanel" id="adm-' + x.id + '" aria-labelledby="adm-tab-' + x.id + '"' + (i ? " hidden" : "") + ">" +
+        '<div class="adm-panel__head"><div><h3>' + esc(x.name) + (x.flag ? ' <span class="adm-flag">' + t(x.flag) + "</span>" : "") + '</h3><p class="adm-by">' + t(x.by) + "</p><p>" + t(x.what) + "</p></div>" +
+        '<div class="adm-prep"><span>' + t(L("Prep course", "หลักสูตรเตรียมสอบ")) + "</span>" + codeChip(x.code) + '<a class="adm-official" href="' + esc(x.url) + '" target="_blank" rel="noopener">' + t(L("Official site ↗", "เว็บไซต์ทางการ ↗")) + "</a></div></div>" +
+        '<div class="adm-grid"><table class="adm-format"><caption>' + t(L("Format", "รูปแบบข้อสอบ")) + "</caption><tbody>" +
+        x.parts.map(function (p) { return '<tr><th scope="row">' + t(p[0]) + "</th><td>" + t(p[1]) + "</td></tr>"; }).join("") +
+        '</tbody></table><div><p class="adm-score">' + icon("trophy") + t(x.score) + '</p><ul class="ticks">' + x.facts.map(function (f) { return "<li>" + t(f) + "</li>"; }).join("") + "</ul></div></div></article>";
+    }).join("") + '<p class="adm-checked">' + t(L("Checked: ", "ตรวจสอบล่าสุด: ")) + t(DATA.admChecked) + " · " + t(L("Official sources: ", "แหล่งข้อมูลทางการ: ")) +
+      (DATA.admSources || []).map(function (s) { return '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + esc(s.name) + "</a>"; }).join(" · ") + "</p>";
+    var tabs = $$(".adm-tab", el);
+    function select(tab, focus) {
+      tabs.forEach(function (x) { var on = x === tab; x.setAttribute("aria-selected", String(on)); x.tabIndex = on ? 0 : -1; $("#" + x.getAttribute("aria-controls")).hidden = !on; });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { select(tab); });
+      tab.addEventListener("keydown", function (e) {
+        var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (d) select(tabs[(i + d + tabs.length) % tabs.length], true);
+      });
+    });
+    DD.admShowTest = function (id) { var tab = $("#adm-tab-" + id); if (tab) { select(tab); el.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); } };
+  };
+
+  // "where are you applying?" picks the tests and courses that matter for that goal
+  R["adm-chooser"] = function (el) {
+    var list = DATA.admTargets || [];
+    el.innerHTML = '<div class="adm-goals" role="radiogroup" aria-label="' + esc(tx(L("Where are you applying?", "จะยื่นที่ไหน?"))) + '">' + list.map(function (g, i) {
+      return '<button type="button" class="adm-goal" role="radio" aria-checked="' + (i === 0) + '" data-goal="' + g.id + '">' + icon(g.icon) + "<strong>" + t(g.name) + "</strong><small>" + t(g.sub) + "</small></button>";
+    }).join("") + '</div><div class="adm-result" aria-live="polite"></div>';
+    var out = $(".adm-result", el);
+    function show(id) {
+      var g = list.filter(function (x) { return x.id === id; })[0];
+      $$(".adm-goal", el).forEach(function (b) { b.setAttribute("aria-checked", String(b.getAttribute("data-goal") === id)); });
+      out.innerHTML = '<div><h3>' + t(L("What you will need", "สิ่งที่ต้องเตรียม")) + '</h3><ul class="ticks">' + g.need.map(function (n) { return "<li>" + t(n) + "</li>"; }).join("") + "</ul></div>" +
+        '<div><h3>' + t(L("Tests to look at", "ข้อสอบที่เกี่ยวข้อง")) + '</h3><div class="adm-testchips">' + g.tests.map(function (id) {
+          var x = admTest(id); return x ? '<button type="button" class="chip-btn" data-adm-test="' + id + '">' + esc(x.name) + "</button>" : "";
+        }).join("") + "</div><h3>" + t(L("Suggested courses", "หลักสูตรที่แนะนำ")) + '</h3><div class="chips">' + g.courses.map(codeChip).join("") + "</div>" +
+        '<a class="btn btn--primary btn--sm" href="' + contactUrl({ topic: "admissions", goal: tx(g.name), plan: g.courses.join(", ") }) + '">' + t(L("Ask for the current requirements", "สอบถามเกณฑ์ล่าสุด")) + ARROW + "</a></div>";
+    }
+    el.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-goal]"); if (b) return show(b.getAttribute("data-goal"));
+      var c = e.target.closest("[data-adm-test]"); if (c && DD.admShowTest) DD.admShowTest(c.getAttribute("data-adm-test"));
+    });
+    el.addEventListener("keydown", function (e) {
+      var b = e.target.closest("[data-goal]"), d = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
+      if (!b || !d) return;
+      e.preventDefault();
+      var all = $$(".adm-goal", el), n = all[(all.indexOf(b) + d + all.length) % all.length];
+      n.focus(); show(n.getAttribute("data-goal"));
+    });
+    if (list.length) show(list[0].id);
+  };
+
+  // one path: core academics → STEM & AI → tests → university
+  R.journey = function (el) {
+    el.innerHTML = (DATA.journey || []).map(function (j, i) {
+      return '<li class="journey__step reveal reveal-delay-' + (i % 4) + '"><span class="journey__n">' + (i + 1) + '</span><span class="journey__ico">' + icon(j.icon) + "</span><h3>" + t(j.name) + "</h3><p>" + t(j.text) + '</p><a class="link-arrow" href="' + base + j.href + '">' + t(j.cta) + ARROW + "</a></li>";
+    }).join("");
+  };
+
+  // the Thai entrance system in brief (TCAS rounds + TGAT/TPAT/A-Level)
+  R["adm-system"] = function (el) {
+    var x = DATA.tcasSystem; if (!x) return;
+    el.innerHTML = '<ol class="tcas-rounds" role="list">' + x.rounds.map(function (r) {
+      return '<li><span class="tcas-rounds__n">' + esc(r.n) + "</span><div><h3>" + t(L("Round ", "รอบ ")) + esc(r.n) + " · " + t(r.name) + "</h3><p>" + t(r.text) + "</p></div></li>";
+    }).join("") + '</ol><div class="tcas-tests">' + x.tests.map(function (k) {
+      return '<article class="tcas-test"><h3>' + esc(k.name) + "</h3><p>" + t(k.text) + '</p><p class="tcas-test__when">' + icon("academy") + t(k.when) + '</p><div class="chips">' + codeChip(k.code) + "</div></article>";
+    }).join("") + "</div>";
+  };
+
+  // university & test finder: field × track (Thai / international / abroad)
+  R["adm-finder"] = function (el) {
+    var fields = DATA.pathFields || [], list = DATA.pathways || [];
+    var types = [["all", L("All", "ทั้งหมด")], ["thai", L("Thai track (TCAS)", "ภาคไทย (TCAS)")], ["intl", L("International programmes in Thailand", "หลักสูตรนานาชาติในไทย")], ["abroad", L("Abroad", "ต่างประเทศ")]];
+    var st = { field: fields.length ? fields[0].id : "", type: "all" };
+    el.innerHTML = '<div class="finder__fields" role="tablist" aria-label="' + esc(tx(L("Field", "สาขา"))) + '">' + fields.map(function (f) {
+      return '<button type="button" role="tab" class="finder__field" data-ff="' + f.id + '">' + icon(f.icon) + "<span>" + t(f.name) + "</span></button>";
+    }).join("") + '</div><div class="finder__types" role="group" aria-label="Track">' + types.map(function (k) {
+      return '<button type="button" data-ft="' + k[0] + '">' + t(k[1]) + "</button>";
+    }).join("") + '</div><div class="finder__list" aria-live="polite"></div>';
+    var out = $(".finder__list", el);
+    el.insertAdjacentHTML("beforeend", '<p class="finder__more">' + t(L("These are examples of popular programmes, not the full list — we prepare students for every Thai university and international programme, and for universities abroad. Ask us about yours.", "รายการนี้เป็นเพียงตัวอย่างหลักสูตรยอดนิยม ไม่ใช่ทั้งหมด เราเตรียมนักเรียนสำหรับทุกมหาวิทยาลัยไทย หลักสูตรนานาชาติ และมหาวิทยาลัยต่างประเทศ สอบถามหลักสูตรของคุณได้")) + ' <a href="' + contactUrl({ topic: "admissions" }) + '">' + t(L("Ask about another programme →", "สอบถามหลักสูตรอื่น →")) + "</a></p>");
+    function badge(type) { return '<span class="finder__type finder__type--' + type + '">' + t(type === "thai" ? L("Thai track", "ภาคไทย") : type === "intl" ? L("International", "นานาชาติ") : L("Abroad", "ต่างประเทศ")) + "</span>"; }
+    function draw() {
+      $$("[data-ff]", el).forEach(function (b) { b.setAttribute("aria-selected", String(b.getAttribute("data-ff") === st.field)); });
+      $$("[data-ft]", el).forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-ft") === st.type)); b.hidden = st.field === "abroad" && b.getAttribute("data-ft") !== "all"; });
+      list = DATA.pathways || [];
+      var rows = list.filter(function (p) { return p.visible !== false && p.field === st.field && (st.type === "all" || p.type === st.type); });
+      out.innerHTML = rows.length ? rows.map(function (p) {
+        return '<article class="finder__card"><header>' + badge(p.type) + "<h3>" + t(p.uni) + '</h3><p class="finder__prog">' + t(p.prog) + '</p><p class="finder__route">' + icon("pin") + t(p.route) + '</p></header><div class="finder__tests">' +
+          (p.tests || []).map(function (x) { return "<span>" + esc(x) + "</span>"; }).join("") + "</div><p>" + t(p.req) + '</p><footer><div class="chips">' + (p.courses || []).map(codeChip).join("") + "</div>" + (/^https?:\/\//.test(p.url || "") ? '<a class="finder__src" href="' + esc(p.url) + '" target="_blank" rel="noopener">' + t(L("Official / source ↗", "เว็บไซต์ / แหล่งข้อมูล ↗")) + "</a>" : "") + "</footer></article>";
+      }).join("") : '<p class="empty">' + t(L("No programme in this view yet — ask us, we track many more.", "ยังไม่มีหลักสูตรในมุมมองนี้ สอบถามเราได้ เราติดตามหลักสูตรอื่นอีกมาก")) + "</p>";
+    }
+    el.addEventListener("click", function (e) {
+      var f = e.target.closest("[data-ff]"), k = e.target.closest("[data-ft]");
+      if (f) { st.field = f.getAttribute("data-ff"); if (st.field === "abroad") st.type = "all"; draw(); }
+      if (k) { st.type = k.getAttribute("data-ft"); draw(); }
+    });
+    draw();
+  };
+
+  // all courses of the branch, grouped by what they prepare for
+  R["adm-courses"] = function (el) {
+    var groups = [
+      [L("Core academics (M.1–M.6)", "วิชาแกน (ม.1–ม.6)"), ["MTH130", "PHY130", "ENG130", "MTH230", "PHY230", "ENG230"]],
+      [L("Thai entrance exams (TCAS)", "สอบเข้ามหาวิทยาลัยไทย (TCAS)"), ["TGT220", "ALV240", "TPT310"]],
+      [L("International programmes in Thailand", "หลักสูตรนานาชาติในไทย"), ["IEL200", "SAT210", "SAT220", "AAT210", "AAT220", "TBT300"]],
+      [L("Medicine & universities abroad", "แพทย์และมหาวิทยาลัยต่างประเทศ"), ["UCT300", "UKT320"]],
+      [L("Computing exams & olympiads", "สอบและโอลิมปิกคอมพิวเตอร์"), ["EXM110", "EXM210", "EXM220", "EXM230"]],
+      [L("Portfolio & interview", "พอร์ตและการสัมภาษณ์"), ["PFL200"]]
+    ];
+    el.innerHTML = groups.map(function (g) {
+      return '<div class="adm-cgroup"><h3>' + t(g[0]) + '</h3><ul class="adm-clist">' + g[1].filter(function (c) { return byCode[c]; }).map(function (c) {
+        return '<li><a href="' + base + "pages/programs.html#course-" + c + '" data-course="' + c + '" class="lv-' + byCode[c].level + '"><span class="dir__code">' + c + "</span><span>" + t(byCode[c].title) + "</span></a></li>";
+      }).join("") + "</ul></div>";
+    }).join("");
+  };
+
+  // test-prep catalogue by category (back office: Website content → Test-prep catalogue)
+  R["adm-prep"] = function (el) {
+    el.innerHTML = (DATA.prepCatalog || []).filter(function (c) { return c.visible !== false; }).map(function (c, i) {
+      var items = (c.items || []).filter(function (x) { return x.visible !== false; });
+      return '<article class="prep-cat reveal reveal-delay-' + (i % 3) + '"><header><span class="prep-cat__chev" aria-hidden="true">›</span><h3>' + t(c.name) + "</h3></header>" +
+        (c.text ? '<p class="prep-cat__text">' + t(c.text) + "</p>" : "") + '<ul class="prep-cat__list' + (items.length > 6 ? " prep-cat__list--2" : "") + '">' + items.map(function (x) {
+          var linked = x.course && byCode[x.course];
+          var st = x.status === "cancelled" ? '<span class="st-badge st-badge--cancelled">' + t(L("Cancelled", "ยกเลิก")) + "</span>" : x.status === "closed" ? '<span class="st-badge st-badge--closed">' + t(L("Closed for now", "ปิดรับชั่วคราว")) + "</span>" : "";
+          var href = linked ? base + "pages/programs.html#course-" + x.course : contactUrl({ topic: "admissions", goal: x.name });
+          return '<li><a href="' + href + '"' + (linked ? ' data-course="' + esc(x.course) + '"' : "") + ' title="' + esc(tx(x.note)) + '"><span class="prep-cat__name">' + esc(x.name) + "</span>" + st + '<small>' + t(x.note) + "</small></a></li>";
+        }).join("") + "</ul></article>";
+    }).join("");
+  };
+
+  // minimum score vs. the score that wins a seat
+  R["adm-scores"] = function (el) {
+    var g = DATA.scoreGuide; if (!g) return;
+    el.innerHTML = '<div class="sg-kinds">' + g.kinds.map(function (k, i) {
+      return '<article class="sg-kind reveal reveal-delay-' + i + '"><div class="card__icon">' + icon(k.icon) + '</div><span class="card__tag">' + t(k.tag) + "</span><h3>" + t(k.name) + "</h3><p>" + t(k.text) + "</p></article>";
+    }).join("") + "</div>" +
+      '<div class="sg-read reveal"><h3>' + t(L("How to read an admission announcement", "อ่านประกาศรับสมัครอย่างไร")) + '</h3><table class="adm-format"><tbody>' +
+      g.read.map(function (r) { return '<tr><th scope="row">' + t(r[0]) + "</th><td>" + t(r[1]) + "</td></tr>"; }).join("") + "</tbody></table></div>" +
+      '<div class="sg-systems">' + g.systems.map(function (x, i) {
+        return '<article class="sg-sys reveal reveal-delay-' + (i % 3) + '"><h3>' + t(x.name) + '</h3><p class="sg-sys__how">' + t(x.how) + "</p><p>" + t(x.text) + "</p></article>";
+      }).join("") + "</div>" +
+      '<div class="sg-targets reveal"><h3>' + t(L("Minimum vs. the score we aim for", "ขั้นต่ำ เทียบกับคะแนนที่เราตั้งเป้า")) + '</h3><div class="tbl-scroll"><table class="cd-test__scores"><thead><tr><th>' + t(L("Programme", "หลักสูตร")) + "</th><th>" + t(L("Published minimum", "ขั้นต่ำที่ประกาศ")) + "</th><th>" + t(L("Our target", "เป้าหมายของเรา")) + "</th></tr></thead><tbody>" +
+      g.targets.map(function (r) { return "<tr><td>" + t(r[0]) + "</td><td>" + t(r[1]) + "</td><td><b>" + t(r[2]) + "</b></td></tr>"; }).join("") + '</tbody></table></div><p class="sg-advice">' + t(g.advice) + "</p></div>";
+  };
+
+  R["adm-steps"] = function (el) { el.innerHTML = stepsHtml(DATA.admSteps || []); };
+
+  R["adm-timeline"] = function (el) {
+    el.innerHTML = (DATA.admTimeline || []).map(function (s, i, a) {
+      return '<li class="' + (i === a.length - 1 ? "is-si" : "") + '" style="--i:' + i + '"><span class="when">' + t(s.when) + "</span><h3>" + t(s.name) + "</h3><p>" + t(s.text) + "</p></li>";
+    }).join("");
+  };
+
+  /* ---------- Course catalogue ---------- */
+  R.courses = function (el) {
+    var params = new URLSearchParams(location.search);
+    var state = { group: params.get("group") || "all", track: params.get("track") || "all", level: params.get("level") || "all", mode: params.get("mode") || "all", q: params.get("q") || "", all: false };
+    if (state.track !== "all" && DATA.groupOf && DATA.groupOf(state.track)) state.group = DATA.groupOf(state.track).id;
+    if (state.group !== "all" && state.group !== "picks" && !group(state.group)) state.group = "all";
+    var filters = $("[data-course-filters]"), countEl = $("[data-course-count]");
+    var PAGE = 12;
+    if (filters) {
+      filters.innerHTML =
+        '<div class="chip-row chip-row--groups" role="group" aria-label="Course group"><button type="button" data-f-group="all">' + t(L("All groups", "ทุกกลุ่ม")) + "</button>" +
+        (DATA.highlights ? '<button type="button" class="chip-pick" data-f-group="picks">★ ' + t(L("New-era picks", "คอร์สเด่นยุคใหม่")) + "</button>" : "") +
+        (DATA.groups || []).map(function (g) { return '<button type="button" data-f-group="' + g.id + '">' + icon(g.icon) + t(g.name) + "</button>"; }).join("") + "</div>" +
+        '<div class="chip-row chip-row--tracks" role="group" aria-label="Track" data-track-row></div>' +
+        '<div class="filter-line">' +
+        '<label class="search"><img src="' + base + 'assets/images/icons/search.svg" alt=""><span class="visually-hidden">Search</span>' +
+        '<input type="search" data-f-q data-i18n-attrs="placeholder" data-en-placeholder="Search, e.g. Python, Jetson, exam" data-th-placeholder="ค้นหา เช่น Python, Jetson, สอบ" value="' + esc(state.q) + '"></label>' +
+        '<select data-f-level aria-label="Level"><option value="all" data-en="All levels" data-th="ทุกระดับ"></option>' + (DATA.levels || []).map(function (l) { return '<option value="' + l.id + '" data-en="' + esc(l.short.en) + '" data-th="' + esc(l.short.th) + '"></option>'; }).join("") + "</select></div>";
+      $$("option[data-en]", filters).forEach(function (o) { o.textContent = o.getAttribute("data-" + lang()); });
+    }
+    function filtered() { return state.group !== "all" || state.track !== "all" || state.level !== "all" || state.mode !== "all" || state.q.trim(); }
+    // the track row only lists the tracks of the chosen group
+    function trackRow() {
+      var row = $("[data-track-row]"); if (!row) return;
+      var g = group(state.group), ids = g ? g.tracks : [];
+      row.hidden = !g || ids.length < 2;
+      row.innerHTML = '<button type="button" data-f-track="all">' + t(L("All in this group", "ทั้งหมดในกลุ่มนี้")) + "</button>" +
+        ids.map(function (id) { var tr = track(id); return tr ? '<button type="button" data-f-track="' + id + '">' + t(tr.name) + "</button>" : ""; }).join("");
+      $$("[data-f-track]", row).forEach(function (b) { b.addEventListener("click", function () { state.track = b.getAttribute("data-f-track"); state.all = false; sync(); }); });
+    }
+    function card(c) {
+      return '<article role="button" tabindex="0" class="course lv-' + c.level + (c.featured ? " course--featured" : "") + '" data-course="' + c.code + '" id="course-' + c.code + '" aria-haspopup="dialog">' +
+        '<span class="course__top"><span class="course__code">' + c.code + "</span>" + statusBadge(c) + (c.highlight ? '<span class="pick__tag pick__tag--sm">★ ' + t(c.highlight) + "</span>" : "") + lvlChip(c) + "</span>" +
+        "<h3>" + t(c.title) + "</h3><p>" + t(c.text) + "</p>" +
+        '<span class="course__meta"><span>' + t(track(c.track).name) + "</span>" + modesIcons(c.code) + '<span class="course__go" aria-hidden="true">' + ARROW + "</span></span></article>";
+    }
+    function sync() {
+      $$("[data-f-group]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-f-group") === state.group)); });
+      $$("[data-f-track]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-f-track") === state.track)); });
+      var ls = $("[data-f-level]"), ms = $("[data-f-mode]");
+      if (ls) ls.value = state.level; if (ms) ms.value = state.mode;
+      var q = state.q.trim().toLowerCase();
+      var list = courses.filter(function (c) {
+        if (state.group === "picks") { if (!c.highlight) return false; }
+        else if (state.group !== "all" && c.group !== state.group) return false;
+        if (state.track !== "all" && c.track !== state.track) return false;
+        if (state.level !== "all" && !c.anyLevel && String(c.level) !== String(state.level)) return false;
+        if (state.mode !== "all" && ((details[c.code] && details[c.code].modes) || []).indexOf(state.mode) === -1) return false;
+        if (q) {
+          var d = details[c.code] || {};
+          var hay = (c.code + " " + plain(c.title) + " " + plain(c.text) + " " + c.tools.join(" ") + " " + (d.modules || []).map(plain).join(" ")).toLowerCase();
+          return hay.indexOf(q) !== -1;
+        }
+        return true;
+      });
+      if (!filtered() && !state.all && DATA.groups) {
+        // overview: every group with its first courses and a way into the whole group
+        el.innerHTML = (DATA.highlights ? '<section class="course-group course-group--picks" aria-label="' + esc(tx(L("New-era picks", "คอร์สเด่นยุคใหม่"))) + '"><header class="course-group__head"><span class="course-group__icon">★</span><div><h3>' + t(L("New-era picks", "คอร์สเด่นยุคใหม่")) + "</h3><p>" +
+          t(L("Start here: the few courses that matter most for AI, STEM, research and competitions now.", "เริ่มที่นี่ คอร์สไม่กี่ตัวที่สำคัญที่สุดสำหรับ AI, STEM งานวิจัย และการแข่งขันในยุคนี้")) + '</p></div></header><div class="picks">' + DATA.highlights.map(function (h, i) { return highlightCard(h, i, true); }).join("") + "</div></section>" : "") +
+          (DATA.essentials ? '<section class="course-group course-group--ess" aria-label="' + esc(tx(L("Essential foundations", "พื้นฐานที่จำเป็น"))) + '"><header class="course-group__head"><span class="course-group__icon">' + icon("book") + "</span><div><h3>" + t(L("Essential foundations", "พื้นฐานที่จำเป็น")) + "</h3><p>" +
+            t(L("The modern basics every later course builds on. Start here if you are new.", "พื้นฐานยุคใหม่ที่ทุกคอร์สต่อยอดจากตรงนี้ ถ้าเพิ่งเริ่มต้น เริ่มที่นี่")) + '</p></div></header><div class="picks picks--ess">' +
+            DATA.essentials.map(function (h, i) { return highlightCard({ code: h.code, mark: "◆", tag: L("Essential", "พื้นฐานสำคัญ"), why: h.why }, i, true); }).join("") + "</div></section>" : "") +
+          '<section class="course-group course-dir" aria-label="' + esc(tx(L("All courses by group", "คอร์สทั้งหมดตามกลุ่ม"))) + '"><header class="course-group__head"><span class="course-group__icon">' + icon("book") + "</span><div><h3>" + t(L("All courses by group", "คอร์สทั้งหมดตามกลุ่ม")) + "</h3><p>" +
+            t(L("A quick list. Tap a course for its summary, or a group to see its courses as cards.", "รายการแบบย่อ แตะชื่อคอร์สเพื่อดูสรุป หรือแตะชื่อกลุ่มเพื่อดูแบบการ์ด")) + '</p></div></header><div class="dir">' +
+            DATA.groups.map(function (g) {
+              var gl = list.filter(function (c) { return c.group === g.id; });
+              return '<div class="dir__group"><button type="button" class="dir__head" data-open-group="' + g.id + '">' + icon(g.icon) + "<span>" + t(g.name) + '</span><b>' + gl.length + "</b></button><ul>" +
+                gl.map(function (c) { return '<li><a href="#course-' + c.code + '" data-course="' + c.code + '" class="lv-' + c.level + '"><span class="dir__code">' + c.code + "</span><span>" + t(c.title) + "</span>" + statusBadge(c) + (c.highlight ? '<span class="dir__star" title="' + esc(tx(c.highlight)) + '">★</span>' : "") + "</a></li>"; }).join("") + "</ul></div>";
+            }).join("") + "</div></section>" +
+          '<button type="button" class="btn courses__more" data-show-all>' + t(L("Show all " + list.length + " courses as cards", "ดูทั้ง " + list.length + " คอร์สแบบการ์ด")) + "</button>";
+        $$("[data-open-group]", el).forEach(function (b) { b.addEventListener("click", function () { state.group = b.getAttribute("data-open-group"); state.track = "all"; trackRow(); sync(); var f = $("[data-course-filters]"); if (f) f.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); }); });
+      } else {
+      var shown = filtered() || state.all ? list : list.slice(0, PAGE);
+      el.innerHTML = shown.length ? shown.map(card).join("") + (shown.length < list.length ? '<button type="button" class="btn courses__more" data-show-all>' + t(L("Show all " + list.length + " courses", "ดูทั้งหมด " + list.length + " รายวิชา")) + "</button>" : "")
+        : '<p class="empty">' + t(L("No course matches yet, but we can design one for you. Ask us below.", "ยังไม่พบรายวิชาที่ตรงกัน แต่เราออกแบบให้คุณได้ สอบถามได้ด้านล่าง")) + "</p>";
+      }
+      var more = $("[data-show-all]", el);
+      if (more) more.addEventListener("click", function () { state.all = true; sync(); });
+      if (countEl) countEl.innerHTML = filtered() ? t(L(list.length + " of " + courses.length + " courses", list.length + " จาก " + courses.length + " รายวิชา")) + ' <button type="button" class="linkish" data-f-clear>' + t(L("Clear filters", "ล้างตัวกรอง")) + "</button>" : t(L(courses.length + " courses · tap any course for a quick overview", courses.length + " รายวิชา · แตะที่รายวิชาเพื่อดูภาพรวมสั้น ๆ"));
+      var clr = $("[data-f-clear]");
+      if (clr) clr.addEventListener("click", function () { state.group = state.track = state.level = state.mode = "all"; state.q = ""; var qi2 = $("[data-f-q]"); if (qi2) qi2.value = ""; trackRow(); sync(); });
+      var p = new URLSearchParams();
+      ["group", "track", "level", "mode"].forEach(function (k) { if (state[k] !== "all" && !(k === "group" && state.track !== "all")) p.set(k, state[k]); });
+      if (state.q) p.set("q", state.q);
+      try { history.replaceState(null, "", location.pathname + (p.toString() ? "?" + p : "") + (location.hash.indexOf("#course-") === 0 ? "#catalog" : location.hash)); } catch (e) { /* file:// may refuse */ }
+    }
+    $$("[data-f-group]").forEach(function (b) { b.addEventListener("click", function () { state.group = b.getAttribute("data-f-group"); state.track = "all"; state.all = false; trackRow(); sync(); }); });
+    trackRow();
+    ["level", "mode"].forEach(function (k) { var sel = $("[data-f-" + k + "]"); if (sel) sel.addEventListener("change", function () { state[k] = sel.value; sync(); }); });
+    var qi = $("[data-f-q]");
+    if (qi) qi.addEventListener("input", function () { state.q = qi.value; sync(); });
+    document.addEventListener("dd:lang", function () { if (filters) $$("option[data-en]", filters).forEach(function (o) { o.textContent = o.getAttribute("data-" + lang()); }); });
+    sync();
+  };
+
+  /* ---------- Plan builder ---------- */
+  R.planner = function (el) {
+    var P = DATA.planner;
+    var groups = [
+      ["who", L("I am…", "ฉันคือ…")], ["interest", L("I'm interested in…", "ฉันสนใจ…")], ["level", L("My level", "ระดับของฉัน")],
+      ["goal", L("My goal", "เป้าหมายของฉัน")], ["mode", L("I'd like to learn", "ฉันอยากเรียนแบบ")], ["format", L("Group size", "ขนาดกลุ่ม")]
+    ];
+    var defaults = { who: "teen", interest: "si", level: "new", goal: "skills", mode: "hybrid", format: "small" };
+    el.innerHTML = '<form class="planner__form" data-plan-form>' + groups.map(function (g) {
+      return "<fieldset><legend>" + t(g[1]) + '</legend><div class="opts">' + P[g[0]].map(function (o) {
+        return '<label class="opt"><input type="radio" name="' + g[0] + '" value="' + o.id + '"' + (defaults[g[0]] === o.id ? " checked" : "") + "><span>" + t(o.label) + "</span></label>";
+      }).join("") + "</div></fieldset>";
+    }).join("") + '</form><aside class="planner__result" aria-live="polite" data-plan-result></aside>';
+    var form = $("[data-plan-form]", el), out = $("[data-plan-result]", el);
+    function val(n) { var i = form.querySelector('input[name="' + n + '"]:checked'); return i ? i.value : defaults[n]; }
+    function label(group, id) { return P[group].filter(function (o) { return o.id === id; })[0].label; }
+    function build() {
+      var v = { who: val("who"), interest: val("interest"), level: val("level"), goal: val("goal"), mode: val("mode"), format: val("format") };
+      var path = P.paths[v.interest];
+      var seq = [];
+      if (v.level === "new") seq = path.new.concat(path.some.slice(0, 1));
+      else if (v.level === "some") seq = path.some.concat(path.adv.slice(0, 1));
+      else seq = path.adv.slice();
+      if (v.who === "child") seq = ["CT100"].concat(seq.filter(function (c) { return byCode[c] && byCode[c].level <= 2; })).slice(0, 3);
+      seq = seq.concat(P.goalAdds[v.goal] || []);
+      var seen = {};
+      seq = seq.filter(function (c) { if (seen[c] || !byCode[c]) return false; seen[c] = 1; return true; }).slice(0, 6);
+      if (v.mode === "online") seq = seq.filter(function (c) { return ((details[c] && details[c].modes) || ["online"]).indexOf("online") !== -1 || c === "INNO"; });
+      var summary = [label("who", v.who), label("interest", v.interest), label("level", v.level), label("goal", v.goal), label("mode", v.mode), label("format", v.format)];
+      out.innerHTML = '<span class="eyebrow" style="background:rgba(255,255,255,.08);color:#dfe4ff;border-color:rgba(255,255,255,.15)">' + t(L("Your personal plan", "แผนการเรียนของคุณ")) + "</span>" +
+        "<h3>" + t(L("A suggested path, made for you", "เส้นทางที่แนะนำ ออกแบบมาเพื่อคุณ")) + "</h3>" +
+        '<div class="plan-meta">' + summary.slice(4).map(function (s) { return "<span>" + t(s) + "</span>"; }).join("") + "<span>" + t(L("Thai / English", "ไทย / อังกฤษ")) + "</span></div>" +
+        '<ol class="plan-seq" role="list">' + seq.map(function (c, i) {
+          var co = byCode[c];
+          return '<li class="lv-' + co.level + '" style="animation-delay:' + i * 70 + 'ms"><span><strong>' + t(co.title) + "</strong><small>" + c + " · " + t(level(co.level).short) + "</small></span></li>";
+        }).join("") + "</ol>" +
+        "<p>" + t(L("This is a starting point. In a free consultation we adjust modules, pace and your project topic.", "นี่คือจุดเริ่มต้น ในการปรึกษาฟรี เราจะปรับบทเรียน ความเร็ว และหัวข้อโปรเจกต์ให้เหมาะกับคุณ")) + "</p>" +
+        '<a class="btn btn--light" data-magnetic href="' + contactUrl({ topic: "plan", plan: summary.map(function (s) { return s.en; }).join(" · ") + " | " + seq.join(" → ") }) + '">' + t(L("Request this plan", "ขอรับแผนนี้")) + ARROW + "</a>";
+    }
+    form.addEventListener("change", build);
+    build();
+  };
+
+  $$("[data-render]").forEach(function (el) { var fn = R[el.getAttribute("data-render")]; if (fn) fn(el); });
+
+  /* ------------------------------------------------------------ live catalogue from the back office
+     Course status and visibility, the edited test-prep catalogue and the university finder. When the
+     server is not there (opened as files / static hosting), the built-in content stays as it is. */
+  var LIVE = ["courses", "highlights", "groups", "tracks", "adm-courses", "adm-finder", "adm-prep"];
+  function applyLive(d) {
+    var changed = false;
+    Object.keys(d.courses || {}).forEach(function (code) {
+      var c = byCode[code], s = d.courses[code];
+      if (!c) return;
+      if (s.visible === false) { courses.splice(courses.indexOf(c), 1); delete byCode[code]; changed = true; }
+      else if (s.status && s.status !== "open") { c.status = s.status; changed = true; }
+    });
+    if (Array.isArray(d.prepCatalog)) { DATA.prepCatalog = d.prepCatalog; changed = true; }
+    if (Array.isArray(d.pathways)) { DATA.pathways = d.pathways; changed = true; }
+    if (!changed) return;
+    $$("[data-render]").forEach(function (el) {
+      var n = el.getAttribute("data-render");
+      if (LIVE.indexOf(n) !== -1 && R[n]) { R[n](el); $$(".reveal", el).forEach(function (x) { x.classList.add("is-in"); }); }
+    });
+  }
+  if (/^https?:$/.test(location.protocol) && window.fetch && !(window.DD_CONFIG && window.DD_CONFIG.live === false)) {
+    fetch(base + "api/catalog", { credentials: "omit", cache: "no-store" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) { if (d) applyLive(d); }).catch(function () {});
+  }
+
+  /* ------------------------------------------------------------ Course dialog */
+  var dlg = null;
+  function courseDialog(code) {
+    var c = byCode[code];
+    if (!c) return;
+    var d = details[code] || {};
+    var tr = track(c.track);
+    if (!dlg) {
+      dlg = document.createElement("dialog");
+      dlg.className = "dialog";
+      dlg.setAttribute("aria-labelledby", "course-dlg-title");
+      document.body.appendChild(dlg);
+      dlg.addEventListener("click", function (e) { if (e.target === dlg || e.target.closest("[data-dlg-close]")) dlg.close(); });
+    }
+    dlg.className = "dialog dialog--course lv-" + c.level;
+    var modeNames = (d.modes || []).map(function (m) { return t(DATA.modes[m].name); }).join(" · ");
+    var notes = (c.track === "aieng" ? DATA.aiToolsNotice : null) || (c.track === "exam" && DATA.tcas ? DATA.tcas.note : null) || (c.track === "admit" ? DATA.admNotice : null);
+    var dur = duration(c), lv = c.anyLevel ? L("All levels", "ทุกระดับ") : level(c.level).short, g = DATA.groupOf ? DATA.groupOf(c.track) : null;
+    var cfg = (window.DD_CONFIG && window.DD_CONFIG.contact) || {};
+    function fact(ic, label, value, sub) { return '<li><span class="cd-fact__ico">' + icon(ic) + '</span><div><span class="cd-fact__label">' + t(label) + "</span><strong>" + value + "</strong>" + (sub ? "<small>" + sub + "</small>" : "") + "</div></li>"; }
+    dlg.innerHTML =
+      '<div class="dialog__head"><span class="course__top" style="justify-content:flex-start;gap:10px"><span class="course__code">' + c.code + "</span>" + lvlChip(c) + (g ? '<span class="cd-group">' + t(g.name) + "</span>" : "") + "</span>" +
+      '<h2 id="course-dlg-title">' + t(c.title) + '</h2><p class="cd-summary">' + t(c.text) + "</p>" +
+      '<button type="button" class="icon-btn dialog__close" data-dlg-close aria-label="Close">' + CLOSE + "</button></div>" +
+      '<div class="dialog__body">' +
+      '<ul class="cd-facts" role="list">' +
+        fact("academy", L("Approximate length", "ระยะเวลาโดยประมาณ"), dur.main, dur.sub) +
+        fact("book", L("Level & starting point", "ระดับและพื้นฐานที่ควรมี"), t(lv), t(d.prereq || L("Ask us", "สอบถามเรา"))) +
+        fact("video", L("How you can study", "รูปแบบการเรียน"), (d.modes || []).map(function (m) { return t({ online: L("Online", "ออนไลน์"), onsite: L("Onsite", "ที่แล็บ"), hybrid: L("Hybrid", "ไฮบริด") }[m]); }).join(" · "), t(L("Live on Zoom or at our Bangkok lab · one-to-one or small groups", "เรียนสดผ่าน Zoom หรือที่แล็บกรุงเทพฯ · ตัวต่อตัวหรือกลุ่มเล็ก"))) +
+      "</ul>" + testBlock(code) +
+      '<div class="cd-grid"><section><h3>' + t(L("What you'll learn (overview)", "เรียนอะไรบ้าง (โดยสรุป)")) + '</h3><ul class="cd-learn">' + (d.modules || []).slice(0, 6).map(function (m) { return "<li>" + t(m) + "</li>"; }).join("") + "</ul></section>" +
+      "<section><h3>" + t(L("By the end you can", "เมื่อเรียนจบจะทำได้")) + '</h3><ul class="ticks">' + (d.outcomes || []).map(function (o) { return "<li>" + t(o) + "</li>"; }).join("") + "</ul>" +
+      '<h3>' + t(L("Final project", "ผลงานท้ายคอร์ส")) + '</h3><p class="cd-project">' + t(d.project) + "</p></section></div>" +
+      (notes ? '<details class="cd-notes"><summary>' + t(L("Good to know", "ข้อควรทราบ")) + "</summary><p>" + t(notes) + "</p></details>" : "") +
+      (c.status === "closed" ? '<p class="cd-status cd-status--closed">' + t(L("This course is not taking new students right now. Contact us to join the waiting list or for a similar course.", "คอร์สนี้ปิดรับผู้เรียนใหม่ชั่วคราว ติดต่อเราเพื่อลงชื่อรอ หรือขอคอร์สที่ใกล้เคียง")) + "</p>"
+        : c.status === "cancelled" ? '<p class="cd-status cd-status--cancelled">' + t(L("This course has been cancelled. Contact us and we will suggest the best alternative.", "คอร์สนี้ถูกยกเลิกแล้ว ติดต่อเราเพื่อรับคำแนะนำคอร์สทดแทนที่เหมาะสม")) + "</p>" : "") +
+      '<div class="cd-contact"><div><strong>' + t(L("Want the details? Contact our staff.", "ต้องการรายละเอียดเพิ่มเติม? ติดต่อเจ้าหน้าที่")) + "</strong><p>" +
+        t(L("Ask about the exact schedule, fees, a free level check, and how we can shape this course around you.", "สอบถามตารางเรียน ค่าเรียน การวัดระดับฟรี และการปรับหลักสูตรนี้ให้เหมาะกับคุณ")) + "</p>" +
+        '<p class="cd-contact__ways">' + '<a href="mailto:' + esc(cfg.email || EMAIL) + "?subject=" + encodeURIComponent(c.code + " – " + c.title.en) + '">' + esc(cfg.email || EMAIL) + "</a>" +
+        (cfg.phone ? ' · <a href="tel:' + esc(cfg.phone.replace(/[^+\d]/g, "")) + '">' + esc(cfg.phone) + "</a>" : "") +
+        (cfg.lineId ? ' · LINE <a href="https://line.me/R/ti/p/' + encodeURIComponent(cfg.lineId) + '" target="_blank" rel="noopener">' + esc(cfg.lineId) + "</a>" : "") + "</p></div>" +
+        '<a class="btn btn--primary" href="' + contactUrl({ topic: "courses", course: c.code }) + '">' + t(L("Contact staff", "ติดต่อเจ้าหน้าที่")) + ARROW + "</a></div>" +
+      "</div>";
+    if (dlg.showModal) { if (!dlg.open) dlg.showModal(); } else dlg.setAttribute("open", "");
+  }
+  document.addEventListener("click", function (e) {
+    var el = e.target.closest("[data-course]");
+    if (!el) return;
+    e.preventDefault();
+    courseDialog(el.getAttribute("data-course"));
+  });
+  document.addEventListener("keydown", function (e) {
+    var el = e.target.closest && e.target.closest('[data-course][role="button"]');
+    if (el && (e.key === "Enter" || e.key === " ")) { e.preventDefault(); courseDialog(el.getAttribute("data-course")); }
+  });
+  if (initialCourse) setTimeout(function () { courseDialog(initialCourse); }, 300);
+
+  /* ------------------------------------------------------------ Forms (consent required on every submission) */
+  var params = new URLSearchParams(location.search);
+  var cform = $("form[data-mailto-form]");
+  if (cform) {
+    var topic = params.get("topic"), course = params.get("course"), plan = params.get("plan"), goal = params.get("goal");
+    if (topic && cform.elements.topic) {
+      var map = { plan: "plan", custom: "custom", courses: "courses" };
+      cform.elements.topic.value = map[topic] || topic;
+    }
+    if (course && byCode[course]) {
+      var ci = cform.elements.course; if (ci) ci.value = course + " – " + byCode[course].title.en;
+    }
+    if (goal && cform.elements.message && !cform.elements.message.value) {
+      cform.elements.message.value = (lang() === "th" ? "ขอข้อมูลเกณฑ์และกำหนดการล่าสุดสำหรับ: " : "Please send me the latest requirements and dates for: ") + goal +
+        (plan ? (lang() === "th" ? "\nหลักสูตรที่สนใจ: " : "\nCourses I am interested in: ") + plan : "") + "\n\n";
+    } else if ((course || plan) && cform.elements.message && !cform.elements.message.value) {
+      cform.elements.message.value = plan
+        ? (lang() === "th" ? "ฉันสนใจแผนการเรียนนี้: " : "I am interested in this learning plan: ") + plan + "\n\n"
+        : (lang() === "th" ? "ฉันสนใจหลักสูตร " : "I am interested in the course ") + course + (topic === "custom" ? (lang() === "th" ? " และอยากให้ปรับให้เหมาะกับฉัน: " : " and would like it customised: ") : ". ") + "\n\n";
+    }
+  }
+
+  $$("form[data-mailto-form]").forEach(function (form) {
+    form.setAttribute("novalidate", "");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var ok = true;
+      $$(".field", form).forEach(function (f) {
+        var input = $("input, select, textarea", f), err = $(".field__error", f);
+        if (!input) return;
+        var msg = null;
+        if (input.required && !input.value.trim()) msg = L("This field is required.", "กรุณากรอกข้อมูลช่องนี้");
+        else if (input.type === "email" && input.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) msg = L("Please enter a valid email address.", "กรุณากรอกอีเมลให้ถูกต้อง");
+        f.classList.toggle("has-error", !!msg);
+        if (err) err.innerHTML = msg ? t(msg) : "";
+        if (msg && ok) { input.focus(); ok = false; }
+      });
+      $$(".check input[required]", form).forEach(function (c) {
+        var box = c.closest(".check");
+        box.classList.toggle("has-error", !c.checked);
+        if (!c.checked && ok) { c.focus(); ok = false; }
+      });
+      if (!ok) return;
+      var g = function (n) { var x = form.elements[n]; return x ? String(x.value).trim() : ""; };
+      var tEl = form.elements.topic;
+      var topicTxt = tEl ? tEl.options[tEl.selectedIndex].text : "";
+      var now = new Date();
+      var consentLine = "PDPA consent (incl. guardian awareness if under 20): given on " + now.toISOString() + " (privacy policy v" + ((window.DD_PREFS || {}).CONSENT_VERSION || 1) + ")" +
+        (form.elements.marketing && form.elements.marketing.checked ? " · news & updates: yes" : " · news & updates: no");
+      var bodyText = "Name / ชื่อ: " + g("name") + "\nEmail / อีเมล: " + g("email") + "\nOrganisation / หน่วยงาน: " + (g("org") || "-") +
+        "\nTopic / เรื่อง: " + topicTxt + (g("course") ? "\nCourse / หลักสูตร: " + g("course") : "") +
+        "\nPreferred mode / รูปแบบที่สนใจ: " + (g("mode") || "-") + "\n\n" + g("message") + "\n\n---\n" + consentLine;
+      var subject = "[DeepDistrict] " + topicTxt + " – " + g("name");
+      var cfg = (window.DD_CONFIG && window.DD_CONFIG.form) || {};
+      var btn = $("button[type=submit]", form);
+      function done(sent) {
+        var s = $(".form-success", form);
+        if (s) {
+          s.innerHTML = sent
+            ? t(L("Thank you — your message has been sent. We usually reply within two working days.", "ขอบคุณ ข้อความของคุณถูกส่งแล้ว โดยปกติเราจะตอบกลับภายใน 2 วันทำการ"))
+            : t(L("Your email app should now open with the message ready to send. If it did not, email us at " + EMAIL + ".", "แอปอีเมลของคุณควรเปิดขึ้นพร้อมข้อความที่พร้อมส่ง หากไม่เปิด กรุณาส่งอีเมลถึง " + EMAIL));
+          s.classList.add("is-visible"); s.focus();
+        }
+        if (sent) form.reset();
+        // consent must be given again for every new submission
+        $$(".check input", form).forEach(function (c) { c.checked = false; });
+        if (btn) btn.disabled = false;
+      }
+      function viaMail() {
+        window.location.href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(bodyText);
+        done(false);
+      }
+      if (!cfg.endpoint || !window.fetch) return viaMail();
+      if (btn) btn.disabled = true;
+      var payload = { subject: subject, name: g("name"), email: g("email"), organisation: g("org"), topic: topicTxt, course: g("course"), mode: g("mode"), message: g("message"), consent: consentLine, from_name: "DeepDistrict.si website" };
+      if (cfg.accessKey) payload.access_key = cfg.accessKey;
+      var ctrl = window.AbortController ? new AbortController() : null;
+      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, cfg.timeoutMs || 12000);
+      fetch(cfg.endpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(payload), signal: ctrl ? ctrl.signal : undefined })
+        .then(function (r) { clearTimeout(timer); if (!r.ok) throw new Error("HTTP " + r.status); done(true); })
+        .catch(function () { clearTimeout(timer); viaMail(); });
+    });
+  });
+
+  setLang(lang(), false);
+  applyTheme(doc.getAttribute("data-theme-pref") || "auto");
+})();

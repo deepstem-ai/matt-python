@@ -1,0 +1,620 @@
+{
+ "exam": "ielts",
+ "set": 1,
+ "title": {
+  "en": "IELTS Academic — Practice test 1 (Reading + Writing)",
+  "th": "IELTS Academic — ชุดฝึก 1 (Reading + Writing)"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "Reading: 3 passages, 40 questions, 60 minutes. Writing: Task 1 + Task 2, 60 minutes. DeepDistrict practice — not an official IELTS test.",
+  "th": "Reading 3 บทความ 40 ข้อ 60 นาที · Writing Task 1 + Task 2 60 นาที — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบทางการ"
+ },
+ "items": [
+  {
+   "kind": "ielts-r",
+   "title": "Archives in the ice",
+   "topic": {
+    "en": "Climate science and glaciology",
+    "th": "วิทยาศาสตร์ภูมิอากาศและธารน้ำแข็ง"
+   },
+   "difficulty": 1,
+   "labelled": true,
+   "paragraphs": [
+    "The ice sheets of Antarctica and Greenland are the most detailed archives of the Earth's past climate that scientists possess. Each year's snowfall is buried by the next, and over millennia the accumulated layers are compressed into ice that may be more than three kilometres thick. Locked inside are traces of the atmosphere and dust of the time when the snow fell. The longest continuous record recovered so far reaches back roughly 800,000 years, and several international teams are now drilling in the hope of extending it to well over a million.",
+    "Snow does not become ice overnight. Freshly fallen snow is mostly air. As it is buried, the crystals are rounded and packed more tightly into a granular material known as firn, through which air can still move between the grains. Only at a depth of somewhere between 50 and 100 metres do the pores finally close, sealing small samples of air into bubbles. One consequence is easily overlooked: because air continues to circulate through the firn for decades or centuries after the snow itself has fallen, the gas in any bubble is younger than the ice that surrounds it. At sites where little snow accumulates, the difference can amount to several thousand years, and it must be calculated with care before the records of gas and of ice can be compared.",
+    "Drilling teams generally select a dome or a ridge on the ice sheet, where there is minimal horizontal flow, so that the layers lie undisturbed in the order in which they were laid down. A hollow drill extracts a cylinder of ice, which is raised in sections of around three metres and stored at minus 20 degrees Celsius or colder. A particular difficulty arises at intermediate depths, typically between about 600 and 1,200 metres. Here the bubbles are under great pressure, and when the ice is brought up and the confining weight above it is removed, it tends to crack and even shatter. Ice from this so-called brittle zone is therefore commonly left to rest in a storage trench beneath the surface, sometimes for a whole year, while the pressure slowly equalises before it is cut.",
+    "Establishing the age of each layer is the next challenge. In the upper part of a core, annual layers can be counted much like tree rings, using visible bands as well as chemical signals that peak in a particular season. Deeper down, however, the weight of the overlying ice stretches the layers so thin that they can no longer be distinguished, and researchers turn instead to computer models of how the ice has flowed. These models are anchored by fixed points such as layers of volcanic ash or sulphate from eruptions whose dates are known independently. Very large eruptions deposit material in both hemispheres, which allows cores from Greenland and Antarctica to be placed on a common timescale.",
+    "Past temperatures can be read from the water itself. Molecules containing heavier isotopes of oxygen and hydrogen condense more readily than lighter ones, so the colder the air, the smaller the share of heavy molecules that reaches the polar snow. By measuring this ratio, scientists can estimate the temperature at which the snow formed. The method has pitfalls. The relationship between the ratio and temperature is usually calibrated using differences between places today, and there is no guarantee that it held in the past. If, for instance, a greater proportion of the year's snow fell in summer during some earlier period, the record would suggest a warmer climate than actually existed. An independent check comes from the borehole itself: the ice retains a faint memory of past surface temperatures, which can be measured with sensitive thermometers lowered down the hole. In central Greenland, such measurements indicated that the coldest part of the last glacial period had been substantially colder than the isotopes alone had implied.",
+    "Greenhouse gases are measured as well. When samples are crushed in a vacuum, the air released from the bubbles can be analysed directly. Over the past 800,000 years, the concentration of carbon dioxide rose and fell between roughly 180 parts per million in glacial periods and about 280 in warm intervals; today it exceeds 420. Antarctic ice is preferred for these measurements. Greenland ice contains more dust and other impurities, and chemical reactions between them can generate additional carbon dioxide inside the ice, distorting the record, although Greenland cores remain invaluable for methane and for precise dating.",
+    "The search is now on for ice that is 1.5 million years old or more. Such a record would cover a puzzling period about a million years ago when the rhythm of ice ages changed from cycles of roughly 41,000 years to cycles of around 100,000 years. At the base of the thickest ice sheets, heat escaping from the rock below can melt the oldest layers away. Candidate sites are identified through airborne radar surveys that reveal the internal structure of the ice and the temperature conditions at its base. Even where ancient ice survives, the deepest layers are so compressed that a single metre may contain more than 10,000 years."
+   ],
+   "groups": [
+    {
+     "type": "tfng",
+     "instructions": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.",
+     "questions": [
+      {
+       "text": "The air sealed into a layer of ice is of the same age as the frozen snow that encloses it.",
+       "answer": [
+        "FALSE"
+       ]
+      },
+      {
+       "text": "Sections of core from intermediate depths are usually cut up as soon as they reach the surface.",
+       "answer": [
+        "FALSE"
+       ]
+      },
+      {
+       "text": "Volcanic material is found more frequently in Greenland cores than in Antarctic ones.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      },
+      {
+       "text": "A change in the season when most snow falls could make a past climate appear warmer than it was.",
+       "answer": [
+        "TRUE"
+       ]
+      },
+      {
+       "text": "Temperature measurements made in a borehole suggested that the last ice age had been less severe than isotope evidence indicated.",
+       "answer": [
+        "FALSE"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "matching-info",
+     "instructions": "Reading Passage 1 has seven paragraphs, A–G. Which paragraph contains the following information? Write the correct letter, A–G. NB You may use any letter more than once.",
+     "questions": [
+      {
+       "text": "a way of testing an estimate by using a separate source of evidence",
+       "answer": [
+        "E"
+       ]
+      },
+      {
+       "text": "a means of matching records taken from opposite ends of the globe",
+       "answer": [
+        "D"
+       ]
+      },
+      {
+       "text": "the reason why some ice is not processed immediately after it is drilled",
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "an assumption about the present that may not apply to the distant past",
+       "answer": [
+        "E"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "flowchart-completion",
+     "instructions": "Complete the flow-chart below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
+     "wordLimit": {
+      "words": 2,
+      "number": false
+     },
+     "context": "From snowfall to dated sample\n\nFresh snow is buried by later snowfall\n↓\nGrains become rounder and are packed into (10) ______, through which air can still circulate\n↓\nAt 50–100 metres the pores close and air is trapped in (11) ______\n↓\nDrilling takes place on a dome or ridge where there is little (12) ______, so the layers stay in order\n↓\nIn the upper core, (13) ______ are counted; deeper down, flow models are fixed to dated eruptions",
+     "questions": [
+      {
+       "text": "(10) ______",
+       "answer": [
+        "firn"
+       ]
+      },
+      {
+       "text": "(11) ______",
+       "answer": [
+        "bubbles"
+       ]
+      },
+      {
+       "text": "(12) ______",
+       "answer": [
+        "horizontal flow"
+       ]
+      },
+      {
+       "text": "(13) ______",
+       "answer": [
+        "annual layers"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-r",
+   "title": "Counting the uncountable",
+   "topic": {
+    "en": "Wildlife ecology and conservation",
+    "th": "นิเวศวิทยาและการอนุรักษ์สัตว์ป่า"
+   },
+   "difficulty": 2,
+   "labelled": true,
+   "paragraphs": [
+    "Almost every decision in wildlife conservation rests on a number. Whether a species is listed as endangered, whether a hunting quota is raised or lowered, whether a reserve is judged a success: each depends on knowing roughly how many animals there are. Yet animals rarely cooperate with those who wish to count them. They move, hide, live at low densities across vast areas, and are often active at night. A complete count is possible only in unusual cases, such as seabirds packed into a breeding colony. For most species, a population figure is not a count at all but a statistical inference, and as the ecologist Hannah Ruiz puts it, \"a number without a margin of error is closer to a rumour than a measurement\".",
+    "The oldest of these inferential techniques, capture–recapture, is elegantly simple. Researchers catch a sample of animals, mark them and release them. Later they catch a second sample and note what proportion is already marked. If 200 animals are marked and, of 150 caught on the second occasion, 30 carry a mark, the marked animals are assumed to make up one-fifth of the whole population, giving an estimate of 1,000. The method, however, relies on several assumptions: that no animals are born, die or migrate between the two samples, that marks are not lost, and above all that every animal is equally likely to be caught. Behaviour frequently undermines the last of these. Animals that learn to associate traps with free food become \"trap-happy\" and are recaptured too often, which drives the estimate down; \"trap-shy\" animals that avoid traps after a first unpleasant experience have the opposite effect.",
+    "For large or dangerous animals, physically catching individuals is costly and risky for both the animal and the researcher. Since the 1990s, an animal's own DNA has increasingly served as its mark. Strands of barbed wire placed around a scented lure snag tufts of hair from passing bears; droppings collected along trails can be analysed in the same way. Each genetic profile identifies an individual, and repeated detections of the same profile play the role of recaptures. The approach has a hidden weakness. Samples collected in the field often contain small or degraded quantities of DNA, and errors in reading the genetic profile can produce so-called ghost individuals, animals that do not exist, which inflate the estimate. The geneticist Tomas Lind argues that analysing each sample several times, and discarding any that give inconsistent results, is the only reliable safeguard, even though it multiplies laboratory costs.",
+    "Camera traps offer another route. For species whose coats carry distinctive patterns, such as tigers, jaguars and snow leopards, each photograph can be matched to a known individual by its stripes or rosettes, so the camera does the work of capture and the animal's own appearance replaces an artificial tag. Modern statistical methods also take account of where each animal was photographed, so that population density can be estimated directly. Aiko Mori, who has studied big cats in South-East Asia, cautions that cameras are often placed on trails and roads because animals use them, but some individuals, particularly young females, avoid such routes, so the resulting estimates may be biased. For species without natural markings, techniques exist for estimating numbers of unidentified animals, but they are considerably less precise.",
+    "Where animals can be seen in the open, distance sampling is widely used. Observers travel along predetermined lines and record the perpendicular distance from the line to each animal they spot. Because detection becomes less likely with distance, the pattern of recorded distances can be used to work out how many animals were missed. The method depends on the assumption that anything directly on the line is always detected, which is reasonable for antelope on a grassland but not for whales, which may spend many minutes below the surface. Marine researchers, including Lucia Ferrante, have therefore developed correction factors based on diving behaviour recorded by tags attached to individual whales.",
+    "In dense forest or in the ocean, sound may be easier to collect than sight. Inexpensive recorders can be left in place for months, capturing the calls of birds, frogs, bats and whales, and machine-learning classifiers can now sort thousands of hours of recordings by species. The difficulty lies in turning calls into animals. The number of calls recorded depends on how often individuals call, which varies with season, time of day, breeding status and even the density of the population itself. The bioacoustician Kwame Asante is blunt: acoustic data, he says, tell us where and when a species is present, \"but rarely how many\". Some progress has been made where individuals have recognisable voices, but for most species this remains out of reach.",
+    "The newest technique goes further still, dispensing with the animal altogether. Every organism sheds cells, mucus and waste into its surroundings, and fragments of this environmental DNA can be filtered from a litre of river or pond water and identified. The method has proved remarkably sensitive in detecting rare or secretive species, such as certain salamanders, that conventional surveys miss. Relating the quantity of DNA to the number of animals, however, has proved much harder. In controlled ponds the relationship can be strong, but in rivers the signal is affected by water flow, temperature and the speed at which DNA breaks down. Ruiz believes the future lies not in any single method but in models that combine several kinds of data, each compensating for the weaknesses of the others."
+   ],
+   "groups": [
+    {
+     "type": "headings",
+     "instructions": "Reading Passage 2 has seven paragraphs, A–G. Choose the correct heading for paragraphs B–G from the list of headings below.",
+     "options": [
+      {
+       "key": "i",
+       "text": "The obstacles to converting recorded calls into population figures"
+      },
+      {
+       "key": "ii",
+       "text": "Letting an animal's appearance do the work of a tag"
+      },
+      {
+       "key": "iii",
+       "text": "A simple calculation that depends on how animals react to being caught"
+      },
+      {
+       "key": "iv",
+       "text": "Detecting presence is easier than measuring abundance"
+      },
+      {
+       "key": "v",
+       "text": "A substitute for physical marks and the danger of counting animals that are not there"
+      },
+      {
+       "key": "vi",
+       "text": "Allowing for the animals observers fail to notice"
+      },
+      {
+       "key": "vii",
+       "text": "Why tagging large mammals has become too expensive"
+      },
+      {
+       "key": "viii",
+       "text": "New software that recognises the voices of individual animals"
+      },
+      {
+       "key": "ix",
+       "text": "Why complete counts remain the most trustworthy method"
+      }
+     ],
+     "questions": [
+      {
+       "text": "Paragraph B",
+       "answer": [
+        "iii"
+       ]
+      },
+      {
+       "text": "Paragraph C",
+       "answer": [
+        "v"
+       ]
+      },
+      {
+       "text": "Paragraph D",
+       "answer": [
+        "ii"
+       ]
+      },
+      {
+       "text": "Paragraph E",
+       "answer": [
+        "vi"
+       ]
+      },
+      {
+       "text": "Paragraph F",
+       "answer": [
+        "i"
+       ]
+      },
+      {
+       "text": "Paragraph G",
+       "answer": [
+        "iv"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "matching-features",
+     "instructions": "Look at the following statements and the list of researchers below. Match each statement with the correct researcher, A–E. NB You may use any letter more than once.",
+     "options": [
+      {
+       "key": "A",
+       "text": "Hannah Ruiz"
+      },
+      {
+       "key": "B",
+       "text": "Tomas Lind"
+      },
+      {
+       "key": "C",
+       "text": "Aiko Mori"
+      },
+      {
+       "key": "D",
+       "text": "Lucia Ferrante"
+      },
+      {
+       "key": "E",
+       "text": "Kwame Asante"
+      }
+     ],
+     "questions": [
+      {
+       "text": "Where equipment is located may lead some members of a population to be under-represented.",
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "A population estimate is of little value unless its degree of uncertainty is stated.",
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "Repeating the analysis of each sample is necessary, despite the extra expense.",
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "The most promising approach is to merge evidence from different methods.",
+       "answer": [
+        "A"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "short-answer",
+     "instructions": "Answer the questions below. Choose NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage for each answer.",
+     "wordLimit": {
+      "words": 2,
+      "number": true
+     },
+     "questions": [
+      {
+       "text": "In the worked example of capture–recapture, what is the estimated size of the population?",
+       "answer": [
+        "1,000",
+        "1000",
+        "one thousand"
+       ]
+      },
+      {
+       "text": "What name is given to the non-existent animals produced by mistakes in reading genetic profiles?",
+       "answer": [
+        "ghost individuals"
+       ]
+      },
+      {
+       "text": "What kind of tools are now used to sort large quantities of recorded sound by species?",
+       "answer": [
+        "machine-learning classifiers",
+        "classifiers"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-r",
+   "title": "The limits of the nudge",
+   "topic": {
+    "en": "Behavioural economics and public policy",
+    "th": "เศรษฐศาสตร์พฤติกรรมและนโยบายสาธารณะ"
+   },
+   "difficulty": 3,
+   "labelled": true,
+   "paragraphs": [
+    "Few ideas from the social sciences have travelled from the seminar room to the corridors of government as quickly as the \"nudge\". The premise is attractive in its modesty. People, the argument runs, do not always act in their own long-term interest, not because they lack information or incentives but because of predictable quirks of attention, inertia and habit. Rather than ban, tax or subsidise, governments can redesign the context in which choices are made, changing the default option, simplifying a form, or sending a timely reminder, while leaving every option open. Within a decade of the idea becoming widely known, dozens of governments had established specialist teams to apply it.",
+    "It would be churlish to deny that some of these interventions have worked. The clearest case is retirement saving. When employees must actively sign up for a workplace pension, many never get round to it, even when they say they intend to. When they are enrolled automatically and must actively opt out, participation typically rises dramatically and remains high for years. Here, a change that costs almost nothing has altered the financial futures of millions of people, and it is hard to imagine a conventional policy achieving the same effect so cheaply. The case also shows why defaults are so powerful: the option that requires no action tends to be read as an implicit recommendation, so changing it sends a message as well as altering a procedure.",
+    "The difficulty is that pensions have become the exception that is presented as the rule. The early literature on nudges was full of striking results: letters that dramatically raised tax payments, reminders that substantially reduced missed medical appointments. When researchers later compared trials published in academic journals with the full set of trials run by government behavioural teams, which had no reason to leave unsuccessful experiments unreported, the average effect in the latter turned out to be a fraction of that in the former. Part of the gap reflects the familiar tendency of journals to publish positive findings while disappointing ones remain in a drawer. Part reflects the fact that early studies were often small, and small studies that happen to produce large effects are precisely the ones that attract attention. None of this implies dishonesty on the part of researchers; it is how the incentives of academic publishing operate. But it does mean that the government figures, modest as they are, are the better guide to what policy can expect.",
+    "Modest effects are not worthless. An intervention that raises vaccination rates by one or two percentage points at almost no cost may be an excellent use of public money. My concern is less with the size of the effects than with what nudges may crowd out. Consider household energy use. Letters comparing a household's consumption with that of its neighbours reliably reduce usage, by a little. They are cheap, uncontroversial and easy to announce. A substantial tax on carbon, by contrast, would be far more effective and far less popular. The danger is that a government can point to its letters as evidence that it is acting while avoiding the measure that would actually make a difference. In such cases, the nudge becomes not a complement to serious policy but a substitute for it.",
+    "There is some evidence that this is more than a theoretical worry. In experiments in which participants were told about a proposed nudge to reduce carbon emissions, their support for a carbon tax fell, apparently because they believed the problem could be solved more painlessly. One should be cautious about generalising from such studies, but the mechanism is plausible, and it suggests that the political appeal of nudges, which is that they ask little of anyone, may also be their principal weakness. A policy that costs voters nothing may also persuade them that nothing more is required.",
+    "Critics from a different direction object that nudges are manipulative: they work, it is said, by exploiting cognitive weaknesses rather than by appealing to reason, and so treat citizens as something less than rational adults. Much of this objection collapses on inspection. Every form must list its options in some order; every scheme must have some default, even if that default is that nothing happens. A neutral design is simply not available, and a government that refuses to think about choice architecture has not avoided influencing people, only avoided doing so deliberately.",
+    "One part of the objection, however, survives. A nudge that is effective only so long as people are unaware of it is objectionable in a way that an automatic pension scheme, whose terms are announced openly, is not. The appropriate test is whether an intervention would still be acceptable, and still function, if those affected knew exactly how it worked. Most defaults pass this test easily. Some techniques, such as deliberately exploiting the fear of missing out with false claims that an offer is about to expire, clearly fail it. It follows that governments should publish the nudges they employ and the evidence on which they are based, a requirement that the best behavioural teams already meet voluntarily.",
+    "None of this amounts to a case for abandoning the approach. Behavioural insights have improved the design of forms, letters and services in ways that are genuinely useful, and the habit of testing policies with randomised trials, which behavioural teams did much to popularise, is valuable in its own right. The error lies in expecting too much. Nudges are best understood as a way of making good policies work better, not as a cheaper alternative to making them. A government that remembers this will find them a useful tool; one that forgets it may find that it has nudged itself into doing very little."
+   ],
+   "groups": [
+    {
+     "type": "ynng",
+     "instructions": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.",
+     "questions": [
+      {
+       "text": "Automatically enrolling workers in pension schemes has produced results that would be difficult to match by other means at a similar cost.",
+       "answer": [
+        "YES"
+       ]
+      },
+      {
+       "text": "Researchers who reported large effects in early nudge studies were guilty of deliberately misleading their readers.",
+       "answer": [
+        "NO"
+       ]
+      },
+      {
+       "text": "Most of the improvements in energy use produced by comparison letters disappear after a few months.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      },
+      {
+       "text": "The accusation that nudges manipulate people is entirely without foundation.",
+       "answer": [
+        "NO"
+       ]
+      },
+      {
+       "text": "Government behavioural teams should be required to have their trials checked by independent experts.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "mcq",
+     "instructions": "Choose the correct letter, A, B, C or D.",
+     "questions": [
+      {
+       "text": "What does the writer conclude from the comparison of academic and government trials in paragraph C?",
+       "options": [
+        {
+         "key": "A",
+         "text": "Government teams tend to choose less ambitious interventions than academics do."
+        },
+        {
+         "key": "B",
+         "text": "The smaller effects found by government teams give a more realistic picture."
+        },
+        {
+         "key": "C",
+         "text": "Academic journals should no longer publish small studies."
+        },
+        {
+         "key": "D",
+         "text": "The two sets of results are too different to be meaningfully compared."
+        }
+       ],
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "The writer uses the example of letters about household energy use to show that",
+       "options": [
+        {
+         "key": "A",
+         "text": "people are more influenced by their neighbours than by prices."
+        },
+        {
+         "key": "B",
+         "text": "nudges are rarely effective when they deal with environmental issues."
+        },
+        {
+         "key": "C",
+         "text": "a low-cost measure may allow a government to avoid a more effective one."
+        },
+        {
+         "key": "D",
+         "text": "carbon taxes are unpopular because their benefits are poorly explained."
+        }
+       ],
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "What is the writer's main point in paragraph F?",
+       "options": [
+        {
+         "key": "A",
+         "text": "Influencing choices cannot be avoided, so the real question is whether it is done intentionally."
+        },
+        {
+         "key": "B",
+         "text": "Citizens are generally too irrational to make good decisions without help."
+        },
+        {
+         "key": "C",
+         "text": "Defaults in which nothing happens are the fairest kind of choice design."
+        },
+        {
+         "key": "D",
+         "text": "Governments should stop designing forms and leave this to independent bodies."
+        }
+       ],
+       "answer": [
+        "A"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "mcq-multi",
+     "instructions": "Choose TWO letters, A–E.",
+     "questions": [
+      {
+       "text": "Which TWO reasons does the writer give for the difference between the results of early published studies and those of government teams?",
+       "options": [
+        {
+         "key": "A",
+         "text": "Studies with disappointing results were less likely to appear in print."
+        },
+        {
+         "key": "B",
+         "text": "Government teams tested their interventions on larger and more varied populations."
+        },
+        {
+         "key": "C",
+         "text": "Early studies were frequently conducted with few participants."
+        },
+        {
+         "key": "D",
+         "text": "People had become used to nudges by the time government trials began."
+        },
+        {
+         "key": "E",
+         "text": "Academic researchers exaggerated their findings to win funding."
+        }
+       ],
+       "answer": [
+        "A",
+        "C"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "summary-box",
+     "instructions": "Complete the summary using the list of words, A–I, below. Write the correct letter, A–I.",
+     "options": [
+      {
+       "key": "A",
+       "text": "manipulative"
+      },
+      {
+       "key": "B",
+       "text": "neutral"
+      },
+      {
+       "key": "C",
+       "text": "concealed"
+      },
+      {
+       "key": "D",
+       "text": "disclose"
+      },
+      {
+       "key": "E",
+       "text": "expensive"
+      },
+      {
+       "key": "F",
+       "text": "prohibit"
+      },
+      {
+       "key": "G",
+       "text": "popular"
+      },
+      {
+       "key": "H",
+       "text": "rational"
+      },
+      {
+       "key": "I",
+       "text": "temporary"
+      }
+     ],
+     "context": "Some critics claim that nudges are (11) ______ because they rely on weaknesses in human thinking instead of on argument. The writer rejects most of this criticism, pointing out that it is impossible to present choices in a (12) ______ way. Nevertheless, the writer agrees that an intervention which succeeds only while its workings remain (13) ______ cannot be justified. For this reason, governments ought to (14) ______ both the nudges they use and the supporting evidence.",
+     "questions": [
+      {
+       "text": "(11) ______",
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "(12) ______",
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "(13) ______",
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "(14) ______",
+       "answer": [
+        "D"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-w",
+   "task": 1,
+   "visual": "table",
+   "prompt": "The table below shows the average number of hours per week that boys and girls aged 13–17 in one country spent on five activities outside school hours in 2010 and 2025.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.",
+   "table": {
+    "title": "Average hours per week spent on activities outside school, ages 13–17",
+    "rows": [
+     [
+      "Activity",
+      "Boys 2010",
+      "Girls 2010",
+      "Boys 2025",
+      "Girls 2025"
+     ],
+     [
+      "Social media and messaging",
+      "4.5",
+      "6.0",
+      "13.0",
+      "17.5"
+     ],
+     [
+      "Homework and private study",
+      "7.0",
+      "8.5",
+      "6.5",
+      "8.0"
+     ],
+     [
+      "Sport and exercise",
+      "6.5",
+      "4.0",
+      "4.5",
+      "3.0"
+     ],
+     [
+      "Reading for pleasure",
+      "3.0",
+      "4.5",
+      "1.5",
+      "2.5"
+     ],
+     [
+      "Paid part-time work",
+      "2.5",
+      "2.0",
+      "1.0",
+      "1.5"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "ielts-w",
+   "task": 2,
+   "essayType": "opinion",
+   "prompt": "Now that artificial intelligence tools can produce fluent essays in seconds, some educators argue that schools should stop setting written homework altogether and assess students' writing only under supervision in the classroom.\n\nTo what extent do you agree or disagree?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words."
+  }
+ ]
+}
