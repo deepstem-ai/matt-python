@@ -278,7 +278,9 @@
     }
     dlg.innerHTML = '<form method="dialog" class="modal__box"><header><h2>' + A.esc(opts.title) + '</h2><button type="button" class="ibtn" data-x aria-label="Close">✕</button></header>' +
       (opts.intro ? '<p class="modal__intro">' + opts.intro + "</p>" : "") +
-      '<div class="mf-grid">' + opts.fields.map(field).join("") + "</div>" +
+      '<div class="mf-grid">' + opts.fields.filter(function (f) { return !f.more; }).map(field).join("") +
+      (opts.fields.some(function (f) { return f.more; }) ? '<details class="mf-more"><summary>' + A.L("More details (optional)", "รายละเอียดเพิ่มเติม (ไม่บังคับ)") + '</summary><div class="mf-grid">' +
+        opts.fields.filter(function (f) { return f.more; }).map(field).join("") + "</div></details>" : "") + "</div>" +
       '<p class="mf-error" role="alert"></p>' +
       "<footer>" + (opts.onDelete ? '<button type="button" class="btn btn--danger" data-del>' + A.L("Archive", "ย้ายไปที่เก็บถาวร") + "</button>" : "") +
       (opts.history && A.isAdmin() ? '<button type="button" class="btn" data-hist>' + A.L("History", "ประวัติการแก้ไข") + "</button>" : "") +

@@ -1,5 +1,19 @@
 # Changelog
 
+## 6.3 r1 — October 2026
+- **Adding students is simple.** Students never sign up themselves — the admin adds them:
+  - Dashboard → big **Add a student** button (also *Enrol in a course*, *Record a payment*, *Calendar*).
+  - The student form asks only for the name; nickname, phone, school, grade and parent are optional, and a
+    **new parent** can be typed right there (name + phone). Email, password, PDPA date and notes sit
+    under *More details (optional)*. After saving, the system offers to enrol the student straight away.
+  - The enrolment form has **+ New student** at the top of the student list (with parent name and phone),
+    so a parent who walks in can be enrolled, paid and scheduled in one form. Rate, discount, status, first
+    lesson date and goal moved under *More details*.
+- **Cleaner menu:** each role sees only its everyday pages (admin: Dashboard, Students & parents,
+  Enrolments, Calendar, Payments, Requests, Online tests, News blog, Settings); everything else is folded
+  under **More menus** (remembered, and opened automatically when you are on one of those pages).
+  "People" is now **Students & parents**.
+
 ## 6.2 r1 — October 2026
 - **Regular lessons are recorded automatically.** When a scheduled lesson's time has passed and nobody
   updated it, it becomes *done — regular lesson (recorded automatically)*, so hours, the portal and the
