@@ -7,6 +7,10 @@
    ========================================================================== */
 (function () {
   "use strict";
+  var M1NAME = { sk1: ["Suankularb M.1 · GATE / EPLUS+", "สวนกุหลาบ ม.1 · GATE / EPLUS+"], sp1: ["Satit Prasarnmit M.1", "สาธิตประสานมิตร ม.1"],
+    sk4: ["Suankularb M.4 · GATE / EPLUS+", "สวนกุหลาบ ม.4 · GATE / EPLUS+"], sp4: ["Satit Prasarnmit M.4", "สาธิตประสานมิตร ม.4"],
+    tu4: ["Triam Udom Suksa M.4", "เตรียมอุดมศึกษา ม.4"], alevel: ["A-Level English (TCAS)", "A-Level ภาษาอังกฤษ (TCAS)"],
+    gate: ["Suankularb M.1 · GATE", "สวนกุหลาบ ม.1 · GATE"], ep: ["Suankularb M.1 · EP", "สวนกุหลาบ ม.1 · EP"] };
   var A = window.DDA, L = A.L, esc = A.esc, $ = A.$, $$ = A.$$;
   var PH = { lobby: ["Waiting", "รอเริ่ม"], open: ["Answering", "กำลังตอบ"], locked: ["Closed", "ปิดรับคำตอบ"], reveal: ["Answer shown", "เฉลยแล้ว"], ended: ["Ended", "จบแล้ว"] };
   function when(iso) { return iso ? new Date(iso).toLocaleString(A.lang === "th" ? "th-TH" : "en-GB", { dateStyle: "medium", timeStyle: "short" }) : "–"; }
@@ -65,7 +69,7 @@
       setsCache = d.items;
       var el = $("[data-sets]"); if (!el) return;
       el.innerHTML = d.items.length ? d.items.map(function (x) {
-        return '<section class="box qset"><div class="qset__head"><div><h2>' + esc(x.title) + "</h2><p class=\"muted\">" + ({ sat: "SAT Reading & Writing", "ielts-r": "IELTS Academic Reading", "ielts-w": "IELTS Academic Writing", m1: x.exam === "ep" ? "Suankularb M.1 · EP" : "Suankularb M.1 · GATE" }[x.kind] || x.kind) + " · " + x.questions + (x.kind === "ielts-w" ? L(" tasks", " งาน") : L(" questions", " ข้อ")) + (x.minutes ? " · " + x.minutes + L(" min", " นาที") : "") +
+        return '<section class="box qset"><div class="qset__head"><div><h2>' + esc(x.title) + "</h2><p class=\"muted\">" + ({ sat: "SAT Reading & Writing", "ielts-r": "IELTS Academic Reading", "ielts-w": "IELTS Academic Writing", m1: M1NAME[x.exam] ? L(M1NAME[x.exam][0], M1NAME[x.exam][1]) : L("Entrance practice (English)", "ข้อสอบฝึกสอบเข้า (อังกฤษ)") }[x.kind] || x.kind) + " · " + x.questions + (x.kind === "ielts-w" ? L(" tasks", " งาน") : L(" questions", " ข้อ")) + (x.minutes ? " · " + x.minutes + L(" min", " นาที") : "") +
           (x.source === "ready-made" ? " · " + L("ready-made", "ชุดสำเร็จรูป") : "") + (x.published ? " · ✅ " + L("open to learners", "เปิดให้นักเรียนทำ") : "") + " · " + L("answer order v", "ลำดับตัวเลือก v") + (x.variant || 1) + (x.note ? " · " + esc(x.note) : "") +
           " · " + L("updated ", "แก้ไข ") + esc(when(x.updatedAt)) + (A.isAdmin() && x.ownerName ? " · " + esc(x.ownerName) : "") + "</p></div>" +
           '<div class="btnrow">' + (x.kind === "ielts-w" ? "" : '<button class="btn btn--primary" data-live-set="' + esc(x.id) + '">▶ ' + L("Start live class", "เปิดห้องเรียนสด") + "</button>") + '<button class="btn" data-pdf-set="' + esc(x.id) + '" data-key="0">' + L("Student PDF (notes)", "PDF นักเรียน (ช่องโน้ต)") + '</button>' +

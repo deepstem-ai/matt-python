@@ -10,7 +10,7 @@ import json
 
 import images
 
-V = 6        # bump to add newly written starter posts (existing ones are never touched again)
+V = 7        # bump to add newly written starter posts (existing ones are never touched again)
 
 
 def _cover(c1, c2, label, glyph):
@@ -225,7 +225,10 @@ def seed(con):
             except Exception:  # noqa: BLE001 — a missing cover never blocks the post
                 p["cover"], p["coverKind"] = "", ""
         p["photoQuery"] = str(x.get("photoQuery") or "")[:120]
-        if p["status"] != "published":
+        if x.get("review"):                       # a claim we could not confirm: staff check it before it goes live
+            if p["status"] not in ("review", "published"):
+                blog.set_status(p, "review", cfg, "DeepDistrict")
+        elif p["status"] != "published":
             blog.set_status(p, "published", cfg, "DeepDistrict")
         p["seed"] = True
         p["seedHash"] = _hash(p)

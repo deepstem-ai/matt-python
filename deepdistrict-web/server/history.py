@@ -10,7 +10,7 @@ import json
 
 SKIP = {"archive", "auth_sessions", "line_codes", "credentials", "sqlite_sequence"}   # sign-in secrets are not kept
 UPDATES = {"records": "OLD.data IS NOT NEW.data OR OLD.archived IS NOT NEW.archived",
-           "kv": "OLD.value IS NOT NEW.value AND OLD.key NOT IN ('line_usage')",
+           "kv": "OLD.value IS NOT NEW.value AND OLD.key NOT IN ('line_usage', 'feedStatus', 'feedLast')",
            "exam_items": "OLD.data IS NOT NEW.data", "question_sets": "OLD.data IS NOT NEW.data",
            "blog_posts": "OLD.data IS NOT NEW.data"}
 NOW = "strftime('%Y-%m-%dT%H:%M:%SZ','now')"

@@ -135,16 +135,59 @@
     }).catch(function () { if (sec) sec.hidden = true; });
   });
 
+  /* ---------------------------------------------------------------- news from other publishers (RSS)
+     [data-feeds="9"] shows headlines the DeepDistrict server collects from trusted publishers: title, a short
+     excerpt, the publisher's name and a link to read the full story on their site (credit + traffic go to
+     them). data-feeds-filters adds category chips. Hidden when there is no server or nothing collected. */
+  var FCATS = [["", "All", "ทั้งหมด"], ["ai", "AI", "AI"], ["si", "SI", "SI"], ["stem", "STEM", "STEM"], ["research", "Science & research", "วิทยาศาสตร์และงานวิจัย"], ["space", "Space", "อวกาศ"], ["coding", "Tech & coding", "เทคโนโลยีและโค้ดดิ้ง"]];
+  function fcat(k) { var c = FCATS.filter(function (x) { return x[0] === k; })[0]; return c ? bi(c[1], c[2]) : esc(k); }
+  function feedCard(it) {
+    var u = safeUrl(it.link) || (/^http:\/\//.test(it.link) ? it.link : "");
+    var im = img(it.image);
+    return '<article class="card feed-card">' + (im ? '<div class="feed-card__img"><img src="' + esc(im) + '" alt="" loading="lazy" referrerpolicy="no-referrer"></div>' : "") +
+      '<div class="feed-card__body"><p class="feed-card__src"><span class="feed-card__pub">' + esc(it.source) + '</span><span class="feed-card__cat">' + fcat(it.category) + "</span></p>" +
+      '<h3><a href="' + esc(u) + '" target="_blank" rel="noopener nofollow">' + esc(it.title) + "</a></h3>" +
+      (it.summary ? "<p>" + esc(it.summary) + "</p>" : "") +
+      '<p class="feed-card__foot"><span>' + date(it.published) + '</span><a href="' + esc(u) + '" target="_blank" rel="noopener nofollow">' + bi("Read at ", "อ่านต่อที่ ") + esc(it.source) + " ↗</a></p></div></article>";
+  }
+  function getFeeds(q) {
+    if (!online) return Promise.reject(new Error("offline"));
+    return fetch(API + "feeds?" + q, { credentials: "omit" }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); });
+  }
+  document.querySelectorAll("[data-feeds]").forEach(function (el) {
+    var n = +el.getAttribute("data-feeds") || 9, sec = el.closest("section"), filters = el.hasAttribute("data-feeds-filters");
+    if (!online) { if (sec) sec.hidden = true; return; }
+    function draw(cat, offset) {
+      getFeeds("limit=" + n + "&offset=" + (offset || 0) + (cat ? "&cat=" + cat : "")).then(function (d) {
+        if (!d.items.length && !cat && !offset) { if (sec) sec.hidden = true; return; }
+        if (sec) sec.hidden = false;
+        el.innerHTML = (filters ? '<div class="news-cats feed-cats">' + FCATS.map(function (c) { return '<button type="button" class="news-chip' + (c[0] === (cat || "") ? " is-on" : "") + '" data-fcat="' + c[0] + '">' + bi(c[1], c[2]) + "</button>"; }).join("") + "</div>" : "") +
+          (d.items.length ? '<div class="grid grid--3 feed-grid">' + d.items.map(feedCard).join("") + "</div>" : '<p class="news-empty">' + bi("Nothing in this category yet.", "ยังไม่มีข่าวในหมวดนี้") + "</p>") +
+          (filters && d.total > (offset || 0) + n ? '<div class="btn-row news-more"><button class="btn" type="button" data-fmore>' + bi("More headlines", "ข่าวเพิ่มเติม") + "</button></div>" : "") +
+          '<p class="feed-note">' + bi("Headlines and short excerpts from each publisher's public news feed — every story belongs to its publisher; tap to read it on their website.",
+            "หัวข่าวและบทคัดย่อสั้น ๆ จากช่องทางข่าวสาธารณะ (RSS) ของแต่ละสำนักข่าว ลิขสิทธิ์เป็นของผู้เผยแพร่ กดเพื่ออ่านฉบับเต็มบนเว็บไซต์ต้นทาง") +
+          (d.sources && d.sources.length ? " " + bi("Sources: ", "แหล่งข่าว: ") + d.sources.map(function (x) { return esc(x.name); }).join(" · ") : "") + "</p>";
+        el.querySelectorAll("[data-fcat]").forEach(function (b) { b.addEventListener("click", function () { draw(b.getAttribute("data-fcat"), 0); }); });
+        var more = el.querySelector("[data-fmore]"); if (more) more.addEventListener("click", function () { draw(cat, (offset || 0) + n); });
+      }).catch(function () { if (sec && !offset) sec.hidden = true; });
+    }
+    draw("", 0);
+  });
+
   /* ---------------------------------------------------------------- headline ticker (home hero) */
   // [data-blog-ticker="10"]: the newest headlines run along the bottom of the hero; hover or focus stops
   // it, the pause button stops it for good, and with "reduce motion" the headlines change one at a time.
   document.querySelectorAll("[data-blog-ticker]").forEach(function (el) {
     var n = +el.getAttribute("data-blog-ticker") || 10;
     if (!online && !window.DD_NEWS) return;
-    get("blog?limit=" + n).then(function (d) {
+    var withFeeds = online ? getFeeds("limit=6").then(function (f) { window.__ddFeedTicker = f.items || []; }).catch(function () {}) : Promise.resolve();
+    withFeeds.then(function () { return get("blog?limit=" + n); }).then(function (d) {
       if (!d.items.length) return;
       var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      var line = d.items.map(function (p) { return '<a href="' + postUrl(p) + '"><b>' + both(p.categoryName) + "</b> " + both(p.title, 110) + "</a>"; }).join('<span class="news-ticker__dot" aria-hidden="true">•</span>');
+      var own = d.items.map(function (p) { return '<a href="' + postUrl(p) + '"><b>' + both(p.categoryName) + "</b> " + both(p.title, 110) + "</a>"; });
+      var others = (window.__ddFeedTicker || []).map(function (it) { return '<a href="' + esc(safeUrl(it.link) || it.link) + '" target="_blank" rel="noopener nofollow"><b>' + esc(it.source) + "</b> " + esc(cut(it.title, 110)) + " ↗</a>"; });
+      var mixed = []; for (var k = 0; k < Math.max(own.length, others.length); k++) { if (own[k]) mixed.push(own[k]); if (others[k]) mixed.push(others[k]); }
+      var line = mixed.join('<span class="news-ticker__dot" aria-hidden="true">•</span>');
       el.innerHTML = '<span class="news-ticker__label">' + bi("Latest news", "ข่าวล่าสุด") + '</span><div class="news-ticker__win"><div class="news-ticker__run' + (calm ? " is-calm" : "") + '">' +
         line + '<span class="news-ticker__dot" aria-hidden="true">•</span><span aria-hidden="true">' + line.replace(/<a /g, '<a tabindex="-1" ') + "</span></div></div>" +
         '<button type="button" class="news-ticker__pause" aria-label="Pause">❚❚</button>';

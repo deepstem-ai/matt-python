@@ -359,6 +359,8 @@ def apply_sync(con, me, body):
             old = get_rec(con, col, rec["id"])
             if col == "requests" and not old:
                 rec["createdBy"] = me["id"]
+            if col == "sessions" and old and old.get("autoDone") and rec.get("status") != "done":
+                rec["autoOff"], rec["autoDone"] = True, False
             if col == "users" and not old and me["role"] == "teacher":
                 rec["createdBy"] = me["id"]
             can_write(con, me, col, rec, old)
@@ -438,7 +440,45 @@ def public_catalog(con):
     return out
 
 
+BKK = timezone(timedelta(hours=7))
+AUTO_TOPIC = "เรียนตามปกติ (บันทึกอัตโนมัติ) · Regular lesson (recorded automatically)"
+
+
+def auto_complete(con):
+    """A scheduled lesson whose time has passed and that nobody updated is recorded as a regular lesson
+    (done), so hours, reports and the parents' schedule are always up to date. Teachers can still change it
+    (e.g. to no-show) afterwards. Skipped for paused / finished enrolments and dates with a time-off request."""
+    org = get_kv(con, "org", DEFAULT_ORG)
+    if org.get("autoComplete", True) is False:
+        return 0
+    now = datetime.now(BKK)
+    enrs = {e["id"]: e for e in load_col(con, "enrolments")}
+    off = [r for r in load_col(con, "requests") if r.get("type") == "pause" and r.get("status") in ("pending", "approved")]
+    changes = []
+    for s in load_col(con, "sessions"):
+        if s.get("status") != "scheduled" or not s.get("date") or s.get("autoOff"):   # autoOff: staff said it did not happen
+            continue
+        e = enrs.get(s.get("enrolmentId"))
+        if not e or e.get("status", "active") != "active":
+            continue
+        try:
+            end = datetime.fromisoformat(f"{s['date']}T{s.get('start') or '00:00'}").replace(tzinfo=BKK) + timedelta(hours=float(s.get("hours") or 0))
+        except (ValueError, TypeError):
+            continue
+        if end > now or any(r.get("enrolmentId") == s["enrolmentId"] and (r.get("from") or "") <= s["date"] <= (r.get("to") or r.get("from") or "") for r in off):
+            continue
+        new = dict(s, status="done", autoDone=True, autoDoneAt=now_iso())
+        if not new.get("topic"):
+            new["topic"] = AUTO_TOPIC
+        put_rec(con, "sessions", new, "auto")
+        changes.append(("sessions", s, new))
+    if changes:      # no message is sent to parents for these; the portal, hours and schedule PDF simply stay up to date
+        audit(con, None, f"{len(changes)} past lesson(s) recorded as regular lessons automatically")
+    return len(changes)
+
+
 def bootstrap(con, me):
+    auto_complete(con)
     data = scope(con, me)
     data["org"] = get_kv(con, "org", DEFAULT_ORG)
     data["courseOverrides"] = get_kv(con, "courseOverrides", {})
@@ -619,6 +659,8 @@ def cron(environ, start):
         key = get_kv(con, "cron_key", None)
     if not key or not hmac.compare_digest((q.get("key") or [""])[0], key):
         return respond(start, "403 Forbidden", {"error": "bad key"})
+    with _lock, db() as con:
+        auto_complete(con)
     run_notifications(with_reminders=True)
     learning.tick()
     return respond(start, "200 OK", {"ok": True})
@@ -1003,6 +1045,11 @@ def main():
     def loop():
         while True:
             time.sleep(20)
+            try:
+                with _lock, db() as con:
+                    auto_complete(con)
+            except Exception as e:  # noqa: BLE001
+                print("auto-complete error", repr(e), file=sys.stderr)
             run_notifications(with_reminders=True)
             learning.tick()
     threading.Thread(target=loop, daemon=True).start()

@@ -15,6 +15,7 @@ from urllib.parse import parse_qs
 
 import ai
 import blog
+import feeds
 import blog_seed
 import calibrate
 import exams
@@ -41,6 +42,7 @@ def init(con):
     live.init(con)
     qsets.init(con)
     exports.init(con)
+    feeds.init(con)
     import history
     history.init(con)                                # keep-forever triggers before anything is replaced
     if os.environ.get("DD_SEED", "1") != "0":       # DD_SEED=0: start empty (no ready-made sets or starter news)
@@ -287,6 +289,8 @@ def tick():
             cleanup_stale(con)
             bcfg = blog.settings(con)
             blog.publish_due(con, bcfg)
+            if feeds.due(con, feeds.settings(con)):          # headlines from other publishers, fetched outside the lock
+                feeds.refresh_in_background(H["db"], H["lock"])
             exam_auto(con)
             if blog.auto_due(con, bcfg):
                 blog.mark_auto_ran(con)
@@ -454,6 +458,12 @@ def public_routes(con, path, method, environ):
         return "200 OK", blog.public_list(con, bcfg, one("branch")[:10] or None, one("cat")[:20] or None, limit, offset)
     if path == "verify":
         return "200 OK", exports.verify(con, one("c"))
+    if path == "feeds":
+        try:
+            limit, offset = max(1, min(48, int(one("limit", "24")))), max(0, int(one("offset", "0")))
+        except ValueError:
+            limit, offset = 24, 0
+        return "200 OK", feeds.public_list(con, one("cat")[:12] or None, one("source")[:12] or None, limit, offset)
     if path == "blog/post":
         bcfg = blog.settings(con)
         p = blog.public_get(con, bcfg, one("slug")) if bcfg["enabled"] else None
@@ -632,11 +642,12 @@ def routes(con, me, path, method, body, environ):
             if body.get("delete"):
                 if not admin:
                     return "403 Forbidden", {"error": "only admins delete items (teachers can retire them)"}
-                used = con.execute("SELECT COUNT(*) FROM exam_attempts WHERE data LIKE ?", ('%"' + str(body["delete"])[:30] + '"%',)).fetchone()[0]
-                if used:
-                    return "400 Bad Request", {"error": "this item was used in tests — retire it instead"}
-                con.execute("DELETE FROM exam_items WHERE id=?", (body["delete"],))
-                H["audit"](con, me, f"Exam bank: deleted {body['delete']}")
+                it = exams.get_item(con, body["delete"])       # nothing is deleted: the item is retired (kept with all versions)
+                if not it:
+                    return "404 Not Found", {"error": "item not found"}
+                it["status"] = "retired"
+                exams.save_item(con, it, me["id"])
+                H["audit"](con, me, f"Exam bank: retired {it['id']}")
                 return "200 OK", {"ok": True}
             if body.get("samples"):
                 have = {json.dumps(i.get("tags")) + (i.get("stem") or i.get("title") or i.get("prompt") or "") for i in exams.items(con)}
@@ -727,8 +738,9 @@ def routes(con, me, path, method, body, environ):
             old = qsets.get(con, body.get("id"))
             if not old or (old["owner"] != me["id"] and not admin):
                 return "404 Not Found", {"error": "question set not found"}
-            con.execute("DELETE FROM question_sets WHERE id=?", (old["id"],))
-            H["audit"](con, me, f"Deleted question set '{old['title']}'")
+            old.update(archived=True, published=False)       # nothing is deleted: hidden from lists, kept
+            qsets.put(con, old)
+            H["audit"](con, me, f"Archived question set '{old['title']}'")
             return "200 OK", {"ok": True}
         if path in ("live/host", "live/control", "live/share"):
             s = live.get(con, one("id") if method == "GET" else body.get("id"))
@@ -766,6 +778,17 @@ def routes(con, me, path, method, body, environ):
         if path == "ai-admin" and method == "POST":
             cfg = ai.save_settings(con, body)
             H["audit"](con, me, "Updated AI settings")
+            return "200 OK", {"settings": cfg}
+        if path == "blog-admin/feeds" and method == "GET":
+            return "200 OK", {"settings": feeds.settings(con), "status": feeds.status(con), "cats": feeds.CATS,
+                              "count": con.execute("SELECT COUNT(*) FROM feed_items").fetchone()[0]}
+        if path == "blog-admin/feeds" and method == "POST":
+            if body.get("fetch"):
+                con.commit()
+                feeds.refresh_in_background(H["db"], H["lock"], force=True)
+                return "200 OK", {"ok": True}
+            cfg = feeds.save_settings(con, body)
+            H["audit"](con, me, "Updated news sources (RSS)")
             return "200 OK", {"settings": cfg}
         if path == "blog-admin" and method == "GET":
             cleanup_stale(con)
@@ -825,9 +848,13 @@ def routes(con, me, path, method, body, environ):
                 blog.put(con, p)
                 H["audit"](con, me, f"Blog: '{p['title']['en'] or p['title']['th']}' → {p['status']}")
                 return "200 OK", {"ok": True}
-            if body.get("delete"):
-                blog.delete(con, body["delete"])
-                H["audit"](con, me, "Blog: deleted a post")
+            if body.get("delete"):                     # nothing is deleted: the post is archived (unpublished, kept)
+                p = blog.get(con, body["delete"])
+                if not p:
+                    return "404 Not Found", {"error": "post not found"}
+                blog.set_status(p, "archived", bcfg, me.get("name", ""))
+                blog.put(con, p)
+                H["audit"](con, me, "Blog: archived a post")
                 return "200 OK", {"ok": True}
             return "400 Bad Request", {"error": "unknown action"}
     except (ValueError, TypeError, images.ImageError) as e:

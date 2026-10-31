@@ -39,7 +39,7 @@ def listing(con, me):
     q, a = "SELECT data FROM question_sets", []
     if me["role"] != "admin":
         q += " WHERE owner=? OR data LIKE '%\"source\": \"ready-made\"%'"; a.append(me["id"])
-    return [json.loads(r["data"]) for r in con.execute(q + " ORDER BY updated_at DESC", a)]
+    return [x for x in (json.loads(r["data"]) for r in con.execute(q + " ORDER BY updated_at DESC", a)) if not x.get("archived")]
 
 
 def version(con, iid, ver):

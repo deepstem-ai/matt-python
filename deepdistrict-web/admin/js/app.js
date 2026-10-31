@@ -507,7 +507,8 @@
       '<section class="box"><header><h2>' + L("Lessons", "คาบเรียน") + " (" + st.sessions.length + ")</h2></header>" +
       (st.sessions.length ? table([L("Date", "วันที่"), L("Hours", "ชม."), L("Status", "สถานะ"), L("What was learned", "สิ่งที่เรียน"), ""], st.sessions.map(function (s) {
         return { attrs: ' data-session="' + s.id + '"', cells: [esc(A.fmtDate(s.date, { weekday: "short", day: "numeric", month: "short", year: "2-digit" })) + "<br><span class=muted>" + esc(s.start || "") + "</span>", A.num(s.hours), A.badge(s.status), A.lessonNote(s),
-          s.status === "scheduled" ? '<button type="button" class="btn btn--xs" data-done="' + s.id + '">' + L("Mark done", "เรียนแล้ว") + "</button>" : ""] };
+          s.status === "scheduled" ? '<button type="button" class="btn btn--xs" data-done="' + s.id + '">' + L("Mark done", "เรียนแล้ว") + "</button>"
+            : s.autoDone && s.status === "done" && A.isStaff() ? '<span class="badge">' + L("auto", "อัตโนมัติ") + '</span> <button type="button" class="btn btn--xs" data-undo="' + s.id + '">' + L("Not learned", "ยังไม่ได้เรียน") + "</button>" : ""] };
       }), "tbl--click") : A.empty("No lessons yet. Add one or schedule weekly lessons.", "ยังไม่มีคาบเรียน เพิ่มคาบเรียนหรือนัดรายสัปดาห์ได้เลย")) + "</section>" +
       (A.isAdmin() ? '<section class="box"><header><h2>' + L("Payments", "การชำระเงิน") + "</h2></header>" +
         (A.paymentsOf(e.id).length ? table([L("Date", "วันที่"), L("Amount", "จำนวนเงิน"), L("Method", "ช่องทาง"), L("Receipt no.", "เลขที่ใบเสร็จ"), ""], A.paymentsOf(e.id).map(function (p) {
@@ -542,7 +543,8 @@
       (list.length ? table([L("Date", "วันที่"), L("Student · course", "นักเรียน · หลักสูตร"), L("Hours", "ชม."), L("Status", "สถานะ"), L("What was learned", "สิ่งที่เรียน"), ""], list.slice(0, 400).map(function (s) {
         var e = A.byId("enrolments", s.enrolmentId);
         return { attrs: ' data-session="' + s.id + '"', cells: [esc(A.fmtDate(s.date)) + "<br><span class=muted>" + esc(s.start || "") + "</span>", esc(A.userName(e.studentId)) + A.exTag(s) + "<br><span class=muted>" + esc(e.courseCode) + "</span>", A.num(s.hours), A.badge(s.status), esc(s.topic || ""),
-          s.status === "scheduled" ? '<button type="button" class="btn btn--xs" data-done="' + s.id + '">' + L("Mark done", "เรียนแล้ว") + "</button>" : ""] };
+          s.status === "scheduled" ? '<button type="button" class="btn btn--xs" data-done="' + s.id + '">' + L("Mark done", "เรียนแล้ว") + "</button>"
+            : s.autoDone && s.status === "done" && A.isStaff() ? '<span class="badge">' + L("auto", "อัตโนมัติ") + '</span> <button type="button" class="btn btn--xs" data-undo="' + s.id + '">' + L("Not learned", "ยังไม่ได้เรียน") + "</button>" : ""] };
       }), "tbl--click") : A.empty("No lessons match.", "ไม่พบคาบเรียนที่ตรงเงื่อนไข"));
     A._sessionsList = list;
     return { title: L("Lessons log", "บันทึกการสอน"), actions: '<button class="btn btn--primary" data-act="new-session">+ ' + L("Add lesson", "เพิ่มคาบเรียน") + "</button>", html: html };
@@ -660,6 +662,7 @@
         { name: "rate", label: L("Default rate per hour", "ราคามาตรฐานต่อชั่วโมง"), type: "number", step: "1", min: 0, value: o.rate, required: true },
         { name: "lowHours", label: L("Alert when hours left ≤", "แจ้งเตือนเมื่อชั่วโมงคงเหลือ ≤"), type: "number", step: "0.5", min: 0, value: o.lowHours, required: true },
         { name: "noShowCounts", label: L("A no-show uses the lesson's hours", "ขาดเรียนโดยไม่แจ้ง ให้นับชั่วโมง"), type: "checkbox", value: o.noShowCounts, full: true },
+        { name: "autoComplete", label: L("When a scheduled lesson has ended and nobody updated it, record it as a regular lesson (done) automatically", "คาบที่ถึงเวลาแล้วแต่ครูไม่ได้บันทึก ให้ระบบบันทึกว่า เรียนแล้ว (เรียนตามปกติ) โดยอัตโนมัติ"), type: "checkbox", value: o.autoComplete !== false, full: true },
         { name: "teachersApprove", label: L("Teachers may also approve change requests (otherwise admins only)", "ให้ครูอนุมัติคำขอเปลี่ยนแปลงได้ด้วย (ปกติเฉพาะผู้ดูแลระบบ)"), type: "checkbox", value: o.teachersApprove, full: true },
         { name: "paymentInfo", label: L("How to pay (shown on fee notices)", "ช่องทางชำระเงิน (แสดงในใบแจ้งค่าเรียน)"), type: "textarea", value: o.paymentInfo, full: true, hint: L("e.g. bank, account name and number, PromptPay ID", "เช่น ธนาคาร ชื่อบัญชี เลขที่บัญชี พร้อมเพย์") }
       ],
@@ -741,6 +744,18 @@
     A.touch();
     var t = ev.target, b;
     if ((b = t.closest("[data-lang]"))) { A.setLang(b.getAttribute("data-lang")); root.innerHTML = ""; A.route(); return; }
+    if ((b = t.closest("[data-undo]"))) {               // an automatically recorded lesson did not really happen
+      ev.stopPropagation();
+      var u = A.byId("sessions", b.getAttribute("data-undo"));
+      if (u && confirm(L("Mark this lesson as NOT learned? It goes back to scheduled (you can then move it, cancel it or mark a no-show) and the system will not record it automatically again.",
+        "เปลี่ยนคาบนี้เป็น ยังไม่ได้เรียน ใช่ไหม? คาบจะกลับเป็นสถานะนัดเรียน (จากนั้นเลื่อน ยกเลิก หรือบันทึกขาดเรียนได้) และระบบจะไม่บันทึกคาบนี้อัตโนมัติอีก"))) {
+        if (u.topic === "เรียนตามปกติ (บันทึกอัตโนมัติ) · Regular lesson (recorded automatically)") u.topic = "";
+        Object.assign(u, { status: "scheduled", autoDone: false, autoOff: true });
+        A.logAct("Lesson " + u.date + " marked as not learned (was recorded automatically)");
+        A.save().then(function () { A.toast(L("Updated", "อัปเดตแล้ว")); A.route(); });
+      }
+      return;
+    }
     if ((b = t.closest("[data-done]"))) {
       ev.stopPropagation();
       var s = A.byId("sessions", b.getAttribute("data-done"));

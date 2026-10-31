@@ -1,5 +1,25 @@
 # Changelog
 
+## 6.2 r1 — October 2026
+- **Regular lessons are recorded automatically.** When a scheduled lesson's time has passed and nobody
+  updated it, it becomes *done — regular lesson (recorded automatically)*, so hours, the portal and the
+  schedule PDF are always current. Nothing is sent to parents for these. Paused / finished enrolments and
+  dates covered by a time-off request are skipped. Staff can press **Not learned** (or edit the lesson) to put
+  it back — it is then never recorded automatically again. Switch: Settings → Organisation.
+- **Schedule PDF** shows "Learned: N lessons (latest …) · Still to come: M (next …, last …)" and marks
+  regular lessons recorded automatically.
+- **News from other sources (RSS):** headlines, a short excerpt, the date and a link to the full story from
+  15 publishers (MIT Technology Review, MIT News, Google DeepMind, Google Research, OpenAI, IEEE Spectrum,
+  ScienceDaily, NASA, BBC Science, Nature, Ars Technica, The Verge, Blognone, Techsauce), always naming
+  the publisher; home page section, news-page section with category filters (AI, SI, STEM, science, space,
+  tech), and mixed into the headline ticker. Admin: News blog → *News from other sources (RSS)* — on/off,
+  add/remove sources, status of each feed, fetch now. Headlines are kept (never deleted).
+- **10 more credited news articles** on AI, SI, technology and STEM (autumn 2026 AI launches, AI in science,
+  humanoid robots, AI in Thailand, Starship, quantum computing, Thailand's solar subsidy, Android developer
+  rules, prime editing), each from 4–6 publishers with a *Sources and credits* section. The superintelligence
+  article waits in **Review** until staff confirm its sources.
+- Blog "Delete", exam-item "Delete" and question-set "Delete" now archive / retire instead (nothing is deleted).
+
 ## 6.1 r1 — October 2026
 - **Passwords (all roles — admin, teacher, student, parent):** never stored, only a salted
   PBKDF2-HMAC-SHA256 hash, now with 600,000 rounds (was 200,000). Older passwords are upgraded

@@ -59,7 +59,7 @@
         : '<span class="off">● ' + L("AI not ready: ", "AI ยังไม่พร้อม: ") + esc(aiProblems(ai)) + '</span> <a href="#/ai">' + L("AI settings →", "ตั้งค่า AI →") + "</a>") + "<br>" +
       L("Automatic writer: ", "เขียนอัตโนมัติ: ") + (auto.enabled ? '<span class="ok">' + L("ON", "เปิด") + "</span> · " + (auto.days.length ? auto.days.map(function (d) { return A.dayName(d); }).join(" ") : L("every day", "ทุกวัน")) + " " + L("from ", "ตั้งแต่ ") + A.pad(auto.hour) + ":00 · " + auto.perRun + L(" post(s) each time", " บทความต่อครั้ง") : '<span class="off">' + L("OFF", "ปิด") + "</span>") +
       " · " + L("Public news page: ", "หน้าข่าวสาธารณะ: ") + (s.enabled ? '<span class="ok">' + L("ON", "เปิด") + "</span>" : '<span class="off">' + L("OFF", "ปิด") + "</span>") +
-      '</p></div><div class="btnrow"><button class="btn" data-act="blog-settings">' + L("Blog settings", "ตั้งค่าบล็อก") + '</button><a class="btn" href="../pages/blog.html" target="_blank" rel="noopener">' + L("Open news page ↗", "เปิดหน้าข่าว ↗") + "</a></div></section>" +
+      '</p></div><div class="btnrow"><button class="btn" data-act="blog-settings">' + L("Blog settings", "ตั้งค่าบล็อก") + '</button><button class="btn" data-act="feeds-src">' + L("News from other sources (RSS)", "ข่าวจากแหล่งอื่น (RSS)") + '</button><a class="btn" href="../pages/blog.html" target="_blank" rel="noopener">' + L("Open news page ↗", "เปิดหน้าข่าว ↗") + "</a></div></section>" +
       '<div class="tabs">' + [["", L("All", "ทั้งหมด"), state.posts.length]].concat(["review", "scheduled", "published", "idea", "archived", "rejected"].map(function (k) { return [k, L(ST[k][0], ST[k][1]), (counts[k] || 0) + (k === "review" ? counts.drafting || 0 : 0)]; }))
         .map(function (t) { return '<a class="tab' + (t[0] === f ? " is-on" : "") + '" href="#/blog' + (t[0] ? "?s=" + t[0] : "") + '">' + esc(t[1]) + " <span>" + t[2] + "</span></a>"; }).join("") + "</div>" +
       (rows.length ? '<div class="tbl-wrap"><table class="tbl tbl--click blog-tbl"><thead><tr><th></th><th>' + L("Article", "บทความ") + "</th><th>" + L("Branch · category", "หมวด") + "</th><th>" + L("Status", "สถานะ") + "</th><th>" + L("Updated", "แก้ไขล่าสุด") + "</th></tr></thead><tbody>" +
@@ -149,7 +149,7 @@
       (p.coverKind === "photo" ? '<small>' + L("Photo: ", "ภาพ: ") + esc(cr.title || "") + (cr.creator ? " · " + esc(cr.creator) : "") + " · " + esc(cr.license || "") + (cr.source ? ' · <a href="' + esc(cr.source) + '" target="_blank" rel="noopener">' + L("source", "ที่มา") + "</a>" : "") + "</small>" : p.coverKind === "drawing" ? "<small>" + L("AI drawing (made for us)", "ภาพวาดโดย AI (สร้างให้เราโดยเฉพาะ)") + "</small>" : "") +
       '<div class="btnrow"><button type="button" class="btn btn--sm" data-act="blog-photo">' + L("Find a free photo", "ค้นหาภาพฟรีลิขสิทธิ์") + '</button><button type="button" class="btn btn--sm" data-act="blog-draw">✦ ' + L("AI drawing", "ให้ AI วาด") + '</button>' +
       '<label class="btn btn--sm">' + L("Upload…", "อัปโหลด…") + '<input type="file" accept="image/png,image/jpeg,image/webp" data-cover-file hidden></label>' + (p.cover ? '<button type="button" class="btn btn--sm" data-act="blog-nocover">' + L("Remove", "ลบ") + "</button>" : "") + "</div></div>" +
-      '</div><footer class="btnrow"><button type="button" class="btn btn--danger" data-act="blog-delete">' + L("Delete", "ลบ") + '</button><span class="spacer"></span><button class="btn btn--primary" type="submit">' + L("Save changes", "บันทึก") + "</button></footer></form>") +
+      '</div><footer class="btnrow"><button type="button" class="btn btn--danger" data-act="blog-delete">' + L("Archive", "เก็บถาวร") + '</button><span class="spacer"></span><button class="btn btn--primary" type="submit">' + L("Save changes", "บันทึก") + "</button></footer></form>") +
       '<details class="box"><summary>' + L("History", "ประวัติ") + "</summary><ul class=\"blog-hist\">" + (p.history || []).map(function (h) { return "<li>" + esc(new Date(h.at).toLocaleString()) + " — " + esc(h.text) + "</li>"; }).join("") + "</ul></details>";
     var form = $("[data-blog-form]", el);
     if (form) {
@@ -300,6 +300,48 @@
     });
   }
 
+  /* News from other publishers: which RSS / Atom feeds the server reads, their status, fetch now */
+  var FCAT = [["ai", "AI"], ["si", "SI"], ["stem", "STEM"], ["research", L("Science & research", "วิทยาศาสตร์และงานวิจัย")], ["space", L("Space", "อวกาศ")], ["coding", L("Tech & coding", "เทคโนโลยีและโค้ดดิ้ง")]];
+  function feedsForm() {
+    A.api("GET", "blog-admin/feeds").then(function (d) {
+      var cfg = d.settings, st = d.status || {};
+      var dlg = document.createElement("dialog"); dlg.className = "modal modal--wide";
+      function row(s) {
+        var x = st[s.id];
+        return '<tr data-src><td><input type="checkbox" data-k="on"' + (s.on !== false ? " checked" : "") + ' aria-label="on"></td>' +
+          '<td><input data-k="name" value="' + esc(s.name || "") + '" aria-label="name"><br><input data-k="url" value="' + esc(s.url || "") + '" placeholder="https://…/feed" aria-label="URL"></td>' +
+          '<td><select data-k="category">' + FCAT.map(function (c) { return '<option value="' + c[0] + '"' + (c[0] === s.category ? " selected" : "") + ">" + esc(c[1]) + "</option>"; }).join("") + "</select>" +
+          '<select data-k="lang"><option value="en"' + (s.lang !== "th" ? " selected" : "") + '>EN</option><option value="th"' + (s.lang === "th" ? " selected" : "") + ">TH</option></select></td>" +
+          "<td><small>" + (x ? (x.ok ? '<span class="ok">● ' + L("OK", "ใช้ได้") + "</span> " + x.items + L(" items", " ข่าว") + " (+" + x.added + ")" : '<span class="off">● ' + esc(x.error || "error") + "</span>") + "<br>" + esc(new Date(x.at).toLocaleString(A.lang === "th" ? "th-TH" : "en-GB")) : L("not fetched yet", "ยังไม่ได้ดึง")) + "</small></td>" +
+          '<td><button type="button" class="ibtn" data-del-src aria-label="remove">✕</button></td></tr>';
+      }
+      dlg.innerHTML = '<form method="dialog" class="modal__box"><header><h2>' + L("News from other sources (RSS)", "ข่าวจากแหล่งอื่น (RSS)") + '</h2><button type="button" class="ibtn" data-x aria-label="Close">✕</button></header>' +
+        '<p class="modal__intro">' + L("The server reads these publishers' public news feeds every few hours and shows the headline, a short excerpt and a link to the full story on their site, always with the publisher's name. " + d.count + " headlines collected so far.",
+          "เซิร์ฟเวอร์อ่านช่องทางข่าวสาธารณะ (RSS) ของสำนักข่าวเหล่านี้ทุกไม่กี่ชั่วโมง แล้วแสดงหัวข่าว บทคัดย่อสั้น ๆ และลิงก์ไปอ่านฉบับเต็มที่เว็บไซต์ต้นทาง พร้อมชื่อผู้เผยแพร่ทุกครั้ง เก็บหัวข่าวไว้แล้ว " + d.count + " ข่าว") + "</p>" +
+        '<div class="mf-grid"><label class="mf-check"><input type="checkbox" name="enabled"' + (cfg.enabled ? " checked" : "") + "> <span>" + L("Show news from other sources on the website", "แสดงข่าวจากแหล่งอื่นบนเว็บไซต์") + '</span></label>' +
+        '<div class="mf"><label>' + L("Fetch every (hours)", "ดึงข่าวทุก (ชั่วโมง)") + '</label><input type="number" name="every" min="1" max="24" value="' + cfg.everyHours + '"></div></div>' +
+        '<div class="tbl-wrap feeds-scroll"><table class="tbl feeds-tbl"><thead><tr><th>' + L("On", "เปิด") + "</th><th>" + L("Publisher · feed URL", "ผู้เผยแพร่ · ลิงก์ RSS") + "</th><th>" + L("Category · language", "หมวด · ภาษา") + "</th><th>" + L("Last fetch", "ดึงล่าสุด") + "</th><th></th></tr></thead><tbody>" +
+        cfg.sources.map(row).join("") + "</tbody></table></div>" +
+        '<p class="mf-error" role="alert"></p><footer><button type="button" class="btn" data-add-src>+ ' + L("Add a source", "เพิ่มแหล่งข่าว") + '</button><button type="button" class="btn" data-fetch>' + L("Fetch now", "ดึงข่าวตอนนี้") + '</button><span class="spacer"></span><button type="button" class="btn" data-x>' + L("Cancel", "ยกเลิก") + '</button><button type="submit" class="btn btn--primary">' + L("Save", "บันทึก") + "</button></footer></form>";
+      document.body.appendChild(dlg); dlg.showModal();
+      var tb = dlg.querySelector("tbody");
+      function close() { dlg.close(); dlg.remove(); }
+      $$("[data-x]", dlg).forEach(function (b) { b.addEventListener("click", close); });
+      dlg.addEventListener("click", function (e) { if (e.target.closest("[data-del-src]")) e.target.closest("tr").remove(); });
+      dlg.querySelector("[data-add-src]").addEventListener("click", function () { tb.insertAdjacentHTML("beforeend", row({ id: "", name: "", url: "", category: "ai", lang: "en", on: true })); });
+      dlg.querySelector("[data-fetch]").addEventListener("click", function () { A.api("POST", "blog-admin/feeds", { fetch: true }).then(function () { A.toast(L("Fetching in the background — open this window again in a minute to see the status.", "กำลังดึงข่าวเบื้องหลัง เปิดหน้าต่างนี้อีกครั้งในอีกสักครู่เพื่อดูสถานะ")); }); });
+      dlg.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var src = $$("tr[data-src]", dlg).map(function (tr) { var g = function (k) { var el = tr.querySelector('[data-k="' + k + '"]'); return el.type === "checkbox" ? el.checked : el.value.trim(); }; return { name: g("name"), url: g("url"), category: g("category"), lang: g("lang"), on: g("on") }; })
+          .filter(function (x) { return x.url; });
+        var bad = src.filter(function (x) { return !/^https?:\/\/\S+$/.test(x.url); });
+        if (bad.length) { dlg.querySelector(".mf-error").textContent = L("Check this URL: ", "ตรวจสอบลิงก์นี้: ") + bad[0].url; return; }
+        A.api("POST", "blog-admin/feeds", { enabled: dlg.querySelector("[name=enabled]").checked, everyHours: +dlg.querySelector("[name=every]").value || 3, sources: src })
+          .then(function () { A.toast(L("Saved", "บันทึกแล้ว")); close(); }).catch(function (x) { dlg.querySelector(".mf-error").textContent = x.message; });
+      });
+    }).catch(function (e) { A.toast(e.message, "err"); });
+  }
+
   function current() { var m = /#\/blog\/([^?]+)/.exec(location.hash); return m && state && state.posts.filter(function (p) { return p.id === m[1]; })[0]; }
   var prev = A.onAct;
   A.onAct = function (a, b, ev) {
@@ -314,10 +356,11 @@
       });
     }
     else if (a === "blog-settings") settingsForm();
+    else if (a === "feeds-src") feedsForm();
     else if (a === "blog-photo") { var p = current(); if (p) photoPicker(p); }
     else if (a === "blog-draw") { var q = current(); if (q) act({ draw: q.id }).then(function () { A.toast(L("The AI is drawing a cover — about 30 seconds.", "AI กำลังวาดภาพปก ประมาณ 30 วินาที")); setTimeout(function () { load().then(drawEditor); }, 8000); setTimeout(function () { load().then(drawEditor); }, 25000); }); }
     else if (a === "blog-nocover") { var r = current(); if (r) act({ save: { id: r.id, cover: "" } }).then(function () { return load().then(drawEditor); }); }
-    else if (a === "blog-delete") { var d = current(); if (d && confirm(L("Delete this article for good?", "ลบบทความนี้ถาวรใช่ไหม?"))) act({ delete: d.id }).then(function () { location.hash = "#/blog"; }); }
+    else if (a === "blog-delete") { var d = current(); if (d && confirm(L("Archive this article? It is taken off the website but kept (you can publish it again).", "ย้ายบทความนี้ไปที่เก็บถาวรใช่ไหม? บทความจะหายจากเว็บไซต์แต่ยังเก็บไว้ (เผยแพร่ใหม่ได้)"))) act({ delete: d.id }).then(function () { location.hash = "#/blog"; }); }
     else if (a === "ai-edit") aiForm();
     else if (prev) prev(a, b, ev);
   };

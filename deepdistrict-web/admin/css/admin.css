@@ -526,3 +526,5 @@ html[lang="th"] .tbl th { text-transform: none; letter-spacing: 0; font-size: 0.
 .hist__item { border-left: 3px solid #f59e0b; padding: .4rem .8rem; margin: 0 0 .7rem; }
 .hist__when { font-weight: 700; margin-bottom: .25rem; }
 .hist__item ul { margin: 0; padding-left: 1.1rem; font-size: .92em; word-break: break-word; }
+.feeds-tbl input[data-k=name], .feeds-tbl input[data-k=url] { width: 100%; min-width: 220px; } .feeds-tbl select { margin: 2px 0; } .modal--wide .modal__box { max-width: 1000px; }
+.feeds-scroll { max-height: 48vh; overflow: auto; margin-top: 12px; position: static; } .modal--wide .mf-grid { margin-bottom: 4px; }

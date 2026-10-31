@@ -135,3 +135,13 @@ deleted. Set `DD_SEED=0` to start with an empty bank and blog instead.
 - Only use `--lan` on a trusted network; on the internet always use HTTPS (PythonAnywhere
   provides it).
 - Keep backups somewhere private; delete learners' data when they ask (PDPA).
+
+## News from other sources (RSS) and automatic lesson records
+
+- The same timer URL (`/api/cron?key=…`, Back office → Notifications) also records past lessons nobody
+  updated as regular lessons, and fetches the RSS headlines when they are due (every 3 hours by default).
+- **PythonAnywhere free accounts** can only reach sites on PythonAnywhere's allow-list. Sources outside it
+  show an error in Back office → News blog → *News from other sources (RSS)*; switch those off, or use a
+  paid account (unrestricted internet). Photos for posts are loaded by visitors' browsers, so they work on
+  any plan.
+

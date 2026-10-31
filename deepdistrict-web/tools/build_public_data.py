@@ -28,7 +28,7 @@ def news():
     cats = {c["id"]: c for c in blog.DEFAULT_SETTINGS["categories"]}
     base = datetime.now(timezone.utc).replace(hour=3, minute=0, second=0, microsecond=0)
     items = []
-    for x in blog_seed.posts():
+    for x in (p for p in blog_seed.posts() if not p.get("review")):   # posts awaiting a staff check stay off the static site
         c = cats.get(x["category"]) or blog.DEFAULT_SETTINGS["categories"][0]
         items.append({"id": "s-" + x["slug"][:20], "slug": x["slug"], "branch": c["branch"], "category": c["id"], "categoryName": c["name"],
                       "title": x["title"], "summary": x["summary"], "body": x["body"], "tags": x.get("tags", []), "sources": x.get("sources", []),
