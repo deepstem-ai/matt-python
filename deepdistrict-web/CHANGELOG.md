@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.4 r4 — November 2026
+- The two Intensive Claude Code learners now have their timetable (Sundays 09:00–11:00 and Tuesdays
+  20:00–22:00, 10 × 2 h each): restarting after the update adds the 20 lessons to the calendar. Nothing already
+  recorded is changed or removed (70 real lessons in all).
+
 ## 6.4 r3 — November 2026
 - **Renew a course (ต่อคอร์ส)** on the enrolment page and on each learner's timetable: the next round reuses the
   learner, course, teacher, price, days and times, and the number of lessons, starting the day after the last

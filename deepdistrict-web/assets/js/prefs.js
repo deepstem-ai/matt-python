@@ -27,5 +27,5 @@
   var dark = theme === "dark" || (theme === "auto" && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
   doc.setAttribute("data-theme", dark ? "dark" : "light");
 
-  window.DD_PREFS = { CONSENT_KEY: CONSENT_KEY, CONSENT_VERSION: CONSENT_VERSION, SITE_VERSION: "6.4 r3" };
+  window.DD_PREFS = { CONSENT_KEY: CONSENT_KEY, CONSENT_VERSION: CONSENT_VERSION, SITE_VERSION: "6.4 r4" };
 })();
