@@ -23,7 +23,7 @@ PAGES = {
     "search": ("teach", STAFF),
     "payments": ("admin", ADMIN), "courses": ("admin", ADMIN), "content": ("admin", ADMIN), "popups": ("admin", ADMIN),
     "blog": ("admin", ADMIN), "ai": ("admin", ADMIN),
-    "reports": ("general", ALL), "settings": ("general", ALL),
+    "reports": ("general", ALL), "data": ("general", ADMIN), "settings": ("general", ALL),
 }
 ALWAYS = {"settings", "home"}          # a person can always reach their own account and start page
 

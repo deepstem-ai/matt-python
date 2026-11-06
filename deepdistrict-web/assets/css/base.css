@@ -99,3 +99,6 @@ html[lang="th"] .eyebrow { font-family: var(--f-display-th); letter-spacing: 0.0
     transition-duration: 1ms !important;
   }
 }
+
+/* decorative rings and glows never cause sideways scrolling on phones (clip keeps sticky headers working) */
+html, body { overflow-x: clip; }

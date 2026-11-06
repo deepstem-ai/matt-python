@@ -55,6 +55,7 @@
     ["ai", "AI settings", "ตั้งค่า AI", "admin", "ai"],
     ["search", "Search", "ค้นหา", "staff"],
     ["reports", "Reports & export", "รายงานและส่งออก", "all"],
+    ["data", "Data: remove & restore", "จัดการข้อมูล (ลบ / กู้คืน)", "admin", "settings"],
     ["settings", "Settings", "ตั้งค่า", "all"]
   ];
 
@@ -177,13 +178,6 @@
         { name: "notes", label: L("Notes", "บันทึก"), type: "textarea", value: u.notes, full: true, more: true }
       ]),
       history: isNew ? null : { col: "users", id: u.id },
-      onDelete: !isNew && A.isAdmin() && u.id !== A.me.id ? function () {
-        var linked = A.db.enrolments.filter(function (e) { return e.studentId === u.id || e.teacherId === u.id; }).length;
-        if (linked && !confirm(L("This person has " + linked + " enrolment(s). Archive the person with all their enrolments, lessons and payments? Everything stays in the database and can be restored.", "บุคคลนี้มีการลงทะเบียน " + linked + " รายการ ต้องการย้ายบุคคลนี้พร้อมการลงทะเบียน คาบเรียน และการชำระเงินไปที่เก็บถาวรใช่ไหม? ข้อมูลทั้งหมดยังอยู่ในฐานข้อมูลและกู้คืนได้"))) return;
-        A.db.enrolments.filter(function (e) { return e.studentId === u.id; }).forEach(function (e) { A.deleteEnrolment(e.id, true); });
-        A.db.enrolments.forEach(function (e) { if (e.teacherId === u.id) e.teacherId = ""; });
-        A.remove("users", u.id); A.logAct("Archived person " + u.name); A.save(); A.route();
-      } : null,
       validate: function (v) {
         if (v.role === "student" && v.guardianId === "__new" && !(v.parentName || "").trim()) return L("Type the new parent's name, or choose –.", "กรุณาพิมพ์ชื่อผู้ปกครองใหม่ หรือเลือก –");
         if (v.email && A.db.users.some(function (x) { return x.id !== u.id && (x.email || "").toLowerCase() === v.email.toLowerCase(); })) return L("This email is already used.", "อีเมลนี้มีผู้ใช้แล้ว");
@@ -216,26 +210,90 @@
           A.toast(L("Saved", "บันทึกแล้ว"));
           return A.load().then(function () {
             A.route();
-            if (isNew && rec.role === "student" && A.isAdmin() && confirm(L("Student added. Enrol " + rec.name + " in a course now?", "เพิ่มนักเรียนแล้ว ต้องการลงทะเบียนเรียนให้ " + rec.name + " ต่อเลยไหม?"))) A.editEnrolment(null, { studentId: rec.id });
+            if (isNew && rec.role === "student" && A.isStaff() && confirm(L("Student added. Enrol " + rec.name + " in a course now?", "เพิ่มนักเรียนแล้ว ต้องการลงทะเบียนเรียนให้ " + rec.name + " ต่อเลยไหม?"))) location.hash = "#/enrol?student=" + rec.id;
           });
         });
       }
     });
   };
 
-  A.loadArchive = function () {
+  var arcView = { type: "", shown: 30 };
+  A.loadArchive = function (keep) {
     var box = A.$("[data-archive]"); if (!box) return;
+    if (!keep) arcView = { type: "", shown: 30 };
     box.innerHTML = '<p class="muted">' + L("Loading…", "กำลังโหลด…") + "</p>";
-    var COL = { users: L("Person", "บุคคล"), enrolments: L("Enrolment", "การลงทะเบียน"), sessions: L("Lesson", "คาบเรียน"), payments: L("Payment", "การชำระเงิน"), requests: L("Request", "คำขอ") };
+    var COL = { users: L("People", "บุคคล"), enrolments: L("Enrolments", "การลงทะเบียน"), sessions: L("Lessons", "คาบเรียน"), payments: L("Payments", "การชำระเงิน"), requests: L("Requests", "คำขอ") };
     A.api("GET", "archive").then(function (d) {
-      var st = d.stats || {};
-      box.innerHTML = '<p class="muted">' + L(st.versions + " earlier versions kept since " + (st.since || "–") + " · " + st.archivedRecords + " archived records", "เก็บเวอร์ชันก่อนหน้า " + st.versions + " รายการ ตั้งแต่ " + (st.since || "–") + " · รายการที่เก็บถาวร " + st.archivedRecords + " รายการ") + "</p>" +
-        (d.items.length ? '<table class="tbl"><thead><tr><th>' + L("Type", "ประเภท") + "</th><th>" + L("Record", "รายการ") + "</th><th>" + L("Archived on", "เก็บถาวรเมื่อ") + "</th><th></th></tr></thead><tbody>" + d.items.slice(0, 300).map(function (r) {
-          var what = r.name || r.ref || ((r.date || "") + " " + (r.start || "")) || r.courseCode || r.id;
-          if (r._col === "enrolments") what = (A.userName(r.studentId) !== "–" ? A.userName(r.studentId) : r.studentId) + " · " + r.courseCode;
-          return "<tr><td>" + esc(COL[r._col] || r._col) + "</td><td>" + esc(what) + A.exTag(r) + "</td><td>" + esc(new Date(r._archivedAt).toLocaleString(A.lang === "th" ? "th-TH" : "en-GB")) + '</td><td><button class="btn btn--xs" data-act="archive-restore" data-col="' + esc(r._col) + '" data-id="' + esc(r.id) + '">' + L("Restore", "กู้คืน") + "</button></td></tr>";
-        }).join("") + "</tbody></table>" : '<p class="muted">' + L("Nothing archived.", "ยังไม่มีรายการที่เก็บถาวร") + "</p>");
+      var st = d.stats || {}, all = d.items, count = {}, nEx = all.filter(function (r) { return r.example; }).length;
+      all.forEach(function (r) { count[r._col] = (count[r._col] || 0) + 1; });
+      var list = all.filter(function (r) { return !arcView.type || r._col === arcView.type; });
+      var what = function (r) {
+        if (r._col === "enrolments") return (A.userName(r.studentId) !== "–" ? A.userName(r.studentId) : r.studentId) + " · " + r.courseCode;
+        if (r._col === "sessions") { var e = A.byId("enrolments", r.enrolmentId); return A.fmtDate(r.date, { weekday: "short", day: "numeric", month: "short", year: "numeric" }) + " " + (r.start || "") + (e ? " · " + A.userName(e.studentId) : ""); }
+        if (r._col === "payments") return (r.ref || "") + " · " + A.money(r.amount) + " · " + A.fmtDate(r.date);
+        return r.name || r.type || r.id;
+      };
+      box.innerHTML = '<p class="muted">' + L(st.versions + " earlier versions kept · " + all.length + " archived records", "เก็บเวอร์ชันก่อนหน้า " + st.versions + " รายการ · รายการที่เก็บถาวร " + all.length + " รายการ") + "</p>" +
+        (nEx ? '<p><button class="btn btn--danger btn--sm" data-act="archive-purge-examples">' + L("Remove all archived example data for good (" + nEx + ")", "ลบข้อมูลตัวอย่างที่เก็บถาวรทั้งหมดออกถาวร (" + nEx + " รายการ)") + "</button></p>" : "") +
+        (all.length ? '<div class="tabs">' + [["", L("All", "ทั้งหมด"), all.length]].concat(Object.keys(COL).filter(function (k) { return count[k]; }).map(function (k) { return [k, COL[k], count[k]]; }))
+          .map(function (t) { return '<button type="button" class="tab' + (t[0] === arcView.type ? " is-on" : "") + '" data-arc-type="' + t[0] + '">' + esc(t[1]) + " <span>" + t[2] + "</span></button>"; }).join("") + "</div>" +
+          '<table class="tbl"><thead><tr><th>' + L("Type", "ประเภท") + "</th><th>" + L("Record", "รายการ") + "</th><th>" + L("Archived on", "เก็บถาวรเมื่อ") + "</th><th></th></tr></thead><tbody>" +
+          list.slice(0, arcView.shown).map(function (r) {
+            return "<tr><td>" + esc(COL[r._col] || r._col) + "</td><td>" + esc(what(r)) + A.exTag(r) + "</td><td>" + esc(new Date(r._archivedAt).toLocaleString(A.lang === "th" ? "th-TH" : "en-GB", { dateStyle: "medium", timeStyle: "short" })) +
+              '</td><td class="nowrap"><button class="btn btn--xs" data-act="archive-restore" data-col="' + esc(r._col) + '" data-id="' + esc(r.id) + '">' + L("Restore", "กู้คืน") + '</button> <button class="btn btn--xs btn--danger" data-act="archive-purge" data-col="' + esc(r._col) + '" data-id="' + esc(r.id) + '">' + L("Remove for good", "ลบถาวร") + "</button></td></tr>";
+          }).join("") + "</tbody></table>" +
+          (list.length > arcView.shown ? '<p><button type="button" class="btn btn--sm" data-arc-more>' + L("Show " + Math.min(30, list.length - arcView.shown) + " more", "แสดงเพิ่มอีก " + Math.min(30, list.length - arcView.shown) + " รายการ") + "</button></p>" : "")
+          : '<p class="muted">' + L("Nothing archived.", "ยังไม่มีรายการที่เก็บถาวร") + "</p>");
+      box.querySelectorAll("[data-arc-type]").forEach(function (b) { b.addEventListener("click", function () { arcView = { type: b.getAttribute("data-arc-type"), shown: 30 }; A.loadArchive(true); }); });
+      var more = box.querySelector("[data-arc-more]"); if (more) more.addEventListener("click", function () { arcView.shown += 30; A.loadArchive(true); });
     }).catch(function (e) { box.innerHTML = '<p class="alert">' + esc(e.message) + "</p>"; });
+  };
+
+  /* ------------------------------------------------------------ system menu: the only place where data is removed (admins) */
+  A.loadImports = function () {
+    var box = A.$("[data-imports]"); if (!box) return;
+    A.api("GET", "import/batches").then(function (d) {
+      box.innerHTML = d.items.length ? d.items.map(function (b) {
+        return '<div class="imp"><div><b>' + esc(A.tx(b.title || { en: b.id, th: b.id })) + "</b><br><small class=\"muted\">" +
+          esc(L(b.counts.users + " students · " + b.counts.enrolments + " enrolments · " + b.counts.sessions + " lessons · " + b.counts.customCourses + " courses",
+                "นักเรียน " + b.counts.users + " คน · การลงทะเบียน " + b.counts.enrolments + " รายการ · คาบเรียน " + b.counts.sessions + " คาบ · หลักสูตร " + b.counts.customCourses + " หลักสูตร")) +
+          "<br>" + esc(b.students.join(" · ")) + "</small></div>" +
+          (b.done ? '<span class="badge badge--done">' + L("Imported ", "นำเข้าแล้ว ") + esc(new Date(b.done).toLocaleDateString(A.lang === "th" ? "th-TH" : "en-GB")) + "</span>"
+            : '<button class="btn btn--primary" data-act="import-batch" data-id="' + esc(b.id) + '">' + L("Import", "นำเข้า") + "</button>") + "</div>";
+      }).join("") : '<p class="muted">' + L("Nothing prepared to import.", "ไม่มีข้อมูลที่เตรียมไว้ให้นำเข้า") + "</p>";
+    }).catch(function (e) { box.innerHTML = '<p class="alert">' + esc(e.message) + "</p>"; });
+  };
+  A.removePerson = function (u) {
+    var linked = A.db.enrolments.filter(function (e) { return e.studentId === u.id; });
+    A.db.enrolments.forEach(function (e) { if (e.teacherId === u.id) e.teacherId = ""; });
+    linked.forEach(function (e) { A.deleteEnrolment(e.id, true); });
+    A.remove("users", u.id); A.logAct("Removed (archived) " + A.roleName(u.role) + " " + u.name + (linked.length ? " with " + linked.length + " enrolment(s)" : ""));
+  };
+  A._dataPage = function (q) {
+    if (!A.isAdmin()) return A._lockedPage(new URLSearchParams("p=data"));
+    var term = (q.get("q") || "").toLowerCase(), ex = function (c) { return A.db[c].filter(function (r) { return r.example; }).length; };
+    var nEx = ex("users") + ex("enrolments") + ex("sessions") + ex("payments") + ex("requests");
+    var hits = [];
+    if (term.length >= 2) {
+      A.db.users.forEach(function (u) { if ((u.name + " " + (u.nick || "") + " " + (u.email || "") + " " + (u.phone || "")).toLowerCase().indexOf(term) !== -1 && u.id !== A.me.id) hits.push(["users", u.id, A.roleName(u.role), A.userName(u.id), u]); });
+      A.db.enrolments.forEach(function (e) { if (A.enrolmentLabel(e).toLowerCase().indexOf(term) !== -1) hits.push(["enrolments", e.id, L("Enrolment", "การลงทะเบียน"), A.enrolmentLabel(e), e]); });
+      A.db.payments.forEach(function (p) { var e = A.byId("enrolments", p.enrolmentId); if (((p.ref || "") + " " + (e ? A.enrolmentLabel(e) : "")).toLowerCase().indexOf(term) !== -1) hits.push(["payments", p.id, L("Payment", "การชำระเงิน"), (p.ref || "") + " · " + A.money(p.amount) + " · " + A.fmtDate(p.date), p]); });
+    }
+    var html =
+      '<p class="note">' + L("Real data stays: the everyday screens have no delete buttons. Here an admin can take a record out of use (it is archived and can be restored), and remove an archived record for good. A sealed copy is always kept in the database's permanent archive for audit.",
+        "ข้อมูลจริงจะคงอยู่: หน้าจอทั่วไปไม่มีปุ่มลบ ที่หน้านี้ผู้ดูแลระบบนำรายการออกได้ (ย้ายไปเก็บถาวรและกู้คืนได้) และลบรายการที่เก็บถาวรแล้วออกถาวรได้ ระบบยังเก็บสำเนาที่แก้ไขไม่ได้ไว้ในที่เก็บถาวรของฐานข้อมูลเพื่อการตรวจสอบเสมอ") + "</p>" +
+      '<section class="box"><header><h2>' + L("Example data", "ข้อมูลตัวอย่าง") + "</h2></header>" +
+      (nEx ? "<p>" + L(nEx + " example records (tagged Example) are in the system. Remove them before you start with real data.", "มีข้อมูลตัวอย่าง " + nEx + " รายการ (ป้าย ตัวอย่าง) ควรลบออกก่อนเริ่มใช้ข้อมูลจริง") + '</p><button class="btn btn--danger" data-act="example-remove">' + L("Remove all example data", "ลบข้อมูลตัวอย่างทั้งหมด") + "</button>"
+        : '<p class="muted">' + L("No example data. ", "ไม่มีข้อมูลตัวอย่าง ") + '</p><button class="btn btn--sm" data-act="demo">' + L("Add the 5 example learners (for training)", "เพิ่มนักเรียนตัวอย่าง 5 คน (สำหรับฝึกใช้งาน)") + "</button>") + "</section>" +
+      '<section class="box"><header><h2>' + L("Import prepared records", "นำเข้าข้อมูลที่เตรียมไว้") + '</h2></header><div data-imports><p class="muted">' + L("Loading…", "กำลังโหลด…") + "</p></div></section>" +
+      '<section class="box"><header><h2>' + L("Take a record out of use", "นำรายการออกจากระบบ") + '</h2></header><form class="filters" data-filters><label>' + L("Find a person, enrolment or payment", "ค้นหาบุคคล การลงทะเบียน หรือการชำระเงิน") +
+      '<input type="search" name="q" value="' + esc(q.get("q") || "") + '" placeholder="' + esc(L("name, course, receipt no.…", "ชื่อ หลักสูตร เลขที่ใบเสร็จ…")) + '"></label><button class="btn">' + L("Search", "ค้นหา") + "</button></form>" +
+      (term.length >= 2 ? (hits.length ? table([L("Type", "ประเภท"), L("Record", "รายการ"), ""], hits.slice(0, 60).map(function (h) {
+        return { cells: [esc(h[2]), esc(h[3]) + A.exTag(h[4]), '<button class="btn btn--xs btn--danger" data-act="remove-rec" data-col="' + h[0] + '" data-id="' + esc(h[1]) + '">' + L("Remove (archive)", "นำออก (เก็บถาวร)") + "</button>"] };
+      })) : A.empty("Nothing found.", "ไม่พบรายการ")) : '<p class="muted">' + L("Type at least 2 letters.", "พิมพ์อย่างน้อย 2 ตัวอักษร") + "</p>") + "</section>" +
+      '<section class="box"><header><h2>' + L("Archived records", "รายการที่เก็บถาวร") + "</h2></header>" +
+      '<p class="muted">' + L("Restore puts a record back exactly as it was. Open any record and press History to see its earlier versions.", "กดกู้คืนเพื่อนำกลับมาเหมือนเดิม เปิดรายการใดก็ได้แล้วกด ประวัติการแก้ไข เพื่อดูเวอร์ชันก่อนหน้า") + '</p><div data-archive></div></section>';
+    return { title: L("Data: remove & restore", "จัดการข้อมูล (ลบ / กู้คืน)"), html: html, after: function () { A.loadArchive(); A.loadImports(); } };
   };
 
   A.editEnrolment = function (e, preset) {
@@ -293,10 +351,10 @@
         }
       },
       history: isNew ? null : { col: "enrolments", id: e.id },
-      onDelete: isNew ? null : function () { A.deleteEnrolment(e.id); A.route("enrolments"); },
       validate: function (v) { if (v.studentId === "__new" && !(v.newName || "").trim()) return L("Type the new student's name.", "กรุณาพิมพ์ชื่อนักเรียนใหม่"); if (v.auto && !v.pattern.length) return L("Add at least one day and time, or untick 'Create the lessons'.", "กรุณาเพิ่มวันและเวลาอย่างน้อย 1 รายการ หรือเอาเครื่องหมายถูก 'สร้างคาบเรียน' ออก"); },
       onSave: function (v) {
         var auto = v.auto, payNow = +v.payNow || 0, method = v.payMethod, from = v.firstFrom;
+        if (+v.fee > 0 && e.feeTBD) delete e.feeTBD;           // a fee was entered: no longer "fee not set"
         var nw = { name: (v.newName || "").trim(), nick: (v.newNick || "").trim(), grade: (v.newGrade || "").trim(), pName: (v.parentName || "").trim(), pPhone: (v.parentPhone || "").trim() };
         ["auto", "payNow", "payMethod", "firstFrom", "newName", "newNick", "newGrade", "parentName", "parentPhone"].forEach(function (k) { delete v[k]; });
 
@@ -358,7 +416,6 @@
         { name: "notes", label: L("Progress notes & homework", "บันทึกความก้าวหน้าและการบ้าน"), type: "textarea", value: s.notes, full: true }
       ],
       history: isNew ? null : { col: "sessions", id: s.id },
-      onDelete: isNew ? null : function () { A.remove("sessions", s.id); A.logAct("Archived lesson " + s.date); A.save(); A.route(); },
       extra: !isNew && s.status === "scheduled" ? '<button type="button" class="btn" data-move>' + L("Move / reschedule…", "เลื่อน / ย้ายคาบ…") + "</button>" : "",
       onReady: function (form, dlg) {
         var m = form.querySelector("[data-move]"); if (m) m.addEventListener("click", function () { dlg.close(); dlg.remove(); A.reschedule(s); });
@@ -385,23 +442,49 @@
 
   A.scheduleSeries = function (enr) {
     var st = A.stats(enr);
+    var last = st.sessions.filter(function (s) { return s.status !== "cancelled" && s.status !== "rescheduled"; }).map(function (s) { return s.date; }).sort().pop();
+    var from0 = last && last >= A.today() ? A.addDays(last, 1) : (A.today() > enr.start ? A.addDays(A.today(), 1) : enr.start);
     A.form({
-      title: L("Book lessons from a weekly pattern", "นัดคาบเรียนจากตารางประจำสัปดาห์"),
-      intro: esc(A.enrolmentLabel(enr)) + " · " + L("hours still to schedule: ", "ชั่วโมงที่ยังไม่ได้นัด: ") + "<strong>" + A.num(st.unscheduled) + "</strong>",
+      title: L("Book more lessons", "จัดตารางเรียนเพิ่ม"),
+      intro: esc(A.enrolmentLabel(enr)) + " · " + L("hours not booked yet: ", "ชั่วโมงที่ยังไม่ได้นัด: ") + "<strong>" + A.num(st.unscheduled) + "</strong>",
       fields: [
-        { name: "from", label: L("First lesson on or after", "เริ่มคาบแรกตั้งแต่วันที่"), type: "date", value: A.today() > enr.start ? A.addDays(A.today(), 1) : enr.start, required: true },
-        { name: "hours", label: L("Hours to book", "จำนวนชั่วโมงที่จะนัด"), type: "number", step: "0.25", min: 0.25, value: st.unscheduled || 1, required: true },
         { name: "pattern", label: L("Days & times (each day can differ)", "วันและเวลา (แต่ละวันต่างกันได้)"), type: "slots", value: enr.pattern },
-        { name: "keep", label: L("Save as this learner's regular times", "บันทึกเป็นเวลาเรียนปกติของผู้เรียนนี้"), type: "checkbox", value: true }
+        { name: "from", label: L("First lesson on or after", "เริ่มคาบแรกตั้งแต่วันที่"), type: "date", value: from0, required: true },
+        { name: "endBy", label: L("Ends", "สิ้นสุดเมื่อ"), type: "select", value: "hours", options: [["hours", L("Hours are booked", "ครบจำนวนชั่วโมง")], ["count", L("Number of lessons", "ครบจำนวนครั้ง")], ["date", L("On a date", "ถึงวันที่กำหนด")]] },
+        { name: "hours", label: L("Hours to book", "จำนวนชั่วโมงที่จะนัด"), type: "number", step: "0.25", min: 0.25, value: st.unscheduled || 1 },
+        { name: "count", label: L("Number of lessons", "จำนวนครั้ง"), type: "number", step: "1", min: 1, value: 4 },
+        { name: "to", label: L("Last day", "วันสุดท้าย"), type: "date", value: A.addDays(from0, 30) },
+        { name: "keep", label: L("Save as this learner's regular times", "บันทึกเป็นเวลาเรียนปกติของผู้เรียนนี้"), type: "checkbox", value: true },
+        { name: "grow", label: L("If more hours are booked than are left, add them to the course (and the fee)", "ถ้านัดเกินชั่วโมงที่เหลือ ให้เพิ่มชั่วโมง (และค่าเรียน) ในการลงทะเบียน"), type: "checkbox", value: true, full: true }
       ],
+      onReady: function (form) {
+        var info = document.createElement("p"); info.className = "mf-diff mf-full"; form.querySelector(".mf-grid").appendChild(info);
+        function upd() {
+          var by = form.elements.endBy.value;
+          form.elements.hours.closest(".mf").hidden = by !== "hours"; form.elements.count.closest(".mf").hidden = by !== "count"; form.elements.to.closest(".mf").hidden = by !== "date";
+          form.elements.grow.closest(".mf-check").hidden = !A.isAdmin();
+          var slots = A.$$(".slot", form).map(function (r) { return { day: +r.querySelector("[data-k=day]").value, start: r.querySelector("[data-k=start]").value, end: r.querySelector("[data-k=end]").value }; });
+          var ls = A.generateLessons(enr, { pattern: slots, from: form.elements.from.value, endBy: by, hours: +form.elements.hours.value, count: +form.elements.count.value, to: form.elements.to.value });
+          var h = ls.reduce(function (t, x) { return t + x.hours; }, 0);
+          info.textContent = ls.length ? L(ls.length + " lessons · " + A.num(h) + " h · " + A.fmtDate(ls[0].date) + " → " + A.fmtDate(ls[ls.length - 1].date), "จะนัด " + ls.length + " ครั้ง · " + A.num(h) + " ชม. · " + A.fmtDate(ls[0].date) + " → " + A.fmtDate(ls[ls.length - 1].date)) +
+            (h > st.unscheduled + 0.001 ? L(" — " + A.num(h - st.unscheduled) + " h more than not yet booked", " — มากกว่าชั่วโมงที่ยังไม่ได้นัด " + A.num(h - st.unscheduled) + " ชม.") : "") : L("No lesson fits — check the days and dates.", "ไม่มีคาบที่ตรงเงื่อนไข — ตรวจสอบวันและวันที่");
+        }
+        form.addEventListener("input", upd); form.addEventListener("change", upd); upd();
+      },
       validate: function (v) { if (!v.pattern.length) return L("Add at least one day and time.", "กรุณาเพิ่มวันและเวลาอย่างน้อย 1 รายการ"); },
       onSave: function (v) {
-        var lessons = A.generateLessons(enr, { pattern: v.pattern, from: v.from, hours: v.hours });
+        var lessons = A.generateLessons(enr, { pattern: v.pattern, from: v.from, endBy: v.endBy, hours: v.hours, count: v.count, to: v.to });
+        if (!lessons.length) { A.toast(L("No lesson fits — check the days and dates.", "ไม่มีคาบที่ตรงเงื่อนไข"), "err"); return false; }
         return A.clashOK(lessons).then(function (ok) {
           if (!ok) return false;
+          var h = lessons.reduce(function (t, x) { return t + x.hours; }, 0), extra = Math.round((h - st.unscheduled) * 100) / 100;
           Array.prototype.push.apply(A.db.sessions, lessons);
           if (v.keep) enr.pattern = v.pattern;
-          A.logAct("Scheduled " + lessons.length + " lessons for " + A.enrolmentLabel(enr));
+          if (extra > 0.001 && v.grow && A.isAdmin()) {
+            enr.hours = Math.round(((+enr.hours || 0) + extra) * 100) / 100;
+            enr.fee = Math.max(0, (+enr.fee || 0) + extra * (+enr.rate || 0));
+          }
+          A.logAct("Scheduled " + lessons.length + " lessons for " + A.enrolmentLabel(enr) + (extra > 0.001 && v.grow && A.isAdmin() ? " (+" + extra + " h added to the course)" : ""));
           return A.save().then(function () { A.toast(L(lessons.length + " lessons added to the calendar", "เพิ่ม " + lessons.length + " คาบในปฏิทินแล้ว")); A.route(); });
         });
       }
@@ -425,7 +508,6 @@
         { name: "note", label: L("Note", "หมายเหตุ"), type: "textarea", value: p.note, full: true }
       ],
       history: isNew ? null : { col: "payments", id: p.id },
-      onDelete: isNew ? null : function () { A.remove("payments", p.id); A.logAct("Archived payment " + p.ref); A.save(); A.route(); },
       onSave: function (v) {
         var rec = A.upsert("payments", Object.assign(p, v));
         A.logAct((isNew ? "Payment " : "Updated payment ") + A.money(rec.amount) + " · " + A.enrolmentLabel(A.byId("enrolments", rec.enrolmentId)));
@@ -436,7 +518,7 @@
 
   /* ------------------------------------------------------------ pages */
   var P = A.pages = {};
-  P.locked = A._lockedPage; P.access = A._accessPage;
+  P.locked = A._lockedPage; P.access = A._accessPage; P.data = A._dataPage;
 
   P.dashboard = function () {
     var today = A.today(), in7 = A.addDays(today, 7), month = today.slice(0, 7);
@@ -523,13 +605,13 @@
         esc(A.userName(e.teacherId)),
         A.bar(st) + '<span class="muted">' + A.num(st.used) + " / " + A.num(st.total) + " " + L("h used", "ชม. ที่ใช้") + "</span>",
         "<b>" + A.hrs(st.remaining) + "</b>" + (st.planned ? "<br><span class=muted>" + A.num(st.planned) + " " + L("h booked", "ชม. ที่นัดแล้ว") + "</span>" : ""),
-        A.isAdmin() ? (st.balance > 0.009 ? '<span class="neg">' + A.money(st.balance) + "</span>" : '<span class="pos">' + L("Paid", "ชำระครบ") + "</span>") : "",
+        A.isAdmin() ? (e.feeTBD ? '<span class="badge badge--scheduled">' + L("Fee not set", "ยังไม่ระบุค่าเรียน") + "</span>" : st.balance > 0.009 ? '<span class="neg">' + A.money(st.balance) + "</span>" : '<span class="pos">' + L("Paid", "ชำระครบ") + "</span>") : "",
         A.badge(e.status, A.enrStatusName(e.status))
       ] };
     });
     var html = '<div class="toolbar"><div class="tabs">' + tabs + '</div><input type="search" class="search" data-search placeholder="' + esc(L("Search student or course…", "ค้นหานักเรียนหรือหลักสูตร…")) + '" value="' + esc(q.get("q") || "") + '"></div>' +
       (rows.length ? table([L("Student · course", "นักเรียน · หลักสูตร"), L("Teacher", "ครู"), L("Progress", "ความคืบหน้า"), L("Hours left", "ชั่วโมงคงเหลือ"), A.isAdmin() ? L("Balance", "ยอดค้าง") : "", L("Status", "สถานะ")], rows, "tbl--click") : A.empty("No enrolments here.", "ไม่มีการลงทะเบียนในหมวดนี้"));
-    return { title: L("Enrolments", "การลงทะเบียน"), actions: A.isAdmin() ? '<button class="btn btn--primary" data-act="new-enrolment">+ ' + L("Enrol a student", "ลงทะเบียนนักเรียน") + "</button>" : "", html: html };
+    return { title: L("Enrolments", "การลงทะเบียน"), actions: A.isStaff() ? '<button class="btn btn--primary" data-act="new-enrolment">+ ' + L("Enrol a student", "ลงทะเบียนนักเรียน") + "</button>" : "", html: html };
   };
 
   P.enrolment = function (q, id) {
@@ -537,20 +619,26 @@
     if (!e || !A.canEditEnrolment(e) && !A.isAdmin()) return { title: L("Not found", "ไม่พบข้อมูล"), html: A.empty("This enrolment does not exist or is not yours.", "ไม่พบการลงทะเบียนนี้ หรือคุณไม่มีสิทธิ์เข้าถึง") };
     var st = A.stats(e), c = A.course(e.courseCode), stu = A.byId("users", e.studentId);
     var html = '<p class="crumbs"><a href="#/enrolments">← ' + L("Enrolments", "การลงทะเบียน") + "</a></p>" +
-      '<div class="enr-head"><div><h2>' + esc(A.userName(e.studentId)) + A.exTag(e) + "</h2><p>" + esc(A.courseName(e.courseCode)) + " · " + esc(A.L("Teacher: ", "ครู: ") + A.userName(e.teacherId)) + " · " + esc(A.MODES().filter(function (m) { return m[0] === e.mode; }).map(function (m) { return m[1]; })[0] || "") + " · " + L("since ", "เริ่ม ") + esc(A.fmtDate(e.start)) + "</p></div>" + A.badge(e.status, A.enrStatusName(e.status)) + "</div>" +
-      A.hoursPanel(e, st) +
-      (A.isAdmin() ? '<div class="kpis kpis--money">' + kpi(L("Fee", "ค่าเรียน"), A.money(st.fee)) + kpi(L("Paid", "ชำระแล้ว"), A.money(st.paid)) + kpi(L("Balance", "ยอดค้าง"), A.money(st.balance), "", st.balance > 0.009 ? "warn" : "good") + "</div>" : "") +
-      (e.goal ? '<p class="note">🎯 ' + esc(e.goal) + "</p>" : "") +
-      '<div class="btnrow">' +
-      '<button class="btn btn--primary" data-act="new-session" data-enr="' + e.id + '">+ ' + L("Add lesson", "เพิ่มคาบเรียน") + "</button>" +
-      '<button class="btn" data-act="series" data-enr="' + e.id + '">' + L("Schedule weekly", "นัดรายสัปดาห์") + "</button>" +
-      (A.isAdmin() ? '<button class="btn" data-act="new-payment" data-enr="' + e.id + '">' + L("Record payment", "บันทึกการชำระเงิน") + "</button>" : "") +
-      '<a class="btn" href="#/reports?student=' + e.studentId + "&enrolment=" + e.id + '">' + L("Progress report", "รายงานความก้าวหน้า") + "</a>" +
-      '<button class="btn" data-act="doc-schedule" data-enr="' + e.id + '">' + L("Full schedule · PDF", "ตารางเรียนทั้งหมด · PDF") + "</button>" +
-      '<button class="btn" data-act="doc-schedule" data-from="today" data-enr="' + e.id + '">' + L("Remaining lessons · PDF", "ตารางเรียนที่เหลือ · PDF") + "</button>" +
-      (A.isAdmin() ? '<button class="btn" data-act="doc-pack" data-enr="' + e.id + '">' + L("Enrolment pack for parents", "เอกสารยืนยันการลงทะเบียนสำหรับผู้ปกครอง") + "</button>" : "") +
-      (A.isAdmin() ? '<button class="btn" data-act="edit-enrolment" data-enr="' + e.id + '">' + L("Edit", "แก้ไข") + "</button>" : "") +
-      "</div>" +
+      '<section class="box enr-card"><div class="enr-card__who"><h2>' + esc(A.userName(e.studentId)) + A.exTag(e) + " " + A.badge(e.status, A.enrStatusName(e.status)) + "</h2>" +
+      "<p><b>" + esc(A.courseName(e.courseCode)) + "</b></p><p class=\"muted\">" + esc(L("Teacher: ", "ครู: ") + A.userName(e.teacherId)) + " · " +
+      esc(A.MODES().filter(function (m) { return m[0] === e.mode; }).map(function (m) { return m[1]; })[0] || "") + (e.location ? " · " + esc(e.location) : "") +
+      (e.pattern && e.pattern.length ? " · " + esc(A.patternText(e.pattern)) : "") + "</p>" +
+      (stu && (stu.phone || stu.email) ? '<p class="muted">' + L("Contact: ", "ติดต่อ: ") + esc([stu.phone, stu.email].filter(Boolean).join(" · ")) + "</p>" : "") +
+      (e.goal ? '<p class="note">🎯 ' + esc(e.goal) + "</p>" : "") + "</div>" +
+      '<div class="enr-card__act">' +
+      (A.canEditEnrolment(e) ? '<button class="btn btn--primary" data-act="new-session" data-enr="' + e.id + '">+ ' + L("Add a lesson", "เพิ่มคาบเรียน") + "</button>" +
+        '<button class="btn" data-act="series" data-enr="' + e.id + '">' + L("Book more lessons", "จัดตารางเพิ่ม") + "</button>" : "") +
+      (A.isAdmin() ? '<button class="btn" data-act="new-payment" data-enr="' + e.id + '">' + L("Record payment", "รับชำระเงิน") + "</button>" : "") +
+      '<details class="menu-dd"><summary class="btn">' + L("Documents ▾", "เอกสาร ▾") + "</summary><div>" +
+        '<button data-act="doc-schedule" data-enr="' + e.id + '">' + L("Full schedule · PDF", "ตารางเรียนทั้งหมด · PDF") + "</button>" +
+        '<button data-act="doc-schedule" data-from="today" data-enr="' + e.id + '">' + L("Remaining lessons · PDF", "ตารางเรียนที่เหลือ · PDF") + "</button>" +
+        '<a href="#/reports?student=' + e.studentId + "&enrolment=" + e.id + '">' + L("Progress report", "รายงานความก้าวหน้า") + "</a>" +
+        (A.isAdmin() ? '<button data-act="doc-pack" data-enr="' + e.id + '">' + L("Enrolment pack for parents", "เอกสารยืนยันการลงทะเบียน") + "</button>" : "") + "</div></details>" +
+      (A.isAdmin() ? '<button class="btn" data-act="edit-enrolment" data-enr="' + e.id + '">' + L("Edit", "แก้ไข") + "</button>" : "") + "</div></section>" +
+      A.timelineCard(e, q.get("asof") || A.today()) +
+      (st.unscheduled > 0.001 && e.status === "active" || st.used + st.planned > st.total + 0.001 ? A.hoursPanel(e, st) : "") +   // only when hours need booking or are over-booked
+      (A.isAdmin() && e.feeTBD ? '<p class="alert">' + L("The fee for this enrolment has not been set yet — press Edit to add it.", "ยังไม่ได้ระบุค่าเรียนของการลงทะเบียนนี้ — กด แก้ไข เพื่อใส่ค่าเรียน") + "</p>" : "") +
+      (A.isAdmin() && !e.feeTBD ? '<div class="kpis kpis--money">' + kpi(L("Fee", "ค่าเรียน"), A.money(st.fee)) + kpi(L("Paid", "ชำระแล้ว"), A.money(st.paid)) + kpi(L("Balance", "ยอดค้าง"), A.money(st.balance), "", st.balance > 0.009 ? "warn" : "good") + "</div>" : "") +
       '<section class="box"><header><h2>' + L("Lessons", "คาบเรียน") + " (" + st.sessions.length + ")</h2></header>" +
       (st.sessions.length ? table([L("Date", "วันที่"), L("Hours", "ชม."), L("Status", "สถานะ"), L("What was learned", "สิ่งที่เรียน"), ""], st.sessions.map(function (s) {
         return { attrs: ' data-session="' + s.id + '"', cells: [esc(A.fmtDate(s.date, { weekday: "short", day: "numeric", month: "short", year: "2-digit" })) + "<br><span class=muted>" + esc(s.start || "") + "</span>", A.num(s.hours), A.badge(s.status), A.lessonNote(s),
@@ -561,7 +649,6 @@
         (A.paymentsOf(e.id).length ? table([L("Date", "วันที่"), L("Amount", "จำนวนเงิน"), L("Method", "ช่องทาง"), L("Receipt no.", "เลขที่ใบเสร็จ"), ""], A.paymentsOf(e.id).map(function (p) {
           return { attrs: ' data-payment="' + p.id + '"', cells: [esc(A.fmtDate(p.date)), A.money(p.amount), esc(A.methodName(p.method)), esc(p.ref || ""), '<button class="btn btn--xs" data-act="doc-receipt" data-id="' + p.id + '">' + L("Receipt", "ใบเสร็จ") + "</button>"] };
         }), "tbl--click") : A.empty("No payments recorded.", "ยังไม่มีการชำระเงิน")) + "</section>" : "") +
-      (stu && (stu.phone || stu.email) ? '<p class="muted">' + L("Contact: ", "ติดต่อ: ") + esc([stu.phone, stu.email].filter(Boolean).join(" · ")) + "</p>" : "") +
       (c ? "" : '<p class="alert">' + L("This course is no longer in the catalogue.", "หลักสูตรนี้ไม่อยู่ในรายการแล้ว") + "</p>");
     return { title: L("Enrolment", "การลงทะเบียน"), html: html };
   };
@@ -683,9 +770,9 @@
         '<section class="box"><header><h2>' + L("Backup & data", "สำรองและจัดการข้อมูล") + "</h2></header>" +
         '<p class="note">' + L("Data is stored on the DeepDistrict server in one database file (server/data/deepdistrict.db). Nothing is ever deleted: archiving hides a record but keeps it, and every earlier version of every record is kept in the database archive for good. The server also copies the database every day to server/data/backups (the last 30 days plus the 1st of every month). Export a backup file regularly as well and keep it somewhere safe.", "ข้อมูลเก็บบนเซิร์ฟเวอร์ DeepDistrict ในไฟล์ฐานข้อมูลเดียว (server/data/deepdistrict.db) ระบบไม่ลบข้อมูลใด ๆ การย้ายไปที่เก็บถาวรเพียงซ่อนรายการแต่ยังเก็บไว้ และทุกเวอร์ชันก่อนหน้าของทุกรายการถูกเก็บในฐานข้อมูลถาวร เซิร์ฟเวอร์ยังคัดลอกฐานข้อมูลทุกวันไว้ที่ server/data/backups (30 วันล่าสุด และสำเนาวันที่ 1 ของทุกเดือน) ควรส่งออกไฟล์สำรองเป็นประจำและเก็บไว้ในที่ปลอดภัยด้วย") + "</p>" +
         '<div class="btnrow"><button class="btn btn--primary" data-act="backup">' + L("Export backup (.json)", "ส่งออกไฟล์สำรอง (.json)") + '</button><label class="btn">' + L("Import backup…", "นำเข้าไฟล์สำรอง…") + '<input type="file" accept=".json,application/json" data-import hidden></label>' +
-        '<button class="btn" data-act="demo">' + L("Add the 5 example learners", "เพิ่มข้อมูลตัวอย่างนักเรียน 5 คน") + "</button></div></section>" +
-        '<section class="box"><header><h2>' + L("Archive & history", "ที่เก็บถาวรและประวัติ") + '</h2><button class="btn" data-act="archive-load">' + L("Show archived records", "แสดงรายการที่เก็บถาวร") + "</button></header>" +
-        '<p class="muted">' + L("Archived people, enrolments, lessons, payments and requests. Restore puts a record back exactly as it was. Open any record and press History to see its earlier versions.", "บุคคล การลงทะเบียน คาบเรียน การชำระเงิน และคำขอที่ย้ายไปเก็บถาวร กดกู้คืนเพื่อนำกลับมาเหมือนเดิม เปิดรายการใดก็ได้แล้วกด ประวัติการแก้ไข เพื่อดูเวอร์ชันก่อนหน้า") + '</p><div data-archive></div></section>' +
+        "</div></section>" +
+        '<section class="box"><header><h2>' + L("Removing data", "การลบข้อมูล") + '</h2><a class="btn btn--primary" href="#/data">' + L("Open Data: remove & restore", "เปิด จัดการข้อมูล (ลบ / กู้คืน)") + "</a></header>" +
+        '<p class="muted">' + L("Real data is never removed from the everyday screens. Only an admin can remove a record, here in the system menu — and it can be restored.", "ข้อมูลจริงลบจากหน้าจอทั่วไปไม่ได้ เฉพาะผู้ดูแลระบบเท่านั้นที่ลบได้ ผ่านเมนูระบบนี้ และกู้คืนได้") + "</p></section>" +
         '<section class="box"><header><h2>' + L("Activity log", "บันทึกการใช้งาน") + "</h2></header>" + (A.db.log.length ? '<ul class="list list--log">' + A.db.log.slice(0, 60).map(function (l) { return "<li><span>" + esc(l.text) + '</span><span class="muted">' + esc(l.by) + " · " + esc(new Date(l.at).toLocaleString(A.lang === "th" ? "th-TH" : "en-GB")) + "</span></li>"; }).join("") + "</ul>" : A.empty("No activity yet.", "ยังไม่มีความเคลื่อนไหว")) + "</section>"
       : '<p class="muted">' + L("Organisation settings and backups are managed by an admin.", "การตั้งค่าองค์กรและการสำรองข้อมูลจัดการโดยผู้ดูแลระบบ") + "</p>");
     return { title: L("Settings", "ตั้งค่า"), html: html, after: function () {
@@ -831,7 +918,7 @@
       else if (act === "theme") A.applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
       else if (act === "logout") { A.logout().then(A.boot); }
       else if (act === "new-person") A.editPerson(null, b.getAttribute("data-role"));
-      else if (act === "new-enrolment") A.editEnrolment();
+      else if (act === "new-enrolment") location.hash = "#/enrol" + (b.getAttribute("data-student") ? "?student=" + b.getAttribute("data-student") : "");
       else if (act === "edit-enrolment") A.editEnrolment(A.byId("enrolments", enrId));
       else if (act === "new-session") A.editSession(null, enrId ? { enrolmentId: enrId } : null);
       else if (act === "series") A.scheduleSeries(A.byId("enrolments", enrId));
@@ -843,6 +930,34 @@
       else if (act === "acc-save") A.saveAccess();
       else if (act === "demo") { if (confirm(L("Add the 5 example learners (with parents, enrolments, payments and lessons, tagged 'Example')? Existing data is kept.", "เพิ่มข้อมูลตัวอย่างนักเรียน 5 คน (พร้อมผู้ปกครอง การลงทะเบียน การชำระเงิน และคาบเรียน มีป้าย 'ตัวอย่าง')? ข้อมูลเดิมยังอยู่ครบ"))) A.api("POST", "example/seed", {}).then(function (d) { A.toast(d.added ? L(d.added + " example records added", "เพิ่มข้อมูลตัวอย่าง " + d.added + " รายการ") : L("The example data is already there (archived records can be restored below).", "มีข้อมูลตัวอย่างอยู่แล้ว (รายการที่เก็บถาวรกู้คืนได้ด้านล่าง)")); return A.load().then(function () { A.route("dashboard"); }); }).catch(function (e) { A.toast(e.message, "err"); }); }
       else if (act === "archive-load") A.loadArchive();
+      else if (act === "remove-rec") {
+        var rc = b.getAttribute("data-col"), rid = b.getAttribute("data-id"), rr = A.byId(rc, rid);
+        var cascade = rc === "users" ? A.db.enrolments.filter(function (x) { return x.studentId === rid; }).length : rc === "enrolments" ? A.sessionsOf(rid).length : 0;
+        if (rr && confirm(L("Take this record out of use? It is archived (with " + cascade + " linked item(s)) and can be restored from this page.", "นำรายการนี้ออกจากระบบใช่ไหม? รายการจะถูกเก็บถาวร (รวมรายการที่เกี่ยวข้อง " + cascade + " รายการ) และกู้คืนได้จากหน้านี้"))) {
+          if (rc === "users") A.removePerson(rr); else if (rc === "enrolments") A.deleteEnrolment(rid); else { A.remove(rc, rid); A.logAct("Removed (archived) " + rc + " " + rid); }
+          A.save().then(function () { A.toast(L("Archived", "เก็บถาวรแล้ว")); A.route(); });
+        }
+      }
+      else if (act === "archive-purge") {
+        if (prompt(L("Remove this archived record for good? Type DELETE to confirm.", "ลบรายการนี้ออกถาวรใช่ไหม? พิมพ์คำว่า ลบ เพื่อยืนยัน")) === L("DELETE", "ลบ"))
+          A.api("POST", "archive/purge", { col: b.getAttribute("data-col"), id: b.getAttribute("data-id") }).then(function () { A.toast(L("Removed for good", "ลบถาวรแล้ว")); A.loadArchive(); }).catch(function (e) { A.toast(e.message, "err"); });
+      }
+      else if (act === "import-batch") {
+        if (confirm(L("Import these records? Records that already exist are left as they are.", "นำเข้ารายการเหล่านี้ใช่ไหม? รายการที่มีอยู่แล้วจะไม่ถูกแก้ไข")))
+          A.api("POST", "import/batch", { id: b.getAttribute("data-id") }).then(function (d) {
+            var a = d.added || {};
+            A.toast(L("Imported: ", "นำเข้าแล้ว: ") + Object.keys(a).map(function (k) { return a[k] + " " + k; }).join(", "));
+            return A.load().then(function () { A.route(); });
+          }).catch(function (e) { A.toast(e.message, "err"); });
+      }
+      else if (act === "archive-purge-examples") {
+        if (prompt(L("Remove every archived example record for good? Type DELETE to confirm.", "ลบข้อมูลตัวอย่างที่เก็บถาวรทั้งหมดออกถาวรใช่ไหม? พิมพ์คำว่า ลบ เพื่อยืนยัน")) === L("DELETE", "ลบ"))
+          A.api("POST", "archive/purge", { examples: true }).then(function (d) { A.toast(L(d.removed + " removed for good", "ลบถาวรแล้ว " + d.removed + " รายการ")); A.loadArchive(); }).catch(function (e) { A.toast(e.message, "err"); });
+      }
+      else if (act === "example-remove") {
+        if (confirm(L("Remove all example data (people, enrolments, lessons, payments and requests tagged Example)? Your real data is not touched.", "ลบข้อมูลตัวอย่างทั้งหมด (บุคคล การลงทะเบียน คาบเรียน การชำระเงิน และคำขอที่มีป้าย ตัวอย่าง) ใช่ไหม? ข้อมูลจริงจะไม่ถูกแตะต้อง")))
+          A.api("POST", "example/remove", {}).then(function (d) { A.toast(L(d.removed + " example records removed", "ลบข้อมูลตัวอย่าง " + d.removed + " รายการแล้ว")); return A.load().then(function () { A.route(); }); }).catch(function (e) { A.toast(e.message, "err"); });
+      }
       else if (act === "archive-restore") A.api("POST", "archive/restore", { col: b.getAttribute("data-col"), id: b.getAttribute("data-id") }).then(function () { A.toast(L("Restored", "กู้คืนแล้ว")); return A.load().then(function () { A.route(); setTimeout(A.loadArchive, 50); }); }).catch(function (e) { A.toast(e.message, "err"); });
       else if (act === "consent-log") {
         A.api("GET", "consent-log").then(function (d) {

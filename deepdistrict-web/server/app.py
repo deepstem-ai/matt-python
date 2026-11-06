@@ -302,6 +302,8 @@ def can_write(con, me, col, new, old):
             if len(admins) < 2:
                 raise Denied("keep at least one admin")
         return True
+    if new is None:
+        raise Denied("only an admin removes records (Settings → Data)")
     rec = new or old
     if col == "users":
         if role != "teacher":
@@ -310,6 +312,17 @@ def can_write(con, me, col, new, old):
             raise Denied("staff accounts are managed by an admin")
         if new is None:
             raise Denied("only admins delete people")
+        return True
+    if col == "enrolments":
+        # teachers enrol their own students (they are the teacher on it); fees and payments stay with admins
+        if role != "teacher":
+            raise Denied("read only")
+        if new is None:
+            raise Denied("only admins archive enrolments")
+        if new.get("teacherId") != me["id"] or (old and old.get("teacherId") != me["id"]):
+            raise Denied("you can only enrol your own students")
+        if old and any(old.get(k) != new.get(k) for k in ("fee", "rate", "discount")):
+            raise Denied("fees are changed by an admin")
         return True
     if col == "sessions":
         if role != "teacher":
@@ -942,6 +955,63 @@ def api(environ, start, path):
             n = example_data.seed(con, put_rec, get_kv, set_kv, now_iso, force=True)
             audit(con, me, f"Added example data ({n} records)")
             return respond(start, "200 OK", {"ok": True, "added": n})
+        if path == "import/batches" and method == "GET":
+            done = get_kv(con, "importDone", {})
+            out = []
+            for f in sorted((ROOT / "server" / "real_data").glob("*.json")):
+                try:
+                    b = json.loads(f.read_text(encoding="utf-8"))
+                except ValueError:
+                    continue
+                out.append({"id": b.get("id") or f.stem, "title": b.get("title"), "done": done.get(b.get("id") or f.stem),
+                            "students": [u.get("name") for u in b.get("users", []) if u.get("role") == "student"],
+                            "counts": {k: len(b.get(k) or []) for k in COLLECTIONS + ("customCourses",)}})
+            return respond(start, "200 OK", {"items": out})
+        if path == "import/batch" and method == "POST":
+            bid = str(body.get("id") or "")
+            f = ROOT / "server" / "real_data" / (bid + ".json")
+            if not re.fullmatch(r"[a-z0-9-]{3,40}", bid) or not f.is_file():
+                return respond(start, "404 Not Found", {"error": "no such batch"})
+            b = json.loads(f.read_text(encoding="utf-8"))
+            have = {(r["col"], r["id"]) for r in con.execute("SELECT col, id FROM records")}     # archived ones too: never re-added
+            added = {}
+            for col in COLLECTIONS:
+                for rec in b.get(col) or []:
+                    if isinstance(rec, dict) and rec.get("id") and (col, rec["id"]) not in have:
+                        put_rec(con, col, rec, me["id"]); added[col] = added.get(col, 0) + 1
+            cc = get_kv(con, "customCourses", []) or []
+            codes = {c.get("code") for c in cc}
+            for c in b.get("customCourses") or []:
+                if c.get("code") and c["code"] not in codes:
+                    cc.append(c); added["customCourses"] = added.get("customCourses", 0) + 1
+            set_kv(con, "customCourses", cc)
+            done = get_kv(con, "importDone", {}); done[bid] = now_iso(); set_kv(con, "importDone", done)
+            audit(con, me, f"Imported {bid}: " + ", ".join(f"{v} {k}" for k, v in added.items()))
+            return respond(start, "200 OK", {"ok": True, "added": added})
+        if path == "example/remove" and method == "POST":
+            n = 0
+            for r in con.execute("SELECT col, id, data FROM records WHERE archived=0").fetchall():
+                if r["col"] in COLLECTIONS and json.loads(r["data"]).get("example"):
+                    del_rec(con, r["col"], r["id"], me["id"]); n += 1
+            set_kv(con, "exampleSeed", {"at": now_iso(), "removed": n})       # never added again by itself
+            audit(con, me, f"Removed the example data ({n} records)")
+            return respond(start, "200 OK", {"ok": True, "removed": n})
+        if path == "archive/purge" and method == "POST" and body.get("examples"):
+            gone = [(r["col"], r["id"]) for r in con.execute("SELECT col, id, data FROM records WHERE archived=1").fetchall()
+                    if r["col"] in COLLECTIONS and json.loads(r["data"]).get("example")]
+            for col, rid in gone:     # a sealed copy of each stays in the archive table
+                con.execute("DELETE FROM records WHERE col=? AND id=? AND archived=1", (col, rid))
+            audit(con, me, f"Removed {len(gone)} archived example records for good")
+            return respond(start, "200 OK", {"ok": True, "removed": len(gone)})
+        if path == "archive/purge" and method == "POST":
+            col, rid = body.get("col"), str(body.get("id") or "")
+            if col not in COLLECTIONS or not con.execute("SELECT 1 FROM records WHERE col=? AND id=? AND archived=1", (col, rid)).fetchone():
+                return respond(start, "404 Not Found", {"error": "only archived records can be removed for good"})
+            con.execute("DELETE FROM records WHERE col=? AND id=? AND archived=1", (col, rid))   # a sealed copy stays in the archive table
+            if col == "users":
+                con.execute("DELETE FROM credentials WHERE user_id=?", (rid,))
+            audit(con, me, f"Removed {col} {rid} for good (archived copy kept)")
+            return respond(start, "200 OK", {"ok": True})
         if path == "archive" and method == "GET":
             return respond(start, "200 OK", {"items": history.archived(con, COLLECTIONS), "stats": history.stats(con)})
         if path == "archive/restore" and method == "POST":

@@ -33,6 +33,11 @@
 
   /* ------------------------------------------------------------ courses */
   var add = [
+    { code: "SKB110", track: "admit", level: 1, hours: 16,
+      title: L("BOOTCAMP Intensive GATE / EPLUS+ · Suankularb M.1", "BOOTCAMP Intensive GATE / EPLUS+ · สวนกุหลาบวิทยาลัย ม.1"),
+      text: L("A short, intensive round for P.6 students aiming at Suankularb Wittayalai's M.1 GATE and EPLUS+ programmes: the entrance-test English parts, timed practice papers in the school's style and clear feedback after every lesson.",
+              "รอบเข้มข้นระยะสั้นสำหรับนักเรียน ป.6 ที่เตรียมสอบเข้า ม.1 โครงการ GATE และ EPLUS+ โรงเรียนสวนกุหลาบวิทยาลัย ฝึกภาษาอังกฤษตามรูปแบบข้อสอบ ทำข้อสอบจับเวลาตามแนวของโรงเรียน และสรุปผลให้หลังเรียนทุกครั้ง"),
+      tools: ["Timed papers", "GATE / EPLUS+", "Feedback"] },
     { code: "IEL200", track: "admit", level: 2, hours: 40,
       title: L("IELTS Academic: Band 6.5 → 7.5+", "IELTS Academic: จาก Band 6.5 สู่ 7.5+"),
       text: L("All four skills for university entry: listening and reading strategies, Task 1 and Task 2 writing with examiner-style feedback, and speaking practice.",
@@ -72,6 +77,16 @@
   add.forEach(function (c) { D.courses.push(c); });
 
   var det = {
+    SKB110: { modes: ALL,
+      modules: m([["Diagnostic paper and a study plan for each child", "ข้อสอบวัดระดับและแผนการเรียนรายบุคคล"],
+        ["Conversation and vocabulary in context", "บทสนทนาและคำศัพท์ในบริบท"],
+        ["Grammar and cloze passages", "ไวยากรณ์และการเติมคำในบทความ"],
+        ["Reading: notices, stories and information texts", "การอ่าน: ประกาศ เรื่องสั้น และบทความให้ความรู้"],
+        ["Timed practice papers with review", "ข้อสอบฝึกจับเวลาพร้อมทบทวนข้อผิด"]]),
+      outcomes: m([["Know every part of the English test and how to manage the time", "รู้จักทุกตอนของข้อสอบภาษาอังกฤษและบริหารเวลาได้"],
+        ["A clear list of what to fix before the test day", "รู้ชัดว่าต้องแก้จุดไหนก่อนวันสอบ"]]),
+      prereq: L("P.6 students applying for Suankularb Wittayalai M.1 GATE or EPLUS+", "นักเรียน ป.6 ที่สมัครสอบเข้า ม.1 โครงการ GATE หรือ EPLUS+ โรงเรียนสวนกุหลาบวิทยาลัย"),
+      project: L("Timed practice papers with a written report after each one", "ข้อสอบฝึกจับเวลาพร้อมรายงานผลหลังทำทุกชุด") },
     IEL200: { modes: ALL,
       modules: m([["Test format, band descriptors & your diagnostic", "รูปแบบข้อสอบ เกณฑ์ Band และการวัดระดับเริ่มต้น"], ["Listening: four parts, one hearing", "Listening: สี่พาร์ต ฟังได้ครั้งเดียว"],
         ["Reading: skimming, scanning, True/False/Not Given", "Reading: Skimming, Scanning และ True/False/Not Given"], ["Writing Task 1: graphs, tables, processes, maps", "Writing Task 1: กราฟ ตาราง กระบวนการ และแผนที่"],

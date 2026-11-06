@@ -33,14 +33,16 @@
   };
 
   /* ------------------------------------------------------------ generate lessons from a weekly pattern */
+  // opts.endBy: "hours" (default — fill opts.hours), "count" (opts.count lessons) or "date" (every slot up to opts.to)
   A.generateLessons = function (enr, opts) {
     var pattern = (opts.pattern || []).filter(function (sl) { return A.slotHours(sl) > 0; });
-    var need = Math.round((+opts.hours || 0) * 100) / 100, out = [];
-    if (!pattern.length || need <= 0) return out;
+    var by = opts.endBy || "hours", need = by === "hours" ? Math.round((+opts.hours || 0) * 100) / 100 : 1e9, out = [];
+    var maxN = by === "count" ? Math.floor(+opts.count || 0) : 1e9;
+    if (!pattern.length || need <= 0 || maxN <= 0 || (by === "date" && (!opts.to || opts.to < opts.from))) return out;
     var d = A.parse(opts.from), guard = 0;
-    while (need > 0.001 && guard++ < 800) {
+    while (need > 0.001 && out.length < maxN && guard++ < 800 && !(by === "date" && A.iso(d) > opts.to)) {
       var today = pattern.filter(function (sl) { return +sl.day === d.getDay(); }).sort(function (a, b) { return A.toMin(a.start) - A.toMin(b.start); });
-      for (var i = 0; i < today.length && need > 0.001; i++) {
+      for (var i = 0; i < today.length && need > 0.001 && out.length < maxN; i++) {
         var h = Math.min(A.slotHours(today[i]), need);
         out.push({ id: A.uid("s"), enrolmentId: enr.id, date: A.iso(d), start: today[i].start, hours: Math.round(h * 100) / 100, status: "scheduled",
           mode: today[i].mode || enr.mode, location: today[i].location || enr.location || "", teacherId: enr.teacherId, createdAt: new Date().toISOString() });

@@ -10,3 +10,5 @@ __pycache__/
 *.db
 *.db-wal
 *.db-shm
+# real learners prepared for import (personal data - never commit; shipped only inside the release zip)
+server/real_data/

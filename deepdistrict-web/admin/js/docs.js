@@ -60,7 +60,7 @@
   };
 
   // from: "" = the full schedule from the first lesson; a date = only lessons on or after it (numbering stays the same)
-  function scheduleSection(e, from) {
+  function scheduleSection(e, from, asOf) {
     var st = A.stats(e), n = 0, cum = 0;
     var rows = st.sessions.filter(function (s) { return s.status !== "rescheduled"; }).map(function (s) {
       var counts = s.status !== "cancelled";
@@ -69,22 +69,27 @@
       return "<tr" + (counts ? "" : ' class="is-off"') + "><td>" + (counts ? n : "–") + "</td><td>" + esc(A.fmtDate(s.date, { weekday: "short", day: "numeric", month: "short", year: "numeric" })) + "</td><td>" + esc(A.span(s)) + "</td><td>" + A.num(s.hours) + "</td><td>" + esc(A.modeName(s.mode)) + (s.location ? "<br><span class=rp-note>" + esc(s.location) + "</span>" : "") + "</td><td>" + (A.counts(s) ? "✓ " : "") + esc(A.statusName(s.status)) + (s.autoDone ? '<br><span class="rp-note">' + L("regular lesson", "เรียนตามปกติ") + "</span>" : "") + (s.movedFrom || s.makeUpFor ? "<br><span class=rp-note>" + (s.makeUpFor ? L("make-up", "ชดเชย") : L("moved", "เลื่อนมา")) + "</span>" : "") + "</td><td>" + (counts ? A.num(cum) : "") + "</td></tr>";
     });
     return '<div class="rp-stats"><div><span>' + L("Total hours", "ชั่วโมงทั้งหมด") + "</span><b>" + A.num(st.total) + "</b></div><div><span>" + L("Learned", "เรียนแล้ว") + "</span><b>" + A.num(st.used) + '</b></div><div class="rp-hi"><span>' + L("Remaining", "คงเหลือ") + "</span><b>" + A.num(st.remaining) + "</b></div><div><span>" + L("Booked", "นัดแล้ว") + "</span><b>" + A.num(st.planned) + "</b></div></div>" +
-      (function () {                                   // learned so far and what is left, for parents at a glance
+      (asOf ? (function () {                           // learned / left as of a chosen date
+        var x = A.asOfStats(e, asOf);
+        return '<p class="rp-sub rp-progress"><b>' + L("As of ", "ณ วันที่ ") + esc(A.fmtDate(asOf)) + ": </b>✓ " + (x.projected ? L("learned (incl. booked) ", "เรียนแล้ว (รวมที่นัดไว้) ") : L("learned ", "เรียนแล้ว ")) +
+          A.num(x.learned) + L(" h", " ชม.") + " (" + x.learnedN + L(" lessons", " ครั้ง") + ") &nbsp;·&nbsp; " + L("left ", "คงเหลือ ") + A.num(x.left) + L(" h", " ชม.") + " (" + x.leftN + L(" lessons booked", " ครั้งที่นัดไว้") + ")</p>";
+      })() : "") +
+      (asOf ? "" : (function () {                     // learned so far and what is left, for parents at a glance
         var live = st.sessions.filter(function (s) { return s.status !== "rescheduled" && s.status !== "cancelled"; });
         var done = live.filter(function (s) { return A.counts(s); }), next = live.filter(function (s) { return s.status === "scheduled"; });
         var d = function (s) { return esc(A.fmtDate(s.date, { day: "numeric", month: "short", year: "numeric" })); };
         return '<p class="rp-sub rp-progress"><b>✓ ' + L("Learned: ", "เรียนแล้ว: ") + "</b>" + done.length + L(" lessons", " ครั้ง") + (done.length ? " (" + L("latest ", "ล่าสุด ") + d(done[done.length - 1]) + ")" : "") +
           " &nbsp;·&nbsp; <b>" + L("Still to come: ", "ยังเหลือ: ") + "</b>" + next.length + L(" lessons", " ครั้ง") + (next.length ? " (" + L("next ", "ครั้งถัดไป ") + d(next[0]) + (next.length > 1 ? ", " + L("last ", "ครั้งสุดท้าย ") + d(next[next.length - 1]) : "") + ")" : "") +
           ' &nbsp;·&nbsp; <span class="rp-note">' + L("updated ", "อัปเดต ") + esc(A.fmtDate(A.today())) + "</span></p>";
-      })() +
+      })()) +
       (e.pattern && e.pattern.length ? '<p class="rp-sub"><b>' + L("Regular time: ", "เวลาเรียนปกติ: ") + "</b>" + esc(A.patternText(e.pattern)) + "</p>" : "") +
       '<table class="rp-tbl"><thead><tr><th>#</th><th>' + L("Date", "วันที่") + "</th><th>" + L("Time", "เวลา") + "</th><th>" + L("Hours", "ชม.") + "</th><th>" + L("Where", "รูปแบบ / สถานที่") + "</th><th>" + L("Status", "สถานะ") + "</th><th>" + L("Total", "สะสม") + "</th></tr></thead><tbody>" + rows.join("") + "</tbody></table>" +
       (st.unscheduled > 0.001 && st.used + st.planned > 0 ? '<p class="rp-small">' + L(A.hrs(st.unscheduled) + " still to be booked.", "ยังเหลือ " + A.hrs(st.unscheduled) + " ที่รอนัดเพิ่ม") + "</p>" : "") +
       '<p class="rp-small">' + L("Need a change? Send a request in the DeepDistrict portal or contact us — every change is confirmed by DeepDistrict.", "ต้องการเปลี่ยนแปลง? ส่งคำขอผ่านระบบ DeepDistrict หรือติดต่อเรา ทุกการเปลี่ยนแปลงจะได้รับการยืนยันจาก DeepDistrict") + "</p>";
   }
-  A.scheduleHTML = function (e, from) {
+  A.scheduleHTML = function (e, from, asOf) {
     var sub = from ? L("Remaining lessons from " + A.fmtDate(from), "คาบเรียนที่เหลือ ตั้งแต่ " + A.fmtDate(from)) : L("Full schedule from the first lesson", "ตารางเรียนทั้งหมด ตั้งแต่คาบแรก");
-    return '<article class="report doc" id="report">' + head(L("Learning schedule", "ตารางเรียน"), sub, "SC-" + e.id.slice(-6).toUpperCase(), A.today()) + learnerBlock(e) + scheduleSection(e, from) + foot(A.today()) + "</article>";
+    return '<article class="report doc" id="report">' + head(L("Learning schedule", "ตารางเรียน"), sub, "SC-" + e.id.slice(-6).toUpperCase(), A.today()) + learnerBlock(e) + scheduleSection(e, from, asOf) + foot(A.today()) + "</article>";
   };
   A.feeNoticeSection = function (e) {
     var st = A.stats(e), o = A.db.org;
@@ -179,10 +184,15 @@
     if (kind === "png") return A.pngBlob(el).then(function (b) { A.download(base + ".png", b); }).catch(fail);
     if (kind === "print") return window.print();
     if (kind === "email") return A.emailDoc(el, base, emailOpts);
+    if (kind === "text") {
+      var txt = emailOpts && emailOpts.text ? emailOpts.text() : el.innerText;
+      A.download(base + ".txt", txt, "text/plain;charset=utf-8");
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(function () { A.toast(L("Text saved and copied — paste it into LINE or an email.", "บันทึกไฟล์ข้อความและคัดลอกแล้ว — วางใน LINE หรืออีเมลได้เลย")); }).catch(function () {});
+    }
   };
   A.exportBar = function (extra) {
     return '<div class="btnrow export"><span class="muted">' + L("Export:", "ส่งออก:") + '</span><button class="btn btn--primary" data-doc="pdf">PDF</button><button class="btn" data-doc="png">' + L("Image (PNG)", "รูปภาพ (PNG)") + "</button>" + (extra || "") +
-      '<button class="btn" data-doc="print">' + L("Print", "พิมพ์") + "</button>" + (A.isStaff() ? '<button class="btn" data-doc="email">✉ ' + L("Email", "ส่งอีเมล") + "</button>" : "") + "</div>";
+      '<button class="btn" data-doc="print">' + L("Print", "พิมพ์") + "</button>" + '<button class="btn" data-doc="text">' + L("Text", "ข้อความ") + "</button>" + (A.isStaff() ? '<button class="btn" data-doc="email">✉ ' + L("Email", "ส่งอีเมล") + "</button>" : "") + "</div>";
   };
 
   /* Full-screen document viewer used for receipts, schedules and enrolment packs */
@@ -210,8 +220,8 @@
     var e = A.byId("enrolments", p.enrolmentId) || {};
     A.showDoc(A.receiptHTML(p), "receipt-" + (p.ref || p.id), { to: e.id ? A.guardianEmails(e) : [], subject: L("Receipt ", "ใบเสร็จรับเงิน ") + (p.ref || "") + " · " + A.db.org.name });
   };
-  A.openSchedule = function (e, from) {
-    A.showDoc(A.scheduleHTML(e, from), "schedule-" + A.slug(A.userName(e.studentId)) + "-" + e.courseCode + (from ? "-from-" + from : "-full"), { to: A.guardianEmails(e), subject: L("Learning schedule · ", "ตารางเรียน · ") + A.courseName(e.courseCode) });
+  A.openSchedule = function (e, from, asOf) {
+    A.showDoc(A.scheduleReportHTML(e, from, asOf), "schedule-" + A.slug(A.userName(e.studentId)) + "-" + e.courseCode + (from ? "-from-" + from : "-full"), { to: A.guardianEmails(e), subject: L("Learning schedule · ", "ตารางเรียน · ") + A.courseName(e.courseCode), text: function () { return A.scheduleReportText(e, from, asOf); } });
   };
   A.openPack = function (e) {
     A.showDoc(A.enrolmentPackHTML(e), "enrolment-" + A.slug(A.userName(e.studentId)) + "-" + e.courseCode, { to: A.guardianEmails(e), subject: L("Enrolment confirmation · ", "ยืนยันการลงทะเบียนเรียน · ") + A.courseName(e.courseCode) });
@@ -221,7 +231,7 @@
   A.onAct = function (act, b, ev) {
     var id = b.getAttribute("data-id");
     if (act === "doc-receipt") return A.openReceipt(A.byId("payments", id));
-    if (act === "doc-schedule") return A.openSchedule(A.byId("enrolments", b.getAttribute("data-enr")), b.getAttribute("data-from") === "today" ? A.today() : "");
+    if (act === "doc-schedule") return A.openSchedule(A.byId("enrolments", b.getAttribute("data-enr")), b.getAttribute("data-from") === "today" ? A.today() : "", b.getAttribute("data-asof") || "");
     if (act === "doc-pack") return A.openPack(A.byId("enrolments", b.getAttribute("data-enr")));
     if (act === "smtp") return A.api("GET", "smtp").then(function (c) {
       A.form({

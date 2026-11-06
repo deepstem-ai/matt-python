@@ -1,5 +1,26 @@
 # Changelog
 
+## 6.4 r1 — November 2026
+- **Enrol on one page** (Dashboard → *Enrol in a course*, Enrolments → *Enrol a student*): 1 student (existing or new,
+  with parent) · 2 course & teacher · 3 timetable — tap the days, give each day its start time, hours per lesson,
+  the first day, and when it ends (hours used up, a number of lessons, or a last date) with a live preview of every
+  lesson date and any clash · 4 fee & payment. A summary stays on the side; one Save puts every lesson in the calendar.
+  **Teachers** can enrol their own students too (fees and payments stay with admins).
+- **Learning timeline** on each enrolment: every lesson from the first to the last day, today and an
+  **as-of date** you choose, with learned / left (hours and lessons), total, first–last lesson and hours not booked
+  yet; a PDF *as of this date*. *Book more lessons* can now end by hours, a number of lessons or a date.
+- **Learning schedule report (ใบรายงานวันเวลาเรียน)** redesigned: colourful header with the DeepDistrict logo,
+  registration details, progress tiles, timeline, full lesson list, double border, copyright and disclaimer;
+  exports as PDF, image (PNG), print, email and **plain text** (copied for LINE).
+- **Real data is kept; removing is only in the system menu** (More menus → *Data: remove & restore*, admins):
+  remove the example data (and remove it for good), take a record out of use, restore, remove an archived record
+  for good. The everyday screens have no delete buttons, and the server refuses deletes from anyone but an admin.
+- **Import prepared records**: the first real enrolments of November 2026 (6 students, 44 lessons, 4 new courses)
+  are in `server/real_data/batch-2026-11.json` — one click in *Data: remove & restore*; importing again adds nothing.
+- New course **SKB110 · BOOTCAMP Intensive GATE / EPLUS+ · Suankularb M.1**; enrolments without a fee show
+  "fee not set" instead of "paid"; enrolment page tidied (header card, Documents menu); phones no longer scroll
+  sideways on the About page.
+
 ## 6.3 r1 — October 2026
 - **Adding students is simple.** Students never sign up themselves — the admin adds them:
   - Dashboard → big **Add a student** button (also *Enrol in a course*, *Record a payment*, *Calendar*).
