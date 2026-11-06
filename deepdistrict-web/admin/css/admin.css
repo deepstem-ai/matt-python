@@ -714,3 +714,6 @@ button.tab { border: 0; background: none; cursor: pointer; font: inherit; font-w
 .pn-bank dt { color: #556; font-size: 13px; }
 .pn-bank dd { margin: 0; font-weight: 600; }
 .pn-bank__no { font-size: 20px; letter-spacing: .06em; color: #1d3f8f; font-variant-numeric: tabular-nums; }
+/* renewal: next-round card */
+.enrol__quick { border: 2px solid #2f6bff; background: #f3f7ff; }
+.enrol__qh { margin: 0 0 10px; font-size: 16px; color: #1d3f8f; }

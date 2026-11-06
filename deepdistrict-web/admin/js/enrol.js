@@ -84,7 +84,7 @@
       title: prev ? L("Renew — next round", "ต่อคอร์ส — รอบใหม่") : L("Enrol a student", "ลงทะเบียนเรียน"),
       actions: '<a class="btn" href="#/enrolments">' + L("Cancel", "ยกเลิก") + "</a>",
       html: (prev ? '<p class="note">↻ ' + esc(L("Next round of ", "ต่อคอร์สจากรอบเดิม: ") + A.enrolmentLabel(prev)) + " — " + esc(L("same days, times and price; check the start date and save.", "วันเวลาและราคาเดิม ตรวจสอบวันเริ่มแล้วกดบันทึก")) + "</p>" : "") +
-        '<div class="enrol" data-enrol>' + '<div class="enrol__main">' +
+        '<div class="enrol" data-enrol>' + '<div class="enrol__main">' + (prev ? '<section class="box enrol__quick" data-quick></section>' : "") +
         step(1, L("Student", "นักเรียน"), '<div data-sec="student"></div>') +
         step(2, L("Course & teacher", "หลักสูตรและครู"), '<div data-sec="course"></div>') +
         step(3, L("Timetable", "ตารางเรียน"), '<div data-sec="plan"></div>') +
@@ -95,7 +95,16 @@
   };
   function step(n, title, body) { return '<section class="box enrol__step"><header><h2><span class="enrol__n">' + n + "</span>" + esc(title) + "</h2></header>" + body + "</section>"; }
 
-  function drawAll() { drawStudent(); drawCourse(); drawPlan(); drawFee(); drawSummary(); }
+  function drawAll() { drawQuick(); drawStudent(); drawCourse(); drawPlan(); drawFee(); drawSummary(); }
+  /* Renewal: the two things that usually change — the course (same one, or the next course) and the new start date */
+  function drawQuick() {
+    var el = $("[data-quick]"); if (!el) return;
+    var courses = A.coursesByGroup(A.courses().filter(function (c) { return c.active || c.code === S.course; })).map(function (c) { return [c.code, c.code + " · " + A.tx(c.title)]; });
+    el.innerHTML = '<h2 class="enrol__qh">↻ ' + esc(L("Next round — same learner, teacher, days, times and price", "รอบใหม่ — ใช้ข้อมูลเดิม: นักเรียน ครู วันเวลา และราคา")) + "</h2>" +
+      '<div class="ef-grid">' + field(L("Course (same, or the next course)", "หลักสูตร (คอร์สเดิม หรือคอร์สถัดไป)"), '<select data-q="course">' + courses.map(function (c) { return '<option value="' + esc(c[0]) + '"' + (c[0] === S.course ? " selected" : "") + ">" + esc(c[1]) + "</option>"; }).join("") + "</select>", "ef--wide") +
+      field(L("New round starts on", "เริ่มรอบใหม่วันที่"), '<input type="date" data-q="from" value="' + esc(S.plan.from) + '">') + "</div>" +
+      '<p class="ef-hint">' + esc(L("Everything else below is filled in from the previous round and can still be changed.", "ข้อมูลด้านล่างกรอกจากรอบเดิมให้แล้ว แก้ไขได้ทุกช่อง")) + "</p>";
+  }
   function field(label, input, cls) { return '<label class="ef' + (cls ? " " + cls : "") + '"><span>' + esc(label) + "</span>" + input + "</label>"; }
   function inp(k, v, attrs) { return '<input data-k="' + k + '" value="' + esc(v == null ? "" : v) + '"' + (attrs || "") + ">"; }
   function sel(k, options, v) { return '<select data-k="' + k + '">' + A.opts(options, v) + "</select>"; }
@@ -206,6 +215,7 @@
   }
   function drawSummary() {
     var el = $("[data-sum]"); if (!el) return;
+    [["course", S.course], ["from", S.plan.from]].forEach(function (x) { var f = $('[data-q="' + x[0] + '"]'); if (f && f !== document.activeElement && f.value !== x[1]) f.value = x[1]; });   // keep the renewal card in step
     var ls = lessons(), h = hoursTotal(), fee = S.fee != null ? +S.fee : feeAuto(), paid = +S.payNow || 0, probs = problems();
     var row = function (k, v) { return "<div><dt>" + esc(k) + "</dt><dd>" + v + "</dd></div>"; };
     // the Save button stays the same element: re-drawing it while it is being clicked (a field losing focus
@@ -244,7 +254,13 @@
   });
   document.addEventListener("change", function (e) {
     var t = e.target; if (!S || !t.closest || !t.closest("[data-enrol]")) return;
-    var k = t.getAttribute("data-k");
+    var k = t.getAttribute("data-k"), q = t.getAttribute("data-q");
+    if (q === "from" && t.value) { S.plan.from = t.value; if (S.plan.endBy === "date" && S.plan.to < t.value) S.plan.to = A.addDays(t.value, 60); drawPlan(); drawSummary(); return; }
+    if (q === "course") {   // the next course keeps the days and times; its price comes from the course
+      var cq = A.course(t.value) || {};
+      if (t.value !== S.course) { S.course = t.value; S.rate = cq.rate != null ? cq.rate : S.rate; S.fee = null; }
+      drawCourse(); drawPlan(); drawFee(); drawSummary(); return;
+    }
     if (k === "course") {
       var c = A.course(t.value) || {};
       S.course = t.value; S.rate = c.rate != null ? c.rate : S.rate; S.fee = null;

@@ -470,6 +470,18 @@ def import_batch(con, f, me=None):
             if not isinstance(rec, dict) or not rec.get("id"):
                 continue
             old = have.get((col, rec["id"]))
+            if old is None and col == "payments":
+                # a payment is never counted twice: skip it when the enrolment already has a payment recorded by hand,
+                # and give it the next free receipt number of its year
+                paid = [json.loads(r["data"]) for (c, _), r in have.items() if c == "payments" and not r["archived"]]
+                if any(x.get("enrolmentId") == rec.get("enrolmentId") for x in paid):
+                    added["payments skipped (already recorded)"] = added.get("payments skipped (already recorded)", 0) + 1
+                    continue
+                pre = (rec.get("ref") or "")[:7]
+                if re.fullmatch(r"RC\d{4}-", pre) and any(x.get("ref") == rec["ref"] for x in paid):
+                    n = max([int(x["ref"][7:]) for x in paid if str(x.get("ref", "")).startswith(pre) and x["ref"][7:].isdigit()] or [0])
+                    rec = dict(rec, ref=f"{pre}{n + 1:04d}")
+                have[(col, rec["id"])] = {"data": json.dumps(rec), "archived": 0, "updated_by": "import"}
             if old is None:
                 put_rec(con, col, rec, me["id"] if me else "import"); added[col] = added.get(col, 0) + 1
             elif old["updated_by"] in ("import", "auto") and not old["archived"]:

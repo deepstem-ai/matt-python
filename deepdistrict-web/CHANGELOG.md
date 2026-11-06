@@ -1,5 +1,13 @@
 # Changelog
 
+## 6.4 r5 — November 2026
+- **Renew into the next course:** the renewal page opens with a *next round* card — keep the same course or pick
+  the next one, and choose the new start date. The learner, teacher, days, times and lesson count are carried over
+  (a different course takes that course's price; everything stays editable).
+- **Real fees recorded as paid:** the six real enrolments are paid in full (bank transfer, 6 Nov 2026) with
+  receipts. A payment already entered by hand for the same enrolment is never counted twice, and receipt numbers
+  never clash.
+
 ## 6.4 r4 — November 2026
 - The two Intensive Claude Code learners now have their timetable (Sundays 09:00–11:00 and Tuesdays
   20:00–22:00, 10 × 2 h each): restarting after the update adds the 20 lessons to the calendar. Nothing already
