@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.4 r6 — November 2026
+- Two English courses in the real records are now **12 hours** (12 lessons of 1 h) instead of 16; fees unchanged.
+  On restart, the four extra future lessons of each are taken out of use (kept in the archive, restorable in
+  *Data: remove & restore*); lessons already taught and payments are not touched. 62 real lessons in all.
+
 ## 6.4 r5 — November 2026
 - **Renew into the next course:** the renewal page opens with a *next round* card — keep the same course or pick
   the next one, and choose the new start date. The learner, teacher, days, times and lesson count are carried over

@@ -491,11 +491,27 @@ def import_batch(con, f, me=None):
                 new = dict(rec, **{k: cur[k] for k in ("status", "autoDone", "autoDoneAt", "topic") if k in cur and col == "sessions"})
                 if new != cur:
                     put_rec(con, col, new, "import"); added[col + " updated"] = added.get(col + " updated", 0) + 1
+    # lessons the corrected file no longer has (e.g. a shorter course): take out of use the ones it once added that
+    # nobody has touched and that have not happened — archived, so an admin can still restore them; never removed
+    keep = {r["id"] for r in b.get("sessions") or [] if isinstance(r, dict)}
+    for e in b.get("enrolments") or []:
+        eid = e.get("id") if isinstance(e, dict) else None
+        if not eid:
+            continue
+        for (c, rid), old in have.items():
+            if c != "sessions" or rid in keep or not rid.startswith(eid + "-s") or old["archived"] or old["updated_by"] not in ("import", "auto"):
+                continue
+            if json.loads(old["data"]).get("status") == "scheduled":
+                del_rec(con, "sessions", rid, "import"); added["lessons taken out (archived)"] = added.get("lessons taken out (archived)", 0) + 1
     cc = get_kv(con, "customCourses", []) or []
     codes = {c.get("code") for c in cc}
     for c in b.get("customCourses") or []:
         if c.get("code") and c["code"] not in codes:
             cc.append(c); added["customCourses"] = added.get("customCourses", 0) + 1
+        elif c.get("code"):   # a corrected length for a course the file added and nobody has edited otherwise
+            for i, x in enumerate(cc):
+                if x.get("code") == c["code"] and x.get("hours") != c.get("hours") and {k: v for k, v in x.items() if k != "hours"} == {k: v for k, v in c.items() if k != "hours"}:
+                    cc[i] = dict(x, hours=c.get("hours")); added["customCourses updated"] = added.get("customCourses updated", 0) + 1
     set_kv(con, "customCourses", cc)
     done = get_kv(con, "importDone", {}); done[bid] = {"at": now_iso(), "rev": hashlib.sha1(raw).hexdigest()[:12]}; set_kv(con, "importDone", done)
     audit(con, me, f"Imported {bid}: " + (", ".join(f"{v} {k}" for k, v in added.items()) or "nothing new"))
