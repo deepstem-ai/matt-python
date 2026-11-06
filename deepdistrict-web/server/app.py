@@ -460,47 +460,61 @@ REAL_DIR = ROOT / "server" / "real_data"
 def import_batch(con, f, me=None):
     """Add the records of one prepared file (server/real_data/*.json). Records that exist already — archived ones
     included — are never added again, so importing twice changes nothing."""
-    b = json.loads(f.read_text(encoding="utf-8"))
+    raw = f.read_bytes()
+    b = json.loads(raw.decode("utf-8"))
     bid = b.get("id") or f.stem
-    have = {(r["col"], r["id"]) for r in con.execute("SELECT col, id FROM records")}
+    have = {(r["col"], r["id"]): r for r in con.execute("SELECT col, id, data, updated_by, archived FROM records")}
     added = {}
     for col in COLLECTIONS:
         for rec in b.get(col) or []:
-            if isinstance(rec, dict) and rec.get("id") and (col, rec["id"]) not in have:
+            if not isinstance(rec, dict) or not rec.get("id"):
+                continue
+            old = have.get((col, rec["id"]))
+            if old is None:
                 put_rec(con, col, rec, me["id"] if me else "import"); added[col] = added.get(col, 0) + 1
+            elif old["updated_by"] in ("import", "auto") and not old["archived"]:
+                # imported by itself and nobody has touched it since: take the corrected version from the file,
+                # keeping what the system added on its own (e.g. lessons recorded as done); the old one stays in the archive
+                cur = json.loads(old["data"])
+                new = dict(rec, **{k: cur[k] for k in ("status", "autoDone", "autoDoneAt", "topic") if k in cur and col == "sessions"})
+                if new != cur:
+                    put_rec(con, col, new, "import"); added[col + " updated"] = added.get(col + " updated", 0) + 1
     cc = get_kv(con, "customCourses", []) or []
     codes = {c.get("code") for c in cc}
     for c in b.get("customCourses") or []:
         if c.get("code") and c["code"] not in codes:
             cc.append(c); added["customCourses"] = added.get("customCourses", 0) + 1
     set_kv(con, "customCourses", cc)
-    done = get_kv(con, "importDone", {}); done[bid] = now_iso(); set_kv(con, "importDone", done)
+    done = get_kv(con, "importDone", {}); done[bid] = {"at": now_iso(), "rev": hashlib.sha1(raw).hexdigest()[:12]}; set_kv(con, "importDone", done)
     audit(con, me, f"Imported {bid}: " + (", ".join(f"{v} {k}" for k, v in added.items()) or "nothing new"))
     return added
 
 
 def import_on_start(con):
     """Real records prepared for this centre are added by themselves on the first start after an update (once per
-    file). The first time real records arrive, the example learners are archived (restorable in Settings → Data)."""
+    file). Nothing that is already there is changed or removed."""
     if os.environ.get("DD_NO_IMPORT") == "1":
         return 0
+    seed = get_kv(con, "exampleSeed", {}) or {}
+    if seed.get("archivedForRealData") and not seed.get("restored"):     # 6.4 r2 archived them by itself: nothing is removed without an admin
+        for r in con.execute("SELECT col, id, data FROM records WHERE archived=1 AND updated_by='import'").fetchall():
+            if r["col"] in COLLECTIONS and json.loads(r["data"]).get("example"):
+                con.execute("UPDATE records SET archived=0 WHERE col=? AND id=?", (r["col"], r["id"]))
+        set_kv(con, "exampleSeed", dict(seed, restored=now_iso()))
     done = get_kv(con, "importDone", {})
     files = [f for f in sorted(REAL_DIR.glob("*.json"))] if REAL_DIR.is_dir() else []
     new = []
     for f in files:
         try:
-            bid = json.loads(f.read_text(encoding="utf-8")).get("id") or f.stem
+            raw = f.read_bytes()
+            bid = json.loads(raw.decode("utf-8")).get("id") or f.stem
         except ValueError:
             continue
-        if bid not in done:
-            new.append(f)
+        prev = done.get(bid)
+        if not isinstance(prev, dict) or prev.get("rev") != hashlib.sha1(raw).hexdigest()[:12]:
+            new.append(f)                      # new, or changed since: add what is missing (nothing is overwritten)
     if not new:
         return 0
-    if not done:                              # first real data: take the examples out of the way (kept, restorable)
-        for r in con.execute("SELECT col, id, data FROM records WHERE archived=0").fetchall():
-            if r["col"] in COLLECTIONS and json.loads(r["data"]).get("example"):
-                del_rec(con, r["col"], r["id"], "import")
-        set_kv(con, "exampleSeed", dict(get_kv(con, "exampleSeed", {}) or {}, archivedForRealData=now_iso()))
     for f in new:
         import_batch(con, f)
     return len(new)

@@ -1,5 +1,18 @@
 # Changelog
 
+## 6.4 r3 — November 2026
+- **Renew a course (ต่อคอร์ส)** on the enrolment page and on each learner's timetable: the next round reuses the
+  learner, course, teacher, price, days and times, and the number of lessons, starting the day after the last
+  lesson (all changeable before saving). The earlier round is never changed.
+- **Polite payment notice for renewals (แจ้งชำระค่าเรียน):** saving a renewal opens a courteous TH/EN notice with
+  the new round, the amount to pay before the first lesson and the bank account (TTB, account name and number,
+  editable in Settings → Organisation); PDF, image, print, email or plain text for LINE. Also in Documents ▾, and
+  every fee notice now shows the bank account when a balance is due.
+- **Learner timetable** (People → a learner): every course from the first to the last day, timeline and the full
+  lesson list. Lessons whose time is not known yet show "time to be confirmed".
+- **Example data is kept** (archived examples from r2 are restored); updated prepared files refresh records nobody
+  has edited, and never delete anything.
+
 ## 6.4 r2 — November 2026
 - **The real records appear by themselves.** On the first start after the update, every prepared file in
   `server/real_data/` is imported once (no button to press), and the example learners are archived the first time

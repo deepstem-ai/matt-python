@@ -22,7 +22,7 @@
     var bad = {};
     var live = list.filter(function (s) { return s.status === "scheduled" || s.status === "done"; });
     live.forEach(function (a, i) { live.slice(i + 1).forEach(function (b) {
-      if (a.date !== b.date || !teacherOf(a) || teacherOf(a) !== teacherOf(b)) return;
+      if (a.date !== b.date || !a.start || !b.start || !teacherOf(a) || teacherOf(a) !== teacherOf(b)) return;
       var a1 = A.toMin(a.start), b1 = A.toMin(b.start);
       if (a1 < b1 + b.hours * 60 && b1 < a1 + a.hours * 60) { bad[a.id] = bad[b.id] = 1; }
     }); });
@@ -69,7 +69,7 @@
       prev = A.addDays(A.iso(ws), -7); next = A.addDays(A.iso(ws), 7);
       var days = [], lo = 8 * 60, hi = 20 * 60;
       for (var j = 0; j < 7; j++) { var dd = new Date(ws); dd.setDate(ws.getDate() + j); days.push(A.iso(dd)); }
-      var weekItems = all.concat(busy.map(function (x) { return Object.assign({ busy: true }, x); })).filter(function (x) { return days.indexOf(x.date) !== -1 && x.status !== "rescheduled"; });
+      var weekItems = all.concat(busy.map(function (x) { return Object.assign({ busy: true }, x); })).filter(function (x) { return days.indexOf(x.date) !== -1 && x.status !== "rescheduled" && x.start; });   // "time TBC" lessons show in month and list views
       weekItems.forEach(function (x) { lo = Math.min(lo, Math.floor(A.toMin(x.start) / 60) * 60); hi = Math.max(hi, Math.ceil((A.toMin(x.start) + x.hours * 60) / 60) * 60); });
       var PX = 0.9; // pixels per minute
       html += '<div class="tgrid" data-lo="' + lo + '" data-px="' + PX + '" style="--h:' + Math.round((hi - lo) * PX) + 'px"><div class="tgrid__hours">';
@@ -166,7 +166,7 @@
     return d.getFullYear() + A.pad(d.getMonth() + 1) + A.pad(d.getDate()) + "T" + A.pad(d.getHours()) + A.pad(d.getMinutes()) + "00";
   }
   function exportICS() {
-    var list = (A._calSessions || []).filter(function (s) { return s.status !== "cancelled" && s.status !== "rescheduled"; });
+    var list = (A._calSessions || []).filter(function (s) { return s.status !== "cancelled" && s.status !== "rescheduled" && s.start; });
     var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//DeepDistrict.si//Back office//EN", "CALSCALE:GREGORIAN", "X-WR-CALNAME:DeepDistrict lessons", "X-WR-TIMEZONE:Asia/Bangkok"];
     list.forEach(function (s) {
       var e = A.byId("enrolments", s.enrolmentId);

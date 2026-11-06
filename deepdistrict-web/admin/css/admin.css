@@ -699,3 +699,18 @@ html[lang="th"] .tbl th { text-transform: none; letter-spacing: 0; font-size: 0.
 .sr .tl__mark--asof { background: #7c3aed; }
 button.tab { border: 0; background: none; cursor: pointer; font: inherit; font-weight: 600; font-size: 0.88rem; }
 .imp { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--border); } .imp:last-child { border-bottom: 0; }
+.tlc--inner { margin: 10px 0 14px; padding: 14px 16px; border-radius: 14px; background: var(--surface-2); }
+.tlc--inner .tlc__stat { background: var(--surface); }
+.stu-course header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; }
+
+/* payment notice (course renewal) */
+.pn-msg { margin: 14px 0 6px; font-size: 14px; line-height: 1.75; }
+.pn-msg p { margin: 0 0 8px; }
+.pn-msg--small { font-size: 13px; color: #445; margin-top: 14px; }
+.pn-bank { margin: 14px 0; padding: 14px 18px; border: 2px solid #1d3f8f; border-radius: 12px; background: #f3f7ff; box-shadow: 4px 4px 0 #ff8a1f; margin-right: 6px; }
+.pn-bank__h { margin: 0 0 8px; font-weight: 700; color: #1d3f8f; font-size: 14px; line-height: 1.6; }
+.pn-bank dl { margin: 0; display: grid; gap: 6px; }
+.pn-bank dl > div { display: grid; grid-template-columns: 130px 1fr; gap: 10px; line-height: 1.6; }
+.pn-bank dt { color: #556; font-size: 13px; }
+.pn-bank dd { margin: 0; font-weight: 600; }
+.pn-bank__no { font-size: 20px; letter-spacing: .06em; color: #1d3f8f; font-variant-numeric: tabular-nums; }

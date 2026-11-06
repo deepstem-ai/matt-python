@@ -14,8 +14,9 @@
   /* ------------------------------------------------------------ time helpers */
   A.toMin = function (t) { var p = String(t || "00:00").split(":"); return (+p[0] || 0) * 60 + (+p[1] || 0); };
   A.fromMin = function (m) { m = Math.max(0, Math.round(m)); return A.pad(Math.floor(m / 60) % 24) + ":" + A.pad(m % 60); };
-  A.endOf = function (s) { return A.fromMin(A.toMin(s.start) + (+s.hours || 0) * 60); };
-  A.span = function (s) { return (s.start || "") + "–" + A.endOf(s); };
+  A.endOf = function (s) { return s.start ? A.fromMin(A.toMin(s.start) + (+s.hours || 0) * 60) : ""; };
+  // a lesson can be on the timetable before its time is known: it shows "time to be confirmed"
+  A.span = function (s) { return s.start ? s.start + "–" + A.endOf(s) : A.L("time TBC", "รอระบุเวลา"); };
   A.slotHours = function (sl) { return Math.max(0, (A.toMin(sl.end) - A.toMin(sl.start)) / 60); };
   A.patternText = function (pattern) {
     return (pattern || []).slice().sort(function (a, b) { return ((a.day + 6) % 7) - ((b.day + 6) % 7) || A.toMin(a.start) - A.toMin(b.start); })
@@ -55,6 +56,7 @@
 
   /* ------------------------------------------------------------ clashes */
   function overlaps(a, b) {
+    if (!a.start || !b.start) return false;          // no time yet: cannot clash
     if (a.date !== b.date) return false;
     var a1 = A.toMin(a.start), a2 = a1 + (+a.hours || 0) * 60, b1 = A.toMin(b.start), b2 = b1 + (+b.hours || 0) * 60;
     return a1 < b2 && b1 < a2;

@@ -96,7 +96,7 @@
     return "<h2>" + L("Fees", "ค่าเรียน") + '</h2><table class="rp-tbl doc-items"><tbody><tr><td>' + esc(A.courseName(e.courseCode)) + " · " + A.num(st.total) + " " + L("hours", "ชั่วโมง") + (e.rate ? " × " + A.money(e.rate) : "") + "</td><td>" + A.money((+e.hours || 0) * (+e.rate || 0)) + "</td></tr>" +
       (+e.discount ? "<tr><td>" + L("Discount", "ส่วนลด") + "</td><td>−" + A.money(e.discount) + "</td></tr>" : "") +
       "<tr><th>" + L("Course fee", "ค่าเรียนทั้งหมด") + "</th><th>" + A.money(st.fee) + "</th></tr><tr><td>" + L("Paid", "ชำระแล้ว") + "</td><td>" + A.money(st.paid) + '</td></tr><tr class="doc-due"><th>' + L("Balance due", "ยอดคงค้าง") + "</th><th>" + A.money(Math.max(0, st.balance)) + "</th></tr></tbody></table>" +
-      (st.balance > 0.009 && o.paymentInfo ? '<p class="doc-pay"><b>' + L("How to pay: ", "ช่องทางการชำระเงิน: ") + "</b>" + esc(o.paymentInfo).replace(/\n/g, "<br>") + "</p>" : "");
+      (st.balance > 0.009 ? A.bankBlockHTML() + (o.paymentInfo ? '<p class="doc-pay"><b>' + L("How to pay: ", "ช่องทางการชำระเงิน: ") + "</b>" + esc(o.paymentInfo).replace(/\n/g, "<br>") + "</p>" : "") : "");
   };
   /* Everything a parent needs after enrolling: schedule + fees (+ receipts) in one document */
   A.enrolmentPackHTML = function (e) {
@@ -227,12 +227,89 @@
     A.showDoc(A.enrolmentPackHTML(e), "enrolment-" + A.slug(A.userName(e.studentId)) + "-" + e.courseCode, { to: A.guardianEmails(e), subject: L("Enrolment confirmation · ", "ยืนยันการลงทะเบียนเรียน · ") + A.courseName(e.courseCode) });
   };
 
+  /* ------------------------------------------------------------ payment notice (course renewal)
+     A courteous note to the parent with the amount, the new round and the bank account to transfer to. */
+  A.BANK = { bank: "TTB (ทีเอ็มบีธนชาต)", bankEn: "TTB (TMBThanachart Bank)", name: "กอบชัย นิยมธรรม", no: "092-2-31183-2" };
+  A.bankOf = function () {
+    var o = A.db.org || {}, own = o.bankName && o.bankName !== A.BANK.bank;
+    return { bank: o.bankName || A.BANK.bank, bankEn: own ? o.bankName : A.BANK.bankEn, name: o.bankAccName || A.BANK.name, no: o.bankNo || A.BANK.no };
+  };
+  A.bankBlockHTML = function () {
+    var b = A.bankOf();
+    return '<div class="pn-bank"><p class="pn-bank__h">' + L("Please transfer to", "กรุณาโอนเข้าบัญชี") + "</p>" +
+      "<dl><div><dt>" + L("Bank", "ธนาคาร") + "</dt><dd>" + esc(L(b.bankEn, b.bank)) + "</dd></div>" +
+      "<div><dt>" + L("Account name", "ชื่อบัญชี") + "</dt><dd>" + esc(b.name) + "</dd></div>" +
+      '<div><dt>' + L("Account no.", "เลขที่บัญชี") + '</dt><dd class="pn-bank__no">' + esc(b.no) + "</dd></div></dl></div>";
+  };
+  function roundInfo(e) {
+    var ls = A.sessionsOf(e.id).filter(function (s) { return s.status !== "cancelled"; });
+    var d = function (x) { return A.fmtDate(x, { day: "numeric", month: "short", year: "numeric" }); };
+    return { n: ls.length, first: ls.length ? ls[0].date : e.start, last: ls.length ? ls[ls.length - 1].date : "", d: d };
+  }
+  function addressee(e) {
+    var stu = A.byId("users", e.studentId) || {}, g = stu.guardianId && A.byId("users", stu.guardianId), kid = stu.nick || stu.name || "";
+    return { kid: kid, th: g ? "คุณ" + g.name : "ผู้ปกครองของน้อง" + kid, en: g ? g.name : "Parent of " + kid };
+  }
+  A.paymentNoticeHTML = function (e) {
+    var st = A.stats(e), r = roundInfo(e), who = addressee(e), due = Math.max(0, st.balance), prevE = e.renewOf && A.byId("enrolments", e.renewOf);
+    var when = r.first ? r.d(r.first) + (r.last && r.last !== r.first ? " – " + r.d(r.last) : "") : "";
+    var fee = e.fee == null || e.feeTBD;
+    return '<article class="report doc pn" id="report">' +
+      head(L("Payment notice · course renewal", "แจ้งชำระค่าเรียน · ต่อคอร์ส"), "", "PN-" + e.id.replace(/[^a-z0-9]/gi, "").slice(-6).toUpperCase(), A.today()) +
+      '<div class="pn-msg"><p>' + L("Dear " + esc(who.en) + ",", "เรียน " + esc(who.th)) + "</p>" +
+      "<p>" + L("Thank you very much for your continued trust in DeepDistrict" + (who.kid ? " to look after " + esc(who.kid) + "'s learning" : "") + ". We are delighted to continue with the next round of <b>" + esc(A.courseName(e.courseCode)) + "</b>" + (prevE ? "" : "") + ".",
+        "ขอขอบพระคุณเป็นอย่างสูงที่ไว้วางใจให้ DeepDistrict ได้ดูแลการเรียนของน้อง" + esc(who.kid) + " มาโดยตลอด ทางเรายินดีเป็นอย่างยิ่งที่ได้ดูแลน้องต่อในคอร์ส <b>" + esc(A.courseName(e.courseCode)) + "</b> รอบใหม่") + "</p>" +
+      "<p>" + (fee ? L("We will confirm the course fee for this round with you shortly.", "ทางเราจะแจ้งยืนยันค่าเรียนของรอบนี้ให้ทราบอีกครั้งในเร็ว ๆ นี้")
+        : due > 0.009 ? L("May we kindly ask you to settle the course fee of <b>" + A.money(due) + "</b>" + (r.first ? " before the first lesson on " + esc(r.d(r.first)) : "") + ", using the bank account below.",
+            "จึงใคร่ขอความกรุณาชำระค่าเรียนจำนวน <b>" + A.money(due) + "</b>" + (r.first ? " ก่อนวันเริ่มเรียนรอบใหม่ (" + esc(r.d(r.first)) + ")" : "") + " ผ่านบัญชีธนาคารด้านล่างนี้")
+        : L("The fee for this round has been paid in full — thank you.", "ค่าเรียนของรอบนี้ชำระครบเรียบร้อยแล้ว ขอบพระคุณมากค่ะ/ครับ")) + "</p></div>" +
+      learnerBlock(e) +
+      '<dl class="rp-meta rp-meta--small"><div><dt>' + L("New round", "รอบเรียนใหม่") + "</dt><dd>" + esc(when || "–") + "</dd></div>" +
+      "<div><dt>" + L("Lessons", "จำนวนครั้ง") + "</dt><dd>" + r.n + L(" lessons · ", " ครั้ง · ") + A.num(st.total) + " " + L("hours", "ชั่วโมง") + "</dd></div>" +
+      (e.pattern && e.pattern.length ? "<div><dt>" + L("Regular time", "วันเวลาเรียน") + "</dt><dd>" + esc(A.patternText(e.pattern)) + "</dd></div>" : "") + "</dl>" +
+      (fee ? "" : '<table class="rp-tbl doc-items"><tbody><tr><td>' + esc(A.courseName(e.courseCode)) + " · " + L("next round", "รอบใหม่") + " · " + A.num(st.total) + " " + L("hours", "ชั่วโมง") + "</td><td>" + A.money(st.fee + (+e.discount || 0)) + "</td></tr>" +
+        (+e.discount ? "<tr><td>" + L("Discount", "ส่วนลด") + "</td><td>−" + A.money(e.discount) + "</td></tr>" : "") +
+        (st.paid > 0.009 ? "<tr><td>" + L("Paid", "ชำระแล้ว") + "</td><td>−" + A.money(st.paid) + "</td></tr>" : "") +
+        '<tr class="doc-due"><th>' + L("Amount to pay", "ยอดที่ต้องชำระ") + "</th><th>" + A.money(due) + "</th></tr></tbody></table>" +
+        (due > 0.009 ? '<p class="doc-words">(' + esc(A.bahtText(due)) + ")</p>" : "")) +
+      (fee || due > 0.009 ? A.bankBlockHTML() : "") +
+      '<div class="pn-msg pn-msg--small">' +
+      (due > 0.009 || fee ? "<p>" + L("Once transferred, please send us the transfer slip by LINE or email — we will issue the receipt right away.", "เมื่อโอนเรียบร้อยแล้ว รบกวนส่งสลิปการโอนกลับมาทาง LINE หรืออีเมล เพื่อให้ทางเราออกใบเสร็จรับเงินให้ทันที") + "</p>" +
+        "<p>" + L("If you have already paid, please accept our apologies and disregard this notice.", "หากท่านชำระเรียบร้อยแล้ว ต้องขออภัยมา ณ ที่นี้ และขอบพระคุณในความกรุณาค่ะ/ครับ") + "</p>" : "") +
+      "<p>" + L("With sincere thanks,", "ด้วยความเคารพและขอบพระคุณอย่างสูง") + "<br>" + esc(A.db.org.name) + "</p></div>" +
+      foot(A.today()) + "</article>";
+  };
+  A.paymentNoticeText = function (e) {
+    var st = A.stats(e), r = roundInfo(e), who = addressee(e), b = A.bankOf(), due = Math.max(0, st.balance), fee = e.fee == null || e.feeTBD;
+    var when = r.first ? r.d(r.first) + (r.last && r.last !== r.first ? " – " + r.d(r.last) : "") : "";
+    var lines = [L("Dear " + who.en + ",", "เรียน " + who.th), "",
+      L("Thank you very much for your continued trust in DeepDistrict. We are delighted to continue with the next round of " + A.courseName(e.courseCode) + ".",
+        "ขอขอบพระคุณเป็นอย่างสูงที่ไว้วางใจให้ DeepDistrict ดูแลการเรียนของน้อง" + who.kid + " มาโดยตลอด ทางเรายินดีที่ได้ดูแลน้องต่อในคอร์ส " + A.courseName(e.courseCode) + " รอบใหม่"), "",
+      L("New round: ", "รอบเรียนใหม่: ") + (when || "–"),
+      L("Lessons: ", "จำนวน: ") + r.n + L(" lessons · ", " ครั้ง · ") + A.num(st.total) + " " + L("hours", "ชั่วโมง")];
+    if (e.pattern && e.pattern.length) lines.push(L("Regular time: ", "วันเวลาเรียน: ") + A.patternText(e.pattern));
+    lines.push("");
+    if (fee) lines.push(L("We will confirm the course fee for this round with you shortly.", "ทางเราจะแจ้งยืนยันค่าเรียนของรอบนี้ให้ทราบอีกครั้งในเร็ว ๆ นี้"));
+    else if (due > 0.009) lines.push(L("Amount to pay: " + A.money(due) + (r.first ? " (before " + r.d(r.first) + ")" : ""), "ยอดที่ต้องชำระ: " + A.money(due) + (r.first ? " (ก่อนวันเริ่มเรียน " + r.d(r.first) + ")" : "")));
+    else lines.push(L("The fee for this round has been paid in full — thank you.", "ค่าเรียนของรอบนี้ชำระครบเรียบร้อยแล้ว ขอบพระคุณมากค่ะ/ครับ"));
+    if (fee || due > 0.009) lines.push("", L("Please transfer to", "กรุณาโอนเข้าบัญชี"), L("Bank: ", "ธนาคาร: ") + L(b.bankEn, b.bank), L("Account name: ", "ชื่อบัญชี: ") + b.name, L("Account no.: ", "เลขที่บัญชี: ") + b.no, "",
+      L("Once transferred, please send us the transfer slip by LINE or email — we will issue the receipt right away.", "เมื่อโอนเรียบร้อยแล้ว รบกวนส่งสลิปการโอนกลับมาทาง LINE หรืออีเมล เพื่อให้ทางเราออกใบเสร็จรับเงินให้ทันที"),
+      L("If you have already paid, please accept our apologies and disregard this message.", "หากท่านชำระเรียบร้อยแล้ว ต้องขออภัยมา ณ ที่นี้ค่ะ/ครับ"));
+    lines.push("", L("With sincere thanks,", "ด้วยความเคารพและขอบพระคุณอย่างสูง"), A.db.org.name);
+    return lines.join("\n");
+  };
+  A.openPaymentNotice = function (e) {
+    A.showDoc(A.paymentNoticeHTML(e), "payment-notice-" + A.slug(A.userName(e.studentId)) + "-" + e.courseCode,
+      { to: A.guardianEmails(e), subject: L("Payment notice · ", "แจ้งชำระค่าเรียน · ") + A.courseName(e.courseCode) + " · " + A.db.org.name, text: function () { return A.paymentNoticeText(e); } });
+  };
+
   var prev = A.onAct;
   A.onAct = function (act, b, ev) {
     var id = b.getAttribute("data-id");
     if (act === "doc-receipt") return A.openReceipt(A.byId("payments", id));
     if (act === "doc-schedule") return A.openSchedule(A.byId("enrolments", b.getAttribute("data-enr")), b.getAttribute("data-from") === "today" ? A.today() : "", b.getAttribute("data-asof") || "");
     if (act === "doc-pack") return A.openPack(A.byId("enrolments", b.getAttribute("data-enr")));
+    if (act === "doc-paynotice") return A.openPaymentNotice(A.byId("enrolments", b.getAttribute("data-enr")));
     if (act === "smtp") return A.api("GET", "smtp").then(function (c) {
       A.form({
         title: L("Email settings (SMTP)", "ตั้งค่าอีเมล (SMTP)"),

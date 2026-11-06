@@ -519,6 +519,39 @@
   /* ------------------------------------------------------------ pages */
   var P = A.pages = {};
   P.locked = A._lockedPage; P.access = A._accessPage; P.data = A._dataPage;
+  P.student = function (q, id) {
+    var u = A.byId("users", id);
+    if (!u || !A.isStaff()) return { title: L("Not found", "ไม่พบข้อมูล"), html: A.empty("This learner is not in your list.", "ไม่พบผู้เรียนนี้ในรายการของคุณ") };
+    var g = u.guardianId && A.byId("users", u.guardianId);
+    var enrs = A.visibleEnrolments().filter(function (e) { return e.studentId === id; }).sort(function (a, b) { return (a.start || "").localeCompare(b.start || ""); });
+    var all = [];
+    enrs.forEach(function (e) { A.sessionsOf(e.id).forEach(function (s) { if (s.status !== "rescheduled") all.push(s); }); });
+    all.sort(function (a, b) { return (a.date + (a.start || "")).localeCompare(b.date + (b.start || "")); });
+    var html = '<p class="crumbs"><a href="#/people?role=student">← ' + L("Students & parents", "นักเรียนและผู้ปกครอง") + "</a></p>" +
+      '<section class="box enr-card"><div class="enr-card__who"><h2>' + esc(A.userName(u.id)) + A.exTag(u) + "</h2>" +
+      '<p class="muted">' + esc([u.grade, u.school].filter(Boolean).join(" · ") || "–") + "</p>" +
+      (g ? "<p>" + L("Parent: ", "ผู้ปกครอง: ") + esc(g.name) + (g.phone ? " · " + esc(g.phone) : "") + "</p>" : "") +
+      (u.phone || u.email ? '<p class="muted">' + esc([u.phone, u.email].filter(Boolean).join(" · ")) + "</p>" : "") +
+      (all.length ? "<p><b>" + L("All lessons: ", "คาบเรียนทั้งหมด: ") + "</b>" + all.length + L(" · first ", " · คาบแรก ") + esc(A.fmtDate(all[0].date)) + L(" · last ", " · คาบสุดท้าย ") + esc(A.fmtDate(all[all.length - 1].date)) + "</p>" : "") +
+      '</div><div class="enr-card__act">' + (A.isStaff() ? '<button class="btn btn--primary" data-act="new-enrolment" data-student="' + u.id + '">+ ' + L("Enrol in a course", "ลงทะเบียนเรียนเพิ่ม") + "</button>" : "") +
+      '<button class="btn" data-act="edit-person" data-id="' + u.id + '">' + L("Edit details", "แก้ไขข้อมูล") + "</button></div></section>" +
+      (enrs.length ? enrs.map(function (e) {
+        var st = A.stats(e), ls = st.sessions.filter(function (s) { return s.status !== "rescheduled"; }), n = 0, cum = 0;
+        return '<section class="box stu-course"><header><h2><a href="#/enrolment/' + e.id + '">' + esc(A.courseName(e.courseCode)) + "</a> " + A.badge(e.status, A.enrStatusName(e.status)) + "</h2>" +
+          '<div class="btnrow">' + (A.canEditEnrolment(e) ? '<button class="btn btn--sm btn--primary" data-act="renew" data-enr="' + e.id + '">↻ ' + L("Renew", "ต่อคอร์ส") + "</button>" : "") +
+          (A.isAdmin() && e.renewOf ? '<button class="btn btn--sm" data-act="doc-paynotice" data-enr="' + e.id + '">💳 ' + L("Payment notice", "แจ้งชำระค่าเรียน") + "</button>" : "") +
+          '<button class="btn btn--sm" data-act="doc-schedule" data-enr="' + e.id + '">' + L("Schedule report · PDF / image / text", "ใบรายงานวันเวลาเรียน · PDF / รูปภาพ / ข้อความ") + "</button></div></header>" +
+          '<p class="muted">' + esc(L("Teacher: ", "ครู: ") + A.userName(e.teacherId)) + (e.pattern && e.pattern.length ? " · " + esc(A.patternText(e.pattern)) : "") + (e.goal ? " · " + esc(e.goal) : "") + "</p>" +
+          A.timelineCard(e).replace('<section class="box tlc"', '<section class="tlc tlc--inner"') +
+          (ls.length ? table(["#", L("Date", "วันที่"), L("Time", "เวลา"), L("Hours", "ชม."), L("Status", "สถานะ"), L("Total", "สะสม")], ls.map(function (s) {
+            var counts = s.status !== "cancelled"; if (counts) { n++; cum += +s.hours || 0; }
+            var st2 = s.status === "scheduled" && s.date < A.today() ? L("past, not updated", "ผ่านแล้วยังไม่อัปเดต") : A.statusName(s.status);
+            return { attrs: ' data-session="' + s.id + '"', cells: [counts ? n : "–", esc(A.fmtDate(s.date, { weekday: "short", day: "numeric", month: "short", year: "numeric" })), esc(A.span(s)),
+              s.timeTBC && !+s.hours ? "–" : A.num(s.hours), A.badge(s.status === "scheduled" && s.date < A.today() ? "noshow" : s.status, st2) + (s.autoDone ? ' <span class="muted">' + L("regular", "ปกติ") + "</span>" : ""), counts ? A.num(cum) : ""] };
+          }), "tbl--click") : A.empty("No lessons booked yet.", "ยังไม่มีคาบเรียน")) + "</section>";
+      }).join("") : A.empty("Not enrolled in a course yet.", "ยังไม่ได้ลงทะเบียนเรียน", '<button class="btn btn--primary" data-act="new-enrolment" data-student="' + u.id + '">+ ' + L("Enrol in a course", "ลงทะเบียนเรียน") + "</button>"));
+    return { title: L("Learner timetable", "ตารางเรียนรายคน"), html: html };
+  };
 
   P.dashboard = function () {
     var today = A.today(), in7 = A.addDays(today, 7), month = today.slice(0, 7);
@@ -626,14 +659,16 @@
       (stu && (stu.phone || stu.email) ? '<p class="muted">' + L("Contact: ", "ติดต่อ: ") + esc([stu.phone, stu.email].filter(Boolean).join(" · ")) + "</p>" : "") +
       (e.goal ? '<p class="note">🎯 ' + esc(e.goal) + "</p>" : "") + "</div>" +
       '<div class="enr-card__act">' +
-      (A.canEditEnrolment(e) ? '<button class="btn btn--primary" data-act="new-session" data-enr="' + e.id + '">+ ' + L("Add a lesson", "เพิ่มคาบเรียน") + "</button>" +
+      (A.canEditEnrolment(e) ? '<button class="btn btn--primary" data-act="renew" data-enr="' + e.id + '">↻ ' + L("Renew — next round", "ต่อคอร์ส (รอบใหม่)") + "</button>" +
+        '<button class="btn" data-act="new-session" data-enr="' + e.id + '">+ ' + L("Add a lesson", "เพิ่มคาบเรียน") + "</button>" +
         '<button class="btn" data-act="series" data-enr="' + e.id + '">' + L("Book more lessons", "จัดตารางเพิ่ม") + "</button>" : "") +
       (A.isAdmin() ? '<button class="btn" data-act="new-payment" data-enr="' + e.id + '">' + L("Record payment", "รับชำระเงิน") + "</button>" : "") +
       '<details class="menu-dd"><summary class="btn">' + L("Documents ▾", "เอกสาร ▾") + "</summary><div>" +
         '<button data-act="doc-schedule" data-enr="' + e.id + '">' + L("Full schedule · PDF", "ตารางเรียนทั้งหมด · PDF") + "</button>" +
         '<button data-act="doc-schedule" data-from="today" data-enr="' + e.id + '">' + L("Remaining lessons · PDF", "ตารางเรียนที่เหลือ · PDF") + "</button>" +
         '<a href="#/reports?student=' + e.studentId + "&enrolment=" + e.id + '">' + L("Progress report", "รายงานความก้าวหน้า") + "</a>" +
-        (A.isAdmin() ? '<button data-act="doc-pack" data-enr="' + e.id + '">' + L("Enrolment pack for parents", "เอกสารยืนยันการลงทะเบียน") + "</button>" : "") + "</div></details>" +
+        (A.isAdmin() ? '<button data-act="doc-pack" data-enr="' + e.id + '">' + L("Enrolment pack for parents", "เอกสารยืนยันการลงทะเบียน") + "</button>" +
+          '<button data-act="doc-paynotice" data-enr="' + e.id + '">' + L("Payment notice (bank transfer)", "แจ้งชำระค่าเรียน (โอนผ่านธนาคาร)") + "</button>" : "") + "</div></details>" +
       (A.isAdmin() ? '<button class="btn" data-act="edit-enrolment" data-enr="' + e.id + '">' + L("Edit", "แก้ไข") + "</button>" : "") + "</div></section>" +
       A.timelineCard(e, q.get("asof") || A.today()) +
       (st.unscheduled > 0.001 && e.status === "active" || st.used + st.planned > st.total + 0.001 ? A.hoursPanel(e, st) : "") +   // only when hours need booking or are over-booked
@@ -798,6 +833,9 @@
         { name: "noShowCounts", label: L("A no-show uses the lesson's hours", "ขาดเรียนโดยไม่แจ้ง ให้นับชั่วโมง"), type: "checkbox", value: o.noShowCounts, full: true },
         { name: "autoComplete", label: L("When a scheduled lesson has ended and nobody updated it, record it as a regular lesson (done) automatically", "คาบที่ถึงเวลาแล้วแต่ครูไม่ได้บันทึก ให้ระบบบันทึกว่า เรียนแล้ว (เรียนตามปกติ) โดยอัตโนมัติ"), type: "checkbox", value: o.autoComplete !== false, full: true },
         { name: "teachersApprove", label: L("Teachers may also approve change requests (otherwise admins only)", "ให้ครูอนุมัติคำขอเปลี่ยนแปลงได้ด้วย (ปกติเฉพาะผู้ดูแลระบบ)"), type: "checkbox", value: o.teachersApprove, full: true },
+        { name: "bankName", label: L("Bank (payment notices)", "ธนาคาร (ใบแจ้งชำระ)"), value: o.bankName || A.BANK.bank },
+        { name: "bankAccName", label: L("Account name", "ชื่อบัญชี"), value: o.bankAccName || A.BANK.name },
+        { name: "bankNo", label: L("Account no.", "เลขที่บัญชี"), value: o.bankNo || A.BANK.no },
         { name: "paymentInfo", label: L("How to pay (shown on fee notices)", "ช่องทางชำระเงิน (แสดงในใบแจ้งค่าเรียน)"), type: "textarea", value: o.paymentInfo, full: true, hint: L("e.g. bank, account name and number, PromptPay ID", "เช่น ธนาคาร ชื่อบัญชี เลขที่บัญชี พร้อมเพย์") }
       ],
       onSave: function (v) { Object.assign(A.db.org, v); A.logAct("Updated organisation settings"); A.save(); A.toast(L("Saved", "บันทึกแล้ว")); A.route(); }
@@ -918,6 +956,8 @@
       else if (act === "theme") A.applyTheme(document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark");
       else if (act === "logout") { A.logout().then(A.boot); }
       else if (act === "new-person") A.editPerson(null, b.getAttribute("data-role"));
+      else if (act === "edit-person") A.editPerson(A.byId("users", b.getAttribute("data-id")));
+      else if (act === "renew") A.renewEnrolment(enrId);
       else if (act === "new-enrolment") location.hash = "#/enrol" + (b.getAttribute("data-student") ? "?student=" + b.getAttribute("data-student") : "");
       else if (act === "edit-enrolment") A.editEnrolment(A.byId("enrolments", enrId));
       else if (act === "new-session") A.editSession(null, enrId ? { enrolmentId: enrId } : null);
@@ -973,7 +1013,11 @@
       else if (A.onAct) A.onAct(act, b, ev);
       return;
     }
-    if ((b = t.closest("[data-person]"))) return A.editPerson(A.byId("users", b.getAttribute("data-person")));
+    if ((b = t.closest("[data-person]"))) {
+      var pu = A.byId("users", b.getAttribute("data-person"));
+      if (pu && pu.role === "student" && A.isStaff()) { location.hash = "#/student/" + pu.id; return; }   // a learner opens their full timetable
+      return A.editPerson(pu);
+    }
     if ((b = t.closest("[data-enrolment]"))) { location.hash = "#/enrolment/" + b.getAttribute("data-enrolment"); return; }
     if ((b = t.closest("[data-session]"))) return A.editSession(A.byId("sessions", b.getAttribute("data-session")));
     if ((b = t.closest("[data-payment]"))) return A.editPayment(A.byId("payments", b.getAttribute("data-payment")));

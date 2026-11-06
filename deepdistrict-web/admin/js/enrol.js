@@ -56,15 +56,35 @@
       rate: c0.rate != null ? c0.rate : A.db.org.rate, discount: 0, fee: null, payNow: "", payMethod: "transfer", goal: "", start: A.today()
     };
   }
+  /* "Renew" — the next round of an enrolment: same student, course, teacher, days, times, lesson length,
+     number of lessons and price; it starts after the last lesson of the current round. Everything can still
+     be changed before saving, and the earlier round is not touched. */
+  function renewal(e) {
+    var S0 = fresh(new URLSearchParams()), ls = A.sessionsOf(e.id).filter(function (s) { return s.status !== "cancelled" && s.status !== "rescheduled"; });
+    var last = ls.length ? ls[ls.length - 1].date : "", days = {}, per = 0;
+    (e.pattern || []).forEach(function (p) { if (p.start && !days[p.day]) { days[p.day] = p.start; if (!per) per = A.slotHours(p); } });
+    if (!Object.keys(days).length) ls.forEach(function (s) { var k = A.parse(s.date).getDay(); if (s.start && !days[k]) days[k] = s.start; });   // no saved pattern: use the lessons
+    per = per || +e.perLesson || (ls[0] && +ls[0].hours) || 1;
+    var from = last && last >= A.today() ? A.addDays(last, 1) : A.addDays(A.today(), 1);
+    var n = ls.length || Math.max(1, Math.round((+e.hours || 0) / per));
+    S0.student = Object.assign(S0.student, { mode: "existing", id: e.studentId });
+    Object.assign(S0, { course: e.courseCode, teacherId: A.me.role === "teacher" ? A.me.id : (e.teacherId || ""), mode: e.mode || "hybrid", location: e.location || "",
+      rate: +e.rate || 0, discount: +e.discount || 0, fee: e.feeTBD ? null : +e.fee || 0, goal: e.goal || "", renewOf: e.id });
+    S0.plan = { days: days, per: per, from: from, endBy: "count", count: n, hours: +e.hours || n * per, to: A.addDays(from, 60) };
+    return S0;
+  }
+  A.renewEnrolment = function (id) { location.hash = "#/enrol?renew=" + encodeURIComponent(id); };
 
   /* ------------------------------------------------------------ page */
   A.pages.enrol = function (q) {
     if (!A.isStaff()) return A.pages.home ? A.pages.home(q) : { title: "", html: "" };
-    S = fresh(q);
+    var prev = q.get("renew") && A.byId("enrolments", q.get("renew"));
+    S = prev ? renewal(prev) : fresh(q);
     return {
-      title: L("Enrol a student", "ลงทะเบียนเรียน"),
+      title: prev ? L("Renew — next round", "ต่อคอร์ส — รอบใหม่") : L("Enrol a student", "ลงทะเบียนเรียน"),
       actions: '<a class="btn" href="#/enrolments">' + L("Cancel", "ยกเลิก") + "</a>",
-      html: '<div class="enrol" data-enrol>' + '<div class="enrol__main">' +
+      html: (prev ? '<p class="note">↻ ' + esc(L("Next round of ", "ต่อคอร์สจากรอบเดิม: ") + A.enrolmentLabel(prev)) + " — " + esc(L("same days, times and price; check the start date and save.", "วันเวลาและราคาเดิม ตรวจสอบวันเริ่มแล้วกดบันทึก")) + "</p>" : "") +
+        '<div class="enrol" data-enrol>' + '<div class="enrol__main">' +
         step(1, L("Student", "นักเรียน"), '<div data-sec="student"></div>') +
         step(2, L("Course & teacher", "หลักสูตรและครู"), '<div data-sec="course"></div>') +
         step(3, L("Timetable", "ตารางเรียน"), '<div data-sec="plan"></div>') +
@@ -274,6 +294,7 @@
       var rec = { id: eid, studentId: sid, courseCode: S.course, teacherId: S.teacherId, mode: S.mode, location: S.location, hours: h, rate: +S.rate || 0, discount: +S.discount || 0,
                   fee: fee, start: S.start, status: "active", goal: S.goal, pattern: A.planPattern(S.plan), perLesson: +S.plan.per,
                   planEnd: { by: S.plan.endBy, to: S.plan.endBy === "date" ? S.plan.to : ls[ls.length - 1].date }, createdAt: new Date().toISOString() };
+      if (S.renewOf) rec.renewOf = S.renewOf;                 // the next round of an earlier enrolment
       A.db.enrolments.push(rec);
       Array.prototype.push.apply(A.db.sessions, cands);
       var paid = +S.payNow || 0;
@@ -284,7 +305,8 @@
         A.toast(L(cands.length + " lessons added to the calendar", "เพิ่ม " + cands.length + " คาบในปฏิทินแล้ว"));
         S = null;
         location.hash = "#/enrolment/" + eid;
-        if (A.isAdmin()) setTimeout(function () { var e = A.byId("enrolments", eid); if (e) A.openPack(e); }, 400);
+        var renewed = !!rec.renewOf;   // a renewal opens the courteous payment notice (bank transfer details)
+        if (A.isAdmin()) setTimeout(function () { var e = A.byId("enrolments", eid); if (e) (renewed ? A.openPaymentNotice : A.openPack)(e); }, 400);
       });
     }).catch(function (err) { A.toast(L("Not saved: ", "บันทึกไม่สำเร็จ: ") + err.message, "err"); if (window.console) console.error(err); });
   }
