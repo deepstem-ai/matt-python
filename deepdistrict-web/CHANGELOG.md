@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.4 r2 — November 2026
+- **The real records appear by themselves.** On the first start after the update, every prepared file in
+  `server/real_data/` is imported once (no button to press), and the example learners are archived the first time
+  real records arrive (restorable in More menus → Data: remove & restore). Restarting never adds anything twice.
+
 ## 6.4 r1 — November 2026
 - **Enrol on one page** (Dashboard → *Enrol in a course*, Enrolments → *Enrol a student*): 1 student (existing or new,
   with parent) · 2 course & teacher · 3 timetable — tap the days, give each day its start time, hours per lesson,

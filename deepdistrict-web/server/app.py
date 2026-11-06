@@ -107,6 +107,7 @@ def init_db():
         history.init(con)          # last, so every table gets its keep-forever triggers
         if os.environ.get("DD_SEED", "1") != "0":
             example_data.seed(con, put_rec, get_kv, set_kv, now_iso)
+            import_on_start(con)
 
 
 def now_iso():
@@ -451,6 +452,58 @@ def public_catalog(con):
                             "tests": [str(x)[:30] for x in (p.get("tests") or [])][:10], "courses": [str(x)[:12] for x in (p.get("courses") or [])][:10], "url": _url(p.get("url"))}
                            for p in pw[:300] if isinstance(p, dict) and p.get("visible", True) is not False]
     return out
+
+
+REAL_DIR = ROOT / "server" / "real_data"
+
+
+def import_batch(con, f, me=None):
+    """Add the records of one prepared file (server/real_data/*.json). Records that exist already — archived ones
+    included — are never added again, so importing twice changes nothing."""
+    b = json.loads(f.read_text(encoding="utf-8"))
+    bid = b.get("id") or f.stem
+    have = {(r["col"], r["id"]) for r in con.execute("SELECT col, id FROM records")}
+    added = {}
+    for col in COLLECTIONS:
+        for rec in b.get(col) or []:
+            if isinstance(rec, dict) and rec.get("id") and (col, rec["id"]) not in have:
+                put_rec(con, col, rec, me["id"] if me else "import"); added[col] = added.get(col, 0) + 1
+    cc = get_kv(con, "customCourses", []) or []
+    codes = {c.get("code") for c in cc}
+    for c in b.get("customCourses") or []:
+        if c.get("code") and c["code"] not in codes:
+            cc.append(c); added["customCourses"] = added.get("customCourses", 0) + 1
+    set_kv(con, "customCourses", cc)
+    done = get_kv(con, "importDone", {}); done[bid] = now_iso(); set_kv(con, "importDone", done)
+    audit(con, me, f"Imported {bid}: " + (", ".join(f"{v} {k}" for k, v in added.items()) or "nothing new"))
+    return added
+
+
+def import_on_start(con):
+    """Real records prepared for this centre are added by themselves on the first start after an update (once per
+    file). The first time real records arrive, the example learners are archived (restorable in Settings → Data)."""
+    if os.environ.get("DD_NO_IMPORT") == "1":
+        return 0
+    done = get_kv(con, "importDone", {})
+    files = [f for f in sorted(REAL_DIR.glob("*.json"))] if REAL_DIR.is_dir() else []
+    new = []
+    for f in files:
+        try:
+            bid = json.loads(f.read_text(encoding="utf-8")).get("id") or f.stem
+        except ValueError:
+            continue
+        if bid not in done:
+            new.append(f)
+    if not new:
+        return 0
+    if not done:                              # first real data: take the examples out of the way (kept, restorable)
+        for r in con.execute("SELECT col, id, data FROM records WHERE archived=0").fetchall():
+            if r["col"] in COLLECTIONS and json.loads(r["data"]).get("example"):
+                del_rec(con, r["col"], r["id"], "import")
+        set_kv(con, "exampleSeed", dict(get_kv(con, "exampleSeed", {}) or {}, archivedForRealData=now_iso()))
+    for f in new:
+        import_batch(con, f)
+    return len(new)
 
 
 BKK = timezone(timedelta(hours=7))
@@ -972,21 +1025,7 @@ def api(environ, start, path):
             f = ROOT / "server" / "real_data" / (bid + ".json")
             if not re.fullmatch(r"[a-z0-9-]{3,40}", bid) or not f.is_file():
                 return respond(start, "404 Not Found", {"error": "no such batch"})
-            b = json.loads(f.read_text(encoding="utf-8"))
-            have = {(r["col"], r["id"]) for r in con.execute("SELECT col, id FROM records")}     # archived ones too: never re-added
-            added = {}
-            for col in COLLECTIONS:
-                for rec in b.get(col) or []:
-                    if isinstance(rec, dict) and rec.get("id") and (col, rec["id"]) not in have:
-                        put_rec(con, col, rec, me["id"]); added[col] = added.get(col, 0) + 1
-            cc = get_kv(con, "customCourses", []) or []
-            codes = {c.get("code") for c in cc}
-            for c in b.get("customCourses") or []:
-                if c.get("code") and c["code"] not in codes:
-                    cc.append(c); added["customCourses"] = added.get("customCourses", 0) + 1
-            set_kv(con, "customCourses", cc)
-            done = get_kv(con, "importDone", {}); done[bid] = now_iso(); set_kv(con, "importDone", done)
-            audit(con, me, f"Imported {bid}: " + ", ".join(f"{v} {k}" for k, v in added.items()))
+            added = import_batch(con, f, me)
             return respond(start, "200 OK", {"ok": True, "added": added})
         if path == "example/remove" and method == "POST":
             n = 0
