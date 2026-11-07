@@ -1,5 +1,14 @@
 # Changelog
 
+## 6.4 r7 — November 2026
+- **Google Calendar that updates by itself** (Calendar → *Google Calendar (auto-update)*, admins): make a secret
+  calendar link for all lessons, one teacher or one learner (learner page → *Calendar link for parents*), then
+  *Add to Google Calendar* (or copy it into Apple / Outlook). New, moved and cancelled lessons appear by themselves
+  (Google re-reads the link every few hours). A new link stops the old one; example records are never in a link.
+  The link works once the site is online (e.g. PythonAnywhere).
+- **The current records are now the ones to use:** the prepared real-data file is marked final — after this update
+  it never changes those records again, so everything is managed in the back office from now on.
+
 ## 6.4 r6 — November 2026
 - Two English courses in the real records are now **12 hours** (12 lessons of 1 h) instead of 16; fees unchanged.
   On restart, the four extra future lessons of each are taken out of use (kept in the archive, restorable in

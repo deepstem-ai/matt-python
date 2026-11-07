@@ -513,7 +513,7 @@ def import_batch(con, f, me=None):
                 if x.get("code") == c["code"] and x.get("hours") != c.get("hours") and {k: v for k, v in x.items() if k != "hours"} == {k: v for k, v in c.items() if k != "hours"}:
                     cc[i] = dict(x, hours=c.get("hours")); added["customCourses updated"] = added.get("customCourses updated", 0) + 1
     set_kv(con, "customCourses", cc)
-    done = get_kv(con, "importDone", {}); done[bid] = {"at": now_iso(), "rev": hashlib.sha1(raw).hexdigest()[:12]}; set_kv(con, "importDone", done)
+    done = get_kv(con, "importDone", {}); done[bid] = {"at": now_iso(), "rev": hashlib.sha1(raw).hexdigest()[:12], "final": bool(b.get("final"))}; set_kv(con, "importDone", done)
     audit(con, me, f"Imported {bid}: " + (", ".join(f"{v} {k}" for k, v in added.items()) or "nothing new"))
     return added
 
@@ -539,6 +539,8 @@ def import_on_start(con):
         except ValueError:
             continue
         prev = done.get(bid)
+        if isinstance(prev, dict) and prev.get("final"):
+            continue                           # final: from now on the back office is the only source for these records
         if not isinstance(prev, dict) or prev.get("rev") != hashlib.sha1(raw).hexdigest()[:12]:
             new.append(f)                      # new, or changed since: add what is missing (nothing is overwritten)
     if not new:
@@ -773,6 +775,90 @@ def cron(environ, start):
     learning.tick()
     return respond(start, "200 OK", {"ok": True})
 
+# ---------------------------------------------------------------- calendar feeds (Google / Apple / Outlook subscribe)
+# A secret link per feed: everything, one teacher or one learner. Calendar apps fetch it on their own and keep
+# the lessons up to date; an admin can make a new link (the old one stops) at any time. Example records are left out.
+FEED_TZ = timedelta(hours=7)          # Asia/Bangkok, no daylight saving
+
+
+def _ics(s):
+    return str(s or "").replace("\\", "\\\\").replace(";", "\\;").replace(",", "\\,").replace("\n", "\\n")
+
+
+def _fold(line):
+    b = line.encode("utf-8")
+    if len(b) <= 74:
+        return line
+    out, cur = [], b""
+    for ch in line:
+        e = ch.encode("utf-8")
+        if len(cur) + len(e) > 73:
+            out.append(cur.decode("utf-8")); cur = b""
+        cur += e
+    out.append(cur.decode("utf-8"))
+    return "\r\n ".join(out)
+
+
+def calendar_feed(con, feed):
+    users = {u["id"]: u for u in load_col(con, "users")}
+    enrs = {e["id"]: e for e in load_col(con, "enrolments") if not e.get("example")}
+    names = {c.get("code"): (c.get("title") or {}).get("th") or (c.get("title") or {}).get("en") or "" for c in get_kv(con, "customCourses", []) or []}
+    org = get_kv(con, "org", DEFAULT_ORG)
+    kind, _, who = (feed.get("scope") or "all").partition(":")
+    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    title = {"all": "DeepDistrict · ตารางเรียนทั้งหมด", "teacher": "DeepDistrict · ตารางสอน ", "student": "DeepDistrict · ตารางเรียน "}.get(kind, "DeepDistrict")
+    if kind in ("teacher", "student"):
+        u = users.get(who) or {}
+        title += u.get("nick") or u.get("name") or ""
+    lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//DeepDistrict//Back office//TH", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
+             "X-WR-CALNAME:" + _ics(title), "X-WR-TIMEZONE:Asia/Bangkok", "REFRESH-INTERVAL;VALUE=DURATION:PT1H", "X-PUBLISHED-TTL:PT1H"]
+    fmt = lambda d: d.strftime("%Y%m%dT%H%M%SZ")
+    for s in load_col(con, "sessions"):
+        e = enrs.get(s.get("enrolmentId"))
+        if s.get("example") or not e or not s.get("date"):
+            continue
+        tid = s.get("teacherId") or e.get("teacherId") or ""
+        if kind == "student" and e.get("studentId") != who or kind == "teacher" and tid != who:
+            continue
+        stu = users.get(e.get("studentId")) or {}
+        nick = stu.get("nick") or stu.get("name") or ""
+        code = e.get("courseCode") or ""
+        summary = f"{code} · {nick}" if kind != "student" else f"{code} · {names.get(code) or 'DeepDistrict'}"
+        status = s.get("status") or "scheduled"
+        desc = [names.get(code) or code, f"{float(s.get('hours') or 0):g} ชม.", {"done": "เรียนแล้ว", "scheduled": "นัดเรียน", "cancelled": "ยกเลิก",
+                "noshow": "ขาดเรียน", "rescheduled": "เลื่อนแล้ว"}.get(status, status)]
+        if tid and users.get(tid):
+            desc.append("ครู " + (users[tid].get("nick") or users[tid].get("name") or ""))
+        ev = ["BEGIN:VEVENT", "UID:" + s["id"] + "@deepdistrict", "DTSTAMP:" + stamp]
+        try:
+            day = datetime.strptime(s["date"], "%Y-%m-%d")
+        except ValueError:
+            continue
+        if s.get("start"):
+            h, m = (s["start"].split(":") + ["0"])[:2]
+            a = day.replace(hour=int(h), minute=int(m)) - FEED_TZ
+            ev += ["DTSTART:" + fmt(a), "DTEND:" + fmt(a + timedelta(hours=float(s.get("hours") or 1)))]
+        else:
+            ev += ["DTSTART;VALUE=DATE:" + day.strftime("%Y%m%d"), "DTEND;VALUE=DATE:" + (day + timedelta(days=1)).strftime("%Y%m%d")]
+            summary += " (รอระบุเวลา)"
+        ev += ["SUMMARY:" + _ics(summary), "DESCRIPTION:" + _ics(" · ".join(desc)),
+               "LOCATION:" + _ics("ออนไลน์" if s.get("mode") == "online" else (s.get("location") or org.get("name") or "DeepDistrict")),
+               "STATUS:" + ("CANCELLED" if status in ("cancelled", "rescheduled") else "CONFIRMED"), "END:VEVENT"]
+        lines += ev
+    lines.append("END:VCALENDAR")
+    return "\r\n".join(_fold(l) for l in lines) + "\r\n"
+
+
+def feed_request(environ, start, token):
+    with _lock, db() as con:
+        feeds = get_kv(con, "calFeeds", []) or []
+        f = next((x for x in feeds if hmac.compare_digest(str(x.get("token", "")), token)), None)
+        if not f:
+            return respond(start, "404 Not Found", "not found", "text/plain")
+        body = calendar_feed(con, f)
+    return respond(start, "200 OK", body, "text/calendar; charset=utf-8",
+                   extra=[("Cache-Control", "no-cache"), ("Content-Disposition", 'inline; filename="deepdistrict.ics"')])
+
 
 def api(environ, start, path):
     method = environ["REQUEST_METHOD"]
@@ -780,6 +866,8 @@ def api(environ, start, path):
         return line_webhook(environ, start)
     if path == "cron":
         return cron(environ, start)
+    if path.startswith("cal/") and path.endswith(".ics") and environ["REQUEST_METHOD"] in ("GET", "HEAD"):
+        return feed_request(environ, start, path[4:-4])
     if method == "POST" and environ.get("HTTP_X_DD") != "1":       # blocks cross-site form posts (CSRF)
         return respond(start, "403 Forbidden", {"error": "missing header"})
     try:
@@ -912,6 +1000,27 @@ def api(environ, start, path):
 
         if me["role"] != "admin":
             return respond(start, "403 Forbidden", {"error": "admin only"})
+
+        if path == "calfeeds" and method == "GET":
+            return respond(start, "200 OK", {"feeds": get_kv(con, "calFeeds", []) or []}, extra=[("Cache-Control", "no-store")])
+        if path == "calfeeds" and method == "POST":
+            # {scope: "all" | "student:<id>" | "teacher:<id>", new: true} -> that feed (a new link when asked);
+            # {token, revoke: true} -> the link stops working
+            feeds = get_kv(con, "calFeeds", []) or []
+            if body.get("revoke"):
+                feeds = [f for f in feeds if f.get("token") != body.get("token")]
+                set_kv(con, "calFeeds", feeds); audit(con, me, "Stopped a calendar link")
+                return respond(start, "200 OK", {"feeds": feeds})
+            scope = str(body.get("scope") or "all")
+            if not re.fullmatch(r"all|(student|teacher):[A-Za-z0-9_-]{1,64}", scope):
+                return respond(start, "400 Bad Request", {"error": "bad scope"})
+            f = next((x for x in feeds if x.get("scope") == scope), None)
+            if f and body.get("new"):
+                feeds.remove(f); f = None
+            if not f:
+                f = {"token": secrets.token_urlsafe(24), "scope": scope, "createdAt": now_iso()}
+                feeds.append(f); set_kv(con, "calFeeds", feeds); audit(con, me, "Made a calendar link for " + scope)
+            return respond(start, "200 OK", {"feed": f, "feeds": feeds})
 
         if path == "popups-admin" and method == "GET":
             store = get_kv(con, "popups", popups.default())

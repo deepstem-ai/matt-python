@@ -135,7 +135,8 @@
     A._calSessions = all;
     return {
       title: L("Calendar", "ปฏิทิน"),
-      actions: '<button class="btn" data-act="ics">' + L("Export .ics", "ส่งออก .ics") + "</button>" + (A.isStaff() ? '<button class="btn btn--primary" data-act="new-session">+ ' + L("Add lesson", "เพิ่มคาบเรียน") + "</button>" : '<button class="btn btn--primary" data-act="req-new">' + L("Request a change", "ขอเปลี่ยนแปลง") + "</button>"),
+      actions: (A.isAdmin() ? '<button class="btn btn--primary" data-act="cal-links">🔗 ' + L("Google Calendar (auto-update)", "Google Calendar (อัปเดตอัตโนมัติ)") + "</button>" : "") +
+        '<button class="btn" data-act="ics">' + L("Export .ics", "ส่งออก .ics") + "</button>" + (A.isStaff() ? '<button class="btn btn--primary" data-act="new-session">+ ' + L("Add lesson", "เพิ่มคาบเรียน") + "</button>" : '<button class="btn btn--primary" data-act="req-new">' + L("Request a change", "ขอเปลี่ยนแปลง") + "</button>"),
       html: bar + html
     };
   };
@@ -144,6 +145,7 @@
   var prevAct = A.onAct;
   A.onAct = function (act, b, ev) {
     if (act === "ics") return exportICS();
+    if (act === "cal-links") return A.calLinks(b.getAttribute("data-scope") || "");
     if (prevAct) prevAct(act, b, ev);
   };
   document.addEventListener("click", function (ev) {
@@ -181,4 +183,70 @@
     A.toast(L(list.length + " lessons exported — open the file to add them to Google, Apple or Outlook Calendar.", "ส่งออก " + list.length + " คาบแล้ว เปิดไฟล์เพื่อเพิ่มลง Google, Apple หรือ Outlook Calendar"));
   }
 
+})();
+
+/* ==========================================================================
+   Calendar links that update by themselves (Google / Apple / Outlook "subscribe from URL").
+   One secret link for all lessons, one per teacher, one per learner (for parents). Admin only.
+   ========================================================================== */
+(function () {
+  "use strict";
+  var A = window.DDA, L = A.L, esc = A.esc;
+  function feedUrl(f) { return location.origin + "/api/cal/" + f.token + ".ics"; }
+  function googleUrl(f) { return "https://calendar.google.com/calendar/render?cid=" + encodeURIComponent(feedUrl(f).replace(/^https?:/, "webcal:")); }
+  function scopeName(sc) {
+    var k = sc.split(":")[0], id = sc.split(":")[1];
+    if (k === "all") return L("All lessons (every learner)", "ทุกคาบเรียน (นักเรียนทุกคน)");
+    var u = A.byId("users", id) || {};
+    return (k === "teacher" ? L("Teacher: ", "ครู: ") : L("Learner: ", "นักเรียน: ")) + (u.nick ? u.nick + " · " : "") + (u.name || id);
+  }
+  var local = /^(localhost|127\.|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(location.hostname) || location.protocol === "file:";
+  function row(f) {
+    return '<div class="cal-feed" data-token="' + esc(f.token) + '"><div class="cal-feed__h"><b>' + esc(scopeName(f.scope)) + "</b>" +
+      '<span class="muted">' + L("since ", "สร้างเมื่อ ") + esc(A.fmtDate((f.createdAt || "").slice(0, 10))) + "</span></div>" +
+      '<input readonly value="' + esc(feedUrl(f)) + '" aria-label="link">' +
+      '<div class="btnrow"><a class="btn btn--primary btn--sm" target="_blank" rel="noopener" href="' + esc(googleUrl(f)) + '">+ ' + L("Add to Google Calendar", "เพิ่มใน Google Calendar") + "</a>" +
+      '<button type="button" class="btn btn--sm" data-cf="copy">' + L("Copy link", "คัดลอกลิงก์") + "</button>" +
+      '<button type="button" class="btn btn--sm" data-cf="new" data-scope="' + esc(f.scope) + '">' + L("New link (old one stops)", "สร้างลิงก์ใหม่ (ลิงก์เดิมใช้ไม่ได้)") + "</button>" +
+      '<button type="button" class="btn btn--sm" data-cf="stop">' + L("Stop", "หยุดใช้ลิงก์") + "</button></div></div>";
+  }
+  A.calLinks = function (scope) {
+    var dlg = document.createElement("dialog"); dlg.className = "modal cal-links";
+    document.body.appendChild(dlg);
+    function draw(feeds, focus) {
+      var opts = [["all", L("All lessons", "ทุกคาบเรียน")]]
+        .concat(A.people("staff").map(function (t) { return ["teacher:" + t.id, L("Teacher: ", "ครู: ") + t.name]; }))
+        .concat(A.people("student").filter(function (u) { return !u.example; }).map(function (u) { return ["student:" + u.id, L("Learner: ", "นักเรียน: ") + (u.nick ? u.nick + " · " : "") + u.name]; }));
+      dlg.innerHTML = '<div class="modal__box"><h2>🔗 ' + L("Calendar links that update by themselves", "ลิงก์ปฏิทินที่อัปเดตอัตโนมัติ") + "</h2>" +
+        '<p class="muted">' + L("Add a link to Google Calendar once; new, moved and cancelled lessons then appear by themselves (Google checks every few hours). Parents can add their child's link on their phone. Anyone with a link can see those lessons — share it only with the right person; make a new link to stop the old one.",
+          "เพิ่มลิงก์ใน Google Calendar ครั้งเดียว แล้วคาบที่เพิ่ม เลื่อน หรือยกเลิก จะขึ้นเองอัตโนมัติ (Google ตรวจทุก ๆ ไม่กี่ชั่วโมง) ส่งลิงก์ของนักเรียนให้ผู้ปกครองเพิ่มในมือถือได้ ผู้ที่มีลิงก์จะเห็นตารางนั้น จึงส่งให้เฉพาะคนที่เกี่ยวข้อง และสร้างลิงก์ใหม่เมื่อต้องการยกเลิกลิงก์เดิม") + "</p>" +
+        (local ? '<p class="note note--warn">' + L("This back office is running on this computer only, so Google cannot reach the link yet. It works once the site is online (e.g. PythonAnywhere) — open the back office there and make the links.", "ตอนนี้ระบบหลังบ้านเปิดอยู่บนเครื่องนี้เท่านั้น Google จึงยังเข้าถึงลิงก์ไม่ได้ ลิงก์จะใช้ได้เมื่อเว็บออนไลน์แล้ว (เช่น PythonAnywhere) — ให้เปิดระบบหลังบ้านบนเว็บแล้วสร้างลิงก์จากที่นั่น") + "</p>" : "") +
+        '<div class="cal-make"><select data-cf-scope>' + opts.map(function (o) { return '<option value="' + esc(o[0]) + '"' + (o[0] === focus ? " selected" : "") + ">" + esc(o[1]) + "</option>"; }).join("") + "</select>" +
+        '<button type="button" class="btn btn--primary" data-cf="make">' + L("Make link", "สร้างลิงก์") + "</button></div>" +
+        (feeds.length ? feeds.slice().sort(function (a, b) { return a.scope === focus ? -1 : b.scope === focus ? 1 : 0; }).map(row).join("") : '<p class="muted">' + L("No links yet.", "ยังไม่มีลิงก์") + "</p>") +
+        '<div class="btnrow modal__foot"><button type="button" class="btn" data-cf="close">' + L("Close", "ปิด") + "</button></div></div>";
+    }
+    function post(body, focus) {
+      return A.api("POST", "calfeeds", body).then(function (r) { draw(r.feeds, focus); return r; }).catch(function (e) { A.toast(e.message, "err"); });
+    }
+    dlg.addEventListener("click", function (ev) {
+      var b = ev.target.closest("[data-cf]"); if (!b) return;
+      var k = b.getAttribute("data-cf"), box = b.closest(".cal-feed"), tok = box && box.getAttribute("data-token");
+      if (k === "close") { dlg.close(); dlg.remove(); return; }
+      if (k === "make") { var sc = dlg.querySelector("[data-cf-scope]").value; return post({ scope: sc }, sc); }
+      if (k === "new") { if (!confirm(L("Make a new link? Calendars using the old link stop updating.", "สร้างลิงก์ใหม่? ปฏิทินที่ใช้ลิงก์เดิมจะไม่อัปเดตอีก"))) return; return post({ scope: b.getAttribute("data-scope"), "new": true }, b.getAttribute("data-scope")); }
+      if (k === "stop") { if (!confirm(L("Stop this link?", "หยุดใช้ลิงก์นี้?"))) return; return post({ token: tok, revoke: true }, ""); }
+      if (k === "copy") {
+        var inp = box.querySelector("input"); inp.select();
+        var done = function () { A.toast(L("Link copied", "คัดลอกลิงก์แล้ว")); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(inp.value).then(done, function () { document.execCommand("copy"); done(); }); else { document.execCommand("copy"); done(); }
+      }
+    });
+    dlg.addEventListener("cancel", function () { dlg.remove(); });
+    A.api("GET", "calfeeds").then(function (r) {
+      draw(r.feeds || [], scope);
+      dlg.showModal();
+      if (scope && !(r.feeds || []).some(function (f) { return f.scope === scope; })) post({ scope: scope }, scope);
+    }).catch(function (e) { A.toast(e.message, "err"); dlg.remove(); });
+  };
 })();

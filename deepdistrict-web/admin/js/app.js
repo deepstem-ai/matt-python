@@ -534,6 +534,7 @@
       (u.phone || u.email ? '<p class="muted">' + esc([u.phone, u.email].filter(Boolean).join(" · ")) + "</p>" : "") +
       (all.length ? "<p><b>" + L("All lessons: ", "คาบเรียนทั้งหมด: ") + "</b>" + all.length + L(" · first ", " · คาบแรก ") + esc(A.fmtDate(all[0].date)) + L(" · last ", " · คาบสุดท้าย ") + esc(A.fmtDate(all[all.length - 1].date)) + "</p>" : "") +
       '</div><div class="enr-card__act">' + (A.isStaff() ? '<button class="btn btn--primary" data-act="new-enrolment" data-student="' + u.id + '">+ ' + L("Enrol in a course", "ลงทะเบียนเรียนเพิ่ม") + "</button>" : "") +
+      (A.isAdmin() && !u.example ? '<button class="btn" data-act="cal-links" data-scope="student:' + u.id + '">🔗 ' + L("Calendar link for parents", "ลิงก์ปฏิทินให้ผู้ปกครอง") + "</button>" : "") +
       '<button class="btn" data-act="edit-person" data-id="' + u.id + '">' + L("Edit details", "แก้ไขข้อมูล") + "</button></div></section>" +
       (enrs.length ? enrs.map(function (e) {
         var st = A.stats(e), ls = st.sessions.filter(function (s) { return s.status !== "rescheduled"; }), n = 0, cum = 0;
