@@ -1408,3 +1408,10 @@ u.ul-part { text-decoration: underline; text-decoration-thickness: 2px; text-und
 .feed-card__foot a { font-weight: 700; }
 .feed-note { margin-top: 16px; font-size: var(--fs-xs); color: var(--text-faint); }
 .feed-cats { margin-top: 14px; }
+
+/* ---------------------------------------------------------------- Mentoring model (home) */
+.mc-ico { width: 44px; height: 44px; padding: 10px; border-radius: 14px; background: color-mix(in srgb, var(--violet) 12%, var(--surface)); }
+#team .card, #areas .card { gap: 10px; }
+#areas .card h3 { font-size: 1.12rem; }
+#journey .step h3 { font-size: 1.05rem; }
+@media (min-width: 1041px) { #journey .steps { --cols: 5; } }

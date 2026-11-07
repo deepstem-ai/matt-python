@@ -13,6 +13,8 @@
   var NAV = [
     { href: "pages/si.html", en: "What is SI?", th: "SI คืออะไร", cls: "nav-si" },
     { en: "Courses", th: "หลักสูตร", key: "courses", children: [
+      { href: "index.html#team", en: "Mentoring, coaching & tutoring", th: "พี่เลี้ยง โค้ช และติวเตอร์", desc: ["Your own team: tests · STEM & AI research · maths · English", "ทีมดูแลรายคน: ข้อสอบ · วิจัย STEM และ AI · คณิต · อังกฤษ"] },
+      { href: "index.html#journey", en: "How it works", th: "ขั้นตอนการเรียนกับเรา", desc: ["Free consultation → roadmap → results", "ปรึกษาฟรี → แผนส่วนตัว → ผลลัพธ์"] },
       { href: "pages/programs.html", en: "All programmes", th: "หลักสูตรทั้งหมด", desc: ["Maths, Physics, English, coding, AI", "คณิต ฟิสิกส์ อังกฤษ โค้ดดิ้ง AI"] },
       { href: "pages/programs.html#planner", en: "Plan my path", th: "ออกแบบเส้นทางเรียน", desc: ["From M.1 to university", "จาก ม.1 สู่มหาวิทยาลัย"] },
       { href: "pages/stem.html", en: "Youth STEM", th: "STEM เยาวชน", desc: ["Projects and competitions", "โครงงานและการแข่งขัน"] },
@@ -30,7 +32,7 @@
     { en: "About", th: "เกี่ยวกับเรา", key: "about", children: [
       { href: "pages/about.html", en: "About us", th: "เกี่ยวกับเรา" },
       { href: "pages/partners.html", en: "Partners", th: "พันธมิตร" },
-      { href: "pages/contact.html", en: "Contact", th: "ติดต่อเรา" },
+      { href: "pages/contact.html", en: "Contact · free consultation", th: "ติดต่อเรา · นัดปรึกษาฟรี" },
       { href: "pages/verify.html", en: "Verify a document", th: "ตรวจสอบเอกสาร" }
     ] }
   ];
@@ -38,6 +40,7 @@
 
   var COLS = [
     { en: "Learn", th: "เรียนรู้", links: [
+      { href: "index.html#team", en: "Mentoring, coaching & tutoring", th: "พี่เลี้ยง โค้ช และติวเตอร์" },
       { href: "pages/programs.html#planner", en: "Plan my path", th: "ออกแบบเส้นทางเรียน" },
       { href: "pages/programs.html#catalog", en: "All courses", th: "รายวิชาทั้งหมด" },
       { href: "pages/admissions.html#exams", en: "COMPAS, HKICO & POSN prep", th: "เตรียมสอบ COMPAS · HKICO · สอวน." },

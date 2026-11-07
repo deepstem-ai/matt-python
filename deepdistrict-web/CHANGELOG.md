@@ -1,5 +1,15 @@
 # Changelog
 
+## 6.4 r8 — November 2026
+- **Home page: mentoring, coaching and tutoring first.** A new hero ("Mentors, coaches & tutors beside every
+  learner") and four new sections in DeepDistrict's own words: *One learner, one whole team* (lead mentor, subject
+  tutor, research & project coach, learning coordinator), *Four areas* (standardised tests & entrance exams,
+  STEM & AI research and innovation, mathematics, English), *How it works* (free consultation → diagnostic →
+  personal roadmap → learn & build → results), and *Ages 10–14* (start early). Every earlier section, course,
+  track and page stays as it was.
+- Menu: *Mentoring, coaching & tutoring* and *How it works* under Courses; *Contact · free consultation*; the
+  contact form has a *Free consultation* topic.
+
 ## 6.4 r7 — November 2026
 - **Google Calendar that updates by itself** (Calendar → *Google Calendar (auto-update)*, admins): make a secret
   calendar link for all lessons, one teacher or one learner (learner page → *Calendar link for parents*), then
