@@ -1,0 +1,1565 @@
+{
+ "exam": "sk4",
+ "set": 2,
+ "title": {
+  "en": "Suankularb M.4 English (GATE / EPLUS+) — Practice paper 2",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.4 สวนกุหลาบ (GATE / EPLUS+) — ชุดที่ 2"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "50 questions in 60 minutes: conversation, vocabulary, grammar, error identification, cloze and reading. GATE and EPLUS+ applicants take the same paper; EPLUS+ needs a higher score. DeepDistrict practice — not an official or past paper.",
+  "th": "50 ข้อ 60 นาที: บทสนทนา คำศัพท์ ไวยากรณ์ หาจุดผิด เติมคำในบทความ และการอ่าน ผู้สมัคร GATE และ EPLUS+ ใช้ข้อสอบชุดเดียวกัน EPLUS+ ต้องได้คะแนนสูงกว่า — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Agreeing to a request for help",
+    "th": "การตอบรับคำขอความช่วยเหลือ"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Could you give me a hand with these boxes? They're heavier than they look.\nB: ______ Where do you want them?",
+   "choices": [
+    "No, I couldn't.",
+    "Sure, no problem.",
+    "Give me a break.",
+    "Help yourself."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "B then asks where to put the boxes, so B is agreeing: \"Sure, no problem\". \"No, I couldn't\" refuses, \"Help yourself\" invites someone to take something, and \"Give me a break\" means stop bothering me.",
+    "th": "B ถามต่อว่าจะให้วางกล่องที่ไหน แสดงว่ายินดีช่วย จึงตอบ Sure, no problem ส่วน No, I couldn't เป็นการปฏิเสธ Help yourself ใช้เชิญให้หยิบเอง และ Give me a break แปลว่าอย่ากวนใจ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Advising against an idea",
+    "th": "การแนะนำไม่ให้ทำบางสิ่ง"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: I'm thinking of dyeing my hair bright blue for the school festival.\nB: ______ The school rules say natural colours only.",
+   "choices": [
+    "Why not? Go for it.",
+    "I wouldn't do that if I were you.",
+    "That sounds like a brilliant idea.",
+    "I'm all for it."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "B mentions a rule against unnatural colours, so B is warning A not to do it: \"I wouldn't do that if I were you\". The other three all encourage the idea.",
+    "th": "B อ้างกฎโรงเรียนที่ห้ามย้อมสีผมไม่เป็นธรรมชาติ จึงเป็นการเตือน I wouldn't do that if I were you อีกสามตัวเลือกล้วนสนับสนุนความคิดนั้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Answering 'Is this seat taken?'",
+    "th": "การตอบคำถาม Is this seat taken?"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Excuse me, is this seat taken?\nB: ______ My friend has just gone to buy some drinks.",
+   "choices": [
+    "No, feel free.",
+    "I'm afraid it is.",
+    "Yes, please sit down.",
+    "Not that I know of."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The friend is coming back, so the seat is taken: \"I'm afraid it is\" says yes politely. \"No, feel free\" and \"Not that I know of\" say it is free, and \"Yes, please sit down\" contradicts itself.",
+    "th": "เพื่อนของ B กำลังจะกลับมา ที่นั่งจึงมีคนจองแล้ว I'm afraid it is เป็นการตอบรับอย่างสุภาพ ส่วน No, feel free และ Not that I know of บอกว่าว่าง และ Yes, please sit down ขัดแย้งในตัวเอง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Accepting criticism",
+    "th": "การยอมรับคำวิจารณ์"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: You look exhausted. Have you been up all night?\nB: Pretty much. I had to finish my history report.\nA: Again? You really should stop leaving things until the last minute.\nB: ______ I'll start the next one the day it's set.",
+   "choices": [
+    "Mind your own business.",
+    "Speak for yourself.",
+    "Point taken.",
+    "So do I."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "B promises to start earlier next time, so B accepts the criticism: \"Point taken\" (= I understand and accept what you said). \"Mind your own business\" rejects it rudely, \"Speak for yourself\" says the comment applies to A, and \"So do I\" makes no sense here.",
+    "th": "B สัญญาว่าจะเริ่มทำงานเร็วขึ้น แสดงว่ายอมรับคำติ จึงตอบ Point taken (รับทราบและยอมรับ) ส่วน Mind your own business เป็นการปฏิเสธอย่างหยาบ Speak for yourself หมายถึงคนพูดเองต่างหาก และ So do I ไม่เข้ากับบริบท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Reassuring someone with idioms",
+    "th": "การปลอบใจโดยใช้สำนวน"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: How was the job interview?\nB: I think I blew it. I was so nervous that I couldn't think straight.\nA: ______ You never know—maybe they liked you more than you think.",
+   "choices": [
+    "You've hit the nail on the head.",
+    "Better late than never.",
+    "That's the last straw.",
+    "Don't be so hard on yourself."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "A is comforting B, so \"Don't be so hard on yourself\" (= don't criticise yourself so much) fits. \"Hit the nail on the head\" means you are exactly right, which would agree B failed; \"Better late than never\" and \"the last straw\" do not fit the situation.",
+    "th": "A กำลังปลอบใจ B จึงใช้ Don't be so hard on yourself (อย่าโทษตัวเองมากนัก) ส่วน hit the nail on the head แปลว่าพูดถูกเผง ซึ่งเท่ากับยืนยันว่า B ทำพลาด Better late than never และ the last straw ไม่เข้ากับสถานการณ์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Responding to a refused invitation",
+    "th": "การตอบเมื่อเพื่อนปฏิเสธคำเชิญ"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: I'm sorry, but I don't think I'll be able to make it to your party on Saturday.\nB: ______ Maybe we can get together next weekend instead.",
+   "choices": [
+    "Oh, good for you.",
+    "Oh, I'm glad to hear it.",
+    "Never mind, I'll go instead.",
+    "Oh, that's a shame."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "B is disappointed and suggests another time, so \"Oh, that's a shame\" fits. \"Good for you\" and \"I'm glad to hear it\" show pleasure at good news, and \"I'll go instead\" makes no sense because it is B's own party.",
+    "th": "B รู้สึกเสียดายและเสนอนัดใหม่ จึงตอบ Oh, that's a shame ส่วน Good for you และ I'm glad to hear it แสดงความยินดีกับข่าวดี และ I'll go instead ไม่สมเหตุสมผลเพราะเป็นงานของ B เอง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Collocations with 'decision'",
+    "th": "คำปรากฏร่วมกับ decision"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"We need to ______ a decision about the class trip by Friday.\"",
+   "choices": [
+    "do",
+    "make",
+    "give",
+    "put"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The usual collocation is \"make a decision\". Thai learners often choose \"do\", but we do homework or a job, not a decision; \"give\" and \"put\" do not collocate with decision.",
+    "th": "คำที่ใช้คู่กันคือ make a decision ผู้เรียนไทยมักใช้ do แต่ do ใช้กับ homework หรือ job ส่วน give และ put ไม่ใช้กับ decision"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Word formation: nouns ending in -ity",
+    "th": "การสร้างคำนามที่ลงท้ายด้วย -ity"
+   },
+   "topic": {
+    "en": "Word meaning and formation",
+    "th": "ความหมายคำและการสร้างคำ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"Online shopping has become very popular, but some customers still worry about the ______ of their personal data.\"",
+   "choices": [
+    "secure",
+    "securely",
+    "security",
+    "securing"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "After \"the\" and before \"of\" we need a noun: \"security\". \"Secure\" is an adjective or verb, \"securely\" is an adverb and \"securing\" is a verb form.",
+    "th": "หลัง the และก่อน of ต้องเป็นคำนาม คือ security ส่วน secure เป็นคุณศัพท์หรือกริยา securely เป็นกริยาวิเศษณ์ และ securing เป็นรูปกริยา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Collocations: reach a compromise",
+    "th": "คำปรากฏร่วม reach a compromise"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"After months of difficult negotiations, the two countries finally reached a ______ that both sides could accept.\"",
+   "choices": [
+    "promise",
+    "compromise",
+    "commitment",
+    "dispute"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Two sides with different positions \"reach a compromise\" (an agreement in which each gives up something). A promise is made, not reached; a commitment is made or given; and a dispute is the disagreement itself, not its solution.",
+    "th": "สองฝ่ายที่เห็นต่างกันจะ reach a compromise คือบรรลุข้อตกลงที่ต่างฝ่ายต่างยอมกันคนละนิด ส่วน promise และ commitment ใช้กับ make ไม่ใช่ reach และ dispute คือความขัดแย้งเอง ไม่ใช่ทางออก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Synonyms of formal adjectives",
+    "th": "คำพ้องความหมายของคุณศัพท์ระดับทางการ"
+   },
+   "topic": {
+    "en": "Word meaning and formation",
+    "th": "ความหมายคำและการสร้างคำ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word closest in meaning to \"compelling\".\n\"The evidence against the suspect was so compelling that the jury needed only an hour to reach a verdict.\"",
+   "choices": [
+    "confusing",
+    "convincing",
+    "limited",
+    "surprising"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The jury decided very quickly, so the evidence must have been strong and persuasive: \"compelling\" means convincing. Confusing or limited evidence would slow the jury down, and surprising does not explain the quick verdict.",
+    "th": "คณะลูกขุนตัดสินได้รวดเร็ว แสดงว่าหลักฐานหนักแน่นน่าเชื่อ compelling จึงแปลว่า convincing ส่วนหลักฐานที่สับสนหรือมีน้อยจะทำให้ตัดสินช้า และ surprising ไม่ได้อธิบายการตัดสินที่รวดเร็ว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Phrasal verbs: run into",
+    "th": "กริยาวลี run into"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"I ran ______ an old classmate at the shopping centre yesterday; I hadn't seen him for years.\"",
+   "choices": [
+    "out of",
+    "into",
+    "over",
+    "up"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Run into someone\" means meet them by chance. \"Run out of\" means have none left, \"run over\" means hit with a vehicle, and \"run up\" means build up a debt or run towards.",
+    "th": "run into someone แปลว่าเจอโดยบังเอิญ ส่วน run out of แปลว่าหมด run over แปลว่าขับรถทับ และ run up แปลว่าก่อหนี้หรือวิ่งเข้าไปหา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Idiomatic expressions: in the nick of time",
+    "th": "สำนวน in the nick of time"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"Despite the heavy traffic, the ambulance arrived in the ______ of time and the patient was saved.\"",
+   "choices": [
+    "edge",
+    "end",
+    "point",
+    "nick"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"In the nick of time\" is a fixed idiom meaning just before it was too late. \"Edge\", \"end\" and \"point\" do not form this idiom.",
+    "th": "in the nick of time เป็นสำนวนตายตัว แปลว่าทันเวลาพอดี ก่อนจะสายเกินไป ส่วน edge, end, point ไม่ได้ใช้ในสำนวนนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Word formation: verbs ending in -ify",
+    "th": "การสร้างกริยาที่ลงท้ายด้วย -ify"
+   },
+   "topic": {
+    "en": "Word meaning and formation",
+    "th": "ความหมายคำและการสร้างคำ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"The teacher tried to ______ her explanation so that the younger students could follow it.\"",
+   "choices": [
+    "simple",
+    "simplicity",
+    "simply",
+    "simplify"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "After \"tried to\" we need a base verb: \"simplify\" (make simpler). \"Simple\" is an adjective, \"simplicity\" a noun and \"simply\" an adverb.",
+    "th": "หลัง tried to ต้องเป็นกริยารูปฐาน คือ simplify (ทำให้ง่ายขึ้น) ส่วน simple เป็นคุณศัพท์ simplicity เป็นคำนาม และ simply เป็นกริยาวิเศษณ์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Adjective + preposition: addicted to",
+    "th": "คุณศัพท์ + บุพบท addicted to"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำปรากฏร่วมและกริยาวลี"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"Many young people are ______ to social media, checking their phones hundreds of times a day.\"",
+   "choices": [
+    "interested",
+    "involved",
+    "addicted",
+    "concerned"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Checking a phone hundreds of times a day shows a habit people cannot stop, and \"addicted\" takes \"to\". \"Interested\" takes \"in\", and \"involved\"/\"concerned\" do not describe this behaviour.",
+    "th": "การเช็กโทรศัพท์หลายร้อยครั้งต่อวันแสดงถึงการติดจนเลิกไม่ได้ และ addicted ใช้กับ to ส่วน interested ใช้กับ in และ involved, concerned ไม่ได้บรรยายพฤติกรรมนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "'Be going to' for predictions from evidence",
+    "th": "be going to สำหรับการคาดการณ์จากหลักฐาน"
+   },
+   "topic": {
+    "en": "Verb tenses",
+    "th": "กาลของกริยา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"Look at those dark clouds! It ______ rain any minute.\"",
+   "choices": [
+    "'s going to",
+    "will be",
+    "rains",
+    "is raining"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "We can see evidence now (dark clouds), so we use \"be going to\" for the prediction: \"It's going to rain\". \"Will be rain\" is ungrammatical, \"rains\" is a habit, and \"is raining\" means it has already started.",
+    "th": "เห็นหลักฐานในปัจจุบัน (เมฆดำ) จึงใช้ be going to ในการคาดการณ์ คือ It's going to rain ส่วน will be rain ผิดไวยากรณ์ rains เป็นนิสัยหรือความจริงทั่วไป และ is raining หมายถึงฝนตกอยู่แล้ว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Future perfect continuous",
+    "th": "future perfect continuous"
+   },
+   "topic": {
+    "en": "Verb tenses",
+    "th": "กาลของกริยา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"By the time she retires next year, she ______ for the same company for twenty years.\"",
+   "choices": [
+    "has been working",
+    "will work",
+    "is working",
+    "will have been working"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"By the time … next year\" looks back from a future point at a continuing period (for twenty years), so the future perfect continuous \"will have been working\" is needed. The other forms do not reach to that future point.",
+    "th": "By the time … next year มองย้อนจากจุดเวลาในอนาคตไปยังช่วงเวลาที่ต่อเนื่อง (for twenty years) จึงต้องใช้ future perfect continuous คือ will have been working ส่วนรูปอื่นไม่ได้ต่อเนื่องถึงจุดเวลาในอนาคตนั้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Mixed conditional: present condition, past result",
+    "th": "mixed conditional เงื่อนไขปัจจุบัน ผลในอดีต"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"If Napat weren't so shy, he ______ for class president last month.\"",
+   "choices": [
+    "would run",
+    "will run",
+    "would have run",
+    "had run"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Being shy is a present, general fact (weren't), but the result is in the past (last month), so we use \"would have run\". \"Would run\" refers to now, and \"will run\"/\"had run\" do not form a conditional result.",
+    "th": "ความขี้อายเป็นลักษณะในปัจจุบัน (weren't) แต่ผลอยู่ในอดีต (last month) จึงใช้ would have run ส่วน would run หมายถึงปัจจุบัน และ will run, had run ไม่ใช่รูปผลของประโยคเงื่อนไข"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "'If only' + past simple for present wishes",
+    "th": "If only + past simple ความปรารถนาในปัจจุบัน"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"If only I ______ how to swim! Then I could join my friends at the beach.\"",
+   "choices": [
+    "know",
+    "had known",
+    "knew",
+    "would know"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The wish is about now (\"Then I could join…\"), so \"if only\" takes the past simple: \"knew\". \"Had known\" is for past regrets, \"know\" is not used after if only, and \"would know\" is not used for one's own abilities.",
+    "th": "ความปรารถนานี้เป็นเรื่องปัจจุบัน (Then I could join…) If only จึงตามด้วย past simple คือ knew ส่วน had known ใช้เสียดายเรื่องในอดีต know ใช้หลัง if only ไม่ได้ และ would know ไม่ใช้กับความสามารถของตนเอง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Passive modal perfect",
+    "th": "passive กับ modal perfect"
+   },
+   "topic": {
+    "en": "Passive and causative",
+    "th": "ประโยค passive และ causative"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"The accident ______ if the driver had been paying attention.\"",
+   "choices": [
+    "could be avoided",
+    "could have avoided",
+    "could have been avoided",
+    "could avoid"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "This is an unreal past situation (third conditional), and the accident is avoided by someone, so we need modal + have been + past participle: \"could have been avoided\". \"Could have avoided\" is active and would make the accident avoid something.",
+    "th": "เป็นสถานการณ์ที่ไม่จริงในอดีต (เงื่อนไขแบบที่ 3) และอุบัติเหตุถูกหลีกเลี่ยง จึงต้องใช้ modal + have been + V3 คือ could have been avoided ส่วน could have avoided เป็น active ทำให้อุบัติเหตุกลายเป็นผู้หลีกเลี่ยง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion after 'Only after'",
+    "th": "การสลับที่หลัง Only after"
+   },
+   "topic": {
+    "en": "Agreement, comparison and inversion",
+    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"Only after the results were announced ______ how close the competition had been.\"",
+   "choices": [
+    "did we realise",
+    "we realised",
+    "we did realise",
+    "had realised we"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Only after + clause\" at the start of a sentence causes inversion in the main clause: auxiliary + subject + verb, \"did we realise\". The other choices keep normal order or put the subject after the main verb.",
+    "th": "เมื่อขึ้นต้นด้วย Only after + อนุประโยค ประโยคหลักต้องสลับที่เป็นกริยาช่วย + ประธาน + กริยา คือ did we realise ส่วนตัวเลือกอื่นเรียงแบบปกติหรือวางประธานหลังกริยาแท้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Causative: get something done",
+    "th": "causative get something done"
+   },
+   "topic": {
+    "en": "Passive and causative",
+    "th": "ประโยค passive และ causative"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"I'm going to ______ before the graduation ceremony.\"",
+   "choices": [
+    "get my hair cut",
+    "get cut my hair",
+    "get my hair to cut",
+    "have cut my hair"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A hairdresser will do it, so we use get + object + past participle: \"get my hair cut\". The object must come before the participle, \"to cut\" is wrong, and \"have cut my hair\" means I cut it myself (perfect tense).",
+    "th": "ช่างตัดผมเป็นผู้ตัดให้ จึงใช้ get + กรรม + V3 คือ get my hair cut กรรมต้องอยู่หน้า V3 ส่วน to cut ผิด และ have cut my hair เป็น perfect tense หมายถึงตัดเอง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Past participle clauses (passive meaning)",
+    "th": "participle clause รูป V3 (ความหมาย passive)"
+   },
+   "topic": {
+    "en": "Relative and participle clauses",
+    "th": "อนุประโยคสัมพันธ์และ participle clause"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"______ in 1782, Bangkok has been Thailand's capital for more than two centuries.\"",
+   "choices": [
+    "Founding",
+    "Having founded",
+    "Founded",
+    "To found"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Bangkok was founded by someone, so the clause is passive: the past participle \"Founded\". \"Founding\" and \"Having founded\" are active and would mean Bangkok founded something; \"To found\" shows purpose.",
+    "th": "กรุงเทพฯ ถูกสถาปนา จึงต้องใช้รูป passive คือ Founded ส่วน Founding และ Having founded เป็น active หมายถึงกรุงเทพฯ เป็นผู้ก่อตั้ง และ To found แสดงจุดประสงค์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Reported speech in conditionals",
+    "th": "คำพูดรายงานในประโยคเงื่อนไข"
+   },
+   "topic": {
+    "en": "Verb patterns, modals and reported speech",
+    "th": "รูปแบบกริยา modal และคำพูดรายงาน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"Last season, the coach warned us that if we ______ late again, we would not be allowed to play.\"",
+   "choices": [
+    "are",
+    "will be",
+    "were",
+    "would be"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The coach's words were \"If you are late again, you won't be allowed…\"; in reported speech after \"warned\", \"are\" moves back to \"were\" and \"won't\" to \"would not\". \"Will\" and \"would\" are not used in the if-clause.",
+    "th": "คำพูดเดิมคือ If you are late again, you won't be allowed… เมื่อรายงานหลัง warned กาลจะถอยหลัง are เป็น were และ won't เป็น would not ส่วน will และ would ไม่ใช้ในอนุประโยค if"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "'Needn't have' + past participle",
+    "th": "needn't have + V3"
+   },
+   "topic": {
+    "en": "Verb patterns, modals and reported speech",
+    "th": "รูปแบบกริยา modal และคำพูดรายงาน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best option to complete the sentence.\n\"You ______ have bought me a present — but thank you, it's lovely!\"",
+   "choices": [
+    "mustn't",
+    "don't need",
+    "needn't",
+    "couldn't"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Needn't have bought\" means you did buy it, but it was not necessary, which fits the thanks that follow. \"Mustn't have\" is not used for the past, \"don't need have\" is ungrammatical, and \"couldn't have bought\" would mean it was impossible.",
+    "th": "needn't have bought หมายถึงซื้อมาแล้วแต่จริง ๆ ไม่จำเป็นต้องซื้อ ซึ่งเข้ากับคำขอบคุณที่ตามมา ส่วน mustn't have ไม่ใช้กับอดีต don't need have ผิดไวยากรณ์ และ couldn't have bought แปลว่าเป็นไปไม่ได้ที่จะซื้อ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Agreement with 'each of'",
+    "th": "ความสอดคล้องเมื่อใช้ each of"
+   },
+   "topic": {
+    "en": "Agreement, comparison and inversion",
+    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\nAfter they [[had completed]] the [[three-day]] workshop, each of the students [[were]] given [[a certificate]].",
+   "choices": [
+    "had completed",
+    "three-day",
+    "were",
+    "a certificate"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Each of the students\" is singular, so the verb must be \"was given\", not \"were given\".",
+    "th": "each of the students เป็นเอกพจน์ กริยาจึงต้องเป็น was given ไม่ใช่ were given"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "e",
+   "skill": {
+    "en": "Fixed phrases without articles: in public",
+    "th": "วลีตายตัวที่ไม่ใช้ article: in public"
+   },
+   "topic": {
+    "en": "Agreement, comparison and inversion",
+    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\nMy sister is [[good at]] drawing, but she [[doesn't]] like [[to sing]] in [[the]] public.",
+   "choices": [
+    "good at",
+    "doesn't",
+    "to sing",
+    "the"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The fixed expression is \"in public\" with no article, so \"the\" must be removed.",
+    "th": "วลีตายตัวคือ in public โดยไม่มี article จึงต้องตัด the ออก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Agreement in 'most of which' clauses",
+    "th": "ความสอดคล้องในอนุประโยค most of which"
+   },
+   "topic": {
+    "en": "Agreement, comparison and inversion",
+    "th": "ความสอดคล้อง การเปรียบเทียบ และการสลับที่"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\nThe new library [[opened]] last month and [[already has]] more than fifty thousand books, most of [[which]] [[is]] written in English.",
+   "choices": [
+    "opened",
+    "already has",
+    "which",
+    "is"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Most of which\" refers to the plural \"books\", so the verb must be plural: \"are written\", not \"is\".",
+    "th": "most of which หมายถึง books ซึ่งเป็นพหูพจน์ กริยาจึงต้องเป็น are written ไม่ใช่ is"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Third conditional result clause",
+    "th": "ผลของประโยคเงื่อนไขแบบที่ 3"
+   },
+   "topic": {
+    "en": "Conditionals and wishes",
+    "th": "ประโยคเงื่อนไขและ wish"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\nI [[would leave]] home much earlier [[if]] I [[had known]] about [[the]] traffic jam.",
+   "choices": [
+    "would leave",
+    "if",
+    "had known",
+    "the"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"If I had known\" is an unreal past condition, so the result must be \"would have left\", not \"would leave\".",
+    "th": "If I had known เป็นเงื่อนไขที่ไม่จริงในอดีต ผลจึงต้องเป็น would have left ไม่ใช่ would leave"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Past simple with finished time expressions",
+    "th": "past simple กับคำบอกเวลาในอดีตที่จบแล้ว"
+   },
+   "topic": {
+    "en": "Verb tenses",
+    "th": "กาลของกริยา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\nFirefighters [[are]] still [[investigating]] the cause of the fire that [[has destroyed]] the market [[last]] week.",
+   "choices": [
+    "are",
+    "investigating",
+    "has destroyed",
+    "last"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Last week\" is a finished past time, which cannot be used with the present perfect, so it should be \"destroyed\".",
+    "th": "last week เป็นเวลาในอดีตที่จบไปแล้ว ใช้กับ present perfect ไม่ได้ จึงต้องเป็น destroyed"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Dangling participle clauses",
+    "th": "participle clause ที่ไม่มีประธานร่วม"
+   },
+   "topic": {
+    "en": "Relative and participle clauses",
+    "th": "อนุประโยคสัมพันธ์และ participle clause"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the underlined part that is incorrect.\n[[Being]] a rainy day, the football match [[was]] [[postponed]] [[until]] the following weekend.",
+   "choices": [
+    "Being",
+    "was",
+    "postponed",
+    "until"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A participle clause must share the subject of the main clause, but the match was not \"a rainy day\". We need a subject: \"It being a rainy day\" or \"As it was a rainy day\", so \"Being\" is the error.",
+    "th": "participle clause ต้องมีประธานเดียวกับประโยคหลัก แต่การแข่งขันไม่ใช่ a rainy day จึงต้องเติมประธาน เช่น It being a rainy day หรือ As it was a rainy day ดังนั้น Being เป็นจุดที่ผิด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Cloze: verbs with dependent prepositions",
+    "th": "การเติมคำ: กริยาที่ต้องมีบุพบทตาม"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "Millions of people around the world now (1) ______ language-learning apps, hoping that a few minutes a day will make them fluent. The appeal is easy to understand: the lessons are short, colourful and often free, and the apps reward users with points and badges (2) ______ they complete a lesson. But can an app really teach you a language?\n\nResearch suggests the answer is \"partly\". Apps are excellent for building vocabulary, because they show words again and again until they (3) ______ in long-term memory. They are less effective, (4) ______, at developing speaking skills. Talking to a phone is very different from having a real conversation, (5) ______ you must understand different accents, react quickly and deal with unexpected questions.\n\nAnother problem is motivation. Many users start with great enthusiasm but give up within a month. Some experts believe that the game-like features of apps can actually (6) ______ this problem, since learners begin to care more about keeping their daily \"streak\" than about understanding the language.\n\nThe most successful learners, it seems, are (7) ______ who use apps as only one part of their routine. They also watch films, read simple books and, most importantly, look for chances to speak with real people. As one teacher put it, \"An app can open the door, but you still have to (8) ______ through it yourself.\"",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (1)?",
+   "choices": [
+    "depend",
+    "count",
+    "believe",
+    "rely on"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Rely on\" takes an object (apps) and means depend on them. \"Depend\" and \"count\" need \"on\" before an object, and \"believe apps\" means think they are telling the truth.",
+    "th": "rely on ตามด้วยกรรม (apps) แปลว่าพึ่งพา ส่วน depend และ count ต้องมี on ก่อนกรรม และ believe apps แปลว่าเชื่อว่าแอปพูดความจริง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Cloze: time conjunctions",
+    "th": "การเติมคำ: คำเชื่อมบอกเวลา"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "Millions of people around the world now (1) ______ language-learning apps, hoping that a few minutes a day will make them fluent. The appeal is easy to understand: the lessons are short, colourful and often free, and the apps reward users with points and badges (2) ______ they complete a lesson. But can an app really teach you a language?\n\nResearch suggests the answer is \"partly\". Apps are excellent for building vocabulary, because they show words again and again until they (3) ______ in long-term memory. They are less effective, (4) ______, at developing speaking skills. Talking to a phone is very different from having a real conversation, (5) ______ you must understand different accents, react quickly and deal with unexpected questions.\n\nAnother problem is motivation. Many users start with great enthusiasm but give up within a month. Some experts believe that the game-like features of apps can actually (6) ______ this problem, since learners begin to care more about keeping their daily \"streak\" than about understanding the language.\n\nThe most successful learners, it seems, are (7) ______ who use apps as only one part of their routine. They also watch films, read simple books and, most importantly, look for chances to speak with real people. As one teacher put it, \"An app can open the door, but you still have to (8) ______ through it yourself.\"",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (2)?",
+   "choices": [
+    "even if",
+    "unless",
+    "each time",
+    "so that"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Users get points whenever they finish a lesson, so \"each time\" fits. \"Even if\" and \"unless\" set up conditions that make no sense here, and \"so that\" shows purpose.",
+    "th": "ผู้ใช้ได้คะแนนทุกครั้งที่เรียนจบบทเรียน จึงใช้ each time ส่วน even if และ unless เป็นเงื่อนไขที่ไม่สมเหตุสมผล และ so that แสดงจุดประสงค์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Cloze: present simple passive",
+    "th": "การเติมคำ: present simple passive"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "Millions of people around the world now (1) ______ language-learning apps, hoping that a few minutes a day will make them fluent. The appeal is easy to understand: the lessons are short, colourful and often free, and the apps reward users with points and badges (2) ______ they complete a lesson. But can an app really teach you a language?\n\nResearch suggests the answer is \"partly\". Apps are excellent for building vocabulary, because they show words again and again until they (3) ______ in long-term memory. They are less effective, (4) ______, at developing speaking skills. Talking to a phone is very different from having a real conversation, (5) ______ you must understand different accents, react quickly and deal with unexpected questions.\n\nAnother problem is motivation. Many users start with great enthusiasm but give up within a month. Some experts believe that the game-like features of apps can actually (6) ______ this problem, since learners begin to care more about keeping their daily \"streak\" than about understanding the language.\n\nThe most successful learners, it seems, are (7) ______ who use apps as only one part of their routine. They also watch films, read simple books and, most importantly, look for chances to speak with real people. As one teacher put it, \"An app can open the door, but you still have to (8) ______ through it yourself.\"",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (3)?",
+   "choices": [
+    "store",
+    "are stored",
+    "are storing",
+    "have stored"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The words do not store anything; they are stored by the brain, so the passive \"are stored\" is needed. The time clause after \"until\" uses a present form, and the active choices make the words the doers.",
+    "th": "คำศัพท์ไม่ได้เป็นผู้เก็บ แต่ถูกสมองเก็บไว้ จึงต้องใช้ passive คือ are stored อนุประโยคหลัง until ใช้รูปปัจจุบัน ส่วนตัวเลือกที่เป็น active ทำให้คำศัพท์เป็นผู้กระทำ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Cloze: contrast linkers",
+    "th": "การเติมคำ: คำเชื่อมแสดงความขัดแย้ง"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "Millions of people around the world now (1) ______ language-learning apps, hoping that a few minutes a day will make them fluent. The appeal is easy to understand: the lessons are short, colourful and often free, and the apps reward users with points and badges (2) ______ they complete a lesson. But can an app really teach you a language?\n\nResearch suggests the answer is \"partly\". Apps are excellent for building vocabulary, because they show words again and again until they (3) ______ in long-term memory. They are less effective, (4) ______, at developing speaking skills. Talking to a phone is very different from having a real conversation, (5) ______ you must understand different accents, react quickly and deal with unexpected questions.\n\nAnother problem is motivation. Many users start with great enthusiasm but give up within a month. Some experts believe that the game-like features of apps can actually (6) ______ this problem, since learners begin to care more about keeping their daily \"streak\" than about understanding the language.\n\nThe most successful learners, it seems, are (7) ______ who use apps as only one part of their routine. They also watch films, read simple books and, most importantly, look for chances to speak with real people. As one teacher put it, \"An app can open the door, but you still have to (8) ______ through it yourself.\"",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (4)?",
+   "choices": [
+    "therefore",
+    "however",
+    "for instance",
+    "in addition"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Apps are excellent for vocabulary but less effective at speaking: a contrast, so \"however\". \"Therefore\" shows result, \"for instance\" gives an example, and \"in addition\" adds a similar point.",
+    "th": "แอปเก่งเรื่องคำศัพท์ แต่ช่วยเรื่องการพูดได้น้อย จึงเป็นความขัดแย้ง ใช้ however ส่วน therefore แสดงผล for instance ยกตัวอย่าง และ in addition เพิ่มเติมเรื่องเดียวกัน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Cloze: 'where' for situations",
+    "th": "การเติมคำ: where ใช้กับสถานการณ์"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "Millions of people around the world now (1) ______ language-learning apps, hoping that a few minutes a day will make them fluent. The appeal is easy to understand: the lessons are short, colourful and often free, and the apps reward users with points and badges (2) ______ they complete a lesson. But can an app really teach you a language?\n\nResearch suggests the answer is \"partly\". Apps are excellent for building vocabulary, because they show words again and again until they (3) ______ in long-term memory. They are less effective, (4) ______, at developing speaking skills. Talking to a phone is very different from having a real conversation, (5) ______ you must understand different accents, react quickly and deal with unexpected questions.\n\nAnother problem is motivation. Many users start with great enthusiasm but give up within a month. Some experts believe that the game-like features of apps can actually (6) ______ this problem, since learners begin to care more about keeping their daily \"streak\" than about understanding the language.\n\nThe most successful learners, it seems, are (7) ______ who use apps as only one part of their routine. They also watch films, read simple books and, most importantly, look for chances to speak with real people. As one teacher put it, \"An app can open the door, but you still have to (8) ______ through it yourself.\"",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (5)?",
+   "choices": [
+    "where",
+    "which",
+    "what",
+    "whom"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The clause after the gap is complete (you must understand…), and it describes a situation, a real conversation, so \"where\" (= in which) is right. \"Which\" and \"whom\" would need a missing subject or object, and \"what\" cannot follow a noun.",
+    "th": "อนุประโยคหลังช่องว่างสมบูรณ์แล้ว (you must understand…) และขยายสถานการณ์คือ a real conversation จึงใช้ where (= in which) ส่วน which และ whom ต้องมีประธานหรือกรรมที่หายไป และ what ใช้ตามหลังคำนามไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Cloze: verbs formed with -en",
+    "th": "การเติมคำ: กริยาที่สร้างด้วย -en"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "Millions of people around the world now (1) ______ language-learning apps, hoping that a few minutes a day will make them fluent. The appeal is easy to understand: the lessons are short, colourful and often free, and the apps reward users with points and badges (2) ______ they complete a lesson. But can an app really teach you a language?\n\nResearch suggests the answer is \"partly\". Apps are excellent for building vocabulary, because they show words again and again until they (3) ______ in long-term memory. They are less effective, (4) ______, at developing speaking skills. Talking to a phone is very different from having a real conversation, (5) ______ you must understand different accents, react quickly and deal with unexpected questions.\n\nAnother problem is motivation. Many users start with great enthusiasm but give up within a month. Some experts believe that the game-like features of apps can actually (6) ______ this problem, since learners begin to care more about keeping their daily \"streak\" than about understanding the language.\n\nThe most successful learners, it seems, are (7) ______ who use apps as only one part of their routine. They also watch films, read simple books and, most importantly, look for chances to speak with real people. As one teacher put it, \"An app can open the door, but you still have to (8) ______ through it yourself.\"",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (6)?",
+   "choices": [
+    "worse",
+    "worsen",
+    "worsening",
+    "worst"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "After the modal \"can (actually)\" we need a base verb: \"worsen\" (make worse). \"Worse\" and \"worst\" are adjectives, and \"worsening\" is not a base form.",
+    "th": "หลัง modal can ต้องเป็นกริยารูปฐาน คือ worsen (ทำให้แย่ลง) ส่วน worse, worst เป็นคุณศัพท์ และ worsening ไม่ใช่รูปฐาน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Cloze: 'those who'",
+    "th": "การเติมคำ: those who"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "Millions of people around the world now (1) ______ language-learning apps, hoping that a few minutes a day will make them fluent. The appeal is easy to understand: the lessons are short, colourful and often free, and the apps reward users with points and badges (2) ______ they complete a lesson. But can an app really teach you a language?\n\nResearch suggests the answer is \"partly\". Apps are excellent for building vocabulary, because they show words again and again until they (3) ______ in long-term memory. They are less effective, (4) ______, at developing speaking skills. Talking to a phone is very different from having a real conversation, (5) ______ you must understand different accents, react quickly and deal with unexpected questions.\n\nAnother problem is motivation. Many users start with great enthusiasm but give up within a month. Some experts believe that the game-like features of apps can actually (6) ______ this problem, since learners begin to care more about keeping their daily \"streak\" than about understanding the language.\n\nThe most successful learners, it seems, are (7) ______ who use apps as only one part of their routine. They also watch films, read simple books and, most importantly, look for chances to speak with real people. As one teacher put it, \"An app can open the door, but you still have to (8) ______ through it yourself.\"",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (7)?",
+   "choices": [
+    "them",
+    "these",
+    "that",
+    "those"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Those who…\" means the people who; it is the standard pattern before a relative clause about people. \"Them who\" is incorrect, \"these\" points to something already mentioned, and \"that\" is singular.",
+    "th": "those who… แปลว่าคนที่… เป็นรูปมาตรฐานก่อนอนุประโยคสัมพันธ์ที่หมายถึงคน ส่วน them who ผิด these ชี้ถึงสิ่งที่กล่าวไปแล้ว และ that เป็นเอกพจน์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "e",
+   "skill": {
+    "en": "Cloze: 'have to' + base verb",
+    "th": "การเติมคำ: have to + กริยารูปฐาน"
+   },
+   "topic": {
+    "en": "Cloze passage",
+    "th": "บทความเติมคำ"
+   },
+   "passage": "Millions of people around the world now (1) ______ language-learning apps, hoping that a few minutes a day will make them fluent. The appeal is easy to understand: the lessons are short, colourful and often free, and the apps reward users with points and badges (2) ______ they complete a lesson. But can an app really teach you a language?\n\nResearch suggests the answer is \"partly\". Apps are excellent for building vocabulary, because they show words again and again until they (3) ______ in long-term memory. They are less effective, (4) ______, at developing speaking skills. Talking to a phone is very different from having a real conversation, (5) ______ you must understand different accents, react quickly and deal with unexpected questions.\n\nAnother problem is motivation. Many users start with great enthusiasm but give up within a month. Some experts believe that the game-like features of apps can actually (6) ______ this problem, since learners begin to care more about keeping their daily \"streak\" than about understanding the language.\n\nThe most successful learners, it seems, are (7) ______ who use apps as only one part of their routine. They also watch films, read simple books and, most importantly, look for chances to speak with real people. As one teacher put it, \"An app can open the door, but you still have to (8) ______ through it yourself.\"",
+   "table": null,
+   "stem": "Read the passage. Which choice best fits blank (8)?",
+   "choices": [
+    "walk",
+    "walking",
+    "to walk",
+    "walked"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Have to\" is followed by a base verb: \"have to walk\". The other forms cannot follow \"have to\".",
+    "th": "have to ตามด้วยกริยารูปฐาน คือ have to walk รูปอื่นใช้หลัง have to ไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the best title",
+    "th": "การเลือกชื่อเรื่องที่เหมาะสมที่สุด"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่าน: บทความ"
+   },
+   "passage": "Farms in the Sky\n\nImagine a farm with no fields, no tractors and no sunshine. Instead, there are rows of shelves stacked twelve levels high inside a warehouse, each one covered with lettuce, basil or strawberries growing under purple LED lights. This is vertical farming, and its supporters believe it could change the way cities feed themselves.\n\nThe idea is simple. Rather than spreading crops across a large area of land, vertical farms grow them upwards, in a building where every condition can be controlled. Temperature, humidity and light are adjusted by computers twenty-four hours a day. Because the plants are grown indoors, there are few insects to fight, so farmers rarely need pesticides. Most vertical farms also use hydroponics, a method in which roots are fed by water containing nutrients rather than by soil. This system recycles the water, using up to ninety per cent less than a traditional farm.\n\nLocation is another advantage. A vertical farm can be built in the middle of a city, close to supermarkets and restaurants. Vegetables can be picked in the morning and sold the same afternoon, which means they are fresher and less food is wasted during transport.\n\nHowever, vertical farming is not the perfect solution it is sometimes made out to be. The biggest problem is energy. Sunlight is free, but LED lights and air-conditioning are not, and several well-funded vertical farming companies have gone out of business because their electricity bills were simply too high. Critics also point out that the method works well only for small, fast-growing plants such as salad leaves and herbs. Staple crops like rice, wheat and potatoes need far more space and light, and growing them indoors would be extremely expensive.\n\nFor now, then, vertical farms are unlikely to replace traditional agriculture. Instead, they may become a useful addition to it, especially in crowded, wealthy cities where land is scarce and consumers are willing to pay more for fresh, pesticide-free vegetables. If renewable energy becomes much cheaper, however, the picture could change dramatically.",
+   "table": null,
+   "stem": "Which title best summarises the passage?",
+   "choices": [
+    "Vertical Farming: Promising but Limited",
+    "How to Grow Rice Indoors",
+    "The End of Traditional Agriculture",
+    "Why LED Lights Are Bad for Plants"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The passage presents advantages (water, pesticides, freshness) and serious limits (energy, crop types), concluding that vertical farms are a useful addition, not a replacement. It says rice is too expensive to grow indoors, rejects the end of traditional farming, and never says LEDs harm plants.",
+    "th": "บทความกล่าวทั้งข้อดี (ประหยัดน้ำ ไม่ใช้ยาฆ่าแมลง สดใหม่) และข้อจำกัด (พลังงาน ชนิดพืช) แล้วสรุปว่าเป็นส่วนเสริม ไม่ใช่การแทนที่ บทความบอกว่าการปลูกข้าวในอาคารแพงเกินไป ปฏิเสธว่าการเกษตรแบบดั้งเดิมจะหมดไป และไม่ได้บอกว่าไฟ LED เป็นผลเสียต่อพืช"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Locating cause-and-effect details",
+    "th": "การหารายละเอียดเชิงเหตุและผล"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่าน: บทความ"
+   },
+   "passage": "Farms in the Sky\n\nImagine a farm with no fields, no tractors and no sunshine. Instead, there are rows of shelves stacked twelve levels high inside a warehouse, each one covered with lettuce, basil or strawberries growing under purple LED lights. This is vertical farming, and its supporters believe it could change the way cities feed themselves.\n\nThe idea is simple. Rather than spreading crops across a large area of land, vertical farms grow them upwards, in a building where every condition can be controlled. Temperature, humidity and light are adjusted by computers twenty-four hours a day. Because the plants are grown indoors, there are few insects to fight, so farmers rarely need pesticides. Most vertical farms also use hydroponics, a method in which roots are fed by water containing nutrients rather than by soil. This system recycles the water, using up to ninety per cent less than a traditional farm.\n\nLocation is another advantage. A vertical farm can be built in the middle of a city, close to supermarkets and restaurants. Vegetables can be picked in the morning and sold the same afternoon, which means they are fresher and less food is wasted during transport.\n\nHowever, vertical farming is not the perfect solution it is sometimes made out to be. The biggest problem is energy. Sunlight is free, but LED lights and air-conditioning are not, and several well-funded vertical farming companies have gone out of business because their electricity bills were simply too high. Critics also point out that the method works well only for small, fast-growing plants such as salad leaves and herbs. Staple crops like rice, wheat and potatoes need far more space and light, and growing them indoors would be extremely expensive.\n\nFor now, then, vertical farms are unlikely to replace traditional agriculture. Instead, they may become a useful addition to it, especially in crowded, wealthy cities where land is scarce and consumers are willing to pay more for fresh, pesticide-free vegetables. If renewable energy becomes much cheaper, however, the picture could change dramatically.",
+   "table": null,
+   "stem": "According to the passage, why do vertical farms rarely need pesticides?",
+   "choices": [
+    "Hydroponic water kills insects.",
+    "The plants grow indoors, where there are few insects.",
+    "LED lights keep insects away.",
+    "The plants are picked before insects arrive."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Paragraph 2 says \"Because the plants are grown indoors, there are few insects to fight\". Hydroponics is about feeding roots, and the passage does not link LEDs or early picking to insects.",
+    "th": "ย่อหน้าที่ 2 กล่าวว่าเพราะปลูกในอาคาร จึงมีแมลงน้อย ส่วนไฮโดรโปนิกส์เป็นเรื่องการให้สารอาหารแก่ราก และบทความไม่ได้เชื่อมไฟ LED หรือการเก็บเกี่ยวเร็วกับแมลง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำตามบริบท"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่าน: บทความ"
+   },
+   "passage": "Farms in the Sky\n\nImagine a farm with no fields, no tractors and no sunshine. Instead, there are rows of shelves stacked twelve levels high inside a warehouse, each one covered with lettuce, basil or strawberries growing under purple LED lights. This is vertical farming, and its supporters believe it could change the way cities feed themselves.\n\nThe idea is simple. Rather than spreading crops across a large area of land, vertical farms grow them upwards, in a building where every condition can be controlled. Temperature, humidity and light are adjusted by computers twenty-four hours a day. Because the plants are grown indoors, there are few insects to fight, so farmers rarely need pesticides. Most vertical farms also use hydroponics, a method in which roots are fed by water containing nutrients rather than by soil. This system recycles the water, using up to ninety per cent less than a traditional farm.\n\nLocation is another advantage. A vertical farm can be built in the middle of a city, close to supermarkets and restaurants. Vegetables can be picked in the morning and sold the same afternoon, which means they are fresher and less food is wasted during transport.\n\nHowever, vertical farming is not the perfect solution it is sometimes made out to be. The biggest problem is energy. Sunlight is free, but LED lights and air-conditioning are not, and several well-funded vertical farming companies have gone out of business because their electricity bills were simply too high. Critics also point out that the method works well only for small, fast-growing plants such as salad leaves and herbs. Staple crops like rice, wheat and potatoes need far more space and light, and growing them indoors would be extremely expensive.\n\nFor now, then, vertical farms are unlikely to replace traditional agriculture. Instead, they may become a useful addition to it, especially in crowded, wealthy cities where land is scarce and consumers are willing to pay more for fresh, pesticide-free vegetables. If renewable energy becomes much cheaper, however, the picture could change dramatically.",
+   "table": null,
+   "stem": "In the last paragraph, the word \"scarce\" is closest in meaning to",
+   "choices": [
+    "easy to find",
+    "heavily polluted",
+    "carefully protected",
+    "in short supply"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Crowded cities have little free land, so \"scarce\" means in short supply. \"Easy to find\" is the opposite, and pollution or protection is not what makes vertical farms useful there.",
+    "th": "เมืองที่แออัดมีพื้นที่ว่างน้อย scarce จึงแปลว่าขาดแคลน ส่วน easy to find มีความหมายตรงข้าม และมลพิษหรือการอนุรักษ์ไม่ใช่เหตุผลที่บทความกล่าวถึง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring the meaning of a conclusion",
+    "th": "การอนุมานความหมายของข้อสรุป"
+   },
+   "topic": {
+    "en": "Reading: article",
+    "th": "การอ่าน: บทความ"
+   },
+   "passage": "Farms in the Sky\n\nImagine a farm with no fields, no tractors and no sunshine. Instead, there are rows of shelves stacked twelve levels high inside a warehouse, each one covered with lettuce, basil or strawberries growing under purple LED lights. This is vertical farming, and its supporters believe it could change the way cities feed themselves.\n\nThe idea is simple. Rather than spreading crops across a large area of land, vertical farms grow them upwards, in a building where every condition can be controlled. Temperature, humidity and light are adjusted by computers twenty-four hours a day. Because the plants are grown indoors, there are few insects to fight, so farmers rarely need pesticides. Most vertical farms also use hydroponics, a method in which roots are fed by water containing nutrients rather than by soil. This system recycles the water, using up to ninety per cent less than a traditional farm.\n\nLocation is another advantage. A vertical farm can be built in the middle of a city, close to supermarkets and restaurants. Vegetables can be picked in the morning and sold the same afternoon, which means they are fresher and less food is wasted during transport.\n\nHowever, vertical farming is not the perfect solution it is sometimes made out to be. The biggest problem is energy. Sunlight is free, but LED lights and air-conditioning are not, and several well-funded vertical farming companies have gone out of business because their electricity bills were simply too high. Critics also point out that the method works well only for small, fast-growing plants such as salad leaves and herbs. Staple crops like rice, wheat and potatoes need far more space and light, and growing them indoors would be extremely expensive.\n\nFor now, then, vertical farms are unlikely to replace traditional agriculture. Instead, they may become a useful addition to it, especially in crowded, wealthy cities where land is scarce and consumers are willing to pay more for fresh, pesticide-free vegetables. If renewable energy becomes much cheaper, however, the picture could change dramatically.",
+   "table": null,
+   "stem": "What does the final sentence suggest?",
+   "choices": [
+    "Cheaper renewable energy could solve vertical farming's biggest problem.",
+    "Vertical farms will soon be able to grow rice and wheat cheaply.",
+    "Traditional farms will start using LED lights.",
+    "Wealthy cities will stop buying fresh vegetables."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The writer calls energy \"the biggest problem\"; if renewable energy becomes cheaper, that problem shrinks, so \"the picture could change\". The sentence makes no prediction about rice, traditional farms or buyers.",
+    "th": "ผู้เขียนระบุว่าพลังงานคือปัญหาใหญ่ที่สุด ถ้าพลังงานหมุนเวียนถูกลง ปัญหานี้จะลดลง สถานการณ์จึงอาจเปลี่ยนไป ประโยคนี้ไม่ได้ทำนายเรื่องข้าว ฟาร์มแบบเดิม หรือผู้ซื้อ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding a character's motives",
+    "th": "การเข้าใจแรงจูงใจของตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่าน: เรื่องเล่า"
+   },
+   "passage": "The Wallet\n\nThe wallet was lying in a puddle beside the bus stop, its brown leather turning almost black in the rain. Krit picked it up without thinking and opened it. Inside were three thousand-baht notes, an ID card, a photograph of a little girl in a school uniform, and a folded receipt from a hospital.\n\nThree thousand baht. Krit stared at the money for longer than he would have liked to admit. His phone screen had been cracked for months, and his parents had already told him that a new one would have to wait until after the rice harvest. Nobody had seen him pick the wallet up. The bus stop was empty, and the street was hidden behind a curtain of rain.\n\nThen he looked at the photograph again. The girl had a gap between her front teeth and was holding up a certificate with both hands, grinning as if she had just won the world. Krit unfolded the receipt. It was for a medical test, and at the bottom someone had written in pen: \"Results Monday — don't forget!\"\n\nHe sighed, put the wallet in his bag and, instead of going home, walked twenty minutes in the opposite direction to the police station. The officer at the desk wrote down his name, telephone number and school, and told him that he could go.\n\nOn Monday morning, the whole of Matthayom 3 was called to the assembly hall to meet a new mathematics teacher who had transferred from the north. She was a small woman with a soft voice, and she began by saying that she wanted to tell them a story before she taught them a single equation. \"On Friday,\" she said, \"I lost something very important in the rain. It contained money I had saved for my daughter's operation. I was sure I would never see it again.\" She paused and looked down at a piece of paper in her hand. \"Is there a student here called Krit Wongsa?\"\n\nKrit felt three hundred faces turn towards him at once. He had never wanted the floor to swallow him so much in his life—and he had never felt so proud.",
+   "table": null,
+   "stem": "Why did Krit hesitate after he found the wallet?",
+   "choices": [
+    "He was afraid the police would blame him.",
+    "He was tempted to keep the money for a new phone.",
+    "He did not know where the police station was.",
+    "He thought the wallet belonged to a classmate."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Krit stared at the money, thought about his cracked phone, and noticed that nobody had seen him: he was tempted. Nothing suggests fear of the police, he walked straight to the station, and he did not know the owner.",
+    "th": "กฤษจ้องเงิน คิดถึงโทรศัพท์จอแตก และสังเกตว่าไม่มีใครเห็น แสดงว่าเขาเกิดความลังเลอยากเก็บเงินไว้ ไม่มีข้อความว่ากลัวตำรวจ เขาเดินไปสถานีตำรวจได้เอง และเขาไม่รู้ว่าใครเป็นเจ้าของ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring what changes a character's mind",
+    "th": "การอนุมานสิ่งที่ทำให้ตัวละครเปลี่ยนใจ"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่าน: เรื่องเล่า"
+   },
+   "passage": "The Wallet\n\nThe wallet was lying in a puddle beside the bus stop, its brown leather turning almost black in the rain. Krit picked it up without thinking and opened it. Inside were three thousand-baht notes, an ID card, a photograph of a little girl in a school uniform, and a folded receipt from a hospital.\n\nThree thousand baht. Krit stared at the money for longer than he would have liked to admit. His phone screen had been cracked for months, and his parents had already told him that a new one would have to wait until after the rice harvest. Nobody had seen him pick the wallet up. The bus stop was empty, and the street was hidden behind a curtain of rain.\n\nThen he looked at the photograph again. The girl had a gap between her front teeth and was holding up a certificate with both hands, grinning as if she had just won the world. Krit unfolded the receipt. It was for a medical test, and at the bottom someone had written in pen: \"Results Monday — don't forget!\"\n\nHe sighed, put the wallet in his bag and, instead of going home, walked twenty minutes in the opposite direction to the police station. The officer at the desk wrote down his name, telephone number and school, and told him that he could go.\n\nOn Monday morning, the whole of Matthayom 3 was called to the assembly hall to meet a new mathematics teacher who had transferred from the north. She was a small woman with a soft voice, and she began by saying that she wanted to tell them a story before she taught them a single equation. \"On Friday,\" she said, \"I lost something very important in the rain. It contained money I had saved for my daughter's operation. I was sure I would never see it again.\" She paused and looked down at a piece of paper in her hand. \"Is there a student here called Krit Wongsa?\"\n\nKrit felt three hundred faces turn towards him at once. He had never wanted the floor to swallow him so much in his life—and he had never felt so proud.",
+   "table": null,
+   "stem": "What most likely made Krit decide to return the wallet?",
+   "choices": [
+    "Realising that the owner probably needed the money for something important",
+    "Seeing a police officer at the bus stop",
+    "Remembering a lesson his parents had taught him",
+    "Recognising the woman in the photograph"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "After looking at the child's photograph and the hospital receipt with \"Results Monday\", Krit sighed and went to the police: these clues suggested the money mattered to a family. There was no officer at the bus stop, his parents' advice is not mentioned, and he did not know the teacher yet.",
+    "th": "หลังจากดูรูปเด็กและใบเสร็จโรงพยาบาลที่เขียนว่า Results Monday กฤษก็ถอนหายใจแล้วไปสถานีตำรวจ เบาะแสเหล่านี้บอกว่าเงินนั้นสำคัญต่อครอบครัวหนึ่ง ไม่มีตำรวจที่ป้ายรถเมล์ ไม่ได้กล่าวถึงคำสอนของพ่อแม่ และเขายังไม่รู้จักครูคนนั้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Interpreting figurative language",
+    "th": "การตีความภาษาเชิงภาพพจน์"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่าน: เรื่องเล่า"
+   },
+   "passage": "The Wallet\n\nThe wallet was lying in a puddle beside the bus stop, its brown leather turning almost black in the rain. Krit picked it up without thinking and opened it. Inside were three thousand-baht notes, an ID card, a photograph of a little girl in a school uniform, and a folded receipt from a hospital.\n\nThree thousand baht. Krit stared at the money for longer than he would have liked to admit. His phone screen had been cracked for months, and his parents had already told him that a new one would have to wait until after the rice harvest. Nobody had seen him pick the wallet up. The bus stop was empty, and the street was hidden behind a curtain of rain.\n\nThen he looked at the photograph again. The girl had a gap between her front teeth and was holding up a certificate with both hands, grinning as if she had just won the world. Krit unfolded the receipt. It was for a medical test, and at the bottom someone had written in pen: \"Results Monday — don't forget!\"\n\nHe sighed, put the wallet in his bag and, instead of going home, walked twenty minutes in the opposite direction to the police station. The officer at the desk wrote down his name, telephone number and school, and told him that he could go.\n\nOn Monday morning, the whole of Matthayom 3 was called to the assembly hall to meet a new mathematics teacher who had transferred from the north. She was a small woman with a soft voice, and she began by saying that she wanted to tell them a story before she taught them a single equation. \"On Friday,\" she said, \"I lost something very important in the rain. It contained money I had saved for my daughter's operation. I was sure I would never see it again.\" She paused and looked down at a piece of paper in her hand. \"Is there a student here called Krit Wongsa?\"\n\nKrit felt three hundred faces turn towards him at once. He had never wanted the floor to swallow him so much in his life—and he had never felt so proud.",
+   "table": null,
+   "stem": "The phrase \"a curtain of rain\" suggests that the rain was",
+   "choices": [
+    "light and gentle",
+    "so heavy that it was hard to see through",
+    "about to stop",
+    "falling on only one side of the street"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "A curtain blocks the view, so a \"curtain of rain\" is rain so heavy that the street is hidden. This also explains why nobody could see Krit. Light rain or rain that is stopping would not hide the street.",
+    "th": "ม่านบังสายตา a curtain of rain จึงหมายถึงฝนตกหนักจนมองไม่เห็นถนน ซึ่งอธิบายด้วยว่าทำไมไม่มีใครเห็นกฤษ ฝนปรอย ๆ หรือฝนที่กำลังจะหยุดจะไม่บังถนน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding mixed emotions",
+    "th": "การเข้าใจอารมณ์ที่ผสมกัน"
+   },
+   "topic": {
+    "en": "Reading: narrative",
+    "th": "การอ่าน: เรื่องเล่า"
+   },
+   "passage": "The Wallet\n\nThe wallet was lying in a puddle beside the bus stop, its brown leather turning almost black in the rain. Krit picked it up without thinking and opened it. Inside were three thousand-baht notes, an ID card, a photograph of a little girl in a school uniform, and a folded receipt from a hospital.\n\nThree thousand baht. Krit stared at the money for longer than he would have liked to admit. His phone screen had been cracked for months, and his parents had already told him that a new one would have to wait until after the rice harvest. Nobody had seen him pick the wallet up. The bus stop was empty, and the street was hidden behind a curtain of rain.\n\nThen he looked at the photograph again. The girl had a gap between her front teeth and was holding up a certificate with both hands, grinning as if she had just won the world. Krit unfolded the receipt. It was for a medical test, and at the bottom someone had written in pen: \"Results Monday — don't forget!\"\n\nHe sighed, put the wallet in his bag and, instead of going home, walked twenty minutes in the opposite direction to the police station. The officer at the desk wrote down his name, telephone number and school, and told him that he could go.\n\nOn Monday morning, the whole of Matthayom 3 was called to the assembly hall to meet a new mathematics teacher who had transferred from the north. She was a small woman with a soft voice, and she began by saying that she wanted to tell them a story before she taught them a single equation. \"On Friday,\" she said, \"I lost something very important in the rain. It contained money I had saved for my daughter's operation. I was sure I would never see it again.\" She paused and looked down at a piece of paper in her hand. \"Is there a student here called Krit Wongsa?\"\n\nKrit felt three hundred faces turn towards him at once. He had never wanted the floor to swallow him so much in his life—and he had never felt so proud.",
+   "table": null,
+   "stem": "How did Krit feel at the end of the story?",
+   "choices": [
+    "Angry that his name was announced",
+    "Disappointed not to receive a reward",
+    "Worried that he would be punished",
+    "Embarrassed but also proud"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Wanting \"the floor to swallow him\" shows embarrassment, and the last words say he \"had never felt so proud\". There is no sign of anger, disappointment about a reward, or fear of punishment.",
+    "th": "การอยากให้พื้นดูดตัวเองหายไปแสดงถึงความอาย และประโยคสุดท้ายบอกว่าไม่เคยภูมิใจเท่านี้มาก่อน ไม่มีสัญญาณของความโกรธ ความผิดหวังเรื่องรางวัล หรือความกลัวถูกลงโทษ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Identifying the writer's purpose",
+    "th": "การระบุจุดประสงค์ของผู้เขียน"
+   },
+   "topic": {
+    "en": "Reading: opinion text",
+    "th": "การอ่าน: บทความแสดงความคิดเห็น"
+   },
+   "passage": "Let Teenagers Work\n\nIn many Thai families, a teenager with a part-time job is seen as a sign that something has gone wrong. Parents worry that work will take time away from tutoring and homework, and that it will damage their child's chances of getting into a good university. I understand these fears, but I believe they are mostly mistaken. A few hours of paid work each week can teach young people lessons that no classroom can.\n\nThe first of these is the value of money. A student who has spent a Saturday afternoon serving coffee for a modest hourly wage thinks very differently about a 2,000-baht pair of trainers. Abstract numbers become hours of real effort, and teenagers who have earned their own money tend to spend it more carefully.\n\nWork also builds skills that employers—and universities—increasingly value. Dealing with an impatient customer, cooperating with colleagues twice your age and arriving on time without a parent waking you up are not things that can be learned from a textbook. These so-called \"soft skills\" are exactly what many companies say young graduates lack.\n\nCritics point to studies showing that students who work long hours get lower grades. The key word here is \"long\". Research consistently finds that the problems begin when teenagers work more than fifteen or twenty hours a week during the school term. Below that level, the effect on grades is small, and some studies even find that working students manage their time better than their classmates. Nobody is suggesting that a fifteen-year-old should work every evening; I am arguing that one or two shifts a week should be seen as normal, not shameful.\n\nThere is also a question of fairness. For many young people from poorer families, a part-time job is not a choice but a necessity. When we treat working teenagers as a problem, we send these students the message that they are somehow less serious about their future. Surely we should be doing the opposite.\n\nOf course, employers must follow the law, which protects young workers from dangerous jobs and late-night hours. But within those limits, let teenagers work. They may learn more from a year behind a counter than from another year of weekend tutoring.",
+   "table": null,
+   "stem": "What is the writer's main purpose?",
+   "choices": [
+    "To warn parents about the dangers of part-time jobs",
+    "To explain Thai labour laws in detail",
+    "To persuade readers that a limited amount of part-time work is good for teenagers",
+    "To compare different tutoring schools"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The title and the repeated argument (\"a few hours\", \"one or two shifts a week\") show the writer is persuading readers to accept limited part-time work. The writer disagrees with the warnings, mentions the law only briefly, and does not compare tutoring schools.",
+    "th": "ชื่อเรื่องและข้อโต้แย้งที่ย้ำ (ไม่กี่ชั่วโมง หนึ่งหรือสองกะต่อสัปดาห์) แสดงว่าผู้เขียนต้องการโน้มน้าวให้ยอมรับการทำงานพิเศษในปริมาณจำกัด ผู้เขียนไม่เห็นด้วยกับคำเตือน กล่าวถึงกฎหมายเพียงสั้น ๆ และไม่ได้เปรียบเทียบโรงเรียนกวดวิชา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Analysing how a writer answers counter-arguments",
+    "th": "การวิเคราะห์วิธีที่ผู้เขียนตอบโต้ข้อโต้แย้ง"
+   },
+   "topic": {
+    "en": "Reading: opinion text",
+    "th": "การอ่าน: บทความแสดงความคิดเห็น"
+   },
+   "passage": "Let Teenagers Work\n\nIn many Thai families, a teenager with a part-time job is seen as a sign that something has gone wrong. Parents worry that work will take time away from tutoring and homework, and that it will damage their child's chances of getting into a good university. I understand these fears, but I believe they are mostly mistaken. A few hours of paid work each week can teach young people lessons that no classroom can.\n\nThe first of these is the value of money. A student who has spent a Saturday afternoon serving coffee for a modest hourly wage thinks very differently about a 2,000-baht pair of trainers. Abstract numbers become hours of real effort, and teenagers who have earned their own money tend to spend it more carefully.\n\nWork also builds skills that employers—and universities—increasingly value. Dealing with an impatient customer, cooperating with colleagues twice your age and arriving on time without a parent waking you up are not things that can be learned from a textbook. These so-called \"soft skills\" are exactly what many companies say young graduates lack.\n\nCritics point to studies showing that students who work long hours get lower grades. The key word here is \"long\". Research consistently finds that the problems begin when teenagers work more than fifteen or twenty hours a week during the school term. Below that level, the effect on grades is small, and some studies even find that working students manage their time better than their classmates. Nobody is suggesting that a fifteen-year-old should work every evening; I am arguing that one or two shifts a week should be seen as normal, not shameful.\n\nThere is also a question of fairness. For many young people from poorer families, a part-time job is not a choice but a necessity. When we treat working teenagers as a problem, we send these students the message that they are somehow less serious about their future. Surely we should be doing the opposite.\n\nOf course, employers must follow the law, which protects young workers from dangerous jobs and late-night hours. But within those limits, let teenagers work. They may learn more from a year behind a counter than from another year of weekend tutoring.",
+   "table": null,
+   "stem": "How does the writer respond to studies linking work with lower grades?",
+   "choices": [
+    "By claiming that the studies are false",
+    "By agreeing that teenagers should not work at all",
+    "By saying that tutoring is the real cause of low grades",
+    "By arguing that they apply mainly to students who work too many hours"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The writer accepts the studies but stresses the word \"long\": problems begin above fifteen or twenty hours a week. The writer does not call them false, still supports working, and never blames tutoring for low grades.",
+    "th": "ผู้เขียนยอมรับงานวิจัยแต่เน้นคำว่า long ว่าปัญหาเกิดเมื่อทำงานเกิน 15–20 ชั่วโมงต่อสัปดาห์ ผู้เขียนไม่ได้บอกว่างานวิจัยผิด ยังสนับสนุนการทำงาน และไม่ได้โทษการกวดวิชา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding reference",
+    "th": "การเข้าใจคำอ้างอิง"
+   },
+   "topic": {
+    "en": "Reading: opinion text",
+    "th": "การอ่าน: บทความแสดงความคิดเห็น"
+   },
+   "passage": "Let Teenagers Work\n\nIn many Thai families, a teenager with a part-time job is seen as a sign that something has gone wrong. Parents worry that work will take time away from tutoring and homework, and that it will damage their child's chances of getting into a good university. I understand these fears, but I believe they are mostly mistaken. A few hours of paid work each week can teach young people lessons that no classroom can.\n\nThe first of these is the value of money. A student who has spent a Saturday afternoon serving coffee for a modest hourly wage thinks very differently about a 2,000-baht pair of trainers. Abstract numbers become hours of real effort, and teenagers who have earned their own money tend to spend it more carefully.\n\nWork also builds skills that employers—and universities—increasingly value. Dealing with an impatient customer, cooperating with colleagues twice your age and arriving on time without a parent waking you up are not things that can be learned from a textbook. These so-called \"soft skills\" are exactly what many companies say young graduates lack.\n\nCritics point to studies showing that students who work long hours get lower grades. The key word here is \"long\". Research consistently finds that the problems begin when teenagers work more than fifteen or twenty hours a week during the school term. Below that level, the effect on grades is small, and some studies even find that working students manage their time better than their classmates. Nobody is suggesting that a fifteen-year-old should work every evening; I am arguing that one or two shifts a week should be seen as normal, not shameful.\n\nThere is also a question of fairness. For many young people from poorer families, a part-time job is not a choice but a necessity. When we treat working teenagers as a problem, we send these students the message that they are somehow less serious about their future. Surely we should be doing the opposite.\n\nOf course, employers must follow the law, which protects young workers from dangerous jobs and late-night hours. But within those limits, let teenagers work. They may learn more from a year behind a counter than from another year of weekend tutoring.",
+   "table": null,
+   "stem": "In paragraph 5, \"these students\" refers to",
+   "choices": [
+    "young people from poorer families who need to work",
+    "students who attend weekend tutoring",
+    "employers who hire teenagers",
+    "parents who worry about grades"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The previous sentence talks about \"young people from poorer families\" for whom a job is a necessity; \"these students\" points back to them.",
+    "th": "ประโยคก่อนหน้ากล่าวถึงเยาวชนจากครอบครัวที่ยากจนซึ่งจำเป็นต้องทำงาน these students จึงอ้างถึงกลุ่มนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring what a writer would reject",
+    "th": "การอนุมานสิ่งที่ผู้เขียนจะไม่เห็นด้วย"
+   },
+   "topic": {
+    "en": "Reading: opinion text",
+    "th": "การอ่าน: บทความแสดงความคิดเห็น"
+   },
+   "passage": "Let Teenagers Work\n\nIn many Thai families, a teenager with a part-time job is seen as a sign that something has gone wrong. Parents worry that work will take time away from tutoring and homework, and that it will damage their child's chances of getting into a good university. I understand these fears, but I believe they are mostly mistaken. A few hours of paid work each week can teach young people lessons that no classroom can.\n\nThe first of these is the value of money. A student who has spent a Saturday afternoon serving coffee for a modest hourly wage thinks very differently about a 2,000-baht pair of trainers. Abstract numbers become hours of real effort, and teenagers who have earned their own money tend to spend it more carefully.\n\nWork also builds skills that employers—and universities—increasingly value. Dealing with an impatient customer, cooperating with colleagues twice your age and arriving on time without a parent waking you up are not things that can be learned from a textbook. These so-called \"soft skills\" are exactly what many companies say young graduates lack.\n\nCritics point to studies showing that students who work long hours get lower grades. The key word here is \"long\". Research consistently finds that the problems begin when teenagers work more than fifteen or twenty hours a week during the school term. Below that level, the effect on grades is small, and some studies even find that working students manage their time better than their classmates. Nobody is suggesting that a fifteen-year-old should work every evening; I am arguing that one or two shifts a week should be seen as normal, not shameful.\n\nThere is also a question of fairness. For many young people from poorer families, a part-time job is not a choice but a necessity. When we treat working teenagers as a problem, we send these students the message that they are somehow less serious about their future. Surely we should be doing the opposite.\n\nOf course, employers must follow the law, which protects young workers from dangerous jobs and late-night hours. But within those limits, let teenagers work. They may learn more from a year behind a counter than from another year of weekend tutoring.",
+   "table": null,
+   "stem": "Which statement would the writer most probably disagree with?",
+   "choices": [
+    "Teenagers should never work during the school term.",
+    "Employers must obey laws that protect young workers.",
+    "Soft skills are important for future careers.",
+    "Working too many hours can harm a student's grades."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The writer argues that one or two shifts a week during term should be normal, so a total ban during term contradicts the article. The writer explicitly supports the other three statements.",
+    "th": "ผู้เขียนเห็นว่าการทำงานหนึ่งหรือสองกะต่อสัปดาห์ระหว่างเปิดเทอมควรเป็นเรื่องปกติ การห้ามทำงานระหว่างเปิดเทอมโดยสิ้นเชิงจึงขัดกับบทความ ส่วนอีกสามข้อความผู้เขียนเห็นด้วยอย่างชัดเจน"
+   }
+  }
+ ]
+}

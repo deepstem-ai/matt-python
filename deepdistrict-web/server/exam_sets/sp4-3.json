@@ -1,0 +1,1515 @@
+{
+ "exam": "sp4",
+ "set": 3,
+ "title": {
+  "en": "Satit Prasarnmit M.4 English — Practice paper 3",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.4 สาธิตประสานมิตร — ชุดที่ 3"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "50 questions in 60 minutes in a standardized-test style: academic vocabulary in context, sentence structure, error identification and academic reading (about introductory TU-GET / CU-TEP level). DeepDistrict practice — not an official or past paper.",
+  "th": "50 ข้อ 60 นาที แนวข้อสอบมาตรฐาน: คำศัพท์วิชาการในบริบท โครงสร้างประโยค หาจุดผิด และการอ่านบทความวิชาการ (ระดับใกล้ TU-GET / CU-TEP เบื้องต้น) — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Academic word in context: unsubstantiated",
+    "th": "คำศัพท์วิชาการในบริบท: unsubstantiated"
+   },
+   "topic": {
+    "en": "Academic vocabulary: adjectives and adverbs",
+    "th": "คำศัพท์วิชาการ: คำคุณศัพท์และคำวิเศษณ์"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"The author's claims are largely ______; she offers anecdotes but almost no systematic evidence.\"",
+   "choices": [
+    "unprecedented",
+    "uncontroversial",
+    "unambiguous",
+    "unsubstantiated"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Unsubstantiated\" means not supported by evidence, which the second clause confirms (anecdotes but no systematic evidence). \"Unprecedented\" means never seen before, \"uncontroversial\" means not disputed and \"unambiguous\" means clear.",
+    "th": "unsubstantiated แปลว่า ไม่มีหลักฐานรองรับ ตรงกับประโยคหลังที่บอกว่ามีแต่เรื่องเล่าแต่ไม่มีหลักฐานเป็นระบบ ส่วน unprecedented = ไม่เคยมีมาก่อน, uncontroversial = ไม่เป็นที่ถกเถียง, unambiguous = ชัดเจน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Academic word in context: exacerbated",
+    "th": "คำศัพท์วิชาการในบริบท: exacerbated"
+   },
+   "topic": {
+    "en": "Academic vocabulary: verbs",
+    "th": "คำศัพท์วิชาการ: คำกริยา"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"Rising sea temperatures have ______ the decline of coral reefs that were already weakened by pollution.\"",
+   "choices": [
+    "exacerbated",
+    "exonerated",
+    "alleviated",
+    "extrapolated"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Exacerbated\" means made a bad situation worse; reefs \"already weakened\" are damaged further by warming. \"Alleviated\" means made less severe (the opposite), \"exonerated\" means cleared of blame, and \"extrapolated\" means estimated from known data.",
+    "th": "exacerbated แปลว่า ทำให้สถานการณ์ที่แย่อยู่แล้วแย่ลง แนวปะการังที่อ่อนแอจากมลพิษยิ่งเสื่อมลงเพราะน้ำร้อนขึ้น ส่วน alleviated = บรรเทา (ตรงข้าม), exonerated = พ้นผิด, extrapolated = ประมาณค่าจากข้อมูลเดิม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Academic word in context: invalidate",
+    "th": "คำศัพท์วิชาการในบริบท: invalidate"
+   },
+   "topic": {
+    "en": "Academic vocabulary: verbs",
+    "th": "คำศัพท์วิชาการ: คำกริยา"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"The new evidence does not ______ the earlier theory entirely, but it requires that the theory be substantially revised.\"",
+   "choices": [
+    "insinuate",
+    "invalidate",
+    "instigate",
+    "incorporate"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Invalidate\" means show to be wrong or worthless. The contrast is between not destroying the theory completely and still requiring major revision. \"Insinuate\" means suggest something unpleasant indirectly, \"incorporate\" means include and \"instigate\" means start or provoke.",
+    "th": "invalidate แปลว่า ทำให้เป็นโมฆะ หักล้าง ประโยคเปรียบว่าหลักฐานใหม่ไม่ได้ล้มทฤษฎีทั้งหมด แต่ต้องแก้ไขมาก ส่วน insinuate = พูดเป็นนัย, incorporate = รวมเข้าไว้, instigate = ยุยง/ริเริ่ม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Academic word in context: seminal",
+    "th": "คำศัพท์วิชาการในบริบท: seminal"
+   },
+   "topic": {
+    "en": "Academic vocabulary: adjectives and adverbs",
+    "th": "คำศัพท์วิชาการ: คำคุณศัพท์และคำวิเศษณ์"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"Her early work was ______ to the field: almost every later study builds on it.\"",
+   "choices": [
+    "terminal",
+    "nominal",
+    "marginal",
+    "seminal"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Seminal\" describes work that strongly influences later developments, as \"almost every later study builds on it\" shows. \"Marginal\" means of little importance, \"nominal\" means existing in name only and \"terminal\" means final or fatal.",
+    "th": "seminal ใช้กับงานที่เป็นรากฐานและมีอิทธิพลต่องานรุ่นหลัง ตรงกับที่งานวิจัยภายหลังเกือบทั้งหมดต่อยอดจากงานนี้ ส่วน marginal = ไม่สำคัญ, nominal = แค่ในนาม, terminal = สุดท้าย/ถึงตาย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Academic word in context: exclusive",
+    "th": "คำศัพท์วิชาการในบริบท: exclusive"
+   },
+   "topic": {
+    "en": "Academic vocabulary: adjectives and adverbs",
+    "th": "คำศัพท์วิชาการ: คำคุณศัพท์และคำวิเศษณ์"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"The two explanations are not mutually ______; both factors may have contributed to the decline.\"",
+   "choices": [
+    "explicit",
+    "exclusive",
+    "inclusive",
+    "exhaustive"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Mutually exclusive\" describes things that cannot both be true. Since both factors may have contributed, the explanations are not mutually exclusive. The other adjectives do not form this fixed expression.",
+    "th": "mutually exclusive หมายถึง เป็นจริงพร้อมกันไม่ได้ เมื่อทั้งสองปัจจัยอาจมีส่วนพร้อมกัน คำอธิบายจึง not mutually exclusive ส่วนคำอื่นไม่ใช่สำนวนนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Academic word in context: generalise",
+    "th": "คำศัพท์วิชาการในบริบท: generalise"
+   },
+   "topic": {
+    "en": "Academic vocabulary: verbs",
+    "th": "คำศัพท์วิชาการ: คำกริยา"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"The researchers were careful not to ______ from such a small sample to the population as a whole.\"",
+   "choices": [
+    "refrain",
+    "generalise",
+    "deviate",
+    "abstain"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "To \"generalise from A to B\" is to apply conclusions from a small group to a larger one, which is risky with a small sample. \"Deviate from\" means move away from, and \"abstain\" and \"refrain\" mean hold back from doing something; none fits \"from … to the population\".",
+    "th": "generalise from A to B คือการนำข้อสรุปจากกลุ่มเล็กไปใช้กับกลุ่มใหญ่ ซึ่งเสี่ยงถ้ากลุ่มตัวอย่างเล็ก ส่วน deviate from = เบี่ยงเบน, abstain และ refrain = งดเว้น ไม่เข้ากับโครงสร้าง from ... to"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Academic word in context: subtle",
+    "th": "คำศัพท์วิชาการในบริบท: subtle"
+   },
+   "topic": {
+    "en": "Academic vocabulary: adjectives and adverbs",
+    "th": "คำศัพท์วิชาการ: คำคุณศัพท์และคำวิเศษณ์"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"Because the effect was so ______, it could only be detected with extremely sensitive instruments.\"",
+   "choices": [
+    "conspicuous",
+    "profound",
+    "volatile",
+    "subtle"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Only very sensitive instruments could detect it, so the effect was \"subtle\" (small and hard to notice). \"Conspicuous\" means easy to see, \"profound\" means very great, and \"volatile\" means likely to change suddenly.",
+    "th": "ต้องใช้เครื่องมือที่ไวมากจึงตรวจพบ ผลจึง subtle (เล็กน้อย สังเกตยาก) ส่วน conspicuous = เห็นได้ชัด, profound = ลึกซึ้ง/มาก, volatile = ผันผวน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Academic word in context: unforeseen",
+    "th": "คำศัพท์วิชาการในบริบท: unforeseen"
+   },
+   "topic": {
+    "en": "Academic vocabulary: adjectives and adverbs",
+    "th": "คำศัพท์วิชาการ: คำคุณศัพท์และคำวิเศษณ์"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"The policy had several ______ consequences, including a rise in black-market trading that its designers had never expected.\"",
+   "choices": [
+    "anticipated",
+    "negligible",
+    "premeditated",
+    "unforeseen"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Unforeseen\" means not predicted, matching \"its designers had never expected\". \"Premeditated\" and \"anticipated\" mean planned or expected (the opposite), and \"negligible\" (too small to matter) conflicts with a rise in black-market trading.",
+    "th": "unforeseen แปลว่า ไม่ได้คาดการณ์ไว้ ตรงกับที่ผู้ออกแบบนโยบายไม่เคยคาดคิด ส่วน premeditated และ anticipated หมายถึงคาดหรือวางแผนไว้แล้ว และ negligible (เล็กน้อยไม่สำคัญ) ขัดกับการเพิ่มขึ้นของตลาดมืด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Academic word in context: unfeasible",
+    "th": "คำศัพท์วิชาการในบริบท: unfeasible"
+   },
+   "topic": {
+    "en": "Academic vocabulary: adjectives and adverbs",
+    "th": "คำศัพท์วิชาการ: คำคุณศัพท์และคำวิเศษณ์"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"Critics dismissed the proposal as ______, arguing that it would be impossible to fund or put into practice.\"",
+   "choices": [
+    "irrefutable",
+    "indispensable",
+    "unassailable",
+    "unfeasible"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Unfeasible\" means impossible to carry out, as the critics' argument explains. \"Unassailable\" and \"irrefutable\" mean impossible to challenge, and \"indispensable\" means essential; critics would not dismiss a proposal with these words.",
+    "th": "unfeasible แปลว่า ทำไม่ได้จริง ตรงกับเหตุผลว่าไม่มีงบและปฏิบัติไม่ได้ ส่วน unassailable และ irrefutable = โต้แย้งไม่ได้ และ indispensable = ขาดไม่ได้ นักวิจารณ์จะไม่ใช้คำเหล่านี้ปัดตกข้อเสนอ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Academic word in context: plausible",
+    "th": "คำศัพท์วิชาการในบริบท: plausible"
+   },
+   "topic": {
+    "en": "Academic vocabulary: adjectives and adverbs",
+    "th": "คำศัพท์วิชาการ: คำคุณศัพท์และคำวิเศษณ์"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"Although the hypothesis is ______, it has yet to be tested experimentally.\"",
+   "choices": [
+    "refuted",
+    "redundant",
+    "plausible",
+    "obsolete"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Although\" sets up a contrast: the hypothesis seems reasonable (\"plausible\") but has not been tested. A \"refuted\" hypothesis has already been shown false, which contradicts \"yet to be tested\"; \"obsolete\" and \"redundant\" give no logical contrast.",
+    "th": "although แสดงความขัดแย้ง สมมติฐานดูสมเหตุสมผล (plausible) แต่ยังไม่ได้ทดสอบ ส่วน refuted หมายถึงถูกหักล้างแล้ว ขัดกับ yet to be tested และ obsolete, redundant ไม่ให้ความขัดแย้งที่สมเหตุผล"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Inversion after 'Only when'",
+    "th": "inversion หลัง Only when"
+   },
+   "topic": {
+    "en": "Inversion",
+    "th": "การสลับที่ประธานกับกริยา (inversion)"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"Only when the samples had been analysed a second time ______ the error in the original calculations.\"",
+   "choices": [
+    "the team did notice",
+    "did the team notice",
+    "noticed the team",
+    "the team noticed"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "A sentence that begins with \"Only when …\" needs inversion in the main clause: \"did the team notice\". Normal word order (with or without \"did\") is wrong here.",
+    "th": "ประโยคที่ขึ้นด้วย Only when ต้องสลับเป็น กริยาช่วย + ประธาน ในประโยคหลัก คือ did the team notice การเรียงแบบปกติผิด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Passive subjunctive after 'propose'",
+    "th": "subjunctive รูป passive หลัง propose"
+   },
+   "topic": {
+    "en": "Subjunctive and conditionals",
+    "th": "subjunctive และประโยคเงื่อนไข"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"The committee proposed that the funding ______ until an independent review had been completed.\"",
+   "choices": [
+    "withhold",
+    "withheld",
+    "being withheld",
+    "be withheld"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "After \"proposed that\", the subjunctive uses the base form, and funding is withheld by someone, so the passive is needed: \"be withheld\". \"Withhold\" makes the funding the doer, \"withheld\" would be an active past verb with the wrong meaning, and \"being withheld\" is not finite.",
+    "th": "หลัง proposed that ใช้ subjunctive รูปพื้นฐาน และเงินทุนถูกระงับ จึงต้องเป็น passive คือ be withheld ส่วน withhold ทำให้เงินทุนเป็นผู้กระทำ withheld กลายเป็นกริยาอดีต active ผิดความหมาย และ being withheld ไม่ใช่กริยาแท้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Perfect passive participle clause",
+    "th": "วลี Having been + V3"
+   },
+   "topic": {
+    "en": "Reduced and participle clauses",
+    "th": "อนุประโยคลดรูปและวลี participle"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"______ twice by independent laboratories, the results are now widely accepted.\"",
+   "choices": [
+    "Having confirmed",
+    "To have confirmed",
+    "They were confirmed",
+    "Having been confirmed"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The results were confirmed (passive) before they were accepted (earlier action), so the perfect passive participle \"Having been confirmed\" is correct. \"Having confirmed\" makes the results the confirmers, \"To have confirmed\" does not fit, and \"They were confirmed\" creates two clauses joined only by a comma.",
+    "th": "ผลการทดลองถูกยืนยันก่อนจะได้รับการยอมรับ จึงใช้ Having been confirmed (perfect passive) ส่วน Having confirmed ทำให้ผลเป็นผู้ยืนยัน To have confirmed ไม่เข้ากับโครงสร้าง และ They were confirmed ทำให้เป็นสองประโยคเชื่อมด้วยจุลภาคเท่านั้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Noun clause as subject (statement word order)",
+    "th": "noun clause เป็นประธาน (เรียงแบบบอกเล่า)"
+   },
+   "topic": {
+    "en": "Noun clauses",
+    "th": "noun clause (อนุประโยคนาม)"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"______ is still a matter of debate among historians.\"",
+   "choices": [
+    "What caused the collapse of the Bronze Age civilisations",
+    "Why did the Bronze Age civilisations collapse",
+    "The collapse of the Bronze Age civilisations was caused",
+    "The Bronze Age civilisations collapsed for what reason"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The subject must be a noun clause with statement word order: \"What caused the collapse …\" (here \"what\" is itself the subject). \"Why did … collapse\" keeps question word order, and the other two are complete clauses that cannot be a subject.",
+    "th": "ประธานต้องเป็น noun clause ที่เรียงแบบบอกเล่า คือ What caused the collapse ... ส่วน Why did ... collapse ยังเรียงแบบคำถาม และอีกสองแบบเป็นประโยคสมบูรณ์ที่เป็นประธานไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Parallelism with 'not only … but also'",
+    "th": "คู่ขนานกับ not only ... but also"
+   },
+   "topic": {
+    "en": "Parallel structure",
+    "th": "โครงสร้างคู่ขนาน (parallelism)"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"The new treatment is effective not only in reducing pain but also ______.\"",
+   "choices": [
+    "shortened recovery time",
+    "it shortens recovery time",
+    "to shorten recovery time",
+    "in shortening recovery time"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Not only in reducing pain\" is a prepositional phrase with an -ing form, so \"but also\" needs the same structure: \"in shortening recovery time\".",
+    "th": "หลัง not only เป็นวลี in + V-ing (in reducing pain) หลัง but also จึงต้องเป็นโครงสร้างเดียวกัน คือ in shortening recovery time"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Avoiding a dangling adjective phrase",
+    "th": "หลีกเลี่ยงส่วนขยายลอย"
+   },
+   "topic": {
+    "en": "Dangling modifiers",
+    "th": "ส่วนขยายลอย (dangling modifier)"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"Unable to explain the anomaly with existing theories, ______.\"",
+   "choices": [
+    "the physicists proposed the existence of a new particle",
+    "a new particle was proposed by the physicists",
+    "the existence of a new particle was proposed",
+    "it led the physicists to propose a new particle"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The people who were \"unable to explain the anomaly\" are the physicists, so they must be the subject of the main clause. The other choices make \"a new particle\", \"the existence\" or \"it\" the thing that was unable to explain.",
+    "th": "ผู้ที่อธิบายความผิดปกติไม่ได้คือนักฟิสิกส์ จึงต้องเป็นประธานของประโยคหลัก ส่วนแบบอื่นทำให้ a new particle, the existence หรือ it เป็นผู้ที่อธิบายไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Absolute participle construction",
+    "th": "โครงสร้าง absolute (ประธาน + participle)"
+   },
+   "topic": {
+    "en": "Reduced and participle clauses",
+    "th": "อนุประโยคลดรูปและวลี participle"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"The experiment ______, the researchers began to analyse the data.\"",
+   "choices": [
+    "had completed",
+    "completing",
+    "having been completed",
+    "was completed"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "This is an absolute construction: a noun with its own participle, \"The experiment having been completed\", attached to a main clause. \"Was completed\" and \"had completed\" create a second finite clause with only a comma, and \"completing\" is active.",
+    "th": "นี่คือโครงสร้าง absolute คือคำนามพร้อม participle ของตัวเอง The experiment having been completed แล้วตามด้วยประโยคหลัก ส่วน was completed และ had completed ทำให้มีประโยคสองประโยคเชื่อมด้วยจุลภาค และ completing เป็น active"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion after 'Such'",
+    "th": "inversion หลัง Such ... that"
+   },
+   "topic": {
+    "en": "Inversion",
+    "th": "การสลับที่ประธานกับกริยา (inversion)"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"Such ______ that the government was forced to reverse its decision within a week.\"",
+   "choices": [
+    "did the public opposition be",
+    "was the strength of public opposition",
+    "strong was public opposition",
+    "the strength of public opposition was"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "When \"Such\" begins the sentence, the verb \"be\" comes before the subject: \"Such was the strength of public opposition that …\". Normal order is wrong, \"Such strong was\" is impossible, and \"did … be\" is not a correct form.",
+    "th": "เมื่อขึ้นประโยคด้วย Such ต้องวาง be ไว้หน้าประธาน คือ Such was the strength of public opposition that ... ส่วนการเรียงปกติผิด Such strong was เป็นไปไม่ได้ และ did ... be ผิดรูป"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Mixed conditional (past condition, present result)",
+    "th": "เงื่อนไขแบบผสม"
+   },
+   "topic": {
+    "en": "Subjunctive and conditionals",
+    "th": "subjunctive และประโยคเงื่อนไข"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"If the ancient Egyptians ______ such careful records, historians would know far less about daily life along the Nile.\"",
+   "choices": [
+    "had not kept",
+    "have not kept",
+    "would not have kept",
+    "did not keep"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The record-keeping was in the past, but the result (\"would know\") is in the present: a mixed conditional with past perfect in the if-clause, \"had not kept\". \"Did not keep\" suggests an unreal present, and \"would\" does not belong in the if-clause.",
+    "th": "การบันทึกเกิดในอดีต แต่ผลอยู่ในปัจจุบัน (would know) จึงเป็นเงื่อนไขผสม ใช้ past perfect คือ had not kept ส่วน did not keep สื่อปัจจุบันที่ไม่จริง และไม่ใช้ would ใน if-clause"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Quantifier + 'of which' in relative clauses",
+    "th": "quantifier + of which"
+   },
+   "topic": {
+    "en": "Appositives and relative clauses",
+    "th": "appositive และ relative clause"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"The study examined twelve rivers, ______ had been seriously polluted by industrial waste.\"",
+   "choices": [
+    "most of which",
+    "which most",
+    "most of whom",
+    "most of them"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A relative clause after a comma can begin with a quantifier + \"of which\" for things: \"most of which had been polluted\". \"Most of them\" would create a second main clause joined by a comma, and \"whom\" is used for people.",
+    "th": "relative clause หลังจุลภาคขึ้นต้นด้วย quantifier + of which ได้เมื่อหมายถึงสิ่งของ คือ most of which ส่วน most of them ทำให้มีสองประโยคหลักเชื่อมด้วยจุลภาค และ whom ใช้กับคน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "'It is high time' + past tense",
+    "th": "It is high time + past simple"
+   },
+   "topic": {
+    "en": "Subjunctive and conditionals",
+    "th": "subjunctive และประโยคเงื่อนไข"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"It is high time that governments ______ the true costs of carbon emissions seriously.\"",
+   "choices": [
+    "will take",
+    "took",
+    "have taken",
+    "to take"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"It is high time (that) + subject\" is followed by a past-tense verb with present meaning: \"governments took\". It suggests the action should already be happening. The future, present perfect and infinitive are not used after \"high time that\".",
+    "th": "It is high time (that) + ประธาน ต้องตามด้วยกริยารูปอดีตแต่มีความหมายปัจจุบัน คือ governments took สื่อว่าควรทำได้แล้ว ส่วนรูปอนาคต present perfect และ to-infinitive ใช้ไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "Reduced passive relative clause",
+    "th": "relative clause ลดรูปแบบ passive"
+   },
+   "topic": {
+    "en": "Reduced and participle clauses",
+    "th": "อนุประโยคลดรูปและวลี participle"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"The phenomena ______ in the report have been observed in several other regions.\"",
+   "choices": [
+    "which describes",
+    "are described",
+    "described",
+    "describing"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The phenomena are described in the report (passive), so the reduced clause is \"described\" (= which are described). \"Describing\" is active, \"which describes\" is active and singular, and \"are described\" gives the sentence two main verbs.",
+    "th": "ปรากฏการณ์ถูกบรรยายในรายงาน จึงใช้รูปลด described (= which are described) ส่วน describing และ which describes เป็น active และ are described ทำให้มีกริยาแท้สองตัว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "'Despite' vs 'although'",
+    "th": "despite กับ although"
+   },
+   "topic": {
+    "en": "Word form and usage",
+    "th": "รูปคำและการใช้คำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\n[[Despite]] the evidence was compelling, many economists [[remained]] sceptical, [[largely]] because the data [[had been]] collected in a single region.",
+   "choices": [
+    "Despite",
+    "remained",
+    "largely",
+    "had been"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Despite\" is a preposition and cannot introduce a clause with a subject and verb (\"the evidence was compelling\"). It must be changed to \"Although\" (or \"Despite the fact that\").",
+    "th": "despite เป็นบุพบท ตามด้วยอนุประโยคที่มีประธานและกริยาไม่ได้ ต้องเปลี่ยนเป็น Although หรือ Despite the fact that"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Fixed preposition: 'rely on'",
+    "th": "บุพบทคงที่ rely on"
+   },
+   "topic": {
+    "en": "Word form and usage",
+    "th": "รูปคำและการใช้คำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\nThe extent [[to which]] early humans [[relied in]] fire for cooking [[remains]] [[a subject of]] debate.",
+   "choices": [
+    "to which",
+    "relied in",
+    "remains",
+    "a subject of"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The verb \"rely\" takes \"on\": \"relied on fire\". \"To which\" is correct after \"extent\", and \"remains\" agrees with the singular subject \"The extent\".",
+    "th": "กริยา rely ใช้กับ on คือ relied on fire ส่วน to which ถูกต้องหลัง extent และ remains สอดคล้องกับประธานเอกพจน์ The extent"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Result clause of an inverted third conditional",
+    "th": "ผลของเงื่อนไขแบบที่ 3 ที่สลับ Had"
+   },
+   "topic": {
+    "en": "Subjunctive and conditionals",
+    "th": "subjunctive และประโยคเงื่อนไข"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\n[[Had]] the warning been [[taken]] seriously, the authorities [[could evacuate]] the town [[before]] the flood arrived.",
+   "choices": [
+    "Had",
+    "taken",
+    "could evacuate",
+    "before"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Had the warning been taken\" is an inverted third conditional about the past, so the result must be \"could have evacuated\". \"Could evacuate\" refers to the present or future.",
+    "th": "Had the warning been taken เป็นเงื่อนไขแบบที่ 3 ที่สลับประธาน (อดีต) ผลลัพธ์จึงต้องเป็น could have evacuated ส่วน could evacuate ใช้กับปัจจุบันหรืออนาคต"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Comparative with 'than'",
+    "th": "การเปรียบเทียบขั้นกว่าใช้ than"
+   },
+   "topic": {
+    "en": "Agreement and comparison",
+    "th": "ความสอดคล้องประธาน–กริยาและการเปรียบเทียบ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\nNeither the theory's supporters nor its critics have offered an explanation that [[accounts for]] all the data, [[which]] suggests that the question is [[far]] [[more complex as]] once believed.",
+   "choices": [
+    "accounts for",
+    "which",
+    "far",
+    "more complex as"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "A comparative adjective is followed by \"than\": \"far more complex than once believed\". \"As\" is used in \"as complex as\".",
+    "th": "คำคุณศัพท์ขั้นกว่าต้องตามด้วย than คือ more complex than ส่วน as ใช้ในโครงสร้าง as complex as"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Word form: 'economic' vs 'economical'",
+    "th": "รูปคำ economic กับ economical"
+   },
+   "topic": {
+    "en": "Word form and usage",
+    "th": "รูปคำและการใช้คำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\n[[Economical]] historians have [[long]] argued that the printing press [[transformed]] Europe [[by making]] knowledge cheaper.",
+   "choices": [
+    "Economical",
+    "long",
+    "transformed",
+    "by making"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Economic historians\" study the history of economies; \"economical\" means saving money or using little. The word must be \"Economic\".",
+    "th": "economic historians คือนักประวัติศาสตร์เศรษฐกิจ ส่วน economical แปลว่า ประหยัด จึงต้องใช้ Economic"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Agreement with 'each of'",
+    "th": "ความสอดคล้องกับ each of"
+   },
+   "topic": {
+    "en": "Agreement and comparison",
+    "th": "ความสอดคล้องประธาน–กริยาและการเปรียบเทียบ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\n[[In]] the trial, each of the volunteers [[were]] given [[either]] the drug [[or]] a placebo.",
+   "choices": [
+    "In",
+    "were",
+    "either",
+    "or"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The subject is \"each\", which is singular, so the verb must be \"was given\" even though \"volunteers\" is plural.",
+    "th": "ประธานคือ each ซึ่งเป็นเอกพจน์ กริยาจึงต้องเป็น was given แม้ volunteers จะเป็นพหูพจน์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Progressive form after 'is'",
+    "th": "รูป is + V-ing"
+   },
+   "topic": {
+    "en": "Reduced and participle clauses",
+    "th": "อนุประโยคลดรูปและวลี participle"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\nThe data [[collected]] from the satellites [[suggest]] that the ice sheet is [[melted]] faster [[than]] models predicted.",
+   "choices": [
+    "collected",
+    "suggest",
+    "melted",
+    "than"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The ice sheet is in the process of melting faster, so the present continuous \"is melting\" is needed. \"Is melted faster\" is not a meaningful passive here. \"Data … suggest\" is correct, as \"data\" is plural in formal writing.",
+    "th": "แผ่นน้ำแข็งกำลังละลายเร็วขึ้น จึงต้องใช้ is melting ส่วน is melted faster ไม่มีความหมายที่ถูกต้อง และ data ... suggest ถูกต้องเพราะ data เป็นพหูพจน์ในภาษาทางการ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Comparing like with like ('those who')",
+    "th": "เปรียบเทียบสิ่งเดียวกัน (those who)"
+   },
+   "topic": {
+    "en": "Agreement and comparison",
+    "th": "ความสอดคล้องประธาน–กริยาและการเปรียบเทียบ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\nResearchers found that people who [[regularly]] [[take]] short naps are [[less likely]] to suffer from heart disease than [[who do not]].",
+   "choices": [
+    "regularly",
+    "take",
+    "less likely",
+    "who do not"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The comparison needs a noun to match \"people who …\": \"than those who do not\". \"Who\" alone has nothing to refer to.",
+    "th": "การเปรียบเทียบต้องมีคำนามคู่กับ people who ... คือ than those who do not ส่วน who อย่างเดียวไม่มีคำนามให้อ้างถึง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Author's purpose",
+    "th": "จุดประสงค์ของผู้เขียน"
+   },
+   "topic": {
+    "en": "Academic reading: history of ideas",
+    "th": "อ่านบทความวิชาการ: ประวัติแนวคิด"
+   },
+   "passage": "The Doctor Who Asked for Clean Hands\n\nIn the 1840s the maternity clinic of Vienna General Hospital was divided into two divisions. In the first, women were attended by doctors and medical students; in the second, by midwives. The difference in outcomes was striking and widely known: in some years, the death rate from puerperal fever, an infection that struck women shortly after childbirth, was several times higher in the doctors' division than in the midwives'. Women reportedly begged to be admitted to the second division, and some preferred to give birth in the street rather than risk the first.\n\nIgnaz Semmelweis, a young Hungarian doctor working in the clinic, set out to find the cause. He eliminated one explanation after another; the divisions were, for example, similarly crowded, so crowding could not account for the difference. The decisive clue came in 1847, when a colleague died after being cut accidentally during an autopsy, with symptoms remarkably similar to those of the dying mothers. Semmelweis concluded that doctors and students, who often came directly from dissecting bodies, were carrying \"cadaverous particles\" on their hands to the women they examined. Midwives performed no autopsies. When he required everyone entering the division to wash their hands in a chlorine solution, the death rate fell dramatically within months, to a level comparable with that of the midwives.\n\nOne might expect such a result to have been welcomed immediately. Instead, Semmelweis's ideas were largely rejected, and he died in 1865 in an asylum, his work still unrecognised. Historians have proposed several reasons. The theory that diseases are spread by microscopic living organisms had not yet been established, so his explanation lacked a convincing mechanism and appeared to contradict the dominant view that disease arose from bad air or imbalances within the body. Many doctors also found the implication that they themselves were responsible for their patients' deaths deeply offensive. Semmelweis did not help his own cause. He published a full account of his findings only in 1861, many years after his discovery, and responded to critics with open hostility, accusing some of them in letters of being murderers.\n\nThe episode is often told as a simple tale of a lone genius defeated by prejudice. That reading is not entirely wrong, but it obscures something important. Scientific communities are, and arguably should be, cautious about accepting claims that cannot be explained by existing knowledge, since most such claims turn out to be mistaken. The tragedy was that caution hardened into refusal even in the face of strong statistical evidence that lives were being lost. Semmelweis was eventually vindicated when, in the following decades, the work of Louis Pasteur and Joseph Lister established the germ theory of disease. The term \"Semmelweis reflex\" is now sometimes used to describe the tendency to reject new evidence that contradicts established beliefs.",
+   "stem": "What is the author's main purpose in the final paragraph?",
+   "choices": [
+    "to describe the experiments of Pasteur and Lister in detail",
+    "to show that Semmelweis's statistics were unreliable",
+    "to offer a more balanced interpretation of why Semmelweis's work was rejected",
+    "to argue that scientists should accept every new claim without question"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The author says the \"lone genius defeated by prejudice\" reading \"obscures something important\": caution is reasonable, but it \"hardened into refusal\" despite strong evidence. This is a more balanced interpretation. The author does not say all new claims should be accepted, and calls the evidence strong.",
+    "th": "ผู้เขียนบอกว่าการเล่าเรื่องแบบอัจฉริยะผู้โดดเดี่ยวที่แพ้อคติ บดบังประเด็นสำคัญ คือความระมัดระวังเป็นเรื่องสมเหตุสมผล แต่กลายเป็นการปฏิเสธทั้งที่หลักฐานชัด จึงเป็นการตีความที่สมดุลขึ้น ผู้เขียนไม่ได้บอกให้รับทุกข้ออ้าง และยืนยันว่าหลักฐานแข็งแรง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Academic reading: history of ideas",
+    "th": "อ่านบทความวิชาการ: ประวัติแนวคิด"
+   },
+   "passage": "The Doctor Who Asked for Clean Hands\n\nIn the 1840s the maternity clinic of Vienna General Hospital was divided into two divisions. In the first, women were attended by doctors and medical students; in the second, by midwives. The difference in outcomes was striking and widely known: in some years, the death rate from puerperal fever, an infection that struck women shortly after childbirth, was several times higher in the doctors' division than in the midwives'. Women reportedly begged to be admitted to the second division, and some preferred to give birth in the street rather than risk the first.\n\nIgnaz Semmelweis, a young Hungarian doctor working in the clinic, set out to find the cause. He eliminated one explanation after another; the divisions were, for example, similarly crowded, so crowding could not account for the difference. The decisive clue came in 1847, when a colleague died after being cut accidentally during an autopsy, with symptoms remarkably similar to those of the dying mothers. Semmelweis concluded that doctors and students, who often came directly from dissecting bodies, were carrying \"cadaverous particles\" on their hands to the women they examined. Midwives performed no autopsies. When he required everyone entering the division to wash their hands in a chlorine solution, the death rate fell dramatically within months, to a level comparable with that of the midwives.\n\nOne might expect such a result to have been welcomed immediately. Instead, Semmelweis's ideas were largely rejected, and he died in 1865 in an asylum, his work still unrecognised. Historians have proposed several reasons. The theory that diseases are spread by microscopic living organisms had not yet been established, so his explanation lacked a convincing mechanism and appeared to contradict the dominant view that disease arose from bad air or imbalances within the body. Many doctors also found the implication that they themselves were responsible for their patients' deaths deeply offensive. Semmelweis did not help his own cause. He published a full account of his findings only in 1861, many years after his discovery, and responded to critics with open hostility, accusing some of them in letters of being murderers.\n\nThe episode is often told as a simple tale of a lone genius defeated by prejudice. That reading is not entirely wrong, but it obscures something important. Scientific communities are, and arguably should be, cautious about accepting claims that cannot be explained by existing knowledge, since most such claims turn out to be mistaken. The tragedy was that caution hardened into refusal even in the face of strong statistical evidence that lives were being lost. Semmelweis was eventually vindicated when, in the following decades, the work of Louis Pasteur and Joseph Lister established the germ theory of disease. The term \"Semmelweis reflex\" is now sometimes used to describe the tendency to reject new evidence that contradicts established beliefs.",
+   "stem": "Why does the author mention that \"Midwives performed no autopsies\"?",
+   "choices": [
+    "It explains why Semmelweis's colleague died.",
+    "It shows that midwives were less well trained than doctors.",
+    "It explains why the second division was not affected by the cause Semmelweis identified.",
+    "It suggests that midwives were responsible for the deaths."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Semmelweis's explanation was that particles from dissected bodies were carried on doctors' hands. Because midwives did not perform autopsies, they did not carry these particles, which accounts for the lower death rate in their division.",
+    "th": "คำอธิบายของ Semmelweis คืออนุภาคจากศพติดมือแพทย์ไปสู่ผู้ป่วย เมื่อผดุงครรภ์ไม่ได้ผ่าศพ จึงไม่มีอนุภาคนี้ติดมือ อธิบายได้ว่าทำไมอัตราการตายในแผนกผดุงครรภ์ต่ำกว่า"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำจากบริบท"
+   },
+   "topic": {
+    "en": "Academic reading: history of ideas",
+    "th": "อ่านบทความวิชาการ: ประวัติแนวคิด"
+   },
+   "passage": "The Doctor Who Asked for Clean Hands\n\nIn the 1840s the maternity clinic of Vienna General Hospital was divided into two divisions. In the first, women were attended by doctors and medical students; in the second, by midwives. The difference in outcomes was striking and widely known: in some years, the death rate from puerperal fever, an infection that struck women shortly after childbirth, was several times higher in the doctors' division than in the midwives'. Women reportedly begged to be admitted to the second division, and some preferred to give birth in the street rather than risk the first.\n\nIgnaz Semmelweis, a young Hungarian doctor working in the clinic, set out to find the cause. He eliminated one explanation after another; the divisions were, for example, similarly crowded, so crowding could not account for the difference. The decisive clue came in 1847, when a colleague died after being cut accidentally during an autopsy, with symptoms remarkably similar to those of the dying mothers. Semmelweis concluded that doctors and students, who often came directly from dissecting bodies, were carrying \"cadaverous particles\" on their hands to the women they examined. Midwives performed no autopsies. When he required everyone entering the division to wash their hands in a chlorine solution, the death rate fell dramatically within months, to a level comparable with that of the midwives.\n\nOne might expect such a result to have been welcomed immediately. Instead, Semmelweis's ideas were largely rejected, and he died in 1865 in an asylum, his work still unrecognised. Historians have proposed several reasons. The theory that diseases are spread by microscopic living organisms had not yet been established, so his explanation lacked a convincing mechanism and appeared to contradict the dominant view that disease arose from bad air or imbalances within the body. Many doctors also found the implication that they themselves were responsible for their patients' deaths deeply offensive. Semmelweis did not help his own cause. He published a full account of his findings only in 1861, many years after his discovery, and responded to critics with open hostility, accusing some of them in letters of being murderers.\n\nThe episode is often told as a simple tale of a lone genius defeated by prejudice. That reading is not entirely wrong, but it obscures something important. Scientific communities are, and arguably should be, cautious about accepting claims that cannot be explained by existing knowledge, since most such claims turn out to be mistaken. The tragedy was that caution hardened into refusal even in the face of strong statistical evidence that lives were being lost. Semmelweis was eventually vindicated when, in the following decades, the work of Louis Pasteur and Joseph Lister established the germ theory of disease. The term \"Semmelweis reflex\" is now sometimes used to describe the tendency to reject new evidence that contradicts established beliefs.",
+   "stem": "The word \"vindicated\" in the final paragraph is closest in meaning to",
+   "choices": [
+    "shown to have been right",
+    "forced to change his views",
+    "punished for his mistakes",
+    "forgotten by historians"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Semmelweis was \"vindicated\" when germ theory was established: later science showed that he had been right. The other meanings contradict the context.",
+    "th": "Semmelweis ได้รับการ vindicated เมื่อทฤษฎีเชื้อโรคได้รับการยอมรับ หมายความว่า วิทยาศาสตร์รุ่นหลังพิสูจน์ว่าเขาคิดถูก ความหมายอื่นขัดกับบริบท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Academic reading: history of ideas",
+    "th": "อ่านบทความวิชาการ: ประวัติแนวคิด"
+   },
+   "passage": "The Doctor Who Asked for Clean Hands\n\nIn the 1840s the maternity clinic of Vienna General Hospital was divided into two divisions. In the first, women were attended by doctors and medical students; in the second, by midwives. The difference in outcomes was striking and widely known: in some years, the death rate from puerperal fever, an infection that struck women shortly after childbirth, was several times higher in the doctors' division than in the midwives'. Women reportedly begged to be admitted to the second division, and some preferred to give birth in the street rather than risk the first.\n\nIgnaz Semmelweis, a young Hungarian doctor working in the clinic, set out to find the cause. He eliminated one explanation after another; the divisions were, for example, similarly crowded, so crowding could not account for the difference. The decisive clue came in 1847, when a colleague died after being cut accidentally during an autopsy, with symptoms remarkably similar to those of the dying mothers. Semmelweis concluded that doctors and students, who often came directly from dissecting bodies, were carrying \"cadaverous particles\" on their hands to the women they examined. Midwives performed no autopsies. When he required everyone entering the division to wash their hands in a chlorine solution, the death rate fell dramatically within months, to a level comparable with that of the midwives.\n\nOne might expect such a result to have been welcomed immediately. Instead, Semmelweis's ideas were largely rejected, and he died in 1865 in an asylum, his work still unrecognised. Historians have proposed several reasons. The theory that diseases are spread by microscopic living organisms had not yet been established, so his explanation lacked a convincing mechanism and appeared to contradict the dominant view that disease arose from bad air or imbalances within the body. Many doctors also found the implication that they themselves were responsible for their patients' deaths deeply offensive. Semmelweis did not help his own cause. He published a full account of his findings only in 1861, many years after his discovery, and responded to critics with open hostility, accusing some of them in letters of being murderers.\n\nThe episode is often told as a simple tale of a lone genius defeated by prejudice. That reading is not entirely wrong, but it obscures something important. Scientific communities are, and arguably should be, cautious about accepting claims that cannot be explained by existing knowledge, since most such claims turn out to be mistaken. The tragedy was that caution hardened into refusal even in the face of strong statistical evidence that lives were being lost. Semmelweis was eventually vindicated when, in the following decades, the work of Louis Pasteur and Joseph Lister established the germ theory of disease. The term \"Semmelweis reflex\" is now sometimes used to describe the tendency to reject new evidence that contradicts established beliefs.",
+   "stem": "Which of the following can be inferred about the \"cadaverous particles\" Semmelweis described?",
+   "choices": [
+    "They were carried mainly by midwives.",
+    "They were what later scientists would understand as disease-causing germs.",
+    "They were produced by the chlorine solution.",
+    "They were the \"bad air\" that most doctors blamed for disease."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Semmelweis lacked a mechanism because germ theory had not yet been established, and he was vindicated when Pasteur and Lister established it. His particles therefore correspond to germs. Chlorine removed them, midwives did not carry them, and his idea contradicted the \"bad air\" view.",
+    "th": "Semmelweis ขาดคำอธิบายกลไกเพราะยังไม่มีทฤษฎีเชื้อโรค และได้รับการยืนยันเมื่อ Pasteur และ Lister วางทฤษฎีนี้ อนุภาคที่เขาพูดถึงจึงคือเชื้อโรค ส่วนคลอรีนใช้กำจัด ผดุงครรภ์ไม่ได้เป็นพาหะ และแนวคิดของเขาขัดกับทฤษฎีอากาศเสีย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Author's view",
+    "th": "ทัศนะของผู้เขียน"
+   },
+   "topic": {
+    "en": "Academic reading: history of ideas",
+    "th": "อ่านบทความวิชาการ: ประวัติแนวคิด"
+   },
+   "passage": "The Doctor Who Asked for Clean Hands\n\nIn the 1840s the maternity clinic of Vienna General Hospital was divided into two divisions. In the first, women were attended by doctors and medical students; in the second, by midwives. The difference in outcomes was striking and widely known: in some years, the death rate from puerperal fever, an infection that struck women shortly after childbirth, was several times higher in the doctors' division than in the midwives'. Women reportedly begged to be admitted to the second division, and some preferred to give birth in the street rather than risk the first.\n\nIgnaz Semmelweis, a young Hungarian doctor working in the clinic, set out to find the cause. He eliminated one explanation after another; the divisions were, for example, similarly crowded, so crowding could not account for the difference. The decisive clue came in 1847, when a colleague died after being cut accidentally during an autopsy, with symptoms remarkably similar to those of the dying mothers. Semmelweis concluded that doctors and students, who often came directly from dissecting bodies, were carrying \"cadaverous particles\" on their hands to the women they examined. Midwives performed no autopsies. When he required everyone entering the division to wash their hands in a chlorine solution, the death rate fell dramatically within months, to a level comparable with that of the midwives.\n\nOne might expect such a result to have been welcomed immediately. Instead, Semmelweis's ideas were largely rejected, and he died in 1865 in an asylum, his work still unrecognised. Historians have proposed several reasons. The theory that diseases are spread by microscopic living organisms had not yet been established, so his explanation lacked a convincing mechanism and appeared to contradict the dominant view that disease arose from bad air or imbalances within the body. Many doctors also found the implication that they themselves were responsible for their patients' deaths deeply offensive. Semmelweis did not help his own cause. He published a full account of his findings only in 1861, many years after his discovery, and responded to critics with open hostility, accusing some of them in letters of being murderers.\n\nThe episode is often told as a simple tale of a lone genius defeated by prejudice. That reading is not entirely wrong, but it obscures something important. Scientific communities are, and arguably should be, cautious about accepting claims that cannot be explained by existing knowledge, since most such claims turn out to be mistaken. The tragedy was that caution hardened into refusal even in the face of strong statistical evidence that lives were being lost. Semmelweis was eventually vindicated when, in the following decades, the work of Louis Pasteur and Joseph Lister established the germ theory of disease. The term \"Semmelweis reflex\" is now sometimes used to describe the tendency to reject new evidence that contradicts established beliefs.",
+   "stem": "With which of the following statements would the author most likely agree?",
+   "choices": [
+    "Scientific caution is reasonable, but it should give way when evidence of harm is strong.",
+    "Semmelweis's hostile manner had no effect on how his ideas were received.",
+    "Semmelweis was rejected solely because of prejudice against him.",
+    "Claims that cannot be explained by existing knowledge are usually correct."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The author says communities \"arguably should be\" cautious, but calls it a tragedy that caution \"hardened into refusal even in the face of strong statistical evidence\". The author lists several reasons for the rejection, including Semmelweis's own hostility, and says most unexplained claims \"turn out to be mistaken\".",
+    "th": "ผู้เขียนเห็นว่าวงการวิทยาศาสตร์ควรระมัดระวัง แต่เป็นโศกนาฏกรรมที่ความระมัดระวังกลายเป็นการปฏิเสธแม้มีหลักฐานทางสถิติชัดเจน ผู้เขียนยังระบุเหตุผลหลายข้อ รวมถึงท่าทีก้าวร้าวของ Semmelweis และบอกว่าข้ออ้างที่อธิบายไม่ได้ส่วนใหญ่มักผิด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "m",
+   "skill": {
+    "en": "Main idea",
+    "th": "ใจความสำคัญ"
+   },
+   "topic": {
+    "en": "Academic reading: psychology",
+    "th": "อ่านบทความวิชาการ: จิตวิทยา"
+   },
+   "passage": "Language and the Shape of Thought\n\nDoes the language we speak shape the way we think? The idea that it does, known as linguistic relativity, is most closely associated with the American linguist Benjamin Lee Whorf, who argued in the 1930s and 1940s that speakers of different languages perceive and understand the world in fundamentally different ways. Whorf's most famous claim concerned the Hopi language of Arizona, which, he asserted, contained no words or grammatical forms referring to time as a flowing quantity. Hopi speakers, he concluded, must therefore conceive of time very differently from speakers of European languages.\n\nWhorf's ideas proved enormously influential, but by the 1970s they had fallen out of favour among many linguists and psychologists. One reason was that his evidence turned out to be weak. A detailed study of Hopi published in 1983 described a rich system of time expressions, which seriously undermined Whorf's best-known example. Another reason was the rise of the view that the human capacity for language rests on universal foundations shared by all people, which made claims of deep cognitive differences seem implausible. Critics also noted a logical difficulty: if a concept could only be grasped by those whose language expressed it, how could Whorf himself have described the Hopi view of time in English?\n\nSince the 1990s, however, the question has returned in a more modest and testable form. Rather than asking whether language determines thought, researchers now ask whether it influences particular habits of attention and memory. Some of the most striking evidence comes from communities that describe space without words like \"left\" and \"right\". Speakers of Guugu Yimithirr, an Aboriginal language of northern Australia, describe the positions of objects using compass directions: a cup is said to be to the north of the plate, not to its left. Such speakers turn out to maintain an extraordinarily accurate sense of orientation, even in unfamiliar places, and when asked to rearrange objects after turning around, they tend to preserve the objects' compass positions rather than their positions relative to the body.\n\nColour perception provides further, though smaller, effects. Russian has two basic words for what English speakers call \"blue\": one for lighter shades and one for darker ones. In laboratory tasks, Russian speakers distinguish between shades that cross this boundary slightly faster than between shades that fall within the same category. Intriguingly, this advantage disappears when they are asked to repeat a string of numbers silently during the task, an activity that occupies the verbal system.\n\nFew researchers today would defend the strong version of Whorf's hypothesis. Speakers of every language can learn new concepts, and translation, though imperfect, is possible. Yet the evidence suggests that the habitual patterns of a language may train its speakers to notice some features of the world more readily than others. The debate has shifted from whether language affects thought to how, how much, and in which domains.",
+   "stem": "Which of the following best summarises the passage?",
+   "choices": [
+    "Whorf proved that language completely determines how people think.",
+    "Research has shown that language has no effect at all on thought.",
+    "A once-rejected idea about language and thought has been revived in a weaker form supported by new evidence.",
+    "Hopi and Guugu Yimithirr are the only languages that affect their speakers' perception."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The passage traces Whorf's strong claim, its rejection, and its return \"in a more modest and testable form\" backed by studies of space and colour. The two extreme views are both rejected by the author, and the languages mentioned are only examples.",
+    "th": "บทความเล่าถึงข้ออ้างแบบเข้มของ Whorf การถูกปฏิเสธ และการกลับมาในรูปแบบที่อ่อนลงและทดสอบได้ พร้อมหลักฐานด้านทิศทางและสี ผู้เขียนปฏิเสธมุมมองสุดโต่งทั้งสองแบบ และภาษาที่ยกมาเป็นเพียงตัวอย่าง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Paragraph function",
+    "th": "หน้าที่ของย่อหน้า/ประโยค"
+   },
+   "topic": {
+    "en": "Academic reading: psychology",
+    "th": "อ่านบทความวิชาการ: จิตวิทยา"
+   },
+   "passage": "Language and the Shape of Thought\n\nDoes the language we speak shape the way we think? The idea that it does, known as linguistic relativity, is most closely associated with the American linguist Benjamin Lee Whorf, who argued in the 1930s and 1940s that speakers of different languages perceive and understand the world in fundamentally different ways. Whorf's most famous claim concerned the Hopi language of Arizona, which, he asserted, contained no words or grammatical forms referring to time as a flowing quantity. Hopi speakers, he concluded, must therefore conceive of time very differently from speakers of European languages.\n\nWhorf's ideas proved enormously influential, but by the 1970s they had fallen out of favour among many linguists and psychologists. One reason was that his evidence turned out to be weak. A detailed study of Hopi published in 1983 described a rich system of time expressions, which seriously undermined Whorf's best-known example. Another reason was the rise of the view that the human capacity for language rests on universal foundations shared by all people, which made claims of deep cognitive differences seem implausible. Critics also noted a logical difficulty: if a concept could only be grasped by those whose language expressed it, how could Whorf himself have described the Hopi view of time in English?\n\nSince the 1990s, however, the question has returned in a more modest and testable form. Rather than asking whether language determines thought, researchers now ask whether it influences particular habits of attention and memory. Some of the most striking evidence comes from communities that describe space without words like \"left\" and \"right\". Speakers of Guugu Yimithirr, an Aboriginal language of northern Australia, describe the positions of objects using compass directions: a cup is said to be to the north of the plate, not to its left. Such speakers turn out to maintain an extraordinarily accurate sense of orientation, even in unfamiliar places, and when asked to rearrange objects after turning around, they tend to preserve the objects' compass positions rather than their positions relative to the body.\n\nColour perception provides further, though smaller, effects. Russian has two basic words for what English speakers call \"blue\": one for lighter shades and one for darker ones. In laboratory tasks, Russian speakers distinguish between shades that cross this boundary slightly faster than between shades that fall within the same category. Intriguingly, this advantage disappears when they are asked to repeat a string of numbers silently during the task, an activity that occupies the verbal system.\n\nFew researchers today would defend the strong version of Whorf's hypothesis. Speakers of every language can learn new concepts, and translation, though imperfect, is possible. Yet the evidence suggests that the habitual patterns of a language may train its speakers to notice some features of the world more readily than others. The debate has shifted from whether language affects thought to how, how much, and in which domains.",
+   "stem": "What is the function of the \"logical difficulty\" mentioned at the end of the second paragraph?",
+   "choices": [
+    "It introduces the modern research described in the third paragraph.",
+    "It shows that English is superior to Hopi for describing time.",
+    "It suggests that Whorf's strong claim undermines itself.",
+    "It explains why Whorf studied the Hopi language."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "If concepts could be grasped only through a language that expresses them, Whorf could not have explained the Hopi concept in English. His own description therefore counts against his strong claim, so the claim undermines itself.",
+    "th": "ถ้าแนวคิดเข้าใจได้เฉพาะผ่านภาษาที่มีคำนั้น Whorf ก็ไม่น่าจะอธิบายแนวคิดเรื่องเวลาของชาวโฮปีเป็นภาษาอังกฤษได้ การอธิบายของเขาเองจึงขัดกับข้ออ้างของเขา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Academic reading: psychology",
+    "th": "อ่านบทความวิชาการ: จิตวิทยา"
+   },
+   "passage": "Language and the Shape of Thought\n\nDoes the language we speak shape the way we think? The idea that it does, known as linguistic relativity, is most closely associated with the American linguist Benjamin Lee Whorf, who argued in the 1930s and 1940s that speakers of different languages perceive and understand the world in fundamentally different ways. Whorf's most famous claim concerned the Hopi language of Arizona, which, he asserted, contained no words or grammatical forms referring to time as a flowing quantity. Hopi speakers, he concluded, must therefore conceive of time very differently from speakers of European languages.\n\nWhorf's ideas proved enormously influential, but by the 1970s they had fallen out of favour among many linguists and psychologists. One reason was that his evidence turned out to be weak. A detailed study of Hopi published in 1983 described a rich system of time expressions, which seriously undermined Whorf's best-known example. Another reason was the rise of the view that the human capacity for language rests on universal foundations shared by all people, which made claims of deep cognitive differences seem implausible. Critics also noted a logical difficulty: if a concept could only be grasped by those whose language expressed it, how could Whorf himself have described the Hopi view of time in English?\n\nSince the 1990s, however, the question has returned in a more modest and testable form. Rather than asking whether language determines thought, researchers now ask whether it influences particular habits of attention and memory. Some of the most striking evidence comes from communities that describe space without words like \"left\" and \"right\". Speakers of Guugu Yimithirr, an Aboriginal language of northern Australia, describe the positions of objects using compass directions: a cup is said to be to the north of the plate, not to its left. Such speakers turn out to maintain an extraordinarily accurate sense of orientation, even in unfamiliar places, and when asked to rearrange objects after turning around, they tend to preserve the objects' compass positions rather than their positions relative to the body.\n\nColour perception provides further, though smaller, effects. Russian has two basic words for what English speakers call \"blue\": one for lighter shades and one for darker ones. In laboratory tasks, Russian speakers distinguish between shades that cross this boundary slightly faster than between shades that fall within the same category. Intriguingly, this advantage disappears when they are asked to repeat a string of numbers silently during the task, an activity that occupies the verbal system.\n\nFew researchers today would defend the strong version of Whorf's hypothesis. Speakers of every language can learn new concepts, and translation, though imperfect, is possible. Yet the evidence suggests that the habitual patterns of a language may train its speakers to notice some features of the world more readily than others. The debate has shifted from whether language affects thought to how, how much, and in which domains.",
+   "stem": "What does the result with the silent number task suggest about the Russian speakers' advantage in distinguishing shades of blue?",
+   "choices": [
+    "It depends on the active use of language during the task.",
+    "It is caused by differences in the speakers' eyesight.",
+    "It appears only when speakers are distracted.",
+    "It is too large to be explained by language."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The advantage disappears when a second task \"occupies the verbal system\". This suggests that the speakers were using their colour words, at that moment, to make the distinction, so the advantage depends on language being active.",
+    "th": "ข้อได้เปรียบหายไปเมื่อมีงานที่ใช้ระบบภาษาไปพร้อมกัน แสดงว่าผู้พูดใช้คำเรียกสีในขณะนั้นเพื่อแยกเฉดสี ข้อได้เปรียบจึงขึ้นกับการใช้ภาษาขณะทำงาน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำจากบริบท"
+   },
+   "topic": {
+    "en": "Academic reading: psychology",
+    "th": "อ่านบทความวิชาการ: จิตวิทยา"
+   },
+   "passage": "Language and the Shape of Thought\n\nDoes the language we speak shape the way we think? The idea that it does, known as linguistic relativity, is most closely associated with the American linguist Benjamin Lee Whorf, who argued in the 1930s and 1940s that speakers of different languages perceive and understand the world in fundamentally different ways. Whorf's most famous claim concerned the Hopi language of Arizona, which, he asserted, contained no words or grammatical forms referring to time as a flowing quantity. Hopi speakers, he concluded, must therefore conceive of time very differently from speakers of European languages.\n\nWhorf's ideas proved enormously influential, but by the 1970s they had fallen out of favour among many linguists and psychologists. One reason was that his evidence turned out to be weak. A detailed study of Hopi published in 1983 described a rich system of time expressions, which seriously undermined Whorf's best-known example. Another reason was the rise of the view that the human capacity for language rests on universal foundations shared by all people, which made claims of deep cognitive differences seem implausible. Critics also noted a logical difficulty: if a concept could only be grasped by those whose language expressed it, how could Whorf himself have described the Hopi view of time in English?\n\nSince the 1990s, however, the question has returned in a more modest and testable form. Rather than asking whether language determines thought, researchers now ask whether it influences particular habits of attention and memory. Some of the most striking evidence comes from communities that describe space without words like \"left\" and \"right\". Speakers of Guugu Yimithirr, an Aboriginal language of northern Australia, describe the positions of objects using compass directions: a cup is said to be to the north of the plate, not to its left. Such speakers turn out to maintain an extraordinarily accurate sense of orientation, even in unfamiliar places, and when asked to rearrange objects after turning around, they tend to preserve the objects' compass positions rather than their positions relative to the body.\n\nColour perception provides further, though smaller, effects. Russian has two basic words for what English speakers call \"blue\": one for lighter shades and one for darker ones. In laboratory tasks, Russian speakers distinguish between shades that cross this boundary slightly faster than between shades that fall within the same category. Intriguingly, this advantage disappears when they are asked to repeat a string of numbers silently during the task, an activity that occupies the verbal system.\n\nFew researchers today would defend the strong version of Whorf's hypothesis. Speakers of every language can learn new concepts, and translation, though imperfect, is possible. Yet the evidence suggests that the habitual patterns of a language may train its speakers to notice some features of the world more readily than others. The debate has shifted from whether language affects thought to how, how much, and in which domains.",
+   "stem": "The word \"habitual\" in the final paragraph is closest in meaning to",
+   "choices": [
+    "accidental",
+    "regular and customary",
+    "inherited",
+    "grammatical"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"The habitual patterns of a language\" are the patterns speakers use regularly, every day; this repeated use is what may \"train\" attention.",
+    "th": "habitual patterns คือรูปแบบที่ผู้พูดใช้เป็นประจำ การใช้ซ้ำ ๆ นี้เองที่อาจฝึกการสังเกตของผู้พูด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Author's view",
+    "th": "ทัศนะของผู้เขียน"
+   },
+   "topic": {
+    "en": "Academic reading: psychology",
+    "th": "อ่านบทความวิชาการ: จิตวิทยา"
+   },
+   "passage": "Language and the Shape of Thought\n\nDoes the language we speak shape the way we think? The idea that it does, known as linguistic relativity, is most closely associated with the American linguist Benjamin Lee Whorf, who argued in the 1930s and 1940s that speakers of different languages perceive and understand the world in fundamentally different ways. Whorf's most famous claim concerned the Hopi language of Arizona, which, he asserted, contained no words or grammatical forms referring to time as a flowing quantity. Hopi speakers, he concluded, must therefore conceive of time very differently from speakers of European languages.\n\nWhorf's ideas proved enormously influential, but by the 1970s they had fallen out of favour among many linguists and psychologists. One reason was that his evidence turned out to be weak. A detailed study of Hopi published in 1983 described a rich system of time expressions, which seriously undermined Whorf's best-known example. Another reason was the rise of the view that the human capacity for language rests on universal foundations shared by all people, which made claims of deep cognitive differences seem implausible. Critics also noted a logical difficulty: if a concept could only be grasped by those whose language expressed it, how could Whorf himself have described the Hopi view of time in English?\n\nSince the 1990s, however, the question has returned in a more modest and testable form. Rather than asking whether language determines thought, researchers now ask whether it influences particular habits of attention and memory. Some of the most striking evidence comes from communities that describe space without words like \"left\" and \"right\". Speakers of Guugu Yimithirr, an Aboriginal language of northern Australia, describe the positions of objects using compass directions: a cup is said to be to the north of the plate, not to its left. Such speakers turn out to maintain an extraordinarily accurate sense of orientation, even in unfamiliar places, and when asked to rearrange objects after turning around, they tend to preserve the objects' compass positions rather than their positions relative to the body.\n\nColour perception provides further, though smaller, effects. Russian has two basic words for what English speakers call \"blue\": one for lighter shades and one for darker ones. In laboratory tasks, Russian speakers distinguish between shades that cross this boundary slightly faster than between shades that fall within the same category. Intriguingly, this advantage disappears when they are asked to repeat a string of numbers silently during the task, an activity that occupies the verbal system.\n\nFew researchers today would defend the strong version of Whorf's hypothesis. Speakers of every language can learn new concepts, and translation, though imperfect, is possible. Yet the evidence suggests that the habitual patterns of a language may train its speakers to notice some features of the world more readily than others. The debate has shifted from whether language affects thought to how, how much, and in which domains.",
+   "stem": "The author would most likely agree that",
+   "choices": [
+    "Whorf's work has no lasting value",
+    "speakers of different languages cannot truly understand each other",
+    "language can make certain distinctions easier to notice without making others impossible to grasp",
+    "the debate about language and thought has been settled"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The final paragraph says language may help speakers \"notice some features … more readily\", while \"speakers of every language can learn new concepts\". The debate has only \"shifted\", not ended, and the revived question shows Whorf's ideas still matter.",
+    "th": "ย่อหน้าสุดท้ายบอกว่าภาษาอาจทำให้สังเกตบางลักษณะได้ง่ายขึ้น ขณะที่ผู้พูดทุกภาษาเรียนรู้แนวคิดใหม่ได้ การถกเถียงเพียงเปลี่ยนประเด็นแต่ยังไม่จบ และแนวคิดของ Whorf ยังมีคุณค่า"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "e",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำจากบริบท"
+   },
+   "topic": {
+    "en": "Academic reading: economics",
+    "th": "อ่านบทความวิชาการ: เศรษฐศาสตร์"
+   },
+   "passage": "When a Measure Becomes a Target\n\nIn 1975 the British economist Charles Goodhart observed that statistical relationships used by governments to guide policy tended to break down once they were used as targets. His point, originally made about monetary policy, has since been generalised into what is now known as Goodhart's law, often summarised as: \"When a measure becomes a target, it ceases to be a good measure.\" A similar principle was proposed independently by the social scientist Donald Campbell, who warned that the more any quantitative indicator is used for social decision-making, the more it will be subject to corrupting pressures.\n\nThe logic is straightforward. A measure is useful because it is correlated with something we care about but cannot observe directly. The number of patients waiting more than four hours in a hospital emergency department, for instance, tells us something about the quality of emergency care. But as soon as people are rewarded or punished according to the number, they have an incentive to change the number itself, whether or not they change the underlying reality. Hospitals under pressure to meet waiting-time targets have been reported to keep patients waiting in ambulances outside the building, where the clock had not yet started, or to move patients to wards at the last moment simply to stop it.\n\nExamples can be found in almost every field. When schools are judged by the proportion of students who pass a particular examination, teachers may concentrate on the skills the examination tests and neglect others, or encourage weaker students to avoid the subject altogether. When researchers are evaluated by the number of articles they publish, some divide a single study into several smaller papers. A frequently repeated, though poorly documented, story tells of a colonial government in India that offered a reward for every dead cobra, only to find that people had begun breeding cobras to collect it. Whether or not the story is true, it has given its name to a whole class of problems: the \"cobra effect\".\n\nIt would be easy to conclude from such cases that measurement is pointless, or even harmful. This would be a misreading. Organisations that refuse to measure anything are left to rely on impressions, which are themselves vulnerable to bias. The lesson is rather that indicators should be used with an awareness of how people will respond to them. Several strategies have been suggested: using a number of different measures rather than a single one, so that improving one at the expense of others becomes visible; changing measures periodically; combining numbers with qualitative judgment; and, perhaps most importantly, using measures to prompt questions rather than to distribute rewards and punishments automatically.\n\nGoodhart's law is, in the end, a statement about human intelligence. People are not passive objects of measurement; they understand the rules by which they are judged and adapt to them, often in ways the designers did not foresee. Any system of targets that ignores this is likely to produce precisely the behaviour it was intended to prevent.",
+   "stem": "The word \"ceases\" in the first paragraph is closest in meaning to",
+   "choices": [
+    "begins",
+    "pretends",
+    "stops",
+    "continues"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"When a measure becomes a target, it ceases to be a good measure\" means it stops being a good measure.",
+    "th": "ประโยคหมายความว่า เมื่อตัวชี้วัดกลายเป็นเป้าหมาย มันจะหยุดเป็นตัวชี้วัดที่ดี ceases จึงแปลว่า stops"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "m",
+   "skill": {
+    "en": "Reference",
+    "th": "การอ้างอิงคำ"
+   },
+   "topic": {
+    "en": "Academic reading: economics",
+    "th": "อ่านบทความวิชาการ: เศรษฐศาสตร์"
+   },
+   "passage": "When a Measure Becomes a Target\n\nIn 1975 the British economist Charles Goodhart observed that statistical relationships used by governments to guide policy tended to break down once they were used as targets. His point, originally made about monetary policy, has since been generalised into what is now known as Goodhart's law, often summarised as: \"When a measure becomes a target, it ceases to be a good measure.\" A similar principle was proposed independently by the social scientist Donald Campbell, who warned that the more any quantitative indicator is used for social decision-making, the more it will be subject to corrupting pressures.\n\nThe logic is straightforward. A measure is useful because it is correlated with something we care about but cannot observe directly. The number of patients waiting more than four hours in a hospital emergency department, for instance, tells us something about the quality of emergency care. But as soon as people are rewarded or punished according to the number, they have an incentive to change the number itself, whether or not they change the underlying reality. Hospitals under pressure to meet waiting-time targets have been reported to keep patients waiting in ambulances outside the building, where the clock had not yet started, or to move patients to wards at the last moment simply to stop it.\n\nExamples can be found in almost every field. When schools are judged by the proportion of students who pass a particular examination, teachers may concentrate on the skills the examination tests and neglect others, or encourage weaker students to avoid the subject altogether. When researchers are evaluated by the number of articles they publish, some divide a single study into several smaller papers. A frequently repeated, though poorly documented, story tells of a colonial government in India that offered a reward for every dead cobra, only to find that people had begun breeding cobras to collect it. Whether or not the story is true, it has given its name to a whole class of problems: the \"cobra effect\".\n\nIt would be easy to conclude from such cases that measurement is pointless, or even harmful. This would be a misreading. Organisations that refuse to measure anything are left to rely on impressions, which are themselves vulnerable to bias. The lesson is rather that indicators should be used with an awareness of how people will respond to them. Several strategies have been suggested: using a number of different measures rather than a single one, so that improving one at the expense of others becomes visible; changing measures periodically; combining numbers with qualitative judgment; and, perhaps most importantly, using measures to prompt questions rather than to distribute rewards and punishments automatically.\n\nGoodhart's law is, in the end, a statement about human intelligence. People are not passive objects of measurement; they understand the rules by which they are judged and adapt to them, often in ways the designers did not foresee. Any system of targets that ignores this is likely to produce precisely the behaviour it was intended to prevent.",
+   "stem": "In the second paragraph, the word \"it\" in \"simply to stop it\" refers to",
+   "choices": [
+    "the target",
+    "the ambulance",
+    "the ward",
+    "the clock"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The same sentence mentions that \"the clock had not yet started\" in the ambulance; moving patients at the last moment stops the clock measuring their waiting time.",
+    "th": "ประโยคเดียวกันกล่าวว่านาฬิกายังไม่เริ่มเดินขณะอยู่ในรถพยาบาล การย้ายผู้ป่วยในนาทีสุดท้ายจึงเป็นการหยุดนาฬิกาที่จับเวลารอ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Author's view",
+    "th": "ทัศนะของผู้เขียน"
+   },
+   "topic": {
+    "en": "Academic reading: economics",
+    "th": "อ่านบทความวิชาการ: เศรษฐศาสตร์"
+   },
+   "passage": "When a Measure Becomes a Target\n\nIn 1975 the British economist Charles Goodhart observed that statistical relationships used by governments to guide policy tended to break down once they were used as targets. His point, originally made about monetary policy, has since been generalised into what is now known as Goodhart's law, often summarised as: \"When a measure becomes a target, it ceases to be a good measure.\" A similar principle was proposed independently by the social scientist Donald Campbell, who warned that the more any quantitative indicator is used for social decision-making, the more it will be subject to corrupting pressures.\n\nThe logic is straightforward. A measure is useful because it is correlated with something we care about but cannot observe directly. The number of patients waiting more than four hours in a hospital emergency department, for instance, tells us something about the quality of emergency care. But as soon as people are rewarded or punished according to the number, they have an incentive to change the number itself, whether or not they change the underlying reality. Hospitals under pressure to meet waiting-time targets have been reported to keep patients waiting in ambulances outside the building, where the clock had not yet started, or to move patients to wards at the last moment simply to stop it.\n\nExamples can be found in almost every field. When schools are judged by the proportion of students who pass a particular examination, teachers may concentrate on the skills the examination tests and neglect others, or encourage weaker students to avoid the subject altogether. When researchers are evaluated by the number of articles they publish, some divide a single study into several smaller papers. A frequently repeated, though poorly documented, story tells of a colonial government in India that offered a reward for every dead cobra, only to find that people had begun breeding cobras to collect it. Whether or not the story is true, it has given its name to a whole class of problems: the \"cobra effect\".\n\nIt would be easy to conclude from such cases that measurement is pointless, or even harmful. This would be a misreading. Organisations that refuse to measure anything are left to rely on impressions, which are themselves vulnerable to bias. The lesson is rather that indicators should be used with an awareness of how people will respond to them. Several strategies have been suggested: using a number of different measures rather than a single one, so that improving one at the expense of others becomes visible; changing measures periodically; combining numbers with qualitative judgment; and, perhaps most importantly, using measures to prompt questions rather than to distribute rewards and punishments automatically.\n\nGoodhart's law is, in the end, a statement about human intelligence. People are not passive objects of measurement; they understand the rules by which they are judged and adapt to them, often in ways the designers did not foresee. Any system of targets that ignores this is likely to produce precisely the behaviour it was intended to prevent.",
+   "stem": "What is the author's attitude towards the story of the cobra reward?",
+   "choices": [
+    "The author doubts its accuracy but regards it as a useful illustration.",
+    "The author uses it to criticise colonial governments.",
+    "The author accepts it as a well-established historical fact.",
+    "The author considers it irrelevant to Goodhart's law."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The author calls the story \"poorly documented\" and adds \"Whether or not the story is true\", but still uses it because it names a whole class of problems. So the author doubts its accuracy but finds it useful.",
+    "th": "ผู้เขียนบอกว่าเรื่องนี้มีหลักฐานน้อย และใช้วลี Whether or not the story is true แต่ยังยกมาเพราะเป็นชื่อเรียกปัญหาทั้งกลุ่ม จึงสงสัยความจริงแต่เห็นว่าเป็นตัวอย่างที่มีประโยชน์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Paragraph function",
+    "th": "หน้าที่ของย่อหน้า/ประโยค"
+   },
+   "topic": {
+    "en": "Academic reading: economics",
+    "th": "อ่านบทความวิชาการ: เศรษฐศาสตร์"
+   },
+   "passage": "When a Measure Becomes a Target\n\nIn 1975 the British economist Charles Goodhart observed that statistical relationships used by governments to guide policy tended to break down once they were used as targets. His point, originally made about monetary policy, has since been generalised into what is now known as Goodhart's law, often summarised as: \"When a measure becomes a target, it ceases to be a good measure.\" A similar principle was proposed independently by the social scientist Donald Campbell, who warned that the more any quantitative indicator is used for social decision-making, the more it will be subject to corrupting pressures.\n\nThe logic is straightforward. A measure is useful because it is correlated with something we care about but cannot observe directly. The number of patients waiting more than four hours in a hospital emergency department, for instance, tells us something about the quality of emergency care. But as soon as people are rewarded or punished according to the number, they have an incentive to change the number itself, whether or not they change the underlying reality. Hospitals under pressure to meet waiting-time targets have been reported to keep patients waiting in ambulances outside the building, where the clock had not yet started, or to move patients to wards at the last moment simply to stop it.\n\nExamples can be found in almost every field. When schools are judged by the proportion of students who pass a particular examination, teachers may concentrate on the skills the examination tests and neglect others, or encourage weaker students to avoid the subject altogether. When researchers are evaluated by the number of articles they publish, some divide a single study into several smaller papers. A frequently repeated, though poorly documented, story tells of a colonial government in India that offered a reward for every dead cobra, only to find that people had begun breeding cobras to collect it. Whether or not the story is true, it has given its name to a whole class of problems: the \"cobra effect\".\n\nIt would be easy to conclude from such cases that measurement is pointless, or even harmful. This would be a misreading. Organisations that refuse to measure anything are left to rely on impressions, which are themselves vulnerable to bias. The lesson is rather that indicators should be used with an awareness of how people will respond to them. Several strategies have been suggested: using a number of different measures rather than a single one, so that improving one at the expense of others becomes visible; changing measures periodically; combining numbers with qualitative judgment; and, perhaps most importantly, using measures to prompt questions rather than to distribute rewards and punishments automatically.\n\nGoodhart's law is, in the end, a statement about human intelligence. People are not passive objects of measurement; they understand the rules by which they are judged and adapt to them, often in ways the designers did not foresee. Any system of targets that ignores this is likely to produce precisely the behaviour it was intended to prevent.",
+   "stem": "The fourth paragraph mainly serves to",
+   "choices": [
+    "explain the origin of Goodhart's law in monetary policy",
+    "provide further examples of measures that have been corrupted",
+    "warn against drawing too extreme a conclusion from the examples and suggest a better approach",
+    "argue that organisations should stop measuring performance"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "It begins \"It would be easy to conclude … that measurement is pointless … This would be a misreading\" and then lists strategies for using measures wisely. It rejects, rather than argues, that organisations should stop measuring.",
+    "th": "ย่อหน้าเริ่มด้วยการเตือนว่าการสรุปว่าการวัดไร้ประโยชน์เป็นการเข้าใจผิด แล้วเสนอแนวทางการใช้ตัวชี้วัดอย่างรอบคอบ จึงไม่ได้สนับสนุนให้เลิกวัด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Academic reading: economics",
+    "th": "อ่านบทความวิชาการ: เศรษฐศาสตร์"
+   },
+   "passage": "When a Measure Becomes a Target\n\nIn 1975 the British economist Charles Goodhart observed that statistical relationships used by governments to guide policy tended to break down once they were used as targets. His point, originally made about monetary policy, has since been generalised into what is now known as Goodhart's law, often summarised as: \"When a measure becomes a target, it ceases to be a good measure.\" A similar principle was proposed independently by the social scientist Donald Campbell, who warned that the more any quantitative indicator is used for social decision-making, the more it will be subject to corrupting pressures.\n\nThe logic is straightforward. A measure is useful because it is correlated with something we care about but cannot observe directly. The number of patients waiting more than four hours in a hospital emergency department, for instance, tells us something about the quality of emergency care. But as soon as people are rewarded or punished according to the number, they have an incentive to change the number itself, whether or not they change the underlying reality. Hospitals under pressure to meet waiting-time targets have been reported to keep patients waiting in ambulances outside the building, where the clock had not yet started, or to move patients to wards at the last moment simply to stop it.\n\nExamples can be found in almost every field. When schools are judged by the proportion of students who pass a particular examination, teachers may concentrate on the skills the examination tests and neglect others, or encourage weaker students to avoid the subject altogether. When researchers are evaluated by the number of articles they publish, some divide a single study into several smaller papers. A frequently repeated, though poorly documented, story tells of a colonial government in India that offered a reward for every dead cobra, only to find that people had begun breeding cobras to collect it. Whether or not the story is true, it has given its name to a whole class of problems: the \"cobra effect\".\n\nIt would be easy to conclude from such cases that measurement is pointless, or even harmful. This would be a misreading. Organisations that refuse to measure anything are left to rely on impressions, which are themselves vulnerable to bias. The lesson is rather that indicators should be used with an awareness of how people will respond to them. Several strategies have been suggested: using a number of different measures rather than a single one, so that improving one at the expense of others becomes visible; changing measures periodically; combining numbers with qualitative judgment; and, perhaps most importantly, using measures to prompt questions rather than to distribute rewards and punishments automatically.\n\nGoodhart's law is, in the end, a statement about human intelligence. People are not passive objects of measurement; they understand the rules by which they are judged and adapt to them, often in ways the designers did not foresee. Any system of targets that ignores this is likely to produce precisely the behaviour it was intended to prevent.",
+   "stem": "Which of the following situations best illustrates Goodhart's law as described in the passage?",
+   "choices": [
+    "A school changes its examination because the old one was too expensive.",
+    "A call centre that rewards staff for short calls finds that staff begin ending calls before customers' problems are solved.",
+    "A doctor measures a patient's temperature to decide whether to prescribe medicine.",
+    "A city counts the number of cyclists and uses the data to plan new bike lanes."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "In this case a measure (call length) becomes a target with rewards, and staff change the number without improving the underlying reality (solving problems). The other situations use measures for information without rewarding people for the numbers.",
+    "th": "กรณีนี้ตัวชี้วัด (ความยาวสาย) กลายเป็นเป้าหมายที่มีรางวัล พนักงานจึงเปลี่ยนตัวเลขโดยไม่ได้ทำให้สิ่งที่แท้จริง (การแก้ปัญหาลูกค้า) ดีขึ้น ส่วนกรณีอื่นใช้ตัวเลขเป็นข้อมูลโดยไม่มีรางวัลผูกกับตัวเลข"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "e",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำจากบริบท"
+   },
+   "topic": {
+    "en": "Academic reading: environment",
+    "th": "อ่านบทความวิชาการ: สิ่งแวดล้อม"
+   },
+   "passage": "The Other Carbon Dioxide Problem\n\nSince the beginning of the industrial era, the world's oceans have absorbed roughly a quarter to a third of the carbon dioxide released by human activity. This service has substantially slowed the warming of the atmosphere, but it has come at a cost that received little scientific attention until the early 2000s. When carbon dioxide dissolves in seawater, it reacts to form carbonic acid, which releases hydrogen ions and lowers the water's pH. The average pH of surface seawater has fallen from about 8.2 to 8.1 since the eighteenth century. Because the pH scale is logarithmic, this apparently trivial change represents an increase of around 30 percent in acidity. The process is known as ocean acidification, although the oceans remain slightly alkaline and are not expected to become acidic in the strict chemical sense.\n\nThe organisms considered most vulnerable are those that build shells or skeletons from calcium carbonate, including corals, molluscs such as oysters and mussels, and some types of plankton. The extra hydrogen ions combine with carbonate ions in seawater, reducing the concentration of the very building blocks these organisms need. In more acidic conditions they must spend more energy to construct and maintain their structures, and in extreme cases existing shells may begin to dissolve. Laboratory experiments have shown slower growth and thinner shells in many species, and oyster hatcheries on the Pacific coast of the United States suffered mass deaths of larvae in the late 2000s, which were linked to upwelling deep water that had been made more corrosive by absorbed carbon dioxide.\n\nThe consequences are unlikely to be confined to the organisms directly affected. Tiny shelled plankton called pteropods, for example, are an important food for fish such as salmon. Coral reefs, which support a large share of marine biodiversity, may grow more slowly than they are eroded, especially when acidification is combined with rising temperatures that cause coral bleaching. The economic effects could be considerable for communities that depend on fishing, shellfish farming or reef tourism.\n\nPredicting the precise effects, however, has proved difficult. Responses vary greatly between species and even between populations of the same species; some algae and seagrasses may actually benefit from additional carbon dioxide, which they use in photosynthesis. Many early experiments exposed organisms to sudden changes in pH over days or weeks, whereas in the real ocean the change is occurring over decades, potentially giving some populations time to adapt. Moreover, acidification interacts with other stresses, such as warming and reduced oxygen, in ways that are only beginning to be understood.\n\nWhat is not in doubt is the cause. Unlike many environmental changes, ocean acidification follows directly and predictably from the chemistry of carbon dioxide in water. It cannot be reversed on a human timescale except by reducing emissions, and proposals to cool the planet by other means, such as reflecting sunlight back into space, would do nothing to address it.",
+   "stem": "The word \"trivial\" in the first paragraph is closest in meaning to",
+   "choices": [
+    "insignificant",
+    "dangerous",
+    "measurable",
+    "temporary"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A drop from 8.2 to 8.1 looks \"apparently trivial\", that is, it seems insignificant, although it actually represents a large change.",
+    "th": "การลดจาก 8.2 เป็น 8.1 ดูเหมือน trivial คือดูเล็กน้อยไม่สำคัญ แต่ความจริงเป็นการเปลี่ยนแปลงมาก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "m",
+   "skill": {
+    "en": "Author's purpose",
+    "th": "จุดประสงค์ของผู้เขียน"
+   },
+   "topic": {
+    "en": "Academic reading: environment",
+    "th": "อ่านบทความวิชาการ: สิ่งแวดล้อม"
+   },
+   "passage": "The Other Carbon Dioxide Problem\n\nSince the beginning of the industrial era, the world's oceans have absorbed roughly a quarter to a third of the carbon dioxide released by human activity. This service has substantially slowed the warming of the atmosphere, but it has come at a cost that received little scientific attention until the early 2000s. When carbon dioxide dissolves in seawater, it reacts to form carbonic acid, which releases hydrogen ions and lowers the water's pH. The average pH of surface seawater has fallen from about 8.2 to 8.1 since the eighteenth century. Because the pH scale is logarithmic, this apparently trivial change represents an increase of around 30 percent in acidity. The process is known as ocean acidification, although the oceans remain slightly alkaline and are not expected to become acidic in the strict chemical sense.\n\nThe organisms considered most vulnerable are those that build shells or skeletons from calcium carbonate, including corals, molluscs such as oysters and mussels, and some types of plankton. The extra hydrogen ions combine with carbonate ions in seawater, reducing the concentration of the very building blocks these organisms need. In more acidic conditions they must spend more energy to construct and maintain their structures, and in extreme cases existing shells may begin to dissolve. Laboratory experiments have shown slower growth and thinner shells in many species, and oyster hatcheries on the Pacific coast of the United States suffered mass deaths of larvae in the late 2000s, which were linked to upwelling deep water that had been made more corrosive by absorbed carbon dioxide.\n\nThe consequences are unlikely to be confined to the organisms directly affected. Tiny shelled plankton called pteropods, for example, are an important food for fish such as salmon. Coral reefs, which support a large share of marine biodiversity, may grow more slowly than they are eroded, especially when acidification is combined with rising temperatures that cause coral bleaching. The economic effects could be considerable for communities that depend on fishing, shellfish farming or reef tourism.\n\nPredicting the precise effects, however, has proved difficult. Responses vary greatly between species and even between populations of the same species; some algae and seagrasses may actually benefit from additional carbon dioxide, which they use in photosynthesis. Many early experiments exposed organisms to sudden changes in pH over days or weeks, whereas in the real ocean the change is occurring over decades, potentially giving some populations time to adapt. Moreover, acidification interacts with other stresses, such as warming and reduced oxygen, in ways that are only beginning to be understood.\n\nWhat is not in doubt is the cause. Unlike many environmental changes, ocean acidification follows directly and predictably from the chemistry of carbon dioxide in water. It cannot be reversed on a human timescale except by reducing emissions, and proposals to cool the planet by other means, such as reflecting sunlight back into space, would do nothing to address it.",
+   "stem": "Why does the author mention that the pH scale is logarithmic?",
+   "choices": [
+    "to explain why a small change in the number corresponds to a large change in acidity",
+    "to show that the oceans have become acidic in the strict chemical sense",
+    "to suggest that the measurements of pH are unreliable",
+    "to explain how carbon dioxide reacts with water"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Because the pH scale is logarithmic, this apparently trivial change represents an increase of around 30 percent in acidity\": the point explains how a 0.1 change can matter so much. The passage says the oceans remain slightly alkaline.",
+    "th": "ผู้เขียนอธิบายว่าเพราะ pH เป็นสเกลลอการิทึม การเปลี่ยนเพียง 0.1 จึงหมายถึงความเป็นกรดเพิ่มประมาณ 30% และบทความบอกว่ามหาสมุทรยังเป็นด่างอ่อน ๆ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "e",
+   "skill": {
+    "en": "Reference",
+    "th": "การอ้างอิงคำ"
+   },
+   "topic": {
+    "en": "Academic reading: environment",
+    "th": "อ่านบทความวิชาการ: สิ่งแวดล้อม"
+   },
+   "passage": "The Other Carbon Dioxide Problem\n\nSince the beginning of the industrial era, the world's oceans have absorbed roughly a quarter to a third of the carbon dioxide released by human activity. This service has substantially slowed the warming of the atmosphere, but it has come at a cost that received little scientific attention until the early 2000s. When carbon dioxide dissolves in seawater, it reacts to form carbonic acid, which releases hydrogen ions and lowers the water's pH. The average pH of surface seawater has fallen from about 8.2 to 8.1 since the eighteenth century. Because the pH scale is logarithmic, this apparently trivial change represents an increase of around 30 percent in acidity. The process is known as ocean acidification, although the oceans remain slightly alkaline and are not expected to become acidic in the strict chemical sense.\n\nThe organisms considered most vulnerable are those that build shells or skeletons from calcium carbonate, including corals, molluscs such as oysters and mussels, and some types of plankton. The extra hydrogen ions combine with carbonate ions in seawater, reducing the concentration of the very building blocks these organisms need. In more acidic conditions they must spend more energy to construct and maintain their structures, and in extreme cases existing shells may begin to dissolve. Laboratory experiments have shown slower growth and thinner shells in many species, and oyster hatcheries on the Pacific coast of the United States suffered mass deaths of larvae in the late 2000s, which were linked to upwelling deep water that had been made more corrosive by absorbed carbon dioxide.\n\nThe consequences are unlikely to be confined to the organisms directly affected. Tiny shelled plankton called pteropods, for example, are an important food for fish such as salmon. Coral reefs, which support a large share of marine biodiversity, may grow more slowly than they are eroded, especially when acidification is combined with rising temperatures that cause coral bleaching. The economic effects could be considerable for communities that depend on fishing, shellfish farming or reef tourism.\n\nPredicting the precise effects, however, has proved difficult. Responses vary greatly between species and even between populations of the same species; some algae and seagrasses may actually benefit from additional carbon dioxide, which they use in photosynthesis. Many early experiments exposed organisms to sudden changes in pH over days or weeks, whereas in the real ocean the change is occurring over decades, potentially giving some populations time to adapt. Moreover, acidification interacts with other stresses, such as warming and reduced oxygen, in ways that are only beginning to be understood.\n\nWhat is not in doubt is the cause. Unlike many environmental changes, ocean acidification follows directly and predictably from the chemistry of carbon dioxide in water. It cannot be reversed on a human timescale except by reducing emissions, and proposals to cool the planet by other means, such as reflecting sunlight back into space, would do nothing to address it.",
+   "stem": "In the second paragraph, the phrase \"these organisms\" refers to",
+   "choices": [
+    "oyster farmers on the Pacific coast",
+    "creatures that build shells or skeletons from calcium carbonate",
+    "algae and seagrasses",
+    "hydrogen ions"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The paragraph begins with \"those that build shells or skeletons from calcium carbonate\", and \"the very building blocks these organisms need\" are the carbonate ions they use for their shells.",
+    "th": "ย่อหน้าเริ่มด้วยสิ่งมีชีวิตที่สร้างเปลือกหรือโครงจากแคลเซียมคาร์บอเนต และ building blocks ที่ these organisms ต้องการคือคาร์บอเนตไอออนสำหรับสร้างเปลือก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Paragraph function",
+    "th": "หน้าที่ของย่อหน้า/ประโยค"
+   },
+   "topic": {
+    "en": "Academic reading: environment",
+    "th": "อ่านบทความวิชาการ: สิ่งแวดล้อม"
+   },
+   "passage": "The Other Carbon Dioxide Problem\n\nSince the beginning of the industrial era, the world's oceans have absorbed roughly a quarter to a third of the carbon dioxide released by human activity. This service has substantially slowed the warming of the atmosphere, but it has come at a cost that received little scientific attention until the early 2000s. When carbon dioxide dissolves in seawater, it reacts to form carbonic acid, which releases hydrogen ions and lowers the water's pH. The average pH of surface seawater has fallen from about 8.2 to 8.1 since the eighteenth century. Because the pH scale is logarithmic, this apparently trivial change represents an increase of around 30 percent in acidity. The process is known as ocean acidification, although the oceans remain slightly alkaline and are not expected to become acidic in the strict chemical sense.\n\nThe organisms considered most vulnerable are those that build shells or skeletons from calcium carbonate, including corals, molluscs such as oysters and mussels, and some types of plankton. The extra hydrogen ions combine with carbonate ions in seawater, reducing the concentration of the very building blocks these organisms need. In more acidic conditions they must spend more energy to construct and maintain their structures, and in extreme cases existing shells may begin to dissolve. Laboratory experiments have shown slower growth and thinner shells in many species, and oyster hatcheries on the Pacific coast of the United States suffered mass deaths of larvae in the late 2000s, which were linked to upwelling deep water that had been made more corrosive by absorbed carbon dioxide.\n\nThe consequences are unlikely to be confined to the organisms directly affected. Tiny shelled plankton called pteropods, for example, are an important food for fish such as salmon. Coral reefs, which support a large share of marine biodiversity, may grow more slowly than they are eroded, especially when acidification is combined with rising temperatures that cause coral bleaching. The economic effects could be considerable for communities that depend on fishing, shellfish farming or reef tourism.\n\nPredicting the precise effects, however, has proved difficult. Responses vary greatly between species and even between populations of the same species; some algae and seagrasses may actually benefit from additional carbon dioxide, which they use in photosynthesis. Many early experiments exposed organisms to sudden changes in pH over days or weeks, whereas in the real ocean the change is occurring over decades, potentially giving some populations time to adapt. Moreover, acidification interacts with other stresses, such as warming and reduced oxygen, in ways that are only beginning to be understood.\n\nWhat is not in doubt is the cause. Unlike many environmental changes, ocean acidification follows directly and predictably from the chemistry of carbon dioxide in water. It cannot be reversed on a human timescale except by reducing emissions, and proposals to cool the planet by other means, such as reflecting sunlight back into space, would do nothing to address it.",
+   "stem": "What is the main function of the fourth paragraph?",
+   "choices": [
+    "to show that early experiments were deliberately misleading",
+    "to argue that acidification is not caused by carbon dioxide",
+    "to propose a method for helping species adapt",
+    "to acknowledge uncertainties about how severe the effects of acidification will be"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "It opens with \"Predicting the precise effects, however, has proved difficult\" and gives reasons: species differ, some may benefit, experiments were sudden rather than gradual, and stresses interact. The cause itself is said in the final paragraph to be \"not in doubt\".",
+    "th": "ย่อหน้าเริ่มว่าการคาดผลที่แน่นอนเป็นเรื่องยาก แล้วให้เหตุผล เช่น สิ่งมีชีวิตตอบสนองต่างกัน บางชนิดได้ประโยชน์ การทดลองเปลี่ยนแปลงเร็วเกินจริง และปัจจัยต่าง ๆ มีผลร่วมกัน ส่วนสาเหตุนั้นย่อหน้าสุดท้ายบอกว่าไม่มีข้อสงสัย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Author's view",
+    "th": "ทัศนะของผู้เขียน"
+   },
+   "topic": {
+    "en": "Academic reading: environment",
+    "th": "อ่านบทความวิชาการ: สิ่งแวดล้อม"
+   },
+   "passage": "The Other Carbon Dioxide Problem\n\nSince the beginning of the industrial era, the world's oceans have absorbed roughly a quarter to a third of the carbon dioxide released by human activity. This service has substantially slowed the warming of the atmosphere, but it has come at a cost that received little scientific attention until the early 2000s. When carbon dioxide dissolves in seawater, it reacts to form carbonic acid, which releases hydrogen ions and lowers the water's pH. The average pH of surface seawater has fallen from about 8.2 to 8.1 since the eighteenth century. Because the pH scale is logarithmic, this apparently trivial change represents an increase of around 30 percent in acidity. The process is known as ocean acidification, although the oceans remain slightly alkaline and are not expected to become acidic in the strict chemical sense.\n\nThe organisms considered most vulnerable are those that build shells or skeletons from calcium carbonate, including corals, molluscs such as oysters and mussels, and some types of plankton. The extra hydrogen ions combine with carbonate ions in seawater, reducing the concentration of the very building blocks these organisms need. In more acidic conditions they must spend more energy to construct and maintain their structures, and in extreme cases existing shells may begin to dissolve. Laboratory experiments have shown slower growth and thinner shells in many species, and oyster hatcheries on the Pacific coast of the United States suffered mass deaths of larvae in the late 2000s, which were linked to upwelling deep water that had been made more corrosive by absorbed carbon dioxide.\n\nThe consequences are unlikely to be confined to the organisms directly affected. Tiny shelled plankton called pteropods, for example, are an important food for fish such as salmon. Coral reefs, which support a large share of marine biodiversity, may grow more slowly than they are eroded, especially when acidification is combined with rising temperatures that cause coral bleaching. The economic effects could be considerable for communities that depend on fishing, shellfish farming or reef tourism.\n\nPredicting the precise effects, however, has proved difficult. Responses vary greatly between species and even between populations of the same species; some algae and seagrasses may actually benefit from additional carbon dioxide, which they use in photosynthesis. Many early experiments exposed organisms to sudden changes in pH over days or weeks, whereas in the real ocean the change is occurring over decades, potentially giving some populations time to adapt. Moreover, acidification interacts with other stresses, such as warming and reduced oxygen, in ways that are only beginning to be understood.\n\nWhat is not in doubt is the cause. Unlike many environmental changes, ocean acidification follows directly and predictably from the chemistry of carbon dioxide in water. It cannot be reversed on a human timescale except by reducing emissions, and proposals to cool the planet by other means, such as reflecting sunlight back into space, would do nothing to address it.",
+   "stem": "Which statement would the author most likely agree with?",
+   "choices": [
+    "The cause of ocean acidification is still a matter of scientific debate.",
+    "A technology that cooled the climate without reducing carbon dioxide emissions would not solve the problem of acidification.",
+    "Ocean acidification will benefit marine life overall because some algae grow faster.",
+    "The oceans will soon become strongly acidic."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The final paragraph says that cooling the planet by other means, such as reflecting sunlight, \"would do nothing to address\" acidification, which can be reversed only by cutting emissions. The other statements contradict the passage.",
+    "th": "ย่อหน้าสุดท้ายบอกว่าการทำให้โลกเย็นลงด้วยวิธีอื่น เช่น สะท้อนแสงอาทิตย์ ไม่ช่วยแก้ปัญหาความเป็นกรด ซึ่งแก้ได้ด้วยการลดการปล่อยคาร์บอนเท่านั้น ข้อความอื่นขัดกับบทความ"
+   }
+  }
+ ]
+}

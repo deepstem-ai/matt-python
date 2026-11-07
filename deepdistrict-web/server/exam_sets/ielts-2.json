@@ -1,0 +1,660 @@
+{
+ "exam": "ielts",
+ "set": 2,
+ "title": {
+  "en": "IELTS Academic — Practice test 2 (Reading + Writing)",
+  "th": "IELTS Academic — ชุดฝึก 2 (Reading + Writing)"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "Reading: 3 passages, 40 questions, 60 minutes. Writing: Task 1 + Task 2, 60 minutes. DeepDistrict practice — not an official IELTS test.",
+  "th": "Reading 3 บทความ 40 ข้อ 60 นาที · Writing Task 1 + Task 2 60 นาที — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบทางการ"
+ },
+ "items": [
+  {
+   "kind": "ielts-r",
+   "title": "Frozen assets: the rise and fall of the ice trade",
+   "difficulty": 2,
+   "topic": {
+    "en": "Economic history",
+    "th": "ประวัติศาสตร์เศรษฐกิจ"
+   },
+   "paragraphs": [
+    "Before the age of electricity, keeping anything cold in a hot climate was a luxury reserved for the very wealthy. Rulers in Persia, China and the Mediterranean had stored winter snow in pits and thick-walled buildings for centuries, but the quantities were small and the cold rarely travelled far. That changed in the nineteenth century, when an unlikely industry grew up around a resource that seemed, to most people, entirely worthless: the ice that formed each winter on the lakes and ponds of New England. Within a few decades, frozen water cut from those ponds was being sold in the Caribbean, in South America and as far away as India.",
+    "The industry is usually traced to Frederic Tudor, a young Boston merchant who in 1806 sent a ship loaded with ice to the Caribbean island of Martinique. His contemporaries thought the plan absurd, and the first voyages appeared to prove them right. Much of the cargo melted before it could be sold, and the islanders who received the rest had little idea what to do with it. Tudor's difficulty, however, was not the crossing itself; ice packed tightly in a ship's hold melts far more slowly than most people expected. The real problem lay at the destination, where there was nowhere to keep the ice once it had been unloaded. Only after years of heavy losses, including a spell in prison for debt, did he begin to build insulated ice houses in the ports he supplied.",
+    "Two developments turned this fragile business into a profitable one. The first was the choice of insulation. Early shippers had experimented with straw, hay and rice husks, but sawdust proved the most effective, and it had the additional merit of being almost free, since the timber mills of Maine produced it in enormous quantities as waste. The second was the mechanisation of harvesting. Cutting ice by hand with axes and saws produced blocks of uneven size that wasted space in storage and in transit. A horse-drawn cutter, introduced by one of Tudor's suppliers, Nathaniel Wyeth, scored the frozen surface of a pond in a regular grid, so that workers could split it into identical blocks that could be stacked with almost no gaps between them. Tightly stacked blocks melted more slowly, because less of their surface was exposed to warm air.",
+    "With these improvements, the trade expanded rapidly. In 1833 a cargo of ice left Boston for Calcutta, a voyage of around four months that took the ship twice across the equator; more than half of the ice was still frozen when it arrived. By the middle of the century, ships were carrying ice to ports throughout the tropics, and the ponds around Boston had become so valuable that the rights to harvest them were bought and sold like farmland. The writer Henry David Thoreau, who lived for two years beside Walden Pond, recorded watching a large team of labourers remove ice from its surface one winter, and reflected that the water he drank might one day cool a glass in India.",
+    "Yet the largest market for natural ice was never overseas. As cities in the United States grew, so did the demand for ice at home. Households bought it to fill wooden iceboxes, in which food could be kept fresh for several days, while brewers needed it to produce lager, a style of beer that must be fermented at low temperatures. Meat-packers in the Midwest packed ice into railway wagons to send fresh beef to the cities of the east coast, an innovation that changed the national diet. In Europe a similar pattern emerged, although most of the supply came not from America but from Norway, whose lakes provided ice that was shipped across the North Sea to British ports in huge quantities.",
+    "The success of the industry concealed two weaknesses. The first was its dependence on the weather. A mild winter could leave the ponds too thin to cut, and in such years the price of ice rose sharply; the shortages that followed were known as ice famines. The second weakness was purity. As towns grew along rivers and lakes, the water that froze into ice was increasingly polluted by sewage and industrial waste, and doctors began to warn that the same ice that preserved food could also spread disease. Public confidence, once lost, proved hard to restore.",
+    "These problems created an opening for a competitor. Machines that produced ice by compressing and expanding gases had existed since the middle of the century, but they had been expensive and unreliable. As the technology improved, factory-made ice, known in the trade as plant ice, became cheaper; made from filtered water, it could be produced in any season and in any town, close to the customers who needed it. The arrival of affordable electric refrigerators in private homes during the 1920s and 1930s removed the need for regular ice deliveries, and an industry that had once employed tens of thousands of people faded almost entirely from public memory."
+   ],
+   "groups": [
+    {
+     "type": "tfng",
+     "instructions": "Do the following statements agree with the information given in Reading Passage 1? Write TRUE if the statement agrees with the information, FALSE if the statement contradicts the information, NOT GIVEN if there is no information on this.\n\nQuestions 1–5",
+     "questions": [
+      {
+       "text": "Tudor's early ventures failed chiefly because the ice melted quickly during the sea voyage.",
+       "answer": [
+        "FALSE"
+       ]
+      },
+      {
+       "text": "One reason for using sawdust as insulation was its low cost.",
+       "answer": [
+        "TRUE"
+       ]
+      },
+      {
+       "text": "Blocks of ice cut by hand were generally heavier than those cut with Wyeth's equipment.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      },
+      {
+       "text": "European demand for ice was met largely by imports from the United States.",
+       "answer": [
+        "FALSE"
+       ]
+      },
+      {
+       "text": "Warnings from doctors led to a ban on selling ice taken from polluted rivers.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "matching-info",
+     "instructions": "Reading Passage 1 has seven paragraphs, A–G. Which paragraph contains the following information? Write the correct letter, A–G.\n\nQuestions 6–8",
+     "questions": [
+      {
+       "text": "a contrast between the assumed cause of a commercial failure and its actual cause",
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "a reference to methods of preserving cold that existed long before the ice trade",
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "an explanation of why a rival product was more convenient for buyers",
+       "answer": [
+        "G"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "note-completion",
+     "instructions": "Complete the notes below. Choose ONE WORD ONLY from the passage for each answer.\n\nQuestions 9–11",
+     "wordLimit": {
+      "words": 1,
+      "number": false
+     },
+     "context": "Uses of natural ice within the United States\n• Households: kept food fresh in (9) ______\n• Brewers: needed low temperatures to make (10) ______\n• Meat-packers: sent beef east in railway (11) ______",
+     "questions": [
+      {
+       "text": "(9) ______",
+       "answer": [
+        "iceboxes"
+       ]
+      },
+      {
+       "text": "(10) ______",
+       "answer": [
+        "lager"
+       ]
+      },
+      {
+       "text": "(11) ______",
+       "answer": [
+        "wagons"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "short-answer",
+     "instructions": "Answer the questions below. Choose NO MORE THAN TWO WORDS from the passage for each answer.\n\nQuestions 12–13",
+     "wordLimit": {
+      "words": 2,
+      "number": false
+     },
+     "questions": [
+      {
+       "text": "What name was given to the shortages that followed unusually warm winters?",
+       "answer": [
+        "ice famines"
+       ]
+      },
+      {
+       "text": "What term did the industry use for ice manufactured by machines?",
+       "answer": [
+        "plant ice"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-r",
+   "title": "Losing the dark",
+   "difficulty": 2,
+   "topic": {
+    "en": "Light pollution and ecology",
+    "th": "มลพิษทางแสงและนิเวศวิทยา"
+   },
+   "paragraphs": [
+    "For almost the whole history of life on Earth, night has been reliably dark. The brightness of the night sky varied with the phases of the moon and with the weather, but it never approached that of day, and the daily alternation between light and darkness became built into the bodies of nearly every living thing. In little more than a century, that pattern has been disrupted across much of the planet. Satellite images show continents outlined in light, and a widely cited atlas published in 2016 estimated that more than four-fifths of the world's population lives under skies measurably brightened by artificial lighting. In Europe and North America, almost nobody now lives beneath a truly natural night sky.",
+    "Measuring the change has proved surprisingly difficult. Satellites are the obvious tool, but most of those that photograph the Earth at night are poorly suited to the task. Some cannot detect the blue part of the spectrum, so they record the replacement of orange street lamps by white light-emitting diodes, or LEDs, as a fall in brightness even when the sky above a city is becoming brighter to the human eye. For this reason, some of the most revealing evidence has come from the ground. In a long-running project, thousands of volunteers around the world compared the night sky with a set of star charts, recording the faintest stars visible from where they stood. Analysed together, their observations between 2011 and 2022 suggested that the sky was growing brighter by nearly ten per cent a year, far faster than satellite measurements had indicated.",
+    "The consequences for wildlife are most dramatic among animals that use light to find their way. Sea turtles provide the classic example. Hatchlings emerge from nests on the beach at night and head instinctively towards the brightest part of the horizon, which, on an unlit coast, is the open sea reflecting the glow of the sky. Where hotels and roads line the shore, the young turtles may crawl inland instead, and die from exhaustion, predators or traffic. On some coasts, volunteers now patrol the beaches during the nesting season, asking residents to draw their curtains and switch off outdoor lights. Many migrating birds, which often travel at night, are drawn towards brightly lit buildings, particularly on cloudy nights when the stars are hidden, and may circle them until they collapse or collide with glass.",
+    "The attraction of insects to lamps has been noticed for as long as people have lit fires, yet its cause was poorly understood until recently. It was long suggested that moths steer by keeping the moon at a fixed angle and are confused by nearer lights. In 2024, however, researchers who filmed insects in flight with high-speed cameras proposed a simpler explanation. Flying insects appear to keep their backs turned towards the brightest part of their surroundings, which in nature is the sky. When the brightest point is a lamp to one side, this reflex tips them sideways or even upside down, and they circle helplessly around it. Whatever the mechanism, the scale of the effect is considerable: a single street light can draw in insects from a wide surrounding area, removing them from the food chains and pollination networks on which other species depend.",
+    "Humans are not immune. The body's internal clock is set chiefly by light received through the eyes, and exposure to light in the evening delays the release of melatonin, a hormone associated with the onset of sleep. Light at the blue end of the spectrum, which is abundant in many white LEDs and in the screens of phones, is especially effective at producing this delay. Night-shift workers, whose exposure to light after dark is greater than anyone else's, have been studied particularly closely. Studies have linked high levels of outdoor light at night with poorer sleep and with a range of health problems, although researchers acknowledge that people living in brightly lit areas differ from others in many ways, so that cause and effect are hard to separate.",
+    "Unlike many forms of pollution, light pollution can be reduced almost immediately and at modest cost. A large share of outdoor light shines sideways or upwards, where it illuminates nothing useful. Moreover, because light leaves no residue in soil or water, the benefits of any change begin the moment the lamps are adjusted. Shielded fittings that direct light only downwards, lamps that are dimmed or switched off late at night, and warmer colours containing less blue light can all reduce the problem without making streets less safe. A number of towns and protected areas have been recognised as dark-sky places after adopting such measures, and some report that the resulting views of the stars have attracted visitors.",
+    "The obstacle is less technical than psychological. Brightness is widely associated with security and prosperity, and residents often oppose reductions in street lighting even where there is little evidence that brighter lighting reduces crime. The switch to LEDs illustrates the difficulty. Because the new lamps are far cheaper to run, many authorities have installed more of them, or made them brighter, cancelling much of the expected environmental benefit. Campaigners for darker skies argue that the real task is not to persuade people to accept darkness, but to convince them that well-designed lighting, aimed where it is needed and used when it is needed, is better lighting rather than less."
+   ],
+   "groups": [
+    {
+     "type": "headings",
+     "instructions": "Reading Passage 2 has seven paragraphs, A–G. Choose the correct heading for paragraphs B–G from the list of headings below. Write the correct number, i–xi.\n\nQuestions 14–19",
+     "options": [
+      {
+       "key": "i",
+       "text": "Why astronomers were the first to complain"
+      },
+      {
+       "key": "ii",
+       "text": "Ground-level observation succeeds where technology falls short"
+      },
+      {
+       "key": "iii",
+       "text": "Satellites that capture every colour of light"
+      },
+      {
+       "key": "iv",
+       "text": "Creatures misled while trying to navigate"
+      },
+      {
+       "key": "v",
+       "text": "Hotels required to switch off their lights"
+      },
+      {
+       "key": "vi",
+       "text": "A fresh explanation for a familiar puzzle"
+      },
+      {
+       "key": "vii",
+       "text": "The moon as a guide for travelling insects"
+      },
+      {
+       "key": "viii",
+       "text": "A biological effect, with a warning about the evidence"
+      },
+      {
+       "key": "ix",
+       "text": "Solutions that are quick and inexpensive"
+      },
+      {
+       "key": "x",
+       "text": "Proof that bright streets reduce crime"
+      },
+      {
+       "key": "xi",
+       "text": "Changing minds rather than changing lamps"
+      }
+     ],
+     "questions": [
+      {
+       "text": "Paragraph B",
+       "answer": [
+        "ii"
+       ]
+      },
+      {
+       "text": "Paragraph C",
+       "answer": [
+        "iv"
+       ]
+      },
+      {
+       "text": "Paragraph D",
+       "answer": [
+        "vi"
+       ]
+      },
+      {
+       "text": "Paragraph E",
+       "answer": [
+        "viii"
+       ]
+      },
+      {
+       "text": "Paragraph F",
+       "answer": [
+        "ix"
+       ]
+      },
+      {
+       "text": "Paragraph G",
+       "answer": [
+        "xi"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "matching-features",
+     "instructions": "Look at the following statements and the list of animals below. Match each statement with the correct animal, A–D.\nA sea turtles\nB migrating birds\nC flying insects\nD humans\n\nWrite the correct letter, A–D. NB You may use any letter more than once.\n\nQuestions 20–23",
+     "options": [
+      {
+       "key": "A",
+       "text": "sea turtles"
+      },
+      {
+       "key": "B",
+       "text": "migrating birds"
+      },
+      {
+       "key": "C",
+       "text": "flying insects"
+      },
+      {
+       "key": "D",
+       "text": "humans"
+      }
+     ],
+     "questions": [
+      {
+       "text": "They are most at risk when natural sources of light in the sky are obscured.",
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "Artificial light can cause them to move away from the place they are trying to reach.",
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "They instinctively keep one part of the body facing the brightest area around them.",
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "A single artificial light can affect individuals gathered from a large area.",
+       "answer": [
+        "C"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "sentence-endings",
+     "instructions": "Complete each sentence with the correct ending, A–G, below. Write the correct letter, A–G.\n\nQuestions 24–26",
+     "options": [
+      {
+       "key": "A",
+       "text": "they are unable to register light at the blue end of the spectrum."
+      },
+      {
+       "key": "B",
+       "text": "white LEDs give out less light than the lamps they replaced."
+      },
+      {
+       "key": "C",
+       "text": "volunteers could not see the faintest stars from cities."
+      },
+      {
+       "key": "D",
+       "text": "people in brightly lit places may differ from others in other respects."
+      },
+      {
+       "key": "E",
+       "text": "most outdoor lighting is already directed downwards."
+      },
+      {
+       "key": "F",
+       "text": "their low running costs encouraged authorities to use more light."
+      },
+      {
+       "key": "G",
+       "text": "residents have complained that the new lamps disturb their sleep."
+      }
+     ],
+     "questions": [
+      {
+       "text": "Some satellites give a misleading picture of changes in night-time brightness because",
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "Researchers are cautious about linking outdoor light with poor health because",
+       "answer": [
+        "D"
+       ]
+      },
+      {
+       "text": "The move to LED street lighting has not always reduced environmental harm because",
+       "answer": [
+        "F"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-r",
+   "title": "Bringing back the dead: the case against de-extinction",
+   "difficulty": 3,
+   "topic": {
+    "en": "Conservation biology and genetic engineering",
+    "th": "ชีววิทยาการอนุรักษ์และพันธุวิศวกรรม"
+   },
+   "paragraphs": [
+    "In April 2025, a biotechnology company in the United States announced that it had produced three wolf pups which, it claimed, were the first dire wolves to walk the Earth for more than ten thousand years. The animals were in fact grey wolves whose DNA had been altered at a small number of sites to give them some of the physical features, such as a larger frame and a pale coat, that scientists associate with their extinct relative. The announcement attracted enormous attention, much of it admiring, and a predictable chorus of criticism. Both reactions, I want to suggest, missed the more interesting question. The issue is not whether such animals are really dire wolves, but what we hope to achieve by making them, and whether the same effort could achieve more elsewhere.",
+    "The term de-extinction promises more than any current technique can deliver. An extinct species cannot be recreated from fragments of ancient DNA; what can be produced is a living relative engineered to resemble it in selected respects. Even the one case in which an extinct animal was, briefly, brought back illustrates the limits. In 2003 a team of Spanish and French scientists cloned a Pyrenean ibex, a wild goat whose last known member had died three years earlier, using cells preserved from that individual. The attempt required dozens of embryos to be transferred to surrogate goats, and only one pregnancy went to full term. The newborn kid lived for only a few minutes, killed by a defect in its lungs. Cloning requires intact cells, and for the overwhelming majority of extinct species none exist.",
+    "Defenders of the field reply that resemblance is enough. What matters ecologically, they argue, is not an animal's ancestry but what it does: how it grazes, how it disperses seeds, how it shapes the land. If an elephant engineered to withstand the cold could trample shrubs and maintain open grassland in the Arctic, as mammoths are thought to have done, it would hardly matter whether we called it a mammoth. Some researchers even suggest that such grazing could slow the thawing of frozen ground, since trampled snow allows winter cold to reach deeper into the soil. This is a serious argument, and in principle I accept it. The difficulty is that it turns de-extinction from a question of identity into a question of ecology, and on ecological grounds the proposals look far less persuasive.",
+    "Consider what restoring an ecological role would actually require. A single animal, or even a few dozen, does nothing to a landscape; a functioning population of large herbivores would need to number in the thousands and to be sustained over many generations. Elephants breed slowly, with a pregnancy lasting nearly two years, and their engineered cousins would need habitat, protection and, almost certainly, decades of intensive management. Meanwhile, the ecosystems into which they would be released have not stood still since the mammoths vanished: the climate, the vegetation and the human presence have all changed. There is no guarantee that a role played ten thousand years ago can be filled today, or that filling it would be beneficial.",
+    "The second objection concerns cost, and here the argument becomes uncomfortable for the enthusiasts. Money spent on recreating lost species is money not spent on keeping existing ones alive, and conservation budgets are already small in relation to the scale of the losses they are meant to prevent. One widely discussed analysis, which estimated the cost of maintaining revived species in the wild, concluded that the same sums could protect several times as many species that are threatened but still survive. Supporters respond that the private investors who fund de-extinction would not otherwise give to conservation, so nothing is truly diverted. That may be so, but it overlooks a subtler risk: if the public comes to believe that extinction can be reversed, the sense of urgency that drives support for conservation may weaken.",
+    "This is sometimes called the moral hazard of de-extinction, and I regard it as the strongest argument against the more extravagant claims made on the field's behalf. Few people treat a valuable vase carelessly simply because a restorer could glue the pieces together; but a belief that a lost species can be brought back may well make its loss seem less final, and therefore less serious. Presenting engineered wolves as the return of an extinct predator, as the 2025 announcement did, is precisely the kind of framing that encourages this belief.",
+    "None of this means that the underlying technology is worthless. On the contrary, its most promising uses have little to do with extinct animals. The black-footed ferret, a North American predator that was once reduced to a few dozen individuals, suffers from very low genetic diversity, because every living ferret descends from a handful of survivors. In 2020 scientists produced a clone from cells that had been frozen in the 1980s, reintroducing genetic variation that had been missing from the population for decades. Techniques developed for de-extinction might similarly be used to give endangered species resistance to disease, or to help corals cope with warmer seas.",
+    "The fairest conclusion, then, is that de-extinction is misnamed rather than misguided. As a promise to undo the losses of the past, it is unconvincing and potentially harmful. As a set of tools for protecting the species that remain, it may prove genuinely valuable. The test of the field over the coming decades will be whether its leaders are willing to describe their work in the second, more modest sense, even though that description is far less likely to make headlines. Such modesty would cost the field some publicity, but it would earn something more durable: the trust of the conservationists whose cooperation it will ultimately need."
+   ],
+   "groups": [
+    {
+     "type": "mcq",
+     "instructions": "Choose the correct letter, A, B, C or D.\n\nQuestions 27–29",
+     "questions": [
+      {
+       "text": "What does the writer say about the reactions to the 2025 announcement?",
+       "options": [
+        {
+         "key": "A",
+         "text": "Most of them were hostile to the company."
+        },
+        {
+         "key": "B",
+         "text": "Supporters and critics alike concentrated on the less important issue."
+        },
+        {
+         "key": "C",
+         "text": "The critics were right to say that the animals were not dire wolves."
+        },
+        {
+         "key": "D",
+         "text": "The admiration was justified by the scale of the scientific achievement."
+        }
+       ],
+       "answer": [
+        "B"
+       ]
+      },
+      {
+       "text": "The writer refers to the Pyrenean ibex in order to show that",
+       "options": [
+        {
+         "key": "A",
+         "text": "cloning is likely to succeed if cells are preserved soon enough."
+        },
+        {
+         "key": "B",
+         "text": "lung defects are common in animals produced by cloning."
+        },
+        {
+         "key": "C",
+         "text": "the most direct method of revival has so far achieved very little."
+        },
+        {
+         "key": "D",
+         "text": "most extinct species have left behind no DNA of any kind."
+        }
+       ],
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "What is the writer's view of the argument that 'resemblance is enough'?",
+       "options": [
+        {
+         "key": "A",
+         "text": "It contains a basic logical error."
+        },
+        {
+         "key": "B",
+         "text": "It applies only to the case of the mammoth."
+        },
+        {
+         "key": "C",
+         "text": "It has been confirmed by experiments in the Arctic."
+        },
+        {
+         "key": "D",
+         "text": "It is reasonable, but it means the proposals must be judged on different grounds."
+        }
+       ],
+       "answer": [
+        "D"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "ynng",
+     "instructions": "Do the following statements agree with the claims of the writer in Reading Passage 3? Write YES if the statement agrees with the claims of the writer, NO if the statement contradicts the claims of the writer, NOT GIVEN if it is impossible to say what the writer thinks about this.\n\nQuestions 30–34",
+     "questions": [
+      {
+       "text": "Releasing a few dozen engineered animals could be enough to restore an ecological role.",
+       "answer": [
+        "NO"
+       ]
+      },
+      {
+       "text": "Arctic ecosystems today are largely unchanged from the time when mammoths lived there.",
+       "answer": [
+        "NO"
+       ]
+      },
+      {
+       "text": "A public belief that extinction can be undone might reduce support for conservation.",
+       "answer": [
+        "YES"
+       ]
+      },
+      {
+       "text": "The 2025 announcement was intended to discourage people from funding conservation.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      },
+      {
+       "text": "Cloning will become the most important method for rescuing endangered species.",
+       "answer": [
+        "NOT GIVEN"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "summary-box",
+     "instructions": "Complete the summary using the list of words, A–I, below. Write the correct letter, A–I.\n\nQuestions 35–38",
+     "context": "A better use for the technology\nThe writer believes that the techniques developed for de-extinction are most useful for species that still (35) ______. The black-footed ferret, for instance, has very little genetic (36) ______ because the whole population descends from a few survivors. A ferret produced in 2020 from cells that had been (37) ______ decades earlier helped to restore some of what had been lost. Similar methods might help corals to tolerate warmer seas, or protect endangered species from (38) ______.",
+     "options": [
+      {
+       "key": "A",
+       "text": "survive"
+      },
+      {
+       "key": "B",
+       "text": "migrate"
+      },
+      {
+       "key": "C",
+       "text": "variation"
+      },
+      {
+       "key": "D",
+       "text": "size"
+      },
+      {
+       "key": "E",
+       "text": "frozen"
+      },
+      {
+       "key": "F",
+       "text": "cloned"
+      },
+      {
+       "key": "G",
+       "text": "disease"
+      },
+      {
+       "key": "H",
+       "text": "predators"
+      },
+      {
+       "key": "I",
+       "text": "hunting"
+      }
+     ],
+     "questions": [
+      {
+       "text": "(35) ______",
+       "answer": [
+        "A"
+       ]
+      },
+      {
+       "text": "(36) ______",
+       "answer": [
+        "C"
+       ]
+      },
+      {
+       "text": "(37) ______",
+       "answer": [
+        "E"
+       ]
+      },
+      {
+       "text": "(38) ______",
+       "answer": [
+        "G"
+       ]
+      }
+     ]
+    },
+    {
+     "type": "mcq-multi",
+     "instructions": "Choose TWO letters, A–E.\n\nQuestions 39–40",
+     "questions": [
+      {
+       "text": "Which TWO reasons does the writer give for doubting that engineered animals could restore lost ecosystems?",
+       "options": [
+        {
+         "key": "A",
+         "text": "A population large enough to matter would take a very long time to build up."
+        },
+        {
+         "key": "B",
+         "text": "The places where they would be released have changed since the original species died out."
+        },
+        {
+         "key": "C",
+         "text": "The engineered animals would be unable to digest Arctic plants."
+        },
+        {
+         "key": "D",
+         "text": "Local people would oppose the release of large animals near their homes."
+        },
+        {
+         "key": "E",
+         "text": "The engineered animals would be more vulnerable to disease than the originals."
+        }
+       ],
+       "answer": [
+        "A",
+        "B"
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "kind": "ielts-w",
+   "task": 1,
+   "visual": "table",
+   "prompt": "The table below gives information about public transport in five cities in 2024.\n\nSummarise the information by selecting and reporting the main features, and make comparisons where relevant.\n\nWrite at least 150 words.",
+   "table": {
+    "title": "Public transport in five cities, 2024",
+    "rows": [
+     [
+      "City",
+      "Population (millions)",
+      "Rail/metro network (km)",
+      "Public transport trips per day (millions)",
+      "Commuters using public transport (%)",
+      "Single fare (US$)"
+     ],
+     [
+      "Halvern",
+      "8.4",
+      "410",
+      "9.8",
+      "63",
+      "1.80"
+     ],
+     [
+      "Marlow Bay",
+      "6.9",
+      "40",
+      "1.7",
+      "21",
+      "0.60"
+     ],
+     [
+      "Corrin",
+      "5.2",
+      "95",
+      "2.9",
+      "38",
+      "0.90"
+     ],
+     [
+      "Tessaly",
+      "3.6",
+      "210",
+      "3.1",
+      "55",
+      "2.60"
+     ],
+     [
+      "Velden",
+      "1.8",
+      "0",
+      "0.9",
+      "34",
+      "1.20"
+     ]
+    ]
+   }
+  },
+  {
+   "kind": "ielts-w",
+   "task": 2,
+   "essayType": "two-part",
+   "prompt": "In many countries, people are living longer than ever before, yet a growing share of those extra years is spent in poor health.\n\nWhy is this happening? What can individuals and governments do to make sure that longer lives are also healthier ones?\n\nGive reasons for your answer and include any relevant examples from your own knowledge or experience.\n\nWrite at least 250 words."
+  }
+ ]
+}

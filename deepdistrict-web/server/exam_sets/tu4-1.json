@@ -1,0 +1,1515 @@
+{
+ "exam": "tu4",
+ "set": 1,
+ "title": {
+  "en": "Triam Udom Suksa M.4 English — Practice paper 1",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.4 เตรียมอุดมศึกษา — ชุดที่ 1"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "50 questions in 60 minutes in the Triam Udom style: cloze and reading at the core, error identification (collocations), and conversation. Tutor summaries report about 40 questions in recent years. DeepDistrict practice — not an official or past paper.",
+  "th": "50 ข้อ 60 นาที แนวเตรียมอุดมฯ: เติมคำในบทความและการอ่านเป็นแกนหลัก หาจุดผิด (เน้น collocation) และบทสนทนา (ข้อมูลจากสถาบันกวดวิชาระบุราว 40 ข้อในปีหลัง ๆ) — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Granting a polite request",
+    "th": "การตอบรับคำขออย่างสุภาพ"
+   },
+   "topic": {
+    "en": "Conversation: everyday response",
+    "th": "บทสนทนา: การตอบโต้ในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: I've been meaning to ask — would you mind if I borrowed your notes from the chemistry lecture?\nB: ______ I'll bring them in tomorrow.\nA: Thanks, you're a lifesaver.",
+   "explanation": {
+    "en": "'Would you mind if…?' is answered 'Not at all' when you agree, and B then promises to bring the notes. 'Yes, I would' means B does mind, which contradicts the next sentence; 'Never mind' and 'It's up to me' do not answer the request.",
+    "th": "คำถาม Would you mind if…? ถ้ายินยอมต้องตอบ Not at all (ไม่รังเกียจเลย) ซึ่งเข้ากับประโยคต่อไปที่ B สัญญาว่าจะเอาสมุดมาให้ ส่วน Yes, I would แปลว่ารังเกียจ จึงขัดกับประโยคถัดไป Never mind และ It's up to me ไม่ได้ตอบคำขอ"
+   },
+   "choices": [
+    "Not at all.",
+    "Yes, I would.",
+    "It's up to me.",
+    "Never mind."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Giving a balanced report on an outcome",
+    "th": "การเล่าผลที่ทั้งดีและไม่ดี"
+   },
+   "topic": {
+    "en": "Conversation: everyday response",
+    "th": "บทสนทนา: การตอบโต้ในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: How did the debate go? You looked so nervous beforehand.\nB: ______ We lost in the final round, but the judges said our rebuttal was the strongest of the day.",
+   "explanation": {
+    "en": "B lost but received praise, so 'It could have been worse' fits a mixed result. 'It was a piece of cake' suggests an easy win, 'I couldn't agree more' agrees with an opinion, and 'Better late than never' is about lateness.",
+    "th": "B แพ้แต่ได้รับคำชม จึงใช้ It could have been worse (ก็ไม่ได้แย่ที่สุด) เหมาะกับผลที่ปนกัน It was a piece of cake หมายถึงง่ายมาก I couldn't agree more ใช้เห็นด้วยกับความคิดเห็น และ Better late than never พูดเรื่องการมาช้า"
+   },
+   "choices": [
+    "It could have been worse.",
+    "I couldn't agree more.",
+    "Better late than never.",
+    "It was a piece of cake."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Expressing exasperated disbelief",
+    "th": "การแสดงความไม่อยากเชื่อด้วยความหงุดหงิด"
+   },
+   "topic": {
+    "en": "Conversation: everyday response",
+    "th": "บทสนทนา: การตอบโต้ในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: The committee has decided to postpone the field trip again.\nB: Again? ______ That's the third time this term.\nA: I know. Apparently the bus company double-booked us.",
+   "explanation": {
+    "en": "'Again?' and 'the third time this term' show annoyance, so B reacts with exasperated disbelief: 'You've got to be kidding.' 'That's a relief', 'Glad to hear it' and 'Good for them' all sound pleased about the delay.",
+    "th": "คำว่า Again? และ the third time this term แสดงความหงุดหงิด B จึงพูดว่า You've got to be kidding (ล้อเล่นหรือเปล่า) ส่วน That's a relief, Glad to hear it และ Good for them ล้วนฟังดูพอใจกับการเลื่อน ซึ่งขัดกับน้ำเสียงของ B"
+   },
+   "choices": [
+    "You've got to be kidding.",
+    "Glad to hear it.",
+    "Good for them.",
+    "That's a relief."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Questioning someone's decision tactfully",
+    "th": "การทักท้วงการตัดสินใจอย่างนุ่มนวล"
+   },
+   "topic": {
+    "en": "Conversation: everyday response",
+    "th": "บทสนทนา: การตอบโต้ในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: I'm thinking of dropping out of the science club — it's taking up too much of my time.\nB: ______ You've been talking about the national competition all year.\nA: I know, but my grades are starting to suffer.",
+   "explanation": {
+    "en": "B reminds A of the competition A was excited about, so B is gently questioning the decision: 'Are you sure that's wise?' 'That's the spirit!' and 'Go for it' encourage A to quit, and 'Rather you than me' means B would not want to do it, which does not lead into B's reminder.",
+    "th": "B เตือนว่า A พูดถึงการแข่งขันระดับชาติมาทั้งปี แปลว่า B ทักท้วงอย่างนุ่มนวลว่า Are you sure that's wise? ส่วน That's the spirit! และ Go for it สนับสนุนให้ลาออก และ Rather you than me (ถ้าเป็นฉันคงไม่ทำ) ไม่เชื่อมกับประโยคที่ B เตือนถัดมา"
+   },
+   "choices": [
+    "Rather you than me.",
+    "Are you sure that's wise?",
+    "Go for it — you won't regret it.",
+    "That's the spirit!"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring an implied opinion",
+    "th": "การอนุมานความเห็นที่ไม่ได้พูดตรง ๆ"
+   },
+   "topic": {
+    "en": "Conversation: implied meaning",
+    "th": "บทสนทนา: ความหมายแฝง"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: So, what did you think of Ploy's presentation?\nB: Well, the slides were certainly… colourful.\nA: ______\nB: Let's just say I'd have preferred fewer animations and more data.",
+   "explanation": {
+    "en": "B's hesitation and faint praise ('certainly… colourful') hint at disapproval, and B's last line confirms it. A picks up the hint: 'I take it you weren't impressed?' The other replies misread B as enthusiastic or ask about something B has already answered.",
+    "th": "B ลังเลและชมแบบไม่เต็มปาก (certainly… colourful) ซึ่งเป็นการบอกเป็นนัยว่าไม่ประทับใจ และประโยคสุดท้ายก็ยืนยัน A จึงพูดว่า I take it you weren't impressed? ส่วนคำตอบอื่นเข้าใจผิดว่า B ชอบ หรือถามเรื่องที่ B ตอบไปแล้ว"
+   },
+   "choices": [
+    "You must have loved the data, then.",
+    "Did she use enough colour?",
+    "I take it you weren't impressed?",
+    "So you'd recommend it to everyone?"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "e",
+   "skill": {
+    "en": "Collocation: apply for / apply to",
+    "th": "collocation: apply for / apply to"
+   },
+   "topic": {
+    "en": "Collocation",
+    "th": "คำปรากฏร่วม (collocation)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: After months of hesitation, Nattapong finally [[applied to]] the scholarship, [[which]] covers tuition [[as well as]] [[living]] expenses.",
+   "choices": [
+    "applied to",
+    "which",
+    "as well as",
+    "living"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "You 'apply for' something you hope to receive (a scholarship, a job, a visa) and 'apply to' an organisation (a university, a company). It should be 'applied for the scholarship'.",
+    "th": "ขอรับสิ่งที่ต้องการได้ (ทุน งาน วีซ่า) ใช้ apply for ส่วนยื่นต่อองค์กร (มหาวิทยาลัย บริษัท) ใช้ apply to จึงต้องเป็น applied for the scholarship"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "e",
+   "skill": {
+    "en": "Agreement with 'along with'",
+    "th": "ความสอดคล้องเมื่อมี along with"
+   },
+   "topic": {
+    "en": "Subject–verb agreement",
+    "th": "ความสอดคล้องของประธานและกริยา"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The coach, [[along with]] her assistants, [[were]] [[criticised]] for [[the]] team's poor performance.",
+   "choices": [
+    "along with",
+    "were",
+    "criticised",
+    "the"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The subject is 'The coach'; a phrase introduced by 'along with' does not make it plural. The verb should be 'was criticised'.",
+    "th": "ประธานคือ The coach (เอกพจน์) วลีที่ขึ้นต้นด้วย along with ไม่ทำให้ประธานเป็นพหูพจน์ กริยาจึงต้องเป็น was criticised"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Word form: economic / economical",
+    "th": "รูปคำ: economic / economical"
+   },
+   "topic": {
+    "en": "Word form",
+    "th": "รูปคำ (word form)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The new policy has had a [[significant]] effect [[on]] the [[economical]] growth of rural areas [[over]] the past decade.",
+   "choices": [
+    "significant",
+    "on",
+    "economical",
+    "over"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'Economic' means related to the economy; 'economical' means saving money. Growth of an area's economy is 'economic growth'.",
+    "th": "economic แปลว่าเกี่ยวกับเศรษฐกิจ ส่วน economical แปลว่าประหยัด การเติบโตทางเศรษฐกิจจึงต้องเป็น economic growth"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Uncountable noun with few / little",
+    "th": "คำนามนับไม่ได้กับ few / little"
+   },
+   "topic": {
+    "en": "Countable and uncountable nouns",
+    "th": "คำนามนับได้และนับไม่ได้"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: Before you [[set off]], make sure you have [[enough]] water, because the trail [[is]] steep and there is [[few]] shade along the way.",
+   "choices": [
+    "set off",
+    "enough",
+    "is",
+    "few"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "'Shade' is uncountable, so it takes 'little', not 'few': 'there is little shade'.",
+    "th": "shade เป็นคำนามนับไม่ได้ ต้องใช้ little ไม่ใช่ few จึงเป็น there is little shade"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Dependent preposition: depend on",
+    "th": "คำบุพบทที่ตามกริยา: depend on"
+   },
+   "topic": {
+    "en": "Prepositions",
+    "th": "คำบุพบท"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The success of the campaign [[depended]] [[of]] the willingness of local shops [[to stop]] [[giving out]] plastic bags.",
+   "choices": [
+    "depended",
+    "of",
+    "to stop",
+    "giving out"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The verb 'depend' takes 'on' (or 'upon'), never 'of': 'depended on the willingness'.",
+    "th": "กริยา depend ใช้คู่กับ on (หรือ upon) ไม่ใช่ of จึงต้องเป็น depended on the willingness"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "'Look forward to' + -ing",
+    "th": "look forward to + V-ing"
+   },
+   "topic": {
+    "en": "Verb forms",
+    "th": "รูปกริยา"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The delegates [[are looking]] forward [[to]] [[visit]] the old city, [[which]] was rebuilt after the great fire.",
+   "choices": [
+    "are looking",
+    "to",
+    "visit",
+    "which"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "In 'look forward to', 'to' is a preposition, so it is followed by a gerund: 'looking forward to visiting'.",
+    "th": "ใน look forward to คำว่า to เป็นคำบุพบท จึงตามด้วย V-ing ต้องเป็น looking forward to visiting"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Collocation: make an error",
+    "th": "collocation: make an error"
+   },
+   "topic": {
+    "en": "Collocation",
+    "th": "คำปรากฏร่วม (collocation)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: Investigators [[concluded]] that the error, [[though]] minor, had [[been]] [[done]] by a technician who had worked a double shift.",
+   "choices": [
+    "concluded",
+    "though",
+    "been",
+    "done"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Errors and mistakes are 'made', not 'done': 'had been made by a technician'.",
+    "th": "error และ mistake ใช้กับกริยา make ไม่ใช่ do จึงต้องเป็น had been made by a technician"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion after 'Hardly'",
+    "th": "การสลับที่หลัง Hardly"
+   },
+   "topic": {
+    "en": "Inversion",
+    "th": "การสลับที่ประธานกับกริยา (inversion)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: Hardly [[I had]] stepped onto the platform [[when]] the doors closed [[behind]] me and the train [[pulled]] away.",
+   "choices": [
+    "I had",
+    "when",
+    "behind",
+    "pulled"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A negative adverb such as 'Hardly' at the start of a sentence requires inversion: 'Hardly had I stepped…when…'.",
+    "th": "เมื่อขึ้นต้นประโยคด้วยคำปฏิเสธอย่าง Hardly ต้องสลับกริยาช่วยไว้หน้าประธาน เป็น Hardly had I stepped … when …"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Preposition + which in a relative clause",
+    "th": "คำบุพบท + which ในอนุประโยค relative"
+   },
+   "topic": {
+    "en": "Relative clauses",
+    "th": "อนุประโยค relative"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: Despite [[being]] warned repeatedly, the company continued to [[dump]] waste into the river, an action [[for that]] it was [[eventually]] fined.",
+   "choices": [
+    "being",
+    "dump",
+    "for that",
+    "eventually"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'That' cannot follow a preposition in a relative clause. After 'for' we need 'which': 'an action for which it was eventually fined'.",
+    "th": "that ใช้ตามหลังคำบุพบทในอนุประโยค relative ไม่ได้ หลัง for ต้องใช้ which เป็น an action for which it was eventually fined"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Verb without a preposition: emphasise",
+    "th": "กริยาที่ไม่ต้องมีบุพบท: emphasise"
+   },
+   "topic": {
+    "en": "Collocation",
+    "th": "คำปรากฏร่วม (collocation)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The report, [[compiled]] by a team of economists, [[emphasises on]] the need for [[closer]] cooperation [[between]] the two regions.",
+   "choices": [
+    "compiled",
+    "emphasises on",
+    "closer",
+    "between"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "'Emphasise' is transitive and takes a direct object: 'emphasises the need'. 'On' belongs only with the noun: 'places emphasis on'.",
+    "th": "emphasise เป็นกริยาที่ตามด้วยกรรมได้ทันที ต้องเป็น emphasises the need ส่วน on ใช้กับคำนาม เช่น places emphasis on"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Collocation: condemn something as",
+    "th": "collocation: condemn … as"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "When Bangkok's city authorities announced plans to clear food vendors from several busy pavements, the reaction was swift. Food writers and ordinary residents alike (1) ______ the move as an attack on one of the city's most valuable traditions. Officials, on the other hand, insisted that the decision had been made (2) ______ public safety rather than appearance: pedestrians, they argued, were being forced into the road because the stalls took up so much space. The debate soon became (3) ______ political. For many, it raised the question of who a city is really for — the tourists who photograph its markets or the workers who (4) ______ a living from them. Eventually a compromise was reached. Vendors were allowed to stay, (5) ______ they kept a marked lane clear for pedestrians and closed their stalls by midnight.",
+   "stem": "Which option best fills gap (1)?",
+   "explanation": {
+    "en": "Only 'condemn' fits the pattern 'condemn X as Y'. We 'blame someone for', 'accuse someone of' and 'complain about', so none of them can be followed by 'the move as'.",
+    "th": "มีเพียง condemn ที่ใช้รูป condemn X as Y ได้ ส่วน blame ใช้กับ for, accuse ใช้กับ of และ complain ใช้กับ about จึงตามด้วย the move as ไม่ได้"
+   },
+   "choices": [
+    "condemned",
+    "accused",
+    "complained",
+    "blamed"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "e",
+   "skill": {
+    "en": "Linking phrase of reason",
+    "th": "วลีบอกเหตุผล"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "When Bangkok's city authorities announced plans to clear food vendors from several busy pavements, the reaction was swift. Food writers and ordinary residents alike (1) ______ the move as an attack on one of the city's most valuable traditions. Officials, on the other hand, insisted that the decision had been made (2) ______ public safety rather than appearance: pedestrians, they argued, were being forced into the road because the stalls took up so much space. The debate soon became (3) ______ political. For many, it raised the question of who a city is really for — the tourists who photograph its markets or the workers who (4) ______ a living from them. Eventually a compromise was reached. Vendors were allowed to stay, (5) ______ they kept a marked lane clear for pedestrians and closed their stalls by midnight.",
+   "stem": "Which option best fills gap (2)?",
+   "explanation": {
+    "en": "Officials say safety was their reason, so 'out of concern for public safety' is right. 'In spite of' and 'regardless of' say the opposite, and 'instead of' would mean they chose something other than safety.",
+    "th": "เจ้าหน้าที่บอกว่าความปลอดภัยคือเหตุผล จึงใช้ out of concern for public safety ส่วน in spite of และ regardless of มีความหมายตรงข้าม และ instead of แปลว่าเลือกสิ่งอื่นแทนความปลอดภัย"
+   },
+   "choices": [
+    "in spite of",
+    "instead of",
+    "out of concern for",
+    "regardless of"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "e",
+   "skill": {
+    "en": "Word form: adverb before an adjective",
+    "th": "รูปคำ: adverb ขยาย adjective"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "When Bangkok's city authorities announced plans to clear food vendors from several busy pavements, the reaction was swift. Food writers and ordinary residents alike (1) ______ the move as an attack on one of the city's most valuable traditions. Officials, on the other hand, insisted that the decision had been made (2) ______ public safety rather than appearance: pedestrians, they argued, were being forced into the road because the stalls took up so much space. The debate soon became (3) ______ political. For many, it raised the question of who a city is really for — the tourists who photograph its markets or the workers who (4) ______ a living from them. Eventually a compromise was reached. Vendors were allowed to stay, (5) ______ they kept a marked lane clear for pedestrians and closed their stalls by midnight.",
+   "stem": "Which option best fills gap (3)?",
+   "explanation": {
+    "en": "An adverb is needed to modify the adjective 'political': 'intensely political'. 'Intense' is an adjective, 'intensity' a noun and 'intensify' a verb.",
+    "th": "ต้องใช้ adverb ขยาย adjective political จึงเป็น intensely political ส่วน intense เป็น adjective, intensity เป็นคำนาม และ intensify เป็นกริยา"
+   },
+   "choices": [
+    "intensely",
+    "intensify",
+    "intensity",
+    "intense"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Collocation: make a living",
+    "th": "collocation: make a living"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "When Bangkok's city authorities announced plans to clear food vendors from several busy pavements, the reaction was swift. Food writers and ordinary residents alike (1) ______ the move as an attack on one of the city's most valuable traditions. Officials, on the other hand, insisted that the decision had been made (2) ______ public safety rather than appearance: pedestrians, they argued, were being forced into the road because the stalls took up so much space. The debate soon became (3) ______ political. For many, it raised the question of who a city is really for — the tourists who photograph its markets or the workers who (4) ______ a living from them. Eventually a compromise was reached. Vendors were allowed to stay, (5) ______ they kept a marked lane clear for pedestrians and closed their stalls by midnight.",
+   "stem": "Which option best fills gap (4)?",
+   "explanation": {
+    "en": "The fixed expression is 'make a living' (earn the money you need to live). 'Do', 'take' and 'win' do not collocate with 'a living'.",
+    "th": "สำนวนตายตัวคือ make a living (หาเลี้ยงชีพ) ส่วน do, take และ win ไม่ใช้กับ a living"
+   },
+   "choices": [
+    "take",
+    "win",
+    "do",
+    "make"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Conditional linker: provided that",
+    "th": "คำเชื่อมเงื่อนไข: provided that"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "When Bangkok's city authorities announced plans to clear food vendors from several busy pavements, the reaction was swift. Food writers and ordinary residents alike (1) ______ the move as an attack on one of the city's most valuable traditions. Officials, on the other hand, insisted that the decision had been made (2) ______ public safety rather than appearance: pedestrians, they argued, were being forced into the road because the stalls took up so much space. The debate soon became (3) ______ political. For many, it raised the question of who a city is really for — the tourists who photograph its markets or the workers who (4) ______ a living from them. Eventually a compromise was reached. Vendors were allowed to stay, (5) ______ they kept a marked lane clear for pedestrians and closed their stalls by midnight.",
+   "stem": "Which option best fills gap (5)?",
+   "explanation": {
+    "en": "Keeping a lane clear and closing by midnight are the conditions of the compromise, so 'provided that' (only if) is right. 'Unless' reverses the logic, 'in case' means as a precaution, and 'so that' expresses purpose.",
+    "th": "การเว้นทางเดินและปิดร้านก่อนเที่ยงคืนเป็นเงื่อนไขของข้อตกลง จึงใช้ provided that (โดยมีเงื่อนไขว่า) unless กลับความหมาย in case แปลว่าเผื่อไว้ และ so that บอกจุดประสงค์"
+   },
+   "choices": [
+    "so that",
+    "in case",
+    "unless",
+    "provided that"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Phrasal verb: dwell on",
+    "th": "phrasal verb: dwell on"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "My grandfather was never one to (6) ______ on the war years, and as children we learned not to ask. So when a parcel arrived from Japan addressed to him, the whole family gathered round, curious and a little (7) ______. Inside was a battered wooden box and a letter written in careful English. The writer explained that her father had kept the box for sixty years, (8) ______ that one day he would find its owner. My grandfather turned it over in his hands for a long time. Then, to our astonishment, he began to talk — about a bridge, a storm, and a young soldier who had shared his last cup of rice with a stranger. (9) ______ had he finished than the room fell completely silent. It was as if he had been waiting all his life for someone to (10) ______ him permission to remember.",
+   "stem": "Which option best fills gap (6)?",
+   "explanation": {
+    "en": "'Dwell on' means to keep thinking or talking about something unpleasant, which suits a grandfather who avoided the war. 'Depend on', 'count on' and 'rely on' mean to trust or need, which makes no sense here.",
+    "th": "dwell on แปลว่าครุ่นคิดหรือพูดถึงเรื่องไม่สบายใจซ้ำ ๆ เหมาะกับคุณตาที่ไม่อยากพูดเรื่องสงคราม ส่วน depend on, count on และ rely on แปลว่าพึ่งพา ซึ่งไม่เข้ากับความหมาย"
+   },
+   "choices": [
+    "depend",
+    "rely",
+    "dwell",
+    "count"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "e",
+   "skill": {
+    "en": "Word form: adjective after 'a little'",
+    "th": "รูปคำ: adjective หลัง a little"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "My grandfather was never one to (6) ______ on the war years, and as children we learned not to ask. So when a parcel arrived from Japan addressed to him, the whole family gathered round, curious and a little (7) ______. Inside was a battered wooden box and a letter written in careful English. The writer explained that her father had kept the box for sixty years, (8) ______ that one day he would find its owner. My grandfather turned it over in his hands for a long time. Then, to our astonishment, he began to talk — about a bridge, a storm, and a young soldier who had shared his last cup of rice with a stranger. (9) ______ had he finished than the room fell completely silent. It was as if he had been waiting all his life for someone to (10) ______ him permission to remember.",
+   "stem": "Which option best fills gap (7)?",
+   "explanation": {
+    "en": "'Curious and a little ___' needs an adjective parallel to 'curious': 'apprehensive' (slightly worried). The others are a noun, a verb and an adverb.",
+    "th": "curious and a little ___ ต้องใช้ adjective ให้ขนานกับ curious จึงเป็น apprehensive (กังวลเล็กน้อย) ส่วนตัวเลือกอื่นเป็นคำนาม กริยา และ adverb"
+   },
+   "choices": [
+    "apprehensive",
+    "apprehend",
+    "apprehension",
+    "apprehensively"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Participle clause of accompanying action",
+    "th": "participle clause แสดงการกระทำที่เกิดพร้อมกัน"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "My grandfather was never one to (6) ______ on the war years, and as children we learned not to ask. So when a parcel arrived from Japan addressed to him, the whole family gathered round, curious and a little (7) ______. Inside was a battered wooden box and a letter written in careful English. The writer explained that her father had kept the box for sixty years, (8) ______ that one day he would find its owner. My grandfather turned it over in his hands for a long time. Then, to our astonishment, he began to talk — about a bridge, a storm, and a young soldier who had shared his last cup of rice with a stranger. (9) ______ had he finished than the room fell completely silent. It was as if he had been waiting all his life for someone to (10) ______ him permission to remember.",
+   "stem": "Which option best fills gap (8)?",
+   "explanation": {
+    "en": "The present participle 'hoping' describes his state of mind throughout the sixty years. 'Hoped' would need a subject, 'to hope' suggests purpose, and 'having hoped' implies the hope ended before he kept the box.",
+    "th": "present participle hoping บอกความรู้สึกที่มีอยู่ตลอดหกสิบปี hoped ต้องมีประธาน to hope ให้ความหมายเชิงจุดประสงค์ และ having hoped แปลว่าหวังเสร็จไปก่อนแล้ว ซึ่งไม่ถูก"
+   },
+   "choices": [
+    "to hope",
+    "having hoped",
+    "hoped",
+    "hoping"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion: No sooner … than",
+    "th": "การสลับที่: No sooner … than"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "My grandfather was never one to (6) ______ on the war years, and as children we learned not to ask. So when a parcel arrived from Japan addressed to him, the whole family gathered round, curious and a little (7) ______. Inside was a battered wooden box and a letter written in careful English. The writer explained that her father had kept the box for sixty years, (8) ______ that one day he would find its owner. My grandfather turned it over in his hands for a long time. Then, to our astonishment, he began to talk — about a bridge, a storm, and a young soldier who had shared his last cup of rice with a stranger. (9) ______ had he finished than the room fell completely silent. It was as if he had been waiting all his life for someone to (10) ______ him permission to remember.",
+   "stem": "Which option best fills gap (9)?",
+   "explanation": {
+    "en": "All four can start an inverted clause, but only 'No sooner' pairs with 'than'. 'Hardly', 'Scarcely' and 'Barely' are followed by 'when'.",
+    "th": "ทั้งสี่คำขึ้นต้นประโยคแบบสลับที่ได้ แต่มีเพียง No sooner ที่คู่กับ than ส่วน Hardly, Scarcely และ Barely ต้องคู่กับ when"
+   },
+   "choices": [
+    "Barely",
+    "Scarcely",
+    "Hardly",
+    "No sooner"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Collocation: give someone permission",
+    "th": "collocation: give someone permission"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "My grandfather was never one to (6) ______ on the war years, and as children we learned not to ask. So when a parcel arrived from Japan addressed to him, the whole family gathered round, curious and a little (7) ______. Inside was a battered wooden box and a letter written in careful English. The writer explained that her father had kept the box for sixty years, (8) ______ that one day he would find its owner. My grandfather turned it over in his hands for a long time. Then, to our astonishment, he began to talk — about a bridge, a storm, and a young soldier who had shared his last cup of rice with a stranger. (9) ______ had he finished than the room fell completely silent. It was as if he had been waiting all his life for someone to (10) ______ him permission to remember.",
+   "stem": "Which option best fills gap (10)?",
+   "explanation": {
+    "en": "We 'give someone permission'. 'Let' and 'make' are followed by a bare infinitive ('let him remember'), not a noun, and 'take permission' is not used this way.",
+    "th": "ใช้ give someone permission ส่วน let และ make ต้องตามด้วยกริยาช่อง 1 (let him remember) ไม่ใช่คำนาม และไม่ใช้ take ในความหมายนี้"
+   },
+   "choices": [
+    "let",
+    "give",
+    "make",
+    "take"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Phrasal verb: bear out",
+    "th": "phrasal verb: bear out"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "Thai students are often said to be among the most hard-working in the region, and the hours many of them spend in tutoring schools would seem to (11) ______ this reputation. Yet hard work is not the same as effective learning. A student who memorises a hundred model answers may score well on a test (12) ______ the questions are familiar, but struggle the moment a problem is phrased in an unexpected way. The real goal of education, surely, is not to fill students' heads with facts but to develop minds (13) ______ of coping with the unfamiliar. (14) ______ this is achieved, longer hours at a desk will only produce tired students, not capable ones. Schools that have shifted towards discussion and projects have found that exam results, far from (15) ______, often improve.",
+   "stem": "Which option best fills gap (11)?",
+   "explanation": {
+    "en": "'Bear out' means to confirm or support, which is what long tutoring hours do to a reputation for hard work. 'Carry on' means continue, 'put off' means postpone, and 'take over' means gain control of.",
+    "th": "bear out แปลว่ายืนยันหรือสนับสนุน ชั่วโมงเรียนพิเศษที่ยาวจึงยืนยันชื่อเสียงเรื่องความขยัน ส่วน carry on แปลว่าทำต่อ put off แปลว่าเลื่อน และ take over แปลว่าเข้าควบคุม"
+   },
+   "choices": [
+    "put off",
+    "bear out",
+    "take over",
+    "carry on"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Relative pronoun after a preposition",
+    "th": "relative pronoun หลังคำบุพบท"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "Thai students are often said to be among the most hard-working in the region, and the hours many of them spend in tutoring schools would seem to (11) ______ this reputation. Yet hard work is not the same as effective learning. A student who memorises a hundred model answers may score well on a test (12) ______ the questions are familiar, but struggle the moment a problem is phrased in an unexpected way. The real goal of education, surely, is not to fill students' heads with facts but to develop minds (13) ______ of coping with the unfamiliar. (14) ______ this is achieved, longer hours at a desk will only produce tired students, not capable ones. Schools that have shifted towards discussion and projects have found that exam results, far from (15) ______, often improve.",
+   "stem": "Which option best fills gap (12)?",
+   "explanation": {
+    "en": "The clause 'the questions are familiar' is complete, so we need 'in which' (= where) to link it to 'a test'. 'Which' alone would need a gap in the clause, 'whom' is for people, and 'that of' does not form a relative clause.",
+    "th": "ประโยค the questions are familiar สมบูรณ์แล้ว จึงต้องใช้ in which (= where) เชื่อมกับ a test ส่วน which เฉย ๆ ต้องมีส่วนที่ขาดในประโยค whom ใช้กับคน และ that of ไม่ใช่ relative clause"
+   },
+   "choices": [
+    "in which",
+    "which",
+    "whom",
+    "that of"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Adjective + preposition: capable of",
+    "th": "adjective + บุพบท: capable of"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "Thai students are often said to be among the most hard-working in the region, and the hours many of them spend in tutoring schools would seem to (11) ______ this reputation. Yet hard work is not the same as effective learning. A student who memorises a hundred model answers may score well on a test (12) ______ the questions are familiar, but struggle the moment a problem is phrased in an unexpected way. The real goal of education, surely, is not to fill students' heads with facts but to develop minds (13) ______ of coping with the unfamiliar. (14) ______ this is achieved, longer hours at a desk will only produce tired students, not capable ones. Schools that have shifted towards discussion and projects have found that exam results, far from (15) ______, often improve.",
+   "stem": "Which option best fills gap (13)?",
+   "explanation": {
+    "en": "Only 'capable' takes 'of + -ing': 'capable of coping'. We say 'able to cope', 'skilled at/in' and 'competent at/in'.",
+    "th": "มีเพียง capable ที่ใช้กับ of + V-ing (capable of coping) ส่วน able ใช้ able to, skilled ใช้ at/in และ competent ใช้ at/in"
+   },
+   "choices": [
+    "able",
+    "competent",
+    "capable",
+    "skilled"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Negative condition: unless",
+    "th": "เงื่อนไขปฏิเสธ: unless"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "Thai students are often said to be among the most hard-working in the region, and the hours many of them spend in tutoring schools would seem to (11) ______ this reputation. Yet hard work is not the same as effective learning. A student who memorises a hundred model answers may score well on a test (12) ______ the questions are familiar, but struggle the moment a problem is phrased in an unexpected way. The real goal of education, surely, is not to fill students' heads with facts but to develop minds (13) ______ of coping with the unfamiliar. (14) ______ this is achieved, longer hours at a desk will only produce tired students, not capable ones. Schools that have shifted towards discussion and projects have found that exam results, far from (15) ______, often improve.",
+   "stem": "Which option best fills gap (14)?",
+   "explanation": {
+    "en": "The meaning is 'if this is not achieved, longer hours will only produce tired students', which is 'Unless'. 'Provided' gives the opposite logic, 'Whether' needs 'or not', and 'Even though' expresses concession.",
+    "th": "ความหมายคือถ้าไม่บรรลุเป้าหมายนี้ ชั่วโมงเรียนที่มากขึ้นก็ได้แต่นักเรียนที่เหนื่อยล้า จึงใช้ Unless ส่วน Provided ให้ความหมายตรงข้าม Whether ต้องมี or not และ Even though แสดงการยอมรับขัดแย้ง"
+   },
+   "choices": [
+    "Unless",
+    "Even though",
+    "Whether",
+    "Provided"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Gerund after 'far from'",
+    "th": "V-ing หลัง far from"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "Thai students are often said to be among the most hard-working in the region, and the hours many of them spend in tutoring schools would seem to (11) ______ this reputation. Yet hard work is not the same as effective learning. A student who memorises a hundred model answers may score well on a test (12) ______ the questions are familiar, but struggle the moment a problem is phrased in an unexpected way. The real goal of education, surely, is not to fill students' heads with facts but to develop minds (13) ______ of coping with the unfamiliar. (14) ______ this is achieved, longer hours at a desk will only produce tired students, not capable ones. Schools that have shifted towards discussion and projects have found that exam results, far from (15) ______, often improve.",
+   "stem": "Which option best fills gap (15)?",
+   "explanation": {
+    "en": "'From' is a preposition, so it takes a gerund: 'far from falling' (= instead of falling, as some might fear).",
+    "th": "from เป็นคำบุพบท จึงตามด้วย V-ing เป็น far from falling (แทนที่จะลดลงอย่างที่บางคนกังวล)"
+   },
+   "choices": [
+    "fallen",
+    "falling",
+    "fall",
+    "to fall"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Main idea of a news report",
+    "th": "ใจความหลักของข่าว"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "CHIANG RAI — A secondary school in northern Thailand has become the latest to abandon traditional end-of-year examinations, replacing them with projects that students must complete together with members of the local community.\n\nUnder the scheme, introduced at Ban Huai Sai School this term, Mathayom 4 students work in teams to tackle a problem identified by village leaders. Projects so far have included a study of water quality in a nearby stream, a website for a weaving cooperative and a survey of elderly residents' access to health care. Each team presents its findings to a panel that includes teachers, parents and the village headman.\n\nDirector Somchai Kaewmanee said the change had been \"a long time coming\". \"For years we tested whether students could remember what we had told them,\" he said. \"Now we are asking whether they can use it.\"\n\nNot everyone is convinced. Some parents fear that their children will be at a disadvantage when they sit national university entrance tests, which remain heavily based on multiple-choice questions. \"It's a lovely idea,\" said one mother, who asked not to be named, \"but lovely ideas don't get you into medical school.\"\n\nEducation researchers are also cautious. Dr Anong Prasert, who studies school assessment, noted that similar schemes elsewhere had produced mixed results. \"Projects can be transformative when teachers are trained to assess them fairly,\" she said. \"Without that training, the marks tend to reward whoever speaks most confidently on presentation day.\"\n\nThe school says it has addressed this concern by giving every teacher a week of training and by publishing its marking criteria in advance. Early signs are encouraging: attendance has risen by eight per cent since the scheme began, and the weaving cooperative reports that its online orders have doubled.\n\nWhether the approach will survive the pressure of university admissions, however, remains to be seen.",
+   "stem": "What is the report mainly about?",
+   "explanation": {
+    "en": "The whole report describes the school replacing end-of-year exams with community projects, and the reactions to it. The other choices are either details twisted out of context or not stated.",
+    "th": "ข่าวทั้งเรื่องเล่าถึงโรงเรียนที่เปลี่ยนจากการสอบปลายปีมาเป็นโครงงานกับชุมชน และปฏิกิริยาต่อการเปลี่ยนแปลงนี้ ตัวเลือกอื่นบิดเบือนรายละเอียดหรือไม่มีในข่าว"
+   },
+   "choices": [
+    "A school's decision to assess students through community projects instead of exams",
+    "A parents' campaign to bring back multiple-choice examinations",
+    "A weaving cooperative that has started employing secondary school students",
+    "A university study proving that projects improve entrance-test results"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Interpreting a quoted remark",
+    "th": "การตีความคำพูดที่ยกมา"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "CHIANG RAI — A secondary school in northern Thailand has become the latest to abandon traditional end-of-year examinations, replacing them with projects that students must complete together with members of the local community.\n\nUnder the scheme, introduced at Ban Huai Sai School this term, Mathayom 4 students work in teams to tackle a problem identified by village leaders. Projects so far have included a study of water quality in a nearby stream, a website for a weaving cooperative and a survey of elderly residents' access to health care. Each team presents its findings to a panel that includes teachers, parents and the village headman.\n\nDirector Somchai Kaewmanee said the change had been \"a long time coming\". \"For years we tested whether students could remember what we had told them,\" he said. \"Now we are asking whether they can use it.\"\n\nNot everyone is convinced. Some parents fear that their children will be at a disadvantage when they sit national university entrance tests, which remain heavily based on multiple-choice questions. \"It's a lovely idea,\" said one mother, who asked not to be named, \"but lovely ideas don't get you into medical school.\"\n\nEducation researchers are also cautious. Dr Anong Prasert, who studies school assessment, noted that similar schemes elsewhere had produced mixed results. \"Projects can be transformative when teachers are trained to assess them fairly,\" she said. \"Without that training, the marks tend to reward whoever speaks most confidently on presentation day.\"\n\nThe school says it has addressed this concern by giving every teacher a week of training and by publishing its marking criteria in advance. Early signs are encouraging: attendance has risen by eight per cent since the scheme began, and the weaving cooperative reports that its online orders have doubled.\n\nWhether the approach will survive the pressure of university admissions, however, remains to be seen.",
+   "stem": "The director's comment \"Now we are asking whether they can use it\" suggests that the old exams ______.",
+   "explanation": {
+    "en": "He contrasts testing 'whether students could remember' with asking 'whether they can use it', so the old exams tested recall, not application.",
+    "th": "ผู้อำนวยการเปรียบเทียบการสอบว่า 'จำได้หรือไม่' กับการถามว่า 'นำไปใช้ได้หรือไม่' แสดงว่าการสอบแบบเดิมวัดความจำ ไม่ใช่การนำความรู้ไปใช้"
+   },
+   "choices": [
+    "relied too heavily on group work",
+    "measured memory rather than the ability to apply knowledge",
+    "ignored the views of village leaders",
+    "were too difficult for most students"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Implied meaning of a quotation",
+    "th": "ความหมายแฝงของคำพูด"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "CHIANG RAI — A secondary school in northern Thailand has become the latest to abandon traditional end-of-year examinations, replacing them with projects that students must complete together with members of the local community.\n\nUnder the scheme, introduced at Ban Huai Sai School this term, Mathayom 4 students work in teams to tackle a problem identified by village leaders. Projects so far have included a study of water quality in a nearby stream, a website for a weaving cooperative and a survey of elderly residents' access to health care. Each team presents its findings to a panel that includes teachers, parents and the village headman.\n\nDirector Somchai Kaewmanee said the change had been \"a long time coming\". \"For years we tested whether students could remember what we had told them,\" he said. \"Now we are asking whether they can use it.\"\n\nNot everyone is convinced. Some parents fear that their children will be at a disadvantage when they sit national university entrance tests, which remain heavily based on multiple-choice questions. \"It's a lovely idea,\" said one mother, who asked not to be named, \"but lovely ideas don't get you into medical school.\"\n\nEducation researchers are also cautious. Dr Anong Prasert, who studies school assessment, noted that similar schemes elsewhere had produced mixed results. \"Projects can be transformative when teachers are trained to assess them fairly,\" she said. \"Without that training, the marks tend to reward whoever speaks most confidently on presentation day.\"\n\nThe school says it has addressed this concern by giving every teacher a week of training and by publishing its marking criteria in advance. Early signs are encouraging: attendance has risen by eight per cent since the scheme began, and the weaving cooperative reports that its online orders have doubled.\n\nWhether the approach will survive the pressure of university admissions, however, remains to be seen.",
+   "stem": "What does the mother imply when she says \"lovely ideas don't get you into medical school\"?",
+   "explanation": {
+    "en": "She praises the idea but worries it will not prepare students for the multiple-choice entrance tests that decide places on competitive courses such as medicine.",
+    "th": "เธอชมว่าเป็นความคิดที่ดี แต่กังวลว่าจะไม่ช่วยให้ลูกสอบเข้าคณะที่แข่งขันสูงอย่างแพทย์ ซึ่งยังใช้ข้อสอบปรนัย"
+   },
+   "choices": [
+    "She believes medical schools should start accepting project work.",
+    "She doubts the scheme will help her child win a place on a competitive university course.",
+    "She objects to village leaders choosing the topics of the projects.",
+    "She thinks the community projects are too difficult for fifteen-year-olds."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding an expert's reservation",
+    "th": "การเข้าใจข้อกังวลของผู้เชี่ยวชาญ"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "CHIANG RAI — A secondary school in northern Thailand has become the latest to abandon traditional end-of-year examinations, replacing them with projects that students must complete together with members of the local community.\n\nUnder the scheme, introduced at Ban Huai Sai School this term, Mathayom 4 students work in teams to tackle a problem identified by village leaders. Projects so far have included a study of water quality in a nearby stream, a website for a weaving cooperative and a survey of elderly residents' access to health care. Each team presents its findings to a panel that includes teachers, parents and the village headman.\n\nDirector Somchai Kaewmanee said the change had been \"a long time coming\". \"For years we tested whether students could remember what we had told them,\" he said. \"Now we are asking whether they can use it.\"\n\nNot everyone is convinced. Some parents fear that their children will be at a disadvantage when they sit national university entrance tests, which remain heavily based on multiple-choice questions. \"It's a lovely idea,\" said one mother, who asked not to be named, \"but lovely ideas don't get you into medical school.\"\n\nEducation researchers are also cautious. Dr Anong Prasert, who studies school assessment, noted that similar schemes elsewhere had produced mixed results. \"Projects can be transformative when teachers are trained to assess them fairly,\" she said. \"Without that training, the marks tend to reward whoever speaks most confidently on presentation day.\"\n\nThe school says it has addressed this concern by giving every teacher a week of training and by publishing its marking criteria in advance. Early signs are encouraging: attendance has risen by eight per cent since the scheme began, and the weaving cooperative reports that its online orders have doubled.\n\nWhether the approach will survive the pressure of university admissions, however, remains to be seen.",
+   "stem": "What is Dr Anong's main reservation about project-based assessment?",
+   "explanation": {
+    "en": "She says projects work 'when teachers are trained to assess them fairly'; otherwise marks reward 'whoever speaks most confidently'. She does not say projects are always worse ('mixed results').",
+    "th": "เธอบอกว่าโครงงานได้ผลดี 'เมื่อครูได้รับการอบรมให้ประเมินอย่างยุติธรรม' มิฉะนั้นคะแนนจะตกแก่ 'คนที่พูดมั่นใจที่สุด' เธอไม่ได้บอกว่าโครงงานแย่กว่าเสมอ (ผลออกมา mixed)"
+   },
+   "choices": [
+    "Projects are always less reliable than written examinations.",
+    "Students in other countries have rejected similar schemes.",
+    "Teachers dislike having parents on the assessment panel.",
+    "Without proper training, marks may reward confidence rather than the quality of the work."
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Identifying the writer's stance",
+    "th": "การระบุจุดยืนของผู้เขียน"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "CHIANG RAI — A secondary school in northern Thailand has become the latest to abandon traditional end-of-year examinations, replacing them with projects that students must complete together with members of the local community.\n\nUnder the scheme, introduced at Ban Huai Sai School this term, Mathayom 4 students work in teams to tackle a problem identified by village leaders. Projects so far have included a study of water quality in a nearby stream, a website for a weaving cooperative and a survey of elderly residents' access to health care. Each team presents its findings to a panel that includes teachers, parents and the village headman.\n\nDirector Somchai Kaewmanee said the change had been \"a long time coming\". \"For years we tested whether students could remember what we had told them,\" he said. \"Now we are asking whether they can use it.\"\n\nNot everyone is convinced. Some parents fear that their children will be at a disadvantage when they sit national university entrance tests, which remain heavily based on multiple-choice questions. \"It's a lovely idea,\" said one mother, who asked not to be named, \"but lovely ideas don't get you into medical school.\"\n\nEducation researchers are also cautious. Dr Anong Prasert, who studies school assessment, noted that similar schemes elsewhere had produced mixed results. \"Projects can be transformative when teachers are trained to assess them fairly,\" she said. \"Without that training, the marks tend to reward whoever speaks most confidently on presentation day.\"\n\nThe school says it has addressed this concern by giving every teacher a week of training and by publishing its marking criteria in advance. Early signs are encouraging: attendance has risen by eight per cent since the scheme began, and the weaving cooperative reports that its online orders have doubled.\n\nWhether the approach will survive the pressure of university admissions, however, remains to be seen.",
+   "stem": "Which best describes the writer's stance in the report as a whole?",
+   "explanation": {
+    "en": "The report gives both support and doubts, notes encouraging early figures, and ends with 'remains to be seen' — a neutral, open conclusion typical of news writing.",
+    "th": "ข่าวนำเสนอทั้งฝ่ายสนับสนุนและฝ่ายที่สงสัย บอกผลเบื้องต้นที่น่าพอใจ และจบด้วย remains to be seen ซึ่งเป็นข้อสรุปที่เป็นกลางและยังไม่ฟันธง"
+   },
+   "choices": [
+    "Dismissive: the scheme is presented as having already failed.",
+    "Angry: universities are blamed for ignoring project work.",
+    "Balanced: early successes are reported, but the scheme's future is left open.",
+    "Enthusiastic: other schools are urged to copy the scheme at once."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Understanding a character's reason",
+    "th": "การเข้าใจเหตุผลของตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "Mali had practised the piece so many times that her fingers seemed to know it better than she did. For six months she had woken at five, played for an hour before school, and played again until her mother called her to dinner. Her teacher, Khun Wipa, rarely praised anyone, so when she said, \"You might actually win this,\" Mali carried the words around like a coin in her pocket.\n\nOn the morning of the competition, the hall smelled of floor polish and nerves. The boy who played before her was perhaps nine years old. He walked to the piano as if he were crossing his own living room, sat down, and played a simple folk song — badly, in places, but with such obvious delight that several people in the audience began to smile.\n\nThen it was Mali's turn. She played every note exactly as she had rehearsed it. Not one finger slipped. When she finished, the applause was polite and brief, and she noticed one of the judges glancing at his watch.\n\nShe came second. The nine-year-old came first.\n\n\"It isn't fair,\" she told Khun Wipa afterwards, her voice shaking. \"He made at least five mistakes.\"\n\nHer teacher was quiet for a moment. \"Six,\" she said. \"I counted too.\" She looked out of the window at the boy, who was now chasing his little sister round the car park, his medal bouncing on its ribbon. \"Tell me, Mali — when did you last enjoy playing that piece?\"\n\nMali opened her mouth to answer, and found that she could not remember.\n\nThat evening she did not practise. Instead, she sat at the piano and played the first song she had ever learned, a silly tune about a duck, and she played it far too fast, and laughed when she got it wrong.",
+   "stem": "Why did Mali think the result was unfair?",
+   "explanation": {
+    "en": "She says, 'He made at least five mistakes', while she had played every note correctly. Khun Wipa only said she 'might' win.",
+    "th": "มะลิบอกว่า 'เขาเล่นผิดอย่างน้อยห้าที่' ขณะที่เธอเล่นถูกทุกโน้ต ส่วนครูวิภาแค่บอกว่าเธอ 'อาจจะ' ชนะ ไม่ได้สัญญา"
+   },
+   "choices": [
+    "The judges had not listened to her whole performance.",
+    "The winner had made more mistakes than she had.",
+    "Her teacher had promised that she would win.",
+    "The winner was too young to enter the competition."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Interpreting a simile",
+    "th": "การตีความการเปรียบเทียบ (simile)"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "Mali had practised the piece so many times that her fingers seemed to know it better than she did. For six months she had woken at five, played for an hour before school, and played again until her mother called her to dinner. Her teacher, Khun Wipa, rarely praised anyone, so when she said, \"You might actually win this,\" Mali carried the words around like a coin in her pocket.\n\nOn the morning of the competition, the hall smelled of floor polish and nerves. The boy who played before her was perhaps nine years old. He walked to the piano as if he were crossing his own living room, sat down, and played a simple folk song — badly, in places, but with such obvious delight that several people in the audience began to smile.\n\nThen it was Mali's turn. She played every note exactly as she had rehearsed it. Not one finger slipped. When she finished, the applause was polite and brief, and she noticed one of the judges glancing at his watch.\n\nShe came second. The nine-year-old came first.\n\n\"It isn't fair,\" she told Khun Wipa afterwards, her voice shaking. \"He made at least five mistakes.\"\n\nHer teacher was quiet for a moment. \"Six,\" she said. \"I counted too.\" She looked out of the window at the boy, who was now chasing his little sister round the car park, his medal bouncing on its ribbon. \"Tell me, Mali — when did you last enjoy playing that piece?\"\n\nMali opened her mouth to answer, and found that she could not remember.\n\nThat evening she did not practise. Instead, she sat at the piano and played the first song she had ever learned, a silly tune about a duck, and she played it far too fast, and laughed when she got it wrong.",
+   "stem": "The phrase \"carried the words around like a coin in her pocket\" suggests that Mali ______.",
+   "explanation": {
+    "en": "A coin in your pocket is something small and valuable you keep with you and touch from time to time. Because Khun Wipa 'rarely praised anyone', the words were precious to Mali.",
+    "th": "เหรียญในกระเป๋าเป็นของเล็ก ๆ มีค่าที่พกติดตัวและหยิบจับอยู่เรื่อย ๆ เพราะครูวิภา 'แทบไม่เคยชมใคร' คำชมจึงมีค่ามากสำหรับมะลิ"
+   },
+   "choices": [
+    "soon forgot what her teacher had said",
+    "felt she had paid for the praise with her hard work",
+    "treasured the rare praise and kept returning to it",
+    "was afraid someone would take her prize away"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Inferring a character's attitude",
+    "th": "การอนุมานทัศนคติของตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "Mali had practised the piece so many times that her fingers seemed to know it better than she did. For six months she had woken at five, played for an hour before school, and played again until her mother called her to dinner. Her teacher, Khun Wipa, rarely praised anyone, so when she said, \"You might actually win this,\" Mali carried the words around like a coin in her pocket.\n\nOn the morning of the competition, the hall smelled of floor polish and nerves. The boy who played before her was perhaps nine years old. He walked to the piano as if he were crossing his own living room, sat down, and played a simple folk song — badly, in places, but with such obvious delight that several people in the audience began to smile.\n\nThen it was Mali's turn. She played every note exactly as she had rehearsed it. Not one finger slipped. When she finished, the applause was polite and brief, and she noticed one of the judges glancing at his watch.\n\nShe came second. The nine-year-old came first.\n\n\"It isn't fair,\" she told Khun Wipa afterwards, her voice shaking. \"He made at least five mistakes.\"\n\nHer teacher was quiet for a moment. \"Six,\" she said. \"I counted too.\" She looked out of the window at the boy, who was now chasing his little sister round the car park, his medal bouncing on its ribbon. \"Tell me, Mali — when did you last enjoy playing that piece?\"\n\nMali opened her mouth to answer, and found that she could not remember.\n\nThat evening she did not practise. Instead, she sat at the piano and played the first song she had ever learned, a silly tune about a duck, and she played it far too fast, and laughed when she got it wrong.",
+   "stem": "What does Khun Wipa's reply \"Six. I counted too.\" reveal?",
+   "explanation": {
+    "en": "She agrees the boy made mistakes — even more than Mali said — but then asks when Mali last enjoyed playing, showing that she values joy and expression over error-free playing.",
+    "th": "ครูยอมรับว่าเด็กชายเล่นผิดจริง (มากกว่าที่มะลิบอกด้วย) แต่แล้วถามว่ามะลิสนุกกับการเล่นครั้งสุดท้ายเมื่อไร แสดงว่าครูให้ความสำคัญกับความสุขและการแสดงออกมากกว่าการเล่นไม่ผิด"
+   },
+   "choices": [
+    "She is annoyed that Mali was not concentrating on her own playing.",
+    "She is mocking Mali for counting the mistakes incorrectly.",
+    "She agrees that the judges' decision was unfair.",
+    "She accepts Mali's point about accuracy but suggests accuracy was not what mattered."
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring meaning from a detail",
+    "th": "การอนุมานความหมายจากรายละเอียด"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "Mali had practised the piece so many times that her fingers seemed to know it better than she did. For six months she had woken at five, played for an hour before school, and played again until her mother called her to dinner. Her teacher, Khun Wipa, rarely praised anyone, so when she said, \"You might actually win this,\" Mali carried the words around like a coin in her pocket.\n\nOn the morning of the competition, the hall smelled of floor polish and nerves. The boy who played before her was perhaps nine years old. He walked to the piano as if he were crossing his own living room, sat down, and played a simple folk song — badly, in places, but with such obvious delight that several people in the audience began to smile.\n\nThen it was Mali's turn. She played every note exactly as she had rehearsed it. Not one finger slipped. When she finished, the applause was polite and brief, and she noticed one of the judges glancing at his watch.\n\nShe came second. The nine-year-old came first.\n\n\"It isn't fair,\" she told Khun Wipa afterwards, her voice shaking. \"He made at least five mistakes.\"\n\nHer teacher was quiet for a moment. \"Six,\" she said. \"I counted too.\" She looked out of the window at the boy, who was now chasing his little sister round the car park, his medal bouncing on its ribbon. \"Tell me, Mali — when did you last enjoy playing that piece?\"\n\nMali opened her mouth to answer, and found that she could not remember.\n\nThat evening she did not practise. Instead, she sat at the piano and played the first song she had ever learned, a silly tune about a duck, and she played it far too fast, and laughed when she got it wrong.",
+   "stem": "What does the judge glancing at his watch most likely suggest?",
+   "explanation": {
+    "en": "Coming straight after 'polite and brief' applause, the glance shows boredom: Mali's playing was correct but lifeless, unlike the boy's delighted performance.",
+    "th": "การชำเลืองดูนาฬิกามาต่อจากเสียงปรบมือที่ 'สุภาพและสั้น' แสดงว่ากรรมการเบื่อ การเล่นของมะลิถูกต้องแต่ไร้ชีวิตชีวา ต่างจากเด็กชายที่เล่นอย่างมีความสุข"
+   },
+   "choices": [
+    "He was impressed by how quickly Mali had played.",
+    "He had already decided to give Mali first prize.",
+    "The competition was running behind schedule.",
+    "Mali's flawless performance failed to hold his interest."
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting a story's ending",
+    "th": "การตีความตอนจบของเรื่อง"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "Mali had practised the piece so many times that her fingers seemed to know it better than she did. For six months she had woken at five, played for an hour before school, and played again until her mother called her to dinner. Her teacher, Khun Wipa, rarely praised anyone, so when she said, \"You might actually win this,\" Mali carried the words around like a coin in her pocket.\n\nOn the morning of the competition, the hall smelled of floor polish and nerves. The boy who played before her was perhaps nine years old. He walked to the piano as if he were crossing his own living room, sat down, and played a simple folk song — badly, in places, but with such obvious delight that several people in the audience began to smile.\n\nThen it was Mali's turn. She played every note exactly as she had rehearsed it. Not one finger slipped. When she finished, the applause was polite and brief, and she noticed one of the judges glancing at his watch.\n\nShe came second. The nine-year-old came first.\n\n\"It isn't fair,\" she told Khun Wipa afterwards, her voice shaking. \"He made at least five mistakes.\"\n\nHer teacher was quiet for a moment. \"Six,\" she said. \"I counted too.\" She looked out of the window at the boy, who was now chasing his little sister round the car park, his medal bouncing on its ribbon. \"Tell me, Mali — when did you last enjoy playing that piece?\"\n\nMali opened her mouth to answer, and found that she could not remember.\n\nThat evening she did not practise. Instead, she sat at the piano and played the first song she had ever learned, a silly tune about a duck, and she played it far too fast, and laughed when she got it wrong.",
+   "stem": "What does the final paragraph suggest about Mali?",
+   "explanation": {
+    "en": "Instead of practising, she plays a silly childhood tune 'far too fast' and laughs at her mistakes — the opposite of her joyless perfectionism, showing she is finding enjoyment again.",
+    "th": "แทนที่จะซ้อม เธอเล่นเพลงเด็ก ๆ 'เร็วเกินไป' และหัวเราะเมื่อเล่นผิด ตรงข้ามกับความเพอร์เฟกต์ที่ไร้ความสุขก่อนหน้า แสดงว่าเธอเริ่มกลับมาสนุกกับการเล่นอีกครั้ง"
+   },
+   "choices": [
+    "She is preparing a new piece for next year's competition.",
+    "She has decided to give up the piano altogether.",
+    "She has begun to rediscover the pleasure of playing for its own sake.",
+    "She wants to prove that she can play faster than the boy."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Overall evaluation in a review",
+    "th": "การประเมินภาพรวมในบทวิจารณ์"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "There is a moment about forty minutes into The Last Monsoon when the camera rises slowly over a flooded rice field at dawn, and for a few seconds the film becomes genuinely beautiful. Enjoy it. It does not happen again.\n\nDirector Krit Anan has clearly been told that he is a visual artist, and he has believed every word. Almost every scene is framed like a postcard — rain on lotus leaves, a lantern reflected in a puddle, an old woman's hands sorting grain — and the effect, after two hours and twenty minutes, is less like watching a story than like being trapped inside a very expensive calendar.\n\nThe story, such as it is, follows a hydrologist who returns to her home village to warn its residents that a new dam upstream will flood their land. It is an important subject, and the film knows it. Characters do not so much talk to each other as deliver short lectures on water management, and every villager who doubts the heroine is revealed, within a scene or two, to be either foolish or corrupt.\n\nThis is a pity, because the lead actress, Rasa Thongdee, deserves better. In the few moments when the script allows her to be uncertain — a phone call to her estranged father, a late-night argument with her younger brother — she suggests a person far more interesting than the saint the film wants her to be. One wishes the director had trusted her, and his audience, with a little more doubt.\n\nThe Last Monsoon will no doubt win prizes; it has the look of a film that wins prizes. Whether anyone will remember it a year from now is another matter. Those who care about the issues it raises would be better served by a good documentary — or, failing that, by watching the first forty minutes and leaving at dawn.",
+   "stem": "What is the reviewer's overall opinion of the film?",
+   "explanation": {
+    "en": "The reviewer criticises the visuals, script and characters, praising only one dawn shot and Rasa's performance, which the reviewer actually admires.",
+    "th": "ผู้วิจารณ์ติภาพ บท และตัวละคร ชมเพียงฉากรุ่งเช้าฉากเดียวกับการแสดงของนักแสดงนำ ซึ่งผู้วิจารณ์ชื่นชมด้วยซ้ำ"
+   },
+   "choices": [
+    "Highly positive: it is essential viewing for everyone",
+    "Neutral: the plot is described without any judgement",
+    "Negative only about the acting, which spoils good images",
+    "Largely negative, despite praise for one scene and the lead actress"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Interpreting a critical image",
+    "th": "การตีความภาพเปรียบเชิงวิจารณ์"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "There is a moment about forty minutes into The Last Monsoon when the camera rises slowly over a flooded rice field at dawn, and for a few seconds the film becomes genuinely beautiful. Enjoy it. It does not happen again.\n\nDirector Krit Anan has clearly been told that he is a visual artist, and he has believed every word. Almost every scene is framed like a postcard — rain on lotus leaves, a lantern reflected in a puddle, an old woman's hands sorting grain — and the effect, after two hours and twenty minutes, is less like watching a story than like being trapped inside a very expensive calendar.\n\nThe story, such as it is, follows a hydrologist who returns to her home village to warn its residents that a new dam upstream will flood their land. It is an important subject, and the film knows it. Characters do not so much talk to each other as deliver short lectures on water management, and every villager who doubts the heroine is revealed, within a scene or two, to be either foolish or corrupt.\n\nThis is a pity, because the lead actress, Rasa Thongdee, deserves better. In the few moments when the script allows her to be uncertain — a phone call to her estranged father, a late-night argument with her younger brother — she suggests a person far more interesting than the saint the film wants her to be. One wishes the director had trusted her, and his audience, with a little more doubt.\n\nThe Last Monsoon will no doubt win prizes; it has the look of a film that wins prizes. Whether anyone will remember it a year from now is another matter. Those who care about the issues it raises would be better served by a good documentary — or, failing that, by watching the first forty minutes and leaving at dawn.",
+   "stem": "What does the reviewer mean by \"like being trapped inside a very expensive calendar\"?",
+   "explanation": {
+    "en": "A calendar is a series of pretty, separate pictures. The reviewer means the film is a string of postcard-like shots that, over two hours, feel static and tiring rather than like a story.",
+    "th": "ปฏิทินคือภาพสวย ๆ ที่แยกกันเป็นแผ่น ๆ ผู้วิจารณ์หมายความว่าหนังเป็นภาพสวยแบบโปสการ์ดเรียงต่อกัน ซึ่งเมื่อดูนานสองชั่วโมงกว่าก็รู้สึกนิ่งและน่าเบื่อ ไม่เหมือนการดูเรื่องราว"
+   },
+   "choices": [
+    "The story jumps confusingly from one date to another.",
+    "The images are attractive but repetitive and lack the life of a story.",
+    "The film is too short to develop its characters.",
+    "The budget was wasted on poor-quality cameras."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding a criticism of characterisation",
+    "th": "การเข้าใจคำวิจารณ์เรื่องการสร้างตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "There is a moment about forty minutes into The Last Monsoon when the camera rises slowly over a flooded rice field at dawn, and for a few seconds the film becomes genuinely beautiful. Enjoy it. It does not happen again.\n\nDirector Krit Anan has clearly been told that he is a visual artist, and he has believed every word. Almost every scene is framed like a postcard — rain on lotus leaves, a lantern reflected in a puddle, an old woman's hands sorting grain — and the effect, after two hours and twenty minutes, is less like watching a story than like being trapped inside a very expensive calendar.\n\nThe story, such as it is, follows a hydrologist who returns to her home village to warn its residents that a new dam upstream will flood their land. It is an important subject, and the film knows it. Characters do not so much talk to each other as deliver short lectures on water management, and every villager who doubts the heroine is revealed, within a scene or two, to be either foolish or corrupt.\n\nThis is a pity, because the lead actress, Rasa Thongdee, deserves better. In the few moments when the script allows her to be uncertain — a phone call to her estranged father, a late-night argument with her younger brother — she suggests a person far more interesting than the saint the film wants her to be. One wishes the director had trusted her, and his audience, with a little more doubt.\n\nThe Last Monsoon will no doubt win prizes; it has the look of a film that wins prizes. Whether anyone will remember it a year from now is another matter. Those who care about the issues it raises would be better served by a good documentary — or, failing that, by watching the first forty minutes and leaving at dawn.",
+   "stem": "According to the reviewer, how are the villagers who doubt the heroine presented?",
+   "explanation": {
+    "en": "The review says every doubter is 'revealed… to be either foolish or corrupt', which the reviewer sees as one-sided and preachy.",
+    "th": "บทวิจารณ์บอกว่าชาวบ้านที่ไม่เชื่อนางเอกทุกคน 'กลายเป็นคนโง่หรือคดโกง' ซึ่งผู้วิจารณ์มองว่าด้านเดียวและสั่งสอนเกินไป"
+   },
+   "choices": [
+    "Too simply — they all turn out to be foolish or dishonest.",
+    "As the most convincing characters in the film.",
+    "As people who eventually prove the heroine wrong.",
+    "Sympathetically, as victims of the dam project."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Recognising sarcasm",
+    "th": "การรู้ทันการเสียดสี"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "There is a moment about forty minutes into The Last Monsoon when the camera rises slowly over a flooded rice field at dawn, and for a few seconds the film becomes genuinely beautiful. Enjoy it. It does not happen again.\n\nDirector Krit Anan has clearly been told that he is a visual artist, and he has believed every word. Almost every scene is framed like a postcard — rain on lotus leaves, a lantern reflected in a puddle, an old woman's hands sorting grain — and the effect, after two hours and twenty minutes, is less like watching a story than like being trapped inside a very expensive calendar.\n\nThe story, such as it is, follows a hydrologist who returns to her home village to warn its residents that a new dam upstream will flood their land. It is an important subject, and the film knows it. Characters do not so much talk to each other as deliver short lectures on water management, and every villager who doubts the heroine is revealed, within a scene or two, to be either foolish or corrupt.\n\nThis is a pity, because the lead actress, Rasa Thongdee, deserves better. In the few moments when the script allows her to be uncertain — a phone call to her estranged father, a late-night argument with her younger brother — she suggests a person far more interesting than the saint the film wants her to be. One wishes the director had trusted her, and his audience, with a little more doubt.\n\nThe Last Monsoon will no doubt win prizes; it has the look of a film that wins prizes. Whether anyone will remember it a year from now is another matter. Those who care about the issues it raises would be better served by a good documentary — or, failing that, by watching the first forty minutes and leaving at dawn.",
+   "stem": "\"Director Krit Anan has clearly been told that he is a visual artist, and he has believed every word.\" The tone of this sentence is best described as ______.",
+   "explanation": {
+    "en": "'Believed every word' mocks the director's vanity: the reviewer implies his love of pretty images has taken over the film. This is sarcasm, not sympathy or neutral reporting.",
+    "th": "believed every word เป็นการเย้ยหยันความหลงตัวเองของผู้กำกับ ผู้วิจารณ์บอกเป็นนัยว่าความหลงใหลในภาพสวยครอบงำหนังทั้งเรื่อง จึงเป็นการเสียดสี ไม่ใช่ความเห็นใจหรือการรายงานกลาง ๆ"
+   },
+   "choices": [
+    "admiring of the director's confidence in himself",
+    "sympathetic, suggesting that others misled the director",
+    "sarcastic, implying that the director is too pleased with his own visual style",
+    "neutral, reporting a fact from an interview"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting an ironic ending",
+    "th": "การตีความตอนจบเชิงประชด"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "There is a moment about forty minutes into The Last Monsoon when the camera rises slowly over a flooded rice field at dawn, and for a few seconds the film becomes genuinely beautiful. Enjoy it. It does not happen again.\n\nDirector Krit Anan has clearly been told that he is a visual artist, and he has believed every word. Almost every scene is framed like a postcard — rain on lotus leaves, a lantern reflected in a puddle, an old woman's hands sorting grain — and the effect, after two hours and twenty minutes, is less like watching a story than like being trapped inside a very expensive calendar.\n\nThe story, such as it is, follows a hydrologist who returns to her home village to warn its residents that a new dam upstream will flood their land. It is an important subject, and the film knows it. Characters do not so much talk to each other as deliver short lectures on water management, and every villager who doubts the heroine is revealed, within a scene or two, to be either foolish or corrupt.\n\nThis is a pity, because the lead actress, Rasa Thongdee, deserves better. In the few moments when the script allows her to be uncertain — a phone call to her estranged father, a late-night argument with her younger brother — she suggests a person far more interesting than the saint the film wants her to be. One wishes the director had trusted her, and his audience, with a little more doubt.\n\nThe Last Monsoon will no doubt win prizes; it has the look of a film that wins prizes. Whether anyone will remember it a year from now is another matter. Those who care about the issues it raises would be better served by a good documentary — or, failing that, by watching the first forty minutes and leaving at dawn.",
+   "stem": "What is the reviewer suggesting in the final words, \"watching the first forty minutes and leaving at dawn\"?",
+   "explanation": {
+    "en": "The dawn shot at forty minutes is the one moment the reviewer praised ('It does not happen again'). 'Leaving at dawn' links back to it: see the best part, then go — an ironic way of saying the rest is not worth watching.",
+    "th": "ฉากรุ่งเช้าที่นาทีที่สี่สิบเป็นช่วงเดียวที่ผู้วิจารณ์ชม (It does not happen again) leaving at dawn จึงย้อนกลับไปที่ฉากนั้น ดูส่วนที่ดีที่สุดแล้วก็ออกไป เป็นการประชดว่าที่เหลือไม่คุ้มค่าแก่การดู"
+   },
+   "choices": [
+    "Ironically, that viewers should leave right after the film's only beautiful moment",
+    "That the second half deals with the dam more seriously",
+    "That viewers should see the film twice to understand it",
+    "That the film is best watched early in the morning"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Main idea of an essay",
+    "th": "ใจความหลักของบทความ"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "We have become remarkably good at never being bored. A queue at the bank, a delayed train, the thirty seconds while the kettle boils — each gap in the day can now be filled instantly by the device in our pocket. On the face of it, this looks like progress. Few people miss the long, empty afternoons of their childhood. Yet a growing body of research suggests that by eliminating boredom we may have lost something we did not know we needed.\n\nIn one widely discussed experiment, participants were asked to perform a deliberately dull task — copying numbers from a telephone directory — before being given a test of creative thinking. Those who had endured the boring task produced more original ideas than a control group who had gone straight to the test. The researchers' explanation was that boredom pushes the mind to wander, and that a wandering mind makes unexpected connections.\n\nThis should not be overstated. Chronic boredom, the kind felt by people trapped in unrewarding jobs or long periods of isolation, is associated with anxiety and poor health, and nobody is suggesting it should be encouraged. The point is rather that brief, ordinary boredom — the restless feeling of having nothing to do — may function as a signal, prompting us to seek out something more meaningful. When we silence that signal with a quick scroll, we are relieved of the discomfort, but we also lose the prompt.\n\nThere is a further cost. Daydreaming is thought to play a part in how we process experience, make plans and build a sense of who we are. A mind that is never left alone with itself may find these tasks harder.\n\nNone of this means we should throw away our phones. But it might be worth, occasionally, letting the kettle boil in silence.",
+   "stem": "Which statement best expresses the main idea of the essay?",
+   "explanation": {
+    "en": "The essay argues that brief, ordinary boredom can spark creativity and reflection, and that filling every gap with a phone removes this. It explicitly says chronic boredom is harmful, so 'every kind' is wrong.",
+    "th": "บทความเสนอว่าความเบื่อสั้น ๆ ช่วยกระตุ้นความคิดสร้างสรรค์และการทบทวนตนเอง และการเติมทุกช่องว่างด้วยโทรศัพท์ทำให้เสียสิ่งนี้ไป บทความบอกชัดว่าความเบื่อเรื้อรังเป็นผลเสีย จึงไม่ใช่ทุกแบบ"
+   },
+   "choices": [
+    "Childhood was happier before mobile technology was invented.",
+    "Every kind of boredom should be encouraged because it improves creativity.",
+    "Smartphones are the main cause of anxiety in modern society.",
+    "Short periods of boredom may have benefits that we lose by constantly filling them."
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Purpose of an example",
+    "th": "จุดประสงค์ของการยกตัวอย่าง"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "We have become remarkably good at never being bored. A queue at the bank, a delayed train, the thirty seconds while the kettle boils — each gap in the day can now be filled instantly by the device in our pocket. On the face of it, this looks like progress. Few people miss the long, empty afternoons of their childhood. Yet a growing body of research suggests that by eliminating boredom we may have lost something we did not know we needed.\n\nIn one widely discussed experiment, participants were asked to perform a deliberately dull task — copying numbers from a telephone directory — before being given a test of creative thinking. Those who had endured the boring task produced more original ideas than a control group who had gone straight to the test. The researchers' explanation was that boredom pushes the mind to wander, and that a wandering mind makes unexpected connections.\n\nThis should not be overstated. Chronic boredom, the kind felt by people trapped in unrewarding jobs or long periods of isolation, is associated with anxiety and poor health, and nobody is suggesting it should be encouraged. The point is rather that brief, ordinary boredom — the restless feeling of having nothing to do — may function as a signal, prompting us to seek out something more meaningful. When we silence that signal with a quick scroll, we are relieved of the discomfort, but we also lose the prompt.\n\nThere is a further cost. Daydreaming is thought to play a part in how we process experience, make plans and build a sense of who we are. A mind that is never left alone with itself may find these tasks harder.\n\nNone of this means we should throw away our phones. But it might be worth, occasionally, letting the kettle boil in silence.",
+   "stem": "Why does the writer describe the telephone-directory experiment?",
+   "explanation": {
+    "en": "The bored group 'produced more original ideas', which is evidence for the essay's claim that boredom can lead to creative connections.",
+    "th": "กลุ่มที่ทำงานน่าเบื่อ 'คิดไอเดียแปลกใหม่ได้มากกว่า' ซึ่งเป็นหลักฐานสนับสนุนข้อเสนอว่าความเบื่อช่วยให้เกิดความคิดสร้างสรรค์"
+   },
+   "choices": [
+    "To show that copying numbers is a useful study technique",
+    "To prove that bored people perform worse on tests",
+    "To support the claim that boredom can encourage creative thinking",
+    "To suggest that creativity tests are unreliable"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Function of a qualifying statement",
+    "th": "หน้าที่ของประโยคที่จำกัดขอบเขตข้อโต้แย้ง"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "We have become remarkably good at never being bored. A queue at the bank, a delayed train, the thirty seconds while the kettle boils — each gap in the day can now be filled instantly by the device in our pocket. On the face of it, this looks like progress. Few people miss the long, empty afternoons of their childhood. Yet a growing body of research suggests that by eliminating boredom we may have lost something we did not know we needed.\n\nIn one widely discussed experiment, participants were asked to perform a deliberately dull task — copying numbers from a telephone directory — before being given a test of creative thinking. Those who had endured the boring task produced more original ideas than a control group who had gone straight to the test. The researchers' explanation was that boredom pushes the mind to wander, and that a wandering mind makes unexpected connections.\n\nThis should not be overstated. Chronic boredom, the kind felt by people trapped in unrewarding jobs or long periods of isolation, is associated with anxiety and poor health, and nobody is suggesting it should be encouraged. The point is rather that brief, ordinary boredom — the restless feeling of having nothing to do — may function as a signal, prompting us to seek out something more meaningful. When we silence that signal with a quick scroll, we are relieved of the discomfort, but we also lose the prompt.\n\nThere is a further cost. Daydreaming is thought to play a part in how we process experience, make plans and build a sense of who we are. A mind that is never left alone with itself may find these tasks harder.\n\nNone of this means we should throw away our phones. But it might be worth, occasionally, letting the kettle boil in silence.",
+   "stem": "Why does the writer say \"This should not be overstated\" at the start of the third paragraph?",
+   "explanation": {
+    "en": "The writer limits the claim: chronic boredom is linked to anxiety and poor health, so only 'brief, ordinary boredom' is being defended.",
+    "th": "ผู้เขียนจำกัดขอบเขตข้อโต้แย้ง ความเบื่อเรื้อรังสัมพันธ์กับความวิตกกังวลและสุขภาพไม่ดี สิ่งที่ผู้เขียนปกป้องจึงมีเพียงความเบื่อสั้น ๆ ธรรมดา"
+   },
+   "choices": [
+    "To argue that creativity matters less than health",
+    "To suggest that phones actually reduce anxiety",
+    "To separate harmless, brief boredom from the harmful, chronic kind",
+    "To admit that the experiment was badly designed"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Interpreting a metaphor",
+    "th": "การตีความอุปลักษณ์"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "We have become remarkably good at never being bored. A queue at the bank, a delayed train, the thirty seconds while the kettle boils — each gap in the day can now be filled instantly by the device in our pocket. On the face of it, this looks like progress. Few people miss the long, empty afternoons of their childhood. Yet a growing body of research suggests that by eliminating boredom we may have lost something we did not know we needed.\n\nIn one widely discussed experiment, participants were asked to perform a deliberately dull task — copying numbers from a telephone directory — before being given a test of creative thinking. Those who had endured the boring task produced more original ideas than a control group who had gone straight to the test. The researchers' explanation was that boredom pushes the mind to wander, and that a wandering mind makes unexpected connections.\n\nThis should not be overstated. Chronic boredom, the kind felt by people trapped in unrewarding jobs or long periods of isolation, is associated with anxiety and poor health, and nobody is suggesting it should be encouraged. The point is rather that brief, ordinary boredom — the restless feeling of having nothing to do — may function as a signal, prompting us to seek out something more meaningful. When we silence that signal with a quick scroll, we are relieved of the discomfort, but we also lose the prompt.\n\nThere is a further cost. Daydreaming is thought to play a part in how we process experience, make plans and build a sense of who we are. A mind that is never left alone with itself may find these tasks harder.\n\nNone of this means we should throw away our phones. But it might be worth, occasionally, letting the kettle boil in silence.",
+   "stem": "In the third paragraph, boredom is compared to a \"signal\". What does this suggest?",
+   "explanation": {
+    "en": "The writer says boredom works as 'a signal, prompting us to seek out something more meaningful'; scrolling silences that prompt.",
+    "th": "ผู้เขียนบอกว่าความเบื่อเป็น 'สัญญาณที่กระตุ้นให้เราแสวงหาสิ่งที่มีความหมายกว่า' และการไถหน้าจอทำให้สัญญาณนั้นเงียบไป"
+   },
+   "choices": [
+    "Boredom is caused by notifications on our phones.",
+    "Boredom can alert us that we need something more meaningful to do.",
+    "Boredom is a sign of serious illness.",
+    "Boredom is a message from other people that we are dull."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Writer's attitude in the conclusion",
+    "th": "ทัศนคติของผู้เขียนในบทสรุป"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "We have become remarkably good at never being bored. A queue at the bank, a delayed train, the thirty seconds while the kettle boils — each gap in the day can now be filled instantly by the device in our pocket. On the face of it, this looks like progress. Few people miss the long, empty afternoons of their childhood. Yet a growing body of research suggests that by eliminating boredom we may have lost something we did not know we needed.\n\nIn one widely discussed experiment, participants were asked to perform a deliberately dull task — copying numbers from a telephone directory — before being given a test of creative thinking. Those who had endured the boring task produced more original ideas than a control group who had gone straight to the test. The researchers' explanation was that boredom pushes the mind to wander, and that a wandering mind makes unexpected connections.\n\nThis should not be overstated. Chronic boredom, the kind felt by people trapped in unrewarding jobs or long periods of isolation, is associated with anxiety and poor health, and nobody is suggesting it should be encouraged. The point is rather that brief, ordinary boredom — the restless feeling of having nothing to do — may function as a signal, prompting us to seek out something more meaningful. When we silence that signal with a quick scroll, we are relieved of the discomfort, but we also lose the prompt.\n\nThere is a further cost. Daydreaming is thought to play a part in how we process experience, make plans and build a sense of who we are. A mind that is never left alone with itself may find these tasks harder.\n\nNone of this means we should throw away our phones. But it might be worth, occasionally, letting the kettle boil in silence.",
+   "stem": "Which best describes the writer's attitude to phones in the final paragraph?",
+   "explanation": {
+    "en": "'None of this means we should throw away our phones' rules out rejection, and 'occasionally, letting the kettle boil in silence' recommends small, moderate changes.",
+    "th": "None of this means we should throw away our phones ปฏิเสธการเลิกใช้โทรศัพท์ และ occasionally, letting the kettle boil in silence เสนอให้ปรับเพียงเล็กน้อยเป็นครั้งคราว จึงเป็นทัศนคติแบบพอดี"
+   },
+   "choices": [
+    "Hostile: phones should be banned from daily life.",
+    "Indifferent: the writer has no view on phone use.",
+    "Enthusiastic: phones are praised for removing boredom.",
+    "Measured: occasional restraint is recommended rather than rejection."
+   ],
+   "answer": 3
+  }
+ ]
+}

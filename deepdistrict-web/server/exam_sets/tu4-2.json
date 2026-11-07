@@ -1,0 +1,1515 @@
+{
+ "exam": "tu4",
+ "set": 2,
+ "title": {
+  "en": "Triam Udom Suksa M.4 English — Practice paper 2",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.4 เตรียมอุดมศึกษา — ชุดที่ 2"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "50 questions in 60 minutes in the Triam Udom style: cloze and reading at the core, error identification (collocations), and conversation. Tutor summaries report about 40 questions in recent years. DeepDistrict practice — not an official or past paper.",
+  "th": "50 ข้อ 60 นาที แนวเตรียมอุดมฯ: เติมคำในบทความและการอ่านเป็นแกนหลัก หาจุดผิด (เน้น collocation) และบทสนทนา (ข้อมูลจากสถาบันกวดวิชาระบุราว 40 ข้อในปีหลัง ๆ) — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Agreeing to a favour",
+    "th": "การรับปากช่วยเหลือ"
+   },
+   "topic": {
+    "en": "Conversation: everyday response",
+    "th": "บทสนทนา: การตอบโต้ในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: Could you keep an eye on my bag while I grab a coffee?\nB: ______ Take your time.",
+   "explanation": {
+    "en": "'Take your time' shows B agrees, so 'Sure, no problem' fits. 'I'd rather not say' refuses to give information, 'Keep the change' is said when paying, and 'It's not my cup of tea' means B does not like something.",
+    "th": "Take your time แสดงว่า B ยินดีช่วย จึงตอบ Sure, no problem ส่วน I'd rather not say คือไม่อยากบอก Keep the change ใช้ตอนจ่ายเงิน และ It's not my cup of tea แปลว่าไม่ชอบสิ่งนั้น"
+   },
+   "choices": [
+    "I'd rather not say.",
+    "It's not my cup of tea.",
+    "Keep the change.",
+    "Sure, no problem."
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Accepting an apology",
+    "th": "การรับคำขอโทษ"
+   },
+   "topic": {
+    "en": "Conversation: everyday response",
+    "th": "บทสนทนา: การตอบโต้ในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: I'm sorry I snapped at you earlier. I'd had a terrible morning.\nB: ______ We all have days like that.",
+   "explanation": {
+    "en": "'We all have days like that' is forgiving, so B accepts the apology: 'Don't worry about it.' 'You should be' is cold, 'Same to you' returns a wish, and 'That's very kind of you' thanks someone for help.",
+    "th": "We all have days like that เป็นการให้อภัย B จึงตอบ Don't worry about it ส่วน You should be ฟังดูเย็นชา Same to you ใช้ตอบคำอวยพร และ That's very kind of you ใช้ขอบคุณเมื่อได้รับความช่วยเหลือ"
+   },
+   "choices": [
+    "That's very kind of you.",
+    "Same to you.",
+    "You should be.",
+    "Don't worry about it."
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Agreeing on a course of action",
+    "th": "การเห็นพ้องเรื่องสิ่งที่ควรทำ"
+   },
+   "topic": {
+    "en": "Conversation: everyday response",
+    "th": "บทสนทนา: การตอบโต้ในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: Do you think we should tell Krit that his essay is due tomorrow, not next week?\nB: ______ He'd want to know, even if it ruins his evening.",
+   "explanation": {
+    "en": "B's reason — 'He'd want to know' — supports telling him, so 'I think we'd better' fits. The other replies all argue against telling Krit and contradict B's next sentence.",
+    "th": "เหตุผลของ B คือ He'd want to know ซึ่งสนับสนุนให้บอก จึงตอบ I think we'd better ส่วนคำตอบอื่นล้วนไม่อยากบอก ขัดกับประโยคต่อมาของ B"
+   },
+   "choices": [
+    "I'd rather we didn't.",
+    "I think we'd better.",
+    "Let's keep it to ourselves.",
+    "It's none of our business."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Offering to deal with a problem",
+    "th": "การอาสาจัดการปัญหา"
+   },
+   "topic": {
+    "en": "Conversation: everyday response",
+    "th": "บทสนทนา: การตอบโต้ในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: The new manager wants everyone to stay late on Friday.\nB: Friday? But that's the night of the concert!\nA: ______ I'll see if I can swap shifts with someone.",
+   "explanation": {
+    "en": "A then promises to try to swap shifts, so A is offering to handle the problem: 'Leave it with me.' 'Suit yourself' sounds indifferent, 'Over my dead body' is a strong refusal, and 'That's beside the point' dismisses B's worry.",
+    "th": "A บอกต่อว่าจะลองขอแลกกะ แปลว่า A อาสาจัดการให้ จึงพูดว่า Leave it with me ส่วน Suit yourself ฟังดูไม่ใส่ใจ Over my dead body เป็นการปฏิเสธรุนแรง และ That's beside the point เป็นการปัดความกังวลของ B"
+   },
+   "choices": [
+    "Over my dead body.",
+    "Leave it with me.",
+    "Suit yourself.",
+    "That's beside the point."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Explaining hidden reluctance",
+    "th": "การอธิบายความลังเลที่ซ่อนอยู่"
+   },
+   "topic": {
+    "en": "Conversation: implied meaning",
+    "th": "บทสนทนา: ความหมายแฝง"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: I hear you've been offered a place at the boarding school. Congratulations!\nB: Thanks. It's a great opportunity, I suppose.\nA: You don't sound very sure.\nB: ______",
+   "explanation": {
+    "en": "'I suppose' and A's comment show B has doubts, so B explains the reason for the hesitation: leaving friends behind. The other replies express certainty and do not explain why B sounds unsure.",
+    "th": "คำว่า I suppose และความเห็นของ A แสดงว่า B ยังลังเล B จึงอธิบายเหตุผลว่าต้องจากเพื่อน ๆ ส่วนคำตอบอื่นแสดงความมั่นใจ ไม่ได้อธิบายว่าทำไม B ฟังดูไม่แน่ใจ"
+   },
+   "choices": [
+    "Of course — it's the best school in the country.",
+    "Yes, I've never been more certain of anything.",
+    "Well, it means leaving all my friends behind.",
+    "That's because I've already accepted it."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "e",
+   "skill": {
+    "en": "for / since with a period of time",
+    "th": "for / since กับช่วงเวลา"
+   },
+   "topic": {
+    "en": "Tenses",
+    "th": "กาล (tense)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: My sister [[has been]] [[working]] at the hospital [[since]] five years and [[still]] enjoys it.",
+   "choices": [
+    "has been",
+    "working",
+    "since",
+    "still"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'Five years' is a period of time, so it takes 'for'. 'Since' is used with a starting point, such as 'since 2021'.",
+    "th": "five years เป็นช่วงระยะเวลา ต้องใช้ for ส่วน since ใช้กับจุดเริ่มต้น เช่น since 2021"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Collocation: make a mistake",
+    "th": "collocation: make a mistake"
+   },
+   "topic": {
+    "en": "Collocation",
+    "th": "คำปรากฏร่วม (collocation)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[Doing]] a mistake in front of the whole class [[was]] embarrassing, but the teacher [[handled]] the situation [[kindly]].",
+   "choices": [
+    "Doing",
+    "was",
+    "handled",
+    "kindly"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "We 'make' a mistake, not 'do' one: 'Making a mistake in front of the whole class…'.",
+    "th": "ใช้ make a mistake ไม่ใช่ do a mistake จึงต้องเป็น Making a mistake in front of the whole class"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Confusable words: affect / effect",
+    "th": "คำที่มักสับสน: affect / effect"
+   },
+   "topic": {
+    "en": "Word form",
+    "th": "รูปคำ (word form)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The scientists [[were]] [[unable]] to explain [[why]] the samples had been so badly [[effected]] by the heat.",
+   "choices": [
+    "were",
+    "unable",
+    "why",
+    "effected"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The verb meaning 'to have an influence on' is 'affect': 'had been badly affected'. 'Effect' as a verb means 'to bring about'.",
+    "th": "กริยาที่แปลว่าส่งผลกระทบคือ affect จึงเป็น had been badly affected ส่วน effect เมื่อเป็นกริยาแปลว่าทำให้เกิดขึ้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Dependent preposition: married to",
+    "th": "บุพบทที่ตามมา: married to"
+   },
+   "topic": {
+    "en": "Prepositions",
+    "th": "คำบุพบท"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: My aunt, [[who]] [[is married with]] a surgeon, [[rarely]] sees her husband [[before]] midnight.",
+   "choices": [
+    "who",
+    "is married with",
+    "rarely",
+    "before"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "In English we are 'married to' someone, not 'married with' them.",
+    "th": "ภาษาอังกฤษใช้ married to someone ไม่ใช่ married with"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Despite without 'of'",
+    "th": "despite ไม่ต้องมี of"
+   },
+   "topic": {
+    "en": "Linking words",
+    "th": "คำเชื่อม"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[Despite of]] the heavy rain, thousands of fans [[queued]] outside the stadium [[for]] hours [[to buy]] tickets.",
+   "choices": [
+    "Despite of",
+    "queued",
+    "for",
+    "to buy"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "'Despite' is followed directly by a noun: 'Despite the heavy rain'. 'Of' belongs only in 'in spite of'.",
+    "th": "Despite ตามด้วยคำนามได้ทันที เป็น Despite the heavy rain ส่วน of ใช้เฉพาะใน in spite of"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "No repeated object in a relative clause",
+    "th": "ไม่ใส่กรรมซ้ำในอนุประโยค relative"
+   },
+   "topic": {
+    "en": "Relative clauses",
+    "th": "อนุประโยค relative"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The government is [[considering]] [[introducing]] a tax on sugary drinks, a measure [[that]] health experts have long [[argued for it]].",
+   "choices": [
+    "considering",
+    "introducing",
+    "that",
+    "argued for it"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "'That' already stands for 'a measure' as the object of 'argued for', so 'it' repeats the object. It should be 'a measure that health experts have long argued for'.",
+    "th": "that แทน a measure ซึ่งเป็นกรรมของ argued for อยู่แล้ว การใส่ it จึงเป็นกรรมซ้ำ ต้องเป็น a measure that health experts have long argued for"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Not only … but also with inversion",
+    "th": "Not only … but also กับการสลับที่"
+   },
+   "topic": {
+    "en": "Inversion",
+    "th": "การสลับที่ประธานกับกริยา (inversion)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: Not only [[did]] the storm [[damage]] the harvest, [[but also it destroyed]] several homes [[along]] the coast.",
+   "choices": [
+    "did",
+    "damage",
+    "but also it destroyed",
+    "along"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "After an inverted 'Not only' clause, the second clause keeps normal order with 'also' after the subject: 'but it also destroyed' (or 'but also destroyed').",
+    "th": "เมื่อประโยคแรกขึ้นต้นด้วย Not only แบบสลับที่แล้ว ประโยคหลังเรียงตามปกติ โดย also อยู่หลังประธาน เป็น but it also destroyed (หรือ but also destroyed)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Adjective + preposition: responsible for",
+    "th": "adjective + บุพบท: responsible for"
+   },
+   "topic": {
+    "en": "Prepositions",
+    "th": "คำบุพบท"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: Each prefect is [[held]] [[responsible of]] the behaviour of younger students [[during]] assemblies and [[on]] school trips.",
+   "choices": [
+    "held",
+    "responsible of",
+    "during",
+    "on"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The adjective 'responsible' takes 'for': 'held responsible for the behaviour'.",
+    "th": "adjective responsible ใช้คู่กับ for จึงต้องเป็น held responsible for the behaviour"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Relative pronoun: that/which, not what",
+    "th": "relative pronoun: ใช้ that/which ไม่ใช่ what"
+   },
+   "topic": {
+    "en": "Relative clauses",
+    "th": "อนุประโยค relative"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The data [[collected]] over the past decade [[clearly]] [[show]] a pattern [[what]] few had expected.",
+   "choices": [
+    "collected",
+    "clearly",
+    "show",
+    "what"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "'What' means 'the thing that' and cannot follow a noun. After 'a pattern' we need 'that' or 'which'. ('The data show' is acceptable, as 'data' is often plural.)",
+    "th": "what แปลว่า 'สิ่งที่' และใช้ตามหลังคำนามไม่ได้ หลัง a pattern ต้องใช้ that หรือ which (The data show ถูกต้อง เพราะ data มักใช้เป็นพหูพจน์)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Past participle in a comparison phrase",
+    "th": "past participle ในวลีเปรียบเทียบ"
+   },
+   "topic": {
+    "en": "Participle clauses",
+    "th": "participle clause"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[Comparing]] with last year's figures, this year's exports [[have]] [[grown]] [[considerably]].",
+   "choices": [
+    "Comparing",
+    "have",
+    "grown",
+    "considerably"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Exports do not compare anything; they are compared. The passive form is needed: 'Compared with last year's figures…'.",
+    "th": "ยอดส่งออกไม่ได้เป็นผู้เปรียบเทียบ แต่ถูกนำมาเปรียบเทียบ จึงต้องใช้รูป passive คือ Compared with last year's figures"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "e",
+   "skill": {
+    "en": "Word form: adverb before a participle",
+    "th": "รูปคำ: adverb ขยาย participle"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "Maya Bay, the beach made famous by a Hollywood film, was closed to visitors in 2018 after years of mass tourism had left its coral reefs (1) ______ damaged. At its peak, the bay received several thousand visitors a day, and boats regularly dropped anchor directly on the reef. Scientists warned that, (2) ______ urgent action was taken, the damage could become permanent. The closure, initially intended to last a few months, was (3) ______ extended several times. During that period, marine biologists planted thousands of young corals, and blacktip reef sharks, which had all but (4) ______ from the area, began to return. When the bay finally reopened, strict rules had been (5) ______ place: swimming was banned, visitor numbers were capped and boats had to dock on the far side of the island.",
+   "stem": "Which option best fills gap (1)?",
+   "explanation": {
+    "en": "The past participle 'damaged' is modified by an adverb: 'severely damaged'. 'Severe' is an adjective, 'severity' a noun, and 'sever' a verb meaning 'cut off'.",
+    "th": "past participle damaged ต้องขยายด้วย adverb จึงเป็น severely damaged ส่วน severe เป็น adjective, severity เป็นคำนาม และ sever เป็นกริยาแปลว่าตัดขาด"
+   },
+   "choices": [
+    "severity",
+    "sever",
+    "severe",
+    "severely"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Conditional linker: unless",
+    "th": "คำเชื่อมเงื่อนไข: unless"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "Maya Bay, the beach made famous by a Hollywood film, was closed to visitors in 2018 after years of mass tourism had left its coral reefs (1) ______ damaged. At its peak, the bay received several thousand visitors a day, and boats regularly dropped anchor directly on the reef. Scientists warned that, (2) ______ urgent action was taken, the damage could become permanent. The closure, initially intended to last a few months, was (3) ______ extended several times. During that period, marine biologists planted thousands of young corals, and blacktip reef sharks, which had all but (4) ______ from the area, began to return. When the bay finally reopened, strict rules had been (5) ______ place: swimming was banned, visitor numbers were capped and boats had to dock on the far side of the island.",
+   "stem": "Which option best fills gap (2)?",
+   "explanation": {
+    "en": "The damage would become permanent if action was NOT taken, so 'unless' is needed. 'If', 'provided' and 'as long as' would mean that taking action causes permanent damage.",
+    "th": "ความเสียหายจะถาวรถ้า 'ไม่' ลงมือแก้ไข จึงใช้ unless ส่วน if, provided และ as long as จะให้ความหมายว่าการลงมือแก้ไขทำให้เสียหายถาวร ซึ่งไม่สมเหตุสมผล"
+   },
+   "choices": [
+    "as long as",
+    "if",
+    "provided",
+    "unless"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Time adverb: subsequently",
+    "th": "adverb บอกเวลา: subsequently"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "Maya Bay, the beach made famous by a Hollywood film, was closed to visitors in 2018 after years of mass tourism had left its coral reefs (1) ______ damaged. At its peak, the bay received several thousand visitors a day, and boats regularly dropped anchor directly on the reef. Scientists warned that, (2) ______ urgent action was taken, the damage could become permanent. The closure, initially intended to last a few months, was (3) ______ extended several times. During that period, marine biologists planted thousands of young corals, and blacktip reef sharks, which had all but (4) ______ from the area, began to return. When the bay finally reopened, strict rules had been (5) ______ place: swimming was banned, visitor numbers were capped and boats had to dock on the far side of the island.",
+   "stem": "Which option best fills gap (3)?",
+   "explanation": {
+    "en": "The closure was planned for a few months and then extended later, so 'subsequently' (afterwards) fits. 'Previously', 'formerly' and 'beforehand' all refer to an earlier time.",
+    "th": "เดิมตั้งใจปิดไม่กี่เดือนแล้วจึงขยายเวลาภายหลัง จึงใช้ subsequently (ต่อมา) ส่วน previously, formerly และ beforehand หมายถึงช่วงก่อนหน้า"
+   },
+   "choices": [
+    "formerly",
+    "subsequently",
+    "beforehand",
+    "previously"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Past perfect with 'all but'",
+    "th": "past perfect กับ all but"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "Maya Bay, the beach made famous by a Hollywood film, was closed to visitors in 2018 after years of mass tourism had left its coral reefs (1) ______ damaged. At its peak, the bay received several thousand visitors a day, and boats regularly dropped anchor directly on the reef. Scientists warned that, (2) ______ urgent action was taken, the damage could become permanent. The closure, initially intended to last a few months, was (3) ______ extended several times. During that period, marine biologists planted thousands of young corals, and blacktip reef sharks, which had all but (4) ______ from the area, began to return. When the bay finally reopened, strict rules had been (5) ______ place: swimming was banned, visitor numbers were capped and boats had to dock on the far side of the island.",
+   "stem": "Which option best fills gap (4)?",
+   "explanation": {
+    "en": "'Had all but ___' is the past perfect ('had' + past participle), with 'all but' meaning 'almost': 'had all but disappeared'.",
+    "th": "had all but ___ เป็น past perfect (had + V3) โดย all but แปลว่า เกือบจะ จึงเป็น had all but disappeared"
+   },
+   "choices": [
+    "disappear",
+    "disappearing",
+    "disappeared",
+    "to disappear"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Collocation: put in place",
+    "th": "collocation: put in place"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "Maya Bay, the beach made famous by a Hollywood film, was closed to visitors in 2018 after years of mass tourism had left its coral reefs (1) ______ damaged. At its peak, the bay received several thousand visitors a day, and boats regularly dropped anchor directly on the reef. Scientists warned that, (2) ______ urgent action was taken, the damage could become permanent. The closure, initially intended to last a few months, was (3) ______ extended several times. During that period, marine biologists planted thousands of young corals, and blacktip reef sharks, which had all but (4) ______ from the area, began to return. When the bay finally reopened, strict rules had been (5) ______ place: swimming was banned, visitor numbers were capped and boats had to dock on the far side of the island.",
+   "stem": "Which option best fills gap (5)?",
+   "explanation": {
+    "en": "Rules or systems are 'put in place' (introduced and made active). 'Taken in', 'made in' and 'held in' do not form this expression.",
+    "th": "กฎหรือระบบใช้สำนวน put in place (นำมาใช้) ส่วน taken in, made in และ held in ไม่ได้เป็นสำนวนนี้"
+   },
+   "choices": [
+    "made in",
+    "taken in",
+    "put in",
+    "held in"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Idiom: pluck up the courage",
+    "th": "สำนวน: pluck up the courage"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "The letter had been sitting on the kitchen table for three days before Arthit (6) ______ up the courage to open it. He already knew what it would say — or thought he did. His older brother had been accepted by the same university without difficulty, and his parents (7) ______ that he would follow. As he unfolded the page, his hands were trembling so much that he had to read the first line twice. \"We regret to inform you…\" He sat down slowly. Strangely, the feeling that (8) ______ over him was not disappointment but something closer to relief. For years he had been preparing for a future that (9) ______ never really been his own. Now, for the first time, he would have to decide what he actually wanted — a prospect that was as (10) ______ as it was frightening.",
+   "stem": "Which option best fills gap (6)?",
+   "explanation": {
+    "en": "The idiom is 'pluck up the courage' (find enough bravery to do something). 'Pull up', 'pick up' and 'bring up' do not combine with 'the courage' in this way.",
+    "th": "สำนวนคือ pluck up the courage (รวบรวมความกล้า) ส่วน pull up, pick up และ bring up ไม่ใช้กับ the courage ในความหมายนี้"
+   },
+   "choices": [
+    "plucked",
+    "picked",
+    "brought",
+    "pulled"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Expression: take it for granted that",
+    "th": "สำนวน: take it for granted that"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "The letter had been sitting on the kitchen table for three days before Arthit (6) ______ up the courage to open it. He already knew what it would say — or thought he did. His older brother had been accepted by the same university without difficulty, and his parents (7) ______ that he would follow. As he unfolded the page, his hands were trembling so much that he had to read the first line twice. \"We regret to inform you…\" He sat down slowly. Strangely, the feeling that (8) ______ over him was not disappointment but something closer to relief. For years he had been preparing for a future that (9) ______ never really been his own. Now, for the first time, he would have to decide what he actually wanted — a prospect that was as (10) ______ as it was frightening.",
+   "stem": "Which option best fills gap (7)?",
+   "explanation": {
+    "en": "Before a 'that' clause, the pattern needs the dummy object 'it': 'take it for granted that…'. Without 'it' the structure is incomplete, and the passive would make the parents the thing assumed.",
+    "th": "เมื่อตามด้วย that clause ต้องมี it เป็นกรรมแทน: take it for granted that… ถ้าไม่มี it โครงสร้างไม่สมบูรณ์ และรูป passive จะกลายเป็นว่าพ่อแม่ถูกคาดเอาเอง"
+   },
+   "choices": [
+    "had been taken for granted",
+    "had taken for granted",
+    "had granted it taken",
+    "had taken it for granted"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Past simple in a relative clause",
+    "th": "past simple ในอนุประโยค relative"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "The letter had been sitting on the kitchen table for three days before Arthit (6) ______ up the courage to open it. He already knew what it would say — or thought he did. His older brother had been accepted by the same university without difficulty, and his parents (7) ______ that he would follow. As he unfolded the page, his hands were trembling so much that he had to read the first line twice. \"We regret to inform you…\" He sat down slowly. Strangely, the feeling that (8) ______ over him was not disappointment but something closer to relief. For years he had been preparing for a future that (9) ______ never really been his own. Now, for the first time, he would have to decide what he actually wanted — a prospect that was as (10) ______ as it was frightening.",
+   "stem": "Which option best fills gap (8)?",
+   "explanation": {
+    "en": "The relative clause needs a finite past verb: 'the feeling that washed over him'. 'Washing' is not finite, 'was washed' is wrongly passive, and 'wash' is the wrong tense.",
+    "th": "อนุประโยค relative ต้องมีกริยาแท้ในอดีต: the feeling that washed over him ส่วน washing ไม่ใช่กริยาแท้ was washed เป็น passive ที่ผิดความหมาย และ wash ผิด tense"
+   },
+   "choices": [
+    "wash",
+    "washed",
+    "was washed",
+    "washing"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Past perfect for an earlier situation",
+    "th": "past perfect สำหรับสภาพการณ์ที่ต่อเนื่องมาก่อน"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "The letter had been sitting on the kitchen table for three days before Arthit (6) ______ up the courage to open it. He already knew what it would say — or thought he did. His older brother had been accepted by the same university without difficulty, and his parents (7) ______ that he would follow. As he unfolded the page, his hands were trembling so much that he had to read the first line twice. \"We regret to inform you…\" He sat down slowly. Strangely, the feeling that (8) ______ over him was not disappointment but something closer to relief. For years he had been preparing for a future that (9) ______ never really been his own. Now, for the first time, he would have to decide what he actually wanted — a prospect that was as (10) ______ as it was frightening.",
+   "stem": "Which option best fills gap (9)?",
+   "explanation": {
+    "en": "'Been' needs a perfect auxiliary, and the story is in the past, so 'had never really been his own'. 'Has' is the wrong tense, and 'was been' and 'would been' are ungrammatical.",
+    "th": "been ต้องมีกริยาช่วยของ perfect และเรื่องเล่าเป็นอดีต จึงเป็น had never really been his own ส่วน has ผิด tense และ was been, would been ผิดไวยากรณ์"
+   },
+   "choices": [
+    "would",
+    "had",
+    "has",
+    "was"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Word form: -ing adjective",
+    "th": "รูปคำ: adjective ลงท้าย -ing"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "The letter had been sitting on the kitchen table for three days before Arthit (6) ______ up the courage to open it. He already knew what it would say — or thought he did. His older brother had been accepted by the same university without difficulty, and his parents (7) ______ that he would follow. As he unfolded the page, his hands were trembling so much that he had to read the first line twice. \"We regret to inform you…\" He sat down slowly. Strangely, the feeling that (8) ______ over him was not disappointment but something closer to relief. For years he had been preparing for a future that (9) ______ never really been his own. Now, for the first time, he would have to decide what he actually wanted — a prospect that was as (10) ______ as it was frightening.",
+   "stem": "Which option best fills gap (10)?",
+   "explanation": {
+    "en": "The prospect causes the feeling, so we use the -ing adjective, parallel with 'frightening': 'as exhilarating as it was frightening'. 'Exhilarated' describes the person who feels it.",
+    "th": "prospect เป็นสิ่งที่ทำให้เกิดความรู้สึก จึงใช้ adjective ลงท้าย -ing ให้ขนานกับ frightening: as exhilarating as it was frightening ส่วน exhilarated ใช้กับคนที่รู้สึก"
+   },
+   "choices": [
+    "exhilaration",
+    "exhilarating",
+    "exhilarate",
+    "exhilarated"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "e",
+   "skill": {
+    "en": "Comparative with uncountable nouns: less",
+    "th": "การเปรียบเทียบกับนามนับไม่ได้: less"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "Every year the average consumer buys more clothes and keeps them for (11) ______ time than ever before. Fast-fashion brands, which can move a design from the catwalk to the shop floor in a matter of weeks, are often blamed for this, and (12) ______. But it is too easy to point the finger solely at companies. Shoppers, after all, are not forced to buy a new outfit for every party; they choose to. If we are serious about reducing waste, we need to (13) ______ our own habits as well as demanding change from manufacturers. That does not mean giving up fashion altogether. Buying second-hand, repairing rather than replacing, and simply (14) ______ fewer but better items could make a considerable difference. The problem, in other words, is not that we enjoy clothes — it is that we have stopped (15) ______ them.",
+   "stem": "Which option best fills gap (11)?",
+   "explanation": {
+    "en": "'Time' is uncountable and 'than' signals a comparative, so 'less time than'. 'Fewer' is for countable nouns, 'lesser' means 'smaller in importance', and 'least' is superlative.",
+    "th": "time เป็นนามนับไม่ได้ และมี than แสดงการเปรียบเทียบ จึงใช้ less time than ส่วน fewer ใช้กับนามนับได้ lesser แปลว่าสำคัญน้อยกว่า และ least เป็นขั้นสูงสุด"
+   },
+   "choices": [
+    "fewer",
+    "least",
+    "less",
+    "lesser"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Fixed phrase: with good reason",
+    "th": "วลีตายตัว: with good reason"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "Every year the average consumer buys more clothes and keeps them for (11) ______ time than ever before. Fast-fashion brands, which can move a design from the catwalk to the shop floor in a matter of weeks, are often blamed for this, and (12) ______. But it is too easy to point the finger solely at companies. Shoppers, after all, are not forced to buy a new outfit for every party; they choose to. If we are serious about reducing waste, we need to (13) ______ our own habits as well as demanding change from manufacturers. That does not mean giving up fashion altogether. Buying second-hand, repairing rather than replacing, and simply (14) ______ fewer but better items could make a considerable difference. The problem, in other words, is not that we enjoy clothes — it is that we have stopped (15) ______ them.",
+   "stem": "Which option best fills gap (12)?",
+   "explanation": {
+    "en": "The fixed phrase is 'with good reason' (= rightly). The writer concedes the blame is deserved before turning to shoppers with 'But'.",
+    "th": "วลีตายตัวคือ with good reason (= อย่างมีเหตุผล สมควรแล้ว) ผู้เขียนยอมรับว่าการตำหนิบริษัทนั้นสมควร ก่อนจะหันมาพูดถึงผู้ซื้อด้วย But"
+   },
+   "choices": [
+    "in good reason",
+    "by good reason",
+    "on good reason",
+    "with good reason"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Collocation: take a hard look at",
+    "th": "collocation: take a hard look at"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "Every year the average consumer buys more clothes and keeps them for (11) ______ time than ever before. Fast-fashion brands, which can move a design from the catwalk to the shop floor in a matter of weeks, are often blamed for this, and (12) ______. But it is too easy to point the finger solely at companies. Shoppers, after all, are not forced to buy a new outfit for every party; they choose to. If we are serious about reducing waste, we need to (13) ______ our own habits as well as demanding change from manufacturers. That does not mean giving up fashion altogether. Buying second-hand, repairing rather than replacing, and simply (14) ______ fewer but better items could make a considerable difference. The problem, in other words, is not that we enjoy clothes — it is that we have stopped (15) ______ them.",
+   "stem": "Which option best fills gap (13)?",
+   "explanation": {
+    "en": "The idiom is 'take a hard look at' (examine honestly and critically). The verb must be 'take' and the preposition 'at'.",
+    "th": "สำนวนคือ take a hard look at (พิจารณาอย่างจริงจังและตรงไปตรงมา) กริยาต้องเป็น take และบุพบทต้องเป็น at"
+   },
+   "choices": [
+    "take a hard look on",
+    "take a hard look at",
+    "make a hard look at",
+    "have a hard look to"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Parallel structure with gerunds",
+    "th": "โครงสร้างขนานด้วย V-ing"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "Every year the average consumer buys more clothes and keeps them for (11) ______ time than ever before. Fast-fashion brands, which can move a design from the catwalk to the shop floor in a matter of weeks, are often blamed for this, and (12) ______. But it is too easy to point the finger solely at companies. Shoppers, after all, are not forced to buy a new outfit for every party; they choose to. If we are serious about reducing waste, we need to (13) ______ our own habits as well as demanding change from manufacturers. That does not mean giving up fashion altogether. Buying second-hand, repairing rather than replacing, and simply (14) ______ fewer but better items could make a considerable difference. The problem, in other words, is not that we enjoy clothes — it is that we have stopped (15) ______ them.",
+   "stem": "Which option best fills gap (14)?",
+   "explanation": {
+    "en": "The list 'Buying…, repairing…, and simply ___' is a series of gerund subjects, so the third must also be a gerund: 'choosing'.",
+    "th": "รายการ Buying…, repairing…, and simply ___ เป็นประธานรูป V-ing ทั้งหมด ตัวที่สามจึงต้องเป็น V-ing ด้วย คือ choosing"
+   },
+   "choices": [
+    "choosing",
+    "chosen",
+    "choose",
+    "to choose"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "stop + -ing vs stop + to-infinitive",
+    "th": "stop + V-ing กับ stop + to V"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "Every year the average consumer buys more clothes and keeps them for (11) ______ time than ever before. Fast-fashion brands, which can move a design from the catwalk to the shop floor in a matter of weeks, are often blamed for this, and (12) ______. But it is too easy to point the finger solely at companies. Shoppers, after all, are not forced to buy a new outfit for every party; they choose to. If we are serious about reducing waste, we need to (13) ______ our own habits as well as demanding change from manufacturers. That does not mean giving up fashion altogether. Buying second-hand, repairing rather than replacing, and simply (14) ______ fewer but better items could make a considerable difference. The problem, in other words, is not that we enjoy clothes — it is that we have stopped (15) ______ them.",
+   "stem": "Which option best fills gap (15)?",
+   "explanation": {
+    "en": "'Stop + -ing' means to no longer do something: we no longer value clothes. 'Stop + to-infinitive' means to stop one activity in order to do another, which is the wrong meaning here.",
+    "th": "stop + V-ing แปลว่าเลิกทำ (เราเลิกให้คุณค่ากับเสื้อผ้า) ส่วน stop + to V แปลว่าหยุดสิ่งหนึ่งเพื่อไปทำอีกสิ่ง ซึ่งความหมายไม่ถูก"
+   },
+   "choices": [
+    "valuing",
+    "value",
+    "to value",
+    "valued"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Locating key information",
+    "th": "การหาข้อมูลสำคัญ"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "BANGKOK — Motor vehicles will be banned from a two-kilometre stretch of the city's historic Rattanakosin district every Sunday from next month, under a six-month trial announced by city officials on Tuesday.\n\nThe scheme will close several roads near the Grand Palace to private cars, taxis and motorcycles between 7 a.m. and 7 p.m., turning them over to pedestrians, cyclists and street performers. Residents will be issued permits allowing them to drive to and from their homes at walking pace, and a free electric shuttle bus will link the zone to the nearest metro stations.\n\nOfficials say the trial is intended to reduce air pollution and make the area more pleasant for the millions of tourists who visit each year. \"Our old town was built for people, not engines,\" a deputy governor told reporters. \"For one day a week, we want to give it back to them.\"\n\nThe announcement drew a mixed response. Shop owners on one of the affected roads, where many businesses rely on deliveries, said they had not been consulted. \"Of course we want clean air,\" said one restaurant owner. \"But if suppliers cannot reach us on our busiest day, the clean air will be very quiet.\"\n\nTaxi drivers' associations have also raised objections, arguing that the closures will simply push traffic onto surrounding roads. Transport researchers say that risk is real but often overstated. Studies of similar schemes in other Asian cities have found that congestion in neighbouring streets typically rises for the first few weeks before settling below its original level, as drivers change their routes or leave their cars at home.\n\nCity officials have promised to review the trial after three months and say they are open to adjusting delivery hours. Whether the scheme becomes permanent, they added, will depend largely on what residents and businesses make of it.",
+   "stem": "According to the report, what will happen on Sundays during the trial?",
+   "explanation": {
+    "en": "The first two paragraphs say cars, taxis and motorcycles will be banned from a two-kilometre stretch between 7 a.m. and 7 p.m., with exceptions for residents. It is not the whole city, and it is the shuttle bus, not the metro, that is free.",
+    "th": "สองย่อหน้าแรกบอกว่ารถยนต์ แท็กซี่ และมอเตอร์ไซค์ถูกห้ามเข้าช่วงถนนสองกิโลเมตร ตั้งแต่ 7 โมงเช้าถึง 1 ทุ่ม ยกเว้นผู้อยู่อาศัย ไม่ใช่ทั้งเมือง และที่ฟรีคือรถรับส่งไฟฟ้า ไม่ใช่รถไฟฟ้าใต้ดิน"
+   },
+   "choices": [
+    "Metro trains will run free of charge to the Grand Palace.",
+    "All roads in Bangkok will be closed to private cars.",
+    "Tourists will need permits to enter the Rattanakosin district.",
+    "Most motor vehicles will be kept out of part of the old town during the day."
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding an ironic remark",
+    "th": "การเข้าใจคำพูดเชิงประชด"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "BANGKOK — Motor vehicles will be banned from a two-kilometre stretch of the city's historic Rattanakosin district every Sunday from next month, under a six-month trial announced by city officials on Tuesday.\n\nThe scheme will close several roads near the Grand Palace to private cars, taxis and motorcycles between 7 a.m. and 7 p.m., turning them over to pedestrians, cyclists and street performers. Residents will be issued permits allowing them to drive to and from their homes at walking pace, and a free electric shuttle bus will link the zone to the nearest metro stations.\n\nOfficials say the trial is intended to reduce air pollution and make the area more pleasant for the millions of tourists who visit each year. \"Our old town was built for people, not engines,\" a deputy governor told reporters. \"For one day a week, we want to give it back to them.\"\n\nThe announcement drew a mixed response. Shop owners on one of the affected roads, where many businesses rely on deliveries, said they had not been consulted. \"Of course we want clean air,\" said one restaurant owner. \"But if suppliers cannot reach us on our busiest day, the clean air will be very quiet.\"\n\nTaxi drivers' associations have also raised objections, arguing that the closures will simply push traffic onto surrounding roads. Transport researchers say that risk is real but often overstated. Studies of similar schemes in other Asian cities have found that congestion in neighbouring streets typically rises for the first few weeks before settling below its original level, as drivers change their routes or leave their cars at home.\n\nCity officials have promised to review the trial after three months and say they are open to adjusting delivery hours. Whether the scheme becomes permanent, they added, will depend largely on what residents and businesses make of it.",
+   "stem": "What does the restaurant owner mean by \"the clean air will be very quiet\"?",
+   "explanation": {
+    "en": "He wittily suggests that if suppliers cannot reach his restaurant, it will be empty — the air will be clean, but there will be no business.",
+    "th": "เขาพูดเชิงประชดว่าถ้าซัพพลายเออร์มาส่งของไม่ได้ ร้านก็จะเงียบเหงา อากาศสะอาดก็จริงแต่ไม่มีลูกค้า"
+   },
+   "choices": [
+    "The area will be pleasantly free of traffic noise.",
+    "Without deliveries, businesses may have few customers despite the cleaner air.",
+    "Restaurants will be banned from playing music on Sundays.",
+    "Clean air will attract many more customers to the area."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Detail about an exception",
+    "th": "รายละเอียดเรื่องข้อยกเว้น"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "BANGKOK — Motor vehicles will be banned from a two-kilometre stretch of the city's historic Rattanakosin district every Sunday from next month, under a six-month trial announced by city officials on Tuesday.\n\nThe scheme will close several roads near the Grand Palace to private cars, taxis and motorcycles between 7 a.m. and 7 p.m., turning them over to pedestrians, cyclists and street performers. Residents will be issued permits allowing them to drive to and from their homes at walking pace, and a free electric shuttle bus will link the zone to the nearest metro stations.\n\nOfficials say the trial is intended to reduce air pollution and make the area more pleasant for the millions of tourists who visit each year. \"Our old town was built for people, not engines,\" a deputy governor told reporters. \"For one day a week, we want to give it back to them.\"\n\nThe announcement drew a mixed response. Shop owners on one of the affected roads, where many businesses rely on deliveries, said they had not been consulted. \"Of course we want clean air,\" said one restaurant owner. \"But if suppliers cannot reach us on our busiest day, the clean air will be very quiet.\"\n\nTaxi drivers' associations have also raised objections, arguing that the closures will simply push traffic onto surrounding roads. Transport researchers say that risk is real but often overstated. Studies of similar schemes in other Asian cities have found that congestion in neighbouring streets typically rises for the first few weeks before settling below its original level, as drivers change their routes or leave their cars at home.\n\nCity officials have promised to review the trial after three months and say they are open to adjusting delivery hours. Whether the scheme becomes permanent, they added, will depend largely on what residents and businesses make of it.",
+   "stem": "What special arrangement is made for people who live in the zone?",
+   "explanation": {
+    "en": "The report says residents 'will be issued permits allowing them to drive to and from their homes at walking pace'.",
+    "th": "ข่าวบอกว่าผู้อยู่อาศัย 'จะได้รับใบอนุญาตให้ขับรถเข้าออกบ้านได้ด้วยความเร็วเท่าคนเดิน'"
+   },
+   "choices": [
+    "They must leave their cars outside the district on Sundays.",
+    "They will be given free electric bicycles.",
+    "They may drive freely at any time of day.",
+    "They may drive to and from their homes slowly if they hold a permit."
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Purpose of cited evidence",
+    "th": "จุดประสงค์ของการอ้างหลักฐาน"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "BANGKOK — Motor vehicles will be banned from a two-kilometre stretch of the city's historic Rattanakosin district every Sunday from next month, under a six-month trial announced by city officials on Tuesday.\n\nThe scheme will close several roads near the Grand Palace to private cars, taxis and motorcycles between 7 a.m. and 7 p.m., turning them over to pedestrians, cyclists and street performers. Residents will be issued permits allowing them to drive to and from their homes at walking pace, and a free electric shuttle bus will link the zone to the nearest metro stations.\n\nOfficials say the trial is intended to reduce air pollution and make the area more pleasant for the millions of tourists who visit each year. \"Our old town was built for people, not engines,\" a deputy governor told reporters. \"For one day a week, we want to give it back to them.\"\n\nThe announcement drew a mixed response. Shop owners on one of the affected roads, where many businesses rely on deliveries, said they had not been consulted. \"Of course we want clean air,\" said one restaurant owner. \"But if suppliers cannot reach us on our busiest day, the clean air will be very quiet.\"\n\nTaxi drivers' associations have also raised objections, arguing that the closures will simply push traffic onto surrounding roads. Transport researchers say that risk is real but often overstated. Studies of similar schemes in other Asian cities have found that congestion in neighbouring streets typically rises for the first few weeks before settling below its original level, as drivers change their routes or leave their cars at home.\n\nCity officials have promised to review the trial after three months and say they are open to adjusting delivery hours. Whether the scheme becomes permanent, they added, will depend largely on what residents and businesses make of it.",
+   "stem": "Why does the report mention studies of similar schemes in other Asian cities?",
+   "explanation": {
+    "en": "The studies found congestion rose at first but then settled 'below its original level', which answers the taxi drivers' objection — though only as a likely pattern, not a guarantee.",
+    "th": "งานวิจัยพบว่ารถติดเพิ่มขึ้นช่วงแรกแล้วลดลง 'ต่ำกว่าระดับเดิม' ซึ่งเป็นการตอบข้อคัดค้านของสมาคมแท็กซี่ แต่เป็นเพียงแนวโน้ม ไม่ได้รับประกันว่าจะสำเร็จ"
+   },
+   "choices": [
+    "To support the taxi drivers' claim that congestion will get worse",
+    "To show that other cities have abandoned car-free days",
+    "To suggest that worries about traffic on nearby roads may be exaggerated in the long run",
+    "To prove that the Bangkok trial will certainly succeed"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring how a future outcome is framed",
+    "th": "การอนุมานการนำเสนอผลในอนาคต"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "BANGKOK — Motor vehicles will be banned from a two-kilometre stretch of the city's historic Rattanakosin district every Sunday from next month, under a six-month trial announced by city officials on Tuesday.\n\nThe scheme will close several roads near the Grand Palace to private cars, taxis and motorcycles between 7 a.m. and 7 p.m., turning them over to pedestrians, cyclists and street performers. Residents will be issued permits allowing them to drive to and from their homes at walking pace, and a free electric shuttle bus will link the zone to the nearest metro stations.\n\nOfficials say the trial is intended to reduce air pollution and make the area more pleasant for the millions of tourists who visit each year. \"Our old town was built for people, not engines,\" a deputy governor told reporters. \"For one day a week, we want to give it back to them.\"\n\nThe announcement drew a mixed response. Shop owners on one of the affected roads, where many businesses rely on deliveries, said they had not been consulted. \"Of course we want clean air,\" said one restaurant owner. \"But if suppliers cannot reach us on our busiest day, the clean air will be very quiet.\"\n\nTaxi drivers' associations have also raised objections, arguing that the closures will simply push traffic onto surrounding roads. Transport researchers say that risk is real but often overstated. Studies of similar schemes in other Asian cities have found that congestion in neighbouring streets typically rises for the first few weeks before settling below its original level, as drivers change their routes or leave their cars at home.\n\nCity officials have promised to review the trial after three months and say they are open to adjusting delivery hours. Whether the scheme becomes permanent, they added, will depend largely on what residents and businesses make of it.",
+   "stem": "How do officials present the future of the scheme?",
+   "explanation": {
+    "en": "They promise a review after three months, are 'open to adjusting delivery hours' and say permanence 'will depend largely on what residents and businesses make of it' — a tentative, conditional framing.",
+    "th": "เจ้าหน้าที่สัญญาว่าจะทบทวนหลังสามเดือน พร้อมปรับเวลาส่งของ และบอกว่าจะถาวรหรือไม่ 'ขึ้นอยู่กับความเห็นของผู้อยู่อาศัยและผู้ประกอบการ' จึงเป็นการนำเสนอแบบชั่วคราวและมีเงื่อนไข"
+   },
+   "choices": [
+    "As provisional and dependent on how residents and businesses respond",
+    "As a decision for the taxi associations to make",
+    "As certain to become permanent after six months",
+    "As already abandoned because of the objections"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Understanding background information",
+    "th": "การเข้าใจข้อมูลพื้นหลัง"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "At twelve, Nok was the best English speaker in her family, which meant that whenever her father had to deal with the outside world, Nok went with him. She translated letters from the bank, phone calls from the landlord and, once, a long argument with a man who had reversed into their car.\n\nShe was proud of the job, mostly. It made her feel grown-up, and adults sometimes looked at her with a kind of surprised respect. But there were moments when she wished she could simply be a child who did not understand.\n\nThe worst of these came on a grey Tuesday in the doctor's office. The doctor spoke quickly, glancing at her screen rather than at Nok's father. Nok caught words she knew — \"results\", \"further tests\" — and others she did not. Then the doctor said, \"I'm afraid it's not good news,\" and looked, finally, at Nok, waiting.\n\nHer father was watching her face. Nok understood, in that instant, that whatever she said next would become true for him in a way it was not yet true for her.\n\n\"She says they need to do more tests,\" Nok said in Thai. \"She says not to worry yet.\"\n\nIt was not exactly a lie. The doctor had said something about tests. Her father nodded, and some of the tightness left his shoulders.\n\nOn the bus home he bought her a mango smoothie, the expensive kind, and talked about football. Nok held the cup with both hands and did not drink it. She was thinking about the word \"yet\", and about how much weight one small word could carry, and about the second appointment, next Thursday, when she would have to choose again.",
+   "stem": "Why does Nok go with her father when he deals with official matters?",
+   "explanation": {
+    "en": "The first sentence says she 'was the best English speaker in her family', which is why she goes with him.",
+    "th": "ประโยคแรกบอกว่าเธอ 'พูดภาษาอังกฤษเก่งที่สุดในครอบครัว' เธอจึงต้องไปกับพ่อ"
+   },
+   "choices": [
+    "She speaks English better than anyone else in her family.",
+    "Her father does not trust other interpreters.",
+    "The doctor asked her to come to every appointment.",
+    "She is training to become a professional translator."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Interpreting a descriptive phrase",
+    "th": "การตีความวลีบรรยาย"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "At twelve, Nok was the best English speaker in her family, which meant that whenever her father had to deal with the outside world, Nok went with him. She translated letters from the bank, phone calls from the landlord and, once, a long argument with a man who had reversed into their car.\n\nShe was proud of the job, mostly. It made her feel grown-up, and adults sometimes looked at her with a kind of surprised respect. But there were moments when she wished she could simply be a child who did not understand.\n\nThe worst of these came on a grey Tuesday in the doctor's office. The doctor spoke quickly, glancing at her screen rather than at Nok's father. Nok caught words she knew — \"results\", \"further tests\" — and others she did not. Then the doctor said, \"I'm afraid it's not good news,\" and looked, finally, at Nok, waiting.\n\nHer father was watching her face. Nok understood, in that instant, that whatever she said next would become true for him in a way it was not yet true for her.\n\n\"She says they need to do more tests,\" Nok said in Thai. \"She says not to worry yet.\"\n\nIt was not exactly a lie. The doctor had said something about tests. Her father nodded, and some of the tightness left his shoulders.\n\nOn the bus home he bought her a mango smoothie, the expensive kind, and talked about football. Nok held the cup with both hands and did not drink it. She was thinking about the word \"yet\", and about how much weight one small word could carry, and about the second appointment, next Thursday, when she would have to choose again.",
+   "stem": "What does \"a kind of surprised respect\" suggest about the adults' reaction to Nok?",
+   "explanation": {
+    "en": "'Surprised' shows they did not expect a twelve-year-old to handle adult business; 'respect' shows they admired her for doing it.",
+    "th": "คำว่า surprised แสดงว่าผู้ใหญ่ไม่คาดว่าเด็กอายุสิบสองจะจัดการเรื่องของผู้ใหญ่ได้ ส่วน respect แสดงว่าพวกเขาชื่นชมเธอ"
+   },
+   "choices": [
+    "They were annoyed that a child was interrupting them.",
+    "They felt sorry for her because she had to miss school.",
+    "They were impressed that someone so young could take on such responsibility.",
+    "They did not believe she could really speak English."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding a character's action",
+    "th": "การเข้าใจการกระทำของตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "At twelve, Nok was the best English speaker in her family, which meant that whenever her father had to deal with the outside world, Nok went with him. She translated letters from the bank, phone calls from the landlord and, once, a long argument with a man who had reversed into their car.\n\nShe was proud of the job, mostly. It made her feel grown-up, and adults sometimes looked at her with a kind of surprised respect. But there were moments when she wished she could simply be a child who did not understand.\n\nThe worst of these came on a grey Tuesday in the doctor's office. The doctor spoke quickly, glancing at her screen rather than at Nok's father. Nok caught words she knew — \"results\", \"further tests\" — and others she did not. Then the doctor said, \"I'm afraid it's not good news,\" and looked, finally, at Nok, waiting.\n\nHer father was watching her face. Nok understood, in that instant, that whatever she said next would become true for him in a way it was not yet true for her.\n\n\"She says they need to do more tests,\" Nok said in Thai. \"She says not to worry yet.\"\n\nIt was not exactly a lie. The doctor had said something about tests. Her father nodded, and some of the tightness left his shoulders.\n\nOn the bus home he bought her a mango smoothie, the expensive kind, and talked about football. Nok held the cup with both hands and did not drink it. She was thinking about the word \"yet\", and about how much weight one small word could carry, and about the second appointment, next Thursday, when she would have to choose again.",
+   "stem": "What does Nok do when she translates the doctor's message?",
+   "explanation": {
+    "en": "The doctor says 'it's not good news', but Nok tells her father only that more tests are needed and 'not to worry yet' — 'not exactly a lie', but a gentler version.",
+    "th": "หมอบอกว่า 'ไม่ใช่ข่าวดี' แต่หนกลับบอกพ่อเพียงว่าต้องตรวจเพิ่มและ 'ยังไม่ต้องกังวล' ซึ่ง 'ไม่ได้โกหกเสียทีเดียว' แต่เป็นการพูดให้เบาลง"
+   },
+   "choices": [
+    "She tells her father the news is very serious.",
+    "She refuses to translate until the doctor speaks slowly.",
+    "She softens the message to protect her father.",
+    "She translates it word for word."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting a key insight",
+    "th": "การตีความความเข้าใจสำคัญของตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "At twelve, Nok was the best English speaker in her family, which meant that whenever her father had to deal with the outside world, Nok went with him. She translated letters from the bank, phone calls from the landlord and, once, a long argument with a man who had reversed into their car.\n\nShe was proud of the job, mostly. It made her feel grown-up, and adults sometimes looked at her with a kind of surprised respect. But there were moments when she wished she could simply be a child who did not understand.\n\nThe worst of these came on a grey Tuesday in the doctor's office. The doctor spoke quickly, glancing at her screen rather than at Nok's father. Nok caught words she knew — \"results\", \"further tests\" — and others she did not. Then the doctor said, \"I'm afraid it's not good news,\" and looked, finally, at Nok, waiting.\n\nHer father was watching her face. Nok understood, in that instant, that whatever she said next would become true for him in a way it was not yet true for her.\n\n\"She says they need to do more tests,\" Nok said in Thai. \"She says not to worry yet.\"\n\nIt was not exactly a lie. The doctor had said something about tests. Her father nodded, and some of the tightness left his shoulders.\n\nOn the bus home he bought her a mango smoothie, the expensive kind, and talked about football. Nok held the cup with both hands and did not drink it. She was thinking about the word \"yet\", and about how much weight one small word could carry, and about the second appointment, next Thursday, when she would have to choose again.",
+   "stem": "\"Whatever she said next would become true for him in a way it was not yet true for her.\" What does Nok realise at this moment?",
+   "explanation": {
+    "en": "Her father cannot understand the doctor, so Nok's translation will be the only version he hears. She has the power to decide how the news reaches him — a heavy responsibility for a child.",
+    "th": "พ่อฟังหมอไม่เข้าใจ คำแปลของหนจึงเป็นสิ่งเดียวที่พ่อได้ยิน เธอมีอำนาจกำหนดว่าข่าวนี้จะไปถึงพ่ออย่างไร ซึ่งเป็นภาระหนักสำหรับเด็ก"
+   },
+   "choices": [
+    "Her father will know the news only through her words, so she controls how real it becomes for him.",
+    "The doctor will repeat the news to her father later in Thai.",
+    "She has misunderstood the doctor and must ask her to repeat it.",
+    "Her father already understands the doctor and is testing her honesty."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring feelings from behaviour",
+    "th": "การอนุมานความรู้สึกจากพฤติกรรม"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "At twelve, Nok was the best English speaker in her family, which meant that whenever her father had to deal with the outside world, Nok went with him. She translated letters from the bank, phone calls from the landlord and, once, a long argument with a man who had reversed into their car.\n\nShe was proud of the job, mostly. It made her feel grown-up, and adults sometimes looked at her with a kind of surprised respect. But there were moments when she wished she could simply be a child who did not understand.\n\nThe worst of these came on a grey Tuesday in the doctor's office. The doctor spoke quickly, glancing at her screen rather than at Nok's father. Nok caught words she knew — \"results\", \"further tests\" — and others she did not. Then the doctor said, \"I'm afraid it's not good news,\" and looked, finally, at Nok, waiting.\n\nHer father was watching her face. Nok understood, in that instant, that whatever she said next would become true for him in a way it was not yet true for her.\n\n\"She says they need to do more tests,\" Nok said in Thai. \"She says not to worry yet.\"\n\nIt was not exactly a lie. The doctor had said something about tests. Her father nodded, and some of the tightness left his shoulders.\n\nOn the bus home he bought her a mango smoothie, the expensive kind, and talked about football. Nok held the cup with both hands and did not drink it. She was thinking about the word \"yet\", and about how much weight one small word could carry, and about the second appointment, next Thursday, when she would have to choose again.",
+   "stem": "Why does Nok not drink the smoothie her father buys her?",
+   "explanation": {
+    "en": "The last sentence shows her mind is on the word 'yet', the 'weight' it carries and the next appointment when 'she would have to choose again' — her guilt and worry stop her enjoying the treat.",
+    "th": "ประโยคสุดท้ายแสดงว่าเธอคิดถึงคำว่า yet และ 'น้ำหนัก' ของมัน กับนัดครั้งต่อไปที่ 'ต้องเลือกอีกครั้ง' ความรู้สึกผิดและความกังวลทำให้เธอไม่อาจเพลิดเพลินกับของที่พ่อซื้อให้"
+   },
+   "choices": [
+    "She is angry that her father wants to talk about football.",
+    "She does not like the taste of mango.",
+    "She is troubled by what she has done and by the decision still ahead of her.",
+    "She is saving it to share with her father at home."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Identifying praise in a review",
+    "th": "การระบุคำชมในบทวิจารณ์"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "Daniel Reyes wakes at four-thirty every morning, and he would very much like you to know it. In Ten Thousand Mornings, his third book on what he calls \"deliberate living\", Reyes argues that the hours before dawn are the key to a successful life, and that almost anyone who claims to be too busy to achieve their goals is simply sleeping through the solution.\n\nThere is something here worth taking seriously. Reyes is good on the value of routine, and his chapter on protecting time for difficult work — switching off notifications, saying no to unnecessary meetings — contains advice that many readers will find useful. His prose is clear and occasionally funny, particularly when he describes his own early failures, such as the morning he fell asleep in the middle of a meditation session and woke with his face in a bowl of oatmeal.\n\nThe problems begin when Reyes moves from describing what works for him to prescribing what should work for everyone. His readers, it seems, are assumed to have flexible jobs, no young children and no need to work a night shift. A single mother who writes to say that she cannot possibly rise at four-thirty is gently told that she has \"not yet found her why\". One suspects she has found it; it is asleep in the next room.\n\nReyes cites a great deal of research, but rather selectively. Studies that support early rising are described in detail, while the considerable evidence that people's natural sleep patterns differ — and that forcing an early schedule on a \"night owl\" can harm health — appears only in a brief footnote.\n\nReaders who already enjoy early mornings will find much here to confirm what they believe. Those who do not may wish to read it in the afternoon, which is, after all, when most of us are properly awake.",
+   "stem": "Which part of the book does the reviewer find genuinely useful?",
+   "explanation": {
+    "en": "The second paragraph praises Reyes as 'good on the value of routine' and his chapter on 'protecting time for difficult work'. The reviewer criticises the other points.",
+    "th": "ย่อหน้าที่สองชมว่าผู้เขียน 'เขียนเรื่องคุณค่าของกิจวัตรได้ดี' และบทว่าด้วย 'การปกป้องเวลาสำหรับงานยาก' ส่วนประเด็นอื่นถูกวิจารณ์"
+   },
+   "choices": [
+    "Its advice on routine and on protecting time for demanding work",
+    "Its guidance for parents of young children",
+    "Its argument that everyone should wake before dawn",
+    "Its research on the health effects of different sleep patterns"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Purpose of an anecdote",
+    "th": "จุดประสงค์ของเกร็ดเล็กเกร็ดน้อย"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "Daniel Reyes wakes at four-thirty every morning, and he would very much like you to know it. In Ten Thousand Mornings, his third book on what he calls \"deliberate living\", Reyes argues that the hours before dawn are the key to a successful life, and that almost anyone who claims to be too busy to achieve their goals is simply sleeping through the solution.\n\nThere is something here worth taking seriously. Reyes is good on the value of routine, and his chapter on protecting time for difficult work — switching off notifications, saying no to unnecessary meetings — contains advice that many readers will find useful. His prose is clear and occasionally funny, particularly when he describes his own early failures, such as the morning he fell asleep in the middle of a meditation session and woke with his face in a bowl of oatmeal.\n\nThe problems begin when Reyes moves from describing what works for him to prescribing what should work for everyone. His readers, it seems, are assumed to have flexible jobs, no young children and no need to work a night shift. A single mother who writes to say that she cannot possibly rise at four-thirty is gently told that she has \"not yet found her why\". One suspects she has found it; it is asleep in the next room.\n\nReyes cites a great deal of research, but rather selectively. Studies that support early rising are described in detail, while the considerable evidence that people's natural sleep patterns differ — and that forcing an early schedule on a \"night owl\" can harm health — appears only in a brief footnote.\n\nReaders who already enjoy early mornings will find much here to confirm what they believe. Those who do not may wish to read it in the afternoon, which is, after all, when most of us are properly awake.",
+   "stem": "Why does the reviewer mention the bowl of oatmeal?",
+   "explanation": {
+    "en": "It is given as an example of when his prose is 'occasionally funny, particularly when he describes his own early failures'.",
+    "th": "เรื่องชามข้าวโอ๊ตยกมาเป็นตัวอย่างว่างานเขียน 'มีอารมณ์ขันบ้าง โดยเฉพาะเมื่อเล่าความล้มเหลวของตัวเอง'"
+   },
+   "choices": [
+    "To show that Reyes's diet is unhealthy",
+    "To criticise Reyes for being careless",
+    "To prove that meditation does not work",
+    "To illustrate Reyes's ability to write with humour about his own failures"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting implied criticism",
+    "th": "การตีความคำวิจารณ์แฝง"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "Daniel Reyes wakes at four-thirty every morning, and he would very much like you to know it. In Ten Thousand Mornings, his third book on what he calls \"deliberate living\", Reyes argues that the hours before dawn are the key to a successful life, and that almost anyone who claims to be too busy to achieve their goals is simply sleeping through the solution.\n\nThere is something here worth taking seriously. Reyes is good on the value of routine, and his chapter on protecting time for difficult work — switching off notifications, saying no to unnecessary meetings — contains advice that many readers will find useful. His prose is clear and occasionally funny, particularly when he describes his own early failures, such as the morning he fell asleep in the middle of a meditation session and woke with his face in a bowl of oatmeal.\n\nThe problems begin when Reyes moves from describing what works for him to prescribing what should work for everyone. His readers, it seems, are assumed to have flexible jobs, no young children and no need to work a night shift. A single mother who writes to say that she cannot possibly rise at four-thirty is gently told that she has \"not yet found her why\". One suspects she has found it; it is asleep in the next room.\n\nReyes cites a great deal of research, but rather selectively. Studies that support early rising are described in detail, while the considerable evidence that people's natural sleep patterns differ — and that forcing an early schedule on a \"night owl\" can harm health — appears only in a brief footnote.\n\nReaders who already enjoy early mornings will find much here to confirm what they believe. Those who do not may wish to read it in the afternoon, which is, after all, when most of us are properly awake.",
+   "stem": "\"One suspects she has found it; it is asleep in the next room.\" What is the reviewer implying?",
+   "explanation": {
+    "en": "'Found her why' means found her purpose. The reviewer suggests her purpose is plainly her sleeping child — the very reason she cannot rise at 4.30 — exposing how Reyes ignores ordinary people's lives.",
+    "th": "found her why หมายถึงค้นพบเป้าหมายชีวิต ผู้วิจารณ์บอกเป็นนัยว่าเป้าหมายของเธอก็คือลูกที่หลับอยู่ ซึ่งเป็นเหตุผลที่เธอตื่นตีสี่ครึ่งไม่ได้ แสดงว่าผู้เขียนมองข้ามชีวิตจริงของคนทั่วไป"
+   },
+   "choices": [
+    "The mother's 'why' is her child, whose needs make Reyes's advice unrealistic for her.",
+    "The mother is lazy and should follow Reyes's advice.",
+    "Reyes has visited the mother's home to give her advice.",
+    "The mother's child wakes up earlier than she does."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding a criticism of evidence",
+    "th": "การเข้าใจคำวิจารณ์เรื่องการใช้หลักฐาน"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "Daniel Reyes wakes at four-thirty every morning, and he would very much like you to know it. In Ten Thousand Mornings, his third book on what he calls \"deliberate living\", Reyes argues that the hours before dawn are the key to a successful life, and that almost anyone who claims to be too busy to achieve their goals is simply sleeping through the solution.\n\nThere is something here worth taking seriously. Reyes is good on the value of routine, and his chapter on protecting time for difficult work — switching off notifications, saying no to unnecessary meetings — contains advice that many readers will find useful. His prose is clear and occasionally funny, particularly when he describes his own early failures, such as the morning he fell asleep in the middle of a meditation session and woke with his face in a bowl of oatmeal.\n\nThe problems begin when Reyes moves from describing what works for him to prescribing what should work for everyone. His readers, it seems, are assumed to have flexible jobs, no young children and no need to work a night shift. A single mother who writes to say that she cannot possibly rise at four-thirty is gently told that she has \"not yet found her why\". One suspects she has found it; it is asleep in the next room.\n\nReyes cites a great deal of research, but rather selectively. Studies that support early rising are described in detail, while the considerable evidence that people's natural sleep patterns differ — and that forcing an early schedule on a \"night owl\" can harm health — appears only in a brief footnote.\n\nReaders who already enjoy early mornings will find much here to confirm what they believe. Those who do not may wish to read it in the afternoon, which is, after all, when most of us are properly awake.",
+   "stem": "What is the reviewer's criticism of Reyes's use of research?",
+   "explanation": {
+    "en": "Supporting studies 'are described in detail', while contrary evidence 'appears only in a brief footnote' — that is selective use of evidence.",
+    "th": "งานวิจัยที่สนับสนุน 'ถูกอธิบายอย่างละเอียด' ส่วนหลักฐานที่ขัดแย้ง 'อยู่แค่ในเชิงอรรถสั้น ๆ' จึงเป็นการเลือกใช้หลักฐานแบบลำเอียง"
+   },
+   "choices": [
+    "He misunderstands studies that support early rising.",
+    "He gives detail to evidence that supports him and minimises evidence against him.",
+    "He relies only on studies of night-shift workers.",
+    "He does not cite any research at all."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Tone of a concluding remark",
+    "th": "น้ำเสียงของประโยคปิดท้าย"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "Daniel Reyes wakes at four-thirty every morning, and he would very much like you to know it. In Ten Thousand Mornings, his third book on what he calls \"deliberate living\", Reyes argues that the hours before dawn are the key to a successful life, and that almost anyone who claims to be too busy to achieve their goals is simply sleeping through the solution.\n\nThere is something here worth taking seriously. Reyes is good on the value of routine, and his chapter on protecting time for difficult work — switching off notifications, saying no to unnecessary meetings — contains advice that many readers will find useful. His prose is clear and occasionally funny, particularly when he describes his own early failures, such as the morning he fell asleep in the middle of a meditation session and woke with his face in a bowl of oatmeal.\n\nThe problems begin when Reyes moves from describing what works for him to prescribing what should work for everyone. His readers, it seems, are assumed to have flexible jobs, no young children and no need to work a night shift. A single mother who writes to say that she cannot possibly rise at four-thirty is gently told that she has \"not yet found her why\". One suspects she has found it; it is asleep in the next room.\n\nReyes cites a great deal of research, but rather selectively. Studies that support early rising are described in detail, while the considerable evidence that people's natural sleep patterns differ — and that forcing an early schedule on a \"night owl\" can harm health — appears only in a brief footnote.\n\nReaders who already enjoy early mornings will find much here to confirm what they believe. Those who do not may wish to read it in the afternoon, which is, after all, when most of us are properly awake.",
+   "stem": "What is the tone of the review's final sentence?",
+   "explanation": {
+    "en": "Suggesting that readers read a book about early rising 'in the afternoon, when most of us are properly awake' playfully undercuts Reyes's main argument.",
+    "th": "การแนะนำให้อ่านหนังสือว่าด้วยการตื่นเช้า 'ในตอนบ่าย ซึ่งเป็นเวลาที่คนส่วนใหญ่ตื่นเต็มที่' เป็นการล้อเลียนเบา ๆ ที่หักล้างข้อเสนอหลักของหนังสือ"
+   },
+   "choices": [
+    "Gently mocking, turning the book's central claim against it",
+    "Respectful, recommending the book to everyone",
+    "Bitter, accusing the author of dishonesty",
+    "Neutral, giving practical reading advice"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Main claim of an essay",
+    "th": "ข้อเสนอหลักของบทความ"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "Most of us think of memory as a kind of recording: an event happens, the brain stores it, and when we remember, we press \"play\". It is a comforting idea. It is also, according to several decades of psychological research, almost entirely wrong.\n\nMemories, it turns out, are not retrieved so much as rebuilt. Each time we recall an event, the brain reassembles it from scattered fragments — a sound, a feeling, a fact — and fills the gaps with whatever seems most plausible. The result usually feels vivid and certain. That feeling, unfortunately, is a poor guide to accuracy.\n\nIn a well-known series of studies, participants watched a film of a car accident and were then asked how fast the cars were going when they \"smashed into\" or \"hit\" each other. Those who heard the word \"smashed\" gave higher estimates, and a week later they were more likely to report having seen broken glass, although there had been none. A single verb had quietly rewritten what they remembered.\n\nThe implications reach well beyond the laboratory. Eyewitness testimony, long regarded as among the most persuasive forms of evidence in a courtroom, is now known to be a leading factor in wrongful convictions. Witnesses are rarely lying; they are simply reporting, with complete sincerity, a memory that has been shaped by leading questions, by news reports or by their own expectations.\n\nYet it would be a mistake to see this flexibility as merely a flaw. A memory system that rebuilds rather than replays allows us to combine past experiences in new ways — to imagine the future, to draw general lessons from particular events, to tell stories. The price of that creativity is a certain unreliability. It is a price, perhaps, that we should simply learn to keep in mind.",
+   "stem": "What is the writer's main claim?",
+   "explanation": {
+    "en": "The essay rejects the 'recording' model, explains that memories are 'rebuilt', and ends by linking this to both unreliability and creativity.",
+    "th": "บทความปฏิเสธแนวคิดว่าความจำเหมือนการบันทึก อธิบายว่าความจำถูก 'สร้างขึ้นใหม่' และสรุปว่าลักษณะนี้ทำให้ทั้งไม่น่าเชื่อถือและสร้างสรรค์"
+   },
+   "choices": [
+    "Memory works like a recording, but recordings can be damaged.",
+    "Most people deliberately change their memories to protect themselves.",
+    "Memory rebuilds events rather than replaying them, which makes it both creative and unreliable.",
+    "Eyewitnesses should never be allowed to give evidence in court."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Conclusion from a study",
+    "th": "ข้อสรุปจากงานวิจัย"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "Most of us think of memory as a kind of recording: an event happens, the brain stores it, and when we remember, we press \"play\". It is a comforting idea. It is also, according to several decades of psychological research, almost entirely wrong.\n\nMemories, it turns out, are not retrieved so much as rebuilt. Each time we recall an event, the brain reassembles it from scattered fragments — a sound, a feeling, a fact — and fills the gaps with whatever seems most plausible. The result usually feels vivid and certain. That feeling, unfortunately, is a poor guide to accuracy.\n\nIn a well-known series of studies, participants watched a film of a car accident and were then asked how fast the cars were going when they \"smashed into\" or \"hit\" each other. Those who heard the word \"smashed\" gave higher estimates, and a week later they were more likely to report having seen broken glass, although there had been none. A single verb had quietly rewritten what they remembered.\n\nThe implications reach well beyond the laboratory. Eyewitness testimony, long regarded as among the most persuasive forms of evidence in a courtroom, is now known to be a leading factor in wrongful convictions. Witnesses are rarely lying; they are simply reporting, with complete sincerity, a memory that has been shaped by leading questions, by news reports or by their own expectations.\n\nYet it would be a mistake to see this flexibility as merely a flaw. A memory system that rebuilds rather than replays allows us to combine past experiences in new ways — to imagine the future, to draw general lessons from particular events, to tell stories. The price of that creativity is a certain unreliability. It is a price, perhaps, that we should simply learn to keep in mind.",
+   "stem": "What does the car-accident study show?",
+   "explanation": {
+    "en": "Changing one verb ('smashed' instead of 'hit') led to higher speed estimates and false memories of broken glass: 'A single verb had quietly rewritten what they remembered.'",
+    "th": "การเปลี่ยนกริยาคำเดียว (smashed แทน hit) ทำให้ประเมินความเร็วสูงขึ้นและจำผิดว่ามีกระจกแตก: A single verb had quietly rewritten what they remembered"
+   },
+   "choices": [
+    "People usually remember accidents more accurately than other events.",
+    "The wording of a question can change what people later remember.",
+    "Witnesses deliberately exaggerate the speed of cars.",
+    "Broken glass is the detail people remember most clearly."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting a key sentence",
+    "th": "การตีความประโยคสำคัญ"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "Most of us think of memory as a kind of recording: an event happens, the brain stores it, and when we remember, we press \"play\". It is a comforting idea. It is also, according to several decades of psychological research, almost entirely wrong.\n\nMemories, it turns out, are not retrieved so much as rebuilt. Each time we recall an event, the brain reassembles it from scattered fragments — a sound, a feeling, a fact — and fills the gaps with whatever seems most plausible. The result usually feels vivid and certain. That feeling, unfortunately, is a poor guide to accuracy.\n\nIn a well-known series of studies, participants watched a film of a car accident and were then asked how fast the cars were going when they \"smashed into\" or \"hit\" each other. Those who heard the word \"smashed\" gave higher estimates, and a week later they were more likely to report having seen broken glass, although there had been none. A single verb had quietly rewritten what they remembered.\n\nThe implications reach well beyond the laboratory. Eyewitness testimony, long regarded as among the most persuasive forms of evidence in a courtroom, is now known to be a leading factor in wrongful convictions. Witnesses are rarely lying; they are simply reporting, with complete sincerity, a memory that has been shaped by leading questions, by news reports or by their own expectations.\n\nYet it would be a mistake to see this flexibility as merely a flaw. A memory system that rebuilds rather than replays allows us to combine past experiences in new ways — to imagine the future, to draw general lessons from particular events, to tell stories. The price of that creativity is a certain unreliability. It is a price, perhaps, that we should simply learn to keep in mind.",
+   "stem": "\"That feeling, unfortunately, is a poor guide to accuracy.\" What does this mean?",
+   "explanation": {
+    "en": "'That feeling' refers to memories feeling 'vivid and certain'. The writer says such confidence does not reliably show that a memory is accurate — not that vivid memories are always wrong.",
+    "th": "That feeling หมายถึงความรู้สึกว่าความจำ 'ชัดเจนและแน่นอน' ผู้เขียนบอกว่าความมั่นใจนั้นไม่ได้บ่งบอกความถูกต้อง แต่ไม่ได้บอกว่าความจำที่ชัดเจนผิดเสมอ"
+   },
+   "choices": [
+    "People rarely feel certain about their memories.",
+    "Vivid memories are always false.",
+    "Feeling sure about a memory does not mean the memory is correct.",
+    "Accurate memories usually feel vague and uncertain."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding the writer's emphasis",
+    "th": "การเข้าใจประเด็นที่ผู้เขียนเน้น"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "Most of us think of memory as a kind of recording: an event happens, the brain stores it, and when we remember, we press \"play\". It is a comforting idea. It is also, according to several decades of psychological research, almost entirely wrong.\n\nMemories, it turns out, are not retrieved so much as rebuilt. Each time we recall an event, the brain reassembles it from scattered fragments — a sound, a feeling, a fact — and fills the gaps with whatever seems most plausible. The result usually feels vivid and certain. That feeling, unfortunately, is a poor guide to accuracy.\n\nIn a well-known series of studies, participants watched a film of a car accident and were then asked how fast the cars were going when they \"smashed into\" or \"hit\" each other. Those who heard the word \"smashed\" gave higher estimates, and a week later they were more likely to report having seen broken glass, although there had been none. A single verb had quietly rewritten what they remembered.\n\nThe implications reach well beyond the laboratory. Eyewitness testimony, long regarded as among the most persuasive forms of evidence in a courtroom, is now known to be a leading factor in wrongful convictions. Witnesses are rarely lying; they are simply reporting, with complete sincerity, a memory that has been shaped by leading questions, by news reports or by their own expectations.\n\nYet it would be a mistake to see this flexibility as merely a flaw. A memory system that rebuilds rather than replays allows us to combine past experiences in new ways — to imagine the future, to draw general lessons from particular events, to tell stories. The price of that creativity is a certain unreliability. It is a price, perhaps, that we should simply learn to keep in mind.",
+   "stem": "Why does the writer stress that witnesses \"are rarely lying\"?",
+   "explanation": {
+    "en": "The point is that wrongful convictions arise because sincere witnesses report memories reshaped by questions, news and expectations — the problem is memory, not dishonesty.",
+    "th": "ประเด็นคือการตัดสินผิดเกิดจากพยานที่จริงใจแต่เล่าความจำที่ถูกบิดเบือนไปโดยคำถาม ข่าว และความคาดหวัง ปัญหาอยู่ที่ความจำ ไม่ใช่ความไม่ซื่อสัตย์"
+   },
+   "choices": [
+    "To show that mistaken testimony usually comes from honest but altered memories, not deception",
+    "To blame news reports for deliberately misleading witnesses",
+    "To argue that courts should trust eyewitnesses more",
+    "To suggest that lying witnesses are easy to detect"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Function of the final paragraph",
+    "th": "หน้าที่ของย่อหน้าสุดท้าย"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "Most of us think of memory as a kind of recording: an event happens, the brain stores it, and when we remember, we press \"play\". It is a comforting idea. It is also, according to several decades of psychological research, almost entirely wrong.\n\nMemories, it turns out, are not retrieved so much as rebuilt. Each time we recall an event, the brain reassembles it from scattered fragments — a sound, a feeling, a fact — and fills the gaps with whatever seems most plausible. The result usually feels vivid and certain. That feeling, unfortunately, is a poor guide to accuracy.\n\nIn a well-known series of studies, participants watched a film of a car accident and were then asked how fast the cars were going when they \"smashed into\" or \"hit\" each other. Those who heard the word \"smashed\" gave higher estimates, and a week later they were more likely to report having seen broken glass, although there had been none. A single verb had quietly rewritten what they remembered.\n\nThe implications reach well beyond the laboratory. Eyewitness testimony, long regarded as among the most persuasive forms of evidence in a courtroom, is now known to be a leading factor in wrongful convictions. Witnesses are rarely lying; they are simply reporting, with complete sincerity, a memory that has been shaped by leading questions, by news reports or by their own expectations.\n\nYet it would be a mistake to see this flexibility as merely a flaw. A memory system that rebuilds rather than replays allows us to combine past experiences in new ways — to imagine the future, to draw general lessons from particular events, to tell stories. The price of that creativity is a certain unreliability. It is a price, perhaps, that we should simply learn to keep in mind.",
+   "stem": "What is the function of the final paragraph?",
+   "explanation": {
+    "en": "'Yet it would be a mistake to see this flexibility as merely a flaw' introduces the advantages of reconstructive memory — imagination, learning, storytelling — balancing the earlier criticism. It does not claim memory is more reliable.",
+    "th": "Yet it would be a mistake to see this flexibility as merely a flaw นำเสนอข้อดีของความจำแบบสร้างใหม่ ได้แก่ จินตนาการ การเรียนรู้ และการเล่าเรื่อง เพื่อถ่วงดุลกับคำวิจารณ์ก่อนหน้า แต่ไม่ได้บอกว่าความจำน่าเชื่อถือขึ้น"
+   },
+   "choices": [
+    "It introduces a completely new topic for further research.",
+    "It shows a benefit of the same feature criticised earlier, giving a balanced conclusion.",
+    "It repeats the car-accident example in more detail.",
+    "It argues that memory is more reliable than the essay first suggested."
+   ],
+   "answer": 1
+  }
+ ]
+}
