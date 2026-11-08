@@ -216,7 +216,7 @@
   A.showDoc = function (html, base, emailOpts) {
     var dlg = document.createElement("dialog"); dlg.className = "docview";
     var vers = emailOpts && emailOpts.version;      // documents with a summary and a full version
-    if (vers) { emailOpts.ver = emailOpts.ver || "summary"; html = vers(emailOpts.ver); }
+    if (vers) { emailOpts.ver = emailOpts.ver || "full"; html = vers(emailOpts.ver); }
     var verBar = vers ? '<div class="doc-ver" role="group" aria-label="Version"><button type="button" data-ver="summary">' + L("Summary", "แบบสรุป") + '</button><button type="button" data-ver="full">' + L("Full", "แบบเต็ม") + "</button></div>" : "";
     dlg.innerHTML = '<div class="docview__bar">' + verBar + A.exportBar() + '<button type="button" class="btn" data-x>' + L("Close", "ปิด") + "</button></div>" + '<div class="docview__body">' + html + "</div>";
     function markVer() { Array.prototype.forEach.call(dlg.querySelectorAll("[data-ver]"), function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-ver") === emailOpts.ver)); }); }
@@ -245,13 +245,13 @@
     A.showDoc(A.receiptHTML(p), "receipt-" + (p.ref || p.id), { to: e.id ? A.guardianEmails(e) : [], subject: L("Receipt ", "ใบเสร็จรับเงิน ") + (p.ref || "") + " · " + A.db.org.name });
   };
   A.openSchedule = function (e, from, asOf, ver) {
-    var opts = { to: A.guardianEmails(e), subject: L("Learning schedule · ", "ตารางเรียน · ") + A.courseName(e.courseCode), ver: ver || "summary",
+    var opts = { to: A.guardianEmails(e), subject: L("Learning schedule · ", "ตารางเรียน · ") + A.courseName(e.courseCode), ver: ver || "full",
       version: function (v) { return A.scheduleReportHTML(e, from, asOf, v); },
       text: function () { return A.scheduleReportText(e, from, asOf, opts.ver); } };
     A.showDoc("", "schedule-" + A.slug(A.userName(e.studentId)) + "-" + e.courseCode + (from ? "-from-" + from : ""), opts);
   };
   A.openPack = function (e, ver) {
-    var opts = { to: A.guardianEmails(e), subject: L("Enrolment confirmation · ", "ยืนยันการลงทะเบียนเรียน · ") + A.courseName(e.courseCode), ver: ver || "summary",
+    var opts = { to: A.guardianEmails(e), subject: L("Enrolment confirmation · ", "ยืนยันการลงทะเบียนเรียน · ") + A.courseName(e.courseCode), ver: ver || "full",
       version: function (v) { return A.enrolmentPackHTML(e, v); } };
     A.showDoc("", "enrolment-" + A.slug(A.userName(e.studentId)) + "-" + e.courseCode, opts);
   };

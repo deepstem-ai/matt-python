@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.5 r2 — November 2026
+- Learning summaries (schedule report, enrolment pack, progress report) now open in the **Full** version by default;
+  *Summary* is one click away in the viewer or the Documents menu.
+
 ## 6.5 r1 — November 2026
 - **Two tracks everywhere:** *AI · Coding · STEM* and *Test Prep*. The home page opens with "Your own Mentor. Real
   skills, real scores." and two big track cards; one word — *Mentor* — explains the person who plans, teaches,
