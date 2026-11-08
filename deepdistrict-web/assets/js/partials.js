@@ -12,7 +12,7 @@
   // Top menu: similar pages are grouped under one item (opens on hover, click or keyboard).
   // Top menu: the two tracks first, then all courses and about (short on purpose — easy to scan on any screen)
   var NAV = [
-    { en: "AI · Coding · STEM", th: "AI · โค้ด · STEM", key: "stem", cls: "nav-trk nav-trk--stem", wide: true, children: [
+    { en: "AI · STEM · Innovation", th: "AI · STEM · นวัตกรรม", full: ["AI · Coding · STEM · Research & Innovation", "AI · โค้ด · STEM · วิจัยและนวัตกรรม"], key: "stem", cls: "nav-trk nav-trk--stem", wide: true, children: [
       { href: "pages/programs.html?main=stem#catalog", icon: "code", en: "Coding & apps", th: "เขียนโค้ดและสร้างแอป", desc: ["Scratch, Python, web, iPhone apps", "Scratch, Python, เว็บ, แอป iPhone"] },
       { href: "pages/programs.html?group=ai#catalog", icon: "spark", en: "AI & data", th: "AI และข้อมูล", desc: ["Machine learning, LLMs, AI agents", "Machine Learning, LLM, AI Agent"] },
       { href: "pages/stem.html", icon: "robot", en: "STEM & robotics · ages 10+", th: "STEM และหุ่นยนต์ · 10 ขวบขึ้นไป", desc: ["Hands-on projects and competitions", "ลงมือทำโครงงานและแข่งขัน"] },
@@ -20,7 +20,7 @@
       { href: "pages/research.html", icon: "microscope", en: "Research & publishing", th: "วิจัยและตีพิมพ์", desc: ["From question to paper", "จากคำถามสู่บทความวิจัย"] },
       { href: "pages/si.html", icon: "network", en: "What is SI?", th: "SI คืออะไร", desc: ["Where AI is heading next", "ก้าวต่อไปของ AI"] }
     ] },
-    { en: "Test Prep", th: "ติวสอบ", key: "prep", cls: "nav-trk nav-trk--prep", wide: true, children: [
+    { en: "Test Prep", th: "ติวสอบ", full: ["Standardized Test & Admissions Prep", "ติวข้อสอบมาตรฐานและสอบเข้า"], key: "prep", cls: "nav-trk nav-trk--prep", wide: true, children: [
       { href: "pages/tests.html", icon: "trophy", en: "Free practice tests", th: "ลองทำข้อสอบฟรี", desc: ["Timed, with instant scores", "จับเวลา รู้คะแนนทันที"] },
       { href: "pages/admissions.html#courses", icon: "school", en: "School entrance · M.1 / M.4", th: "สอบเข้า ม.1 / ม.4", desc: ["GATE, EPLUS+, gifted programmes", "GATE, EPLUS+, ห้องเรียนพิเศษ"] },
       { href: "pages/admissions.html#tests", icon: "globe", en: "SAT · IELTS · TOEFL", th: "SAT · IELTS · TOEFL", desc: ["International test scores", "คะแนนสอบระดับนานาชาติ"] },
@@ -42,8 +42,8 @@
 
   var COLS = [
     { en: "Learn", th: "เรียนรู้", links: [
-      { href: "pages/programs.html?main=stem#catalog", en: "Track · AI, coding & STEM", th: "แทร็ก AI · โค้ด · STEM" },
-      { href: "pages/programs.html?main=prep#catalog", en: "Track · Test prep", th: "แทร็กติวสอบ" },
+      { href: "pages/programs.html?main=stem#catalog", en: "AI · Coding · STEM · Research & Innovation", th: "AI · โค้ด · STEM · วิจัยและนวัตกรรม" },
+      { href: "pages/programs.html?main=prep#catalog", en: "Standardized Test & Admissions Prep", th: "ติวข้อสอบมาตรฐานและสอบเข้า" },
       { href: "pages/programs.html#planner", en: "Plan my path", th: "ออกแบบเส้นทางเรียน" },
       { href: "pages/programs.html#catalog", en: "All courses", th: "รายวิชาทั้งหมด" },
       { href: "pages/admissions.html#exams", en: "COMPAS, HKICO & POSN prep", th: "เตรียมสอบ COMPAS · HKICO · สอวน." },
@@ -84,7 +84,7 @@
     if (!n.children) return link(n);
     var on = n.children.some(function (c) { return c.href.replace("pages/", "").replace(/\.html.*$/, "") === current; });
     return '<div class="nav-menu' + (n.cls ? " " + n.cls : "") + (n.wide ? " nav-menu--wide" : "") + (on ? " is-current" : "") + '"><button type="button" class="nav-menu__btn" aria-expanded="false" aria-haspopup="true">' + bi(n.en, n.th) +
-      ' <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="nav-menu__panel" role="menu">' +
+      ' <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="nav-menu__panel" role="menu">' + (n.full ? '<p class="nav-full">' + bi(n.full[0], n.full[1]) + "</p>" : "") +
       n.children.map(function (c) { return '<a role="menuitem" href="' + base + c.href + '">' + (c.icon ? '<i class="nav-ico">' + ico(c.icon) + "</i>" : "") + '<span class="nav-txt"><b>' + bi(c.en, c.th) + "</b>" + (c.desc ? "<small>" + bi(c.desc[0], c.desc[1]) + "</small>" : "") + "</span></a>"; }).join("") + "</div></div>";
   }
   function ico(name) { return '<img src="' + base + "assets/images/icons/" + name + '.svg" alt="">'; }
@@ -121,7 +121,7 @@
     // v6.5: compact, colourful, follows light / dark — the two tracks as cards, everything else as small chips
     '<a class="dr-cta" href="' + base + 'pages/contact.html?topic=consult#form">' + bi("Book a free consultation", "นัดปรึกษาฟรี") + " " + ARROW + "</a>" +
     NAV.filter(function (n) { return n.wide; }).map(function (n) {
-      return '<section class="dr-trk dr-trk--' + n.key + '"><a class="dr-trk__head" href="' + base + "pages/programs.html?main=" + n.key + '#catalog"><b>' + bi(n.en, n.th) + "</b><span>" + bi("All courses", "ดูคอร์สทั้งหมด") + " " + ARROW + "</span></a>" +
+      return '<section class="dr-trk dr-trk--' + n.key + '"><a class="dr-trk__head" href="' + base + "pages/programs.html?main=" + n.key + '#catalog"><b>' + bi((n.full || [n.en])[0], (n.full || [0, n.th])[1]) + "</b><span>" + bi("All courses", "ดูคอร์สทั้งหมด") + " " + ARROW + "</span></a>" +
         '<div class="dr-grid">' + n.children.map(function (c) { return '<a href="' + base + c.href + '">' + (c.icon ? '<i class="nav-ico">' + ico(c.icon) + "</i>" : "") + "<span>" + bi(c.en, c.th) + "</span></a>"; }).join("") + "</div></section>";
     }).join("") +
     '<div class="dr-chips">' + [{ href: "index.html", en: "Home", th: "หน้าแรก", icon: "rocket" }, { href: "pages/programs.html", en: "All courses", th: "คอร์สทั้งหมด", icon: "book" }]
@@ -198,8 +198,8 @@
       '<section class="section trk-band" aria-label="Two tracks"><div class="container">' +
       '<div class="trk-band__head"><h2>' + bi("Ready when you are", "พร้อมเริ่มเมื่อไหร่ก็ได้") + "</h2><p>" + bi("Pick a track — or book a free consultation and let a Mentor plan it with you.", "เลือกแทร็กที่ใช่ หรือนัดปรึกษาฟรี ให้เมนเทอร์ช่วยวางแผนกับคุณ") + "</p></div>" +
       '<div class="trk-home trk-home--sm">' +
-      '<a class="trk-big trk-big--stem" href="' + base + 'pages/programs.html?main=stem#catalog"><span class="trk-big__tag">' + bi("Track 1", "แทร็ก 1") + "</span><h3>AI · " + bi("Coding", "โค้ด") + " · STEM</h3><p>" + bi("Code, apps, AI, robots and innovation projects.", "เขียนโค้ด แอป AI หุ่นยนต์ และโครงงานนวัตกรรม") + '</p><span class="trk-big__go">' + bi("See courses", "ดูคอร์ส") + " " + ARROW + "</span></a>" +
-      '<a class="trk-big trk-big--prep" href="' + base + 'pages/programs.html?main=prep#catalog"><span class="trk-big__tag">' + bi("Track 2", "แทร็ก 2") + "</span><h3>" + bi("Test Prep", "ติวสอบ") + "</h3><p>" + bi("Entrance exams, SAT, IELTS, A-Level, TCAS, maths and English.", "สอบเข้า ม.1 / ม.4, SAT, IELTS, A-Level, TCAS คณิต และอังกฤษ") + '</p><span class="trk-big__go">' + bi("See courses", "ดูคอร์ส") + " " + ARROW + "</span></a>" +
+      '<a class="trk-big trk-big--stem" href="' + base + 'pages/programs.html?main=stem#catalog"><span class="trk-big__tag">' + bi("Track 1", "แทร็ก 1") + "</span><h3>" + bi("AI · Coding · STEM · Research &amp; Innovation", "AI · โค้ด · STEM · วิจัยและนวัตกรรม") + "</h3><p>" + bi("Code, apps, AI, robots, research and innovation projects.", "เขียนโค้ด แอป AI หุ่นยนต์ งานวิจัย และโครงงานนวัตกรรม") + '</p><span class="trk-big__go">' + bi("See courses", "ดูคอร์ส") + " " + ARROW + "</span></a>" +
+      '<a class="trk-big trk-big--prep" href="' + base + 'pages/programs.html?main=prep#catalog"><span class="trk-big__tag">' + bi("Track 2", "แทร็ก 2") + "</span><h3>" + bi("Standardized Test &amp; Admissions Prep", "ติวข้อสอบมาตรฐานและสอบเข้า") + "</h3><p>" + bi("Entrance exams, SAT, IELTS, A-Level, TCAS, maths and English.", "สอบเข้า ม.1 / ม.4, SAT, IELTS, A-Level, TCAS คณิต และอังกฤษ") + '</p><span class="trk-big__go">' + bi("See courses", "ดูคอร์ส") + " " + ARROW + "</span></a>" +
       '</div><p class="trk-band__cta"><a class="btn btn--primary" href="' + base + 'pages/contact.html?topic=consult#form">' + bi("Book a free consultation", "นัดปรึกษาฟรี") + " " + ARROW + "</a></p></div></section>");
   }
   body.insertAdjacentHTML("beforeend", footer);

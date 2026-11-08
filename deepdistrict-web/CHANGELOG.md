@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.5 r4 — November 2026
+- Track names: **AI · Coding · STEM · Research & Innovation** (AI · โค้ด · STEM · วิจัยและนวัตกรรม) and
+  **Standardized Test & Admissions Prep** (ติวข้อสอบมาตรฐานและสอบเข้า). The top menu keeps short labels
+  (AI · STEM · Innovation, Test Prep) and each menu opens with the full track name.
+
 ## 6.5 r3 — November 2026
 - **Phone menu redesigned:** compact and colourful — a *Free consultation* button, the two tracks as colour cards
   with icon links in two columns, small chips for Home, All courses and About, and the theme (System / Light / Dark)

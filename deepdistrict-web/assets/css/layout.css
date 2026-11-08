@@ -421,3 +421,6 @@ html[lang="th"] .footer-col h3 { font-family: var(--f-sans-th); font-size: var(-
 :root:not([data-theme="dark"]) .menu-open .brand__on-light { opacity: 1 !important; }
 :root:not([data-theme="dark"]) .menu-open .site-header .icon-btn, :root:not([data-theme="dark"]) .menu-open .site-header .lang-switch { border-color: var(--line-strong); }
 :root:not([data-theme="dark"]) .menu-open .menu-toggle span::before, :root:not([data-theme="dark"]) .menu-open .menu-toggle span::after { background-color: var(--text); }
+.nav-full { grid-column: 1 / -1; margin: 2px 6px 6px; padding: 8px 12px; border-radius: 12px; font-family: var(--f-display); font-weight: 700; font-size: 1rem; color: #fff; }
+.nav-trk--stem .nav-full { background: linear-gradient(110deg, #0ea5e9, #7c3aed); }
+.nav-trk--prep .nav-full { background: linear-gradient(110deg, #f59e0b, #e11d48); }

@@ -597,11 +597,11 @@
   /* ---------- Course catalogue (v6.5): two tracks, shelves, clean cards ---------- */
   var MAINS = [
     { id: "stem", icon: "code", groups: ["programming", "software", "ai", "hardware", "research"],
-      name: L("AI · Coding · STEM", "AI · โค้ด · STEM"),
+      name: L("AI · Coding · STEM · Research & Innovation", "AI · โค้ด · STEM · วิจัยและนวัตกรรม"), short: L("AI · STEM · Innovation", "AI · STEM · นวัตกรรม"),
       tag: L("Build things that work", "สร้างของที่ใช้งานได้จริง"),
       text: L("Code, apps, AI, robots and innovation projects you can show, enter and publish.", "เขียนโค้ด สร้างแอป AI หุ่นยนต์ และโครงงานนวัตกรรมที่โชว์ ส่งแข่ง และตีพิมพ์ได้") },
     { id: "prep", icon: "trophy", groups: ["core", "tests"],
-      name: L("Test Prep", "ติวสอบ"),
+      name: L("Standardized Test & Admissions Prep", "ติวข้อสอบมาตรฐานและสอบเข้า"), short: L("Test Prep", "ติวสอบ"),
       tag: L("Hit the score you need", "ได้คะแนนที่ต้องการ"),
       text: L("Entrance exams, SAT, IELTS, A-Level and TCAS — with the maths and English behind them.", "สอบเข้า ม.1 / ม.4, SAT, IELTS, A-Level และ TCAS พร้อมคณิตและอังกฤษที่เป็นพื้นฐาน") }
   ];
