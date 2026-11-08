@@ -665,7 +665,8 @@
         '<button class="btn" data-act="series" data-enr="' + e.id + '">' + L("Book more lessons", "จัดตารางเพิ่ม") + "</button>" : "") +
       (A.isAdmin() ? '<button class="btn" data-act="new-payment" data-enr="' + e.id + '">' + L("Record payment", "รับชำระเงิน") + "</button>" : "") +
       '<details class="menu-dd"><summary class="btn">' + L("Documents ▾", "เอกสาร ▾") + "</summary><div>" +
-        '<button data-act="doc-schedule" data-enr="' + e.id + '">' + L("Full schedule · PDF", "ตารางเรียนทั้งหมด · PDF") + "</button>" +
+        '<button data-act="doc-schedule" data-ver="summary" data-enr="' + e.id + '">' + L("Learning summary (1 page)", "ใบสรุปการเรียน (แบบสรุป)") + "</button>" +
+        '<button data-act="doc-schedule" data-ver="full" data-enr="' + e.id + '">' + L("Learning summary — full", "ใบสรุปการเรียน (แบบเต็ม)") + "</button>" +
         '<button data-act="doc-schedule" data-from="today" data-enr="' + e.id + '">' + L("Remaining lessons · PDF", "ตารางเรียนที่เหลือ · PDF") + "</button>" +
         '<a href="#/reports?student=' + e.studentId + "&enrolment=" + e.id + '">' + L("Progress report", "รายงานความก้าวหน้า") + "</a>" +
         (A.isAdmin() ? '<button data-act="doc-pack" data-enr="' + e.id + '">' + L("Enrolment pack for parents", "เอกสารยืนยันการลงทะเบียน") + "</button>" +

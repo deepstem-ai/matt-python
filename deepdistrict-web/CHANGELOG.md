@@ -1,5 +1,23 @@
 # Changelog
 
+## 6.5 r1 — November 2026
+- **Two tracks everywhere:** *AI · Coding · STEM* and *Test Prep*. The home page opens with "Your own Mentor. Real
+  skills, real scores." and two big track cards; one word — *Mentor* — explains the person who plans, teaches,
+  builds projects with the learner and keeps parents posted.
+- **Short menu:** AI · Coding · STEM ▾ · Test Prep ▾ · All courses · About ▾, with icons and a *Free consultation*
+  button.
+- **New course page:** pick a track (two colourful tiles), browse *Popular right now* and one shelf per track, filter
+  by topic, search and level; clean cards with group, level, hours and a clear *Details* button.
+- **Every inner page** carries its track colour and ends with the two tracks and a free consultation.
+- **Why research** (Research page, teaser on Home): five ideas in DeepDistrict's own words — grades vs. curiosity,
+  research in every subject, one project for the whole application, myths that stop students, what research gives.
+- **English by default** on the website and back office; the TH / EN switch remembers the choice.
+- **AI Literacy & Ethics (AI100) removed** from the catalogue and learning paths.
+- **Documents:** every learning summary — schedule report, enrolment pack, progress report — comes as a one-page
+  **Summary** or the **Full** version (switch in the viewer / report), each with a bold timeline: start and finish
+  flags, numbered lessons, a filled bar up to today. Text exports start with the DeepDistrict name and show a text
+  timeline; the online test results page carries the logo.
+
 ## 6.4 r8 — November 2026
 - **Home page: mentoring, coaching and tutoring first.** A new hero ("Mentors, coaches & tutors beside every
   learner") and four new sections in DeepDistrict's own words: *One learner, one whole team* (lead mentor, subject

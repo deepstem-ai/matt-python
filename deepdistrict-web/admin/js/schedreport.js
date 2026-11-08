@@ -25,8 +25,9 @@
     });
   }
 
-  A.scheduleReportHTML = function (e, from, asOf) {
-    asOf = asOf || A.today();
+  /* ver: "full" (every lesson listed) or "summary" (one page: progress, timeline, key dates, lessons per month) */
+  A.scheduleReportHTML = function (e, from, asOf, ver) {
+    asOf = asOf || A.today(); ver = ver === "summary" ? "summary" : "full";
     var o = A.db.org, s = stu(e), p = par(e), x = A.asOfStats(e, asOf), all = rows(e, ""), list = from ? all.filter(function (r) { return r.s.date >= from; }) : all;
     var st = A.stats(e), pct = Math.round(x.pct), no = "SC-" + e.id.replace(/[^a-z0-9]/gi, "").slice(-6).toUpperCase();
     var info = function (k, v) { return v ? '<div class="sr-i"><span>' + esc(k) + "</span><b>" + v + "</b></div>" : ""; };
@@ -35,6 +36,7 @@
     var mode = (A.MODES().filter(function (m) { return m[0] === e.mode; })[0] || [])[1] || "";
     return '<article class="report sr" id="report"><div class="sr__frame"><div class="sr__in">' +
       '<header class="sr-head"><img src="' + LOGO_W + '" alt="DeepDistrict" class="sr-logo"><div class="sr-head__t"><h1>' + L("Learning Schedule Report", "ใบรายงานวันเวลาเรียน") + "</h1><p>" +
+        '<span class="sr-ver">' + (ver === "summary" ? L("Summary", "ฉบับสรุป") : L("Full version", "ฉบับเต็ม")) + "</span> " +
         (from ? L("Remaining lessons from ", "คาบเรียนที่เหลือ ตั้งแต่ ") + esc(d(from)) : L("Full schedule · from the first lesson to the last", "ตารางเรียนทั้งหมด ตั้งแต่คาบแรกถึงคาบสุดท้าย")) + "</p></div>" +
         '<dl class="sr-no"><dt>' + L("No.", "เลขที่") + "</dt><dd>" + esc(no) + "</dd><dt>" + L("As of", "ณ วันที่") + "</dt><dd>" + esc(d(asOf, { day: "numeric", month: "short", year: "numeric" })) + "</dd></dl></header>" +
 
@@ -59,17 +61,18 @@
         tile("gap", L("Not booked yet", "ยังไม่ได้นัด"), A.num(x.unbooked) + " " + L("h", "ชม."), "") + "</div>" +
         '<div class="sr-bar"><i style="width:' + pct + '%"></i></div><p class="sr-pct">' + L("Course progress: ", "ความคืบหน้าของหลักสูตร: ") + "<b>" + pct + "%</b></p></section>" +
 
-      (pts.length ? '<section class="sr-tl"><h2><span class="sr-ico">🗓️</span>' + L("Timeline", "ไทม์ไลน์") + "</h2>" + A.timelineStrip(pts, { from: x.first, to: x.last, asOf: asOf }) +
+      (pts.length ? '<section class="sr-tl"><h2><span class="sr-ico">🗓️</span>' + L("Timeline", "ไทม์ไลน์") + "</h2>" + A.timelineStrip(pts, { from: x.first, to: x.last, asOf: asOf, big: true, fill: asOf }) +
         '<p class="sr-leg">' + [["done", L("learned", "เรียนแล้ว")], ["scheduled", L("booked", "นัดแล้ว")], ["noshow", L("no-show", "ขาดเรียน")], ["cancelled", L("cancelled", "ยกเลิก")], ["overdue", L("past, not updated", "ผ่านแล้วยังไม่อัปเดต")]]
           .map(function (k) { return '<span><i style="background:' + ST[k[0]][0] + '"></i>' + esc(k[1]) + "</span>"; }).join("") + "</p></section>" : "") +
 
+      (ver === "summary" ? keyDates(e, all, asOf) :
       '<section class="sr-list"><h2><span class="sr-ico">📋</span>' + L("Lessons", "รายการคาบเรียน") + " (" + list.length + ")</h2>" +
         (list.length ? '<table class="sr-tbl"><thead><tr><th>#</th><th>' + L("Date", "วันที่") + "</th><th>" + L("Time", "เวลา") + "</th><th>" + L("Hours", "ชม.") + "</th><th>" + L("Status", "สถานะ") + "</th><th>" + L("Total", "สะสม") + "</th></tr></thead><tbody>" +
           list.map(function (r) {
             var c = ST[r.st] || ST.scheduled, label = r.st === "overdue" ? L("Past, not updated", "ผ่านแล้ว ยังไม่อัปเดต") : A.statusName(r.st);
             return "<tr" + (r.no ? "" : ' class="is-off"') + "><td>" + (r.no || "–") + "</td><td>" + esc(d(r.s.date)) + "</td><td>" + esc(A.span(r.s)) + "</td><td>" + A.num(r.s.hours) + "</td>" +
               '<td><span class="sr-pill" style="color:' + c[0] + '"><i style="background:' + c[0] + '"></i>' + esc(label) + (r.s.autoDone ? " · " + L("regular", "ปกติ") : "") + "</span></td><td>" + (r.no ? A.num(r.cum) : "") + "</td></tr>";
-          }).join("") + "</tbody></table>" : '<p class="sr-empty">' + L("No lessons yet.", "ยังไม่มีคาบเรียน") + "</p>") + "</section>" +
+          }).join("") + "</tbody></table>" : '<p class="sr-empty">' + L("No lessons yet.", "ยังไม่มีคาบเรียน") + "</p>") + "</section>") +
 
       '<footer class="sr-foot"><img src="' + MARK + '" alt="" class="sr-mark"><div><b>© ' + new Date().getFullYear() + " " + esc(o.name || "DeepDistrict.si") + " · " + L("All rights reserved", "สงวนลิขสิทธิ์") + "</b><br>" +
         esc([o.address, o.email, o.phone].filter(Boolean).join(" · ")) + "<br><small>" +
@@ -78,12 +81,37 @@
         "</small></div></footer></div></div></article>";
   };
 
+  /* summary: the dates that matter and how the lessons spread over the months */
+  function keyDates(e, all, asOf) {
+    var live = all.filter(function (r) { return r.no; }), done = live.filter(function (r) { return r.s.date <= asOf && A.counts(r.s); });
+    var next = live.filter(function (r) { return r.s.date > asOf && r.s.status === "scheduled"; });
+    var k = function (label, r, cls) { return '<div class="sr-k sr-k--' + cls + '"><span>' + esc(label) + "</span><b>" + (r ? esc(d(r.s.date)) : "–") + "</b>" + (r ? "<small>" + esc(A.span(r.s)) + " · " + L("lesson ", "ครั้งที่ ") + r.no + "</small>" : "") + "</div>"; };
+    var months = {};
+    live.forEach(function (r) { var m = r.s.date.slice(0, 7); months[m] = months[m] || { n: 0, h: 0, done: 0 }; months[m].n++; months[m].h += +r.s.hours || 0; if (A.counts(r.s) && r.s.date <= asOf) months[m].done++; });
+    return '<section class="sr-key"><h2><span class="sr-ico">📌</span>' + L("Key dates", "วันสำคัญ") + '</h2><div class="sr-keys">' +
+      k(L("First lesson", "คาบแรก"), live[0], "first") + k(L("Latest lesson learned", "คาบล่าสุดที่เรียนแล้ว"), done[done.length - 1], "done") +
+      k(L("Next lesson", "คาบถัดไป"), next[0], "next") + k(L("Last lesson", "คาบสุดท้าย"), live[live.length - 1], "last") + "</div>" +
+      '<h3 class="sr-sub">' + L("Lessons per month", "จำนวนคาบในแต่ละเดือน") + '</h3><div class="sr-months">' + Object.keys(months).sort().map(function (m) {
+        var x = months[m];
+        return '<div class="sr-m"><b>' + esc(A.parse(m + "-01").toLocaleDateString(A.lang === "th" ? "th-TH" : "en-GB", { month: "short", year: "2-digit" })) + "</b><span>" + x.n + L(" lessons", " ครั้ง") + " · " + A.num(x.h) + L(" h", " ชม.") + "</span>" +
+          '<i><em style="width:' + Math.round(x.done / x.n * 100) + '%"></em></i></div>';
+      }).join("") + "</div>" +
+      '<p class="sr-note">' + L("The full version lists every lesson with its date, time and status.", "ฉบับเต็มแสดงทุกคาบเรียนพร้อมวัน เวลา และสถานะ") + "</p></section>";
+  }
+
+  /* a timeline in text: ▰ learned, ▱ to come */
+  A.textTimeline = function (x, width) {
+    width = width || 20;
+    var f = Math.round((x.pct || 0) / 100 * width);
+    return (x.first ? d(x.first, { day: "numeric", month: "short" }) + " " : "") + new Array(f + 1).join("▰") + new Array(width - f + 1).join("▱") + (x.last ? " " + d(x.last, { day: "numeric", month: "short" }) : "") + "  " + Math.round(x.pct || 0) + "%";
+  };
+
   /* the same report as plain text (for LINE, notes or email) */
-  A.scheduleReportText = function (e, from, asOf) {
+  A.scheduleReportText = function (e, from, asOf, ver) {
     asOf = asOf || A.today();
     var s = stu(e), p = par(e), x = A.asOfStats(e, asOf), st = A.stats(e), lines = [];
     var rule = "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━";
-    lines.push(rule, L("DEEPDISTRICT · LEARNING SCHEDULE REPORT", "DEEPDISTRICT · ใบรายงานวันเวลาเรียน"), L("As of ", "ณ วันที่ ") + d(asOf, { day: "numeric", month: "long", year: "numeric" }), rule);
+    lines.push(rule, L("DEEPDISTRICT · LEARNING SCHEDULE REPORT", "DEEPDISTRICT · ใบรายงานวันเวลาเรียน") + (ver === "summary" ? L(" (summary)", " (ฉบับสรุป)") : L(" (full)", " (ฉบับเต็ม)")), L("As of ", "ณ วันที่ ") + d(asOf, { day: "numeric", month: "long", year: "numeric" }), rule);
     lines.push(L("Student: ", "นักเรียน: ") + (s.name || "–") + (s.nick ? " (" + s.nick + ")" : "") + ([s.school, s.grade].filter(Boolean).length ? " · " + [s.school, s.grade].filter(Boolean).join(" · ") : ""));
     if (p) lines.push(L("Parent: ", "ผู้ปกครอง: ") + p.name + (p.phone ? " · " + p.phone : ""));
     lines.push(L("Course: ", "หลักสูตร: ") + A.courseName(e.courseCode));
@@ -92,7 +120,13 @@
     if (x.first) lines.push(L("First – last lesson: ", "คาบแรก – คาบสุดท้าย: ") + d(x.first) + " → " + d(x.last));
     lines.push(L("Fee: ", "ค่าเรียน: ") + A.money(st.fee) + (st.balance > 0.009 ? " · " + L("due ", "ค้าง ") + A.money(st.balance) : " · " + L("paid in full", "ชำระครบ")), "");
     lines.push(L("Learned: ", "เรียนแล้ว: ") + A.num(x.learned) + L(" h (", " ชม. (") + x.learnedN + L(" lessons)", " ครั้ง)") + " · " + L("Left: ", "คงเหลือ: ") + A.num(x.left) + L(" h · Total: ", " ชม. · ทั้งหมด: ") + A.num(x.total) + L(" h", " ชม."), "");
-    rows(e, from).filter(function (r) { return r.show; }).forEach(function (r) {
+    lines.push(L("Timeline: ", "ไทม์ไลน์: ") + A.textTimeline(x), "");
+    if (ver === "summary") {
+      var live = rows(e, "").filter(function (r) { return r.no; }), nx = live.filter(function (r) { return r.s.date > asOf && r.s.status === "scheduled"; })[0];
+      if (nx) lines.push(L("Next lesson: ", "คาบถัดไป: ") + d(nx.s.date) + " " + A.span(nx.s) + L(" (lesson ", " (ครั้งที่ ") + nx.no + ")");
+      lines.push(L("(Full version: every lesson listed.)", "(ฉบับเต็มแสดงทุกคาบเรียน)"));
+    }
+    rows(e, from).filter(function (r) { return r.show && ver !== "summary"; }).forEach(function (r) {
       var mark = { done: "✅", scheduled: "🗓️", noshow: "⚠️", cancelled: "✖️", overdue: "❗", rescheduled: "↪️" }[r.st] || "•";
       lines.push((r.no ? (r.no < 10 ? " " : "") + r.no + "." : "  –") + " " + d(r.s.date) + " " + A.span(r.s) + " · " + A.num(r.s.hours) + L(" h ", " ชม. ") + mark + " " + (r.st === "overdue" ? L("past, not updated", "ผ่านแล้วยังไม่อัปเดต") : A.statusName(r.st)));
     });

@@ -364,7 +364,7 @@
     html += '<p class="ex-note">' + L("DeepDistrict practice estimate — not an official score.", "คะแนนประมาณการเพื่อการฝึกของ DeepDistrict ไม่ใช่คะแนนทางการ") + "</p>";
     var acts = '<h1 class="ex-result__title">' + L("Results summary", "สรุปผลการสอบ") + '</h1><div class="ex-actions"><button class="btn btn--primary" data-report>' + L("Download results summary (PDF)", "ดาวน์โหลดสรุปผล (PDF)") + "</button>" +
       '<button class="btn" type="button" data-print>' + L("Print this page", "พิมพ์หน้านี้") + '</button><a class="btn" href="index.html#/tests">' + L("Back to tests", "กลับหน้าข้อสอบ") + "</a></div>";
-    shell('<div class="ex-result">' + acts + html + "</div>");
+    shell('<div class="ex-result"><img class="ex-logo" src="../assets/images/brand/logo-horizontal.png" alt="DeepDistrict">' + acts + html + "</div>");
     bindMarking();
     $$("[data-tag]").forEach(function (sel) {
       sel.addEventListener("change", function () { api("POST", "exam/tag", { id: id, item: sel.getAttribute("data-tag"), cause: sel.value }).then(function (r) { A.tags = r.tags; var det = $$("details[open]").map(function (d) { return $$("details").indexOf(d); }); drawResult(); det.forEach(function (i) { var d = $$("details")[i]; if (d) d.open = true; }); }); });

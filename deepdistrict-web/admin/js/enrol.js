@@ -349,9 +349,15 @@
     var ticks = [], d = A.parse(from); d.setDate(1); d.setMonth(d.getMonth() + 1);
     while (A.iso(d) <= to && ticks.length < 24) { ticks.push(A.iso(d)); d.setMonth(d.getMonth() + 1); }
     var today = A.today(), mark = function (iso, cls, label) { return iso >= from && iso <= to ? '<i class="tl__mark ' + cls + '" style="left:' + pos(iso) + '%"><b>' + esc(label) + "</b></i>" : ""; };
-    return '<div class="tl" role="img" aria-label="' + esc(L("Timeline from ", "ไทม์ไลน์ตั้งแต่ ") + A.fmtDate(from) + " – " + A.fmtDate(to)) + '"><div class="tl__track">' +
+    // bold variant for documents: thick track, filled up to the as-of date, every lesson numbered, start/end flags
+    var big = !!opts.big, fillTo = opts.fill || "", n = 0;
+    var numbered = big && points.length <= 48;
+    return '<div class="tl' + (big ? " tl--big" : "") + '" role="img" aria-label="' + esc(L("Timeline from ", "ไทม์ไลน์ตั้งแต่ ") + A.fmtDate(from) + " – " + A.fmtDate(to)) + '"><div class="tl__track">' +
+      (big ? '<i class="tl__line"></i>' + (fillTo && fillTo >= from ? '<i class="tl__fill" style="width:' + pos(fillTo > to ? to : fillTo) + '%"></i>' : "") +
+        '<span class="tl__flag tl__flag--start"><b>' + esc(L("Start", "เริ่ม")) + "</b> " + esc(A.fmtDate(from, { day: "numeric", month: "short" })) + "</span>" +
+        '<span class="tl__flag tl__flag--end"><b>' + esc(L("Finish", "จบ")) + "</b> " + esc(A.fmtDate(to, { day: "numeric", month: "short" })) + "</span>" : "") +
       ticks.map(function (k) { return '<span class="tl__tick" style="left:' + pos(k) + '%">' + esc(A.parse(k).toLocaleDateString(A.lang === "th" ? "th-TH" : "en-GB", { month: "short" })) + "</span>"; }).join("") +
-      points.map(function (p) { return '<span class="tl__dot tl__dot--' + esc(p.status) + '" style="left:' + pos(p.date) + '%" title="' + esc(A.fmtDate(p.date, { weekday: "short", day: "numeric", month: "short" }) + (p.start ? " " + p.start : "") + " · " + A.num(p.hours) + " h · " + (A.STATUS[p.status] ? A.statusName(p.status) : p.status)) + '"></span>'; }).join("") +
+      points.map(function (p) { var num = numbered && p.status !== "cancelled" ? ++n : 0; return '<span class="tl__dot tl__dot--' + esc(p.status) + '" style="left:' + pos(p.date) + '%"' + (num ? ' data-n="' + num + '"' : "") + ' title="' + esc(A.fmtDate(p.date, { weekday: "short", day: "numeric", month: "short" }) + (p.start ? " " + p.start : "") + " · " + A.num(p.hours) + " h · " + (A.STATUS[p.status] ? A.statusName(p.status) : p.status)) + '"></span>'; }).join("") +
       mark(today, "tl__mark--today", L("today", "วันนี้")) + (opts.asOf && opts.asOf !== today ? mark(opts.asOf, "tl__mark--asof", A.fmtDate(opts.asOf, { day: "numeric", month: "short" })) : "") +
       '</div><div class="tl__ends"><span>' + esc(A.fmtDate(from)) + "</span><span>" + esc(A.fmtDate(to)) + "</span></div></div>";
   };

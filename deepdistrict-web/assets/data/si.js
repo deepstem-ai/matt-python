@@ -83,7 +83,7 @@
     { q: L("Is SI dangerous?", "SI อันตรายหรือไม่?"),
       a: L("Powerful technology has to be made safe on purpose. Safety, alignment, privacy and human oversight are part of every advanced course and every research project we run.", "เทคโนโลยีที่ทรงพลังต้องได้รับการออกแบบให้ปลอดภัยอย่างตั้งใจ ความปลอดภัย Alignment ความเป็นส่วนตัว และการกำกับดูแลโดยมนุษย์ เป็นส่วนหนึ่งของทุกหลักสูตรขั้นสูงและทุกโครงการวิจัยของเรา") },
     { q: L("How can my child or I start learning about SI?", "บุตรหลานหรือตัวฉันจะเริ่มเรียนรู้เรื่อง SI ได้อย่างไร?"),
-      a: L("Start with AI100 (AI literacy) and PY101 (Python). Then follow the path through machine learning and deep learning to the SI courses, with a personal plan built around your goals.", "เริ่มจาก AI100 (ความรู้เท่าทัน AI) และ PY101 (Python) แล้วเดินตามเส้นทางผ่าน Machine Learning และ Deep Learning ไปสู่รายวิชาด้าน SI ด้วยแผนการเรียนเฉพาะบุคคลที่ออกแบบตามเป้าหมายของคุณ") }
+      a: L("Start with PY101 (Python) and GEN120 (generative AI). Then follow the path through machine learning and deep learning to the SI courses, with a personal plan built around your goals.", "เริ่มจาก PY101 (Python) และ GEN120 (Generative AI) แล้วเดินตามเส้นทางผ่าน Machine Learning และ Deep Learning ไปสู่รายวิชาด้าน SI ด้วยแผนการเรียนเฉพาะบุคคลที่ออกแบบตามเป้าหมายของคุณ") }
   ];
 
   /* ------------------------------------------------------------ Personalisation */
@@ -154,13 +154,13 @@
     ],
     /* course sequences by interest and starting level */
     paths: {
-      si:         { new: ["AI100", "GEN120", "PY101", "MTH110"], some: ["ML220", "NV210", "DL310", "NLP330"], adv: ["SI410", "SI420", "SI430", "RL340"] },
+      si:         { new: ["GEN120", "PY101", "MTH110"], some: ["ML220", "NV210", "DL310", "NLP330"], adv: ["SI410", "SI420", "SI430", "RL340"] },
       code:       { new: ["SCR090", "CT100", "PY101", "GIT110"], some: ["DSA210", "CPP220", "JAV220"], adv: ["CP230", "GPU320", "MLO350"] },
       web:        { new: ["WEB101", "GIT110"], some: ["WEB230", "WEB220", "SQL120"], adv: ["WEB340", "CLD230", "SEC220"] },
       apple:      { new: ["SWP100", "SWF110"], some: ["SSC250", "IOS220"], adv: ["IOS340", "VOS350", "APP330"] },
       edge:       { new: ["ARD101", "PY101"], some: ["RPI210", "EDG220", "ARQ230"], adv: ["EDG310", "EDG320", "NV340"] },
-      medical:    { new: ["PY101", "AI100"], some: ["DS210", "ML220"], adv: ["DL310", "CV320", "SI430"] },
-      business:   { new: ["PY101", "AI100", "INN120"], some: ["SQL120", "DS210", "ENT230"], adv: ["WEB340", "MLO350"] },
+      medical:    { new: ["PY101", "MTH110"], some: ["DS210", "ML220"], adv: ["DL310", "CV320", "SI430"] },
+      business:   { new: ["PY101", "SQL120", "INN120"], some: ["SQL120", "DS210", "ENT230"], adv: ["WEB340", "MLO350"] },
       innovation: { new: ["RES101", "INN120", "INNO"], some: ["RES210", "ENT230", "INNO"], adv: ["RES320", "RES330", "INNO"] },
       aieng:      { new: ["PY101", "GIT110", "ACE110"], some: ["ACE220", "WEB230"], adv: ["ACE330"] },
       exam:       { new: ["PY101", "EXM110"], some: ["EXM210", "EXM220"], adv: ["CP230", "EXM230", "EXM220"] }

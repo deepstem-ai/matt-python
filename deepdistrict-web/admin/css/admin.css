@@ -727,3 +727,45 @@ button.tab { border: 0; background: none; cursor: pointer; font: inherit; font-w
 .cal-feed input { width: 100%; font-family: ui-monospace, monospace; font-size: 12px; }
 .note--warn { border-left-color: #e8a10c; background: #fff8e6; }
 .modal__foot { justify-content: flex-end; }
+
+/* ---------- bold timeline for documents (v6.5) */
+.tl--big { margin: 34px 0 8px; }
+.tl--big .tl__track { height: 56px; background: none; }
+.tl--big .tl__line { position: absolute; left: 0; right: 0; top: 50%; height: 10px; margin-top: -5px; border-radius: 99px; background: #e2e8f0; }
+.tl--big .tl__fill { position: absolute; left: 0; top: 50%; height: 10px; margin-top: -5px; border-radius: 99px; background: linear-gradient(90deg, #22c55e, #16a34a); }
+.tl--big .tl__dot { width: 18px; height: 18px; margin: -9px 0 0 -9px; border: 3px solid #fff; box-shadow: 0 1px 4px rgba(15, 23, 42, .3); z-index: 1; }
+.tl--big .tl__dot[data-n]::after { content: attr(data-n); position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: 700; line-height: 12px; color: #334155; }
+.tl--big .tl__tick { top: 38px; height: auto; border-left: 0; padding: 0; font-weight: 600; }
+.tl--big .tl__flag { position: absolute; top: -30px; font-size: 11px; line-height: 14px; color: #0f172a; white-space: nowrap; }
+.tl--big .tl__flag b { padding: 1px 6px; border-radius: 5px; color: #fff; background: #2563eb; }
+.tl--big .tl__flag--start { left: 0; }
+.tl--big .tl__flag--end { right: 0; }
+.tl--big .tl__flag--end b { background: #7c3aed; }
+.tl--big .tl__mark { top: 6px; bottom: 6px; width: 3px; z-index: 2; }
+.tl--big .tl__mark b { top: auto; bottom: -22px; font-size: 11px; line-height: 14px; }
+.tl--big .tl__ends { display: none; }
+
+/* ---------- summary / full documents (v6.5) */
+.doc-ver { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); margin-right: 8px; }
+.doc-ver button { border: 0; background: none; color: var(--text); padding: 7px 16px; border-radius: 999px; font: inherit; font-weight: 600; cursor: pointer; }
+.doc-ver button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.sr-ver { display: inline-block; padding: 1px 8px; margin-right: 4px; border-radius: 6px; background: rgba(255, 255, 255, .25); font-weight: 700; }
+.sr-key { margin-top: 18px; }
+.sr-keys { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.sr-k { padding: 12px 14px; border-radius: 14px; border: 2px solid #e2e8f0; background: #f8fafc; line-height: 1.45; }
+.sr-k span { display: block; font-size: 12px; color: #475569; } .sr-k b { display: block; font-size: 15px; color: #0f172a; } .sr-k small { color: #475569; font-size: 12px; }
+.sr-k--first { border-color: #93c5fd; } .sr-k--done { border-color: #86efac; } .sr-k--next { border-color: #fcd34d; } .sr-k--last { border-color: #c4b5fd; }
+.sr-sub { margin: 16px 0 8px; font-size: 14px; color: #1e3a8a; }
+.sr-months { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.sr-m { padding: 10px 12px; border-radius: 12px; border: 1px solid #e2e8f0; background: #fff; line-height: 1.45; }
+.sr-m b { display: block; font-size: 14px; color: #0f172a; } .sr-m span { display: block; font-size: 12px; color: #475569; }
+.sr-m i { display: block; height: 6px; margin-top: 6px; border-radius: 99px; background: #e2e8f0; overflow: hidden; } .sr-m em { display: block; height: 100%; background: #16a34a; }
+.sr-note { margin: 10px 0 0; font-size: 12px; color: #64748b; }
+.doc-tl { margin: 6px 0 14px; padding: 6px 12px 10px; border: 1px solid #e2e8f0; border-radius: 12px; }
+.doc-tl__sum { margin: 26px 0 4px; font-size: 13px; line-height: 1.5; }
+.doc-tl .tl__legend { margin: 4px 0 0; }
+@media (max-width: 700px) { .sr-keys { grid-template-columns: 1fr 1fr; } }
+.rp-ver { display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 6px; background: #eef2ff; color: #3730a3; font-size: .8rem; vertical-align: middle; }
+.tl--big { margin: 48px 0 30px; }
+.tl--big .tl__mark b { top: -26px; bottom: auto; }
+.sr-ver { padding: 0; margin-right: 6px; background: none; border-radius: 0; text-decoration: underline; text-underline-offset: 3px; }

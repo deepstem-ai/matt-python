@@ -24,7 +24,7 @@
       var moved = st.sessions.filter(function (s) { return (s.status === "rescheduled" || s.status === "cancelled" || s.makeUpFor || s.extraHours) && inRange(s.date, from, to); });
       return { e: e, st: st, done: done, upcoming: upcoming, pays: pays, moved: moved, periodHours: done.reduce(function (t, s) { return t + (+s.hours || 0); }, 0) };
     });
-    return { stu: stu, guardian: A.byId("users", stu.guardianId), from: from, to: to, fees: fees, enrs: enrs, issued: A.today() };
+    return { stu: stu, guardian: A.byId("users", stu.guardianId), from: from, to: to, fees: fees, enrs: enrs, issued: A.today(), ver: q.get("ver") === "summary" ? "summary" : "full" };
   }
 
   function reportHTML(m) {
@@ -32,7 +32,7 @@
     var period = m.from || m.to ? A.fmtDate(m.from) + " – " + A.fmtDate(m.to || A.today()) : L("All time", "ตั้งแต่เริ่มเรียน");
     var h = '<article class="report" id="report">' +
       '<header class="rp-head"><img src="../assets/images/brand/logo-horizontal.png" alt="DeepDistrict"><div><strong>' + esc(o.name) + "</strong><br>" + esc(o.address) + "<br>" + esc([o.email, o.phone].filter(Boolean).join(" · ")) + "</div></header>" +
-      '<h1 class="rp-title">' + L("Learning progress report", "รายงานความก้าวหน้าการเรียน") + "</h1>" +
+      '<h1 class="rp-title">' + L("Learning progress report", "รายงานความก้าวหน้าการเรียน") + ' <small class="rp-ver">' + (m.ver === "summary" ? L("Summary", "ฉบับสรุป") : L("Full version", "ฉบับเต็ม")) + "</small></h1>" +
       '<dl class="rp-meta"><div><dt>' + L("Learner", "ผู้เรียน") + "</dt><dd>" + esc(m.stu.name) + (m.stu.nick ? " (" + esc(m.stu.nick) + ")" : "") + "</dd></div>" +
       (m.stu.school || m.stu.grade ? "<div><dt>" + L("School / grade", "โรงเรียน / ชั้น") + "</dt><dd>" + esc([m.stu.school, m.stu.grade].filter(Boolean).join(" · ")) + "</dd></div>" : "") +
       (m.guardian ? "<div><dt>" + L("Parent / guardian", "ผู้ปกครอง") + "</dt><dd>" + esc(m.guardian.name) + "</dd></div>" : "") +
@@ -46,16 +46,19 @@
         '<div class="rp-hi"><span>' + L("Hours remaining", "ชั่วโมงคงเหลือ") + "</span><b>" + A.num(st.remaining) + "</b></div><div><span>" + L("Booked ahead", "นัดไว้แล้ว") + "</span><b>" + A.num(st.planned) + "</b></div>" +
         (st.unscheduled > 0.001 && st.used + st.planned > 0 ? '<div class="rp-due"><span>' + L("Still to book", "รอนัดเพิ่ม") + "</span><b>" + A.num(st.unscheduled) + "</b></div>" : "") + "</div>" +
         '<div class="rp-bar"><i style="width:' + st.pct + '%"></i></div><p class="rp-small">' + st.pct + "% " + L("of the package completed", "ของแพ็กเกจเรียนแล้ว") + (st.over ? " · " + L("over by ", "เกิน ") + A.hrs(st.over) : "") + "</p>" +
+        "<h3>" + L("Timeline", "ไทม์ไลน์") + "</h3>" + A.docTimeline(e, m.to && m.to < A.today() ? m.to : A.today()) +
         (e.goal ? '<p class="rp-goal"><b>' + L("Goal: ", "เป้าหมาย: ") + "</b>" + esc(e.goal) + "</p>" : "") +
-        "<h3>" + L("What was learned", "สิ่งที่ได้เรียน") + (m.from || m.to ? " · " + A.hrs(x.periodHours) + " " + L("in this period", "ในช่วงนี้") : "") + "</h3>" +
+        (m.ver === "summary" ? '<p class="rp-small">' + L(x.done.length + " lessons learned" + (m.from || m.to ? " in this period" : "") + " · the full version lists each lesson with its topics.", "เรียนแล้ว " + x.done.length + " ครั้ง" + (m.from || m.to ? "ในช่วงนี้" : "") + " · ฉบับเต็มแสดงทุกคาบพร้อมหัวข้อที่เรียน") + "</p>" + (x.upcoming.length ? "<h3>" + L("Next lesson", "คาบเรียนถัดไป") + '</h3><ul class="rp-next"><li>' + esc(A.fmtDate(x.upcoming[0].date, { weekday: "short", day: "numeric", month: "short" })) + " · " + esc(x.upcoming[0].start || "") + "</li></ul>" : "") : "") +
+        (m.ver === "summary" ? "" : "<h3>" + L("What was learned", "สิ่งที่ได้เรียน") + (m.from || m.to ? " · " + A.hrs(x.periodHours) + " " + L("in this period", "ในช่วงนี้") : "") + "</h3>" +
         (x.done.length ? '<table class="rp-tbl"><thead><tr><th>' + L("Date", "วันที่") + "</th><th>" + L("Hours", "ชม.") + "</th><th>" + L("Topics & notes", "หัวข้อและบันทึก") + "</th></tr></thead><tbody>" +
           x.done.map(function (s) { return "<tr><td>" + esc(A.fmtDate(s.date)) + "</td><td>" + A.num(s.hours) + (s.status === "noshow" ? "*" : "") + "</td><td>" + esc(s.topic || "–") + (s.notes ? '<br><span class="rp-note">' + esc(s.notes) + "</span>" : "") + "</td></tr>"; }).join("") + "</tbody></table>" +
           (x.done.some(function (s) { return s.status === "noshow"; }) ? '<p class="rp-small">* ' + L("Missed without notice; hours counted under the lab's policy.", "ขาดเรียนโดยไม่แจ้ง นับชั่วโมงตามนโยบายของแล็บ") + "</p>" : "")
           : '<p class="rp-small">' + L("No completed lessons in this period.", "ไม่มีคาบที่เรียนแล้วในช่วงนี้") + "</p>") +
         (x.upcoming.length ? "<h3>" + L("Next lessons", "คาบเรียนถัดไป") + '</h3><ul class="rp-next">' + x.upcoming.map(function (s) { return "<li>" + esc(A.fmtDate(s.date, { weekday: "short", day: "numeric", month: "short" })) + " · " + esc(s.start || "") + " · " + A.hrs(s.hours) + "</li>"; }).join("") + "</ul>" : "") +
         (x.moved.length ? "<h3>" + L("Schedule changes", "การเปลี่ยนแปลงตารางเรียน") + '</h3><ul class="rp-next">' + x.moved.map(function (s) { return "<li>" + esc(A.fmtDate(s.date)) + " · " + A.statusName(s.status) + " · " + A.lessonNote(s).replace(/<br>/g, " · ") + "</li>"; }).join("") + "</ul>" : "") +
+        "") +
         (m.fees ? "<h3>" + L("Fees", "ค่าเรียน") + '</h3><div class="rp-stats rp-stats--3"><div><span>' + L("Course fee", "ค่าเรียนทั้งหมด") + "</span><b>" + A.money(st.fee) + "</b></div><div><span>" + L("Paid", "ชำระแล้ว") + "</span><b>" + A.money(st.paid) + '</b></div><div class="' + (st.balance > 0.009 ? "rp-due" : "rp-hi") + '"><span>' + L("Balance due", "ยอดคงค้าง") + "</span><b>" + A.money(Math.max(0, st.balance)) + "</b></div></div>" +
-          (x.pays.length ? '<table class="rp-tbl"><thead><tr><th>' + L("Date", "วันที่") + "</th><th>" + L("Reference", "อ้างอิง") + "</th><th>" + L("Amount", "จำนวนเงิน") + "</th></tr></thead><tbody>" + x.pays.map(function (p) { return "<tr><td>" + esc(A.fmtDate(p.date)) + "</td><td>" + esc(p.ref || "") + "</td><td>" + A.money(p.amount) + "</td></tr>"; }).join("") + "</tbody></table>" : "") : "") +
+          (x.pays.length && m.ver !== "summary" ? '<table class="rp-tbl"><thead><tr><th>' + L("Date", "วันที่") + "</th><th>" + L("Reference", "อ้างอิง") + "</th><th>" + L("Amount", "จำนวนเงิน") + "</th></tr></thead><tbody>" + x.pays.map(function (p) { return "<tr><td>" + esc(A.fmtDate(p.date)) + "</td><td>" + esc(p.ref || "") + "</td><td>" + A.money(p.amount) + "</td></tr>"; }).join("") + "</tbody></table>" : "") : "") +
         "</section>";
     });
     h += '<p class="rp-small">' + L("This report summarises lessons recorded by the lab. Please contact us if anything looks wrong.", "รายงานนี้สรุปจากบันทึกการสอนของแล็บ หากข้อมูลไม่ถูกต้องกรุณาติดต่อเรา") + "</p>" + A.docFoot(m.issued) + "</article>";
@@ -72,6 +75,8 @@
       var st = x.st;
       t.push(line, A.courseName(x.e.courseCode), L("Teacher: ", "ครู: ") + A.userName(x.e.teacherId), "");
       t.push(L("Hours purchased : ", "ชั่วโมงที่ซื้อ     : ") + A.num(st.total), L("Hours learned   : ", "ชั่วโมงที่เรียนแล้ว : ") + A.num(st.used) + "  (" + st.pct + "%)", L("Hours remaining : ", "ชั่วโมงคงเหลือ    : ") + A.num(st.remaining), L("Booked ahead    : ", "นัดไว้แล้ว       : ") + A.num(st.planned), "");
+      t.push(L("Timeline: ", "ไทม์ไลน์: ") + A.textTimeline(A.asOfStats(x.e, A.today())), "");
+      if (m.ver === "summary") { if (x.upcoming.length) t.push(L("Next lesson: ", "คาบถัดไป: ") + x.upcoming[0].date + " " + (x.upcoming[0].start || "")); if (m.fees) t.push(L("Fee: ", "ค่าเรียน: ") + A.money(st.fee) + " · " + L("Balance: ", "คงค้าง: ") + A.money(Math.max(0, st.balance))); t.push(""); return; }
       t.push(L("What was learned:", "สิ่งที่ได้เรียน:"));
       x.done.forEach(function (s) { t.push("  " + s.date + "  " + A.num(s.hours) + "h  " + (s.status === "noshow" ? "[" + A.statusName("noshow") + "] " : "") + (s.topic || "-") + (s.notes ? "  — " + s.notes : "")); });
       if (!x.done.length) t.push("  –");
@@ -119,6 +124,7 @@
     var form = '<form class="filters" data-filters><input type="hidden" name="type" value="student">' +
       "<label>" + L("Learner", "ผู้เรียน") + '<select name="student">' + A.opts(students.map(function (s) { return [s.id, s.name + (s.nick ? " (" + s.nick + ")" : "")]; }), sid, L("Choose…", "เลือก…")) + "</select></label>" +
       (sid ? "<label>" + L("Course", "หลักสูตร") + '<select name="enrolment">' + A.opts(scope(sid).map(function (e) { return [e.id, A.courseName(e.courseCode)]; }), q.get("enrolment"), L("All courses", "ทุกหลักสูตร")) + "</select></label>" : "") +
+      "<label>" + L("Version", "รูปแบบ") + '<select name="ver">' + A.opts([["full", L("Full", "แบบเต็ม")], ["summary", L("Summary", "แบบสรุป")]], q.get("ver") || "full") + "</select></label>" +
       "<label>" + L("From", "ตั้งแต่") + '<input type="date" name="from" value="' + esc(q.get("from") || "") + '"></label><label>' + L("To", "ถึง") + '<input type="date" name="to" value="' + esc(q.get("to") || "") + '"></label>' +
       (A.isAdmin() || !A.isStaff() ? "<label>" + L("Fees", "ค่าเรียน") + '<select name="fees">' + A.opts([["1", L("Show", "แสดง")], ["0", L("Hide", "ซ่อน")]], q.get("fees") || "1") + "</select></label>" : "") + "</form>";
     var html = tabs + form + (m ? A.exportBar('<button class="btn" data-act="rp-txt">' + L("Text (TXT)", "ข้อความ (TXT)") + '</button><button class="btn" data-act="rp-csv">CSV</button>') + reportHTML(m)
@@ -131,10 +137,10 @@
   var prev = A.onAct;
   A.onAct = function (act, b, ev) {
 
-    if (act === "rp-txt" && A._report) return A.download(fileBase() + ".txt", reportText(A._report));
+    if (act === "rp-txt" && A._report) return A.download(fileBase() + ".txt", A.brandText(reportText(A._report)));
     if (act === "rp-csv" && A._report) return A.download(fileBase() + ".csv", reportCSV(A._report), "text/csv;charset=utf-8");
     if (act === "sum-csv") return A.download(fileBase() + ".csv", A.csv(A._summary), "text/csv;charset=utf-8");
-    if (act === "sum-txt") return A.download(fileBase() + ".txt", A._summary.map(function (r) { return r.join("\t"); }).join("\n"));
+    if (act === "sum-txt") return A.download(fileBase() + ".txt", A.brandText(A._summary.map(function (r) { return r.join("\t"); }).join("\n")));
 
     if (prev) prev(act, b, ev);
   };

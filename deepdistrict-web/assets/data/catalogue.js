@@ -22,7 +22,7 @@
       text: L("Web, iPhone and iPad apps, engineering with AI agents, cloud, DevOps and security.", "เว็บ แอป iPhone และ iPad วิศวกรรมซอฟต์แวร์ร่วมกับ AI Agent คลาวด์ DevOps และความปลอดภัยไซเบอร์") },
     { id: "ai", icon: "spark", tracks: ["ai"],
       name: L("AI & Data Science", "AI และวิทยาการข้อมูล"),
-      text: L("AI literacy, data, machine and deep learning, LLMs, agents and the road to SI.", "ความรู้เท่าทัน AI ข้อมูล Machine Learning, Deep Learning, LLM, AI Agent และเส้นทางสู่ SI") },
+      text: L("Data, machine and deep learning, LLMs, agents and the road to SI.", "ข้อมูล Machine Learning, Deep Learning, LLM, AI Agent และเส้นทางสู่ SI") },
     { id: "hardware", icon: "chip", tracks: ["edge"],
       name: L("Hardware, Robotics & Edge AI", "ฮาร์ดแวร์ หุ่นยนต์ และ Edge AI"),
       text: L("Arduino, Raspberry Pi, NVIDIA Jetson, CUDA and ROS 2: intelligence in real devices.", "Arduino, Raspberry Pi, NVIDIA Jetson, CUDA และ ROS 2 ใส่ความฉลาดลงในอุปกรณ์จริง") },
@@ -176,7 +176,6 @@
      The modern basics every later course builds on. Shown right after the picks. */
   D.essentials = [
     { code: "PY101", why: L("The language of AI, data and automation — the first real programming skill.", "ภาษาของ AI ข้อมูล และระบบอัตโนมัติ ทักษะเขียนโปรแกรมจริงตัวแรก") },
-    { code: "AI100", why: L("How AI works, where it fails and how to use it responsibly.", "AI ทำงานอย่างไร ผิดพลาดตรงไหน และใช้อย่างรับผิดชอบ") },
     { code: "MTH110", why: L("Functions, vectors, probability and statistics: the maths behind AI.", "ฟังก์ชัน เวกเตอร์ ความน่าจะเป็น และสถิติ คณิตศาสตร์เบื้องหลัง AI") },
     { code: "DSA210", why: L("Algorithms and data structures: how good programmers think.", "อัลกอริทึมและโครงสร้างข้อมูล วิธีคิดของนักเขียนโปรแกรมที่เก่ง") },
     { code: "WEB101", why: L("HTML, CSS and JavaScript: put your work on the web.", "HTML, CSS และ JavaScript นำผลงานขึ้นเว็บได้จริง") },

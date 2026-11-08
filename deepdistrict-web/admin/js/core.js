@@ -10,7 +10,7 @@
   var LANG_KEY = "dd-admin-lang", THEME_KEY = "dd-admin-theme";
 
   /* ------------------------------------------------------------ i18n */
-  A.lang = (function () { try { return localStorage.getItem(LANG_KEY) || ((navigator.language || "").indexOf("th") === 0 ? "th" : "en"); } catch (e) { return "en"; } })();
+  A.lang = (function () { try { return localStorage.getItem(LANG_KEY) || "en"; } catch (e) { return "en"; } })();
   A.L = function (en, th) { return A.lang === "th" ? th : en; };
   A.setLang = function (l) { A.lang = l; try { localStorage.setItem(LANG_KEY, l); } catch (e) {} document.documentElement.lang = l; };
   A.tx = function (v) { return v && typeof v === "object" ? (v[A.lang] || v.en) : (v == null ? "" : String(v)); };
@@ -235,6 +235,13 @@
     t.textContent = msg;
     document.body.appendChild(t);
     setTimeout(function () { t.classList.add("is-out"); setTimeout(function () { t.remove(); }, 400); }, 2600);
+  };
+  /* every text a learner or parent receives starts with the DeepDistrict name, as the logo does on PDFs and images */
+  A.brandText = function (txt) {
+    txt = String(txt || "");
+    if (/^◆ DEEP DISTRICT/.test(txt)) return txt;
+    var o = (A.db && A.db.org) || {};
+    return "◆ DEEP DISTRICT · " + (o.name || "DeepDistrict.si") + "\n" + [o.email, o.phone].filter(Boolean).join(" · ") + "\n" + "──────────────────────────────" + "\n\n" + txt;
   };
   A.download = function (name, content, type) {
     var blob = content instanceof Blob ? content : new Blob([content], { type: type || "text/plain;charset=utf-8" });

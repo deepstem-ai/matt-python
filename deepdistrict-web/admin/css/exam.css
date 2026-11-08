@@ -248,3 +248,6 @@ u.ul-part { text-decoration: underline; text-decoration-thickness: 2px; text-und
   .is-protected::after { content: "Printing is turned off during a test · ไม่สามารถพิมพ์ข้อสอบระหว่างการสอบ"; display: block; padding: 40px; font: 20px Arial, sans-serif; }
 }
 .ex-note--warn { color: #b45309; font-weight: 700; }
+.ex-logo { display: block; height: 34px; width: auto; margin: 0 0 14px; }
+html[data-theme="dark"] .ex-logo { filter: brightness(0) invert(1); }
+@media print { .ex-logo { filter: none !important; } }

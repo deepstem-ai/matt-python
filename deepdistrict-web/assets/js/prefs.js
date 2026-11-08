@@ -18,7 +18,7 @@
   function pref(k) { return persist ? get("localStorage", k) : get("sessionStorage", k); }
 
   var lang = pref("dd-lang");
-  if (lang !== "th" && lang !== "en") lang = (navigator.language || "").toLowerCase().indexOf("th") === 0 ? "th" : "en";
+  if (lang !== "th" && lang !== "en") lang = "en";             // English by default; the TH / EN switch remembers the choice
   doc.lang = lang;
 
   var theme = pref("dd-theme");
@@ -27,5 +27,5 @@
   var dark = theme === "dark" || (theme === "auto" && window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches);
   doc.setAttribute("data-theme", dark ? "dark" : "light");
 
-  window.DD_PREFS = { CONSENT_KEY: CONSENT_KEY, CONSENT_VERSION: CONSENT_VERSION, SITE_VERSION: "6.4 r8" };
+  window.DD_PREFS = { CONSENT_KEY: CONSENT_KEY, CONSENT_VERSION: CONSENT_VERSION, SITE_VERSION: "6.5 r1" };
 })();
