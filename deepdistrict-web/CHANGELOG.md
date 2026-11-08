@@ -1,5 +1,12 @@
 # Changelog
 
+## 6.5 r3 — November 2026
+- **Phone menu redesigned:** compact and colourful — a *Free consultation* button, the two tracks as colour cards
+  with icon links in two columns, small chips for Home, All courses and About, and the theme (System / Light / Dark)
+  and language switches inside the menu.
+- **Light / dark fixed for the menu:** it used to stay dark in light mode; it now follows the theme, and the header
+  over it switches to dark text and the dark logo.
+
 ## 6.5 r2 — November 2026
 - Learning summaries (schedule report, enrolment pack, progress report) now open in the **Full** version by default;
   *Summary* is one click away in the viewer or the Documents menu.

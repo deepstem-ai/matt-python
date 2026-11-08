@@ -379,3 +379,45 @@ html[lang="th"] .footer-col h3 { font-family: var(--f-sans-th); font-size: var(-
 @media (max-width: 1300px) { .nav-primary { display: flex; } }
 @media (max-width: 1120px) { .nav-primary { display: none; } .nav-primary + .header-actions { margin-left: auto; } }
 @media (max-width: 760px) { .header-actions .header-cta { display: none !important; } }
+
+/* ---------- v6.5 drawer: compact, colourful, follows the theme */
+.nav-drawer { width: min(400px, 100%); padding: calc(var(--header-h) + 12px) 18px 22px; gap: 14px; background: var(--bg, #f7f8fb); color: var(--text); box-shadow: -20px 0 50px rgba(10, 20, 60, .25); }
+:root[data-theme="dark"] .nav-drawer { background: radial-gradient(circle at 100% 0%, rgba(79, 110, 255, .28), transparent 50%), #0a1020; }
+.nav-drawer a { display: flex; align-items: center; padding: 0; border: 0; font-family: inherit; font-size: inherit; font-weight: 500; color: inherit; text-decoration: none; }
+.nav-drawer a::after { content: none; }
+.nav-drawer a:hover { padding-left: 0; color: inherit; }
+.dr-cta { justify-content: center; gap: 8px; padding: 13px 16px !important; border-radius: 16px; color: #fff !important; font-weight: 700 !important; background: linear-gradient(110deg, #0ea5e9, #6d5dfc 55%, #db2777); box-shadow: 0 10px 24px rgba(109, 93, 252, .35); }
+.dr-cta svg, .dr-trk__head svg { width: 18px; height: 18px; }
+.dr-trk { border-radius: 18px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.dr-trk__head { justify-content: space-between; gap: 10px; padding: 12px 14px !important; color: #fff !important; }
+.dr-trk__head b { font-family: var(--f-display); font-size: 1.05rem; }
+.dr-trk__head span { display: inline-flex; align-items: center; gap: 4px; font-size: .8rem; font-weight: 600; opacity: .95; }
+.dr-trk--stem .dr-trk__head { background: linear-gradient(110deg, #0ea5e9, #7c3aed); }
+.dr-trk--prep .dr-trk__head { background: linear-gradient(110deg, #f59e0b, #e11d48); }
+.dr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 10px; }
+.dr-grid a { gap: 8px; min-height: 44px; padding: 6px 8px !important; border-radius: 12px; font-size: .86rem; line-height: 1.25; }
+.dr-grid a:hover, .dr-grid a:focus-visible { background: color-mix(in srgb, var(--blue) 10%, transparent); }
+.dr-grid .nav-ico { width: 30px; height: 30px; border-radius: 9px; }
+.dr-grid .nav-ico img { width: 17px; height: 17px; }
+.dr-trk--stem .nav-ico { background: linear-gradient(135deg, rgba(56, 189, 248, .25), rgba(124, 92, 255, .25)); }
+.dr-trk--prep .nav-ico { background: linear-gradient(135deg, rgba(251, 191, 36, .3), rgba(244, 114, 182, .25)); }
+:root[data-theme="dark"] .nav-ico img, :root[data-theme="dark"] .dr-chips img { filter: brightness(0) invert(1); }
+.dr-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.dr-chips a { gap: 6px; padding: 7px 12px !important; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: .84rem; }
+.dr-chips img { width: 15px; height: 15px; }
+.dr-prefs { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding-top: 4px; }
+.dr-lang { border-color: var(--line); }
+.dr-lang button { color: var(--text); }
+.dr-signin { gap: 8px; font-weight: 700; font-size: .92rem; color: var(--accent) !important; }
+.dr-signin svg { width: 18px; height: 18px; }
+.dr-foot { margin: auto 0 0; font-size: .8rem; color: var(--text-dim); }
+.dr-foot a { display: inline !important; color: inherit; }
+@media (max-width: 360px) { .dr-grid { grid-template-columns: 1fr; } }
+.nav-drawer > * { flex-shrink: 0; }
+.nav-drawer .dr-grid a, .nav-drawer .dr-chips a { justify-content: flex-start; text-align: left; }
+/* light theme + open menu: the header sits on the light drawer, so it uses dark text and the dark logo */
+:root:not([data-theme="dark"]) .menu-open .site-header { color: var(--text); background: var(--bg); }
+:root:not([data-theme="dark"]) .menu-open .brand__on-dark { opacity: 0 !important; }
+:root:not([data-theme="dark"]) .menu-open .brand__on-light { opacity: 1 !important; }
+:root:not([data-theme="dark"]) .menu-open .site-header .icon-btn, :root:not([data-theme="dark"]) .menu-open .site-header .lang-switch { border-color: var(--line-strong); }
+:root:not([data-theme="dark"]) .menu-open .menu-toggle span::before, :root:not([data-theme="dark"]) .menu-open .menu-toggle span::after { background-color: var(--text); }

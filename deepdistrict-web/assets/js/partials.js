@@ -118,14 +118,19 @@
     "</header>" +
     '<div class="scrim" data-close-menu></div>' +
     '<nav class="nav-drawer" id="nav-drawer" aria-label="Menu" aria-hidden="true">' +
-    '  <ul role="list"><li>' + link({ href: "index.html", en: "Home", th: "หน้าแรก" }) + "</li>" +
-    NAV.map(function (n) {
-      return n.children ? '<li class="drawer-group"><span class="drawer-group__title">' + bi(n.en, n.th) + "</span><ul role=\"list\">" + n.children.map(function (c) { return "<li>" + link(c) + "</li>"; }).join("") + "</ul></li>" : "<li>" + link(n) + "</li>";
+    // v6.5: compact, colourful, follows light / dark — the two tracks as cards, everything else as small chips
+    '<a class="dr-cta" href="' + base + 'pages/contact.html?topic=consult#form">' + bi("Book a free consultation", "นัดปรึกษาฟรี") + " " + ARROW + "</a>" +
+    NAV.filter(function (n) { return n.wide; }).map(function (n) {
+      return '<section class="dr-trk dr-trk--' + n.key + '"><a class="dr-trk__head" href="' + base + "pages/programs.html?main=" + n.key + '#catalog"><b>' + bi(n.en, n.th) + "</b><span>" + bi("All courses", "ดูคอร์สทั้งหมด") + " " + ARROW + "</span></a>" +
+        '<div class="dr-grid">' + n.children.map(function (c) { return '<a href="' + base + c.href + '">' + (c.icon ? '<i class="nav-ico">' + ico(c.icon) + "</i>" : "") + "<span>" + bi(c.en, c.th) + "</span></a>"; }).join("") + "</div></section>";
     }).join("") +
-    "<li>" + link({ href: "pages/contact.html", en: "Contact", th: "ติดต่อเรา" }) + "</li>" +
-    '<li><a class="drawer-signin" href="' + base + 'admin/index.html" rel="nofollow">' + USER + bi("Sign in — students, parents, teachers, admin", "เข้าสู่ระบบ — นักเรียน ผู้ปกครอง ครู ผู้ดูแลระบบ") + "</a></li></ul>" +
-    '  <div class="drawer-foot"><a class="btn btn--primary" href="mailto:' + EMAIL + '">' + EMAIL + " " + ARROW + "</a>" +
-    bi("Super Intelligence learning & research lab<br>Bangkok, Thailand", "ห้องปฏิบัติการเรียนรู้และวิจัย Super Intelligence<br>กรุงเทพมหานคร ประเทศไทย") + "</div>" +
+    '<div class="dr-chips">' + [{ href: "index.html", en: "Home", th: "หน้าแรก", icon: "rocket" }, { href: "pages/programs.html", en: "All courses", th: "คอร์สทั้งหมด", icon: "book" }]
+      .concat(NAV.filter(function (n) { return n.key === "about"; })[0].children)
+      .map(function (c) { return '<a href="' + base + c.href + '">' + (c.icon ? ico(c.icon) : "") + bi(c.en, c.th) + "</a>"; }).join("") + "</div>" +
+    '<div class="dr-prefs"><div class="theme-seg dr-theme" role="group" aria-label="Theme">' + themeBtn("auto", AUTO, "System", "ตามระบบ") + themeBtn("light", SUN, "Light", "สว่าง") + themeBtn("dark", MOON, "Dark", "มืด") + "</div>" +
+    '<div class="lang-switch dr-lang" role="group" aria-label="Language / ภาษา"><button type="button" data-set-lang="en" aria-pressed="false">EN</button><button type="button" data-set-lang="th" aria-pressed="false">TH</button></div></div>' +
+    '<a class="dr-signin" href="' + base + 'admin/index.html" rel="nofollow">' + USER + bi("Sign in — students, parents, teachers", "เข้าสู่ระบบ — นักเรียน ผู้ปกครอง ครู") + "</a>" +
+    '<p class="dr-foot"><a href="mailto:' + EMAIL + '">' + EMAIL + "</a> · " + bi("Bangkok, Thailand", "กรุงเทพฯ") + "</p>" +
     "</nav>";
 
   var year = new Date().getFullYear();

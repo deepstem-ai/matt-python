@@ -89,7 +89,7 @@
 /* ---------- Dark theme ---------- */
 :root[data-theme="dark"],
 .panel,
-.nav-drawer,
+:root[data-theme="dark"] .nav-drawer,
 .has-bg {
   color-scheme: dark;
   --bg: #070b14;
