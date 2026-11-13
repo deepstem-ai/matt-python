@@ -400,7 +400,7 @@
     if (!eopts.length) return A.toast(L("Create an enrolment first.", "กรุณาสร้างการลงทะเบียนก่อน"), "err");
     var enr = A.byId("enrolments", s.enrolmentId);
     if (!A.isStaff()) return A.viewLesson(s);
-    if (enr && !A.canEditEnrolment(enr)) return A.toast(L("You can only edit your own students' lessons.", "แก้ไขได้เฉพาะบันทึกการสอนของนักเรียนที่คุณสอน"), "err");
+    if (enr && !A.canEditEnrolment(enr)) return A.toast(L("You can only edit your own students' lessons. Ask an admin to set you as the teacher on this enrolment.", "แก้ไขได้เฉพาะคาบของนักเรียนที่คุณสอน กรุณาให้แอดมินกำหนดคุณเป็นครูในการลงทะเบียนนี้"), "err");
     A.form({
       title: isNew ? L("Add lesson", "เพิ่มคาบเรียน") : L("Lesson", "คาบเรียน") + " · " + A.fmtDate(s.date),
       fields: [
@@ -408,7 +408,7 @@
         { name: "date", label: L("Date", "วันที่"), type: "date", value: s.date, required: true },
         { name: "start", label: L("Start time", "เวลาเริ่ม"), type: "time", value: s.start },
         { name: "hours", label: L("Hours", "จำนวนชั่วโมง"), type: "number", step: "0.25", min: 0.25, value: s.hours, required: true },
-        { name: "status", label: L("Status", "สถานะ"), type: "select", options: Object.keys(A.STATUS).filter(function (k) { return k !== "rescheduled" || s.status === k; }).map(function (k) { return [k, A.statusName(k)]; }), value: s.status },
+        { name: "status", label: L("Status", "สถานะ"), type: "select", options: Object.keys(A.STATUS).filter(function (k) { return (k !== "rescheduled" && (k !== "cancelled" || isNew)) || s.status === k; }).map(function (k) { return [k, A.statusName(k)]; }), value: s.status },
         { name: "mode", label: L("Mode", "รูปแบบ"), type: "select", options: MODES(), value: s.mode || (enr && enr.mode) || "online" },
         { name: "teacherId", label: L("Teacher", "ครูผู้สอน"), type: "select", options: [["", "–"]].concat(peopleOpts("staff")), value: s.teacherId || (enr && enr.teacherId) || (A.me.role === "teacher" ? A.me.id : "") },
         { name: "location", label: L("Room / place / Zoom link", "ห้อง / สถานที่ / ลิงก์ Zoom"), value: s.location || (enr && enr.location) || "" },
@@ -416,9 +416,11 @@
         { name: "notes", label: L("Progress notes & homework", "บันทึกความก้าวหน้าและการบ้าน"), type: "textarea", value: s.notes, full: true }
       ],
       history: isNew ? null : { col: "sessions", id: s.id },
-      extra: !isNew && s.status === "scheduled" ? '<button type="button" class="btn" data-move>' + L("Move / reschedule…", "เลื่อน / ย้ายคาบ…") + "</button>" : "",
+      extra: !isNew && A.canMoveLesson(s) ? '<button type="button" class="btn" data-move>' + L("Move / reschedule…", "เลื่อน / ย้ายคาบ…") + "</button>" +
+        '<button type="button" class="btn btn--danger" data-cancel-lesson>' + L("Cancel this lesson…", "ยกเลิกคาบนี้…") + "</button>" : "",
       onReady: function (form, dlg) {
         var m = form.querySelector("[data-move]"); if (m) m.addEventListener("click", function () { dlg.close(); dlg.remove(); A.reschedule(s); });
+        var cx = form.querySelector("[data-cancel-lesson]"); if (cx) cx.addEventListener("click", function () { dlg.close(); dlg.remove(); A.cancelLesson(s); });
         var hint = document.createElement("small"); form.elements.hours.parentNode.appendChild(hint);
         function upd() { hint.textContent = L("ends ", "เลิก ") + A.endOf({ start: form.elements.start.value, hours: +form.elements.hours.value }); }
         form.elements.start.addEventListener("input", upd); form.elements.hours.addEventListener("input", upd); upd();

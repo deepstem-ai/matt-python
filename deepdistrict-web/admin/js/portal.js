@@ -59,15 +59,106 @@
     if (from) parts.push('<span class="moved">← ' + L("moved from ", "ย้ายมาจาก ") + esc(when(from)) + " (" + A.hrs(from.hours) + ")</span>");
     if (mk) parts.push('<span class="moved">↺ ' + L("make-up for ", "ชดเชยคาบ ") + esc(when(mk)) + "</span>");
     if (s.afterPause) parts.push('<span class="moved">↻ ' + L("rebooked after time off", "นัดใหม่หลังหยุดเรียน") + "</span>");
-    if (s.status === "cancelled" && s.reason) parts.push('<span class="moved">' + esc(s.reason) + "</span>");
+    var rb = s.replacedBy && A.byId("sessions", s.replacedBy);
+    if (s.status === "cancelled") parts.push('<span class="moved">✕ ' + L("cancelled", "ยกเลิก") + (s.reason ? ": " + esc(s.reason) : "") + (rb ? " → " + L("new lesson ", "คาบใหม่ ") + esc(when(rb)) : "") + "</span>");
     if (s.extraHours) parts.push('<span class="moved">+' + A.hrs(s.extraHours) + " " + L("added (make-up)", "เพิ่ม (ชดเชย)") + "</span>");
     return parts.join("<br>");
+  };
+
+
+  /* ------------------------------------------------------------ cancel a lesson (with a reason) → new lesson after the last one
+     The cancelled lesson stays in the record (it never counts). By default a replacement lesson is proposed on the
+     next regular day and time after the course's last lesson; staff can change it, and confirm before anything is saved. */
+  A.canMoveLesson = function (s) { return !!s && s.status !== "cancelled" && s.status !== "rescheduled" && (s.status !== "done" || s.autoDone); };
+  A.nextFreeSlot = function (enr, s) {
+    var live = A.sessionsOf(enr.id).filter(function (x) { return x.id !== s.id && x.status !== "cancelled" && x.status !== "rescheduled"; });
+    var last = live.length ? live[live.length - 1].date : s.date;
+    var from = A.addDays(last > A.today() ? last : A.today(), 1);
+    var pat = (enr.pattern || []).filter(function (p) { return p.start && A.slotHours(p) > 0; });
+    if (!pat.length) { var d = A.parse(s.date).getDay(), st = s.start || "17:00"; pat = [{ day: d, start: st, end: A.endOf({ start: st, hours: +s.hours || 1 }) }]; }
+    var one = A.generateLessons(enr, { pattern: pat, from: from, endBy: "count", count: 1 })[0];
+    return one ? { date: one.date, start: one.start } : { date: from, start: s.start || "17:00" };
+  };
+  var WHY = function () { return [["learner", L("Learner asked (sick, busy, trip…)", "ผู้เรียนขอหยุด (ป่วย ติดธุระ เดินทาง…)")], ["teacher", L("Teacher unavailable", "ครูติดภารกิจ")],
+    ["holiday", L("Public / school holiday", "วันหยุดราชการ / โรงเรียน")], ["centre", L("DeepDistrict changed the plan", "DeepDistrict ปรับแผน")], ["other", L("Other", "อื่น ๆ")]]; };
+  /* confirm card → Promise<true (confirm) | false (go back and change)> */
+  A.confirmCard = function (title, html, okLabel, backLabel) {
+    return new Promise(function (resolve) {
+      var dlg = document.createElement("dialog"); dlg.className = "modal confirm-card";
+      dlg.innerHTML = '<div class="modal__box"><header><h2>' + esc(title) + '</h2></header><div class="cc-body">' + html + "</div>" +
+        '<footer><button type="button" class="btn" data-cc="back">✎ ' + esc(backLabel) + '</button><span class="spacer"></span><button type="button" class="btn btn--primary" data-cc="ok">✓ ' + esc(okLabel) + "</button></footer></div>";
+      document.body.appendChild(dlg);
+      function done(v) { dlg.close(); dlg.remove(); resolve(v); }
+      dlg.querySelector("[data-cc=ok]").addEventListener("click", function () { done(true); });
+      dlg.querySelector("[data-cc=back]").addEventListener("click", function () { done(false); });
+      dlg.addEventListener("cancel", function (e) { e.preventDefault(); done(false); });
+      dlg.showModal();
+    });
+  };
+  A.cancelLesson = function (s, preset) {
+    var enr = A.byId("enrolments", s.enrolmentId);
+    if (!A.canEditEnrolment(enr)) return A.toast(L("Only an admin or this learner's teacher can change this lesson. Ask an admin to set you as the teacher on the enrolment.", "เปลี่ยนคาบนี้ได้เฉพาะแอดมินหรือครูของผู้เรียนคนนี้ กรุณาให้แอดมินกำหนดคุณเป็นครูในการลงทะเบียน"), "err");
+    preset = preset || {};
+    var slot = A.nextFreeSlot(enr, s);
+    return A.form({
+      title: L("Cancel lesson", "ยกเลิกคาบเรียน") + " · " + when(s),
+      intro: esc(A.enrolmentLabel(enr)) + " · " + A.hrs(s.hours),
+      submit: L("Continue", "ดำเนินการต่อ"),
+      fields: [
+        { name: "why", label: L("Why is it cancelled?", "ยกเลิกเพราะ"), type: "select", options: WHY(), value: preset.why || "learner", required: true },
+        { name: "reason", label: L("Details (shown on reports)", "รายละเอียด (แสดงในรายงาน)"), value: preset.reason || "", required: true, full: true },
+        { name: "rebook", label: L("Add a new lesson after the last lesson (same day and time)", "เพิ่มคาบใหม่ต่อจากคาบสุดท้าย (วันและเวลาเดิม)"), type: "checkbox", value: preset.rebook !== false, full: true },
+        { name: "ndate", label: L("New lesson date", "วันที่คาบใหม่"), type: "date", value: slot.date },
+        { name: "nstart", label: L("Start time", "เวลาเริ่ม"), type: "time", value: slot.start },
+        { name: "nhours", label: L("Hours", "จำนวนชั่วโมง"), type: "number", step: "0.25", min: 0.25, value: s.hours }
+      ],
+      onReady: function (form) {
+        var info = document.createElement("p"); info.className = "mf-diff mf-full"; form.querySelector(".mf-grid").appendChild(info);
+        function upd() {
+          var on = form.elements.rebook.checked;
+          ["ndate", "nstart", "nhours"].forEach(function (n) { form.elements[n].closest(".mf").hidden = !on; });
+          info.textContent = on && form.elements.ndate.value ? L("New lesson: ", "คาบใหม่: ") + A.fmtDate(form.elements.ndate.value, { weekday: "long", day: "numeric", month: "long", year: "numeric" }) + " · " + A.span({ start: form.elements.nstart.value, hours: +form.elements.nhours.value })
+            : L(A.hrs(s.hours) + " will wait as 'to schedule'.", A.hrs(s.hours) + " จะรอนัดใน 'ยังต้องนัด'");
+        }
+        ["rebook", "ndate", "nstart", "nhours"].forEach(function (n) { form.elements[n].addEventListener("input", upd); form.elements[n].addEventListener("change", upd); });
+        upd();
+      },
+      validate: function (v) {
+        if (!String(v.reason || "").trim()) return L("Please give a reason.", "กรุณาระบุเหตุผล");
+        if (v.rebook && (!v.ndate || !v.nstart)) return L("Choose the new date and time.", "กรุณาเลือกวันและเวลาของคาบใหม่");
+      },
+      onSave: function (v) {
+        var ns = v.rebook ? { id: A.uid("s"), enrolmentId: s.enrolmentId, date: v.ndate, start: v.nstart, hours: +v.nhours || +s.hours, status: "scheduled", mode: s.mode || enr.mode, location: s.location || enr.location || "",
+          teacherId: s.teacherId || enr.teacherId || "", makeUpFor: s.id, createdAt: new Date().toISOString() } : null;
+        var big = function (x) { return A.fmtDate(x.date, { weekday: "long", day: "numeric", month: "long", year: "numeric" }) + " · " + A.span(x); };
+        var card = '<div class="cc-row cc-row--off"><span>' + L("Cancelled", "ยกเลิก") + "</span><b>" + esc(big(s)) + "</b><small>" + esc(v.reason) + "</small></div>" +
+          (ns ? '<div class="cc-arrow">↓</div><div class="cc-row cc-row--new"><span>' + L("New lesson (prepared)", "คาบใหม่ (เตรียมไว้ให้)") + "</span><b>" + esc(big(ns)) + "</b><small>" + A.hrs(ns.hours) + " · " + L("after the last lesson of the course", "ต่อจากคาบสุดท้ายของคอร์ส") + "</small></div>"
+            : '<p class="muted">' + L(A.hrs(s.hours) + " will wait as 'to schedule'.", A.hrs(s.hours) + " จะรอนัดใหม่ใน 'ยังต้องนัด'") + "</p>");
+        return A.confirmCard(ns ? L("Confirm the new lesson?", "ยืนยันคาบใหม่ไหม?") : L("Cancel this lesson?", "ยกเลิกคาบนี้ไหม?"), card,
+          L("Confirm", "ยืนยัน"), ns ? L("Change date / time", "เปลี่ยนแปลงวัน / เวลา") : L("Back", "ย้อนกลับ")).then(function (yes) {
+          if (!yes) { var f = document.querySelector("dialog[open] [name=ndate]"); if (f) f.focus(); return false; }   // back to the form to change it
+          return ns ? A.clashOK([ns], [s.id]) : true;
+        }).then(function (ok) {
+          if (!ok) return false;
+          var label = (WHY().filter(function (w) { return w[0] === v.why; })[0] || [0, ""])[1];
+          Object.assign(s, { status: "cancelled", reason: v.reason, cancelWhy: v.why, cancelledAt: new Date().toISOString(), cancelledBy: A.me.id, autoDone: false });
+          if (ns) { A.db.sessions.push(ns); s.replacedBy = ns.id; }
+          if (preset.requestId) {
+            var r = A.byId("requests", preset.requestId);
+            if (r) Object.assign(r, { status: "approved", decidedBy: A.me.id, decidedAt: new Date().toISOString(), result: ns ? ns.id : "", resultText: ns ? L("Cancelled; new lesson ", "ยกเลิกแล้ว; คาบใหม่ ") + when(ns) : L("Lesson cancelled; " + A.num(s.hours) + " h to schedule", "ยกเลิกคาบแล้ว; " + A.num(s.hours) + " ชม. รอนัด") });
+          }
+          A.logAct("Cancelled lesson " + s.date + " · " + A.enrolmentLabel(enr) + " · " + label + ": " + v.reason + (ns ? " → new lesson " + ns.date + " " + ns.start : ""));
+          return A.save().then(function (okS) { if (okS) { A.toast(ns ? L("Cancelled — new lesson on ", "ยกเลิกแล้ว — คาบใหม่ ") + when(ns) : L("Lesson cancelled", "ยกเลิกคาบแล้ว")); A.route(); } });
+        });
+      }
+    });
   };
 
   /* ------------------------------------------------------------ move / reschedule a lesson */
   A.reschedule = function (s, preset) {
     var enr = A.byId("enrolments", s.enrolmentId);
-    if (!A.canEditEnrolment(enr)) return;
+    if (!A.canEditEnrolment(enr)) return A.toast(L("Only an admin or this learner's teacher can move this lesson. Ask an admin to set you as the teacher on the enrolment.", "ย้ายคาบนี้ได้เฉพาะแอดมินหรือครูของผู้เรียนคนนี้ กรุณาให้แอดมินกำหนดคุณเป็นครูในการลงทะเบียน"), "err");
+    if (!A.canMoveLesson(s)) return A.toast(L("This lesson can't be moved (already cancelled, moved or taught).", "ย้ายคาบนี้ไม่ได้ (ยกเลิก ย้าย หรือสอนไปแล้ว)"), "err");
     preset = preset || {};
     var dlg = A.form({
       title: L("Move lesson", "เลื่อน / ย้ายคาบเรียน") + " · " + when(s),
@@ -111,7 +202,7 @@
         var diff = Math.round(((+s.hours || 0) - (+v.hours || 0)) * 100) / 100;
         var ns = { id: A.uid("s"), enrolmentId: s.enrolmentId, date: v.date, start: v.start, hours: +v.hours, status: "scheduled", mode: s.mode, location: s.location, teacherId: s.teacherId, movedFrom: s.id, createdAt: new Date().toISOString() };
         A.db.sessions.push(ns);
-        Object.assign(s, { status: "rescheduled", movedTo: ns.id, reason: v.reason });
+        Object.assign(s, { status: "rescheduled", movedTo: ns.id, reason: v.reason, autoDone: false });
         var note = "";
         if (diff > 0.001 && v.gap === "next") {
           var nx = nextScheduled(s.enrolmentId, ns.date + ns.start, ns.id);
@@ -334,14 +425,8 @@
         Object.assign(r, { status: "approved", reply: rep, decidedBy: A.me.id, decidedAt: new Date().toISOString(), resultText: rep });
         return A.save().then(function () { A.route(); });
       }
-      if (!s || s.status !== "scheduled") return A.toast(L("The lesson is no longer scheduled.", "คาบเรียนนี้ไม่ได้อยู่ในสถานะนัดเรียนแล้ว"), "err");
-      if (r.type === "cancel") {
-        if (!confirm(L("Cancel the lesson on " + when(s) + "? Its hours go back to 'to schedule'.", "ยกเลิกคาบวันที่ " + when(s) + "? ชั่วโมงจะกลับไปเป็น 'ยังต้องนัด'"))) return;
-        s.status = "cancelled"; s.reason = r.note || "";
-        Object.assign(r, { status: "approved", decidedBy: A.me.id, decidedAt: new Date().toISOString(), resultText: L("Lesson cancelled; " + A.num(s.hours) + " h to schedule", "ยกเลิกคาบแล้ว; " + A.num(s.hours) + " ชม. รอนัดใหม่") });
-        A.logAct("Approved cancellation of lesson " + s.date);
-        return A.save().then(function () { A.route(); });
-      }
+      if (!s || !A.canMoveLesson(s)) return A.toast(L("The lesson is no longer scheduled.", "คาบเรียนนี้ไม่ได้อยู่ในสถานะนัดเรียนแล้ว"), "err");
+      if (r.type === "cancel") return A.cancelLesson(s, { reason: r.note || L("Requested by the learner / parent", "ผู้เรียน / ผู้ปกครองขอยกเลิก"), why: "learner", requestId: r.id });
       return A.reschedule(s, { date: r.date, start: r.start, hours: r.hours, reason: r.note, requestId: r.id });
     }
     if (act === "req-csv") {

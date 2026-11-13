@@ -769,3 +769,15 @@ button.tab { border: 0; background: none; cursor: pointer; font: inherit; font-w
 .tl--big { margin: 48px 0 30px; }
 .tl--big .tl__mark b { top: -26px; bottom: auto; }
 .sr-ver { padding: 0; margin-right: 6px; background: none; border-radius: 0; text-decoration: underline; text-underline-offset: 3px; }
+
+/* ---------- confirm card (cancel → new lesson) */
+.confirm-card { width: min(480px, calc(100% - 24px)); }
+.cc-body { padding: 4px 20px 16px; }
+.cc-row { display: grid; gap: 2px; padding: 12px 14px; border-radius: 14px; border: 2px solid var(--border); }
+.cc-row span { font-size: .78rem; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; color: var(--text-dim); }
+.cc-row b { font-size: 1.05rem; } .cc-row small { color: var(--text-dim); }
+.cc-row--off b { text-decoration: line-through; color: var(--text-dim); }
+.cc-row--new { border-color: #22c55e; background: color-mix(in srgb, #22c55e 9%, var(--surface)); }
+.cc-row--new span { color: #15803d; }
+.cc-arrow { text-align: center; font-size: 1.2rem; color: var(--text-dim); margin: 4px 0; }
+.confirm-card footer { display: flex; gap: 8px; padding: 12px 20px 18px; }

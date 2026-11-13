@@ -1,5 +1,15 @@
 # Changelog
 
+## 6.5 r5 — November 2026
+- **Cancel a lesson properly:** every lesson that can still change has *Move / reschedule…* and *Cancel this lesson…*.
+  Cancelling asks why (learner, teacher, holiday, DeepDistrict, other) and for details, and prepares a **new lesson
+  after the course's last lesson** on the regular day and time. A confirm card shows the cancelled lesson and the
+  prepared one, with **Confirm** or **Change date / time**. The cancelled lesson keeps its reason and links to the
+  new one; the course keeps its number of lessons. Unticking the option leaves the hours "to schedule".
+- **Lessons the system recorded by itself can be moved or cancelled** (before, only "scheduled" lessons could).
+- Approving a parent's cancel request uses the same form, with their note as the reason.
+- Teachers who are not the teacher on an enrolment now get a clear message (ask an admin to assign them).
+
 ## 6.5 r4 — November 2026
 - Track names: **AI · Coding · STEM · Research & Innovation** (AI · โค้ด · STEM · วิจัยและนวัตกรรม) and
   **Standardized Test & Admissions Prep** (ติวข้อสอบมาตรฐานและสอบเข้า). The top menu keeps short labels
