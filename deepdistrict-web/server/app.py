@@ -523,6 +523,14 @@ def import_on_start(con):
     file). Nothing that is already there is changed or removed."""
     if os.environ.get("DD_NO_IMPORT") == "1":
         return 0
+    # Data freeze (13 Nov 2026): once the centre's real records are in, nothing an update ships ever changes them.
+    # After a final import the server never imports, updates or archives records by itself again — the back office
+    # (people's own edits) is the only source from then on.
+    done0 = get_kv(con, "importDone", {}) or {}
+    if get_kv(con, "dataFrozen", None) or any(isinstance(v, dict) and v.get("final") for v in done0.values()):
+        if not get_kv(con, "dataFrozen", None):
+            set_kv(con, "dataFrozen", {"at": now_iso(), "why": "real data in use — updates never change it"})
+        return 0
     seed = get_kv(con, "exampleSeed", {}) or {}
     if seed.get("archivedForRealData") and not seed.get("restored"):     # 6.4 r2 archived them by itself: nothing is removed without an admin
         for r in con.execute("SELECT col, id, data FROM records WHERE archived=1 AND updated_by='import'").fetchall():
@@ -547,6 +555,8 @@ def import_on_start(con):
         return 0
     for f in new:
         import_batch(con, f)
+    if any(isinstance(v, dict) and v.get("final") for v in (get_kv(con, "importDone", {}) or {}).values()):
+        set_kv(con, "dataFrozen", {"at": now_iso(), "why": "real data in use — updates never change it"})
     return len(new)
 
 

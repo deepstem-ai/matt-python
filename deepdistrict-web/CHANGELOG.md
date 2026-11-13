@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.5 r8 — November 2026
+- **Real data is frozen.** Updates never change the centre's records: once the real records are in, the server
+  marks the data frozen and never imports, updates or archives anything by itself again. Release zips no longer
+  carry any learner data; moving data to a new server is done only with *Settings → Export / Import backup*.
+  (Recording past lessons as done stays a setting staff control in Settings.)
+
 ## 6.5 r7 — November 2026
 - **Every changed lesson is marked, everywhere** (calendar, lesson tables, learner page, dashboard, My learning,
   schedule report, enrolment pack, progress report, text exports and the Google Calendar link), with one colour and
