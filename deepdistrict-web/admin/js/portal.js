@@ -71,13 +71,14 @@
      next regular day and time after the course's last lesson; staff can change it, and confirm before anything is saved. */
   A.canMoveLesson = function (s) { return !!s && s.status !== "cancelled" && s.status !== "rescheduled" && (s.status !== "done" || s.autoDone); };
   A.nextFreeSlot = function (enr, s) {
-    var live = A.sessionsOf(enr.id).filter(function (x) { return x.id !== s.id && x.status !== "cancelled" && x.status !== "rescheduled"; });
+    var live = A.sessionsOf(enr.id).filter(function (x) { return x.status !== "cancelled" && x.status !== "rescheduled"; });
     var last = live.length ? live[live.length - 1].date : s.date;
+    if (s.date > last) last = s.date;
     var from = A.addDays(last > A.today() ? last : A.today(), 1);
     var pat = (enr.pattern || []).filter(function (p) { return p.start && A.slotHours(p) > 0; });
     if (!pat.length) { var d = A.parse(s.date).getDay(), st = s.start || "17:00"; pat = [{ day: d, start: st, end: A.endOf({ start: st, hours: +s.hours || 1 }) }]; }
     var one = A.generateLessons(enr, { pattern: pat, from: from, endBy: "count", count: 1 })[0];
-    return one ? { date: one.date, start: one.start } : { date: from, start: s.start || "17:00" };
+    return one ? { date: one.date, start: one.start, last: last } : { date: from, start: s.start || "17:00", last: last };
   };
   var WHY = function () { return [["learner", L("Learner asked (sick, busy, trip…)", "ผู้เรียนขอหยุด (ป่วย ติดธุระ เดินทาง…)")], ["teacher", L("Teacher unavailable", "ครูติดภารกิจ")],
     ["holiday", L("Public / school holiday", "วันหยุดราชการ / โรงเรียน")], ["centre", L("DeepDistrict changed the plan", "DeepDistrict ปรับแผน")], ["other", L("Other", "อื่น ๆ")]]; };
@@ -160,13 +161,15 @@
     if (!A.canEditEnrolment(enr)) return A.toast(L("Only an admin or this learner's teacher can move this lesson. Ask an admin to set you as the teacher on the enrolment.", "ย้ายคาบนี้ได้เฉพาะแอดมินหรือครูของผู้เรียนคนนี้ กรุณาให้แอดมินกำหนดคุณเป็นครูในการลงทะเบียน"), "err");
     if (!A.canMoveLesson(s)) return A.toast(L("This lesson can't be moved (already cancelled, moved or taught).", "ย้ายคาบนี้ไม่ได้ (ยกเลิก ย้าย หรือสอนไปแล้ว)"), "err");
     preset = preset || {};
+    var slot = A.nextFreeSlot(enr, s);
     var dlg = A.form({
       title: L("Move lesson", "เลื่อน / ย้ายคาบเรียน") + " · " + when(s),
       intro: esc(A.enrolmentLabel(enr)) + " · " + L("currently ", "เดิม ") + "<b>" + A.hrs(s.hours) + "</b>",
-      submit: L("Move lesson", "ยืนยันการย้ายคาบ"),
+      submit: L("Continue", "ดำเนินการต่อ"),
       fields: [
-        { name: "date", label: L("New date", "วันที่ใหม่"), type: "date", value: preset.date || s.date, required: true },
-        { name: "start", label: L("New start time", "เวลาเริ่มใหม่"), type: "time", value: preset.start || s.start, required: true },
+        { name: "date", label: L("New date", "วันที่ใหม่"), type: "date", value: preset.date || slot.date, required: true,
+          hint: preset.date ? L("Date asked for in the request.", "วันที่ขอในคำขอ") : L("Prepared: the next regular day after the last lesson (" + A.fmtDate(slot.last) + ") — change it if needed.", "เตรียมไว้: วันเรียนปกติถัดจากคาบสุดท้าย (" + A.fmtDate(slot.last) + ") — เปลี่ยนได้") },
+        { name: "start", label: L("New start time", "เวลาเริ่มใหม่"), type: "time", value: preset.start || slot.start || s.start, required: true },
         { name: "hours", label: L("Hours on the new date", "จำนวนชั่วโมงในวันใหม่"), type: "number", step: "0.25", min: 0.25, value: preset.hours || s.hours, required: true },
         { name: "reason", label: L("Reason", "เหตุผล"), value: preset.reason || "" },
         { name: "gap", label: L("If the new lesson is shorter, the missing hours…", "ถ้าคาบใหม่สั้นกว่าเดิม ชั่วโมงที่ขาด…"), type: "select", full: true, value: "next", options: [
@@ -194,7 +197,14 @@
       },
       onSave: function (v) {
         var probe = Object.assign({}, s, { id: "probe", date: v.date, start: v.start, hours: +v.hours, status: "scheduled" });
-        return A.clashOK([probe], [s.id]).then(function (ok) { if (!ok) return false; return doMove(v); });
+        var big = function (x) { return A.fmtDate(x.date, { weekday: "long", day: "numeric", month: "long", year: "numeric" }) + " · " + A.span(x); };
+        var card = '<div class="cc-row cc-row--off"><span>' + L("From", "จากเดิม") + "</span><b>" + esc(big(s)) + "</b>" + (v.reason ? "<small>" + esc(v.reason) + "</small>" : "") + "</div>" +
+          '<div class="cc-arrow">↓</div><div class="cc-row cc-row--new"><span>' + L("Moved to", "ย้ายไปเป็น") + "</span><b>" + esc(big(probe)) + "</b><small>" + A.hrs(probe.hours) +
+          (v.date > slot.last ? " · " + L("after the last lesson of the course", "ต่อจากคาบสุดท้ายของคอร์ส") : "") + "</small></div>";
+        return A.confirmCard(L("Confirm the move?", "ยืนยันการย้ายคาบไหม?"), card, L("Confirm", "ยืนยัน"), L("Change date / time", "เปลี่ยนแปลงวัน / เวลา")).then(function (yes) {
+          if (!yes) { var f = document.querySelector("dialog[open] [name=date]"); if (f) f.focus(); return false; }
+          return A.clashOK([probe], [s.id]).then(function (ok) { if (!ok) return false; return doMove(v); });
+        });
       }
     });
     function doMove(v) {

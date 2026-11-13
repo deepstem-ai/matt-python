@@ -1,5 +1,12 @@
 # Changelog
 
+## 6.5 r6 — November 2026
+- **Moving a lesson works like cancelling:** the new date is prepared on the next regular day and time after the
+  course's last lesson (shown under the date), and a confirm card asks **Confirm** or **Change date / time**.
+  A parent's move request still uses the date they asked for.
+- The course's last lesson is worked out with the lesson being moved, so moving the very last lesson puts it after
+  itself, and every replacement or move lands after the latest lesson.
+
 ## 6.5 r5 — November 2026
 - **Cancel a lesson properly:** every lesson that can still change has *Move / reschedule…* and *Cancel this lesson…*.
   Cancelling asks why (learner, teacher, holiday, DeepDistrict, other) and for details, and prepares a **new lesson
