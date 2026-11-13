@@ -357,7 +357,7 @@
         '<span class="tl__flag tl__flag--start"><b>' + esc(L("Start", "เริ่ม")) + "</b> " + esc(A.fmtDate(from, { day: "numeric", month: "short" })) + "</span>" +
         '<span class="tl__flag tl__flag--end"><b>' + esc(L("Finish", "จบ")) + "</b> " + esc(A.fmtDate(to, { day: "numeric", month: "short" })) + "</span>" : "") +
       ticks.map(function (k) { return '<span class="tl__tick" style="left:' + pos(k) + '%">' + esc(A.parse(k).toLocaleDateString(A.lang === "th" ? "th-TH" : "en-GB", { month: "short" })) + "</span>"; }).join("") +
-      points.map(function (p) { var num = numbered && p.status !== "cancelled" ? ++n : 0; return '<span class="tl__dot tl__dot--' + esc(p.status) + '" style="left:' + pos(p.date) + '%"' + (num ? ' data-n="' + num + '"' : "") + ' title="' + esc(A.fmtDate(p.date, { weekday: "short", day: "numeric", month: "short" }) + (p.start ? " " + p.start : "") + " · " + A.num(p.hours) + " h · " + (A.STATUS[p.status] ? A.statusName(p.status) : p.status)) + '"></span>'; }).join("") +
+      points.map(function (p) { var num = numbered && p.status !== "cancelled" ? ++n : 0; return '<span class="tl__dot tl__dot--' + esc(p.status) + (p.mark ? " tl__dot--mk" : "") + '" style="left:' + pos(p.date) + '%"' + (num ? ' data-n="' + num + '"' : "") + ' title="' + esc(A.fmtDate(p.date, { weekday: "short", day: "numeric", month: "short" }) + (p.start ? " " + p.start : "") + " · " + A.num(p.hours) + " h · " + (A.STATUS[p.status] ? A.statusName(p.status) : p.status)) + '"></span>'; }).join("") +
       mark(today, "tl__mark--today", L("today", "วันนี้")) + (opts.asOf && opts.asOf !== today ? mark(opts.asOf, "tl__mark--asof", A.fmtDate(opts.asOf, { day: "numeric", month: "short" })) : "") +
       '</div><div class="tl__ends"><span>' + esc(A.fmtDate(from)) + "</span><span>" + esc(A.fmtDate(to)) + "</span></div></div>";
   };
@@ -378,7 +378,7 @@
     asOf = asOf || A.today();
     var x = A.asOfStats(e, asOf);
     var pts = x.sessions.filter(function (s) { return s.status !== "rescheduled"; }).map(function (s) {
-      return { date: s.date, start: s.start, hours: s.hours, status: s.status === "scheduled" && s.date < A.today() ? "overdue" : s.status };
+      return { date: s.date, mark: !!(s.movedFrom || s.makeUpFor || s.changedFrom), start: s.start, hours: s.hours, status: s.status === "scheduled" && s.date < A.today() ? "overdue" : s.status };
     });
     var stat = function (label, big, small, cls) { return '<div class="tlc__stat' + (cls ? " " + cls : "") + '"><span>' + esc(label) + "</span><b>" + big + "</b>" + (small ? "<small>" + small + "</small>" : "") + "</div>"; };
     return '<section class="box tlc" data-tlc="' + esc(e.id) + '"><header><h2>' + L("Learning timeline", "ไทม์ไลน์การเรียน") + "</h2>" +
@@ -394,7 +394,7 @@
       (pts.length ? A.timelineStrip(pts, { from: x.first, to: x.last, asOf: asOf }) : '<p class="muted">' + L("No lessons yet.", "ยังไม่มีคาบเรียน") + "</p>") +
       '<p class="tl__legend"><span class="tl__dot tl__dot--done"></span>' + L("learned", "เรียนแล้ว") + ' <span class="tl__dot tl__dot--scheduled"></span>' + L("booked", "นัดแล้ว") +
       ' <span class="tl__dot tl__dot--noshow"></span>' + L("no-show", "ขาดเรียน") + ' <span class="tl__dot tl__dot--cancelled"></span>' + L("cancelled", "ยกเลิก") +
-      ' <span class="tl__dot tl__dot--overdue"></span>' + L("past, not updated", "ผ่านแล้วยังไม่อัปเดต") + "</p>" +
+      ' <span class="tl__dot tl__dot--overdue"></span>' + L("past, not updated", "ผ่านแล้วยังไม่อัปเดต") + ' <span class="lm-leg"><i></i>' + L("replacement lesson", "คาบทดแทน") + "</span></p>" +
       '<div class="btnrow"><button class="btn btn--sm" data-act="doc-schedule" data-enr="' + esc(e.id) + '" data-asof="' + esc(asOf) + '">' + L("Schedule PDF as of this date", "PDF ตารางเรียน ณ วันที่นี้") + "</button></div></section>";
   };
   document.addEventListener("change", function (ev) {

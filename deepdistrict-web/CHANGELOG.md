@@ -1,5 +1,16 @@
 # Changelog
 
+## 6.5 r7 — November 2026
+- **Every changed lesson is marked, everywhere** (calendar, lesson tables, learner page, dashboard, My learning,
+  schedule report, enrolment pack, progress report, text exports and the Google Calendar link), with one colour and
+  symbol per kind: **✕ red** cancelled (reason and the new lesson), **↪ purple** moved away (to when, why),
+  **↺ / ↩ green** make-up or moved-in lesson (**which date and time it replaces, and why**), **✎ amber** time
+  changed (the original time and why). Timelines ring replacement lessons; the calendar has a legend.
+- **Reasons:** 10 ready-made reasons to tap (sick, family, school exam, travel, public holiday, teacher unavailable,
+  internet / Zoom, rain / traffic, parent asked, timetable adjustment) or type your own — in the cancel, move and
+  change-time forms. A reason is required whenever a lesson is cancelled, moved or its date / time changes.
+- Moved lessons stay listed (not counted) on the learner page and in documents.
+
 ## 6.5 r6 — November 2026
 - **Moving a lesson works like cancelling:** the new date is prepared on the next regular day and time after the
   course's last lesson (shown under the date), and a confirm card asks **Confirm** or **Change date / time**.

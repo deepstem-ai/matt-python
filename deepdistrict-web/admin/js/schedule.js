@@ -54,6 +54,59 @@
     return out;
   };
 
+
+  /* ------------------------------------------------------------ change marks
+     Every moved, cancelled, changed or replacement lesson carries a symbol and a line that says what it replaces
+     and why — the same everywhere (calendar, tables, reports, text, the calendar feed). */
+  function whenOf(x) { return x ? A.fmtDate(x.date, { weekday: "short", day: "numeric", month: "short", year: "2-digit" }) + (x.start ? " " + x.start : "") : "–"; }
+  A.lessonMarks = function (s) {
+    var out = [], L = A.L, byId = function (id) { return id && A.byId("sessions", id); };
+    var why = function (x) { return x && x.reason ? " · " + L("reason: ", "เหตุผล: ") + x.reason : ""; };
+    if (s.status === "cancelled") { var rb = byId(s.replacedBy); out.push({ k: "cancelled", icon: "✕", label: L("Cancelled", "ยกเลิก"), text: (s.reason ? L("Reason: ", "เหตุผล: ") + s.reason : L("No reason given", "ไม่ระบุเหตุผล")) + (rb ? " · " + L("new lesson ", "คาบใหม่ ") + whenOf(rb) : " · " + L("hours to schedule", "ชั่วโมงรอนัดใหม่")) }); }
+    if (s.status === "rescheduled") { var to = byId(s.movedTo); out.push({ k: "moved", icon: "↪", label: L("Moved", "ย้ายแล้ว"), text: L("moved to ", "ย้ายไป ") + whenOf(to) + why(s) }); }
+    if (s.movedFrom) { var fr = byId(s.movedFrom); out.push({ k: "replace", icon: "↩", label: L("Moved lesson", "คาบที่ย้ายมา"), text: L("replaces ", "แทนคาบ ") + whenOf(fr) + why(fr) }); }
+    if (s.makeUpFor) { var mk = byId(s.makeUpFor); out.push({ k: "makeup", icon: "↺", label: L("Make-up", "คาบชดเชย"), text: L("replaces ", "แทนคาบ ") + whenOf(mk) + why(mk) }); }
+    if (s.changedFrom) out.push({ k: "changed", icon: "✎", label: L("Time changed", "เปลี่ยนเวลา"), text: L("was ", "เดิม ") + whenOf(s.changedFrom) + (s.changedFrom.hours != null && +s.changedFrom.hours !== +s.hours ? " · " + A.num(s.changedFrom.hours) + L(" h", " ชม.") : "") + (s.changeReason ? " · " + L("reason: ", "เหตุผล: ") + s.changeReason : "") });
+    if (s.extraHours) out.push({ k: "extra", icon: "+", label: L("Extra hours", "ชั่วโมงชดเชย"), text: "+" + A.num(s.extraHours) + L(" h added (make-up)", " ชม. (ชดเชย)") });
+    if (s.afterPause) out.push({ k: "pause", icon: "↻", label: L("Rebooked", "นัดใหม่"), text: L("rebooked after time off", "นัดใหม่หลังหยุดเรียน") });
+    return out;
+  };
+  /* compact: symbol + label (title = the full line); full: symbol + label + the line */
+  A.markHtml = function (s, full) {
+    return A.lessonMarks(s).map(function (m) {
+      return '<span class="lm lm--' + m.k + '" title="' + A.esc(m.label + " — " + m.text) + '"><i>' + A.esc(m.icon) + "</i>" + A.esc(m.label) + (full ? '<em>' + A.esc(m.text) + "</em>" : "") + "</span>";
+    }).join(full ? "" : " ");
+  };
+  A.markText = function (s) { return A.lessonMarks(s).map(function (m) { return m.icon + " " + m.label + ": " + m.text; }).join(" | "); };
+
+  /* ready-made reasons: tap one to fill the box (and still edit it), or type your own */
+  A.REASONS = function () {
+    var L = A.L;
+    return [["sick", "🤒", L("Learner is sick", "ผู้เรียนไม่สบาย")], ["family", "👨‍👩‍👧", L("Family matter", "ติดธุระครอบครัว")],
+      ["school", "🏫", L("School exam or activity", "ติดสอบ / กิจกรรมโรงเรียน")], ["travel", "✈️", L("Travelling / out of town", "เดินทาง / ไปต่างจังหวัด")],
+      ["holiday", "🎌", L("Public holiday", "วันหยุดนักขัตฤกษ์")], ["teacher", "🧑‍🏫", L("Teacher unavailable", "ครูติดภารกิจ / ไม่สบาย")],
+      ["online", "📶", L("Internet / Zoom problem", "อินเทอร์เน็ต / Zoom มีปัญหา")], ["weather", "🌧️", L("Heavy rain / traffic", "ฝนตกหนัก / รถติด")],
+      ["parent", "🙋", L("Parent asked to change the time", "ผู้ปกครองขอเปลี่ยนเวลา")], ["plan", "🗓️", L("Timetable adjustment", "ปรับตารางเรียนให้เหมาะสม")]];
+  };
+  A.reasonKey = function (text) { var r = A.REASONS().filter(function (x) { return x[2] === String(text || "").trim(); })[0]; return r ? r[0] : "other"; };
+  A.reasonChips = function (form, name) {
+    var inp = form.elements[name]; if (!inp) return;
+    inp.setAttribute("placeholder", A.L("Pick a reason below, or type your own", "เลือกเหตุผลด้านล่าง หรือพิมพ์เอง"));
+    var row = document.createElement("div"); row.className = "rs-chips";
+    row.innerHTML = A.REASONS().map(function (r) { return '<button type="button" data-rs="' + A.esc(r[2]) + '">' + r[1] + " " + A.esc(r[2]) + "</button>"; }).join("") +
+      '<button type="button" data-rs="" class="rs-own">✏️ ' + A.esc(A.L("Other — type it", "อื่น ๆ — พิมพ์เอง")) + "</button>";
+    inp.parentNode.appendChild(row);
+    function mark() { A.$$("[data-rs]", row).forEach(function (b) { b.setAttribute("aria-pressed", String(!!b.getAttribute("data-rs") && b.getAttribute("data-rs") === inp.value.trim())); }); }
+    row.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-rs]"); if (!b) return;
+      inp.value = b.getAttribute("data-rs"); inp.dispatchEvent(new Event("input", { bubbles: true })); inp.focus(); mark();
+    });
+    inp.addEventListener("input", mark); mark();
+  };
+  /* colour class for a lesson with a change (calendar, tables) */
+  A.markClass = function (s) { var m = A.lessonMarks(s)[0]; return m ? " mk mk--" + m.k : ""; };
+  A.markIcons = function (s) { return A.lessonMarks(s).map(function (m) { return m.icon; }).join(""); };
+
   /* ------------------------------------------------------------ clashes */
   function overlaps(a, b) {
     if (!a.start || !b.start) return false;          // no time yet: cannot clash

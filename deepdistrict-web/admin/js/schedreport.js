@@ -9,7 +9,7 @@
   "use strict";
   var A = window.DDA, L = A.L, esc = A.esc;
   var LOGO_W = "../assets/images/brand/logo-horizontal-white.png", MARK = "../assets/images/brand/logo-mark.png";
-  var ST = { done: ["#16a34a", "#dcfce7"], scheduled: ["#2563eb", "#dbeafe"], noshow: ["#d97706", "#fef3c7"], cancelled: ["#64748b", "#e2e8f0"],
+  var ST = { done: ["#16a34a", "#dcfce7"], scheduled: ["#2563eb", "#dbeafe"], noshow: ["#d97706", "#fef3c7"], cancelled: ["#dc2626", "#fee2e2"],
              overdue: ["#dc2626", "#fee2e2"], rescheduled: ["#7c3aed", "#ede9fe"] };
 
   function d(iso, o) { return A.fmtDate(iso, o || { weekday: "short", day: "numeric", month: "short", year: "numeric" }); }
@@ -32,7 +32,7 @@
     var st = A.stats(e), pct = Math.round(x.pct), no = "SC-" + e.id.replace(/[^a-z0-9]/gi, "").slice(-6).toUpperCase();
     var info = function (k, v) { return v ? '<div class="sr-i"><span>' + esc(k) + "</span><b>" + v + "</b></div>" : ""; };
     var tile = function (cls, k, v, sub) { return '<div class="sr-t sr-t--' + cls + '"><span>' + esc(k) + "</span><b>" + v + "</b>" + (sub ? "<small>" + esc(sub) + "</small>" : "") + "</div>"; };
-    var pts = all.filter(function (r) { return r.s.status !== "rescheduled"; }).map(function (r) { return { date: r.s.date, start: r.s.start, hours: r.s.hours, status: r.st }; });
+    var pts = all.filter(function (r) { return r.s.status !== "rescheduled"; }).map(function (r) { return { date: r.s.date, mark: !!(r.s.movedFrom || r.s.makeUpFor || r.s.changedFrom), start: r.s.start, hours: r.s.hours, status: r.st }; });
     var mode = (A.MODES().filter(function (m) { return m[0] === e.mode; })[0] || [])[1] || "";
     return '<article class="report sr" id="report"><div class="sr__frame"><div class="sr__in">' +
       '<header class="sr-head"><img src="' + LOGO_W + '" alt="DeepDistrict" class="sr-logo"><div class="sr-head__t"><h1>' + L("Learning Schedule Report", "ใบรายงานวันเวลาเรียน") + "</h1><p>" +
@@ -63,7 +63,7 @@
 
       (pts.length ? '<section class="sr-tl"><h2><span class="sr-ico">🗓️</span>' + L("Timeline", "ไทม์ไลน์") + "</h2>" + A.timelineStrip(pts, { from: x.first, to: x.last, asOf: asOf, big: true, fill: asOf }) +
         '<p class="sr-leg">' + [["done", L("learned", "เรียนแล้ว")], ["scheduled", L("booked", "นัดแล้ว")], ["noshow", L("no-show", "ขาดเรียน")], ["cancelled", L("cancelled", "ยกเลิก")], ["overdue", L("past, not updated", "ผ่านแล้วยังไม่อัปเดต")]]
-          .map(function (k) { return '<span><i style="background:' + ST[k[0]][0] + '"></i>' + esc(k[1]) + "</span>"; }).join("") + "</p></section>" : "") +
+          .map(function (k) { return '<span><i style="background:' + ST[k[0]][0] + '"></i>' + esc(k[1]) + "</span>"; }).join("") + '<span class="lm-leg"><i></i>' + L("replacement lesson", "คาบทดแทน") + "</span></p></section>" : "") +
 
       (ver === "summary" ? keyDates(e, all, asOf) :
       '<section class="sr-list"><h2><span class="sr-ico">📋</span>' + L("Lessons", "รายการคาบเรียน") + " (" + list.length + ")</h2>" +
@@ -71,7 +71,7 @@
           list.map(function (r) {
             var c = ST[r.st] || ST.scheduled, label = r.st === "overdue" ? L("Past, not updated", "ผ่านแล้ว ยังไม่อัปเดต") : A.statusName(r.st);
             return "<tr" + (r.no ? "" : ' class="is-off"') + "><td>" + (r.no || "–") + "</td><td>" + esc(d(r.s.date)) + "</td><td>" + esc(A.span(r.s)) + "</td><td>" + A.num(r.s.hours) + "</td>" +
-              '<td><span class="sr-pill" style="color:' + c[0] + '"><i style="background:' + c[0] + '"></i>' + esc(label) + (r.s.autoDone ? " · " + L("regular", "ปกติ") : "") + "</span></td><td>" + (r.no ? A.num(r.cum) : "") + "</td></tr>";
+              '<td><span class="sr-pill" style="color:' + c[0] + '"><i style="background:' + c[0] + '"></i>' + esc(label) + (r.s.autoDone ? " · " + L("regular", "ปกติ") : "") + "</span>" + (A.markText(r.s) ? '<div class="sr-mk">' + esc(A.markText(r.s)) + "</div>" : "") + "</td><td>" + (r.no ? A.num(r.cum) : "") + "</td></tr>";
           }).join("") + "</tbody></table>" : '<p class="sr-empty">' + L("No lessons yet.", "ยังไม่มีคาบเรียน") + "</p>") + "</section>") +
 
       '<footer class="sr-foot"><img src="' + MARK + '" alt="" class="sr-mark"><div><b>© ' + new Date().getFullYear() + " " + esc(o.name || "DeepDistrict.si") + " · " + L("All rights reserved", "สงวนลิขสิทธิ์") + "</b><br>" +
@@ -128,7 +128,7 @@
     }
     rows(e, from).filter(function (r) { return r.show && ver !== "summary"; }).forEach(function (r) {
       var mark = { done: "✅", scheduled: "🗓️", noshow: "⚠️", cancelled: "✖️", overdue: "❗", rescheduled: "↪️" }[r.st] || "•";
-      lines.push((r.no ? (r.no < 10 ? " " : "") + r.no + "." : "  –") + " " + d(r.s.date) + " " + A.span(r.s) + " · " + A.num(r.s.hours) + L(" h ", " ชม. ") + mark + " " + (r.st === "overdue" ? L("past, not updated", "ผ่านแล้วยังไม่อัปเดต") : A.statusName(r.st)));
+      lines.push((r.no ? (r.no < 10 ? " " : "") + r.no + "." : "  –") + " " + d(r.s.date) + " " + A.span(r.s) + " · " + A.num(r.s.hours) + L(" h ", " ชม. ") + mark + " " + (r.st === "overdue" ? L("past, not updated", "ผ่านแล้วยังไม่อัปเดต") : A.statusName(r.st)) + (A.markText(r.s) ? "\n      " + A.markText(r.s) : ""));
     });
     lines.push(rule, "© " + new Date().getFullYear() + " " + (A.db.org.name || "DeepDistrict.si") + " · " + L("All rights reserved", "สงวนลิขสิทธิ์"),
       L("Dates and times can change by agreement; the latest schedule is in the DeepDistrict portal.", "วันเวลาเรียนอาจเปลี่ยนแปลงได้ตามที่ตกลงกัน ตารางล่าสุดดูได้ในระบบ DeepDistrict"));

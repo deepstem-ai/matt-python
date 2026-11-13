@@ -813,7 +813,43 @@ def calendar_feed(con, feed):
     lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//DeepDistrict//Back office//TH", "CALSCALE:GREGORIAN", "METHOD:PUBLISH",
              "X-WR-CALNAME:" + _ics(title), "X-WR-TIMEZONE:Asia/Bangkok", "REFRESH-INTERVAL;VALUE=DURATION:PT1H", "X-PUBLISHED-TTL:PT1H"]
     fmt = lambda d: d.strftime("%Y%m%dT%H%M%SZ")
-    for s in load_col(con, "sessions"):
+    all_s = load_col(con, "sessions")
+    by_id = {x.get("id"): x for x in all_s}
+    th_day = ["จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส.", "อา."]
+
+    def when(x):
+        if not x or not x.get("date"):
+            return "–"
+        try:
+            dd = datetime.strptime(x["date"], "%Y-%m-%d")
+        except ValueError:
+            return x["date"]
+        return f"{th_day[dd.weekday()]} {dd.day}/{dd.month}/{dd.year + 543 - 2500}" + (f" {x.get('start')}" if x.get("start") else "")
+
+    def why(x):
+        return f" · เหตุผล: {x['reason']}" if x and x.get("reason") else ""
+
+    def marks(x):
+        """the same change marks as the back office: symbol, label and what it replaces / why"""
+        out = []
+        if x.get("status") == "cancelled":
+            rb = by_id.get(x.get("replacedBy"))
+            out.append(("✕", "ยกเลิก", (f"เหตุผล: {x['reason']}" if x.get("reason") else "ไม่ระบุเหตุผล") + (f" · คาบใหม่ {when(rb)}" if rb else "")))
+        if x.get("status") == "rescheduled":
+            out.append(("↪", "ย้ายแล้ว", f"ย้ายไป {when(by_id.get(x.get('movedTo')))}" + why(x)))
+        if x.get("movedFrom"):
+            fr = by_id.get(x["movedFrom"])
+            out.append(("↩", "คาบที่ย้ายมา", f"แทนคาบ {when(fr)}" + why(fr)))
+        if x.get("makeUpFor"):
+            mk = by_id.get(x["makeUpFor"])
+            out.append(("↺", "คาบชดเชย", f"แทนคาบ {when(mk)}" + why(mk)))
+        if x.get("changedFrom"):
+            out.append(("✎", "เปลี่ยนเวลา", f"เดิม {when(x['changedFrom'])}" + (f" · เหตุผล: {x['changeReason']}" if x.get("changeReason") else "")))
+        if x.get("extraHours"):
+            out.append(("+", "ชั่วโมงชดเชย", f"+{float(x['extraHours']):g} ชม."))
+        return out
+
+    for s in all_s:
         e = enrs.get(s.get("enrolmentId"))
         if s.get("example") or not e or not s.get("date"):
             continue
@@ -824,11 +860,15 @@ def calendar_feed(con, feed):
         nick = stu.get("nick") or stu.get("name") or ""
         code = e.get("courseCode") or ""
         summary = f"{code} · {nick}" if kind != "student" else f"{code} · {names.get(code) or 'DeepDistrict'}"
+        mk = marks(s)
+        if mk:
+            summary = "".join(m[0] for m in mk) + " " + mk[0][1] + " · " + summary
         status = s.get("status") or "scheduled"
         desc = [names.get(code) or code, f"{float(s.get('hours') or 0):g} ชม.", {"done": "เรียนแล้ว", "scheduled": "นัดเรียน", "cancelled": "ยกเลิก",
                 "noshow": "ขาดเรียน", "rescheduled": "เลื่อนแล้ว"}.get(status, status)]
         if tid and users.get(tid):
             desc.append("ครู " + (users[tid].get("nick") or users[tid].get("name") or ""))
+        desc += [f"{m[0]} {m[1]}: {m[2]}" for m in mk]
         ev = ["BEGIN:VEVENT", "UID:" + s["id"] + "@deepdistrict", "DTSTAMP:" + stamp]
         try:
             day = datetime.strptime(s["date"], "%Y-%m-%d")

@@ -39,11 +39,11 @@
   A.docTimeline = function (e, asOf) {
     asOf = asOf || A.today();
     var x = A.asOfStats(e, asOf), today = A.today();
-    var pts = x.sessions.filter(function (s) { return s.status !== "rescheduled"; }).map(function (s) { return { date: s.date, start: s.start, hours: s.hours, status: s.status === "scheduled" && s.date < today ? "overdue" : s.status }; });
+    var pts = x.sessions.filter(function (s) { return s.status !== "rescheduled"; }).map(function (s) { return { date: s.date, mark: !!(s.movedFrom || s.makeUpFor || s.changedFrom), start: s.start, hours: s.hours, status: s.status === "scheduled" && s.date < today ? "overdue" : s.status }; });
     if (!pts.length) return "";
     return '<div class="doc-tl">' + A.timelineStrip(pts, { from: x.first, to: x.last, asOf: asOf, big: true, fill: asOf }) +
       '<p class="doc-tl__sum"><b>' + L("Learned ", "เรียนแล้ว ") + A.num(x.learned) + "/" + A.num(x.total) + L(" h", " ชม.") + "</b> · " + x.learnedN + L(" lessons done", " ครั้งที่เรียนแล้ว") + " · " + x.leftN + L(" to come", " ครั้งที่เหลือ") + " · " + Math.round(x.pct) + "%</p>" +
-      '<p class="tl__legend"><span><i class="tl__dot tl__dot--done"></i>' + L("learned", "เรียนแล้ว") + '</span><span><i class="tl__dot"></i>' + L("booked", "นัดแล้ว") + '</span><span><i class="tl__dot tl__dot--noshow"></i>' + L("no-show", "ขาดเรียน") + '</span><span><i class="tl__dot tl__dot--overdue"></i>' + L("past, not updated", "ผ่านแล้ว ยังไม่อัปเดต") + "</span></p></div>";
+      '<p class="tl__legend"><span><i class="tl__dot tl__dot--done"></i>' + L("learned", "เรียนแล้ว") + '</span><span><i class="tl__dot"></i>' + L("booked", "นัดแล้ว") + '</span><span><i class="tl__dot tl__dot--noshow"></i>' + L("no-show", "ขาดเรียน") + '</span><span><i class="tl__dot tl__dot--overdue"></i>' + L("past, not updated", "ผ่านแล้ว ยังไม่อัปเดต") + "</span>" + '<span class="lm-leg"><i></i>' + L("replacement lesson", "คาบทดแทน") + "</span></p></div>";
   };
   function packKeyDates(e) {
     var ls = A.sessionsOf(e.id).filter(function (s) { return s.status !== "cancelled" && s.status !== "rescheduled"; }), today = A.today();
@@ -79,11 +79,11 @@
   // from: "" = the full schedule from the first lesson; a date = only lessons on or after it (numbering stays the same)
   function scheduleSection(e, from, asOf) {
     var st = A.stats(e), n = 0, cum = 0;
-    var rows = st.sessions.filter(function (s) { return s.status !== "rescheduled"; }).map(function (s) {
-      var counts = s.status !== "cancelled";
+    var rows = st.sessions.map(function (s) {
+      var counts = s.status !== "cancelled" && s.status !== "rescheduled";
       if (counts) { n++; cum += +s.hours || 0; }
       if (from && s.date < from) return "";
-      return "<tr" + (counts ? "" : ' class="is-off"') + "><td>" + (counts ? n : "–") + "</td><td>" + esc(A.fmtDate(s.date, { weekday: "short", day: "numeric", month: "short", year: "numeric" })) + "</td><td>" + esc(A.span(s)) + "</td><td>" + A.num(s.hours) + "</td><td>" + esc(A.modeName(s.mode)) + (s.location ? "<br><span class=rp-note>" + esc(s.location) + "</span>" : "") + "</td><td>" + (A.counts(s) ? "✓ " : "") + esc(A.statusName(s.status)) + (s.autoDone ? '<br><span class="rp-note">' + L("regular lesson", "เรียนตามปกติ") + "</span>" : "") + (s.movedFrom || s.makeUpFor ? "<br><span class=rp-note>" + (s.makeUpFor ? L("make-up", "ชดเชย") : L("moved", "เลื่อนมา")) + "</span>" : "") + "</td><td>" + (counts ? A.num(cum) : "") + "</td></tr>";
+      return "<tr" + (counts ? "" : ' class="is-off"') + "><td>" + (counts ? n : "–") + "</td><td>" + esc(A.fmtDate(s.date, { weekday: "short", day: "numeric", month: "short", year: "numeric" })) + "</td><td>" + esc(A.span(s)) + "</td><td>" + A.num(s.hours) + "</td><td>" + esc(A.modeName(s.mode)) + (s.location ? "<br><span class=rp-note>" + esc(s.location) + "</span>" : "") + "</td><td>" + (A.counts(s) ? "✓ " : "") + esc(A.statusName(s.status)) + (A.markText(s) ? '<br><span class="rp-mark">' + esc(A.markText(s)) + "</span>" : "") + (s.autoDone ? '<br><span class="rp-note">' + L("regular lesson", "เรียนตามปกติ") + "</span>" : "") + (s.movedFrom || s.makeUpFor ? "<br><span class=rp-note>" + (s.makeUpFor ? L("make-up", "ชดเชย") : L("moved", "เลื่อนมา")) + "</span>" : "") + "</td><td>" + (counts ? A.num(cum) : "") + "</td></tr>";
     });
     return '<div class="rp-stats"><div><span>' + L("Total hours", "ชั่วโมงทั้งหมด") + "</span><b>" + A.num(st.total) + "</b></div><div><span>" + L("Learned", "เรียนแล้ว") + "</span><b>" + A.num(st.used) + '</b></div><div class="rp-hi"><span>' + L("Remaining", "คงเหลือ") + "</span><b>" + A.num(st.remaining) + "</b></div><div><span>" + L("Booked", "นัดแล้ว") + "</span><b>" + A.num(st.planned) + "</b></div></div>" +
       (asOf ? (function () {                           // learned / left as of a chosen date

@@ -54,15 +54,8 @@
     var parts = [];
     if (s.topic) parts.push(esc(s.topic));
     if (s.notes) parts.push('<span class="muted">' + esc(s.notes) + "</span>");
-    var to = s.movedTo && A.byId("sessions", s.movedTo), from = s.movedFrom && A.byId("sessions", s.movedFrom), mk = s.makeUpFor && A.byId("sessions", s.makeUpFor);
-    if (s.status === "rescheduled") parts.push('<span class="moved">→ ' + L("moved to ", "ย้ายไป ") + (to ? esc(when(to)) + " · " + A.hrs(to.hours) : "–") + (s.reason ? " · " + esc(s.reason) : "") + "</span>");
-    if (from) parts.push('<span class="moved">← ' + L("moved from ", "ย้ายมาจาก ") + esc(when(from)) + " (" + A.hrs(from.hours) + ")</span>");
-    if (mk) parts.push('<span class="moved">↺ ' + L("make-up for ", "ชดเชยคาบ ") + esc(when(mk)) + "</span>");
-    if (s.afterPause) parts.push('<span class="moved">↻ ' + L("rebooked after time off", "นัดใหม่หลังหยุดเรียน") + "</span>");
-    var rb = s.replacedBy && A.byId("sessions", s.replacedBy);
-    if (s.status === "cancelled") parts.push('<span class="moved">✕ ' + L("cancelled", "ยกเลิก") + (s.reason ? ": " + esc(s.reason) : "") + (rb ? " → " + L("new lesson ", "คาบใหม่ ") + esc(when(rb)) : "") + "</span>");
-    if (s.extraHours) parts.push('<span class="moved">+' + A.hrs(s.extraHours) + " " + L("added (make-up)", "เพิ่ม (ชดเชย)") + "</span>");
-    return parts.join("<br>");
+    var mk = A.markHtml(s, true);
+    return (mk ? '<span class="lm-list">' + mk + "</span>" : "") + parts.join("<br>");
   };
 
 
@@ -80,8 +73,6 @@
     var one = A.generateLessons(enr, { pattern: pat, from: from, endBy: "count", count: 1 })[0];
     return one ? { date: one.date, start: one.start, last: last } : { date: from, start: s.start || "17:00", last: last };
   };
-  var WHY = function () { return [["learner", L("Learner asked (sick, busy, trip…)", "ผู้เรียนขอหยุด (ป่วย ติดธุระ เดินทาง…)")], ["teacher", L("Teacher unavailable", "ครูติดภารกิจ")],
-    ["holiday", L("Public / school holiday", "วันหยุดราชการ / โรงเรียน")], ["centre", L("DeepDistrict changed the plan", "DeepDistrict ปรับแผน")], ["other", L("Other", "อื่น ๆ")]]; };
   /* confirm card → Promise<true (confirm) | false (go back and change)> */
   A.confirmCard = function (title, html, okLabel, backLabel) {
     return new Promise(function (resolve) {
@@ -106,14 +97,14 @@
       intro: esc(A.enrolmentLabel(enr)) + " · " + A.hrs(s.hours),
       submit: L("Continue", "ดำเนินการต่อ"),
       fields: [
-        { name: "why", label: L("Why is it cancelled?", "ยกเลิกเพราะ"), type: "select", options: WHY(), value: preset.why || "learner", required: true },
-        { name: "reason", label: L("Details (shown on reports)", "รายละเอียด (แสดงในรายงาน)"), value: preset.reason || "", required: true, full: true },
+        { name: "reason", label: L("Reason (shown on reports and on the new lesson)", "เหตุผล (แสดงในรายงานและที่คาบใหม่)"), value: preset.reason || "", required: true, full: true },
         { name: "rebook", label: L("Add a new lesson after the last lesson (same day and time)", "เพิ่มคาบใหม่ต่อจากคาบสุดท้าย (วันและเวลาเดิม)"), type: "checkbox", value: preset.rebook !== false, full: true },
         { name: "ndate", label: L("New lesson date", "วันที่คาบใหม่"), type: "date", value: slot.date },
         { name: "nstart", label: L("Start time", "เวลาเริ่ม"), type: "time", value: slot.start },
         { name: "nhours", label: L("Hours", "จำนวนชั่วโมง"), type: "number", step: "0.25", min: 0.25, value: s.hours }
       ],
       onReady: function (form) {
+        A.reasonChips(form, "reason");
         var info = document.createElement("p"); info.className = "mf-diff mf-full"; form.querySelector(".mf-grid").appendChild(info);
         function upd() {
           var on = form.elements.rebook.checked;
@@ -141,8 +132,8 @@
           return ns ? A.clashOK([ns], [s.id]) : true;
         }).then(function (ok) {
           if (!ok) return false;
-          var label = (WHY().filter(function (w) { return w[0] === v.why; })[0] || [0, ""])[1];
-          Object.assign(s, { status: "cancelled", reason: v.reason, cancelWhy: v.why, cancelledAt: new Date().toISOString(), cancelledBy: A.me.id, autoDone: false });
+          var label = v.reason;
+          Object.assign(s, { status: "cancelled", reason: v.reason, cancelWhy: A.reasonKey(v.reason), cancelledAt: new Date().toISOString(), cancelledBy: A.me.id, autoDone: false });
           if (ns) { A.db.sessions.push(ns); s.replacedBy = ns.id; }
           if (preset.requestId) {
             var r = A.byId("requests", preset.requestId);
@@ -171,7 +162,7 @@
           hint: preset.date ? L("Date asked for in the request.", "วันที่ขอในคำขอ") : L("Prepared: the next regular day after the last lesson (" + A.fmtDate(slot.last) + ") — change it if needed.", "เตรียมไว้: วันเรียนปกติถัดจากคาบสุดท้าย (" + A.fmtDate(slot.last) + ") — เปลี่ยนได้") },
         { name: "start", label: L("New start time", "เวลาเริ่มใหม่"), type: "time", value: preset.start || slot.start || s.start, required: true },
         { name: "hours", label: L("Hours on the new date", "จำนวนชั่วโมงในวันใหม่"), type: "number", step: "0.25", min: 0.25, value: preset.hours || s.hours, required: true },
-        { name: "reason", label: L("Reason", "เหตุผล"), value: preset.reason || "" },
+        { name: "reason", label: L("Reason (shown on the new lesson)", "เหตุผล (แสดงที่คาบใหม่)"), value: preset.reason || "", required: true, full: true },
         { name: "gap", label: L("If the new lesson is shorter, the missing hours…", "ถ้าคาบใหม่สั้นกว่าเดิม ชั่วโมงที่ขาด…"), type: "select", full: true, value: "next", options: [
           ["next", L("…are added to the next lesson", "…เพิ่มในคาบถัดไป")],
           ["makeup", L("…are booked as a make-up lesson (date below)", "…นัดเป็นคาบชดเชย (ระบุวันด้านล่าง)")],
@@ -180,6 +171,7 @@
         { name: "mstart", label: L("Make-up start time", "เวลาเริ่มคาบชดเชย"), type: "time", value: s.start }
       ],
       onReady: function (form) {
+        A.reasonChips(form, "reason");
         var info = document.createElement("p"); info.className = "mf-diff mf-full"; form.querySelector(".mf-grid").appendChild(info);
         function upd() {
           var d = Math.round(((+s.hours || 0) - (+form.elements.hours.value || 0)) * 100) / 100;
@@ -408,7 +400,7 @@
           '<div class="btnrow"><a class="btn btn--sm" href="#/reports?student=' + u.id + "&enrolment=" + e.id + '">' + L("Report · PDF / image", "รายงาน · PDF / รูปภาพ") + "</a>" + '<button class="btn btn--sm" data-act="req-new">' + L("Request a change / time off", "ขอเปลี่ยนแปลง / ขอหยุดเรียน") + "</button>" + '<button class="btn btn--sm" data-act="doc-schedule" data-enr="' + e.id + '">' + L("Full schedule · PDF", "ตารางเรียนทั้งหมด · PDF") + "</button>" + '<button class="btn btn--sm" data-act="doc-schedule" data-from="today" data-enr="' + e.id + '">' + L("Remaining lessons · PDF", "ตารางที่เหลือ · PDF") + "</button>" + "</div></header>" +
           A.hoursPanel(e, st) +
           (reqs.length ? '<p class="note">' + L(reqs.length + " request(s) waiting for DeepDistrict to confirm.", "มีคำขอ " + reqs.length + " รายการ รอ DeepDistrict ยืนยัน") + ' <a href="#/requests">' + L("View", "ดู") + "</a></p>" : "") +
-          '<div class="grid2"><div><h4>' + L("Next lessons", "คาบเรียนถัดไป") + "</h4>" + (next.length ? '<ul class="list">' + next.map(function (s) { return '<li><button type="button" class="linkish" data-session="' + s.id + '"><b>' + esc(when(s)) + "</b> · " + A.hrs(s.hours) + "</button>" + (s.movedFrom || s.makeUpFor ? '<span class="moved">' + (s.makeUpFor ? L("make-up", "ชดเชย") : L("moved", "เลื่อนมา")) + "</span>" : "") + "</li>"; }).join("") + "</ul>" : '<p class="muted">' + L("None booked yet.", "ยังไม่มีการนัด") + "</p>") + "</div>" +
+          '<div class="grid2"><div><h4>' + L("Next lessons", "คาบเรียนถัดไป") + "</h4>" + (next.length ? '<ul class="list">' + next.map(function (s) { return '<li><button type="button" class="linkish" data-session="' + s.id + '"><b>' + esc(when(s)) + "</b> · " + A.hrs(s.hours) + "</button>" + (A.markHtml(s) ? '<span class="lm-list">' + A.markHtml(s, true) + "</span>" : "") + "</li>"; }).join("") + "</ul>" : '<p class="muted">' + L("None booked yet.", "ยังไม่มีการนัด") + "</p>") + "</div>" +
           "<div><h4>" + L("Recently learned", "เรียนล่าสุด") + "</h4>" + (learned.length ? '<ul class="list">' + learned.map(function (s) { return "<li><span><b>" + esc(A.fmtDate(s.date, { day: "numeric", month: "short" })) + "</b> · " + esc(s.topic || "–") + "</span></li>"; }).join("") + "</ul>" : '<p class="muted">' + L("Nothing yet.", "ยังไม่มี") + "</p>") + "</div></div>" +
           (st.fee ? '<p class="fees">' + L("Fees: ", "ค่าเรียน: ") + A.money(st.fee) + " · " + L("paid ", "ชำระแล้ว ") + A.money(st.paid) + (st.balance > 0.009 ? ' · <b class="neg">' + L("due ", "คงค้าง ") + A.money(st.balance) + "</b>" : ' · <span class="pos">' + L("fully paid", "ชำระครบ") + "</span>") + "</p>" : "") +
           "</article>";
@@ -436,8 +428,8 @@
         return A.save().then(function () { A.route(); });
       }
       if (!s || !A.canMoveLesson(s)) return A.toast(L("The lesson is no longer scheduled.", "คาบเรียนนี้ไม่ได้อยู่ในสถานะนัดเรียนแล้ว"), "err");
-      if (r.type === "cancel") return A.cancelLesson(s, { reason: r.note || L("Requested by the learner / parent", "ผู้เรียน / ผู้ปกครองขอยกเลิก"), why: "learner", requestId: r.id });
-      return A.reschedule(s, { date: r.date, start: r.start, hours: r.hours, reason: r.note, requestId: r.id });
+      if (r.type === "cancel") return A.cancelLesson(s, { reason: r.note || L("Requested by the learner / parent", "ผู้เรียน / ผู้ปกครองขอยกเลิก"), requestId: r.id });
+      return A.reschedule(s, { date: r.date, start: r.start, hours: r.hours, reason: r.note || L("Parent asked to change the time", "ผู้ปกครองขอเปลี่ยนเวลา"), requestId: r.id });
     }
     if (act === "req-csv") {
       var rows = [["sent", "learner", "course", "type", "lesson", "requested", "from", "to", "note", "status", "result", "reply", "decided by"]];

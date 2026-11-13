@@ -781,3 +781,51 @@ button.tab { border: 0; background: none; cursor: pointer; font: inherit; font-w
 .cc-row--new span { color: #15803d; }
 .cc-arrow { text-align: center; font-size: 1.2rem; color: var(--text-dim); margin: 4px 0; }
 .confirm-card footer { display: flex; gap: 8px; padding: 12px 20px 18px; }
+
+/* ---------- change marks on lessons (v6.5 r7) */
+.lm-list { display: flex; flex-direction: column; gap: 3px; margin-top: 4px; }
+.lm { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 4px; font-size: .8rem; line-height: 1.45; font-weight: 600; }
+.lm i { display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 3px; border-radius: 6px; font-style: normal; font-weight: 800; color: #fff; background: #64748b; }
+.lm em { font-style: normal; font-weight: 400; color: var(--text-dim); }
+.lm--cancelled i { background: #dc2626; } .lm--cancelled { color: #b91c1c; }
+.lm--moved i { background: #7c3aed; } .lm--moved { color: #6d28d9; }
+.lm--replace i, .lm--makeup i { background: #16a34a; } .lm--replace, .lm--makeup { color: #15803d; }
+.lm--changed i { background: #d97706; } .lm--changed { color: #b45309; }
+.lm--extra i { background: #0284c7; } .lm--extra { color: #0369a1; }
+:root[data-theme="dark"] .lm--cancelled { color: #fca5a5; } :root[data-theme="dark"] .lm--moved { color: #c4b5fd; }
+:root[data-theme="dark"] .lm--replace, :root[data-theme="dark"] .lm--makeup { color: #86efac; } :root[data-theme="dark"] .lm--changed { color: #fcd34d; }
+.ev-mk { display: inline-block; margin-right: 3px; padding: 0 3px; border-radius: 4px; background: rgba(255, 255, 255, .85); color: #111827; font-style: normal; font-weight: 800; font-size: .72rem; }
+.sr-mk { margin-top: 3px; font-size: 11px; line-height: 1.45; color: #475569; }
+.rp-mark { font-size: .78rem; color: #475569; }
+.tl__dot--mk { box-shadow: 0 0 0 2px #fff, 0 0 0 4px #16a34a !important; }
+.tl__legend .lm-leg i { display: inline-block; width: 10px; height: 10px; margin-right: 4px; border-radius: 50%; background: #3b82f6; box-shadow: 0 0 0 2px #fff, 0 0 0 3px #16a34a; vertical-align: -1px; }
+.sr-leg .lm-leg i, .tl__legend .lm-leg i { display: inline-block; width: 10px; height: 10px; margin: 0 5px 0 0; border-radius: 50%; background: #2563eb; box-shadow: 0 0 0 2px #fff, 0 0 0 3.5px #16a34a; vertical-align: -1px; }
+
+/* ---------- v6.5 r7: one colour per kind of change, everywhere
+   red ✕ cancelled · purple ↪ moved away · green ↺/↩ replacement · amber ✎ time changed */
+.mk--cancelled { --mk: #dc2626; --mkbg: #fee2e2; }
+.mk--moved { --mk: #7c3aed; --mkbg: #ede9fe; }
+.mk--makeup, .mk--replace { --mk: #16a34a; --mkbg: #dcfce7; }
+.mk--changed { --mk: #d97706; --mkbg: #fef3c7; }
+.mk--extra { --mk: #0284c7; --mkbg: #e0f2fe; }
+:root[data-theme="dark"] .mk { --mkbg: color-mix(in srgb, var(--mk) 22%, #0b1220); }
+.ev.mk, .tev.mk, .aev.mk { border-left: 4px solid var(--mk) !important; background: var(--mkbg) !important; color: inherit; }
+.ev.mk--cancelled, .ev.mk--moved, .tev.mk--cancelled, .tev.mk--moved, .aev.mk--cancelled, .aev.mk--moved { opacity: .9; }
+.ev.mk--cancelled b, .ev.mk--moved b, .tev.mk--cancelled b, .tev.mk--moved b { text-decoration: line-through; }
+.ev.mk--makeup, .ev.mk--replace, .tev.mk--makeup, .tev.mk--replace { box-shadow: inset 0 0 0 2px var(--mk); }
+.mk .ev-mk { background: var(--mk); color: #fff; }
+.lg-mk { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 999px; font-size: .8rem; font-weight: 700; color: var(--mk); background: var(--mkbg); border: 1px solid var(--mk); }
+/* status badges carry the symbol too */
+.badge--cancelled { color: #b91c1c; background: #fee2e2; text-decoration: none; }
+.badge--cancelled::before { content: "✕ "; font-weight: 800; }
+.badge--rescheduled { color: #6d28d9; background: #ede9fe; }
+.badge--rescheduled::before { content: "↪ "; font-weight: 800; }
+:root[data-theme="dark"] .badge--cancelled { color: #fca5a5; background: rgba(220, 38, 38, .2); }
+:root[data-theme="dark"] .badge--rescheduled { color: #c4b5fd; background: rgba(124, 58, 237, .22); }
+.lm { padding: 2px 8px 2px 3px; border-radius: 8px; background: color-mix(in srgb, currentColor 9%, transparent); }
+/* reason chips */
+.rs-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.rs-chips button { padding: 6px 10px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface); color: var(--text); font: inherit; font-size: .82rem; cursor: pointer; }
+.rs-chips button:hover { border-color: var(--accent); }
+.rs-chips button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+.rs-chips .rs-own { border-style: dashed; }

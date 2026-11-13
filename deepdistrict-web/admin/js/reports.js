@@ -21,7 +21,7 @@
       var done = st.sessions.filter(function (s) { return A.counts(s) && inRange(s.date, from, to); });
       var upcoming = st.sessions.filter(function (s) { return s.status === "scheduled" && s.date >= A.today(); }).slice(0, 6);
       var pays = A.paymentsOf(e.id).filter(function (p) { return inRange(p.date, from, to); });
-      var moved = st.sessions.filter(function (s) { return (s.status === "rescheduled" || s.status === "cancelled" || s.makeUpFor || s.extraHours) && inRange(s.date, from, to); });
+      var moved = st.sessions.filter(function (s) { return (s.status === "rescheduled" || s.status === "cancelled" || s.makeUpFor || s.movedFrom || s.changedFrom || s.extraHours) && inRange(s.date, from, to); });
       return { e: e, st: st, done: done, upcoming: upcoming, pays: pays, moved: moved, periodHours: done.reduce(function (t, s) { return t + (+s.hours || 0); }, 0) };
     });
     return { stu: stu, guardian: A.byId("users", stu.guardianId), from: from, to: to, fees: fees, enrs: enrs, issued: A.today(), ver: q.get("ver") === "summary" ? "summary" : "full" };
@@ -54,7 +54,7 @@
           x.done.map(function (s) { return "<tr><td>" + esc(A.fmtDate(s.date)) + "</td><td>" + A.num(s.hours) + (s.status === "noshow" ? "*" : "") + "</td><td>" + esc(s.topic || "–") + (s.notes ? '<br><span class="rp-note">' + esc(s.notes) + "</span>" : "") + "</td></tr>"; }).join("") + "</tbody></table>" +
           (x.done.some(function (s) { return s.status === "noshow"; }) ? '<p class="rp-small">* ' + L("Missed without notice; hours counted under the lab's policy.", "ขาดเรียนโดยไม่แจ้ง นับชั่วโมงตามนโยบายของแล็บ") + "</p>" : "")
           : '<p class="rp-small">' + L("No completed lessons in this period.", "ไม่มีคาบที่เรียนแล้วในช่วงนี้") + "</p>") +
-        (x.upcoming.length ? "<h3>" + L("Next lessons", "คาบเรียนถัดไป") + '</h3><ul class="rp-next">' + x.upcoming.map(function (s) { return "<li>" + esc(A.fmtDate(s.date, { weekday: "short", day: "numeric", month: "short" })) + " · " + esc(s.start || "") + " · " + A.hrs(s.hours) + "</li>"; }).join("") + "</ul>" : "") +
+        (x.upcoming.length ? "<h3>" + L("Next lessons", "คาบเรียนถัดไป") + '</h3><ul class="rp-next">' + x.upcoming.map(function (s) { return "<li>" + esc(A.fmtDate(s.date, { weekday: "short", day: "numeric", month: "short" })) + " · " + esc(s.start || "") + " · " + A.hrs(s.hours) + (A.markText(s) ? '<br><span class="rp-mark">' + esc(A.markText(s)) + "</span>" : "") + "</li>"; }).join("") + "</ul>" : "") +
         (x.moved.length ? "<h3>" + L("Schedule changes", "การเปลี่ยนแปลงตารางเรียน") + '</h3><ul class="rp-next">' + x.moved.map(function (s) { return "<li>" + esc(A.fmtDate(s.date)) + " · " + A.statusName(s.status) + " · " + A.lessonNote(s).replace(/<br>/g, " · ") + "</li>"; }).join("") + "</ul>" : "") +
         "") +
         (m.fees ? "<h3>" + L("Fees", "ค่าเรียน") + '</h3><div class="rp-stats rp-stats--3"><div><span>' + L("Course fee", "ค่าเรียนทั้งหมด") + "</span><b>" + A.money(st.fee) + "</b></div><div><span>" + L("Paid", "ชำระแล้ว") + "</span><b>" + A.money(st.paid) + '</b></div><div class="' + (st.balance > 0.009 ? "rp-due" : "rp-hi") + '"><span>' + L("Balance due", "ยอดคงค้าง") + "</span><b>" + A.money(Math.max(0, st.balance)) + "</b></div></div>" +
@@ -81,7 +81,7 @@
       x.done.forEach(function (s) { t.push("  " + s.date + "  " + A.num(s.hours) + "h  " + (s.status === "noshow" ? "[" + A.statusName("noshow") + "] " : "") + (s.topic || "-") + (s.notes ? "  — " + s.notes : "")); });
       if (!x.done.length) t.push("  –");
       if (st.unscheduled > 0.001 && st.used + st.planned > 0) t.push(L("Still to book    : ", "รอนัดเพิ่ม        : ") + A.num(st.unscheduled));
-      if (x.moved.length) { t.push("", L("Schedule changes:", "การเปลี่ยนแปลงตารางเรียน:")); x.moved.forEach(function (s) { t.push("  " + s.date + "  " + A.statusName(s.status) + "  " + A.lessonNote(s).replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim()); }); }
+      if (x.moved.length) { t.push("", L("Schedule changes:", "การเปลี่ยนแปลงตารางเรียน:")); x.moved.forEach(function (s) { t.push("  " + s.date + "  " + A.statusName(s.status) + "  " + A.markText(s)); }); }
       if (x.upcoming.length) { t.push("", L("Next lessons:", "คาบเรียนถัดไป:")); x.upcoming.forEach(function (s) { t.push("  " + s.date + " " + (s.start || "") + "  " + A.num(s.hours) + "h"); }); }
       if (m.fees) t.push("", L("Fee: ", "ค่าเรียน: ") + A.money(st.fee) + " · " + L("Paid: ", "ชำระแล้ว: ") + A.money(st.paid) + " · " + L("Balance: ", "คงค้าง: ") + A.money(Math.max(0, st.balance)));
       t.push("");

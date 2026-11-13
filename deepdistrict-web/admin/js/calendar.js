@@ -30,8 +30,8 @@
   }
   function chip(s, bad) {
     var e = A.byId("enrolments", s.enrolmentId), u = A.byId("users", e.studentId) || {};
-    return '<button type="button" class="ev ev--' + s.status + (bad && bad[s.id] ? " is-clash" : "") + (s.example ? " is-example" : "") + '" style="--tc:' + A.teacherColor(teacherOf(s)) + '" data-session="' + s.id + '" title="' + esc(A.describe(s) + " · " + A.statusName(s.status)) + '">' +
-      (bad && bad[s.id] ? "⚠ " : "") + "<b>" + esc(A.span(s)) + "</b> " + esc(u.nick || (u.name || "").split(" ")[0]) + ' <span>' + esc(e.courseCode) + "</span></button>";
+    return '<button type="button" class="ev ev--' + s.status + A.markClass(s) + (bad && bad[s.id] ? " is-clash" : "") + (s.example ? " is-example" : "") + '" style="--tc:' + A.teacherColor(teacherOf(s)) + '" data-session="' + s.id + '" title="' + esc(A.describe(s) + " · " + A.statusName(s.status) + (A.markText(s) ? " · " + A.markText(s) : "")) + '">' +
+      (bad && bad[s.id] ? "⚠ " : "") + (A.markIcons(s) ? '<i class="ev-mk">' + esc(A.markIcons(s)) + "</i>" : "") + "<b>" + esc(A.span(s)) + "</b> " + esc(u.nick || (u.name || "").split(" ")[0]) + ' <span>' + esc(e.courseCode) + "</span></button>";
   }
 
   A.pages.calendar = function (q) {
@@ -101,8 +101,8 @@
           var style = "top:" + top + "px;height:" + h + "px;left:calc(" + (x._lane * 100 / x._n) + "% + 2px);width:calc(" + (100 / x._n) + "% - 4px);--tc:" + A.teacherColor(teacherOf(x));
           var e = x.enrolmentId && A.byId("enrolments", x.enrolmentId), stu = e && A.byId("users", e.studentId);
           var where = A.modeName(x.mode) + (x.location ? " · " + x.location : "");
-          html += (x.busy ? '<div class="tev tev--busy' : '<button type="button" class="tev tev--' + x.status) + (bad[x.id] ? " is-clash" : "") + '" style="' + style + '"' + (x.busy ? "" : ' data-session="' + x.id + '"') + ' title="' + esc(A.describe(x)) + '">' +
-            "<b>" + (bad[x.id] ? "⚠ " : "") + esc(A.span(x)) + "</b><span>" + esc((x.courseCode || (e && e.courseCode) || "") + (stu ? " · " + (stu.nick || stu.name) : "")) + "</span><span>" + esc(A.userName(teacherOf(x))) + "</span><small>" + esc(where) + "</small>" + (x.busy ? "</div>" : "</button>");
+          html += (x.busy ? '<div class="tev tev--busy' : '<button type="button" class="tev tev--' + x.status + A.markClass(x)) + (bad[x.id] ? " is-clash" : "") + '" style="' + style + '"' + (x.busy ? "" : ' data-session="' + x.id + '"') + ' title="' + esc(A.describe(x) + (x.busy || !A.markText(x) ? "" : " · " + A.markText(x))) + '">' +
+            "<b>" + (bad[x.id] ? "⚠ " : "") + (x.busy || !A.markIcons(x) ? "" : '<i class="ev-mk">' + esc(A.markIcons(x)) + "</i>") + esc(A.span(x)) + "</b><span>" + esc((x.courseCode || (e && e.courseCode) || "") + (stu ? " · " + (stu.nick || stu.name) : "")) + "</span><span>" + esc(A.userName(teacherOf(x))) + "</span><small>" + esc(where) + "</small>" + (x.busy ? "</div>" : "</button>");
         });
         html += "</div></div>";
       });
@@ -115,7 +115,7 @@
       html += days.length ? '<div class="agenda">' + days.map(function (k) {
         return '<section><h3' + (k === today ? ' class="is-today"' : "") + ">" + esc(A.fmtDate(k, { weekday: "long", day: "numeric", month: "long" })) + "</h3>" + byDate[k].map(function (s) {
           var e = A.byId("enrolments", s.enrolmentId);
-          return '<button type="button" class="aev" data-session="' + s.id + '"><span class="aev__t">' + esc(s.start || "") + "<small>" + A.hrs(s.hours) + "</small></span><span><b>" + esc(A.userName(e.studentId)) + "</b> · " + esc(A.courseName(e.courseCode)) + (s.topic ? "<br><span class=muted>" + esc(s.topic) + "</span>" : "") + "</span>" + A.badge(s.status) + "</button>";
+          return '<button type="button" class="aev' + A.markClass(s) + '" data-session="' + s.id + '"><span class="aev__t">' + esc(s.start || "") + "<small>" + A.hrs(s.hours) + "</small></span><span><b>" + esc(A.userName(e.studentId)) + "</b> · " + esc(A.courseName(e.courseCode)) + (s.topic ? "<br><span class=muted>" + esc(s.topic) + "</span>" : "") + (A.markHtml(s) ? '<br><span class="lm-list">' + A.markHtml(s, true) + "</span>" : "") + "</span>" + A.badge(s.status) + "</button>";
         }).join("") + "</section>";
       }).join("") + "</div>" : A.empty("No lessons in this period.", "ไม่มีคาบเรียนในช่วงนี้");
     }
@@ -131,7 +131,7 @@
       (A.isAdmin() ? '<select name="teacher" aria-label="Teacher">' + A.opts(A.peopleOpts("staff"), q.get("teacher"), L("All teachers", "ครูทุกคน")) + "</select>" : "") +
       '<select name="student" aria-label="Student">' + A.opts(A.peopleOpts("student"), q.get("student"), L("All students", "นักเรียนทุกคน")) + "</select></form></div>" +
       '<div class="legend">' + A.people("staff").filter(function (t) { return all.concat(busy).some(function (x) { return teacherOf(x) === t.id; }); }).map(function (t) { return '<span class="lg-t" style="--tc:' + A.teacherColor(t.id) + '"><i></i>' + esc(t.nick || t.name) + "</span>"; }).join("") +
-      '<span class="lg-s">✓ ' + A.statusName("done") + '</span><span class="lg-s"><s>' + A.statusName("cancelled") + '</s></span><span class="lg-s is-clash-lg">⚠ ' + L("same teacher, same time", "ครูคนเดียวกันเวลาชน") + "</span>" + (A.db.sessions.some(function (x) { return x.example; }) ? '<span class="lg-s"><span class="tag-ex">' + L("Example", "ตัวอย่าง") + "</span> " + L("example data", "ข้อมูลตัวอย่าง") + "</span>" : "") + (A.isAdmin() ? '<span class="lg-pay"><i></i>' + L("Payment received", "รับชำระเงิน") + "</span>" : "") + '<span class="muted">' + (A.isStaff() ? L("Click a day to add a lesson, or a lesson to update or move it.", "คลิกวันที่เพื่อเพิ่มคาบ หรือคลิกคาบเพื่ออัปเดตหรือเลื่อน") : L("Click a lesson for details or to request a change.", "คลิกคาบเพื่อดูรายละเอียดหรือขอเปลี่ยนแปลง")) + "</span></div>";
+      '<span class="lg-s">✓ ' + A.statusName("done") + '</span><span class="lg-mk mk--cancelled">✕ ' + L("cancelled", "ยกเลิก") + '</span><span class="lg-mk mk--moved">↪ ' + L("moved away", "ย้ายออก") + '</span><span class="lg-mk mk--makeup">↺ ' + L("make-up / moved in", "คาบทดแทน") + '</span><span class="lg-mk mk--changed">✎ ' + L("time changed", "เปลี่ยนเวลา") + '</span><span class="lg-s is-clash-lg">⚠ ' + L("same teacher, same time", "ครูคนเดียวกันเวลาชน") + "</span>" + (A.db.sessions.some(function (x) { return x.example; }) ? '<span class="lg-s"><span class="tag-ex">' + L("Example", "ตัวอย่าง") + "</span> " + L("example data", "ข้อมูลตัวอย่าง") + "</span>" : "") + (A.isAdmin() ? '<span class="lg-pay"><i></i>' + L("Payment received", "รับชำระเงิน") + "</span>" : "") + '<span class="muted">' + (A.isStaff() ? L("Click a day to add a lesson, or a lesson to update or move it.", "คลิกวันที่เพื่อเพิ่มคาบ หรือคลิกคาบเพื่ออัปเดตหรือเลื่อน") : L("Click a lesson for details or to request a change.", "คลิกคาบเพื่อดูรายละเอียดหรือขอเปลี่ยนแปลง")) + "</span></div>";
     A._calSessions = all;
     return {
       title: L("Calendar", "ปฏิทิน"),
@@ -175,7 +175,7 @@
       lines.push("BEGIN:VEVENT", "UID:" + s.id + "@deepdistrict.si", "DTSTAMP:" + stamp(A.today(), "00:00"),
         "DTSTART;TZID=Asia/Bangkok:" + stamp(s.date, s.start), "DTEND;TZID=Asia/Bangkok:" + stamp(s.date, s.start, +s.hours || 1),
         "SUMMARY:" + icsEsc(e.courseCode + " · " + A.userName(e.studentId)),
-        "DESCRIPTION:" + icsEsc(A.statusName(s.status) + (s.topic ? "\n" + s.topic : "")),
+        "DESCRIPTION:" + icsEsc(A.statusName(s.status) + (A.markText(s) ? "\n" + A.markText(s) : "") + (s.topic ? "\n" + s.topic : "")),
         "LOCATION:" + icsEsc(s.mode === "online" ? "Zoom" : A.db.org.name), "END:VEVENT");
     });
     lines.push("END:VCALENDAR");
