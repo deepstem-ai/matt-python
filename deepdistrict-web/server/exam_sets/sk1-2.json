@@ -1,0 +1,1255 @@
+{
+ "exam": "sk1",
+ "set": 2,
+ "title": {
+  "en": "Suankularb M.1 English (GATE / EPLUS+) — Practice paper 2",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.1 สวนกุหลาบ (GATE / EPLUS+) — ชุดที่ 2"
+ },
+ "minutes": 50,
+ "note": {
+  "en": "40 questions in 50 minutes: conversation, vocabulary, grammar, cloze and reading, in the style of the Suankularb M.1 pre-test. GATE and EPLUS+ applicants take the same paper; EPLUS+ needs a higher score. DeepDistrict practice — not an official or past paper.",
+  "th": "40 ข้อ 50 นาที: บทสนทนา คำศัพท์ ไวยากรณ์ เติมคำในบทความ และการอ่าน ตามแนวข้อสอบเข้า ม.1 สวนกุหลาบ ผู้สมัคร GATE และ EPLUS+ ใช้ข้อสอบชุดเดียวกัน EPLUS+ ต้องได้คะแนนสูงกว่า — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Responding to a gift",
+    "th": "การตอบเมื่อได้รับของขวัญ"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Happy birthday, Mew! This is for you.\nB: ______",
+   "choices": [
+    "Here you are.",
+    "Same to you.",
+    "Oh, thank you! You shouldn't have.",
+    "Many happy returns to you."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "When you receive a present you thank the giver; \"You shouldn't have\" politely means the gift is very kind. \"Many happy returns\" is a birthday wish for someone else, \"Same to you\" returns a wish, and \"Here you are\" is said when giving something.",
+    "th": "เมื่อได้รับของขวัญควรขอบคุณ และ You shouldn't have เป็นสำนวนสุภาพ แปลว่า ไม่น่าลำบากเลย ส่วน Many happy returns เป็นคำอวยพรวันเกิดให้ผู้อื่น Same to you ใช้อวยพรกลับ และ Here you are ใช้ตอนยื่นของให้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Describing appearance",
+    "th": "การบรรยายรูปร่างหน้าตา"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: What does your sister look like?\nB: ______",
+   "choices": [
+    "She's fine, thanks.",
+    "She's very kind and funny.",
+    "She's tall with short, curly hair.",
+    "She likes playing badminton."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"What does she look like?\" asks about appearance, so \"tall with short, curly hair\" answers it. \"Kind and funny\" describes personality (What is she like?), \"likes badminton\" describes hobbies, and \"She's fine\" answers \"How is she?\".",
+    "th": "What does she look like? ถามรูปร่างหน้าตา จึงตอบ She's tall with short, curly hair ส่วน kind and funny บอกนิสัย (ใช้ตอบ What is she like?) likes playing badminton บอกงานอดิเรก และ She's fine ตอบคำถาม How is she?"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Giving directions",
+    "th": "การบอกทาง"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Excuse me, how can I get to Hua Lamphong Station from here?\nB: ______",
+   "choices": [
+    "Take the MRT two stops — it's right by the exit.",
+    "It takes about ten minutes.",
+    "Yes, you can get there.",
+    "It's about fifty baht."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"How can I get to…?\" asks for the way, so B explains how: take the MRT two stops. The price and the time do not tell A how to get there, and \"Yes, you can\" answers a yes/no question.",
+    "th": "How can I get to…? ถามวิธีไป จึงตอบว่าให้นั่ง MRT สองสถานี ส่วนราคาและระยะเวลาไม่ได้บอกวิธีไป และ Yes, you can get there ใช้ตอบคำถามแบบใช่หรือไม่"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Comforting someone",
+    "th": "การปลอบใจ"
+   },
+   "topic": {
+    "en": "Idiomatic responses",
+    "th": "สำนวนในการโต้ตอบ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: I failed my swimming test again.\nB: ______ You'll pass next time.",
+   "choices": [
+    "Serves you right!",
+    "Well done!",
+    "Lucky you!",
+    "Cheer up!"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "A is sad, and \"You'll pass next time\" encourages A, so \"Cheer up!\" fits. \"Well done!\" praises success, \"Serves you right!\" says someone deserved bad luck, and \"Lucky you!\" reacts to good news.",
+    "th": "A เสียใจ และ You'll pass next time เป็นการให้กำลังใจ จึงใช้ Cheer up! ส่วน Well done! ใช้ชมเมื่อทำสำเร็จ Serves you right! แปลว่า สมน้ำหน้า และ Lucky you! ใช้กับข่าวดี"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Refusing an offer of food",
+    "th": "การปฏิเสธเมื่อมีคนเสนออาหาร"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Would you like some more som tam?\nB: ______ I'm really full.",
+   "choices": [
+    "Help yourself.",
+    "I'd like to.",
+    "No, thanks.",
+    "Yes, please."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"I'm really full\" shows B is refusing, so \"No, thanks\" is right. \"Yes, please\" accepts, \"Help yourself\" is what the host says, and \"I'd like to\" accepts an invitation.",
+    "th": "I'm really full (อิ่มมากแล้ว) แสดงว่าปฏิเสธ จึงตอบ No, thanks ส่วน Yes, please เป็นการตอบรับ Help yourself เป็นคำพูดของเจ้าของบ้าน และ I'd like to ใช้ตอบรับคำชวน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Answering a present perfect question with 'yet'",
+    "th": "การตอบคำถาม present perfect ที่มี yet"
+   },
+   "topic": {
+    "en": "School conversation",
+    "th": "บทสนทนาในโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Have you finished the science report?\nB: ______ I'll finish it tonight.",
+   "choices": [
+    "So have I.",
+    "Not yet.",
+    "Yes, I have.",
+    "Not at all."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"I'll finish it tonight\" means the report is not finished, so \"Not yet\" fits. \"Yes, I have\" contradicts that, \"So have I\" agrees with a statement, and \"Not at all\" answers \"Do you mind…?\" or thanks.",
+    "th": "I'll finish it tonight แปลว่า ยังทำไม่เสร็จ จึงตอบ Not yet ส่วน Yes, I have ขัดกับประโยคหลัง So have I ใช้เห็นด้วยกับข้อความ และ Not at all ใช้ตอบ Do you mind…? หรือคำขอบคุณ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Expressing lack of surprise",
+    "th": "การแสดงว่าไม่แปลกใจ"
+   },
+   "topic": {
+    "en": "Idiomatic responses",
+    "th": "สำนวนในการโต้ตอบ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Can you believe it? The concert tickets sold out in two minutes!\nB: ______ I had a feeling they would.",
+   "choices": [
+    "I'm not surprised.",
+    "I can't stand it.",
+    "That's out of the question.",
+    "I couldn't agree less."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"I had a feeling they would\" shows B expected it, so \"I'm not surprised\" fits. \"I can't stand it\" means I hate it, \"I couldn't agree less\" means total disagreement, and \"That's out of the question\" means impossible.",
+    "th": "I had a feeling they would แสดงว่า B คาดไว้แล้ว จึงตอบ I'm not surprised ส่วน I can't stand it แปลว่า ทนไม่ได้ I couldn't agree less แปลว่า ไม่เห็นด้วยเลย และ That's out of the question แปลว่า เป็นไปไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Expressing doubt with an idiom",
+    "th": "การแสดงความสงสัยด้วยสำนวน"
+   },
+   "topic": {
+    "en": "Idiomatic responses",
+    "th": "สำนวนในการโต้ตอบ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Let's ask Ton to help with the poster. He draws really well.\nB: ______ He's got three projects due this week.",
+   "choices": [
+    "That goes without saying.",
+    "He's the right man for the job.",
+    "The more, the merrier.",
+    "I wouldn't count on it."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "B's reason (Ton is very busy) shows doubt that he can help, so \"I wouldn't count on it\" (don't expect it) is right. The other three all agree with asking Ton, which does not match the reason.",
+    "th": "เหตุผลของ B คือโต้งงานยุ่งมาก จึงสงสัยว่าเขาจะช่วยได้ I wouldn't count on it แปลว่า อย่าหวังเลย ส่วนอีกสามสำนวนล้วนเห็นด้วยกับการชวนโต้ง ไม่เข้ากับเหตุผลที่ตามมา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Everyday reading materials",
+    "th": "สิ่งพิมพ์ในชีวิตประจำวัน"
+   },
+   "topic": {
+    "en": "Family and home",
+    "th": "ครอบครัวและบ้าน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nMy father reads the ______ every morning to find out what is happening in the world.",
+   "choices": [
+    "timetable",
+    "newspaper",
+    "menu",
+    "dictionary"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "We read a newspaper to find out the news. A menu lists food, a dictionary explains words, and a timetable gives times.",
+    "th": "อ่าน newspaper (หนังสือพิมพ์) เพื่อรู้ข่าวสาร ส่วน menu คือรายการอาหาร dictionary คือพจนานุกรม และ timetable คือตารางเวลา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Collocations: pay attention",
+    "th": "คำที่ใช้คู่กัน: pay attention"
+   },
+   "topic": {
+    "en": "School life",
+    "th": "ชีวิตในโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nThe teacher asked us to ______ attention to the safety rules in the science lab.",
+   "choices": [
+    "pay",
+    "take",
+    "make",
+    "do"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The fixed phrase is \"pay attention to\". English does not say \"take\", \"make\" or \"do attention\".",
+    "th": "สำนวนที่ใช้คู่กันคือ pay attention to (ให้ความสนใจ) ไม่ใช้ take, make หรือ do กับ attention"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Phrasal verbs: take off / put on",
+    "th": "กริยาวลี: take off / put on"
+   },
+   "topic": {
+    "en": "Thai culture",
+    "th": "วัฒนธรรมไทย"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nPlease ______ your shoes before you enter the temple hall.",
+   "choices": [
+    "try on",
+    "put on",
+    "take off",
+    "turn off"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Visitors remove their shoes before entering a temple hall, so \"take off\" is right. \"Put on\" is the opposite, \"turn off\" is for machines and lights, and \"try on\" is for testing clothes in a shop.",
+    "th": "ก่อนเข้าโบสถ์ต้องถอดรองเท้า จึงใช้ take off ส่วน put on แปลว่า สวม turn off ใช้กับการปิดเครื่องหรือไฟ และ try on แปลว่า ลองสวม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Adjectives of personality",
+    "th": "คำคุณศัพท์บอกนิสัย"
+   },
+   "topic": {
+    "en": "People and personality",
+    "th": "ผู้คนและนิสัย"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nNid is very ______; she always shares her snacks with her friends.",
+   "choices": [
+    "jealous",
+    "generous",
+    "honest",
+    "selfish"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Someone who always shares is \"generous\". \"Jealous\" means unhappy about what others have, \"selfish\" is the opposite of generous, and \"honest\" means telling the truth, which is not about sharing.",
+    "th": "คนที่แบ่งปันเสมอคือคน generous (ใจกว้าง) ส่วน jealous แปลว่า อิจฉา selfish แปลว่า เห็นแก่ตัว และ honest แปลว่า ซื่อสัตย์ ซึ่งไม่ใช่เรื่องการแบ่งปัน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Event vocabulary",
+    "th": "คำศัพท์เกี่ยวกับงานกิจกรรม"
+   },
+   "topic": {
+    "en": "Festivals and events",
+    "th": "เทศกาลและงานกิจกรรม"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nThe Loy Krathong festival at the park was ______ because of the heavy storm, so nobody could go.",
+   "choices": [
+    "cancelled",
+    "attended",
+    "decorated",
+    "celebrated"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Nobody could go\" shows the event did not happen, so it was \"cancelled\". \"Celebrated\", \"attended\" and \"decorated\" all mean the event took place.",
+    "th": "nobody could go แสดงว่างานไม่ได้จัด จึงใช้ cancelled (ยกเลิก) ส่วน celebrated, attended และ decorated ล้วนหมายความว่างานได้จัดขึ้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Confusing verbs: raise / rise",
+    "th": "คำกริยาที่สับสนบ่อย: raise / rise"
+   },
+   "topic": {
+    "en": "Charity and community",
+    "th": "การกุศลและชุมชน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nOur class ______ 8,000 baht for the flood victims by selling cookies at the school fair.",
+   "choices": [
+    "rose",
+    "lifted",
+    "grew",
+    "raised"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "To \"raise money\" means to collect it for a purpose. \"Rise\" (rose) has no object, \"grew\" is used for plants or size, and \"lifted\" means picked up physically.",
+    "th": "raise money แปลว่า ระดมทุน raise ต้องมีกรรม ส่วน rise (rose) ไม่มีกรรม grew ใช้กับการเติบโต และ lifted แปลว่า ยกขึ้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Verb patterns: manage to do",
+    "th": "รูปแบบคำกริยา: manage to do"
+   },
+   "topic": {
+    "en": "Hobbies",
+    "th": "งานอดิเรก"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nAfter hours of practice, Bam finally ______ to solve the Rubik's cube in under a minute.",
+   "choices": [
+    "could",
+    "managed",
+    "succeeded",
+    "achieved"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Manage to do\" means succeed in doing something difficult. \"Succeed\" takes \"in + -ing\" (succeeded in solving), \"could\" is not followed by \"to\", and \"achieve\" takes a noun object.",
+    "th": "manage to do แปลว่า ทำสิ่งที่ยากได้สำเร็จ ส่วน succeed ต้องใช้ succeed in + -ing, could ไม่ตามด้วย to และ achieve ต้องตามด้วยคำนาม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Descriptive adjectives (vivid)",
+    "th": "คำคุณศัพท์บรรยาย (vivid)"
+   },
+   "topic": {
+    "en": "Travel and places",
+    "th": "การท่องเที่ยวและสถานที่"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nThe museum guide gave such a ______ description of life in old Bangkok that we could almost see the floating markets in front of us.",
+   "choices": [
+    "brief",
+    "vague",
+    "dull",
+    "vivid"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"We could almost see\" it shows the description was very clear and lively: \"vivid\". \"Vague\" means unclear, \"brief\" means short, and \"dull\" means boring — none would create such a clear picture.",
+    "th": "we could almost see แสดงว่าคำบรรยายชัดเจนและมีชีวิตชีวา จึงใช้ vivid ส่วน vague แปลว่า คลุมเครือ brief แปลว่า สั้น และ dull แปลว่า น่าเบื่อ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "Present simple, third person",
+    "th": "Present simple กับประธานเอกพจน์บุรุษที่ 3"
+   },
+   "topic": {
+    "en": "Present simple",
+    "th": "Present simple"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nMy cousin ______ to school by bus every day.",
+   "choices": [
+    "is go",
+    "go",
+    "going",
+    "goes"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Every day\" shows a habit, so we use the present simple, and \"my cousin\" (he/she) needs \"-es\": \"goes\".",
+    "th": "every day แสดงกิจวัตร จึงใช้ present simple และประธาน my cousin เป็นเอกพจน์บุรุษที่ 3 จึงเติม -es เป็น goes"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "How much / how many",
+    "th": "How much / How many"
+   },
+   "topic": {
+    "en": "Countable and uncountable nouns",
+    "th": "นามนับได้และนับไม่ได้"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nHow ______ sugar do you usually put in your iced coffee?",
+   "choices": [
+    "many",
+    "often",
+    "much",
+    "long"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Sugar\" is uncountable, so we ask \"how much\". \"How many\" is for countable nouns, and \"how long\" and \"how often\" cannot come before a noun like this.",
+    "th": "sugar เป็นนามนับไม่ได้ จึงใช้ How much ส่วน How many ใช้กับนามนับได้ และ How long กับ How often ไม่ใช้นำหน้าคำนามแบบนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Past continuous interrupted by past simple",
+    "th": "Past continuous ที่ถูกขัดด้วย past simple"
+   },
+   "topic": {
+    "en": "Narrative tenses",
+    "th": "กาลที่ใช้ในการเล่าเรื่อง"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nWe ______ dinner when the lights suddenly went out.",
+   "choices": [
+    "are having",
+    "were having",
+    "have had",
+    "have"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "A longer action in progress (having dinner) was interrupted by a short past action (the lights went out), so we use the past continuous: \"were having\".",
+    "th": "กิจกรรมที่กำลังทำอยู่ (กินข้าวเย็น) ถูกขัดด้วยเหตุการณ์สั้นในอดีต (ไฟดับ) จึงใช้ past continuous คือ were having"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Passive voice in the past",
+    "th": "ประโยค passive ในอดีต"
+   },
+   "topic": {
+    "en": "Passive voice",
+    "th": "ประโยค passive"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nThe Grand Palace ______ in 1782.",
+   "choices": [
+    "was built",
+    "built",
+    "has built",
+    "was building"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A palace cannot build itself; people built it, so we need the passive \"was built\". \"Built\", \"was building\" and \"has built\" are active forms.",
+    "th": "พระบรมมหาราชวังสร้างตัวเองไม่ได้ จึงต้องใช้ passive คือ was built ส่วน built, was building และ has built เป็นรูป active"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Wish + past simple",
+    "th": "Wish + past simple"
+   },
+   "topic": {
+    "en": "Wishes",
+    "th": "การแสดงความปรารถนา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nI wish I ______ how to play the khim like my cousin.",
+   "choices": [
+    "will know",
+    "have known",
+    "knew",
+    "know"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "For a wish about the present, we use \"wish\" + past simple: \"I wish I knew\". The present, future and present perfect forms are not used after \"wish\" in this meaning.",
+    "th": "การปรารถนาสิ่งที่ไม่จริงในปัจจุบันใช้ wish + past simple จึงเป็น I wish I knew ส่วน know, will know และ have known ไม่ใช้หลัง wish ในความหมายนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Subject–verb agreement with 'each of'",
+    "th": "ความสอดคล้องของกริยากับ each of"
+   },
+   "topic": {
+    "en": "Subject–verb agreement",
+    "th": "ความสอดคล้องของประธานและกริยา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nEach of the new students ______ given a name tag on the first day.",
+   "choices": [
+    "were",
+    "are",
+    "have",
+    "was"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The subject is \"each\", which is singular, so the verb is \"was\". \"Students\" is plural, but it is not the subject; this is a common trap.",
+    "th": "ประธานคือ each ซึ่งเป็นเอกพจน์ จึงใช้ was คำว่า students เป็นพหูพจน์แต่ไม่ใช่ประธาน จึงเป็นกับดักที่พบบ่อย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Relative pronoun 'whose'",
+    "th": "คำสรรพนามเชื่อม whose"
+   },
+   "topic": {
+    "en": "Relative clauses",
+    "th": "ประโยคขยายคำนาม (relative clause)"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nThe boy ______ bicycle was stolen reported it to the police.",
+   "choices": [
+    "whose",
+    "who",
+    "which",
+    "whom"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The bicycle belongs to the boy, so we need the possessive relative pronoun \"whose\". \"Who\", \"which\" and \"whom\" cannot come directly before a noun to show ownership.",
+    "th": "จักรยานเป็นของเด็กผู้ชาย จึงต้องใช้ whose ซึ่งแสดงความเป็นเจ้าของ ส่วน who, which และ whom วางหน้าคำนามเพื่อแสดงความเป็นเจ้าของไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Question tags",
+    "th": "Question tags"
+   },
+   "topic": {
+    "en": "Question tags",
+    "th": "Question tags"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nYou're the new student from Chiang Rai, ______?",
+   "choices": [
+    "don't you",
+    "isn't it",
+    "aren't you",
+    "are you"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "A positive sentence with \"you're\" (you are) takes a negative tag with the same verb and subject: \"aren't you?\". \"Are you\" is not negative, \"isn't it\" has the wrong subject, and \"don't you\" has the wrong verb.",
+    "th": "ประโยคบอกเล่าที่ใช้ you're (you are) ต้องใช้ tag ปฏิเสธที่มีกริยาและประธานเดียวกัน คือ aren't you ส่วน are you ไม่ใช่รูปปฏิเสธ isn't it ประธานผิด และ don't you กริยาผิด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "e",
+   "skill": {
+    "en": "Vocabulary in context: restaurants",
+    "th": "คำศัพท์ในบริบท: ร้านอาหาร"
+   },
+   "topic": {
+    "en": "Story cloze",
+    "th": "เติมคำในเรื่องเล่า"
+   },
+   "passage": "Every Saturday morning, Fah helps at her aunt's noodle shop near Bang Lamphu. Last week, something unusual happened. An elderly tourist came in and (1) ______ a bowl of boat noodles. When he tried to pay, he could not find his wallet, (2) ______ he searched every pocket. He looked very worried. Fah remembered that she (3) ______ a man drop something near the bus stop earlier that morning. She ran outside and found a brown wallet lying on the pavement (4) ______ two parked motorcycles. When she gave it back, the man was so (5) ______ that he wanted to give her a reward. Fah politely refused. \"My aunt always says that honesty is its own reward,\" she explained. The next Saturday, the man came back with his whole family, and the shop was busier than it had been for months. Her aunt joked that Fah's honesty had (6) ______ off after all.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (1).",
+   "choices": [
+    "ordered",
+    "served",
+    "booked",
+    "cooked"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A customer who comes into a shop \"orders\" food. The shop cooks and serves it, and you book a table, not a bowl of noodles.",
+    "th": "ลูกค้าที่เข้ามาในร้านจะ ordered (สั่ง) อาหาร ส่วน cooked และ served เป็นสิ่งที่ร้านทำ และ booked ใช้กับการจองโต๊ะ ไม่ใช่ก๋วยเตี๋ยว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Linking words: even though",
+    "th": "คำเชื่อม: even though"
+   },
+   "topic": {
+    "en": "Story cloze",
+    "th": "เติมคำในเรื่องเล่า"
+   },
+   "passage": "Every Saturday morning, Fah helps at her aunt's noodle shop near Bang Lamphu. Last week, something unusual happened. An elderly tourist came in and (1) ______ a bowl of boat noodles. When he tried to pay, he could not find his wallet, (2) ______ he searched every pocket. He looked very worried. Fah remembered that she (3) ______ a man drop something near the bus stop earlier that morning. She ran outside and found a brown wallet lying on the pavement (4) ______ two parked motorcycles. When she gave it back, the man was so (5) ______ that he wanted to give her a reward. Fah politely refused. \"My aunt always says that honesty is its own reward,\" she explained. The next Saturday, the man came back with his whole family, and the shop was busier than it had been for months. Her aunt joked that Fah's honesty had (6) ______ off after all.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (2).",
+   "choices": [
+    "unless",
+    "even though",
+    "so",
+    "because"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "He could not find the wallet in spite of searching every pocket — a contrast, so \"even though\" fits. \"Because\" gives a reason, \"unless\" means \"if not\", and \"so\" shows a result.",
+    "th": "เขาหากระเป๋าสตางค์ไม่เจอทั้งที่ค้นทุกกระเป๋า ซึ่งเป็นความขัดแย้ง จึงใช้ even though ส่วน because บอกเหตุผล unless แปลว่า ถ้าไม่ และ so บอกผลลัพธ์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Past perfect in a story",
+    "th": "Past perfect ในเรื่องเล่า"
+   },
+   "topic": {
+    "en": "Story cloze",
+    "th": "เติมคำในเรื่องเล่า"
+   },
+   "passage": "Every Saturday morning, Fah helps at her aunt's noodle shop near Bang Lamphu. Last week, something unusual happened. An elderly tourist came in and (1) ______ a bowl of boat noodles. When he tried to pay, he could not find his wallet, (2) ______ he searched every pocket. He looked very worried. Fah remembered that she (3) ______ a man drop something near the bus stop earlier that morning. She ran outside and found a brown wallet lying on the pavement (4) ______ two parked motorcycles. When she gave it back, the man was so (5) ______ that he wanted to give her a reward. Fah politely refused. \"My aunt always says that honesty is its own reward,\" she explained. The next Saturday, the man came back with his whole family, and the shop was busier than it had been for months. Her aunt joked that Fah's honesty had (6) ______ off after all.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (3).",
+   "choices": [
+    "has seen",
+    "sees",
+    "was seeing",
+    "had seen"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Fah saw the man earlier, before the moment she remembered, so we use the past perfect \"had seen\". \"Has seen\" and \"sees\" are present forms, and \"see\" is not normally used in the continuous here.",
+    "th": "ฟ้าเห็นผู้ชายคนนั้นตั้งแต่เช้า ก่อนเวลาที่เธอนึกขึ้นได้ จึงใช้ past perfect คือ had seen ส่วน has seen และ sees เป็นรูปปัจจุบัน และ see มักไม่ใช้ในรูป continuous"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Prepositions of place: between / among",
+    "th": "บุพบทบอกตำแหน่ง: between / among"
+   },
+   "topic": {
+    "en": "Story cloze",
+    "th": "เติมคำในเรื่องเล่า"
+   },
+   "passage": "Every Saturday morning, Fah helps at her aunt's noodle shop near Bang Lamphu. Last week, something unusual happened. An elderly tourist came in and (1) ______ a bowl of boat noodles. When he tried to pay, he could not find his wallet, (2) ______ he searched every pocket. He looked very worried. Fah remembered that she (3) ______ a man drop something near the bus stop earlier that morning. She ran outside and found a brown wallet lying on the pavement (4) ______ two parked motorcycles. When she gave it back, the man was so (5) ______ that he wanted to give her a reward. Fah politely refused. \"My aunt always says that honesty is its own reward,\" she explained. The next Saturday, the man came back with his whole family, and the shop was busier than it had been for months. Her aunt joked that Fah's honesty had (6) ______ off after all.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (4).",
+   "choices": [
+    "among",
+    "across",
+    "between",
+    "along"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "With two separate things (two motorcycles), we use \"between\". \"Among\" is for a group of three or more, and \"along\" and \"across\" describe lines or movement, not a position between two objects.",
+    "th": "เมื่อมีของสองชิ้น (มอเตอร์ไซค์สองคัน) ใช้ between ส่วน among ใช้กับกลุ่มตั้งแต่สามขึ้นไป และ along กับ across ใช้กับแนวยาวหรือการเคลื่อนที่ข้าม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Adjectives of feeling in context",
+    "th": "คำคุณศัพท์บอกความรู้สึกในบริบท"
+   },
+   "topic": {
+    "en": "Story cloze",
+    "th": "เติมคำในเรื่องเล่า"
+   },
+   "passage": "Every Saturday morning, Fah helps at her aunt's noodle shop near Bang Lamphu. Last week, something unusual happened. An elderly tourist came in and (1) ______ a bowl of boat noodles. When he tried to pay, he could not find his wallet, (2) ______ he searched every pocket. He looked very worried. Fah remembered that she (3) ______ a man drop something near the bus stop earlier that morning. She ran outside and found a brown wallet lying on the pavement (4) ______ two parked motorcycles. When she gave it back, the man was so (5) ______ that he wanted to give her a reward. Fah politely refused. \"My aunt always says that honesty is its own reward,\" she explained. The next Saturday, the man came back with his whole family, and the shop was busier than it had been for months. Her aunt joked that Fah's honesty had (6) ______ off after all.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (5).",
+   "choices": [
+    "nervous",
+    "grateful",
+    "disappointed",
+    "curious"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "He wanted to give Fah a reward, which shows he felt thankful: \"grateful\". Being disappointed, curious or nervous would not make him want to reward her.",
+    "th": "เขาอยากให้รางวัลฟ้า แสดงว่ารู้สึกขอบคุณ จึงใช้ grateful ส่วน disappointed (ผิดหวัง) curious (อยากรู้) และ nervous (กังวล) ไม่ทำให้อยากให้รางวัล"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Idiom: pay off",
+    "th": "สำนวน: pay off"
+   },
+   "topic": {
+    "en": "Story cloze",
+    "th": "เติมคำในเรื่องเล่า"
+   },
+   "passage": "Every Saturday morning, Fah helps at her aunt's noodle shop near Bang Lamphu. Last week, something unusual happened. An elderly tourist came in and (1) ______ a bowl of boat noodles. When he tried to pay, he could not find his wallet, (2) ______ he searched every pocket. He looked very worried. Fah remembered that she (3) ______ a man drop something near the bus stop earlier that morning. She ran outside and found a brown wallet lying on the pavement (4) ______ two parked motorcycles. When she gave it back, the man was so (5) ______ that he wanted to give her a reward. Fah politely refused. \"My aunt always says that honesty is its own reward,\" she explained. The next Saturday, the man came back with his whole family, and the shop was busier than it had been for months. Her aunt joked that Fah's honesty had (6) ______ off after all.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (6).",
+   "choices": [
+    "turned",
+    "paid",
+    "taken",
+    "given"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Pay off\" means bring a good result: Fah's honesty brought the shop more customers. \"Take off\", \"give off\" and \"turn off\" have unrelated meanings.",
+    "th": "pay off แปลว่า ได้ผลดีตอบแทน ความซื่อสัตย์ของฟ้าทำให้ร้านมีลูกค้ามากขึ้น ส่วน take off, give off และ turn off มีความหมายอื่นที่ไม่ตรงกับเรื่อง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Scanning for details",
+    "th": "การอ่านหารายละเอียด"
+   },
+   "topic": {
+    "en": "Notice / timetable",
+    "th": "ประกาศ / ตารางเวลา"
+   },
+   "passage": "SUANLUANG SCHOOL SPORTS DAY — Information for M.1 Students\n\nSports Day will be held on Friday 20 November at the school stadium. Please read the following information carefully.\n\nHouses: Every student belongs to one of four colour houses: Red, Yellow, Green or Blue. Check your house on the noticeboard outside Room 104. Wear a T-shirt in your house colour, sports shorts and running shoes. Jeans are not allowed.\n\nTimetable\n7:30 Arrive at the stadium and sit with your house\n8:00 Opening parade (each house marches with its flag)\n9:00–12:00 Track events (100 m, 400 m, relay)\n12:00–13:00 Lunch break — food stalls run by the Parents' Association\n13:00–15:00 Team games: tug-of-war, football, sack race\n15:30 Prize-giving and closing ceremony\n\nImportant notes\n• Students taking part in track events must register with Kru Somsak by Friday 13 November. Late registrations will not be accepted.\n• Bring a refillable water bottle. Free drinking water is available at four stations around the stadium.\n• If it rains, the morning events will move to the indoor gym, and the afternoon team games will be postponed to the following Monday.\n• Students may leave only after the closing ceremony, unless a parent collects them in person and signs them out at the main gate.",
+   "table": null,
+   "stem": "Where can students find out which colour house they are in?",
+   "choices": [
+    "On the noticeboard outside Room 104",
+    "In the indoor gym",
+    "At the main gate",
+    "From Kru Somsak"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The notice says \"Check your house on the noticeboard outside Room 104\". Kru Somsak handles track registration, the main gate is for signing out, and the gym is for rain.",
+    "th": "ประกาศบอกให้ดูสีของตนเองที่บอร์ดหน้าห้อง 104 ส่วนครูสมศักดิ์รับลงชื่อแข่งกรีฑา ประตูหน้าใช้สำหรับเซ็นรับกลับ และโรงยิมใช้เมื่อฝนตก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding rules",
+    "th": "การเข้าใจกฎระเบียบ"
+   },
+   "topic": {
+    "en": "Notice / timetable",
+    "th": "ประกาศ / ตารางเวลา"
+   },
+   "passage": "SUANLUANG SCHOOL SPORTS DAY — Information for M.1 Students\n\nSports Day will be held on Friday 20 November at the school stadium. Please read the following information carefully.\n\nHouses: Every student belongs to one of four colour houses: Red, Yellow, Green or Blue. Check your house on the noticeboard outside Room 104. Wear a T-shirt in your house colour, sports shorts and running shoes. Jeans are not allowed.\n\nTimetable\n7:30 Arrive at the stadium and sit with your house\n8:00 Opening parade (each house marches with its flag)\n9:00–12:00 Track events (100 m, 400 m, relay)\n12:00–13:00 Lunch break — food stalls run by the Parents' Association\n13:00–15:00 Team games: tug-of-war, football, sack race\n15:30 Prize-giving and closing ceremony\n\nImportant notes\n• Students taking part in track events must register with Kru Somsak by Friday 13 November. Late registrations will not be accepted.\n• Bring a refillable water bottle. Free drinking water is available at four stations around the stadium.\n• If it rains, the morning events will move to the indoor gym, and the afternoon team games will be postponed to the following Monday.\n• Students may leave only after the closing ceremony, unless a parent collects them in person and signs them out at the main gate.",
+   "table": null,
+   "stem": "Which of these would a student NOT be allowed to wear on Sports Day?",
+   "choices": [
+    "Running shoes",
+    "A T-shirt in his house colour",
+    "A pair of jeans",
+    "Sports shorts"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The notice says \"Jeans are not allowed\". Running shoes, sports shorts and a T-shirt in the house colour are all required.",
+    "th": "ประกาศระบุว่า Jeans are not allowed (ห้ามใส่กางเกงยีนส์) ส่วนรองเท้าวิ่ง กางเกงกีฬา และเสื้อสีประจำคณะสี เป็นสิ่งที่ต้องใส่"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Reading dates and deadlines",
+    "th": "การอ่านวันที่และกำหนดส่ง"
+   },
+   "topic": {
+    "en": "Notice / timetable",
+    "th": "ประกาศ / ตารางเวลา"
+   },
+   "passage": "SUANLUANG SCHOOL SPORTS DAY — Information for M.1 Students\n\nSports Day will be held on Friday 20 November at the school stadium. Please read the following information carefully.\n\nHouses: Every student belongs to one of four colour houses: Red, Yellow, Green or Blue. Check your house on the noticeboard outside Room 104. Wear a T-shirt in your house colour, sports shorts and running shoes. Jeans are not allowed.\n\nTimetable\n7:30 Arrive at the stadium and sit with your house\n8:00 Opening parade (each house marches with its flag)\n9:00–12:00 Track events (100 m, 400 m, relay)\n12:00–13:00 Lunch break — food stalls run by the Parents' Association\n13:00–15:00 Team games: tug-of-war, football, sack race\n15:30 Prize-giving and closing ceremony\n\nImportant notes\n• Students taking part in track events must register with Kru Somsak by Friday 13 November. Late registrations will not be accepted.\n• Bring a refillable water bottle. Free drinking water is available at four stations around the stadium.\n• If it rains, the morning events will move to the indoor gym, and the afternoon team games will be postponed to the following Monday.\n• Students may leave only after the closing ceremony, unless a parent collects them in person and signs them out at the main gate.",
+   "table": null,
+   "stem": "Arm wants to run in the 400 m race. What is the latest day he can register?",
+   "choices": [
+    "Friday 13 November",
+    "Thursday 19 November",
+    "Monday 23 November",
+    "Friday 20 November"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Track-event runners \"must register with Kru Somsak by Friday 13 November\", and late registrations are not accepted. 20 November is Sports Day itself.",
+    "th": "นักกีฬากรีฑาต้องลงชื่อกับครูสมศักดิ์ภายในวันศุกร์ที่ 13 พฤศจิกายน และไม่รับลงชื่อช้า ส่วนวันที่ 20 พฤศจิกายนคือวันแข่งขัน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying conditional information",
+    "th": "การนำข้อมูลแบบมีเงื่อนไขไปใช้"
+   },
+   "topic": {
+    "en": "Notice / timetable",
+    "th": "ประกาศ / ตารางเวลา"
+   },
+   "passage": "SUANLUANG SCHOOL SPORTS DAY — Information for M.1 Students\n\nSports Day will be held on Friday 20 November at the school stadium. Please read the following information carefully.\n\nHouses: Every student belongs to one of four colour houses: Red, Yellow, Green or Blue. Check your house on the noticeboard outside Room 104. Wear a T-shirt in your house colour, sports shorts and running shoes. Jeans are not allowed.\n\nTimetable\n7:30 Arrive at the stadium and sit with your house\n8:00 Opening parade (each house marches with its flag)\n9:00–12:00 Track events (100 m, 400 m, relay)\n12:00–13:00 Lunch break — food stalls run by the Parents' Association\n13:00–15:00 Team games: tug-of-war, football, sack race\n15:30 Prize-giving and closing ceremony\n\nImportant notes\n• Students taking part in track events must register with Kru Somsak by Friday 13 November. Late registrations will not be accepted.\n• Bring a refillable water bottle. Free drinking water is available at four stations around the stadium.\n• If it rains, the morning events will move to the indoor gym, and the afternoon team games will be postponed to the following Monday.\n• Students may leave only after the closing ceremony, unless a parent collects them in person and signs them out at the main gate.",
+   "table": null,
+   "stem": "If it rains heavily on Sports Day, what will happen to the tug-of-war?",
+   "choices": [
+    "It will be cancelled completely.",
+    "It will take place on the following Monday.",
+    "It will take place in the indoor gym.",
+    "It will start at 9:00 instead."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Tug-of-war is an afternoon team game, and if it rains \"the afternoon team games will be postponed to the following Monday\". Only the morning events move to the gym.",
+    "th": "ชักเย่อเป็นเกมทีมช่วงบ่าย และถ้าฝนตก เกมทีมช่วงบ่ายจะเลื่อนไปวันจันทร์ถัดไป ส่วนรายการช่วงเช้าเท่านั้นที่ย้ายไปโรงยิม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying an exception in a rule",
+    "th": "การนำข้อยกเว้นของกฎไปใช้"
+   },
+   "topic": {
+    "en": "Notice / timetable",
+    "th": "ประกาศ / ตารางเวลา"
+   },
+   "passage": "SUANLUANG SCHOOL SPORTS DAY — Information for M.1 Students\n\nSports Day will be held on Friday 20 November at the school stadium. Please read the following information carefully.\n\nHouses: Every student belongs to one of four colour houses: Red, Yellow, Green or Blue. Check your house on the noticeboard outside Room 104. Wear a T-shirt in your house colour, sports shorts and running shoes. Jeans are not allowed.\n\nTimetable\n7:30 Arrive at the stadium and sit with your house\n8:00 Opening parade (each house marches with its flag)\n9:00–12:00 Track events (100 m, 400 m, relay)\n12:00–13:00 Lunch break — food stalls run by the Parents' Association\n13:00–15:00 Team games: tug-of-war, football, sack race\n15:30 Prize-giving and closing ceremony\n\nImportant notes\n• Students taking part in track events must register with Kru Somsak by Friday 13 November. Late registrations will not be accepted.\n• Bring a refillable water bottle. Free drinking water is available at four stations around the stadium.\n• If it rains, the morning events will move to the indoor gym, and the afternoon team games will be postponed to the following Monday.\n• Students may leave only after the closing ceremony, unless a parent collects them in person and signs them out at the main gate.",
+   "table": null,
+   "stem": "Mai's mother wants to take her home at lunchtime. According to the notice, what must happen?",
+   "choices": [
+    "Mai must stay until the closing ceremony, with no exceptions.",
+    "Mai can leave on her own if she tells her house leader.",
+    "Her mother must phone Kru Somsak before 12:00.",
+    "Her mother must come in person and sign her out at the main gate."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Students may leave early only if \"a parent collects them in person and signs them out at the main gate\". So leaving at lunch is possible, but not alone, and phoning Kru Somsak is not mentioned.",
+    "th": "นักเรียนกลับก่อนได้เฉพาะเมื่อผู้ปกครองมารับด้วยตนเองและเซ็นชื่อที่ประตูหน้า ดังนั้นกลับตอนกลางวันได้ แต่กลับเองไม่ได้ และไม่มีการพูดถึงการโทรหาครูสมศักดิ์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Finding stated details",
+    "th": "การหารายละเอียดที่ระบุในบทความ"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Along the coast of the Gulf of Thailand, a strange forest grows with its feet in the sea. These are mangroves, trees that can live in salty water where most plants would die. Their roots grow above the mud like long, bent fingers, helping the trees breathe and stay upright as the tide comes in and goes out twice a day.\n\nMangroves are much more than unusual trees. Their thick roots slow down waves, so they protect coastal villages from storms. When the 2004 tsunami hit southern Thailand, some communities behind healthy mangroves suffered less damage than those on open beaches. The roots are also a \"nursery\" for young fish, crabs and shrimps, which hide there from larger animals until they are big enough to survive in open water. Many fishing families depend on this.\n\nSadly, Thailand lost a large part of its mangroves in the second half of the twentieth century, mostly to make room for shrimp farms and buildings. Today, however, the situation is improving. Schools, villagers and companies plant thousands of young mangrove trees every year, and in some provinces the forest is slowly spreading again. Planting alone is not enough, though: young trees must be planted in the right places and protected for several years, or most of them will not survive.",
+   "table": null,
+   "stem": "According to the passage, how do the roots help the mangrove trees themselves?",
+   "choices": [
+    "They provide food for fishing families.",
+    "They remove salt from seawater for people.",
+    "They stop the tide from coming in.",
+    "They help the trees breathe and stay upright."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Paragraph 1 says the roots help \"the trees breathe and stay upright\". The roots slow waves but do not stop the tide, and removing salt for people or feeding families is not what the roots do for the trees.",
+    "th": "ย่อหน้าแรกบอกว่ารากช่วยให้ต้นไม้หายใจและตั้งตรงอยู่ได้ รากชะลอคลื่นแต่ไม่ได้หยุดน้ำขึ้นน้ำลง และไม่ได้กรองเกลือให้คนหรือเป็นอาหารให้ชาวประมง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding a word used figuratively",
+    "th": "การเข้าใจคำที่ใช้ในความหมายเปรียบเทียบ"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Along the coast of the Gulf of Thailand, a strange forest grows with its feet in the sea. These are mangroves, trees that can live in salty water where most plants would die. Their roots grow above the mud like long, bent fingers, helping the trees breathe and stay upright as the tide comes in and goes out twice a day.\n\nMangroves are much more than unusual trees. Their thick roots slow down waves, so they protect coastal villages from storms. When the 2004 tsunami hit southern Thailand, some communities behind healthy mangroves suffered less damage than those on open beaches. The roots are also a \"nursery\" for young fish, crabs and shrimps, which hide there from larger animals until they are big enough to survive in open water. Many fishing families depend on this.\n\nSadly, Thailand lost a large part of its mangroves in the second half of the twentieth century, mostly to make room for shrimp farms and buildings. Today, however, the situation is improving. Schools, villagers and companies plant thousands of young mangrove trees every year, and in some provinces the forest is slowly spreading again. Planting alone is not enough, though: young trees must be planted in the right places and protected for several years, or most of them will not survive.",
+   "table": null,
+   "stem": "Why does the writer call mangrove roots a \"nursery\"?",
+   "choices": [
+    "Children visit them on school trips.",
+    "Farmers grow young trees there to sell.",
+    "Young sea animals hide and grow there until they are bigger.",
+    "Baby plants need their shade to grow."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "A nursery is a place where young ones are looked after. The passage says young fish, crabs and shrimps hide in the roots \"until they are big enough to survive in open water\".",
+    "th": "nursery คือที่ดูแลเด็กเล็ก ผู้เขียนใช้เปรียบเทียบเพราะลูกปลา ปู และกุ้ง หลบซ่อนในรากจนโตพอจะอยู่ในทะเลเปิดได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Making inferences from an example",
+    "th": "การอนุมานจากตัวอย่าง"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Along the coast of the Gulf of Thailand, a strange forest grows with its feet in the sea. These are mangroves, trees that can live in salty water where most plants would die. Their roots grow above the mud like long, bent fingers, helping the trees breathe and stay upright as the tide comes in and goes out twice a day.\n\nMangroves are much more than unusual trees. Their thick roots slow down waves, so they protect coastal villages from storms. When the 2004 tsunami hit southern Thailand, some communities behind healthy mangroves suffered less damage than those on open beaches. The roots are also a \"nursery\" for young fish, crabs and shrimps, which hide there from larger animals until they are big enough to survive in open water. Many fishing families depend on this.\n\nSadly, Thailand lost a large part of its mangroves in the second half of the twentieth century, mostly to make room for shrimp farms and buildings. Today, however, the situation is improving. Schools, villagers and companies plant thousands of young mangrove trees every year, and in some provinces the forest is slowly spreading again. Planting alone is not enough, though: young trees must be planted in the right places and protected for several years, or most of them will not survive.",
+   "table": null,
+   "stem": "What can be inferred from the information about the 2004 tsunami?",
+   "choices": [
+    "The tsunami destroyed all the mangroves in southern Thailand.",
+    "Healthy mangroves can reduce the damage caused by very large waves.",
+    "The tsunami was the main reason Thailand lost its mangroves.",
+    "Villages on open beaches were not damaged at all."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Communities behind healthy mangroves \"suffered less damage\", which suggests mangroves reduce wave damage. The passage does not say all mangroves were destroyed, that open beaches had no damage, or that the tsunami caused the loss (shrimp farms and buildings did).",
+    "th": "ชุมชนที่อยู่หลังป่าชายเลนเสียหายน้อยกว่า แสดงว่าป่าชายเลนช่วยลดความเสียหายจากคลื่นได้ บทความไม่ได้บอกว่าป่าถูกทำลายทั้งหมด ชายหาดเปิดไม่เสียหาย หรือสึนามิทำให้ป่าหายไป (สาเหตุหลักคือนากุ้งและสิ่งก่อสร้าง)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Identifying cause",
+    "th": "การระบุสาเหตุ"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Along the coast of the Gulf of Thailand, a strange forest grows with its feet in the sea. These are mangroves, trees that can live in salty water where most plants would die. Their roots grow above the mud like long, bent fingers, helping the trees breathe and stay upright as the tide comes in and goes out twice a day.\n\nMangroves are much more than unusual trees. Their thick roots slow down waves, so they protect coastal villages from storms. When the 2004 tsunami hit southern Thailand, some communities behind healthy mangroves suffered less damage than those on open beaches. The roots are also a \"nursery\" for young fish, crabs and shrimps, which hide there from larger animals until they are big enough to survive in open water. Many fishing families depend on this.\n\nSadly, Thailand lost a large part of its mangroves in the second half of the twentieth century, mostly to make room for shrimp farms and buildings. Today, however, the situation is improving. Schools, villagers and companies plant thousands of young mangrove trees every year, and in some provinces the forest is slowly spreading again. Planting alone is not enough, though: young trees must be planted in the right places and protected for several years, or most of them will not survive.",
+   "table": null,
+   "stem": "What was the main reason Thailand lost many of its mangroves in the past?",
+   "choices": [
+    "They were cleared for shrimp farms and buildings.",
+    "The seawater became too salty for them.",
+    "Fishing families cut them down for firewood.",
+    "They were damaged by storms and tsunamis."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Paragraph 3 says the mangroves were lost \"mostly to make room for shrimp farms and buildings\". Storms, firewood and salt are not given as the main reason.",
+    "th": "ย่อหน้าที่สามบอกว่าป่าชายเลนหายไปส่วนใหญ่เพราะถูกถางเพื่อทำนากุ้งและสิ่งก่อสร้าง ไม่ได้เกิดจากพายุ การตัดไม้ฟืน หรือน้ำเค็มเกินไป"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Identifying the main point of a paragraph",
+    "th": "การระบุใจความสำคัญของย่อหน้า"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Along the coast of the Gulf of Thailand, a strange forest grows with its feet in the sea. These are mangroves, trees that can live in salty water where most plants would die. Their roots grow above the mud like long, bent fingers, helping the trees breathe and stay upright as the tide comes in and goes out twice a day.\n\nMangroves are much more than unusual trees. Their thick roots slow down waves, so they protect coastal villages from storms. When the 2004 tsunami hit southern Thailand, some communities behind healthy mangroves suffered less damage than those on open beaches. The roots are also a \"nursery\" for young fish, crabs and shrimps, which hide there from larger animals until they are big enough to survive in open water. Many fishing families depend on this.\n\nSadly, Thailand lost a large part of its mangroves in the second half of the twentieth century, mostly to make room for shrimp farms and buildings. Today, however, the situation is improving. Schools, villagers and companies plant thousands of young mangrove trees every year, and in some provinces the forest is slowly spreading again. Planting alone is not enough, though: young trees must be planted in the right places and protected for several years, or most of them will not survive.",
+   "table": null,
+   "stem": "What is the writer's main point in the last paragraph?",
+   "choices": [
+    "Mangroves will never grow back in Thailand.",
+    "Planting mangroves is a waste of time and money.",
+    "Shrimp farms now protect most of Thailand's mangroves.",
+    "Mangroves are recovering, but planting must be done carefully to succeed."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The paragraph says the situation \"is improving\" but warns that trees must be planted in the right places and protected. It does not call planting a waste, praise shrimp farms or say mangroves cannot return.",
+    "th": "ย่อหน้าสุดท้ายบอกว่าสถานการณ์ดีขึ้น แต่เตือนว่าต้องปลูกให้ถูกที่และดูแลหลายปี ไม่ได้บอกว่าการปลูกเสียเปล่า ไม่ได้ชมนากุ้ง และไม่ได้บอกว่าป่าชายเลนจะไม่กลับมา"
+   }
+  }
+ ]
+}

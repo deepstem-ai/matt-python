@@ -1,0 +1,1785 @@
+{
+ "exam": "sp1",
+ "set": 2,
+ "title": {
+  "en": "Satit Prasarnmit M.1 English — Practice paper 2",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.1 สาธิตประสานมิตร — ชุดที่ 2"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "50 questions in 60 minutes, reading-centred with reasoning (tables, notices, emails, stories, informational and opinion texts), plus conversation, vocabulary and grammar. DeepDistrict practice — not an official or past paper.",
+  "th": "50 ข้อ 60 นาที เน้นการอ่านและการคิดวิเคราะห์ (ตาราง ประกาศ อีเมล เรื่องสั้น บทความความรู้ และบทแสดงความคิดเห็น) พร้อมบทสนทนา คำศัพท์ และไวยากรณ์ — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing a suitable response",
+    "th": "การเลือกคำตอบที่เหมาะสม"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: Would you mind closing the window?\nB: ______ It's getting a bit cold, isn't it?",
+   "choices": [
+    "Not at all.",
+    "No, you can't.",
+    "Never mind.",
+    "Yes, I would."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "'Would you mind…?' literally asks whether something bothers you, so the polite way to agree is 'Not at all.' 'Yes, I would' means B refuses, which does not match B's friendly comment about the cold.",
+    "th": "'Would you mind…?' แปลตรงตัวว่า รังเกียจไหม การตอบตกลงจึงใช้ 'Not at all.' ถ้าตอบ 'Yes, I would' แปลว่าไม่ยอมทำ ซึ่งขัดกับที่ B พูดต่อว่าอากาศเริ่มหนาว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding implied meaning",
+    "th": "การเข้าใจความหมายแฝง"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: How was that new noodle shop you tried?\nB: Let's just say I won't be rushing back.\nWhat does B mean?",
+   "choices": [
+    "B didn't enjoy the food much.",
+    "B ate too quickly.",
+    "B couldn't find the shop.",
+    "B is going back there tomorrow."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "'I won't be rushing back' is a polite, indirect way of saying the experience was disappointing, so B did not enjoy it.",
+    "th": "'I won't be rushing back' เป็นการพูดอ้อม ๆ อย่างสุภาพว่าไม่ประทับใจ จึงแปลว่า B ไม่ค่อยชอบอาหารร้านนั้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing appropriate register (politeness)",
+    "th": "การเลือกระดับภาษาที่เหมาะสมกับสถานการณ์"
+   },
+   "topic": {
+    "en": "Polite and formal language",
+    "th": "ภาษาสุภาพและเป็นทางการ"
+   },
+   "passage": "",
+   "stem": "You are writing an email to a teacher you have never met to ask for more time to hand in a report. Which sentence is most appropriate?",
+   "choices": [
+    "I am writing to ask whether I could hand in my report on Monday instead of Friday, as I have been unwell.",
+    "Can I send my report late? Thanks!!",
+    "I need more time, so I'll send my report on Monday.",
+    "You should give me until Monday because I was sick."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A formal request to an unknown teacher should be indirect and give a reason: 'I am writing to ask whether I could…'. The others are too casual, too direct, or sound like a demand.",
+    "th": "การขอร้องครูที่ไม่รู้จักผ่านอีเมลควรใช้ภาษาทางการ ถามอ้อม ๆ และให้เหตุผล คือ 'I am writing to ask whether I could…' ส่วนประโยคอื่นเป็นกันเองเกินไป ห้วน หรือเหมือนเรียกร้อง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Following the logic of a dialogue",
+    "th": "การเชื่อมโยงเหตุผลในบทสนทนา"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: Did you remember to feed the fish?\nB: Oh no! ______\nA: Don't bother — I've just done it.",
+   "choices": [
+    "You told me not to.",
+    "I'll do it right now.",
+    "I fed them twice this morning.",
+    "They don't like that kind of food."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "'Oh no!' shows B forgot, and A's 'Don't bother' answers an offer to do something. So B must offer: 'I'll do it right now.'",
+    "th": "'Oh no!' แสดงว่า B ลืม และ A ตอบว่า 'Don't bother' ซึ่งใช้ตอบเมื่ออีกฝ่ายเสนอจะทำอะไรให้ B จึงต้องพูดว่า 'I'll do it right now.'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing a suitable response",
+    "th": "การเลือกคำตอบที่เหมาะสม"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: I'm thinking of joining the drama club this term.\nB: ______ You were brilliant in the class play last year.",
+   "choices": [
+    "Rather you than me.",
+    "It's up to me.",
+    "Go for it!",
+    "Never mind."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "B praises A's acting, so B is encouraging A: 'Go for it!' 'Rather you than me' means B would not want to do it, which does not match the praise.",
+    "th": "B ชมว่า A เล่นละครเก่ง จึงเป็นการให้กำลังใจ 'Go for it!' (ลุยเลย) ส่วน 'Rather you than me' แปลว่า ฉันไม่อยากทำหรอก ไม่เข้ากับคำชม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding implied meaning",
+    "th": "การเข้าใจความหมายแฝง"
+   },
+   "topic": {
+    "en": "Polite and formal language",
+    "th": "ภาษาสุภาพและเป็นทางการ"
+   },
+   "passage": "",
+   "stem": "During an exam, a phone starts ringing in Somchai's bag. The teacher looks at him and says, 'Somchai, is that your phone I can hear?'\nWhat does the teacher most likely want?",
+   "choices": [
+    "She wants Somchai to switch it off immediately.",
+    "She wants to know whether he owns a phone.",
+    "She likes his ringtone.",
+    "She wants to borrow his phone."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "In this situation the question is not a real request for information; it is a polite but firm way of telling Somchai to turn off his phone.",
+    "th": "ในสถานการณ์นี้ ครูไม่ได้ถามเพื่อหาข้อมูลจริง ๆ แต่เป็นการบอกอย่างสุภาพแต่จริงจังให้สมชายปิดโทรศัพท์ทันที"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Adjectives",
+    "th": "คำคุณศัพท์"
+   },
+   "passage": "",
+   "stem": "My grandmother is ______ to cats, so she sneezes whenever she visits us.",
+   "choices": [
+    "afraid",
+    "similar",
+    "kind",
+    "allergic"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Sneezing near cats is a sign of an allergy: 'allergic to cats'. 'Afraid' takes 'of', not 'to'.",
+    "th": "การจามเมื่ออยู่ใกล้แมวเป็นอาการแพ้ จึงใช้ 'allergic to' ส่วน afraid ต้องใช้กับ of"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Nouns",
+    "th": "คำนาม"
+   },
+   "passage": "",
+   "stem": "The concert tickets sold out within ten minutes; they were in great ______.",
+   "choices": [
+    "need",
+    "supply",
+    "price",
+    "demand"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Selling out quickly shows many people wanted them. The collocation is 'in great demand'.",
+    "th": "ตั๋วขายหมดเร็วแสดงว่ามีคนต้องการมาก สำนวนคือ 'in great demand'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Adjectives",
+    "th": "คำคุณศัพท์"
+   },
+   "passage": "",
+   "stem": "Mana is a ______ reader; he finishes at least three novels every week.",
+   "choices": [
+    "lazy",
+    "slow",
+    "keen",
+    "careless"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Finishing three novels a week shows he loves reading: a 'keen' reader.",
+    "th": "อ่านนิยายจบสัปดาห์ละสามเล่มแสดงว่าชอบอ่านมาก จึงใช้ 'keen' (กระตือรือร้น ชื่นชอบ)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Verbs",
+    "th": "คำกริยา"
+   },
+   "passage": "",
+   "stem": "The scientist's idea was at first laughed at, but it was later ______ by the results of three separate experiments.",
+   "choices": [
+    "forgiven",
+    "ignored",
+    "supported",
+    "hidden"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'At first laughed at, but later…' signals a change to acceptance. Results from experiments can 'support' (give evidence for) an idea.",
+    "th": "'ตอนแรกถูกหัวเราะเยาะ แต่ภายหลัง…' แสดงการเปลี่ยนไปสู่การยอมรับ ผลการทดลองจึง 'supported' (สนับสนุน) แนวคิดนั้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Working out word meaning from context",
+    "th": "การหาความหมายของคำจากบริบท"
+   },
+   "topic": {
+    "en": "Adjectives",
+    "th": "คำคุณศัพท์"
+   },
+   "passage": "",
+   "stem": "The village is so remote that letters arrive only once a week and there is no mobile signal.\nThe word 'remote' is closest in meaning to ______.",
+   "choices": [
+    "far from towns and cities",
+    "very crowded",
+    "high on a mountain",
+    "old and beautiful"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Rare post and no signal suggest the village is far away from other places, which is the meaning of 'remote'.",
+    "th": "จดหมายมาสัปดาห์ละครั้งและไม่มีสัญญาณโทรศัพท์ แสดงว่าหมู่บ้านอยู่ห่างไกล 'remote' จึงแปลว่า ห่างไกลจากเมือง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Verbs",
+    "th": "คำกริยา"
+   },
+   "passage": "",
+   "stem": "Instead of throwing her old jeans away, Fah ______ them into bags and cushions.",
+   "choices": [
+    "throws",
+    "wears",
+    "buys",
+    "transforms"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "'Instead of throwing them away' plus 'into bags and cushions' shows a change of form: she 'transforms' them.",
+    "th": "'แทนที่จะทิ้ง' และ 'into bags and cushions' แสดงการแปลงรูป จึงใช้ 'transforms'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำที่ใช้คู่กันและกริยาวลี"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำที่ใช้คู่กันและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "If you don't know what a word means, ______ it ______ in a dictionary.",
+   "choices": [
+    "look … after",
+    "look … up",
+    "look … forward",
+    "look … out"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "'Look something up' means to search for information in a book or online.",
+    "th": "'look something up' แปลว่า เปิดหาข้อมูลในพจนานุกรมหรือหนังสือ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Adjectives",
+    "th": "คำคุณศัพท์"
+   },
+   "passage": "",
+   "stem": "Despite feeling ______, Nok gave an excellent speech in front of the whole school.",
+   "choices": [
+    "proud",
+    "nervous",
+    "prepared",
+    "confident"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "'Despite' needs a contrast with 'an excellent speech'. Feeling nervous but doing well is a contrast; feeling confident or prepared is not.",
+    "th": "'Despite' ต้องขัดแย้งกับการพูดได้ดีเยี่ยม การรู้สึกประหม่าแต่ทำได้ดีจึงเป็นความขัดแย้ง ส่วนมั่นใจหรือเตรียมพร้อมไม่ขัดแย้ง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Quantifiers",
+    "th": "คำบอกปริมาณ"
+   },
+   "passage": "",
+   "stem": "There isn't ______ milk left. Can you buy some on your way home?",
+   "choices": [
+    "many",
+    "a few",
+    "few",
+    "much"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "'Milk' is uncountable, so in a negative sentence we use 'much'. 'Many', 'a few' and 'few' go with countable nouns.",
+    "th": "milk เป็นนามนับไม่ได้ ประโยคปฏิเสธจึงใช้ 'much' ส่วน many, a few และ few ใช้กับนามนับได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Relative pronouns",
+    "th": "ประพันธสรรพนาม"
+   },
+   "passage": "",
+   "stem": "Mum, this is the book ______ I told you about.",
+   "choices": [
+    "whose",
+    "what",
+    "who",
+    "that"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The book is a thing, and the clause describes it, so 'that' (or 'which') is correct. 'What' cannot follow a noun.",
+    "th": "หนังสือเป็นสิ่งของและอนุประโยคขยายคำนามนั้น จึงใช้ 'that' ส่วน what ใช้ตามหลังคำนามไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Conditionals (second conditional)",
+    "th": "ประโยคเงื่อนไขแบบที่ 2"
+   },
+   "passage": "",
+   "stem": "If I ______ you, I would say sorry to her before the weekend.",
+   "choices": [
+    "had",
+    "will be",
+    "am",
+    "were"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Giving advice with an imaginary situation uses the second conditional: 'If I were you, I would…'.",
+    "th": "การให้คำแนะนำโดยสมมติว่าเป็นอีกฝ่ายใช้เงื่อนไขแบบที่ 2 คือ 'If I were you, I would…'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Passive voice",
+    "th": "ประโยค passive"
+   },
+   "passage": "",
+   "stem": "My bike ______ from outside the shop last night, so I had to walk to school today.",
+   "choices": [
+    "was stolen",
+    "has stolen",
+    "is stolen",
+    "stole"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The bike did not steal anything; someone stole it, so we need the past passive: 'was stolen'.",
+    "th": "จักรยานไม่ได้เป็นผู้ขโมย แต่ถูกขโมย และเกิดเมื่อคืน จึงใช้ past passive 'was stolen'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Inversion after 'Not only'",
+    "th": "การสลับที่หลัง Not only"
+   },
+   "passage": "",
+   "stem": "Not only ______ the test, but she also got the highest mark in the class.",
+   "choices": [
+    "did she pass",
+    "she passed",
+    "she did pass",
+    "passed she"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "After 'Not only' at the start of a sentence, the auxiliary goes before the subject: 'Not only did she pass…'.",
+    "th": "เมื่อขึ้นต้นประโยคด้วย Not only ต้องสลับกริยาช่วยไว้หน้าประธาน คือ 'did she pass'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Verb + -ing / to-infinitive",
+    "th": "กริยาที่ตามด้วย V-ing หรือ to + V"
+   },
+   "passage": "",
+   "stem": "Pond suggested ______ to the museum by boat instead of by taxi.",
+   "choices": [
+    "to go",
+    "going",
+    "go",
+    "to going"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "'Suggest' is followed by a gerund (or a that-clause), not by 'to + verb': 'suggested going'.",
+    "th": "suggest ตามด้วย V-ing (หรือ that-clause) ไม่ตามด้วย to + V จึงเป็น 'suggested going'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Double comparatives",
+    "th": "โครงสร้าง the + comparative, the + comparative"
+   },
+   "passage": "",
+   "stem": "The more you practise speaking English, ______ you will become.",
+   "choices": [
+    "the more confident",
+    "the confident",
+    "the most confident",
+    "more confident"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The pattern is 'The + comparative…, the + comparative…': 'The more you practise, the more confident you will become.'",
+    "th": "โครงสร้างคือ The + ขั้นกว่า…, the + ขั้นกว่า… จึงเป็น 'the more confident'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Reported questions",
+    "th": "การรายงานคำถาม"
+   },
+   "passage": "",
+   "stem": "Joy asked me, 'Where did you buy your bag?'\nJoy asked me where ______ my bag.",
+   "choices": [
+    "had I bought",
+    "I had bought",
+    "did I buy",
+    "I have bought"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "In a reported question the word order is like a statement (subject before verb), and the past simple usually moves back to the past perfect: 'where I had bought'.",
+    "th": "ในการรายงานคำถาม ใช้ลำดับคำแบบประโยคบอกเล่า (ประธานก่อนกริยา) และ past simple มักเลื่อนเป็น past perfect จึงเป็น 'I had bought'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the timetable and the notes, then answer the questions.\n\nNotes:\n• '—' means the bus does not stop there.\n• Fares: Central Station → Old Market 20 baht; Central Station → Seaview Beach 45 baht.\n• Express buses cost 15 baht extra.\n• Children under 12 pay half the full fare (including any express charge).\n• The last bus back from Seaview Beach leaves at 17:30.",
+   "table": {
+    "title": "Bus 39: Central Station → Seaview Beach (daily unless stated)",
+    "rows": [
+     [
+      "Bus",
+      "Leaves Central Station",
+      "Old Market",
+      "Arrives Seaview Beach",
+      "Notes"
+     ],
+     [
+      "A",
+      "07:10",
+      "07:35",
+      "08:20",
+      ""
+     ],
+     [
+      "B",
+      "08:00",
+      "—",
+      "08:40",
+      "Express"
+     ],
+     [
+      "C",
+      "09:15",
+      "09:40",
+      "10:25",
+      ""
+     ],
+     [
+      "D",
+      "10:30",
+      "—",
+      "11:10",
+      "Express"
+     ],
+     [
+      "E",
+      "12:00",
+      "12:25",
+      "13:10",
+      "Weekends only"
+     ],
+     [
+      "F",
+      "14:45",
+      "15:10",
+      "15:55",
+      ""
+     ]
+    ]
+   },
+   "stem": "Nan must be at Seaview Beach before 9:00, but she wants to leave Central Station as late as possible. Which bus should she take?",
+   "choices": [
+    "The 07:10 bus",
+    "The 08:00 bus",
+    "The 10:30 bus",
+    "The 09:15 bus"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Both the 07:10 (arrives 08:20) and the 08:00 express (arrives 08:40) arrive before 9:00. The 08:00 leaves later, so it is the best choice.",
+    "th": "รถเที่ยว 07:10 (ถึง 08:20) และรถด่วน 08:00 (ถึง 08:40) ถึงก่อน 9:00 ทั้งคู่ แต่เที่ยว 08:00 ออกช้ากว่า จึงเหมาะที่สุด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Calculating from given information",
+    "th": "การคำนวณจากข้อมูลที่กำหนด"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the timetable and the notes, then answer the questions.\n\nNotes:\n• '—' means the bus does not stop there.\n• Fares: Central Station → Old Market 20 baht; Central Station → Seaview Beach 45 baht.\n• Express buses cost 15 baht extra.\n• Children under 12 pay half the full fare (including any express charge).\n• The last bus back from Seaview Beach leaves at 17:30.",
+   "table": {
+    "title": "Bus 39: Central Station → Seaview Beach (daily unless stated)",
+    "rows": [
+     [
+      "Bus",
+      "Leaves Central Station",
+      "Old Market",
+      "Arrives Seaview Beach",
+      "Notes"
+     ],
+     [
+      "A",
+      "07:10",
+      "07:35",
+      "08:20",
+      ""
+     ],
+     [
+      "B",
+      "08:00",
+      "—",
+      "08:40",
+      "Express"
+     ],
+     [
+      "C",
+      "09:15",
+      "09:40",
+      "10:25",
+      ""
+     ],
+     [
+      "D",
+      "10:30",
+      "—",
+      "11:10",
+      "Express"
+     ],
+     [
+      "E",
+      "12:00",
+      "12:25",
+      "13:10",
+      "Weekends only"
+     ],
+     [
+      "F",
+      "14:45",
+      "15:10",
+      "15:55",
+      ""
+     ]
+    ]
+   },
+   "stem": "Mr Lee and his 10-year-old son take an express bus from Central Station to Seaview Beach. How much do they pay altogether?",
+   "choices": [
+    "75 baht",
+    "90 baht",
+    "105 baht",
+    "120 baht"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The adult express fare is 45 + 15 = 60 baht. The child pays half of the full fare including the express charge: 30 baht. 60 + 30 = 90 baht.",
+    "th": "ผู้ใหญ่รถด่วน 45 + 15 = 60 บาท เด็กจ่ายครึ่งหนึ่งของค่าโดยสารเต็มรวมค่ารถด่วน คือ 30 บาท รวม 90 บาท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Finding specific information",
+    "th": "การหาข้อมูลเฉพาะ"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the timetable and the notes, then answer the questions.\n\nNotes:\n• '—' means the bus does not stop there.\n• Fares: Central Station → Old Market 20 baht; Central Station → Seaview Beach 45 baht.\n• Express buses cost 15 baht extra.\n• Children under 12 pay half the full fare (including any express charge).\n• The last bus back from Seaview Beach leaves at 17:30.",
+   "table": {
+    "title": "Bus 39: Central Station → Seaview Beach (daily unless stated)",
+    "rows": [
+     [
+      "Bus",
+      "Leaves Central Station",
+      "Old Market",
+      "Arrives Seaview Beach",
+      "Notes"
+     ],
+     [
+      "A",
+      "07:10",
+      "07:35",
+      "08:20",
+      ""
+     ],
+     [
+      "B",
+      "08:00",
+      "—",
+      "08:40",
+      "Express"
+     ],
+     [
+      "C",
+      "09:15",
+      "09:40",
+      "10:25",
+      ""
+     ],
+     [
+      "D",
+      "10:30",
+      "—",
+      "11:10",
+      "Express"
+     ],
+     [
+      "E",
+      "12:00",
+      "12:25",
+      "13:10",
+      "Weekends only"
+     ],
+     [
+      "F",
+      "14:45",
+      "15:10",
+      "15:55",
+      ""
+     ]
+    ]
+   },
+   "stem": "Which of these buses would NOT take you to the Old Market?",
+   "choices": [
+    "The 12:00 bus",
+    "The 10:30 bus",
+    "The 09:15 bus",
+    "The 14:45 bus"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The 10:30 bus is an express and has '—' in the Old Market column, which means it does not stop there.",
+    "th": "รถเที่ยว 10:30 เป็นรถด่วนและมีเครื่องหมาย '—' ในช่อง Old Market แปลว่าไม่จอดที่นั่น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the timetable and the notes, then answer the questions.\n\nNotes:\n• '—' means the bus does not stop there.\n• Fares: Central Station → Old Market 20 baht; Central Station → Seaview Beach 45 baht.\n• Express buses cost 15 baht extra.\n• Children under 12 pay half the full fare (including any express charge).\n• The last bus back from Seaview Beach leaves at 17:30.",
+   "table": {
+    "title": "Bus 39: Central Station → Seaview Beach (daily unless stated)",
+    "rows": [
+     [
+      "Bus",
+      "Leaves Central Station",
+      "Old Market",
+      "Arrives Seaview Beach",
+      "Notes"
+     ],
+     [
+      "A",
+      "07:10",
+      "07:35",
+      "08:20",
+      ""
+     ],
+     [
+      "B",
+      "08:00",
+      "—",
+      "08:40",
+      "Express"
+     ],
+     [
+      "C",
+      "09:15",
+      "09:40",
+      "10:25",
+      ""
+     ],
+     [
+      "D",
+      "10:30",
+      "—",
+      "11:10",
+      "Express"
+     ],
+     [
+      "E",
+      "12:00",
+      "12:25",
+      "13:10",
+      "Weekends only"
+     ],
+     [
+      "F",
+      "14:45",
+      "15:10",
+      "15:55",
+      ""
+     ]
+    ]
+   },
+   "stem": "It is Wednesday. Ploy wants to spend at least four hours at the beach and return on the last bus. What is the LATEST bus she can take from Central Station?",
+   "choices": [
+    "The 09:15 bus",
+    "The 10:30 bus",
+    "The 12:00 bus",
+    "The 14:45 bus"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The last bus back is at 17:30, so she must arrive by 13:30. The 12:00 bus would arrive at 13:10, but it runs only at weekends. So the latest bus is the 10:30 (arrives 11:10).",
+    "th": "รถเที่ยวสุดท้ายกลับ 17:30 น. เธอต้องถึงชายหาดไม่เกิน 13:30 น. รถ 12:00 ถึง 13:10 แต่วิ่งเฉพาะวันหยุดสุดสัปดาห์ วันพุธจึงต้องขึ้นรถ 10:30 ซึ่งถึง 11:10"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Comparing information in a table or text",
+    "th": "การเปรียบเทียบข้อมูลในตารางหรือบทอ่าน"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the timetable and the notes, then answer the questions.\n\nNotes:\n• '—' means the bus does not stop there.\n• Fares: Central Station → Old Market 20 baht; Central Station → Seaview Beach 45 baht.\n• Express buses cost 15 baht extra.\n• Children under 12 pay half the full fare (including any express charge).\n• The last bus back from Seaview Beach leaves at 17:30.",
+   "table": {
+    "title": "Bus 39: Central Station → Seaview Beach (daily unless stated)",
+    "rows": [
+     [
+      "Bus",
+      "Leaves Central Station",
+      "Old Market",
+      "Arrives Seaview Beach",
+      "Notes"
+     ],
+     [
+      "A",
+      "07:10",
+      "07:35",
+      "08:20",
+      ""
+     ],
+     [
+      "B",
+      "08:00",
+      "—",
+      "08:40",
+      "Express"
+     ],
+     [
+      "C",
+      "09:15",
+      "09:40",
+      "10:25",
+      ""
+     ],
+     [
+      "D",
+      "10:30",
+      "—",
+      "11:10",
+      "Express"
+     ],
+     [
+      "E",
+      "12:00",
+      "12:25",
+      "13:10",
+      "Weekends only"
+     ],
+     [
+      "F",
+      "14:45",
+      "15:10",
+      "15:55",
+      ""
+     ]
+    ]
+   },
+   "stem": "How does the journey time of an express bus compare with a normal bus, from Central Station to Seaview Beach?",
+   "choices": [
+    "The express is about half an hour quicker.",
+    "The express is about ten minutes quicker.",
+    "Both take exactly the same time.",
+    "The express takes about twice as long."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A normal bus takes 70 minutes (07:10–08:20), while an express takes 40 minutes (08:00–08:40) — a difference of 30 minutes.",
+    "th": "รถธรรมดาใช้เวลา 70 นาที (07:10–08:20) รถด่วนใช้ 40 นาที (08:00–08:40) ต่างกันประมาณ 30 นาที"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "School or public notice",
+    "th": "ประกาศ"
+   },
+   "passage": "YOUNG WRITERS' COMPETITION\n\nTheme: 'A Door I Never Opened'\n\nWho can enter? Students aged 11 to 14 who live in Bangkok.\n\nRules\n1. Stories must be no longer than 800 words.\n2. Only ONE story per person.\n3. Send your story as a PDF to stories@citykids.example by 31 July.\n4. Write your name, age and school on the entry form ONLY. Do not write your name anywhere on your story.\n\nPrizes\nThe three best stories will be printed in City Kids magazine, and each winner will receive a 1,000-baht book voucher. Every student who enters will receive a certificate by email.",
+   "stem": "Which entry will be accepted?",
+   "choices": [
+    "A 600-word story by an 11-year-old, sent on 30 July with his name at the top of the story",
+    "Two short stories by a 14-year-old, each sent as a PDF on 15 July",
+    "A 750-word story by a 12-year-old, sent as a PDF on 28 July, with her name only on the form",
+    "A 900-word story by a 13-year-old, sent as a PDF on 20 July"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Check each rule. The 750-word story meets every rule. The 900-word story is too long, two stories break the one-story rule, and a name on the story breaks rule 4.",
+    "th": "ตรวจทีละกติกา เรื่อง 750 คำผ่านทุกข้อกำหนด เรื่อง 900 คำยาวเกินไป ส่งสองเรื่องผิดกติกาเรื่องละหนึ่งคน และการเขียนชื่อบนเรื่องผิดกติกาที่ 4"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน (อ่านระหว่างบรรทัด)"
+   },
+   "topic": {
+    "en": "School or public notice",
+    "th": "ประกาศ"
+   },
+   "passage": "YOUNG WRITERS' COMPETITION\n\nTheme: 'A Door I Never Opened'\n\nWho can enter? Students aged 11 to 14 who live in Bangkok.\n\nRules\n1. Stories must be no longer than 800 words.\n2. Only ONE story per person.\n3. Send your story as a PDF to stories@citykids.example by 31 July.\n4. Write your name, age and school on the entry form ONLY. Do not write your name anywhere on your story.\n\nPrizes\nThe three best stories will be printed in City Kids magazine, and each winner will receive a 1,000-baht book voucher. Every student who enters will receive a certificate by email.",
+   "stem": "Why are students told not to write their names on their stories?",
+   "choices": [
+    "So that the judges can mark fairly without knowing who wrote each story",
+    "Because the stories will not be printed",
+    "Because names make the PDF too large to send",
+    "So that the magazine can choose a new name for each writer"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "If judges cannot see names, they cannot be influenced by who the writer is or which school they come from. This keeps the judging fair.",
+    "th": "ถ้ากรรมการไม่เห็นชื่อ ก็จะไม่ได้รับอิทธิพลจากตัวผู้เขียนหรือโรงเรียน ทำให้การตัดสินยุติธรรม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "คำศัพท์ในบริบท"
+   },
+   "topic": {
+    "en": "School or public notice",
+    "th": "ประกาศ"
+   },
+   "passage": "YOUNG WRITERS' COMPETITION\n\nTheme: 'A Door I Never Opened'\n\nWho can enter? Students aged 11 to 14 who live in Bangkok.\n\nRules\n1. Stories must be no longer than 800 words.\n2. Only ONE story per person.\n3. Send your story as a PDF to stories@citykids.example by 31 July.\n4. Write your name, age and school on the entry form ONLY. Do not write your name anywhere on your story.\n\nPrizes\nThe three best stories will be printed in City Kids magazine, and each winner will receive a 1,000-baht book voucher. Every student who enters will receive a certificate by email.",
+   "stem": "In the poster, the word 'theme' means ______.",
+   "choices": [
+    "the prize for the winners",
+    "the last day to send a story",
+    "the main subject that the stories should be about",
+    "the person who judges the stories"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'Theme: A Door I Never Opened' tells writers what their story should be about, so 'theme' means the main subject or idea.",
+    "th": "'Theme: A Door I Never Opened' บอกว่าเรื่องที่เขียนต้องเกี่ยวกับอะไร theme จึงแปลว่า หัวข้อหรือแนวคิดหลัก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Finding specific information",
+    "th": "การหาข้อมูลเฉพาะ"
+   },
+   "topic": {
+    "en": "School or public notice",
+    "th": "ประกาศ"
+   },
+   "passage": "YOUNG WRITERS' COMPETITION\n\nTheme: 'A Door I Never Opened'\n\nWho can enter? Students aged 11 to 14 who live in Bangkok.\n\nRules\n1. Stories must be no longer than 800 words.\n2. Only ONE story per person.\n3. Send your story as a PDF to stories@citykids.example by 31 July.\n4. Write your name, age and school on the entry form ONLY. Do not write your name anywhere on your story.\n\nPrizes\nThe three best stories will be printed in City Kids magazine, and each winner will receive a 1,000-baht book voucher. Every student who enters will receive a certificate by email.",
+   "stem": "What will EVERY student who enters receive?",
+   "choices": [
+    "A 1,000-baht book voucher",
+    "A copy of City Kids magazine",
+    "A place in the magazine",
+    "A certificate by email"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The poster says, 'Every student who enters will receive a certificate by email.' Only the three winners receive vouchers and are printed in the magazine.",
+    "th": "โปสเตอร์ระบุว่าผู้ส่งผลงานทุกคนจะได้รับเกียรติบัตรทางอีเมล ส่วนบัตรกำนัลและการตีพิมพ์มีเฉพาะผู้ชนะสามคน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Understanding cause and effect",
+    "th": "การเข้าใจเหตุและผล"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "Class 1/4 group chat\n\nNina (18:02): Guys, Ms Lee's last day is Friday 😢 Shall we get her something?\nTom (18:05): Yes! Flowers?\nNina (18:06): She's allergic to pollen, remember? She sneezed all through Teachers' Day.\nArm (18:10): What about a photo book of our class? My uncle's shop can print one for 420 baht.\nTom (18:11): Love it! But can it be ready by Friday?\nArm (18:13): Printing takes three working days. If I send the photos tonight, the shop can start tomorrow morning and it'll be ready on Thursday afternoon.\nNina (18:16): Perfect. There are 30 of us, so that's 14 baht each. I'll collect the money tomorrow.\nTom (18:20): Can everyone send Arm their best class photo by 9 tonight?\nArm (18:21): Make it 8. My uncle's shop closes at 9.",
+   "stem": "Why did the students decide NOT to buy flowers?",
+   "choices": [
+    "The flower shop is closed.",
+    "Flowers are too expensive.",
+    "Ms Lee is allergic to pollen.",
+    "Ms Lee already has many flowers."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Nina reminds them that Ms Lee is allergic to pollen, so flowers would make her sneeze.",
+    "th": "นีน่าเตือนว่าครูลีแพ้เกสรดอกไม้ ดอกไม้จึงไม่เหมาะ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน (อ่านระหว่างบรรทัด)"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "Class 1/4 group chat\n\nNina (18:02): Guys, Ms Lee's last day is Friday 😢 Shall we get her something?\nTom (18:05): Yes! Flowers?\nNina (18:06): She's allergic to pollen, remember? She sneezed all through Teachers' Day.\nArm (18:10): What about a photo book of our class? My uncle's shop can print one for 420 baht.\nTom (18:11): Love it! But can it be ready by Friday?\nArm (18:13): Printing takes three working days. If I send the photos tonight, the shop can start tomorrow morning and it'll be ready on Thursday afternoon.\nNina (18:16): Perfect. There are 30 of us, so that's 14 baht each. I'll collect the money tomorrow.\nTom (18:20): Can everyone send Arm their best class photo by 9 tonight?\nArm (18:21): Make it 8. My uncle's shop closes at 9.",
+   "stem": "On which day is this conversation most likely taking place?",
+   "choices": [
+    "Sunday",
+    "Wednesday",
+    "Monday",
+    "Tuesday"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Printing takes three working days, starting 'tomorrow morning' and finishing on Thursday afternoon. The three days are Tuesday, Wednesday and Thursday, so today is Monday.",
+    "th": "การพิมพ์ใช้ 3 วันทำการ เริ่ม 'พรุ่งนี้เช้า' และเสร็จบ่ายวันพฤหัสบดี สามวันนั้นคือ อังคาร พุธ พฤหัสบดี วันนี้จึงเป็นวันจันทร์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding cause and effect",
+    "th": "การเข้าใจเหตุและผล"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "Class 1/4 group chat\n\nNina (18:02): Guys, Ms Lee's last day is Friday 😢 Shall we get her something?\nTom (18:05): Yes! Flowers?\nNina (18:06): She's allergic to pollen, remember? She sneezed all through Teachers' Day.\nArm (18:10): What about a photo book of our class? My uncle's shop can print one for 420 baht.\nTom (18:11): Love it! But can it be ready by Friday?\nArm (18:13): Printing takes three working days. If I send the photos tonight, the shop can start tomorrow morning and it'll be ready on Thursday afternoon.\nNina (18:16): Perfect. There are 30 of us, so that's 14 baht each. I'll collect the money tomorrow.\nTom (18:20): Can everyone send Arm their best class photo by 9 tonight?\nArm (18:21): Make it 8. My uncle's shop closes at 9.",
+   "stem": "Why does Arm change the deadline for the photos from 9 p.m. to 8 p.m.?",
+   "choices": [
+    "He goes to bed at 9 p.m.",
+    "He needs time to send them to the shop before it closes.",
+    "Nina will collect money at 9 p.m.",
+    "Ms Lee will see the chat at 9 p.m."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Arm says the shop closes at 9, so he needs the photos earlier to send them to his uncle in time for printing to start tomorrow.",
+    "th": "อาร์มบอกว่าร้านของลุงปิด 3 ทุ่ม เขาจึงต้องได้รูปเร็วขึ้นเพื่อส่งให้ร้านทันก่อนปิด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Calculating from given information",
+    "th": "การคำนวณจากข้อมูลที่กำหนด"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "Class 1/4 group chat\n\nNina (18:02): Guys, Ms Lee's last day is Friday 😢 Shall we get her something?\nTom (18:05): Yes! Flowers?\nNina (18:06): She's allergic to pollen, remember? She sneezed all through Teachers' Day.\nArm (18:10): What about a photo book of our class? My uncle's shop can print one for 420 baht.\nTom (18:11): Love it! But can it be ready by Friday?\nArm (18:13): Printing takes three working days. If I send the photos tonight, the shop can start tomorrow morning and it'll be ready on Thursday afternoon.\nNina (18:16): Perfect. There are 30 of us, so that's 14 baht each. I'll collect the money tomorrow.\nTom (18:20): Can everyone send Arm their best class photo by 9 tonight?\nArm (18:21): Make it 8. My uncle's shop closes at 9.",
+   "stem": "The next day, two students say they cannot pay. If the others share the cost equally, how much will each of them pay?",
+   "choices": [
+    "16 baht",
+    "14 baht",
+    "28 baht",
+    "15 baht"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The book costs 420 baht. If 28 students pay instead of 30, each pays 420 ÷ 28 = 15 baht.",
+    "th": "สมุดภาพราคา 420 บาท ถ้าเหลือคนจ่าย 28 คนแทน 30 คน แต่ละคนจ่าย 420 ÷ 28 = 15 บาท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Sequencing events",
+    "th": "การเรียงลำดับเหตุการณ์"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "Class 1/4 group chat\n\nNina (18:02): Guys, Ms Lee's last day is Friday 😢 Shall we get her something?\nTom (18:05): Yes! Flowers?\nNina (18:06): She's allergic to pollen, remember? She sneezed all through Teachers' Day.\nArm (18:10): What about a photo book of our class? My uncle's shop can print one for 420 baht.\nTom (18:11): Love it! But can it be ready by Friday?\nArm (18:13): Printing takes three working days. If I send the photos tonight, the shop can start tomorrow morning and it'll be ready on Thursday afternoon.\nNina (18:16): Perfect. There are 30 of us, so that's 14 baht each. I'll collect the money tomorrow.\nTom (18:20): Can everyone send Arm their best class photo by 9 tonight?\nArm (18:21): Make it 8. My uncle's shop closes at 9.",
+   "stem": "Which of these will happen FIRST?",
+   "choices": [
+    "The shop starts printing the book.",
+    "Students send their photos to Arm.",
+    "Nina collects the money.",
+    "Ms Lee receives the photo book."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The photos must be sent tonight by 8 p.m. Printing and collecting money happen tomorrow, and Ms Lee gets the book on Friday.",
+    "th": "ต้องส่งรูปให้อาร์มภายใน 2 ทุ่มคืนนี้ ส่วนการพิมพ์และเก็บเงินเกิดขึ้นพรุ่งนี้ และครูลีจะได้รับสมุดภาพวันศุกร์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Finding specific information",
+    "th": "การหาข้อมูลเฉพาะ"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "Tutor 7\n\nEvery evening, when Pete opened his maths homework app, a small window appeared: 'Stuck? Ask Tutor 7.' Pete asked often. Tutor 7 never gave him the answer. Instead, it asked him questions: 'What do you already know?' 'Could you draw it?' Sometimes Pete found this annoying, but slowly his marks went up.\n\nTutor 7 had some strange habits. It always wrote 'Slowly does it, dear' when he rushed, and once it reminded him to drink some water because 'brains are mostly water, you know'.\n\nOne rainy Tuesday, Pete typed, 'Finished! Thanks, Tutor 7. Good night.'\n\nThe reply came at once: 'Good night. And take your jacket tomorrow — Grandma can't wash another one this week.'\n\nPete stared at the screen. Then he walked slowly into the living room. His grandmother, a retired maths teacher, was sitting on the sofa with her tablet, wearing her reading glasses and a very guilty smile.",
+   "stem": "How did Tutor 7 help Pete with his homework?",
+   "choices": [
+    "By doing the difficult questions for him",
+    "By giving him extra homework",
+    "By asking questions that guided his thinking",
+    "By sending him the correct answers"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'Tutor 7 never gave him the answer. Instead, it asked him questions', which helped him think for himself.",
+    "th": "บทอ่านบอกว่า Tutor 7 ไม่เคยให้คำตอบ แต่ถามคำถามเพื่อให้ปีทคิดเอง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding character and feelings",
+    "th": "การเข้าใจตัวละครและความรู้สึก"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "Tutor 7\n\nEvery evening, when Pete opened his maths homework app, a small window appeared: 'Stuck? Ask Tutor 7.' Pete asked often. Tutor 7 never gave him the answer. Instead, it asked him questions: 'What do you already know?' 'Could you draw it?' Sometimes Pete found this annoying, but slowly his marks went up.\n\nTutor 7 had some strange habits. It always wrote 'Slowly does it, dear' when he rushed, and once it reminded him to drink some water because 'brains are mostly water, you know'.\n\nOne rainy Tuesday, Pete typed, 'Finished! Thanks, Tutor 7. Good night.'\n\nThe reply came at once: 'Good night. And take your jacket tomorrow — Grandma can't wash another one this week.'\n\nPete stared at the screen. Then he walked slowly into the living room. His grandmother, a retired maths teacher, was sitting on the sofa with her tablet, wearing her reading glasses and a very guilty smile.",
+   "stem": "Why did Pete sometimes find Tutor 7 annoying?",
+   "choices": [
+    "It would not simply tell him the answers.",
+    "It sent messages too late at night.",
+    "It kept talking about the weather.",
+    "It made his marks go down."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Tutor 7 only asked questions instead of giving answers, which can be frustrating when you are stuck — yet his marks still went up.",
+    "th": "Tutor 7 ถามคำถามแทนที่จะบอกคำตอบ ซึ่งน่าหงุดหงิดเวลาทำไม่ได้ แต่คะแนนของเขากลับดีขึ้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน (อ่านระหว่างบรรทัด)"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "Tutor 7\n\nEvery evening, when Pete opened his maths homework app, a small window appeared: 'Stuck? Ask Tutor 7.' Pete asked often. Tutor 7 never gave him the answer. Instead, it asked him questions: 'What do you already know?' 'Could you draw it?' Sometimes Pete found this annoying, but slowly his marks went up.\n\nTutor 7 had some strange habits. It always wrote 'Slowly does it, dear' when he rushed, and once it reminded him to drink some water because 'brains are mostly water, you know'.\n\nOne rainy Tuesday, Pete typed, 'Finished! Thanks, Tutor 7. Good night.'\n\nThe reply came at once: 'Good night. And take your jacket tomorrow — Grandma can't wash another one this week.'\n\nPete stared at the screen. Then he walked slowly into the living room. His grandmother, a retired maths teacher, was sitting on the sofa with her tablet, wearing her reading glasses and a very guilty smile.",
+   "stem": "Which detail finally showed Pete who Tutor 7 really was?",
+   "choices": [
+    "The words 'Slowly does it, dear'",
+    "The advice to drink water",
+    "The questions about what he already knew",
+    "The message about his jacket and the washing"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The earlier habits were only hints. The jacket message mentioned 'Grandma' and her washing, which made Pete realise his grandmother was writing the replies.",
+    "th": "นิสัยแปลก ๆ ก่อนหน้าเป็นเพียงเบาะแส แต่ข้อความเรื่องเสื้อแจ็กเก็ตที่พูดถึง 'Grandma' และการซักผ้า ทำให้ปีทรู้ว่ายายเป็นคนตอบ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding character and feelings",
+    "th": "การเข้าใจตัวละครและความรู้สึก"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "Tutor 7\n\nEvery evening, when Pete opened his maths homework app, a small window appeared: 'Stuck? Ask Tutor 7.' Pete asked often. Tutor 7 never gave him the answer. Instead, it asked him questions: 'What do you already know?' 'Could you draw it?' Sometimes Pete found this annoying, but slowly his marks went up.\n\nTutor 7 had some strange habits. It always wrote 'Slowly does it, dear' when he rushed, and once it reminded him to drink some water because 'brains are mostly water, you know'.\n\nOne rainy Tuesday, Pete typed, 'Finished! Thanks, Tutor 7. Good night.'\n\nThe reply came at once: 'Good night. And take your jacket tomorrow — Grandma can't wash another one this week.'\n\nPete stared at the screen. Then he walked slowly into the living room. His grandmother, a retired maths teacher, was sitting on the sofa with her tablet, wearing her reading glasses and a very guilty smile.",
+   "stem": "Why did Grandma most probably have a 'guilty smile'?",
+   "choices": [
+    "She had given Pete the wrong answers.",
+    "She had forgotten to wash his jacket.",
+    "She knew her secret had just been discovered.",
+    "She had broken Pete's tablet."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Her slip about the jacket revealed that she was Tutor 7. A guilty smile shows she knew she had been caught, but was not really sorry.",
+    "th": "ยายเผลอพิมพ์เรื่องเสื้อแจ็กเก็ตจนเปิดเผยว่าตัวเองคือ Tutor 7 รอยยิ้มแบบรู้สึกผิดแสดงว่ารู้ตัวว่าถูกจับได้ แต่ก็ไม่ได้เสียใจจริงจัง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน (อ่านระหว่างบรรทัด)"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "Tutor 7\n\nEvery evening, when Pete opened his maths homework app, a small window appeared: 'Stuck? Ask Tutor 7.' Pete asked often. Tutor 7 never gave him the answer. Instead, it asked him questions: 'What do you already know?' 'Could you draw it?' Sometimes Pete found this annoying, but slowly his marks went up.\n\nTutor 7 had some strange habits. It always wrote 'Slowly does it, dear' when he rushed, and once it reminded him to drink some water because 'brains are mostly water, you know'.\n\nOne rainy Tuesday, Pete typed, 'Finished! Thanks, Tutor 7. Good night.'\n\nThe reply came at once: 'Good night. And take your jacket tomorrow — Grandma can't wash another one this week.'\n\nPete stared at the screen. Then he walked slowly into the living room. His grandmother, a retired maths teacher, was sitting on the sofa with her tablet, wearing her reading glasses and a very guilty smile.",
+   "stem": "What does the story suggest about Grandma?",
+   "choices": [
+    "She was tired of helping Pete.",
+    "She did not know much about maths.",
+    "She cared about both Pete's learning and his health.",
+    "She wanted Pete to stop using the app."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "She guided his maths patiently and also reminded him to drink water and take his jacket, showing care for his learning and his wellbeing. She is a retired maths teacher, so she knows maths well.",
+    "th": "ยายสอนคณิตอย่างอดทน และยังเตือนให้ดื่มน้ำและเอาเสื้อแจ็กเก็ตไป แสดงว่าใส่ใจทั้งการเรียนและสุขภาพของปีท และยายเป็นครูคณิตเกษียณ จึงรู้คณิตศาสตร์ดี"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding cause and effect",
+    "th": "การเข้าใจเหตุและผล"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Sponge Cities\n\nIn many big cities, heavy rain quickly turns streets into rivers. The reason is simple: concrete and asphalt do not let water soak into the ground, so rain runs off into the drains. When the drains are full, the city floods.\n\nSome cities are now trying a different idea, called the 'sponge city'. Instead of pushing rainwater away as fast as possible, a sponge city tries to hold the water where it falls. Parks are built slightly lower than the streets around them, so that water collects there during storms. Roofs are covered with plants, and pavements are made with tiny gaps that let water through.\n\nIn Bangkok, a park at Chulalongkorn University was designed with this idea in mind. Its sloping lawn and ponds can store millions of litres of rainwater, and the stored water is later used to water the plants during the dry season.\n\nCritics say sponge parks take up land that could be used for housing or shops. Supporters reply that a park that prevents floods is worth more than another shopping centre.",
+   "stem": "According to the passage, why do big cities flood easily?",
+   "choices": [
+    "Hard surfaces stop rain from soaking into the ground.",
+    "Plants on roofs block the drains.",
+    "There are too many parks in the city.",
+    "Rivers in cities are usually very small."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Paragraph 1 explains that concrete and asphalt do not let water soak in, so rain fills the drains and the city floods.",
+    "th": "ย่อหน้าแรกอธิบายว่าคอนกรีตและยางมะตอยไม่ให้น้ำซึมลงดิน น้ำฝนจึงไหลลงท่อจนเต็มและเกิดน้ำท่วม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Finding specific information",
+    "th": "การหาข้อมูลเฉพาะ"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Sponge Cities\n\nIn many big cities, heavy rain quickly turns streets into rivers. The reason is simple: concrete and asphalt do not let water soak into the ground, so rain runs off into the drains. When the drains are full, the city floods.\n\nSome cities are now trying a different idea, called the 'sponge city'. Instead of pushing rainwater away as fast as possible, a sponge city tries to hold the water where it falls. Parks are built slightly lower than the streets around them, so that water collects there during storms. Roofs are covered with plants, and pavements are made with tiny gaps that let water through.\n\nIn Bangkok, a park at Chulalongkorn University was designed with this idea in mind. Its sloping lawn and ponds can store millions of litres of rainwater, and the stored water is later used to water the plants during the dry season.\n\nCritics say sponge parks take up land that could be used for housing or shops. Supporters reply that a park that prevents floods is worth more than another shopping centre.",
+   "stem": "Why are sponge parks built a little lower than the streets around them?",
+   "choices": [
+    "So that people can see them from the road",
+    "So that rainwater flows into them and is stored there",
+    "So that they are cooler in hot weather",
+    "So that cars can park on them"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Being lower means water 'collects there during storms', so the park holds the rain instead of the streets.",
+    "th": "สวนที่ต่ำกว่าถนนทำให้น้ำไหลไปรวมกันที่สวนในช่วงพายุ แทนที่จะท่วมถนน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Sponge Cities\n\nIn many big cities, heavy rain quickly turns streets into rivers. The reason is simple: concrete and asphalt do not let water soak into the ground, so rain runs off into the drains. When the drains are full, the city floods.\n\nSome cities are now trying a different idea, called the 'sponge city'. Instead of pushing rainwater away as fast as possible, a sponge city tries to hold the water where it falls. Parks are built slightly lower than the streets around them, so that water collects there during storms. Roofs are covered with plants, and pavements are made with tiny gaps that let water through.\n\nIn Bangkok, a park at Chulalongkorn University was designed with this idea in mind. Its sloping lawn and ponds can store millions of litres of rainwater, and the stored water is later used to water the plants during the dry season.\n\nCritics say sponge parks take up land that could be used for housing or shops. Supporters reply that a park that prevents floods is worth more than another shopping centre.",
+   "stem": "Which plan follows the sponge city idea?",
+   "choices": [
+    "Building bigger pipes to carry rain to the river more quickly",
+    "Raising a park so that it is higher than the street",
+    "Covering a muddy football field with concrete",
+    "Replacing a concrete car park with grass and gravel that let water through"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "A sponge city holds water where it falls and lets it soak in. Grass and gravel do this. Bigger pipes push water away quickly — the old method — and concrete or a raised park would stop water collecting.",
+    "th": "เมืองฟองน้ำเก็บน้ำไว้ในที่ที่ฝนตกและให้น้ำซึมลงดิน หญ้าและกรวดทำแบบนั้นได้ ส่วนท่อใหญ่ขึ้นคือวิธีเดิมที่ระบายน้ำออกเร็ว และพื้นคอนกรีตหรือสวนที่ยกสูงทำให้น้ำไม่ไหลมารวม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Identifying the writer's attitude",
+    "th": "การระบุทัศนคติของผู้เขียน"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Sponge Cities\n\nIn many big cities, heavy rain quickly turns streets into rivers. The reason is simple: concrete and asphalt do not let water soak into the ground, so rain runs off into the drains. When the drains are full, the city floods.\n\nSome cities are now trying a different idea, called the 'sponge city'. Instead of pushing rainwater away as fast as possible, a sponge city tries to hold the water where it falls. Parks are built slightly lower than the streets around them, so that water collects there during storms. Roofs are covered with plants, and pavements are made with tiny gaps that let water through.\n\nIn Bangkok, a park at Chulalongkorn University was designed with this idea in mind. Its sloping lawn and ponds can store millions of litres of rainwater, and the stored water is later used to water the plants during the dry season.\n\nCritics say sponge parks take up land that could be used for housing or shops. Supporters reply that a park that prevents floods is worth more than another shopping centre.",
+   "stem": "Which best describes the writer's attitude towards sponge cities?",
+   "choices": [
+    "Mostly positive, while mentioning one criticism",
+    "Completely neutral, with no opinion shown",
+    "Worried that they cause more floods",
+    "Strongly against them"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The writer explains the benefits in detail and ends with the supporters' reply, but also reports what critics say. So the tone is mostly positive but balanced.",
+    "th": "ผู้เขียนอธิบายข้อดีอย่างละเอียดและปิดท้ายด้วยคำตอบของฝ่ายสนับสนุน แต่ก็กล่าวถึงข้อวิจารณ์ด้วย จึงมีท่าทีเชิงบวกเป็นส่วนใหญ่แต่สมดุล"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "คำศัพท์ในบริบท"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "Sponge Cities\n\nIn many big cities, heavy rain quickly turns streets into rivers. The reason is simple: concrete and asphalt do not let water soak into the ground, so rain runs off into the drains. When the drains are full, the city floods.\n\nSome cities are now trying a different idea, called the 'sponge city'. Instead of pushing rainwater away as fast as possible, a sponge city tries to hold the water where it falls. Parks are built slightly lower than the streets around them, so that water collects there during storms. Roofs are covered with plants, and pavements are made with tiny gaps that let water through.\n\nIn Bangkok, a park at Chulalongkorn University was designed with this idea in mind. Its sloping lawn and ponds can store millions of litres of rainwater, and the stored water is later used to water the plants during the dry season.\n\nCritics say sponge parks take up land that could be used for housing or shops. Supporters reply that a park that prevents floods is worth more than another shopping centre.",
+   "stem": "In the last paragraph, 'critics' are people who ______.",
+   "choices": [
+    "build parks in cities",
+    "live near the university",
+    "point out problems with an idea",
+    "study rainwater"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Critics are contrasted with supporters, and they complain that parks use valuable land, so they are people who find fault with the idea.",
+    "th": "critics ถูกใช้ตรงข้ามกับ supporters และพวกเขาติว่าสวนใช้ที่ดินมีค่า จึงหมายถึงผู้ที่วิจารณ์หรือชี้ข้อเสีย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Identifying the main idea",
+    "th": "การจับใจความสำคัญ"
+   },
+   "topic": {
+    "en": "Opinion piece / letter to the editor",
+    "th": "บทแสดงความคิดเห็น / จดหมายถึงบรรณาธิการ"
+   },
+   "passage": "Zoos: Close Them or Change Them?\n\nSome people say that all zoos should be closed. I understand why. Anyone who has watched a tiger walking up and down in a small cage knows that something is wrong. But closing every zoo would be a mistake.\n\nGood zoos today do much more than entertain visitors. They breed animals that are almost extinct in the wild, such as the Siamese crocodile, and some of these animals are later returned to nature. They also teach millions of children, who may never see a rainforest, to care about the animals that live there.\n\nThe real question, then, is not 'zoos or no zoos?' but 'which zoos?' Zoos that keep large animals in tiny spaces just to make money should lose their licences. Zoos that put conservation first should get more support from the government.\n\nWe do not close every school because some schools are bad. We make them better. Zoos deserve the same treatment.",
+   "stem": "What is the writer's main argument?",
+   "choices": [
+    "Zoos are mainly places for entertainment.",
+    "All zoos should be closed as soon as possible.",
+    "Bad zoos should be closed, but good zoos should be kept and supported.",
+    "Schools are more important than zoos."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The writer rejects closing every zoo and says the real question is 'which zoos?': poor zoos should lose their licences, and conservation zoos should get support.",
+    "th": "ผู้เขียนไม่เห็นด้วยกับการปิดสวนสัตว์ทั้งหมด และบอกว่าคำถามที่แท้จริงคือ สวนสัตว์แบบไหน สวนสัตว์ที่แย่ควรถูกเพิกถอนใบอนุญาต ส่วนสวนสัตว์ที่เน้นการอนุรักษ์ควรได้รับการสนับสนุน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding the writer's technique",
+    "th": "การเข้าใจกลวิธีของผู้เขียน"
+   },
+   "topic": {
+    "en": "Opinion piece / letter to the editor",
+    "th": "บทแสดงความคิดเห็น / จดหมายถึงบรรณาธิการ"
+   },
+   "passage": "Zoos: Close Them or Change Them?\n\nSome people say that all zoos should be closed. I understand why. Anyone who has watched a tiger walking up and down in a small cage knows that something is wrong. But closing every zoo would be a mistake.\n\nGood zoos today do much more than entertain visitors. They breed animals that are almost extinct in the wild, such as the Siamese crocodile, and some of these animals are later returned to nature. They also teach millions of children, who may never see a rainforest, to care about the animals that live there.\n\nThe real question, then, is not 'zoos or no zoos?' but 'which zoos?' Zoos that keep large animals in tiny spaces just to make money should lose their licences. Zoos that put conservation first should get more support from the government.\n\nWe do not close every school because some schools are bad. We make them better. Zoos deserve the same treatment.",
+   "stem": "Why does the writer mention schools in the last paragraph?",
+   "choices": [
+    "To argue that schools teach children more than zoos",
+    "To complain about bad schools",
+    "To suggest that zoos should be built next to schools",
+    "To show that when some examples are bad, we improve them instead of closing them all"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The comparison works as an argument: we do not close all schools because some are bad, so we should not close all zoos either — we should improve them.",
+    "th": "การเปรียบเทียบนี้ใช้สนับสนุนเหตุผล เราไม่ปิดโรงเรียนทั้งหมดเพราะบางแห่งไม่ดี จึงไม่ควรปิดสวนสัตว์ทั้งหมดเช่นกัน แต่ควรปรับปรุงให้ดีขึ้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "Opinion piece / letter to the editor",
+    "th": "บทแสดงความคิดเห็น / จดหมายถึงบรรณาธิการ"
+   },
+   "passage": "Zoos: Close Them or Change Them?\n\nSome people say that all zoos should be closed. I understand why. Anyone who has watched a tiger walking up and down in a small cage knows that something is wrong. But closing every zoo would be a mistake.\n\nGood zoos today do much more than entertain visitors. They breed animals that are almost extinct in the wild, such as the Siamese crocodile, and some of these animals are later returned to nature. They also teach millions of children, who may never see a rainforest, to care about the animals that live there.\n\nThe real question, then, is not 'zoos or no zoos?' but 'which zoos?' Zoos that keep large animals in tiny spaces just to make money should lose their licences. Zoos that put conservation first should get more support from the government.\n\nWe do not close every school because some schools are bad. We make them better. Zoos deserve the same treatment.",
+   "stem": "Which action would the writer most probably support?",
+   "choices": [
+    "Opening a new zoo with small cages to attract tourists",
+    "Giving government money to a zoo that breeds endangered animals",
+    "Banning school trips to zoos",
+    "Closing a zoo that returns crocodiles to the wild"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The writer says zoos that put conservation first 'should get more support from the government', and breeding endangered animals is conservation.",
+    "th": "ผู้เขียนบอกว่าสวนสัตว์ที่ให้ความสำคัญกับการอนุรักษ์ควรได้รับการสนับสนุนจากรัฐ และการเพาะพันธุ์สัตว์ใกล้สูญพันธุ์ก็คือการอนุรักษ์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding the writer's technique",
+    "th": "การเข้าใจกลวิธีของผู้เขียน"
+   },
+   "topic": {
+    "en": "Opinion piece / letter to the editor",
+    "th": "บทแสดงความคิดเห็น / จดหมายถึงบรรณาธิการ"
+   },
+   "passage": "Zoos: Close Them or Change Them?\n\nSome people say that all zoos should be closed. I understand why. Anyone who has watched a tiger walking up and down in a small cage knows that something is wrong. But closing every zoo would be a mistake.\n\nGood zoos today do much more than entertain visitors. They breed animals that are almost extinct in the wild, such as the Siamese crocodile, and some of these animals are later returned to nature. They also teach millions of children, who may never see a rainforest, to care about the animals that live there.\n\nThe real question, then, is not 'zoos or no zoos?' but 'which zoos?' Zoos that keep large animals in tiny spaces just to make money should lose their licences. Zoos that put conservation first should get more support from the government.\n\nWe do not close every school because some schools are bad. We make them better. Zoos deserve the same treatment.",
+   "stem": "The writer begins with 'I understand why.' What is the effect of this?",
+   "choices": [
+    "It shows the writer has never visited a zoo.",
+    "It shows the writer agrees that all zoos should close.",
+    "It shows the writer is not sure what to think.",
+    "It shows the writer accepts part of the opposite view before disagreeing."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The writer admits that tigers in small cages are a real problem, then says 'But closing every zoo would be a mistake.' Accepting part of the other side makes the argument sound fair.",
+    "th": "ผู้เขียนยอมรับว่าเสือในกรงเล็กเป็นปัญหาจริง แล้วจึงแย้งว่า 'But closing every zoo would be a mistake.' การยอมรับบางส่วนของอีกฝ่ายทำให้ข้อโต้แย้งดูยุติธรรม"
+   }
+  }
+ ]
+}
