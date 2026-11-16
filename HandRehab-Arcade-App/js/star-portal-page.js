@@ -33,7 +33,12 @@ const game = new StarPortal($('game'), {
     fx.juice.score.set(s.score); $('pinches').textContent = s.pinches;
     $('time').textContent = Math.ceil(s.timeLeft); $('timeBar').style.width = (s.timeFrac * 100).toFixed(1) + '%';
   },
-  onRep: (r) => rec.rep(r),                         // Lab 28: บันทึกทุกครั้งที่จีบทันที
+  onRep: (r) => {
+    rec.rep(r);                                     // Lab 28: บันทึกทุกครั้งที่จีบทันที
+    // ประกาศออกไปให้แถบเก็บข้อมูลงานวิจัยได้ยิน (js/research/study-band.js)
+    // ถ้าไม่ได้เปิดโหมดเก็บข้อมูล ก็ไม่มีใครฟัง ไม่มีผลอะไรกับเกมปกติ
+    dispatchEvent(new CustomEvent('hr-rep', { detail: r }));
+  },
   onEnd: (sum) => finish(sum),
 });
 // Lab 28: ตัวบันทึกเซสชัน (FPS + ความสว่างทุก 1 วินาที, เครื่อง, GPU/CPU)

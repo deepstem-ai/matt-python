@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <title>เก็บข้อมูลความถูกต้องของการนับ · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/page.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <style>
+    .bigrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+    .bigrow div { text-align: center; padding: 14px 8px; border-radius: 14px;
+                  background: color-mix(in srgb, var(--primary) 8%, transparent); }
+    .bigrow span { display: block; font-size: .84em; color: var(--text-2); }
+    .bigrow b { font-size: clamp(24px, 3.4vw, 36px); }
+    .setup { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; align-items: end; }
+    .setup label { display: block; font-weight: 700; margin-bottom: 6px; }
+    .setup input, .setup select { width: 100%; min-height: 48px; font-size: 17px; padding: 6px 12px;
+      border-radius: 12px; border: 1px solid var(--line); background: var(--card); color: var(--text); }
+    #start { min-height: 56px; font-size: 18px; font-weight: 800; }
+    ol.steps { line-height: 1.85; padding-left: 1.3em; }
+    ol.steps b { color: var(--primary); }
+    table.data { width: 100%; }
+    table.data .n { text-align: right; font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+  <header class="top-bar">
+    <a class="btn-glow ghost small" href="menu.html">← เมนูหลัก</a>
+    <h1>🎯 เก็บข้อมูลความถูกต้องของการนับ</h1>
+    <span class="spacer"></span>
+  </header>
+
+  <main class="wrap">
+
+    <section class="card-neon">
+      <h2 class="card-title">ทำตามนี้ทีละข้อ</h2>
+      <ol class="steps">
+        <li>ให้ผู้เข้าร่วม <b>ปรับเทียบมือก่อนหนึ่งครั้ง</b> ที่หน้า <a href="calibrate.html">ปรับเทียบ</a> (ใช้เวลาราวหนึ่งนาที)</li>
+        <li>กลับมาหน้านี้ ใส่ <b>รหัสผู้เข้าร่วม</b> กับ <b>ระดับแสง</b> แล้วกดเริ่ม</li>
+        <li>ในหน้าเกม กด <b>เริ่มบล็อก</b> ตอนนั้นเลขของระบบจะถูกซ่อนไว้ <b>ผู้สังเกตนับเอง</b> ด้วยการกดปุ่ม +1 ทุกครั้งที่เห็นจีบนิ้วครบหนึ่งครั้ง</li>
+        <li>พอครบจำนวนที่ตั้งไว้ ระบบจะหยุดเอง แล้วถามว่าคุณนับได้เท่าไร <b>ใส่เลขของคุณก่อน</b> จึงจะเห็นเลขของระบบและผลต่าง</li>
+        <li>ทำซ้ำจนครบจำนวนบล็อกที่วางไว้ แล้วกลับมาหน้านี้กด <b>ดาวน์โหลด CSV</b></li>
+      </ol>
+      <p class="muted">ผู้สังเกตต้องเป็นคนละคนกับผู้เข้าร่วม และต้องมองที่มือ ไม่ใช่มองที่จอ ระบบจึงซ่อนเลขไว้ให้ระหว่างเก็บข้อมูล</p>
+    </section>
+
+    <section class="card-neon">
+      <h2 class="card-title">ตั้งค่าแล้วเริ่ม</h2>
+      <div class="setup">
+        <div>
+          <label for="pid">รหัสผู้เข้าร่วม</label>
+          <input id="pid" value="P01" placeholder="P01" autocomplete="off">
+        </div>
+        <div>
+          <label for="light">ระดับแสง</label>
+          <select id="light">
+            <option value="dim">dim · ห้องสลัว เปิดไฟดวงเดียว</option>
+            <option value="normal" selected>normal · ไฟห้องปกติ</option>
+            <option value="bright">bright · สว่างมาก หรือใกล้หน้าต่าง</option>
+          </select>
+        </div>
+        <div>
+          <label for="target">จำนวนครั้งต่อบล็อก</label>
+          <input id="target" type="number" min="5" max="100" step="5" value="30">
+        </div>
+        <div><button class="btn-glow" id="start">▶ เริ่มบล็อก</button></div>
+      </div>
+      <p class="muted">ห้ามใส่ชื่อจริง ใช้รหัส P01 P02 ไปเรื่อย ๆ เพื่อไม่ให้ข้อมูลระบุตัวบุคคลได้</p>
+    </section>
+
+    <section class="card-neon">
+      <h2 class="card-title">สรุปผลที่เก็บมาแล้ว</h2>
+      <div id="sum"></div>
+      <div id="byLight" style="margin-top:16px"></div>
+    </section>
+
+    <section class="card-neon">
+      <div class="row">
+        <h2 class="card-title" style="margin:0">รายบล็อก</h2>
+        <span class="spacer" style="flex:1"></span>
+        <button class="btn-glow small" id="csv">⬇ ดาวน์โหลด CSV</button>
+        <button class="btn-glow ghost small" id="wipe">🗑 ล้างข้อมูล</button>
+      </div>
+      <div id="tbl" style="margin-top:12px"></div>
+      <p class="muted">ข้อมูลเก็บอยู่ในเบราว์เซอร์ของเครื่องนี้เท่านั้น ไม่ได้ส่งออกไปไหน ถ้าล้างข้อมูลเบราว์เซอร์จะหายไปด้วย จึงควรกดดาวน์โหลดทุกครั้งที่เก็บเสร็จ</p>
+    </section>
+
+  </main>
+
+  <script type="module" src="js/research/study.js"></script>
+  <script type="module" src="js/appbar.js"></script>
+</body>
+</html>
