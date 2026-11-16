@@ -1,0 +1,167 @@
+/* ============================================================
+   research.css — หน้าตาของส่วน "เครื่องมือวิจัยและการสอน" (research.html และหน้าย่อย)
+   รวมจาก lab.css (Lab 16–21) + pages.css (Lab 30–32) + การ์ดหน้ารวม
+   ใช้สีจาก css/tokens.css / css/themes.css เท่านั้น (ยกเว้นธีมกระดาษท้ายไฟล์ ดูหมายเหตุ)
+   ============================================================ */
+
+/* ---------- หัวหน้า + ลิงก์กลับห้องวิจัย ---------- */
+.r-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--sp-3); margin: var(--sp-3) 0 var(--sp-4); }
+.r-head h1 { margin: 0; font-size: var(--fs-xl); }
+.r-head .sub { color: var(--text-2); font-size: var(--fs-sm); }
+.lab-no { font: 700 var(--fs-xs) var(--font-num); color: var(--text-2); border: 1px solid var(--line); border-radius: 999px; padding: 2px var(--sp-2); white-space: nowrap; }
+.tabbar { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-4); }
+.tabbar .btn-glow[aria-selected="true"] { outline: 3px solid var(--primary); }
+
+/* ---------- หน้ารวม research.html ---------- */
+.r-group { margin-top: var(--sp-5); }
+.r-group > h2 { font-size: var(--fs-lg); margin: 0 0 var(--sp-3); }
+.r-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: var(--sp-3); }
+.r-card { position: relative; display: flex; flex-direction: column; gap: var(--sp-1); min-height: 150px; padding: var(--sp-4);
+  background: var(--card); color: var(--text); text-decoration: none; border: 2px solid var(--line); border-radius: var(--r-lg);
+  transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s; }
+.r-card:hover, .r-card:focus-visible { border-color: var(--primary); box-shadow: var(--glow); transform: translateY(-2px); }
+.r-card .big-ico { font-size: calc(var(--fs-base) * 2.4); line-height: 1; }
+.r-card b { font-size: var(--fs-lg); }
+.r-card small { color: var(--text-2); font-size: var(--fs-sm); }
+.r-card .lab-no { position: absolute; top: var(--sp-3); right: var(--sp-3); }
+body.calm .r-card, body.theme-calm .r-card { transition: none; }
+body.calm .r-card:hover, body.theme-calm .r-card:hover { transform: none; box-shadow: none; }
+.doc-list { columns: 2 280px; margin: 0; padding-left: var(--sp-5); }
+.doc-list li { margin-bottom: var(--sp-1); break-inside: avoid; }
+
+/* ---------- แหล่งข้อมูล: ไฟล์ CSV / ฐานข้อมูลของแอป (หลักฐาน + รายงาน) ---------- */
+.drop { border: 3px dashed var(--line); border-radius: var(--r-lg); padding: var(--sp-4); text-align: center; transition: border-color var(--speed); }
+.drop.over { border-color: var(--primary); background: color-mix(in srgb, var(--primary) 8%, var(--card)); }
+.drop input[type=file] { display: none; }
+.demo-flag { color: var(--warning); font-weight: 700; }
+.src-db { color: var(--secondary); font-weight: 700; }
+pre.md { white-space: pre-wrap; background: var(--input); padding: var(--sp-3); border-radius: var(--r-md); font-size: var(--fs-xs); max-height: 380px; overflow: auto; }
+ul.small { font-size: var(--fs-sm); margin: var(--sp-2) 0; padding-left: 1.2em; max-height: 220px; overflow: auto; }
+li.warn { color: var(--warning); }
+
+/* ===== จาก lab.css (Lab 16–21) ===== */
+.lab-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(300px, 1fr); gap: var(--sp-4); align-items: start; }
+@media (max-width: 980px) { .lab-grid { grid-template-columns: 1fr; } }
+.stats { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: var(--sp-3) 0; }
+.stage .nohand {
+  position: absolute; left: 50%; bottom: var(--sp-4); transform: translateX(-50%);
+  background: color-mix(in srgb, var(--card) 85%, transparent); border: 1px solid var(--line);
+  border-radius: 999px; padding: var(--sp-2) var(--sp-4); font-weight: 600; white-space: nowrap;
+}
+.stage .demo-tag {
+  position: absolute; left: var(--sp-3); top: var(--sp-3); padding: 2px var(--sp-3); border-radius: 999px;
+  background: var(--warning); color: var(--on-bright); font-weight: 800; font-size: var(--fs-sm);
+}
+body:not(.demo-on) .stage .demo-tag { display: none; }
+.stage { touch-action: none; }
+.panel { display: flex; flex-direction: column; gap: var(--sp-4); }
+.panel h2 { font-size: var(--fs-lg); margin: 0 0 var(--sp-2); }
+details > summary { cursor: pointer; min-height: 40px; display: flex; align-items: center; }
+.demo-panel .demo-row { display: block; margin: var(--sp-2) 0; font-weight: 400; }
+.demo-panel .demo-row span { display: flex; justify-content: space-between; }
+.msg { margin-bottom: var(--sp-3); }
+.tbl-scroll { max-height: 520px; overflow: auto; }
+table.data td.num, table.data th.num { text-align: right; }
+table.data tr.tip td:first-child { color: var(--primary); font-weight: 800; }
+.seg { display: inline-flex; flex-wrap: wrap; gap: var(--sp-2); }
+.seg .choice input { width: 22px; height: 22px; }
+.slider-row { display: grid; grid-template-columns: 1fr auto; gap: var(--sp-1) var(--sp-3); align-items: center; margin: var(--sp-2) 0; }
+.slider-row input[type=range] { grid-column: 1 / -1; }
+/* แถบคะแนนใหญ่ สีเปลี่ยนตามระดับ */
+.bigbar { position: relative; height: 56px; background: var(--input); border-radius: var(--r-md); overflow: hidden; border: 1px solid var(--line); }
+.bigbar > i { position: absolute; inset: 0 auto 0 0; width: 0%; background: var(--sky); transition: width 0.08s linear, background var(--speed); }
+.bigbar[data-level="mid"] > i { background: var(--warning); }
+.bigbar[data-level="high"] > i { background: var(--success); }
+.bigbar > .mark { position: absolute; top: 0; bottom: 0; width: 3px; background: var(--text); opacity: 0.8; }
+.bigbar > span { position: absolute; inset: 0; display: grid; place-items: center; font: 800 var(--fs-xl) var(--font-num); color: var(--text); text-shadow: 0 0 6px var(--bg); }
+.bignum { font: 800 var(--fs-3xl) var(--font-num); color: var(--primary); line-height: 1; }
+.kv { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-3); }
+.kv > div { background: var(--input); border-radius: var(--r-md); padding: var(--sp-3); }
+.kv b { display: block; font: 800 var(--fs-xl) var(--font-num); }
+.ok-text { color: var(--success); } .warn-text { color: var(--warning); } .bad-text { color: var(--error); }
+.hover-tip { position: absolute; pointer-events: none; background: var(--card); border: 1px solid var(--primary); border-radius: var(--r-sm); padding: 2px var(--sp-2); font-size: var(--fs-sm); transform: translate(-50%, -140%); white-space: nowrap; }
+kbd { background: var(--input); border: 1px solid var(--line); border-radius: 4px; padding: 0 6px; font-family: var(--font-num); }
+a.btn-glow { text-decoration: none; }
+
+/* ===== จาก pages.css (Lab 31 สอน AI) ===== */
+.layout { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(320px, 1fr); gap: var(--sp-5); align-items: start; }
+@media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+.stage-msg { position: absolute; inset: auto 0 var(--sp-4) 0; text-align: center; color: var(--text); font-weight: 700; text-shadow: 0 1px 4px var(--bg); }
+.hold { user-select: none; touch-action: none; }
+.hold.active { filter: brightness(1.2); transform: scale(0.98); }
+.gest-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+.gest-list li { display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-2) var(--sp-3); background: var(--input); border-radius: var(--r-md); border: 1px solid var(--line); }
+.gest-list li.low { border-color: var(--warning); }
+.gest-list .gname { flex: 1; font-weight: 700; }
+.gest-list .warn { color: var(--warning); font-size: var(--fs-sm); }
+.guess { font-size: var(--fs-2xl); font-weight: 800; text-align: center; min-height: 1.4em; color: var(--primary); }
+.bar.grow { flex: 1; }
+.neigh { margin: 0; padding-left: var(--sp-5); font-size: var(--fs-sm); }
+.neigh li.win { color: var(--success); }
+.preset.on { outline: 3px solid var(--primary); }
+
+/* ===== จาก pages.css (Lab 32 วัดผล) ===== */
+table.cm { border-collapse: separate; border-spacing: 4px; }
+table.cm th { font-size: var(--fs-sm); color: var(--text-2); padding: var(--sp-1) var(--sp-2); text-align: center; }
+table.cm tbody th { text-align: right; color: var(--text); }
+table.cm th.corner { text-align: left; }
+.cm-cell { width: 84px; min-height: 56px; border: 1px solid var(--line); border-radius: var(--r-sm); background: var(--input); color: var(--text); font: 800 var(--fs-lg) var(--font-num); cursor: pointer; }
+.cm-cell.diag { border-color: color-mix(in srgb, var(--success) 60%, var(--line)); }
+.cm-cell:hover { outline: 2px solid var(--primary); }
+.cm-cell.sel { outline: 3px solid var(--primary); }
+.cell-detail h4 { margin: var(--sp-2) 0; }
+tr.macro td { border-top: 2px solid var(--line); }
+.chart { width: 100%; max-width: 760px; height: 320px; border-radius: var(--r-md); }
+.discussion { background: var(--input); border-left: 6px solid var(--secondary); border-radius: var(--r-md); padding: var(--sp-4); margin: 0; }
+.callout { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; font-size: var(--fs-3xl); font-weight: 800; color: var(--text); text-shadow: 0 2px 10px var(--bg); pointer-events: none; }
+.callout small { display: block; font-size: var(--fs-xl); color: var(--warning); }
+.cond-done { color: var(--success); font-size: var(--fs-sm); }
+.runs { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+.runs li { display: flex; gap: var(--sp-3); align-items: center; flex-wrap: wrap; background: var(--input); border-radius: var(--r-md); padding: var(--sp-2) var(--sp-3); }
+dl dt { font-weight: 700; margin-top: var(--sp-2); }
+dl dd { margin: 0 0 0 var(--sp-4); color: var(--text-2); }
+
+/* ===== จาก pages.css (Lab 30 ชุดข้อมูล) ===== */
+.licence { border: 2px solid var(--warning); border-radius: var(--r-md); padding: var(--sp-3) var(--sp-4); background: color-mix(in srgb, var(--warning) 8%, var(--card)); }
+.licence summary { font-size: var(--fs-lg); font-weight: 800; cursor: pointer; min-height: 44px; display: flex; align-items: center; }
+.licence h4 { margin: var(--sp-2) 0 var(--sp-1); color: var(--warning); font-size: var(--fs-lg); }
+.licence ul { margin: var(--sp-1) 0; padding-left: var(--sp-5); }
+.licence .can li::marker { content: "✅ "; }
+.licence .must li::marker { content: "📌 "; }
+.licence .cannot li::marker { content: "⛔ "; }
+.ack { width: fit-content; }
+.attempts { margin: 0; padding-left: var(--sp-5); font-size: var(--fs-sm); }
+.attempts .ok { color: var(--success); }
+.attempts .bad { color: var(--error); }
+.cards { display: flex; gap: var(--sp-3); flex-wrap: wrap; }
+.cards figure { margin: 0; background: var(--input); border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--sp-2); text-align: center; font-size: var(--fs-sm); }
+.cards canvas { width: 120px; height: 120px; display: block; }
+pre.howto { white-space: pre-wrap; font: inherit; margin: 0; }
+
+/* ---------- ธีมกระดาษ (Lab 36) — หนังสือยินยอม/แบบฟอร์มพิมพ์ ขาวดำ ประหยัดหมึก ----------
+   หมายเหตุ: ชุดนี้เดิมอยู่ใน css/themes.css ของ Lab 36 (themes.css ของแอปรวมยังไม่มี)
+   ส่วนวิจัยแก้ไฟล์ร่วมไม่ได้ จึงวางไว้ที่นี่ชั่วคราว — ควรย้ายไปไว้ใน css/themes.css */
+body.paper {
+  --bg: #FFFFFF;
+  --card: #FFFFFF;
+  --input: #F1F5F9;
+  --text: #000000;
+  --text-2: #333333;
+  --line: #000000;
+  --primary: #0E7490;
+  --on-bright: #FFFFFF;
+}
+@media print {
+  body {
+    --bg: #FFFFFF;
+    --card: #FFFFFF;
+    --text: #000000;
+    --text-2: #333333;
+    --line: #000000;
+    --primary: #000000;
+  }
+  .app-bar, .net-badge, .update-bar, .team-badge, .no-print { display: none !important; }
+}
+
+/* ป้ายเลขแลปบนปุ่มหลัก (พื้นไล่สี) ใช้สีตัวอักษรของปุ่มเอง ให้อ่านออก */
+.btn-glow:not(.ghost) .lab-no { color: inherit; border-color: currentColor; }

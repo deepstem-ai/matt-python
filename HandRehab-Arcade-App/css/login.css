@@ -1,0 +1,77 @@
+/* ============================================================
+   login.css — หน้าเข้าสู่ระบบ, PIN, ลงทะเบียน, หน้าหลัก (Lab 15)
+   สีทั้งหมดอ่านจาก tokens.css / themes.css เท่านั้น
+   ============================================================ */
+.login-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: var(--sp-4); align-items: start; }
+@media (max-width: 900px) { .login-grid { grid-template-columns: 1fr; } }
+.small { font-size: var(--fs-sm); margin: var(--sp-1) 0 0; }
+
+/* วงแหวนสแกนหมุนกลางภาพ */
+.scan-ring {
+  position: absolute; left: 50%; top: 50%; width: min(52%, 360px); aspect-ratio: 1; transform: translate(-50%, -50%);
+  border-radius: 50%; pointer-events: none;
+  background: conic-gradient(from 0deg, transparent 0 55%, var(--primary) 80%, var(--secondary) 100%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 8px), var(--text) calc(100% - 7px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 8px), var(--text) calc(100% - 7px));
+  animation: spin 1.4s linear infinite;
+  filter: drop-shadow(0 0 10px var(--primary));
+}
+.scan-ring.idle { animation: none; background: var(--line); filter: none; }
+.scan-ring.ok { animation: none; background: var(--success); filter: drop-shadow(0 0 16px var(--success)); }
+@keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+.login-status {
+  min-height: 64px; display: flex; align-items: center; padding: var(--sp-3) var(--sp-4);
+  border-radius: var(--r-md); font-size: var(--fs-lg); font-weight: 700;
+  border: 3px solid var(--primary); background: color-mix(in srgb, var(--primary) 12%, var(--card));
+}
+.login-status[data-state="almost"] { border-color: var(--warning); background: color-mix(in srgb, var(--warning) 14%, var(--card)); }
+.login-status[data-state="idle"] { border-color: var(--line); }
+
+.meter-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--sp-1); }
+.bar.conf { position: relative; height: 26px; }
+.bar.conf.pass > i { background: var(--success); }
+.bar .thr { position: absolute; top: -3px; bottom: -3px; width: 3px; background: var(--text); border-radius: 2px; }
+.blink-box {
+  display: flex; align-items: center; gap: var(--sp-3); padding: var(--sp-3); border-radius: var(--r-md);
+  background: var(--input); border: 2px solid var(--line); transition: border-color var(--speed), transform var(--speed);
+}
+.blink-box .eye { font-size: var(--fs-xl); }
+.blink-box b { margin-left: auto; }
+.blink-box.done { border-color: var(--success); }
+.blink-box.pop { transform: scale(1.06); }
+
+/* ทักทาย */
+.greet { position: fixed; inset: 0; display: grid; place-items: center; z-index: 9500; background: color-mix(in srgb, var(--bg) 70%, transparent); }
+.greet-card { text-align: center; padding: var(--sp-6); border-radius: var(--r-lg); background: var(--card); border: 2px solid var(--success); box-shadow: 0 0 40px color-mix(in srgb, var(--success) 45%, transparent); animation: pop-in 0.5s ease; }
+.greet-card .big { font-size: 72px; line-height: 1; }
+.greet-card h2 { font-size: var(--fs-3xl); margin: var(--sp-3) 0; }
+@keyframes pop-in { from { transform: scale(0.6); opacity: 0; } to { transform: none; opacity: 1; } }
+.confetti { position: fixed; inset: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9600; }
+
+/* แป้น PIN ขนาดใหญ่ */
+.pinpad { display: flex; flex-direction: column; align-items: center; gap: var(--sp-4); }
+.pin-dots { display: flex; gap: var(--sp-3); }
+.pin-dots i { width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--primary); display: block; }
+.pin-dots i.on { background: var(--primary); box-shadow: 0 0 10px var(--primary); }
+.pin-keys { display: grid; grid-template-columns: repeat(3, 84px); gap: var(--sp-3); }
+.pin-key {
+  height: 76px; border-radius: var(--r-md); border: 2px solid var(--line); background: var(--input); color: var(--text);
+  font: 800 var(--fs-2xl) var(--font-num); cursor: pointer; transition: transform var(--speed), border-color var(--speed);
+}
+.pin-key.fn { font: 700 var(--fs-lg) var(--font); }
+.pin-key:hover { border-color: var(--primary); }
+.pin-key:active { transform: scale(0.95); }
+.pinpad.shake { animation: shake 0.4s; }
+@keyframes shake { 20%, 60% { transform: translateX(-10px); } 40%, 80% { transform: translateX(10px); } }
+.pin-modal { width: min(420px, 100%); }
+.pin-modal select { width: 100%; }
+
+/* ฟอร์มลงทะเบียน / หน้าหลัก */
+.narrow { max-width: 640px; margin: 0 auto; }
+.steps { display: flex; gap: var(--sp-2); margin-bottom: var(--sp-4); }
+.steps span { flex: 1; text-align: center; padding: var(--sp-2); border-radius: var(--r-sm); background: var(--input); color: var(--text-2); font-weight: 700; }
+.steps span.now { background: color-mix(in srgb, var(--primary) 25%, var(--input)); color: var(--text); }
+.home-hero { text-align: center; }
+.home-hero .avatar { font-size: 72px; }
+a.btn-glow { text-decoration: none; }

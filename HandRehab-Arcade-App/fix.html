@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ล้างแคช — HandRehab Arcade</title>
+<style>
+  :root{ --bg:#0b1020; --card:#151c33; --line:#2a3350; --ink:#eef2ff; --dim:#9fb0d6;
+         --ok:#2dd4a0; --bad:#f87171; --accent:#5eead4; }
+  *{box-sizing:border-box}
+  body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;
+       background:#0b1020;color:#eef2ff;
+       font-family:"Segoe UI",system-ui,-apple-system,"Noto Sans Thai",sans-serif}
+  .card{width:100%;max-width:620px;background:#151c33;border:1px solid #2a3350;
+        border-radius:16px;padding:28px}
+  h1{margin:0 0 6px;font-size:22px}
+  p{margin:8px 0;color:#9fb0d6;line-height:1.7}
+  button{margin-top:18px;width:100%;padding:16px;font-size:17px;font-weight:600;
+         border:0;border-radius:12px;background:#5eead4;color:#06281f;cursor:pointer}
+  button:disabled{opacity:.6;cursor:default}
+  ul{margin:14px 0 0;padding-left:20px;color:#9fb0d6;line-height:1.9}
+  #log{margin-top:18px;padding:14px;background:#0b1020;border:1px solid #2a3350;
+       border-radius:10px;font-size:14px;line-height:1.8;white-space:pre-wrap;display:none}
+  .ok{color:#2dd4a0}.bad{color:#f87171}
+  a{color:#5eead4}
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>ล้างแคชของหน้านี้</h1>
+  <p>ใช้หน้านี้เมื่อเปิดแอปแล้ว <b>เจอเป็นแอปอื่น</b> หรือเจอหน้าเก่าที่แก้ไปแล้วแต่ไม่เปลี่ยน</p>
+  <p>สาเหตุคือเว็บแอปตัวอื่นที่เคยเปิดที่ <code>localhost</code> พอร์ตเดียวกัน
+     ฝังตัวช่วยจำที่เรียกว่า service worker ไว้ มันเลยดักแล้วส่งของเก่าให้แทน</p>
+
+  <button id="go">ล้างทุกอย่างของหน้านี้</button>
+  <div id="log"></div>
+
+  <ul>
+    <li>ล้างแล้วจะไม่กระทบเว็บอื่นในเครื่อง</li>
+    <li>ล้างเฉพาะที่อยู่นี้เท่านั้น</li>
+    <li>ล้างเสร็จจะพากลับไปหน้าแอปให้เอง</li>
+  </ul>
+</div>
+
+<script>
+const log = document.getElementById('log');
+const btn = document.getElementById('go');
+const say = (t, cls) => {
+  log.style.display = 'block';
+  const d = document.createElement('div');
+  if (cls) d.className = cls;
+  d.textContent = t;
+  log.appendChild(d);
+};
+
+btn.onclick = async () => {
+  btn.disabled = true;
+  log.innerHTML = '';
+  let n = 0;
+
+  try {
+    if ('serviceWorker' in navigator) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      if (!regs.length) say('ไม่พบ service worker ที่ค้างอยู่');
+      for (const r of regs) { await r.unregister(); n++; say('ถอน service worker แล้ว  ' + (r.scope || ''), 'ok'); }
+    } else {
+      say('เบราว์เซอร์นี้ไม่มี service worker');
+    }
+  } catch (e) { say('ถอน service worker ไม่สำเร็จ: ' + e.message, 'bad'); }
+
+  try {
+    if (window.caches) {
+      const keys = await caches.keys();
+      if (!keys.length) say('ไม่มีแคชค้างอยู่');
+      for (const k of keys) { await caches.delete(k); n++; say('ลบแคชแล้ว  ' + k, 'ok'); }
+    }
+  } catch (e) { say('ลบแคชไม่สำเร็จ: ' + e.message, 'bad'); }
+
+  try { localStorage.clear(); sessionStorage.clear(); say('ล้างข้อมูลหน้าเว็บแล้ว', 'ok'); }
+  catch (e) { /* โหมดส่วนตัวอาจห้ามไว้ ไม่เป็นไร */ }
+
+  say('');
+  say(n ? 'ล้างเสร็จแล้ว กำลังพากลับไปหน้าแอป…' : 'ไม่มีอะไรต้องล้าง กำลังพากลับไปหน้าแอป…', 'ok');
+  setTimeout(() => { location.replace('index.html?fresh=' + Date.now()); }, 1600);
+};
+</script>
+  <script type="module" src="js/hud.js"></script>
+</body>
+</html>

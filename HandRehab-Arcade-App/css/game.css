@@ -1,0 +1,49 @@
+/* ============================================================
+   game.css — โครงหน้าจอเกม (Lab 22-25)
+   แถบบน (ชื่อเกม + ตัวเลข + ปุ่ม) · แถบเวลา · สนามเกมเต็มจอ · กล้องมุมขวาล่าง
+   ทุกสีอ่านจาก tokens.css / themes.css เท่านั้น
+   ============================================================ */
+html, body { height: 100%; }
+body.game-page { display: flex; flex-direction: column; overflow: hidden; }
+
+.game-bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--card); border-bottom: 1px solid var(--line);
+}
+.game-bar h1 { font-size: var(--fs-lg); margin: 0 var(--sp-3) 0 0; }
+.game-bar .spacer { flex: 1; }
+.game-bar .chip { font-size: var(--fs-md); padding: var(--sp-1) var(--sp-3); }
+.game-bar .chip b { font-size: var(--fs-lg); }
+
+/* แถบเวลาที่ค่อย ๆ หมดจากซ้ายไปขวา */
+.timer-bar { height: 12px; border-radius: 0; }
+.timer-bar > i { transition: none; }
+
+.game-area { position: relative; flex: 1; min-height: 0; }
+.game-area > canvas.game { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+
+/* ภาพกล้องเล็ก ๆ มุมขวาล่าง ให้ผู้เล่นเห็นมือตัวเอง */
+.cam-mini { position: absolute; right: var(--sp-3); bottom: var(--sp-3); width: min(260px, 28vw); border-radius: var(--r-md); border: 2px solid var(--line); z-index: 3; }
+.cam-mini .tag { position: absolute; left: var(--sp-2); top: var(--sp-1); font-size: var(--fs-xs); background: var(--card); padding: 0 var(--sp-2); border-radius: var(--r-sm); z-index: 2; }
+
+/* แผงลอยกลางจอ (เริ่มเกม / ข้อผิดพลาด / ปรับเทียบ) */
+.overlay { position: absolute; inset: 0; display: grid; place-items: center; z-index: 5; padding: var(--sp-4); background: color-mix(in srgb, var(--bg) 55%, transparent); }
+.overlay .card-neon { max-width: 640px; width: 100%; }
+.overlay p { margin: 0 0 var(--sp-3); }
+
+/* ป้ายโหมดสาธิต */
+.demo-badge { background: var(--warning); color: var(--on-bright); font-weight: 800; padding: var(--sp-1) var(--sp-3); border-radius: 999px; font-size: var(--fs-sm); }
+
+/* แผงตั้งค่าย่อ (slider / dropdown) */
+.settings { display: flex; flex-wrap: wrap; gap: var(--sp-3); align-items: center; padding: var(--sp-2) var(--sp-3); background: var(--card); border-top: 1px solid var(--line); font-size: var(--fs-sm); }
+.settings label { display: flex; align-items: center; gap: var(--sp-2); font-weight: 600; }
+.settings input[type=range] { width: 160px; }
+.settings select { min-height: calc(var(--btn-h) * 0.8); }
+
+/* ตารางสรุปในหน้าต่างจบรอบ */
+.summary-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--sp-2); margin: var(--sp-3) 0; }
+.summary-grid .stat { background: var(--input); border-radius: var(--r-md); padding: var(--sp-2) var(--sp-3); }
+.summary-grid .stat b { display: block; font: 800 var(--fs-xl) var(--font-num); color: var(--primary); }
+.summary-grid .stat small { color: var(--text-2); }
+.up { color: var(--success); } .down { color: var(--error); }

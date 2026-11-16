@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>บทความวิจัยของโครงงาน · HandRehab Arcade</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{ --bg:#0a0f1f; --card:#141b33; --card2:#111830; --line:#28335a;
+         --ink:#eef2ff; --dim:#9db0dc; --accent:#5eead4; --accent2:#8b9dff;
+         --need:#fbbf24; --done:#2dd4a0; --bad:#f87171; }
+  body.light{ --bg:#f6f8fd; --card:#fff; --card2:#eef1fa; --line:#dfe4f1;
+              --ink:#17203a; --dim:#5b6b8f; --accent:#0a7a63; --accent2:#4457c7; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);padding:26px 16px 90px;
+       font-family:"Noto Sans Thai","Segoe UI",system-ui,-apple-system,sans-serif;line-height:1.65}
+  .wrap{max-width:900px;margin:0 auto}
+  header{margin-bottom:22px}
+  h1{margin:0 0 6px;font-size:25px}
+  .sub{color:var(--dim);margin:0;font-size:15px}
+  h2{font-size:17px;margin:30px 0 10px}
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .card h3{margin:0 0 6px;font-size:16px}
+  .card p{margin:0;color:var(--dim);font-size:13.5px}
+  a.card{display:block;text-decoration:none;color:inherit;transition:transform .12s,border-color .12s}
+  a.card:hover{transform:translateY(-2px);border-color:var(--accent)}
+  .tag{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;margin-bottom:8px}
+  .t-need{background:#fbbf2426;color:var(--need)}
+  .t-done{background:#2dd4a026;color:var(--done)}
+  .t-main{background:#8b9dff26;color:var(--accent2)}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+  th,td{padding:9px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  th{font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;color:var(--dim);font-weight:600}
+  .eq{font-family:ui-monospace,Consolas,monospace;font-size:13px}
+  .num{font-family:ui-monospace,Consolas,monospace;text-align:right;white-space:nowrap}
+  .note{margin-top:16px;padding:15px 17px;background:var(--card2);border:1px solid var(--line);
+        border-radius:12px;color:var(--dim);font-size:13.5px}
+  .note b{color:var(--ink)}
+  .warn{border-color:#5b3b3b;background:#1d1414}
+  body.light .warn{border-color:#f0c8c8;background:#fdf3f3}
+  .warn b{color:var(--bad)}
+  .bar{height:9px;border-radius:999px;background:var(--card2);overflow:hidden;margin:10px 0 4px}
+  .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}
+  ol{padding-left:20px}
+  li{margin:4px 0}
+  .muted{color:var(--dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>บทความวิจัยของโครงงาน</h1>
+    <p class="sub">HandRehab Arcade · หน้านี้บอกว่าบทความไปถึงไหน ขาดอะไร และเลขแต่ละตัวมาจากหน้าไหนในแอป</p>
+  </header>
+
+  <h2>จะส่งที่ไหน</h2>
+  <div class="grid">
+    <div class="card">
+      <span class="tag t-main">เวทีหลัก</span>
+      <h3>JCSSE 2027</h3>
+      <p>มหาวิทยาลัยแม่ฟ้าหลวง เชียงราย · ประชุม 16–18 มิถุนายน 2570<br>
+         ส่งรอบ 1 วันที่ 27 พฤศจิกายน 2569 · รอบ 2 วันที่ 22 มกราคม 2570<br>
+         ความยาวไม่เกิน 6 หน้า (อ้างอิงเกณฑ์ปี 2569 ยังต้องยืนยันของปี 2570)</p>
+    </div>
+    <div class="card">
+      <span class="tag">เวทีสำรอง</span>
+      <h3>KST 2027</h3>
+      <p>Tokyo Metropolitan University ญี่ปุ่น · ประชุม 17–20 มีนาคม 2570<br>
+         ส่งรอบ 3 วันที่ 20 พฤศจิกายน 2569<br>
+         <b>ต้องยาว 8–12 หน้า</b> ซึ่งยาวกว่าที่เรามีอยู่</p>
+    </div>
+  </div>
+  <div class="note warn">
+    <b>ส่งที่เดียวเท่านั้น</b><br>
+    ทั้งสองเวทีห้ามส่งงานที่กำลังพิจารณาอยู่ที่อื่น การส่งทั้งสองที่พร้อมกันเป็นการประพฤติมิชอบทางวิชาการ
+    และอาจถูกถอนบทความทั้งสองที่
+  </div>
+
+  <h2>บทความไปถึงไหนแล้ว</h2>
+  <div class="card">
+    <div class="bar"><i style="width:68%"></i></div>
+    <p class="muted" style="font-size:13.5px">เขียนเสร็จแล้วทั้งฉบับ เหลือช่องว่าง 11 จุด · ตรวจนับเมื่อ 10 พ.ย. 2569</p>
+    <table>
+      <tr><th>สี</th><th>เหลือ</th><th>ติดอะไร</th></tr>
+      <tr><td>ส้ม</td><td class="num">2</td><td>สเปกเครื่อง · ที่อยู่โค้ด (ใส่หลังทราบผล)</td></tr>
+      <tr><td>แดง</td><td class="num">2</td><td>ตัวเลขจาก Lab 33 และ Lab 27</td></tr>
+      <tr><td>น้ำเงิน</td><td class="num">7</td><td>ประโยคที่ต้องเขียนเอง (2 จุดเป็นการแก้สำนวนที่ร่างไว้แล้ว)</td></tr>
+    </table>
+  </div>
+
+  <h2>เลขในบทความมาจากหน้าไหน</h2>
+  <div class="grid">
+    <a class="card" href="benchmark.html">
+      <span class="tag t-need">ต้องรัน · Lab 33</span>
+      <h3>ตารางที่ 3 · อัตราเฟรม</h3>
+      <p>วัดความเร็วเครื่อง เปิดกล้องไว้เฉย ๆ ไม่ต้องทำท่า → <span class="eq">benchmark-compare.csv</span></p>
+    </a>
+    <a class="card" href="filters.html">
+      <span class="tag t-need">ต้องรัน · Lab 27</span>
+      <h3>ตารางที่ 4 · เปรียบเทียบตัวกรอง</h3>
+      <p>เลือกสัญญาณจำลอง ไม่ต้องใช้กล้อง → <span class="eq">filter-comparison.csv</span></p>
+    </a>
+    <a class="card" href="evaluate.html">
+      <span class="tag">เพิ่มคุณภาพ · Lab 32</span>
+      <h3>ความแม่นยำตามระดับแสง</h3>
+      <p>ยังไม่อยู่ในบทความฉบับนี้ ถ้ารันแล้วจะเพิ่มหัวข้อให้ได้ ใช้เวลาราว 1 ชั่วโมง</p>
+    </a>
+    <a class="card" href="count-accuracy.html">
+      <span class="tag">เพิ่มคุณภาพ · Lab 21</span>
+      <h3>ความแม่นยำการนับครั้ง</h3>
+      <p>ยังไม่อยู่ในบทความฉบับนี้ ถ้ารันแล้วจะเพิ่มหัวข้อให้ได้ ใช้เวลาราว 1 ชั่วโมง</p>
+    </a>
+  </div>
+
+  <h2>สมการที่บทความรายงาน</h2>
+  <div class="card">
+    <table>
+      <tr><th>สมการ</th><th>ทำอะไร</th><th>อยู่ในโค้ดไฟล์ไหน</th></tr>
+      <tr><td class="eq">(1)</td><td>แก้สัดส่วนภาพ <span class="eq">x′ = x·(W/H)</span></td><td class="eq">js/geometry.js</td></tr>
+      <tr><td class="eq">(2)</td><td>ระยะทางสามมิติ</td><td class="eq">js/geometry.js</td></tr>
+      <tr><td class="eq">(3)</td><td>ค่าที่วัด หารด้วยขนาดฝ่ามือ</td><td class="eq">js/geometry.js</td></tr>
+      <tr><td class="eq">(4)</td><td>คะแนน <span class="eq">π = clip((r−m)/(r−b),0,1)</span></td><td class="eq">js/calibration.js</td></tr>
+      <tr><td class="eq">(5)</td><td>ตัวกรองหนึ่งยูโร</td><td class="eq">js/smoothing.js</td></tr>
+      <tr><td class="eq">(6)</td><td>เกณฑ์ <span class="eq">T = r − k(r−b)</span></td><td class="eq">js/calibration.js</td></tr>
+      <tr><td class="eq">(7)</td><td>เงื่อนไขนับหนึ่งครั้ง ห้าสถานะ</td><td class="eq">js/rep-counter.js</td></tr>
+    </table>
+    <p class="note" style="margin-top:14px">กดปุ่ม 🔬 มุมขวาล่างของหน้าไหนก็ได้ เพื่อดูสมการเหล่านี้ทำงานสดทีละเฟรม
+      พร้อมเอกสารอ้างอิงของแต่ละสมการ</p>
+  </div>
+
+  <h2>สิ่งที่บทความนี้อ้างไม่ได้</h2>
+  <div class="note warn">
+    <b>ห้ามอ้างสามข้อนี้ ไม่ว่าตัวเลขจะออกมาสวยแค่ไหน</b>
+    <ol>
+      <li>ห้ามอ้างว่าช่วยฟื้นฟูกล้ามเนื้อได้ เพราะไม่ได้วัดผลการฟื้นฟู</li>
+      <li>ห้ามอ้างว่าผู้สูงอายุใช้ง่าย เพราะไม่มีผู้สูงอายุทดสอบ</li>
+      <li>ห้ามอ้างความแม่นยำเป็นเปอร์เซ็นต์ ตราบใดที่ยังไม่ได้รัน Lab 32 และ Lab 21</li>
+    </ol>
+    และ <b>ห้ามใช้ไฟล์ในโฟลเดอร์ demo-samples</b> ซึ่งเป็นข้อมูลตัวอย่าง ไม่ใช่ผลการวัดจริง
+  </div>
+
+  <h2>ลำดับถัดไป</h2>
+  <div class="card">
+    <ol>
+      <li>รัน <b>Lab 33</b> และ <b>Lab 27</b> แล้วส่งออก CSV ทั้งสองไฟล์</li>
+      <li>วางไฟล์ที่ <span class="eq">will_kit/data/</span> แล้วรัน <span class="eq">python3 scripts/analyze_labs.py</span></li>
+      <li>คัดลอกตัวเลขลงบทความ <b>ห้ามพิมพ์เอง</b></li>
+      <li>เขียนประโยคของตัวเองอีก 7 จุด</li>
+      <li>ตรวจ <span class="eq">node scripts/fill_sheet.js</span> ต้องเหลือ 0 จุด แล้วส่ง</li>
+    </ol>
+  </div>
+
+  <p class="note" style="margin-top:22px">หน้านี้เป็นเอกสารประกอบของโครงงาน ไม่ใช่ตัวบทความ
+    ตัวบทความฉบับจริงอยู่ในชุดไฟล์ของทีมที่ <span class="eq">will_kit/paper/</span></p>
+
+</div>
+<script type="module" src="js/hud.js"></script>
+</body>
+</html>

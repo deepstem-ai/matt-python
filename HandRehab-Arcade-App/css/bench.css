@@ -1,0 +1,59 @@
+/* ============================================================
+   bench.css — หน้าทดสอบความลื่น (Lab 33) สีทั้งหมดมาจาก tokens.css / themes.css
+   ============================================================ */
+.bench-head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); margin-bottom: var(--sp-4); }
+.bench-head h1 { margin: 0; }
+.bench-head .spacer { flex: 1; }
+.bench-grid { display: grid; grid-template-columns: minmax(300px, 1fr) minmax(320px, 1.2fr); gap: var(--sp-4); align-items: start; }
+@media (max-width: 900px) { .bench-grid { grid-template-columns: 1fr; } }
+section.card-neon { margin-bottom: var(--sp-4); }
+section.card-neon h2 { margin-top: 0; }
+
+/* ป้ายระดับเครื่อง */
+.tier { font-weight: 800; padding: var(--sp-1) var(--sp-3); border-radius: 999px; color: var(--on-bright); }
+.tier.low { background: var(--error); } .tier.medium { background: var(--warning); } .tier.high { background: var(--success); }
+.spec { margin: var(--sp-2) 0 0; padding-left: var(--sp-5); }
+.spec li { margin: 2px 0; }
+.gpu-name { word-break: break-word; font-size: var(--fs-sm); color: var(--text-2); }
+
+/* รายการสถานการณ์พร้อมแถบความคืบหน้า */
+.sc-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--sp-2); }
+.sc-list li { display: grid; grid-template-columns: 2em 1fr 5.5em; align-items: center; gap: var(--sp-2); }
+.sc-list .bar { height: 14px; }
+.sc-list li.running { font-weight: 800; color: var(--primary); }
+.sc-list li.skipped { color: var(--text-2); text-decoration: line-through; }
+.sc-list .st { text-align: right; font-family: var(--font-num); font-size: var(--fs-sm); }
+
+/* เวทีภาพกล้อง / เกม */
+.bench-stage { position: relative; }
+.bench-stage canvas.game { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.bench-stage .view-tag { position: absolute; left: var(--sp-2); top: var(--sp-2); z-index: 3; background: var(--card); padding: 0 var(--sp-2); border-radius: var(--r-sm); font-size: var(--fs-sm); }
+
+/* การ์ดผลลัพธ์ */
+.result-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: var(--sp-3); }
+.rcard { background: var(--input); border-radius: var(--r-md); padding: var(--sp-3); border: 2px solid var(--line); }
+.rcard h3 { margin: 0 0 var(--sp-2); font-size: var(--fs-md); }
+.rcard .big { font: 800 var(--fs-2xl) var(--font-num); line-height: 1.1; }
+.rcard .big small { font-size: var(--fs-sm); color: var(--text-2); font-weight: 600; }
+.rcard.good { border-color: var(--success); } .rcard.good .big { color: var(--success); }
+.rcard.ok { border-color: var(--warning); } .rcard.ok .big { color: var(--warning); }
+.rcard.bad { border-color: var(--error); } .rcard.bad .big { color: var(--error); }
+.rcard.skip { opacity: 0.7; }
+.rcard dl { display: grid; grid-template-columns: auto auto; gap: 2px var(--sp-2); margin: var(--sp-2) 0 0; font-size: var(--fs-sm); }
+.rcard dd { margin: 0; text-align: right; font-family: var(--font-num); }
+
+/* กล่องคำแนะนำ */
+.reco-text { font-size: var(--fs-lg); font-weight: 700; margin: 0 0 var(--sp-2); }
+.reco-loss { margin: var(--sp-2) 0; padding-left: var(--sp-5); }
+.prefs-now { font-size: var(--fs-sm); color: var(--text-2); }
+
+/* กราฟเปรียบเทียบ */
+.chart-box { width: 100%; height: 360px; }
+.chart-box canvas { width: 100%; height: 100%; display: block; }
+.table-scroll { overflow-x: auto; margin-top: var(--sp-3); }
+.first-run-list { padding-left: var(--sp-5); }
+
+/* บทความ §6.2: ป้ายผ่าน/ไม่ผ่านเกณฑ์ FPS ≥ 25 */
+.fps-badge { display: inline-block; border-radius: 999px; padding: 2px var(--sp-3); font-weight: 800; font-size: var(--fs-sm); color: var(--on-bright); }
+.fps-badge.pass { background: var(--success); }
+.fps-badge.fail { background: var(--error); }

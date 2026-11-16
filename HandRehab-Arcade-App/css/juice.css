@@ -1,0 +1,66 @@
+/* ============================================================
+   juice.css — หน้าตาของคอมโบ ป้ายความสำเร็จ และไฟ streak (Lab 26)
+   ทุกสีอ่านจาก tokens.css / themes.css · โหมดสงบปิดแอนิเมชันทั้งหมด (themes.css)
+   ============================================================ */
+
+/* ชั้นลอยเหนือสนามเกม (ไม่รับการคลิก ให้คลิกทะลุไปที่เกม) */
+.juice-layer { position: absolute; inset: 0; pointer-events: none; z-index: 4; display: grid; place-items: center; }
+
+/* ตัวเลขคอมโบใหญ่กลางจอ */
+.combo-pop { text-align: center; color: var(--pink); }
+.combo-pop b { display: block; font: 800 calc(var(--fs-3xl) * 2.2) / 1 var(--font-num); text-shadow: 0 0 30px color-mix(in srgb, var(--pink) 70%, transparent); }
+.combo-pop small { display: block; font-size: var(--fs-xl); font-weight: 800; color: var(--warning); }
+.combo-pop.go { animation: combo-bounce 1.3s cubic-bezier(.2, 1.6, .4, 1) forwards; }
+.combo-pop.still { opacity: 0.9; }
+@keyframes combo-bounce {
+  0%   { transform: scale(0.2); opacity: 0; }
+  25%  { transform: scale(1.35); opacity: 1; }
+  45%  { transform: scale(0.92); }
+  60%  { transform: scale(1.06); }
+  80%  { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.1) translateY(-30px); opacity: 0; }
+}
+
+/* ตัวคูณในแถบบน */
+.chip.mult b { color: var(--pink); }
+/* ตัวเลขคะแนนเด้งเบา ๆ ตอนกำลังไต่ขึ้น */
+#score.bump { display: inline-block; animation: score-bump 0.3s ease infinite alternate; }
+@keyframes score-bump { to { transform: scale(1.15); color: var(--warning); } }
+
+/* ป้ายความสำเร็จมุมขวาบน (อยู่เหนือหน้าต่าง modal) */
+.ach-host { position: fixed; top: 84px; left: 50%; transform: translateX(-50%); z-index: 9500; display: flex; flex-direction: column; gap: var(--sp-2); width: min(92vw, 420px); }
+.ach-pop {
+  display: flex; gap: var(--sp-3); align-items: center; padding: var(--sp-3) var(--sp-4);
+  background: var(--card); border: 2px solid var(--warning); border-radius: var(--r-lg);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--warning) 45%, transparent);
+  animation: ach-in 0.6s cubic-bezier(.2, 1.5, .4, 1);
+}
+.ach-pop.calm { border-color: var(--line); box-shadow: none; }
+.ach-pop > div { flex: 1; display: flex; flex-direction: column; line-height: 1.35; }
+.ach-pop b { font-size: var(--fs-lg); }
+.ach-pop small { color: var(--warning); font-weight: 800; }
+.ach-pop .ach-icon { font-size: calc(var(--fs-3xl) * 0.9); }
+@keyframes ach-in { from { transform: translateX(120%) rotate(8deg); } to { transform: none; } }
+
+/* ไฟ streak */
+.chip.streak b { color: var(--warning); }
+.streak-big { display: flex; align-items: center; gap: var(--sp-4); }
+.streak-big .flame { font-size: calc(var(--fs-3xl) * 1.3); line-height: 1; }
+.streak-big .flame.out { filter: grayscale(1); opacity: 0.5; }
+.streak-big b { font: 800 var(--fs-3xl) var(--font-num); color: var(--warning); }
+
+/* การ์ดความสำเร็จ (หน้า achievements.html และแถวสรุปในเมนู) */
+.ach-grid { display: grid; gap: var(--sp-3); grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+.ach-card { background: var(--card); border: 2px solid var(--warning); border-radius: var(--r-lg); padding: var(--sp-4); display: flex; flex-direction: column; gap: var(--sp-1); }
+.ach-card .ach-icon { font-size: calc(var(--fs-3xl) * 1.1); line-height: 1.1; }
+.ach-card.locked { border: 2px dashed var(--line); }
+.ach-card.locked .ach-icon { filter: brightness(0) opacity(0.45); }       /* ภาพเงาดำ = ยังไม่ได้ */
+.ach-card.locked h3 { color: var(--text-2); }
+.ach-card .tag { align-self: flex-start; font-size: var(--fs-xs); padding: 0 var(--sp-2); border-radius: 999px; background: var(--input); }
+.ach-row { display: flex; flex-wrap: wrap; gap: var(--sp-2); font-size: var(--fs-2xl); }
+.ach-row .locked { filter: brightness(0) opacity(0.4); }
+
+/* การ์ดเมนูเกม */
+.menu-grid { display: grid; gap: var(--sp-4); grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.menu-grid .card-neon { display: flex; flex-direction: column; gap: var(--sp-2); }
+.menu-grid .big-icon { font-size: calc(var(--fs-3xl) * 1.2); line-height: 1; }

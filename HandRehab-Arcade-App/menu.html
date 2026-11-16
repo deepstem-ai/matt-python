@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>เริ่มตรงนี้ — HandRehab Arcade</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+  :root{
+    --bg:#0a0f1f; --card:#141b33; --card2:#111830; --line:#28335a;
+    --ink:#eef2ff; --dim:#9db0dc; --accent:#5eead4; --accent2:#8b9dff;
+    --now:#fbbf24; --done:#2dd4a0;
+  }
+  body.light{ --bg:#f5f7fd; --card:#fff; --card2:#eef1fa; --line:#dfe4f1;
+              --ink:#17203a; --dim:#5b6b8f; --accent:#0a7a63; --accent2:#4457c7;
+              --now:#b97d06; --done:#0a8f6e; }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);padding:26px 16px 100px;
+       font-family:"Noto Sans Thai","Segoe UI",system-ui,-apple-system,sans-serif;line-height:1.6}
+  .wrap{max-width:880px;margin:0 auto}
+  header{text-align:center;margin-bottom:26px}
+  h1{margin:0 0 4px;font-size:26px}
+  .sub{color:var(--dim);margin:0;font-size:15px}
+
+  /* ประตูสองบาน เลือกว่ามาใช้แอป หรือมาทำวิจัย */
+        background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;
+        transition:transform .12s,border-color .12s,box-shadow .12s;font:inherit;width:100%}
+  .door.on{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+  .door .ttl{font-size:19px;font-weight:700;margin:0 0 4px}
+  .door .who{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;
+             padding:3px 10px;border-radius:999px;background:var(--card2);color:var(--dim)}
+  .switcher button{background:none;border:0;color:var(--dim);font:inherit;font-size:13.5px;
+                   cursor:pointer;text-decoration:underline;padding:6px}
+
+  .optline{display:inline-flex;align-items:center;gap:8px;margin-top:12px;
+           color:var(--dim);font-size:13.5px;cursor:pointer;user-select:none}
+  .optline input{width:17px;height:17px;accent-color:var(--accent);cursor:pointer}
+  .sect{margin-top:34px}
+  .sect-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+  .sect-head h2{margin:0;font-size:19px}
+  .sect-head .count{font-size:14px;color:var(--dim)}
+  .sect-sub{color:var(--dim);font-size:14px;margin:0 0 14px}
+
+  /* ---------- แถบความคืบหน้า ---------- */
+  .prog{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin-bottom:16px}
+  .prog .top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .prog b{font-size:17px}
+  .bar{height:10px;border-radius:999px;background:var(--card2);overflow:hidden;margin-top:10px}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));
+         transition:width .35s ease}
+  .prog .hint{color:var(--dim);font-size:13.5px;margin:9px 0 0}
+  .reset{background:none;border:0;color:var(--dim);font-size:12.5px;cursor:pointer;text-decoration:underline;padding:0}
+
+  /* ---------- ขั้นตอนที่ต้องทำ ---------- */
+  .steps{display:grid;gap:10px}
+  .step{display:grid;grid-template-columns:46px 1fr;gap:14px;align-items:start;
+        background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px 17px;
+        transition:border-color .15s,opacity .15s}
+  .step .n{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;
+           background:var(--card2);color:var(--dim);font-weight:700;font-size:15px;margin-top:2px}
+  .step h3{margin:0 0 3px;font-size:17px}
+  .step h3 a{color:inherit;text-decoration:none}
+  .step h3 a:hover{text-decoration:underline}
+  .step p{margin:0;color:var(--dim);font-size:13.5px}
+  .step .out{font-family:ui-monospace,Consolas,monospace;font-size:12.5px;color:var(--accent);margin-top:7px;
+             word-break:break-all}
+  .step .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:11px}
+  .go{display:inline-block;padding:9px 16px;border-radius:10px;background:var(--accent);color:#06281f;
+      font-weight:700;text-decoration:none;font-size:14px}
+  body.light .go{color:#fff}
+  .tick{display:inline-flex;align-items:center;gap:7px;color:var(--dim);font-size:13.5px;cursor:pointer;user-select:none}
+  .tick input{width:17px;height:17px;accent-color:var(--done);cursor:pointer}
+  .flag{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:999px;
+        background:#fbbf2426;color:var(--now);margin-left:8px;vertical-align:middle}
+
+  .step.now{border-color:var(--now);box-shadow:0 0 0 1px var(--now) inset}
+  .step.now .n{background:var(--now);color:#2b1d00}
+  .step.later{opacity:.55}
+  .step.done{opacity:.75}
+  .step.done .n{background:var(--done);color:#042b20}
+  .step.done h3{text-decoration:line-through;text-decoration-color:var(--dim)}
+  .step.done .go{display:none}
+
+  /* ---------- การ์ดธรรมดา ---------- */
+  .grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(235px,1fr))}
+  a.card{display:block;text-decoration:none;color:inherit;background:var(--card);
+         border:1px solid var(--line);border-radius:14px;padding:15px 17px;
+         transition:transform .12s,border-color .12s}
+  a.card:hover{transform:translateY(-2px);border-color:var(--accent)}
+  a.card .ttl{font-size:16px;font-weight:650;margin:0 0 3px}
+  a.card .desc{color:var(--dim);font-size:13.5px;margin:0}
+  a.card .ico{font-size:22px;line-height:1;margin-bottom:7px;display:block}
+
+  .note{margin-top:18px;padding:15px 17px;background:var(--card2);border:1px solid var(--line);
+        border-radius:12px;color:var(--dim);font-size:13.5px}
+  .note b{color:var(--ink)}
+  .warn{border-color:#5b3b3b;background:#1d1414}
+  body.light .warn{border-color:#f0c8c8;background:#fdf3f3}
+  .warn b{color:#f87171}
+  body.light .warn b{color:#b91c1c}
+  footer{margin-top:30px;text-align:center;color:var(--dim);font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>เริ่มตรงนี้</h1>
+    <p class="sub">HandRehab Arcade · ทำตามลำดับด้านล่าง ไม่ต้องเดาว่าจะกดอะไร</p>
+    <label class="optline"><input type="checkbox" id="optEq" checked>
+      แสดงสมการและเครื่องมือวิจัยในทุกหน้า</label>
+  </header>
+
+  <!-- ============ ส่วนที่ 1 งานที่ต้องทำ ============ -->
+  <section class="sect" id="secResearch">
+    <div class="sect-head">
+      <h2>งานที่ต้องทำเพื่อส่งบทความ</h2>
+      <span class="count">ทำตามลำดับ 1 ถึง 4</span>
+    </div>
+    <p class="sect-sub">สี่ขั้นนี้คือสิ่งเดียวที่บทความยังรออยู่ · ขั้นอื่นในหน้านี้ไม่ต้องทำก็ส่งได้</p>
+
+    <div class="prog">
+      <div class="top"><b id="pTitle">ทำไปแล้ว 0 จาก 4 ขั้น</b>
+        <button class="reset" id="reset">เริ่มนับใหม่</button></div>
+      <div class="bar"><i id="pBar"></i></div>
+      <p class="hint" id="pHint">เริ่มที่ขั้นที่ 1 ได้เลย</p>
+    </div>
+
+    <div class="steps" id="steps">
+
+      <div class="step" data-k="s1">
+        <div class="n">1</div>
+        <div>
+          <h3><a href="benchmark.html">วัดความเร็วเครื่อง</a><span class="flag">ทำข้อนี้ต่อไป</span></h3>
+          <p>ตั้งชื่อเครื่อง กดวัด รอครบ 6 ฉาก แล้วกดส่งออก CSV · <b>เปิดกล้องไว้เฉย ๆ ไม่ต้องทำท่า</b> · ราว 15 นาที</p>
+          <div class="out">→ benchmark-compare.csv</div>
+          <div class="row">
+            <a class="go" href="benchmark.html">ไปทำขั้นนี้</a>
+            <label class="tick"><input type="checkbox" data-k="s1"> ทำแล้ว ส่งออกไฟล์เรียบร้อย</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="step" data-k="s2">
+        <div class="n">2</div>
+        <div>
+          <h3><a href="filters.html">เปรียบเทียบตัวกรองสัญญาณ</a></h3>
+          <p><b>กดปุ่ม "สัญญาณจำลอง" ก่อน อย่ากด "ปลายนิ้วจริง"</b> แล้วกดวัดและส่งออก CSV · ไม่ต้องใช้กล้องเลย · ราว 15 นาที</p>
+          <div class="out">→ filter-comparison.csv</div>
+          <div class="row">
+            <a class="go" href="filters.html">ไปทำขั้นนี้</a>
+            <label class="tick"><input type="checkbox" data-k="s2"> ทำแล้ว ส่งออกไฟล์เรียบร้อย</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="step" data-k="s3">
+        <div class="n">3</div>
+        <div>
+          <h3><a href="evaluate.html">ความแม่นยำตามระดับแสง</a></h3>
+          <p>ทำท่าจีบนิ้ว 10 ครั้ง ในแสง 3 ระดับ รวม 30 ครั้ง · <b>คนเดิมทั้งสามระดับ ห้ามสลับคน</b> · ราว 1 ชั่วโมง</p>
+          <div class="out">→ ไฟล์ที่มีคอลัมน์ lighting, requested, detected</div>
+          <div class="row">
+            <a class="go" href="evaluate.html">ไปทำขั้นนี้</a>
+            <label class="tick"><input type="checkbox" data-k="s3"> ทำแล้ว ส่งออกไฟล์เรียบร้อย</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="step" data-k="s4">
+        <div class="n">4</div>
+        <div>
+          <h3><a href="count-accuracy.html">ความแม่นยำการนับครั้ง</a></h3>
+          <p>ทำจำนวนครั้งที่รู้ล่วงหน้า 5 ชุด · <b>จดด้วยว่าชุดไหนนับเกิน ชุดไหนนับขาด</b> · ราว 1 ชั่วโมง</p>
+          <div class="out">→ ไฟล์ที่มีคอลัมน์ test, actual, counted</div>
+          <div class="row">
+            <a class="go" href="count-accuracy.html">ไปทำขั้นนี้</a>
+            <label class="tick"><input type="checkbox" data-k="s4"> ทำแล้ว ส่งออกไฟล์เรียบร้อย</label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="note" id="doneNote" hidden>
+      <b>ครบทั้งสี่ขั้นแล้ว</b><br>
+      เอาไฟล์ CSV ทุกไฟล์ไปวางที่โฟลเดอร์ <b>will_kit/data</b> แล้วบอกครูว่ารันครบแล้ว
+    </div>
+
+    <div class="note warn">
+      <b>ห้ามใช้ไฟล์ในโฟลเดอร์ demo-samples</b><br>
+      ไฟล์ชุดนั้นขึ้นต้นด้วย DEMO เป็นข้อมูลตัวอย่างไว้ดูรูปแบบไฟล์เท่านั้น ไม่ใช่ผลการวัดจริง
+      ถ้าเอาตัวเลขจากไฟล์ชุดนั้นไปใส่บทความ จะกลายเป็นการรายงานข้อมูลที่ไม่ได้เก็บจริง
+    </div>
+  </section>
+
+  <!-- ============ ส่วนที่ 2 เกม ============ -->
+  <section class="sect" id="secGames">
+    <div class="sect-head">
+      <h2 id="hGames">เกมสำหรับฝึกมือ</h2>
+      <span class="count">เล่นได้ทุกเมื่อ ไม่เกี่ยวกับบทความ</span>
+    </div>
+    <p class="sect-sub">สามเกมนี้คือตัวแอปที่เอาไว้ใช้จริง เล่นกี่ครั้งก็ได้ ไม่กระทบข้อมูลในส่วนที่ 1</p>
+    <div class="grid">
+      <a class="card" href="index.html">
+        <span class="ico">🏠</span>
+        <p class="ttl">หน้าแรกของแอป</p>
+        <p class="desc">เลือกเกม ดูความก้าวหน้า ตั้งค่า เริ่มที่นี่ถ้าจะเล่น</p>
+      </a>
+      <a class="card" href="star-portal.html">
+        <span class="ico">⭐</span>
+        <p class="ttl">จับดาวใส่ประตูมิติ</p>
+        <p class="desc">ฝึกจีบนิ้ว โป้งแตะชี้ · หยิบของชิ้นเล็ก</p>
+      </a>
+      <a class="card" href="rhythm-tap.html">
+        <span class="ico">🎵</span>
+        <p class="ttl">เคาะจังหวะทีละนิ้ว</p>
+        <p class="desc">ฝึกแตะนิ้วทีละนิ้ว · ความคล่องของนิ้ว</p>
+      </a>
+      <a class="card" href="spread-wall.html">
+        <span class="ico">🐠</span>
+        <p class="ttl">กางนิ้วผ่านกำแพง</p>
+        <p class="desc">ฝึกกางนิ้ว · ยืดกล้ามเนื้อมือ</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ ส่วนที่ 3 ตัวเลือก ============ -->
+  <section class="sect" id="secTools">
+    <div class="sect-head">
+      <h2 id="hTools">ตัวเลือกและเครื่องมือ</h2>
+      <span class="count">ไม่ต้องทำก็ได้</span>
+    </div>
+    <p class="sect-sub">เปิดดูเมื่อต้องการเท่านั้น ไม่มีผลต่อการส่งบทความ</p>
+    <div class="grid">
+      <a class="card" href="paper.html">
+        <span class="ico">📄</span>
+        <p class="ttl">บทความวิจัยของโครงงาน</p>
+        <p class="desc">เวทีที่จะส่ง ช่องว่างที่เหลือ สมการทั้งเจ็ด</p>
+      </a>
+      <a class="card" href="calibrate.html">
+        <span class="ico">🎯</span>
+        <p class="ttl">ปรับเทียบมือของฉัน</p>
+        <p class="desc">วัดจุดพักและจุดจีบสุดของแต่ละคน ราว 1 นาที</p>
+      </a>
+      <a class="card" href="progress.html">
+        <span class="ico">📈</span>
+        <p class="ttl">ความก้าวหน้า</p>
+        <p class="desc">ประวัติการฝึกและสถิติรายวัน</p>
+      </a>
+      <a class="card" href="math-lab.html">
+        <span class="ico">🧮</span>
+        <p class="ttl">คณิตศาสตร์ของฉัน</p>
+        <p class="desc">ดูค่าที่ระบบคำนวณสดทีละเฟรม</p>
+      </a>
+      <a class="card" href="research.html">
+        <span class="ico">🔬</span>
+        <p class="ttl">ห้องวิจัยและการสอบ</p>
+        <p class="desc">รวมหน้าแลปทั้งหมดและเกณฑ์การวัดผล</p>
+      </a>
+      <a class="card" href="fix.html">
+        <span class="ico">🧹</span>
+        <p class="ttl">เปิดแล้วเจอเป็นแอปอื่น</p>
+        <p class="desc">กดปุ่มเดียว ล้างของที่ค้างแล้วพากลับมาเอง</p>
+      </a>
+    </div>
+  </section>
+
+  <footer>ปิดโปรแกรม กด Ctrl + C ในหน้าต่างสีดำ</footer>
+
+</div>
+
+<script>
+// ความคืบหน้าของสี่ขั้น เก็บไว้ในเครื่องนี้เท่านั้น
+// ผู้ใช้เป็นคนติ๊กเอง เพราะหน้าเว็บมองไม่เห็นว่าไฟล์ถูกบันทึกลงเครื่องจริงหรือยัง
+// ติ๊กเองจึงซื่อสัตย์กว่าการเดาแทน
+const KEY = 'hr-lab-progress';
+const KEYS = ['s1', 's2', 's3', 's4'];
+
+const read = () => { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch { return {}; } };
+const write = (o) => { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch {} };
+
+function render() {
+  const d = read();
+  const done = KEYS.filter((k) => d[k]).length;
+  const next = KEYS.find((k) => !d[k]);
+
+  document.querySelectorAll('.step').forEach((el) => {
+    const k = el.dataset.k;
+    el.classList.toggle('done', !!d[k]);
+    el.classList.toggle('now', k === next);
+    el.classList.toggle('later', !d[k] && k !== next);
+    const flag = el.querySelector('.flag');
+    if (flag) flag.hidden = k !== next;
+    const box = el.querySelector('input[type=checkbox]');
+    if (box) box.checked = !!d[k];
+  });
+
+  // ย้ายป้าย "ทำข้อนี้ต่อไป" ไปอยู่ขั้นที่ควรทำ
+  document.querySelectorAll('.step').forEach((el) => {
+    let f = el.querySelector('.flag');
+    if (el.dataset.k === next && !f) {
+      f = document.createElement('span');
+      f.className = 'flag';
+      f.textContent = 'ทำข้อนี้ต่อไป';
+      el.querySelector('h3').appendChild(f);
+    } else if (el.dataset.k !== next && f) {
+      f.remove();
+    }
+  });
+
+  document.getElementById('pTitle').textContent = `ทำไปแล้ว ${done} จาก 4 ขั้น`;
+  document.getElementById('pBar').style.width = (done / 4 * 100) + '%';
+  const names = { s1: 'วัดความเร็วเครื่อง', s2: 'เปรียบเทียบตัวกรองสัญญาณ',
+                  s3: 'ความแม่นยำตามระดับแสง', s4: 'ความแม่นยำการนับครั้ง' };
+  document.getElementById('pHint').textContent = next
+    ? `ขั้นต่อไปคือ ${KEYS.indexOf(next) + 1} · ${names[next]}`
+    : 'ครบทุกขั้นแล้ว เอาไฟล์ CSV ไปวางที่ will_kit/data';
+  document.getElementById('doneNote').hidden = !!next;
+}
+
+document.querySelectorAll('.tick input').forEach((box) => {
+  box.addEventListener('change', () => {
+    const d = read();
+    d[box.dataset.k] = box.checked;
+    write(d);
+    render();
+  });
+});
+
+document.getElementById('reset').addEventListener('click', () => {
+  write({});
+  render();
+});
+
+render();
+
+// ---------- สวิตช์แสดงรายละเอียดงานวิจัย ----------
+// ไม่แยกเป็นโหมดผู้ใช้กับโหมดวิจัยอีกแล้ว ทุกคนเห็นหน้าเดียวกัน
+// สวิตช์นี้คุมแค่ว่าจะโชว์สมการและเครื่องมือเก็บข้อมูลในทุกหน้าหรือไม่
+const SHOWEQ = 'hr-show-eq';
+const eqBox = document.getElementById('optEq');
+const readEq = () => { try { return localStorage.getItem(SHOWEQ) !== '0'; } catch { return true; } };
+eqBox.checked = readEq();
+eqBox.addEventListener('change', () => {
+  try { localStorage.setItem(SHOWEQ, eqBox.checked ? '1' : '0'); } catch {}
+  window.dispatchEvent(new CustomEvent('hr-show-eq-change', { detail: eqBox.checked }));
+});
+</script>
+<script type="module" src="js/hud.js"></script>
+</body>
+</html>

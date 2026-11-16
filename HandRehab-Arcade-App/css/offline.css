@@ -1,0 +1,27 @@
+/* ============================================================
+   offline.css — ป้ายสถานะออนไลน์/ออฟไลน์มุมซ้ายล่าง + รายการไฟล์ (Lab 35)
+   ============================================================ */
+.net-badge {
+  position: fixed; left: var(--sp-3); bottom: var(--sp-3); z-index: 80;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 0;
+  min-height: 56px; max-width: min(420px, 60vw); padding: var(--sp-1) var(--sp-3);
+  background: var(--card); color: var(--text); font: inherit; font-size: var(--fs-sm); text-align: left;
+  border: 2px solid var(--line); border-radius: var(--r-md); cursor: pointer; box-shadow: 0 4px 16px var(--shadow);
+}
+.net-badge span { color: var(--text-2); }
+.net-badge.ok { border-color: var(--success); }
+.net-badge.warn { border-color: var(--warning); }
+.net-badge.bad { border-color: var(--error); }
+.net-badge.bad span { color: var(--error); }
+/* หน้าที่มีแถบนำทางล่าง: ยกป้ายขึ้นไม่ให้ทับ */
+body:has(.bottom-nav:not(.hidden-nav)) .net-badge { bottom: calc(var(--btn-h) + var(--sp-5)); }
+body.game-page .net-badge { bottom: calc(var(--btn-h) * 2 + var(--sp-4)); opacity: 0.9; }
+
+.file-list { display: flex; flex-direction: column; gap: var(--sp-2); max-height: 50vh; overflow-y: auto; }
+.file-row { display: grid; grid-template-columns: 7.5em 1fr 8em 9em; align-items: center; gap: var(--sp-2); padding: var(--sp-1) var(--sp-2); border-radius: var(--r-sm); background: var(--input); }
+.file-row .bar { height: 10px; }
+.file-row .st { font-size: var(--fs-sm); text-align: right; }
+.file-row.ok .st { color: var(--success); }
+.file-row.bad .st { color: var(--error); }
+.file-row .g { font-size: var(--fs-sm); color: var(--text-2); }
+@media (max-width: 700px) { .file-row { grid-template-columns: 1fr 1fr; } }

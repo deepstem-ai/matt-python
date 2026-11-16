@@ -1,0 +1,220 @@
+/* ============================================================
+   lab-screen.css — หน้าแลปจบในหน้าจอเดียว ไม่ต้องเลื่อน
+
+   ปัญหาที่แก้  หน้าเก็บข้อมูลเดิมเป็นการ์ดเรียงลงมายาวเกินจอ
+   ผู้ใช้ต้องเลื่อนขึ้นลงสลับระหว่าง "ปุ่มที่ต้องกด" กับ "ผลที่ออกมา"
+   ทำให้พะวงและทำผิดขั้นตอน
+
+   วิธีแก้  ล็อกความสูงเท่าหน้าจอ แบ่งเป็นสามแถวคงที่
+     แถวบน   แถบลำดับขั้น (steps.js)  +  ชื่อหน้าและสิ่งที่ต้องทำตอนนี้
+     แถวกลาง สองคอลัมน์  ซ้ายคือสิ่งที่ต้องทำ  ขวาคือผลที่ออกมา  เห็นพร้อมกัน
+     แถวล่าง ปุ่มใหญ่ปุ่มเดียวว่าขั้นต่อไปคืออะไร
+
+   ของที่ไม่จำเป็นกับผู้ใช้ทั่วไป ใส่ data-adv ไว้ จะถูกพับเก็บ
+   ============================================================ */
+
+body.lab-screen,
+body.lab-screen html { height: 100%; }
+
+body.lab-screen {
+  overflow: hidden;                 /* ห้ามเลื่อนทั้งหน้า */
+  overscroll-behavior: none;
+}
+
+/* ใช้ flex ไม่ใช่ grid  เพราะจำนวนแถวไม่คงที่ (มีแถบขั้นสูงบ้างไม่มีบ้าง)
+   grid-template-rows ที่ตายตัวทำให้แถว 1fr ไปตกผิดแถว */
+/* body เป็น flex  แถบบนของแอปกินที่ของมันไป  main กินที่ที่เหลือพอดี */
+body.lab-screen {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  max-height: 100dvh;
+}
+body.lab-screen > header.app-bar { flex: 0 0 auto; }
+
+body.lab-screen main.wrap {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+body.lab-screen main.wrap > * { flex: 0 0 auto; }
+body.lab-screen main.wrap > .lab-middle { flex: 1 1 auto; min-height: 0; }
+
+/* ---------- แถวบน  หัวเรื่องแบบย่อ ---------- */
+body.lab-screen .r-head {
+  padding: 10px clamp(12px, 2vw, 26px);
+  border-bottom: 1px solid var(--line);
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+body.lab-screen .r-head h1 {
+  font-size: clamp(17px, 1.5vw, 21px);
+  line-height: 1.2;
+  margin: 0;
+}
+body.lab-screen .r-head .sub { display: none; }   /* คำอธิบายยาวย้ายไปอยู่ในปุ่มช่วยเหลือ */
+body.lab-screen .lab-no { font-size: 0.8em; opacity: 0.75; }
+
+/* ---------- บรรทัด "ตอนนี้ให้ทำอะไร" ---------- */
+#labNow {
+  display: flex; align-items: center; gap: 12px;
+  padding: 9px clamp(12px, 2vw, 26px);
+  background: color-mix(in srgb, var(--primary) 12%, var(--card));
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(15px, 1.35vw, 19px);
+  font-weight: 650;
+  color: var(--text);
+}
+#labNow .n {
+  flex: none; width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--primary); color: var(--on-bright);
+  font-weight: 800; font-size: 16px;
+}
+#labNow .hint { font-weight: 400; color: var(--text-2); font-size: 0.86em; }
+
+/* ---------- แถวกลาง  สองคอลัมน์ เท่าความสูงที่เหลือ ---------- */
+body.lab-screen .lab-grid,
+body.lab-screen .bench-grid {
+  min-height: 0;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(300px, 0.75fr);
+  gap: clamp(10px, 1.2vw, 18px);
+  padding: clamp(10px, 1.2vw, 18px);
+  align-items: stretch;
+}
+body.lab-screen .lab-middle > section,
+body.lab-screen .lab-middle > aside,
+body.lab-screen .bench-grid > * ,
+body.lab-screen .wizard {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, 1vw, 14px);
+  /* กันเนื้อหาหาย  ถ้าคอลัมน์ไหนยาวเกิน ให้เลื่อนในคอลัมน์นั้นเอง
+     ไม่ใช่เลื่อนทั้งหน้า  ปุ่มที่ต้องกดกับผลที่ออกมาจึงยังเห็นพร้อมกันเสมอ */
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+body.lab-screen .lab-middle > *::-webkit-scrollbar { width: 8px; }
+body.lab-screen .lab-middle > *::-webkit-scrollbar-thumb {
+  background: var(--line); border-radius: 8px;
+}
+/* การ์ดย่อขนาดตามที่เหลือ แทนที่จะดันหน้าให้ยาว */
+body.lab-screen .lab-middle .card-neon {
+  min-height: 0;
+  padding: clamp(10px, 1.1vw, 16px);
+  margin: 0 !important;
+}
+/* การ์ดที่ขอพื้นที่ที่เหลือทั้งหมด เช่น กราฟหรือภาพกล้อง */
+body.lab-screen [data-grow] { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+body.lab-screen [data-grow] canvas,
+body.lab-screen [data-grow] video { flex: 1 1 auto; min-height: 0; height: auto !important; width: 100%; object-fit: contain; }
+
+/* ตารางยาว ให้เลื่อนในกรอบของมันเอง ไม่ใช่เลื่อนทั้งหน้า */
+body.lab-screen .tbl-scroll { max-height: none !important; flex: 1 1 auto; min-height: 0; overflow: auto; }
+
+/* ---------- ของขั้นสูง พับเก็บ ---------- */
+body.lab-screen [data-adv] { display: none; }
+body.lab-screen.show-adv [data-adv] { display: block; }
+
+#advBar {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 0 clamp(12px, 2vw, 26px) 8px;
+}
+#advBar button {
+  background: none; border: 1px dashed var(--line); color: var(--text-2);
+  border-radius: 10px; padding: 6px 12px; cursor: pointer; font-size: 14px;
+}
+#advBar button:hover { border-style: solid; color: var(--text); }
+
+/* ---------- แถวล่าง  ปุ่มใหญ่ปุ่มเดียว ---------- */
+#labAct {
+  display: flex; align-items: center; gap: clamp(8px, 1vw, 14px);
+  padding: 10px clamp(12px, 2vw, 26px);
+  border-top: 1px solid var(--line);
+  background: var(--card);
+}
+#labAct .spacer { flex: 1 1 auto; }
+#labAct .big {
+  min-height: 58px; padding: 0 28px;
+  font-size: clamp(16px, 1.5vw, 20px); font-weight: 800;
+  border-radius: 14px; border: none; cursor: pointer;
+  background: var(--primary); color: var(--on-bright);
+}
+#labAct .big[disabled] { opacity: 0.45; cursor: not-allowed; }
+#labAct .big.done { background: var(--success); }
+#labAct .ghost {
+  min-height: 58px; padding: 0 20px; font-size: 16px; border-radius: 14px;
+  background: none; border: 1px solid var(--line); color: var(--text); cursor: pointer;
+}
+
+/* ---------- ตัวอักษรใหญ่ขึ้นทั้งหน้า สำหรับผู้สูงอายุ ---------- */
+body.lab-screen { font-size: clamp(15px, 1.25vw, 18px); }
+body.lab-screen .btn-glow { min-height: 48px; font-size: 1em; }
+body.lab-screen h2 { font-size: clamp(15px, 1.3vw, 18px); margin: 0 0 8px; }
+body.lab-screen .bignum { font-size: clamp(30px, 3.6vw, 52px); line-height: 1.05; }
+body.lab-screen .muted, body.lab-screen .sub { font-size: 0.86em; }
+
+/* ---------- จอแคบ  วางซ้อนกันแต่ยังไม่เลื่อนทั้งหน้า ---------- */
+@media (max-width: 900px) {
+  body.lab-screen .lab-grid,
+body.lab-screen .bench-grid { grid-template-columns: 1fr; grid-template-rows: minmax(0,1fr) minmax(0,0.9fr); }
+}
+/* จอเตี้ยมาก  ยอมให้แถวกลางเลื่อนในกรอบตัวเอง ดีกว่าตัดเนื้อหาหาย */
+@media (max-height: 620px) {
+  body.lab-screen .lab-grid > section,
+  body.lab-screen .lab-grid > aside { overflow: auto; }
+}
+
+/* ส่วนท้ายชื่อทีม ไม่ต้องกินที่บนหน้าแลป */
+body.lab-screen .team-badge { display: none; }
+
+
+/* ---------- ปุ่มลอยและป้ายสถานะ ต้องไม่ทับแถบปุ่มล่าง ---------- */
+body.lab-screen #hrHud,
+body.lab-screen .hr-hud { bottom: 86px !important; }
+body.lab-screen .net-badge,
+body.lab-screen #netBadge,
+body.lab-screen .asset-badge,
+body.lab-screen #assetBadge { bottom: 86px !important; }
+body.lab-screen .toast,
+body.lab-screen #toast { bottom: 92px !important; }
+
+/* ---------- การ์ดที่ไม่ได้ขอขยาย ห้ามถูกบีบจนเนื้อหาล้นทับการ์ดถัดไป ---------- */
+body.lab-screen .lab-middle > section > *:not([data-grow]),
+body.lab-screen .lab-middle > aside   > *:not([data-grow]) { flex: 0 0 auto; }
+
+/* ---------- ปุ่มลอยมุมขวาล่าง ย้ายให้พ้นแถบปุ่มและคอลัมน์ขวา ---------- */
+body.lab-screen #hrHud.in-bar,
+body.lab-screen .hr-hud.in-bar {
+  position: static !important;
+  transform: none !important;
+  flex-direction: row !important;
+  gap: 8px !important;
+  inset: auto !important;
+}
+body.lab-screen #i18nToggle.in-bar { position: static !important; inset: auto !important; }
+body.lab-screen #hrHud.in-bar > *,
+body.lab-screen .hr-hud.in-bar > * { width: 42px !important; height: 42px !important; font-size: 15px !important; }
+
+body.lab-screen .toast-host { bottom: 96px !important; }
+body.lab-screen #i18nToggle { bottom: 96px !important; }
+
+
+/* ผังเฉพาะของบางหน้า ใช้เป็นแถวกลางที่ยืดได้เหมือนกัน */
+body.lab-screen .wizard { overflow-y: auto; min-height: 0; }
+body.lab-screen .bench-grid { min-height: 0; overflow: hidden; }
+
+/* ---------- แถบลำดับขั้นด้านบน ต้องไม่กินพื้นที่ของงานจริง ---------- */
+body.lab-screen #hrSteps { max-height: 34vh; overflow: auto; }
+body.lab-screen #hrSteps .eqwrap { font-size: 0.92em; }
+body.lab-screen #hrSteps details[open] .eqgrid { max-height: 22vh; overflow: auto; }

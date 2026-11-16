@@ -1,0 +1,47 @@
+/* ============================================================
+   register.css — สไตล์เฉพาะฟอร์มลงทะเบียน (Lab 12)
+   สีทั้งหมดอ่านจาก tokens.css ผ่าน var() เท่านั้น
+   ============================================================ */
+
+/* แถบบอกขั้น */
+.crumbs { display: flex; gap: var(--sp-2); list-style: none; padding: 0; margin: 0 0 var(--sp-4); flex-wrap: wrap; }
+.crumbs li { flex: 1 1 150px; display: flex; align-items: center; gap: var(--sp-2); min-height: var(--btn-h); padding: 0 var(--sp-3);
+  border-radius: var(--r-md); background: var(--input); border: 2px solid var(--line); color: var(--text-2); cursor: pointer; font-weight: 600; }
+.crumbs li span { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--card); font-family: var(--font-num); }
+.crumbs li.current { border-color: var(--primary); color: var(--text); box-shadow: var(--glow); }
+.crumbs li.current span { background: var(--primary); color: var(--on-bright); }
+.crumbs li.done { border-color: var(--success); color: var(--text); }
+.crumbs li.done span { background: var(--success); color: var(--on-bright); }
+
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-4); }
+@media (max-width: 640px) { .two { grid-template-columns: 1fr; } }
+.field input[type=text], .field input[type=tel], .field select, .field textarea { width: 100%; }
+.field .row select { width: auto; flex: 1 1 110px; }
+
+fieldset { border: 2px solid var(--line); border-radius: var(--r-md); padding: var(--sp-3) var(--sp-4); margin: 0 0 var(--sp-4); display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+fieldset legend { font-weight: 700; padding: 0 var(--sp-2); }
+fieldset .err-msg, fieldset .because, fieldset .field { flex-basis: 100%; }
+fieldset.valid { border-color: var(--success); }
+fieldset.invalid { border-color: var(--error); }
+.checks { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.choice { font-size: var(--fs-md); }
+
+.age-out { display: inline-block; margin-top: var(--sp-2); font-size: var(--fs-xl); font-weight: 800; color: var(--primary); }
+.age-out.bad { color: var(--error); font-size: var(--fs-md); }
+.quick { margin-top: var(--sp-2); }
+.quick .chip { cursor: pointer; min-height: 40px; font: inherit; color: var(--text); }
+
+.ticks { display: flex; justify-content: space-between; font-family: var(--font-num); color: var(--text-2); padding: 0 6px; }
+.desc { font-size: var(--fs-lg); font-weight: 600; color: var(--primary); }
+.because { background: color-mix(in srgb, var(--secondary) 12%, var(--card)); border-left: 4px solid var(--secondary); padding: var(--sp-2) var(--sp-3); border-radius: var(--r-sm); margin: var(--sp-2) 0 0; font-size: var(--fs-sm); }
+
+.nav-row { display: flex; gap: var(--sp-3); align-items: center; justify-content: space-between; margin-top: var(--sp-4); border-top: 1px solid var(--line); padding-top: var(--sp-4); flex-wrap: wrap; }
+.nav-row #missing { flex: 1; text-align: center; }
+.ok-text { color: var(--success); font-weight: 700; flex: 1; text-align: center; }
+
+.consent-card { margin-top: var(--sp-4); padding: var(--sp-4); border: 2px solid var(--line); border-radius: var(--r-md); }
+.consent-card.valid { border-color: var(--success); }
+.consent-card.invalid { border-color: var(--error); }
+.consent-scroll { max-height: 45vh; overflow-y: auto; padding: var(--sp-3); background: var(--input); border-radius: var(--r-md); }
+.consent-scroll h3 { color: var(--primary); margin-top: var(--sp-3); }
+#summary th { width: 38%; }
