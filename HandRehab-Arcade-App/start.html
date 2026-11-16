@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#151B33">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <title>เริ่มตรงนี้ · HandRehab Arcade</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/parts.css">
+  <link rel="stylesheet" href="css/page.css">
+  <link rel="stylesheet" href="css/shell.css">
+  <style>
+    body { font-size: clamp(16px, 1.5vw, 19px); }
+    .lead { font-size: clamp(19px, 2.1vw, 25px); font-weight: 800; margin: 0 0 4px; }
+    .lead-sub { color: var(--text-2); margin: 0 0 18px; }
+
+    .two { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(280px, .9fr); gap: clamp(14px, 2vw, 24px); align-items: start; }
+    @media (max-width: 860px) { .two { grid-template-columns: 1fr; } }
+
+    .chk { display: flex; gap: 14px; padding: 14px 16px; border-radius: 16px;
+           border: 2px solid var(--line); margin-bottom: 12px; background: var(--card); }
+    .chk .ico { font-size: 26px; line-height: 1.1; flex: none; }
+    .chk .body { min-width: 0; }
+    .chk .ttl { font-weight: 800; font-size: 1.05em; }
+    .chk .msg { color: var(--text-2); margin-top: 2px; }
+    .chk .help { margin-top: 10px; font-size: .95em; line-height: 1.75; }
+    .chk .help ol, .chk .help ul { margin: 0; padding-left: 1.25em; }
+    .chk[data-state="ok"]  { border-color: var(--success, #15803d); }
+    .chk[data-state="bad"] { border-color: var(--danger, #b91c1c); }
+    .chk[data-state="work"]{ border-color: var(--primary); }
+
+    .cam { position: relative; border-radius: 18px; overflow: hidden; background: #000; aspect-ratio: 4/3; }
+    .cam video, .cam canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+                              transform: scaleX(-1); }
+    .cam .tagline { position: absolute; left: 0; right: 0; bottom: 0; padding: 8px 12px;
+                    background: rgba(0,0,0,.55); color: #fff; font-size: 14px; }
+
+    .acts { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+    .acts button { min-height: 62px; padding: 0 26px; border-radius: 16px; border: none;
+                   font-size: clamp(17px, 1.8vw, 21px); font-weight: 800; cursor: pointer;
+                   background: var(--primary); color: var(--on-bright); }
+    .acts button.ghost { background: none; color: var(--text); border: 1px solid var(--line); }
+  </style>
+</head>
+<body>
+  <header class="top-bar">
+    <h1>เริ่มตรงนี้</h1>
+    <span class="spacer"></span>
+    <a class="btn-glow ghost small" href="menu.html">สำหรับทีมวิจัย →</a>
+  </header>
+
+  <main class="wrap">
+    <p class="lead">ตรวจให้แน่ก่อนว่าทุกอย่างพร้อม</p>
+    <p class="lead-sub">ไม่ต้องตั้งค่าอะไรเอง แค่รอให้ครบสามข้อ ถ้ามีข้อไหนติด จะบอกว่าต้องทำยังไงต่อ</p>
+
+    <div class="two">
+      <div>
+        <div class="chk" id="step1" data-state="wait">
+          <span class="ico">⬜</span>
+          <div class="body">
+            <div class="ttl">1 · กล้อง</div>
+            <div class="msg"></div>
+            <div class="help" hidden></div>
+          </div>
+        </div>
+
+        <div class="chk" id="step2" data-state="wait">
+          <span class="ico">⬜</span>
+          <div class="body">
+            <div class="ttl">2 · ตัว AI ที่ใช้จับมือ</div>
+            <div class="msg"></div>
+            <div class="help" hidden></div>
+          </div>
+        </div>
+
+        <div class="chk" id="step3" data-state="wait">
+          <span class="ico">⬜</span>
+          <div class="body">
+            <div class="ttl">3 · กล้องเห็นมือหรือยัง</div>
+            <div class="msg"></div>
+            <div class="help" hidden></div>
+          </div>
+        </div>
+
+        <div class="acts">
+          <button id="go" hidden>ต่อไป · ปรับเทียบมือ</button>
+          <button id="retry" class="ghost" hidden>🔄 ลองใหม่</button>
+          <button id="skip" class="ghost">ข้ามไปเล่นเลย</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="cam">
+          <video id="vid" playsinline muted autoplay></video>
+          <canvas id="hand"></canvas>
+          <div class="tagline">ภาพนี้อยู่ในเครื่องของคุณเท่านั้น ไม่ได้ส่งออกไปไหน</div>
+        </div>
+        <p class="muted" style="margin-top:10px">ถ้าเห็นหน้าตัวเองในกรอบนี้ แปลว่ากล้องใช้ได้แล้ว</p>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="js/start-page.js"></script>
+  <script type="module" src="js/appbar.js"></script>
+</body>
+</html>

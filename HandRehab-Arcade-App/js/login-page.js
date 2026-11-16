@@ -122,12 +122,16 @@ async function offerOptions(empty) {
   const html = empty
     ? '<h2>ยังไม่มีใบหน้าในเครื่องนี้</h2><p>ลงทะเบียนใหม่ (ชื่อ + PIN แล้วเก็บใบหน้า) หรือเข้าด้วย PIN</p>'
     : `<h2>🤔 ยังหาไม่เจอภายใน ${LOGIN_CONFIG.noMatchSeconds} วินาที</h2><p>ลองขยับเข้าที่สว่าง มองกล้องตรง ๆ แล้วกระพริบตา หรือเลือกทางอื่น</p>`;
+  // กล่องนี้บังทั้งหน้า ผู้ที่มาทดสอบแอปจึงต้องมีทางออกอยู่ในนี้เลย
+  // ไม่งั้นคนที่ไม่รู้เรื่องเทคนิคจะติดอยู่ที่หน้าสแกนใบหน้าซึ่งไม่ใช่เรื่องของเขา
   const choice = await modal(html, [
-    ...(empty ? [] : [{ label: '↻ ลองอีกครั้ง', value: 'retry' }]),
+    { label: '👋 มาทดสอบแอป เริ่มตรงนี้', value: 'tester' },
+    ...(empty ? [] : [{ label: '↻ ลองอีกครั้ง', value: 'retry', cls: 'ghost' }]),
     { label: '🔢 ใช้ PIN', value: 'pin', cls: 'ghost' },
     { label: '📝 ลงทะเบียนใหม่', value: 'register', cls: 'ghost' },
     { label: '🎮 เล่นแบบไม่ลงทะเบียน', value: 'guest', cls: 'ghost' },
   ]);
+  if (choice === 'tester') return (location.href = 'start.html');
   if (choice === 'guest') return document.getElementById('btnGuest').click();
   if (choice === 'retry') startScan();
   else if (choice === 'pin') pinLogin();
