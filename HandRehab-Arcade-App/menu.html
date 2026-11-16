@@ -184,7 +184,7 @@
 
     <div class="note" id="doneNote" hidden>
       <b>ครบทั้งสี่ขั้นแล้ว</b><br>
-      เอาไฟล์ CSV ทุกไฟล์ไปวางที่โฟลเดอร์ <b>will_kit/data</b> แล้วบอกครูว่ารันครบแล้ว
+      เอาไฟล์ CSV ทุกไฟล์ไปวางที่โฟลเดอร์ <b>mattwillwork_kit/data</b> แล้วบอกครูว่ารันครบแล้ว
     </div>
 
     <div class="note warn">
@@ -315,7 +315,7 @@ function render() {
                   s3: 'ความแม่นยำตามระดับแสง', s4: 'ความแม่นยำการนับครั้ง' };
   document.getElementById('pHint').textContent = next
     ? `ขั้นต่อไปคือ ${KEYS.indexOf(next) + 1} · ${names[next]}`
-    : 'ครบทุกขั้นแล้ว เอาไฟล์ CSV ไปวางที่ will_kit/data';
+    : 'ครบทุกขั้นแล้ว เอาไฟล์ CSV ไปวางที่ mattwillwork_kit/data';
   document.getElementById('doneNote').hidden = !!next;
 }
 

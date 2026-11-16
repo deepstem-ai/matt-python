@@ -5,7 +5,7 @@ This document maps each equation in the JCSSE 2027 paper to the code that implem
 
 **ปรับเลขสมการใหม่เมื่อ 10 พ.ย. 2569** ร่างเก่ามี 10 สมการ ฉบับที่จะส่งมี 6 สมการ ตารางแปลงเลขอยู่ที่ `docs/EQUATION-MAP.md`
 
-ตรวจทั้งหมดในคำสั่งเดียว · Verify everything: `node --test tests/*.mjs` (110 ข้อ) และ `python3 will_kit/scripts/test_pipeline.py` (41 ข้อ)
+ตรวจทั้งหมดในคำสั่งเดียว · Verify everything: `node --test tests/*.mjs` (110 ข้อ) และ `python3 mattwillwork_kit/scripts/test_pipeline.py` (41 ข้อ)
 ในโค้ด ทุกสมการมีคอมเมนต์ `สมการ (n) ของบทความ` กำกับ ค้นหาได้ด้วย `grep -rn "สมการ (" js/`
 
 ## สมการที่อยู่ในบทความ
