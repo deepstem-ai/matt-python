@@ -75,6 +75,10 @@ export async function openPanel() {
 }
 
 export async function initOfflineStatus() {
+  // หน้าที่ทำไว้ให้ผู้ถูกทดสอบ ไม่ควรมีป้ายศัพท์เทคนิคแบบ "ขาด 3 ไฟล์ hand_landmarker.task"
+  // เพราะคนที่ไม่รู้เรื่องเทคนิคอ่านแล้วตกใจ ทั้งที่หน้านั้นอธิบายให้ครบอยู่แล้ว
+  // หน้าไหนไม่อยากได้ป้ายนี้ ใส่ <body data-no-net-badge> ไว้
+  if (document.body.hasAttribute('data-no-net-badge')) return;
   const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = 'css/offline.css'; document.head.appendChild(css);
   badge = document.createElement('button');
   badge.type = 'button'; badge.className = 'net-badge'; badge.setAttribute('aria-live', 'polite');
