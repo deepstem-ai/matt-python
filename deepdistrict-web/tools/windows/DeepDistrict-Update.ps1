@@ -14,7 +14,8 @@
        - server\data is never touched (and the release zip never contains it).
     5. Checks the database file is byte-for-byte the same as before.
     6. Adds the records file with tools\add_records.py (backup, add only, check, asks you first).
-    7. Offers to start DeepDistrict.
+    7. Offers to move older release zips to the Recycle Bin (DeepDistrict-Cleanup.ps1; never folders or data).
+    8. Offers to start DeepDistrict.
 #>
 param(
   [string]$Target = "",
@@ -94,7 +95,15 @@ if ($Records) {
   }
 }
 
-# 7) start
+# 7) optional: move older release zips to the Recycle Bin (never folders or data)
+$Clean = Join-Path $Here "DeepDistrict-Cleanup.ps1"
+if (Test-Path $Clean) {
+  Say ""
+  $c = Read-Host "Move older deepdistrict-web-v*.zip files to the Recycle Bin? The newest is kept; data is never touched. (y/N)"
+  if ($c -match "^[Yy]") { & $Clean -Folder $Here -Yes }
+}
+
+# 8) start
 Say ""
 $ans = Read-Host "Start DeepDistrict now? (Y/n)"
 if ($ans -eq "" -or $ans -match "^[Yy]") { Start-Process -FilePath (Join-Path $Target "start.bat") -WorkingDirectory $Target }

@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.5 r16 — November 2026
+- **Clean up old release zips** (`tools/windows/DeepDistrict-Cleanup.bat` + `.ps1`, also offered at the end of
+  DeepDistrict-Update): only files named exactly `deepdistrict-web-v<x>.<y>r<n>.zip` next to the tool; the newest
+  version is always kept; the rest go to the **Recycle Bin** (restorable) after you confirm. Folders — the program,
+  `server\data`, backup folders — are never touched.
+
 ## 6.5 r15 — November 2026
 - **Cancel a payment recorded by mistake, right where it is:** in the Payments table of an enrolment (and on the
   Payments page) admins have *Cancel payment…*; give a reason (pre-filled "Recorded by mistake — not paid yet") and
