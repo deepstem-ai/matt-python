@@ -16,8 +16,31 @@
   /* ------------------------------------------------------------ lesson dates from a plan
      plan: { days: {1: "17:00", 3: "17:00"}, per: 1.5, from: "2026-11-09",
              endBy: "date" | "hours" | "count", to, hours, count }            */
+  A.parseDateList = function (text, yearHint) {
+    var ok = [], bad = [], seen = {};
+    String(text || "").split(/[\s,;]+/).filter(Boolean).forEach(function (tok) {
+      var m, y, mo, d;
+      if ((m = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(tok))) { y = +m[1]; mo = +m[2]; d = +m[3]; }
+      else if ((m = /^(\d{1,2})[\/.-](\d{1,2})(?:[\/.-](\d{2,4}))?$/.exec(tok))) {
+        d = +m[1]; mo = +m[2]; y = m[3] ? +m[3] : +yearHint || new Date().getFullYear();
+        if (m[3] && m[3].length === 2) y = y + 2500;          // 69 → 2569 (Thai year)
+      } else { bad.push(tok); return; }
+      if (y > 2400) y -= 543;                                    // Thai Buddhist year → Western
+      var iso = y + "-" + ("0" + mo).slice(-2) + "-" + ("0" + d).slice(-2), dt = A.parse(iso);
+      if (isNaN(dt) || A.iso(dt) !== iso) { bad.push(tok); return; }
+      if (!seen[iso]) { seen[iso] = 1; ok.push(iso); }
+    });
+    return { dates: ok.sort(), bad: bad };
+  };
   A.planLessons = function (plan) {
     var days = plan.days || {}, per = +plan.per || 0, out = [];
+    if (plan.endBy === "list") {                       // specific dates: time from the ticked weekday, else the list time
+      if (per <= 0) return out;
+      A.parseDateList(plan.list, (plan.from || "").slice(0, 4)).dates.forEach(function (iso) {
+        out.push({ date: iso, start: days[A.parse(iso).getDay()] || plan.ltime || "17:00", hours: per });
+      });
+      return out;
+    }
     if (!Object.keys(days).length || per <= 0 || !plan.from) return out;
     var d = A.parse(plan.from), used = 0, guard = 0;
     var needH = Math.round((+plan.hours || 0) * 100) / 100, needN = Math.floor(+plan.count || 0);
@@ -52,7 +75,7 @@
       student: { mode: pre ? "existing" : (A.people("student").length ? "existing" : "new"), id: pre ? pre.id : "", name: "", nick: "", grade: "", school: "",
                  parentMode: "none", parentId: "", parentName: "", parentPhone: "" },
       course: c0.code, teacherId: A.me.role === "teacher" ? A.me.id : "", mode: "hybrid", location: "",
-      plan: { days: {}, per: 1.5, from: A.addDays(A.today(), 1), endBy: "hours", to: A.addDays(A.today(), 60), hours: c0.hours || 10, count: 8 },
+      plan: { days: {}, per: 1.5, from: A.addDays(A.today(), 1), endBy: "hours", to: A.addDays(A.today(), 60), hours: c0.hours || 10, count: 8, list: "", ltime: "17:00", pastDone: true },
       rate: c0.rate != null ? c0.rate : A.db.org.rate, discount: 0, fee: null, payNow: "", payMethod: "transfer", goal: "", start: A.today()
     };
   }
@@ -154,11 +177,16 @@
         (PER.indexOf(+p.per) === -1 ? '<option value="' + p.per + '" selected>' + A.num(p.per) + "</option>" : "") + "</select>") +
       field(L("First lesson on or after", "เริ่มเรียนตั้งแต่วันที่"), '<input type="date" data-k="plan.from" value="' + esc(p.from) + '">') + "</div>" +
       '<p class="ef-label">' + esc(L("Ends", "สิ้นสุดเมื่อ")) + "</p>" +
-      seg("plan.endBy", [["hours", L("Hours are used up", "ครบจำนวนชั่วโมง")], ["count", L("Number of lessons", "ครบจำนวนครั้ง")], ["date", L("On a date", "ถึงวันที่กำหนด")]], p.endBy) +
+      seg("plan.endBy", [["hours", L("Hours are used up", "ครบจำนวนชั่วโมง")], ["count", L("Number of lessons", "ครบจำนวนครั้ง")], ["date", L("On a date", "ถึงวันที่กำหนด")], ["list", L("Specific dates", "ระบุวันที่เอง")]], p.endBy) +
       '<div class="ef-grid">' +
       (p.endBy === "hours" ? field(L("Total hours", "ชั่วโมงทั้งหมด"), '<input type="number" min="0.5" step="0.5" data-k="plan.hours" value="' + esc(p.hours) + '">') : "") +
       (p.endBy === "count" ? field(L("Number of lessons", "จำนวนครั้ง"), '<input type="number" min="1" step="1" data-k="plan.count" value="' + esc(p.count) + '">') : "") +
       (p.endBy === "date" ? field(L("Last day", "วันสุดท้าย"), '<input type="date" data-k="plan.to" value="' + esc(p.to) + '">') : "") + "</div>" +
+      (p.endBy === "list" ? '<div class="ef-grid">' +
+        field(L("Lesson dates — one per line or separated by commas", "วันที่เรียน — บรรทัดละวัน หรือคั่นด้วยจุลภาค"), '<textarea data-k="plan.list" rows="4" placeholder="15/9/69, 16/9/69, 29/9/69 …  ' + esc(L("or", "หรือ")) + ' 2026-09-15">' + esc(p.list) + "</textarea>", "ef--wide") +
+        field(L("Start time (days not ticked above)", "เวลาเริ่ม (วันที่ไม่ได้เลือกไว้ด้านบน)"), '<input type="time" data-k="plan.ltime" value="' + esc(p.ltime) + '">') +
+        '<label class="ef ef--check"><input type="checkbox" data-k="plan.pastDone"' + (p.pastDone ? " checked" : "") + "> <span>" + esc(L("Dates before today were already taught — record them as learned", "วันที่ก่อนวันนี้ คือคาบที่เรียนไปแล้ว — บันทึกเป็น 'เรียนแล้ว'")) + "</span></label>" +
+        '<p class="ef-hint ef--wide">' + esc(L("Thai or Western years both work (69 = 2569 = 2026). Ticked days above set the time for that weekday.", "ใช้ปี พ.ศ. หรือ ค.ศ. ก็ได้ (69 = 2569 = 2026) ถ้าเลือกวันไว้ด้านบน จะใช้เวลาของวันนั้น")) + '</p><p data-list-bad class="alert" hidden></p></div>' : "") +
       '<div data-preview></div>';
     drawPreview();
   }
@@ -166,7 +194,9 @@
   function drawPreview() {
     var el = $("[data-preview]"); if (!el) return;
     var ls = lessons();
-    if (!Object.keys(S.plan.days).length) { el.innerHTML = '<p class="ef-hint">' + esc(L("Tap the days of the week the student comes.", "แตะเลือกวันในสัปดาห์ที่นักเรียนมาเรียน")) + "</p>"; return; }
+    var badEl = $("[data-list-bad]");
+    if (badEl) { var bad = A.parseDateList(S.plan.list, (S.plan.from || "").slice(0, 4)).bad; badEl.hidden = !bad.length; badEl.textContent = L("Not a date: ", "อ่านวันที่ไม่ได้: ") + bad.join(", "); }
+    if (S.plan.endBy !== "list" && !Object.keys(S.plan.days).length) { el.innerHTML = '<p class="ef-hint">' + esc(L("Tap the days of the week the student comes.", "แตะเลือกวันในสัปดาห์ที่นักเรียนมาเรียน")) + "</p>"; return; }
     if (!ls.length) { el.innerHTML = '<p class="alert">' + esc(L("No lesson fits these settings — check the dates.", "ไม่มีคาบที่ตรงกับเงื่อนไขนี้ — ตรวจสอบวันที่")) + "</p>"; return; }
     var cands = ls.map(function (x, i) { return { id: "new" + i, date: x.date, start: x.start, hours: x.hours, status: "scheduled", mode: S.mode, location: S.location, teacherId: S.teacherId, _stu: S.student.mode === "existing" ? S.student.id : "" }; });
     var clash = {}; A.findConflicts(cands).forEach(function (c) { clash[c.cand.id] = c.why; });
@@ -209,7 +239,7 @@
     var out = [];
     if (!studentLabel()) out.push(L("Choose or type the student", "เลือกหรือพิมพ์ชื่อนักเรียน"));
     if (!S.course) out.push(L("Choose a course", "เลือกหลักสูตร"));
-    if (!Object.keys(S.plan.days).length) out.push(L("Choose the days", "เลือกวันเรียน"));
+    if (S.plan.endBy !== "list" && !Object.keys(S.plan.days).length) out.push(L("Choose the days", "เลือกวันเรียน"));
     else if (!lessons().length) out.push(L("Check the timetable dates", "ตรวจสอบวันที่ในตารางเรียน"));
     return out;
   }
@@ -245,7 +275,7 @@
     var k = t.getAttribute("data-k"), tm = t.getAttribute("data-time");
     if (tm) { S.plan.days[tm] = t.value || "17:00"; drawPreview(); drawSummary(); return; }
     if (!k) return;
-    set(k, t.type === "number" ? (t.value === "" ? "" : +t.value) : t.value);
+    set(k, t.type === "checkbox" ? t.checked : t.type === "number" ? (t.value === "" ? "" : +t.value) : t.value);
     if (k === "fee") { S.fee = t.value === "" ? null : +t.value; }
     if (k === "course" && e.type === "input") return;
     if (/^plan\./.test(k)) { drawPreview(); var f = $('[data-k="fee"]'); if (f && S.fee == null) f.value = feeAuto(); }
@@ -293,7 +323,7 @@
     if (problems().length) return;
     var ls = lessons(), st = S.student, eid = A.uid("e");
     var cands = ls.map(function (x) {
-      return { id: A.uid("s"), enrolmentId: eid, date: x.date, start: x.start, hours: x.hours, status: "scheduled", mode: S.mode, location: S.location, teacherId: S.teacherId, createdAt: new Date().toISOString(),
+      return { id: A.uid("s"), enrolmentId: eid, date: x.date, start: x.start, hours: x.hours, status: S.plan.endBy === "list" && S.plan.pastDone && x.date < A.today() ? "done" : "scheduled", mode: S.mode, location: S.location, teacherId: S.teacherId, createdAt: new Date().toISOString(),
                _stu: st.mode === "existing" ? st.id : "" };
     });
     return A.clashOK(cands).then(function (ok) {
@@ -308,7 +338,7 @@
       }
       var h = hoursTotal(), fee = S.fee != null ? +S.fee : feeAuto();
       var rec = { id: eid, studentId: sid, courseCode: S.course, teacherId: S.teacherId, mode: S.mode, location: S.location, hours: h, rate: +S.rate || 0, discount: +S.discount || 0,
-                  fee: fee, start: S.start, status: "active", goal: S.goal, pattern: A.planPattern(S.plan), perLesson: +S.plan.per,
+                  fee: fee, start: S.plan.endBy === "list" && ls.length && ls[0].date < S.start ? ls[0].date : S.start, status: "active", goal: S.goal, pattern: A.planPattern(S.plan), perLesson: +S.plan.per,
                   planEnd: { by: S.plan.endBy, to: S.plan.endBy === "date" ? S.plan.to : ls[ls.length - 1].date }, createdAt: new Date().toISOString() };
       if (S.renewOf) rec.renewOf = S.renewOf;                 // the next round of an earlier enrolment
       A.db.enrolments.push(rec);

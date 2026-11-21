@@ -1,5 +1,11 @@
 # Changelog
 
+## 6.5 r9 — November 2026
+- **Enrol with specific dates** (Enrol → Timetable → Ends: *Specific dates*): type or paste the lesson dates
+  (Thai or Western years, e.g. 15/9/69, 2026-09-15), set the start time, and tick *dates before today were already
+  taught* to record an earlier round as learned. Unreadable dates are pointed out. Useful for entering a round that
+  was taught before the system was used. Existing records are never changed.
+
 ## 6.5 r8 — November 2026
 - **Real data is frozen.** Updates never change the centre's records: once the real records are in, the server
   marks the data frozen and never imports, updates or archives anything by itself again. Release zips no longer
