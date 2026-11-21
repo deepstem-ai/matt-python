@@ -1,5 +1,12 @@
 # Changelog
 
+## 6.5 r12 — November 2026
+- **One-click update on Windows** (`tools/windows/DeepDistrict-Update.bat` + `.ps1`): put them next to the new zip
+  (and an optional `deepdistrict-add-*.json`) in Downloads and double-click. It stops if DeepDistrict is still
+  running, copies `server\data` to a dated backup folder, extracts the program into `deepdistrict-web` without ever
+  touching `server\data`, checks the database file is byte-for-byte the same, adds the records file (add only,
+  asks first) and offers to start DeepDistrict.
+
 ## 6.5 r11 — November 2026
 - `tools/add_records.py <file.json>`: add records from a prepared file on the computer that holds the data —
   backup first (`server/data/backups/before-add-*.db`, never overwritten), add only new ids, then a byte-for-byte
