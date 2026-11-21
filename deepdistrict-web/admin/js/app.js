@@ -263,6 +263,25 @@
       }).join("") : '<p class="muted">' + L("Nothing prepared to import.", "ไม่มีข้อมูลที่เตรียมไว้ให้นำเข้า") + "</p>";
     }).catch(function (e) { box.innerHTML = '<p class="alert">' + esc(e.message) + "</p>"; });
   };
+  document.addEventListener("change", function (ev) {
+    var inp = ev.target.closest && ev.target.closest("[data-addfile]"); if (!inp || !inp.files[0]) return;
+    var f = inp.files[0]; inp.value = "";
+    f.text().then(function (t) {
+      var data; try { data = JSON.parse(t); } catch (e) { throw new Error(L("This is not a records file.", "ไฟล์นี้ไม่ใช่ไฟล์ข้อมูล")); }
+      return A.api("POST", "import/add", { file: data, preview: true }).then(function (sum) {
+        var a = sum.added || {}, row = function (k, en, th, unit) { return a[k] ? "<li>" + L(a[k] + " " + en, th + " " + a[k] + " " + unit) + "</li>" : ""; };
+        var html = "<ul>" + row("users", "people", "นักเรียน / ผู้ปกครอง", "คน") + row("enrolments", "enrolments", "การลงทะเบียน", "รายการ") + row("sessions", "lessons", "คาบเรียน", "คาบ") + row("payments", "payments", "การชำระเงิน", "รายการ") +
+          (sum.courses.length ? "<li>" + L("courses: ", "หลักสูตร: ") + esc(sum.courses.join(", ")) + "</li>" : "") + "</ul>" +
+          (sum.students.length ? "<p><b>" + L("For: ", "สำหรับ: ") + "</b>" + esc(sum.students.join(" · ")) + "</p>" : "") +
+          (sum.skipped ? '<p class="muted">' + L(sum.skipped + " record(s) are already here and stay as they are.", "มีอยู่แล้ว " + sum.skipped + " รายการ — คงไว้ตามเดิม") + "</p>" : "");
+        if (!Object.keys(a).length && !sum.courses.length) { A.toast(L("Everything in this file is already here — nothing to add.", "ข้อมูลในไฟล์มีอยู่แล้วทั้งหมด — ไม่มีอะไรต้องเพิ่ม")); return; }
+        return A.confirmCard(L("Add these records?", "เพิ่มข้อมูลเหล่านี้ไหม?"), html, L("Add", "เพิ่มข้อมูล"), L("Cancel", "ยกเลิก")).then(function (yes) {
+          if (!yes) return;
+          return A.api("POST", "import/add", { file: data }).then(function () { A.toast(L("Records added", "เพิ่มข้อมูลแล้ว")); return A.load(); }).then(function () { A.route(); });
+        });
+      });
+    }).catch(function (e) { A.toast(e.message, "err"); });
+  });
   A.removePerson = function (u) {
     var linked = A.db.enrolments.filter(function (e) { return e.studentId === u.id; });
     A.db.enrolments.forEach(function (e) { if (e.teacherId === u.id) e.teacherId = ""; });
@@ -285,6 +304,10 @@
       '<section class="box"><header><h2>' + L("Example data", "ข้อมูลตัวอย่าง") + "</h2></header>" +
       (nEx ? "<p>" + L(nEx + " example records (tagged Example) are in the system. Remove them before you start with real data.", "มีข้อมูลตัวอย่าง " + nEx + " รายการ (ป้าย ตัวอย่าง) ควรลบออกก่อนเริ่มใช้ข้อมูลจริง") + '</p><button class="btn btn--danger" data-act="example-remove">' + L("Remove all example data", "ลบข้อมูลตัวอย่างทั้งหมด") + "</button>"
         : '<p class="muted">' + L("No example data. ", "ไม่มีข้อมูลตัวอย่าง ") + '</p><button class="btn btn--sm" data-act="demo">' + L("Add the 5 example learners (for training)", "เพิ่มนักเรียนตัวอย่าง 5 คน (สำหรับฝึกใช้งาน)") + "</button>") + "</section>" +
+      '<section class="box"><header><h2>' + L("Add records from a file", "เพิ่มข้อมูลจากไฟล์") + '</h2></header><p class="muted">' +
+        L("Upload a DeepDistrict records file (.json). It only ADDS learners, enrolments and lessons that are not here yet — anything already in the system is left exactly as it is. You see what will be added and confirm first.",
+          "อัปโหลดไฟล์ข้อมูล DeepDistrict (.json) ระบบจะ เพิ่ม เฉพาะนักเรียน การลงทะเบียน และคาบเรียนที่ยังไม่มี — ข้อมูลที่มีอยู่แล้วไม่ถูกแก้ไขใด ๆ จะแสดงสิ่งที่จะเพิ่มให้ยืนยันก่อน") +
+        '</p><label class="btn btn--primary">' + L("Choose file…", "เลือกไฟล์…") + '<input type="file" accept=".json,application/json" data-addfile hidden></label></section>' +
       '<section class="box"><header><h2>' + L("Import prepared records", "นำเข้าข้อมูลที่เตรียมไว้") + '</h2></header><div data-imports><p class="muted">' + L("Loading…", "กำลังโหลด…") + "</p></div></section>" +
       '<section class="box"><header><h2>' + L("Take a record out of use", "นำรายการออกจากระบบ") + '</h2></header><form class="filters" data-filters><label>' + L("Find a person, enrolment or payment", "ค้นหาบุคคล การลงทะเบียน หรือการชำระเงิน") +
       '<input type="search" name="q" value="' + esc(q.get("q") || "") + '" placeholder="' + esc(L("name, course, receipt no.…", "ชื่อ หลักสูตร เลขที่ใบเสร็จ…")) + '"></label><button class="btn">' + L("Search", "ค้นหา") + "</button></form>" +

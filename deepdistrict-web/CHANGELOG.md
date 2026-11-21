@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.5 r10 — November 2026
+- **Add records from a file** (More menus → Data, admins): upload a DeepDistrict records file (.json); the system shows
+  what will be added and asks to confirm. It only ADDS learners, enrolments, lessons and courses that are not there
+  yet — every existing record stays exactly as it is, and uploading the same file again adds nothing.
+
 ## 6.5 r9 — November 2026
 - **Enrol with specific dates** (Enrol → Timetable → Ends: *Specific dates*): type or paste the lesson dates
   (Thai or Western years, e.g. 15/9/69, 2026-09-15), set the start time, and tick *dates before today were already
