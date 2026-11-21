@@ -1,0 +1,14 @@
+.DS_Store
+Thumbs.db
+node_modules/
+dist/
+.env
+
+# back-office data (personal data - never commit)
+server/data/
+__pycache__/
+*.db
+*.db-wal
+*.db-shm
+# real learners prepared for import (personal data - never commit; shipped only inside the release zip)
+server/real_data/

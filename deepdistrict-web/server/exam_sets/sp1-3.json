@@ -1,0 +1,1740 @@
+{
+ "exam": "sp1",
+ "set": 3,
+ "title": {
+  "en": "Satit Prasarnmit M.1 English — Practice paper 3",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.1 สาธิตประสานมิตร — ชุดที่ 3"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "50 questions in 60 minutes, reading-centred with reasoning (tables, notices, emails, stories, informational and opinion texts), plus conversation, vocabulary and grammar. DeepDistrict practice — not an official or past paper.",
+  "th": "50 ข้อ 60 นาที เน้นการอ่านและการคิดวิเคราะห์ (ตาราง ประกาศ อีเมล เรื่องสั้น บทความความรู้ และบทแสดงความคิดเห็น) พร้อมบทสนทนา คำศัพท์ และไวยากรณ์ — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Following the logic of a dialogue",
+    "th": "การเชื่อมโยงเหตุผลในบทสนทนา"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: I've been offered places at two schools, and I just can't decide.\nB: ______",
+   "choices": [
+    "Congratulations! Which one did you choose?",
+    "Why don't you make a list of the pros and cons of each?",
+    "I don't mind which one.",
+    "You must have decided by now."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "A says they cannot decide, so helpful advice fits: making a list of pros and cons. Asking which one A chose ignores what A just said.",
+    "th": "A บอกว่ายังตัดสินใจไม่ได้ คำแนะนำให้เขียนข้อดีข้อเสียจึงเหมาะสม ส่วนการถามว่าเลือกโรงเรียนไหนไปแล้วขัดกับที่ A เพิ่งพูด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding implied meaning",
+    "th": "การเข้าใจความหมายแฝง"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "Mint and her brother look out of the window at the heavy rain and dark sky.\nMint: 'Lovely day for a picnic, isn't it?'\nWhat does Mint really mean?",
+   "choices": [
+    "She enjoys picnics in the rain.",
+    "She thinks the rain will stop soon.",
+    "She wants to have a picnic right now.",
+    "The weather is far too bad for a picnic."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Mint says the opposite of what she means (sarcasm). With heavy rain and a dark sky, 'lovely day for a picnic' really means the weather is terrible for one.",
+    "th": "มิ้นท์พูดประชด คือพูดตรงข้ามกับความหมายจริง ฝนตกหนักและฟ้ามืด คำว่า 'Lovely day for a picnic' จึงหมายถึงอากาศแย่เกินกว่าจะไปปิกนิก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing appropriate register (politeness)",
+    "th": "การเลือกระดับภาษาที่เหมาะสมกับสถานการณ์"
+   },
+   "topic": {
+    "en": "Polite and formal language",
+    "th": "ภาษาสุภาพและเป็นทางการ"
+   },
+   "passage": "",
+   "stem": "You call the hotel reception because the air conditioner in your room is not working. What is the most appropriate thing to say?",
+   "choices": [
+    "I'm sorry to bother you, but the air conditioner in Room 512 doesn't seem to be working.",
+    "I demand a new room immediately because of your terrible service.",
+    "Hey, what's wrong with the air con in my room?",
+    "Your air conditioner is broken. Fix it now."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A polite complaint softens the problem ('I'm sorry to bother you', 'doesn't seem to be') and gives the room number. The others sound rude, too casual or aggressive.",
+    "th": "การแจ้งปัญหาอย่างสุภาพควรใช้คำพูดที่นุ่มนวล เช่น 'I'm sorry to bother you' และ 'doesn't seem to be' พร้อมบอกหมายเลขห้อง ประโยคอื่นฟังหยาบคาย เป็นกันเองเกินไป หรือก้าวร้าว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Following the logic of a dialogue",
+    "th": "การเชื่อมโยงเหตุผลในบทสนทนา"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: You look exhausted.\nB: I am. I stayed up until 2 a.m. finishing my science project.\nA: ______\nB: Tell me about it. I'll never leave things until the last minute again.",
+   "choices": [
+    "Was the project due last month?",
+    "Well done — you must feel full of energy.",
+    "Maybe you should have started it earlier.",
+    "Science projects are always easy."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'Tell me about it' here means 'I completely agree', and B promises not to leave things late again. So A must have said that B should have started earlier.",
+    "th": "'Tell me about it' ในที่นี้แปลว่า เห็นด้วยเลย และ B สัญญาว่าจะไม่ทำงานนาทีสุดท้ายอีก A จึงต้องพูดว่าควรเริ่มทำเร็วกว่านี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing a suitable response",
+    "th": "การเลือกคำตอบที่เหมาะสม"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: Excuse me, do you happen to know where the nearest pharmacy is?\nB: ______",
+   "choices": [
+    "No, I'm not sick.",
+    "It's nearest to me.",
+    "Yes, I do happen.",
+    "Sorry, I'm not from around here myself."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "B cannot give directions, so the natural reply is a polite apology explaining why. 'Yes, I do happen' is not English, and the other two misunderstand the question.",
+    "th": "B บอกทางไม่ได้ จึงขอโทษอย่างสุภาพพร้อมเหตุผลว่าไม่ใช่คนแถวนี้ ส่วน 'Yes, I do happen' ไม่ใช่ภาษาอังกฤษที่ถูกต้อง และอีกสองคำตอบเข้าใจคำถามผิด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing a suitable response",
+    "th": "การเลือกคำตอบที่เหมาะสม"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "A: I'm so sorry I'm late — the traffic was terrible.\nB: ______ We haven't started yet.",
+   "choices": [
+    "That's no excuse at all.",
+    "Better late than never — you've missed the whole meeting.",
+    "Don't worry about it.",
+    "Thanks for coming so early."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'We haven't started yet' shows B is not upset, so the reply must be reassuring: 'Don't worry about it.' Saying A missed the whole meeting contradicts 'haven't started'.",
+    "th": "'We haven't started yet' แสดงว่า B ไม่ได้ไม่พอใจ จึงต้องตอบให้สบายใจว่า 'Don't worry about it.' การบอกว่าพลาดการประชุมทั้งหมดขัดกับคำว่ายังไม่ได้เริ่ม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Nouns",
+    "th": "คำนาม"
+   },
+   "passage": "",
+   "stem": "The doctor warned that the medicine might cause ______ such as headaches or a dry mouth.",
+   "choices": [
+    "ingredients",
+    "side effects",
+    "treatments",
+    "benefits"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Headaches and a dry mouth are unwanted results of taking a medicine, which are called 'side effects'.",
+    "th": "อาการปวดหัวและปากแห้งเป็นผลที่ไม่ต้องการจากการกินยา เรียกว่า 'side effects' (ผลข้างเคียง)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Verbs",
+    "th": "คำกริยา"
+   },
+   "passage": "",
+   "stem": "Taking the bus instead of driving is a simple way to ______ air pollution.",
+   "choices": [
+    "report",
+    "reduce",
+    "produce",
+    "increase"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Taking the bus means fewer cars on the road, which lowers pollution, so 'reduce' is correct.",
+    "th": "การนั่งรถเมล์แทนการขับรถทำให้รถบนถนนน้อยลงและมลพิษลดลง จึงใช้ 'reduce'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Verbs",
+    "th": "คำกริยา"
+   },
+   "passage": "",
+   "stem": "The documentary ______ the problems that farmers faced during the drought, and many viewers donated money afterwards.",
+   "choices": [
+    "lowered",
+    "ignored",
+    "highlighted",
+    "forgave"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Viewers donated money because the film drew attention to the farmers' problems, so it 'highlighted' them. If it had ignored them, people would not have reacted.",
+    "th": "ผู้ชมบริจาคเงินเพราะสารคดีทำให้คนสนใจปัญหาของชาวนา จึงใช้ 'highlighted' (เน้นให้เห็น) ถ้าเพิกเฉย ผู้ชมคงไม่ตอบสนอง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Adjectives",
+    "th": "คำคุณศัพท์"
+   },
+   "passage": "",
+   "stem": "Fon is quite ______; she prefers reading quietly at home to going to big, noisy parties.",
+   "choices": [
+    "talkative",
+    "reserved",
+    "bossy",
+    "outgoing"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Preferring quiet time to big parties describes a 'reserved' (quiet, private) person. 'Outgoing' and 'talkative' mean the opposite.",
+    "th": "การชอบอยู่เงียบ ๆ มากกว่าไปงานปาร์ตี้ใหญ่ ๆ บ่งบอกว่าเป็นคนเก็บตัว 'reserved' ส่วน outgoing และ talkative มีความหมายตรงข้าม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Working out word meaning from context",
+    "th": "การหาความหมายของคำจากบริบท"
+   },
+   "topic": {
+    "en": "Adjectives",
+    "th": "คำคุณศัพท์"
+   },
+   "passage": "",
+   "stem": "The results of the test were inconclusive, so the scientists decided to repeat the experiment with more samples.\nThe word 'inconclusive' is closest in meaning to ______.",
+   "choices": [
+    "completely wrong",
+    "not clear enough to prove anything",
+    "very surprising",
+    "finished too early"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The scientists had to repeat the experiment, so the first results did not lead to a firm conclusion: 'in-' (not) + 'conclusive' (proving something).",
+    "th": "นักวิทยาศาสตร์ต้องทดลองซ้ำ แสดงว่าผลครั้งแรกยังสรุปไม่ได้ in- แปลว่า ไม่ และ conclusive แปลว่า ชี้ขาด จึงหมายถึง ยังไม่ชัดเจนพอจะสรุป"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing a word from context clues",
+    "th": "การเลือกคำศัพท์จากบริบท"
+   },
+   "topic": {
+    "en": "Adjectives",
+    "th": "คำคุณศัพท์"
+   },
+   "passage": "",
+   "stem": "The team's victory was ______: they had trained harder than any other team all year.",
+   "choices": [
+    "unfair",
+    "well-deserved",
+    "accidental",
+    "unexpected"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The reason after the colon (training harder than anyone) explains why they earned the win, so it was 'well-deserved'.",
+    "th": "เหตุผลหลังเครื่องหมาย : (ซ้อมหนักกว่าใคร) อธิบายว่าทำไมชัยชนะนี้สมควรได้รับ จึงใช้ 'well-deserved'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำที่ใช้คู่กันและกริยาวลี"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำที่ใช้คู่กันและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "Rather than ______ the problem, the manager simply pretended that it did not exist.",
+   "choices": [
+    "forget",
+    "ignore",
+    "deal with",
+    "hide"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'Rather than' contrasts two different actions. Pretending a problem does not exist is the same as ignoring or hiding it, so the contrast must be 'deal with' (handle it).",
+    "th": "'Rather than' เปรียบเทียบการกระทำสองอย่างที่ต่างกัน การแกล้งทำเป็นว่าไม่มีปัญหาก็คือการเพิกเฉยหรือซ่อน จึงต้องตรงข้ามคือ 'deal with' (จัดการ)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำที่ใช้คู่กันและกริยาวลี"
+   },
+   "topic": {
+    "en": "Collocations and phrasal verbs",
+    "th": "คำที่ใช้คู่กันและกริยาวลี"
+   },
+   "passage": "",
+   "stem": "All flights were delayed because of ______ weather conditions.",
+   "choices": [
+    "tight",
+    "deep",
+    "severe",
+    "strict"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'Severe weather' (very bad, dangerous weather) is the natural collocation. 'Strict' describes rules, and 'deep' and 'tight' do not go with weather.",
+    "th": "คำที่ใช้คู่กันคือ 'severe weather' (สภาพอากาศเลวร้าย) ส่วน strict ใช้กับกฎ และ deep หรือ tight ไม่ใช้กับสภาพอากาศ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Future perfect passive",
+    "th": "Future perfect แบบ passive"
+   },
+   "passage": "",
+   "stem": "Don't worry — the new sports hall ______ by the time the inspectors arrive next week.",
+   "choices": [
+    "will have been completed",
+    "has been completed",
+    "completes",
+    "will complete"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "'By the time…next week' points to an action finished before a future moment (future perfect), and a hall is completed by people (passive): 'will have been completed'.",
+    "th": "'By the time … next week' บอกว่าเหตุการณ์จะเสร็จก่อนจุดหนึ่งในอนาคต (future perfect) และอาคารถูกสร้างให้เสร็จ (passive) จึงเป็น 'will have been completed'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Would rather + past",
+    "th": "would rather + กริยาช่อง 2"
+   },
+   "passage": "",
+   "stem": "I'd rather you ______ anyone about our surprise party yet.",
+   "choices": [
+    "not tell",
+    "don't tell",
+    "didn't tell",
+    "won't tell"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "When 'would rather' is followed by another person, we use a past form to talk about the present or future: 'I'd rather you didn't tell'.",
+    "th": "เมื่อ would rather ตามด้วยบุคคลอื่น ใช้กริยารูปอดีตเพื่อพูดถึงปัจจุบันหรืออนาคต จึงเป็น 'didn't tell'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Third conditional (inverted)",
+    "th": "เงื่อนไขแบบที่ 3 แบบสลับที่"
+   },
+   "passage": "",
+   "stem": "Had I known about the traffic jam, I ______ home much earlier.",
+   "choices": [
+    "will leave",
+    "would leave",
+    "would have left",
+    "had left"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'Had I known' = 'If I had known', a third conditional about the past, so the result clause is 'would have + past participle': 'would have left'.",
+    "th": "'Had I known' มีความหมายเท่ากับ 'If I had known' ซึ่งเป็นเงื่อนไขแบบที่ 3 ประโยคผลจึงใช้ would have + V3 คือ 'would have left'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "It's high time + past",
+    "th": "It's high time + กริยาช่อง 2"
+   },
+   "passage": "",
+   "stem": "The canal is full of rubbish. It's high time we ______ something about it.",
+   "choices": [
+    "have done",
+    "will do",
+    "do",
+    "did"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "'It's high time' is followed by the past simple, even though it refers to now: 'It's high time we did something'.",
+    "th": "'It's high time' ตามด้วย past simple แม้จะพูดถึงปัจจุบัน จึงเป็น 'did'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Subject–verb agreement",
+    "th": "ความสอดคล้องของประธานและกริยา"
+   },
+   "passage": "",
+   "stem": "Each of the students ______ given a certificate at the end of the camp.",
+   "choices": [
+    "was",
+    "have been",
+    "are",
+    "were"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "'Each of' takes a singular verb, and the sentence is past and passive: 'was given'.",
+    "th": "'Each of' ใช้กริยาเอกพจน์ และประโยคเป็นอดีตแบบ passive จึงเป็น 'was'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Contrast linkers",
+    "th": "คำเชื่อมแสดงความขัดแย้ง"
+   },
+   "passage": "",
+   "stem": "______ the instructions twice, Nok still made a mistake in the experiment.",
+   "choices": [
+    "Although reading",
+    "Because of reading",
+    "Despite having read",
+    "Having been read"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The two parts contrast (she read twice but still made a mistake), so we need 'despite', which is followed by an -ing form: 'Despite having read'. 'Because of' shows a reason, not a contrast.",
+    "th": "สองส่วนของประโยคขัดแย้งกัน (อ่านสองรอบแต่ยังทำผิด) จึงใช้ despite ซึ่งตามด้วย V-ing คือ 'Despite having read' ส่วน because of แสดงเหตุผล ไม่ใช่ความขัดแย้ง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Relative pronouns",
+    "th": "ประพันธสรรพนาม"
+   },
+   "passage": "",
+   "stem": "The man ______ car was stolen called the police straight away.",
+   "choices": [
+    "whose",
+    "whom",
+    "which",
+    "who"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The car belongs to the man, so we need the possessive relative pronoun 'whose'.",
+    "th": "รถเป็นของชายคนนั้น จึงใช้ประพันธสรรพนามแสดงความเป็นเจ้าของ 'whose'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Choosing the correct structure",
+    "th": "การเลือกโครงสร้างที่ถูกต้อง"
+   },
+   "topic": {
+    "en": "Inversion after 'No sooner'",
+    "th": "การสลับที่หลัง No sooner"
+   },
+   "passage": "",
+   "stem": "No sooner ______ home than it started to pour with rain.",
+   "choices": [
+    "had we got",
+    "did we got",
+    "we had got",
+    "we got"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "'No sooner … than' at the start of a sentence needs inversion with the past perfect: 'No sooner had we got home than…'.",
+    "th": "เมื่อขึ้นต้นด้วย No sooner … than ต้องสลับกริยาช่วยไว้หน้าประธานและใช้ past perfect จึงเป็น 'had we got'"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the table and the notes, then answer the questions.\n\nNotes:\n• Pay before 1 March and get 10% off.\n• Brothers and sisters: the second child pays 1,000 baht less.\n• Students who join two camps receive a free camp T-shirt.\n• OceanQuest: all students must pass a swimming test on the first day.",
+   "table": {
+    "title": "April Science Camps for Young People",
+    "rows": [
+     [
+      "Camp",
+      "Dates",
+      "Ages",
+      "Price (baht)",
+      "Includes",
+      "Language"
+     ],
+     [
+      "StarLab (astronomy)",
+      "3–7 April",
+      "11–14",
+      "6,500",
+      "Meals, 2 nights at an observatory",
+      "Thai & English"
+     ],
+     [
+      "OceanQuest (marine life)",
+      "10–16 April",
+      "12–15",
+      "9,800",
+      "Meals, hotel, snorkelling",
+      "English only"
+     ],
+     [
+      "RoboBuild (robotics)",
+      "3–5 April",
+      "10–13",
+      "4,200",
+      "Lunch, robot kit to keep",
+      "Thai only"
+     ],
+     [
+      "GreenLab (environment)",
+      "17–21 April",
+      "12–15",
+      "5,900",
+      "Meals, tree-planting trip",
+      "Thai & English"
+     ]
+    ]
+   },
+   "stem": "Lin is 12. She is not a confident swimmer, she wants a camp taught partly in English, and she is free only from 10 to 21 April. Which camp suits her?",
+   "choices": [
+    "StarLab",
+    "GreenLab",
+    "OceanQuest",
+    "RoboBuild"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "GreenLab (17–21 April, ages 12–15, Thai & English) fits all her needs. OceanQuest needs a swimming test, StarLab is on 3–7 April, and RoboBuild is in Thai only and on 3–5 April.",
+    "th": "GreenLab (17–21 เม.ย. อายุ 12–15 ปี สอนไทยและอังกฤษ) ตรงทุกเงื่อนไข OceanQuest ต้องสอบว่ายน้ำ StarLab จัด 3–7 เม.ย. และ RoboBuild สอนภาษาไทยอย่างเดียวและจัด 3–5 เม.ย."
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Calculating from given information",
+    "th": "การคำนวณจากข้อมูลที่กำหนด"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the table and the notes, then answer the questions.\n\nNotes:\n• Pay before 1 March and get 10% off.\n• Brothers and sisters: the second child pays 1,000 baht less.\n• Students who join two camps receive a free camp T-shirt.\n• OceanQuest: all students must pass a swimming test on the first day.",
+   "table": {
+    "title": "April Science Camps for Young People",
+    "rows": [
+     [
+      "Camp",
+      "Dates",
+      "Ages",
+      "Price (baht)",
+      "Includes",
+      "Language"
+     ],
+     [
+      "StarLab (astronomy)",
+      "3–7 April",
+      "11–14",
+      "6,500",
+      "Meals, 2 nights at an observatory",
+      "Thai & English"
+     ],
+     [
+      "OceanQuest (marine life)",
+      "10–16 April",
+      "12–15",
+      "9,800",
+      "Meals, hotel, snorkelling",
+      "English only"
+     ],
+     [
+      "RoboBuild (robotics)",
+      "3–5 April",
+      "10–13",
+      "4,200",
+      "Lunch, robot kit to keep",
+      "Thai only"
+     ],
+     [
+      "GreenLab (environment)",
+      "17–21 April",
+      "12–15",
+      "5,900",
+      "Meals, tree-planting trip",
+      "Thai & English"
+     ]
+    ]
+   },
+   "stem": "Two sisters, aged 11 and 13, both join StarLab. Their mother pays on 5 March. How much does she pay in total?",
+   "choices": [
+    "13,000 baht",
+    "12,000 baht",
+    "10,800 baht",
+    "11,700 baht"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "She pays after 1 March, so there is no 10% discount. The first child pays 6,500 and the second 6,500 − 1,000 = 5,500, a total of 12,000 baht.",
+    "th": "แม่จ่ายหลังวันที่ 1 มีนาคม จึงไม่ได้ส่วนลด 10% ลูกคนแรกจ่าย 6,500 บาท คนที่สองจ่าย 6,500 − 1,000 = 5,500 บาท รวม 12,000 บาท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Checking statements against the text",
+    "th": "การตรวจสอบข้อความกับบทอ่าน"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the table and the notes, then answer the questions.\n\nNotes:\n• Pay before 1 March and get 10% off.\n• Brothers and sisters: the second child pays 1,000 baht less.\n• Students who join two camps receive a free camp T-shirt.\n• OceanQuest: all students must pass a swimming test on the first day.",
+   "table": {
+    "title": "April Science Camps for Young People",
+    "rows": [
+     [
+      "Camp",
+      "Dates",
+      "Ages",
+      "Price (baht)",
+      "Includes",
+      "Language"
+     ],
+     [
+      "StarLab (astronomy)",
+      "3–7 April",
+      "11–14",
+      "6,500",
+      "Meals, 2 nights at an observatory",
+      "Thai & English"
+     ],
+     [
+      "OceanQuest (marine life)",
+      "10–16 April",
+      "12–15",
+      "9,800",
+      "Meals, hotel, snorkelling",
+      "English only"
+     ],
+     [
+      "RoboBuild (robotics)",
+      "3–5 April",
+      "10–13",
+      "4,200",
+      "Lunch, robot kit to keep",
+      "Thai only"
+     ],
+     [
+      "GreenLab (environment)",
+      "17–21 April",
+      "12–15",
+      "5,900",
+      "Meals, tree-planting trip",
+      "Thai & English"
+     ]
+    ]
+   },
+   "stem": "According to the table, which statement is TRUE?",
+   "choices": [
+    "GreenLab accepts the youngest students.",
+    "RoboBuild is both the shortest and the cheapest camp.",
+    "Every camp is taught at least partly in English.",
+    "OceanQuest is the only camp where students stay overnight."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "RoboBuild lasts three days and costs 4,200 baht — the shortest and cheapest. StarLab students also stay overnight, RoboBuild is in Thai only, and RoboBuild (from age 10) takes the youngest students.",
+    "th": "RoboBuild จัด 3 วัน ราคา 4,200 บาท สั้นและถูกที่สุด ค่าย StarLab ก็ค้างคืน RoboBuild สอนภาษาไทยอย่างเดียว และ RoboBuild (ตั้งแต่อายุ 10 ปี) รับเด็กที่อายุน้อยที่สุด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the table and the notes, then answer the questions.\n\nNotes:\n• Pay before 1 March and get 10% off.\n• Brothers and sisters: the second child pays 1,000 baht less.\n• Students who join two camps receive a free camp T-shirt.\n• OceanQuest: all students must pass a swimming test on the first day.",
+   "table": {
+    "title": "April Science Camps for Young People",
+    "rows": [
+     [
+      "Camp",
+      "Dates",
+      "Ages",
+      "Price (baht)",
+      "Includes",
+      "Language"
+     ],
+     [
+      "StarLab (astronomy)",
+      "3–7 April",
+      "11–14",
+      "6,500",
+      "Meals, 2 nights at an observatory",
+      "Thai & English"
+     ],
+     [
+      "OceanQuest (marine life)",
+      "10–16 April",
+      "12–15",
+      "9,800",
+      "Meals, hotel, snorkelling",
+      "English only"
+     ],
+     [
+      "RoboBuild (robotics)",
+      "3–5 April",
+      "10–13",
+      "4,200",
+      "Lunch, robot kit to keep",
+      "Thai only"
+     ],
+     [
+      "GreenLab (environment)",
+      "17–21 April",
+      "12–15",
+      "5,900",
+      "Meals, tree-planting trip",
+      "Thai & English"
+     ]
+    ]
+   },
+   "stem": "Which student will receive a free T-shirt?",
+   "choices": [
+    "Pan, 13, who joins RoboBuild and then OceanQuest",
+    "Ben, 10, who joins RoboBuild and GreenLab",
+    "Kim, 14, who joins StarLab and RoboBuild",
+    "Bee, 12, who joins StarLab with her younger brother"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A T-shirt is for joining two camps. Pan (13) fits both RoboBuild (10–13) and OceanQuest (12–15), and their dates do not overlap. Kim is too old for RoboBuild and the dates clash; Bee joins only one camp; Ben is too young for GreenLab.",
+    "th": "เสื้อยืดมอบให้ผู้ที่เข้าสองค่าย ปาน (13 ปี) เข้าได้ทั้ง RoboBuild (10–13) และ OceanQuest (12–15) และวันไม่ชนกัน คิมอายุเกินสำหรับ RoboBuild และวันชนกัน บีเข้าค่ายเดียว และเบนอายุน้อยเกินสำหรับ GreenLab"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน (อ่านระหว่างบรรทัด)"
+   },
+   "topic": {
+    "en": "Table / timetable",
+    "th": "ตาราง"
+   },
+   "passage": "Read the table and the notes, then answer the questions.\n\nNotes:\n• Pay before 1 March and get 10% off.\n• Brothers and sisters: the second child pays 1,000 baht less.\n• Students who join two camps receive a free camp T-shirt.\n• OceanQuest: all students must pass a swimming test on the first day.",
+   "table": {
+    "title": "April Science Camps for Young People",
+    "rows": [
+     [
+      "Camp",
+      "Dates",
+      "Ages",
+      "Price (baht)",
+      "Includes",
+      "Language"
+     ],
+     [
+      "StarLab (astronomy)",
+      "3–7 April",
+      "11–14",
+      "6,500",
+      "Meals, 2 nights at an observatory",
+      "Thai & English"
+     ],
+     [
+      "OceanQuest (marine life)",
+      "10–16 April",
+      "12–15",
+      "9,800",
+      "Meals, hotel, snorkelling",
+      "English only"
+     ],
+     [
+      "RoboBuild (robotics)",
+      "3–5 April",
+      "10–13",
+      "4,200",
+      "Lunch, robot kit to keep",
+      "Thai only"
+     ],
+     [
+      "GreenLab (environment)",
+      "17–21 April",
+      "12–15",
+      "5,900",
+      "Meals, tree-planting trip",
+      "Thai & English"
+     ]
+    ]
+   },
+   "stem": "What is the most likely reason that OceanQuest is the most expensive camp?",
+   "choices": [
+    "It is the longest camp and includes a hotel and snorkelling.",
+    "It requires a swimming test.",
+    "It is only for older students.",
+    "It is taught only in English."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Price usually depends on what is included and how long a camp lasts. OceanQuest runs for seven days and includes a hotel and snorkelling, more than the other camps.",
+    "th": "ราคามักขึ้นกับระยะเวลาและสิ่งที่รวมอยู่ OceanQuest จัด 7 วัน และรวมโรงแรมกับการดำน้ำตื้น มากกว่าค่ายอื่น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Calculating from given information",
+    "th": "การคำนวณจากข้อมูลที่กำหนด"
+   },
+   "topic": {
+    "en": "School or public notice",
+    "th": "ประกาศ"
+   },
+   "passage": "CITY LIBRARY — WHAT'S CHANGING ON 1 SEPTEMBER\n\nOpening hours: Tuesday to Sunday, 10:00–20:00. The library will be closed on Mondays. (Until now we have been open every day, 9:00–18:00.)\n\nBorrowing: Members may now borrow up to 8 books at a time (previously 5) for three weeks. E-books are limited to 3 at a time.\n\nLate returns: Adults will continue to pay 5 baht per book for each day it is late. For members under 15, fines are being replaced by 'Read Down Your Fine': every 15 minutes spent reading in the Children's Corner removes 10 baht from your fine.\n\nWhy the changes? Our survey showed that most visitors come after school or work, while very few come on Monday mornings. Staff will use Mondays to repair books and plan events.\n\nNew self-service machines will be on the ground floor, but our staff will always be happy to help.",
+   "stem": "Mint, aged 13, has a fine of 40 baht. How long must she read in the Children's Corner to clear it?",
+   "choices": [
+    "40 minutes",
+    "30 minutes",
+    "2 hours",
+    "1 hour"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Every 15 minutes removes 10 baht. 40 baht ÷ 10 = 4 periods of 15 minutes = 60 minutes, or 1 hour.",
+    "th": "อ่านทุก 15 นาทีลดค่าปรับ 10 บาท 40 ÷ 10 = 4 ช่วง ช่วงละ 15 นาที รวม 60 นาที หรือ 1 ชั่วโมง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding cause and effect",
+    "th": "การเข้าใจเหตุและผล"
+   },
+   "topic": {
+    "en": "School or public notice",
+    "th": "ประกาศ"
+   },
+   "passage": "CITY LIBRARY — WHAT'S CHANGING ON 1 SEPTEMBER\n\nOpening hours: Tuesday to Sunday, 10:00–20:00. The library will be closed on Mondays. (Until now we have been open every day, 9:00–18:00.)\n\nBorrowing: Members may now borrow up to 8 books at a time (previously 5) for three weeks. E-books are limited to 3 at a time.\n\nLate returns: Adults will continue to pay 5 baht per book for each day it is late. For members under 15, fines are being replaced by 'Read Down Your Fine': every 15 minutes spent reading in the Children's Corner removes 10 baht from your fine.\n\nWhy the changes? Our survey showed that most visitors come after school or work, while very few come on Monday mornings. Staff will use Mondays to repair books and plan events.\n\nNew self-service machines will be on the ground floor, but our staff will always be happy to help.",
+   "stem": "Why is the library going to close on Mondays?",
+   "choices": [
+    "Few people visit then, and staff can use the time for other work.",
+    "The staff need a holiday after working on Sundays.",
+    "The self-service machines will be repaired on Mondays.",
+    "Children are at school on Mondays."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The notice explains that 'very few come on Monday mornings', and that staff will use Mondays to repair books and plan events.",
+    "th": "ประกาศอธิบายว่ามีคนมาน้อยมากในเช้าวันจันทร์ และเจ้าหน้าที่จะใช้วันจันทร์ซ่อมหนังสือและวางแผนกิจกรรม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "School or public notice",
+    "th": "ประกาศ"
+   },
+   "passage": "CITY LIBRARY — WHAT'S CHANGING ON 1 SEPTEMBER\n\nOpening hours: Tuesday to Sunday, 10:00–20:00. The library will be closed on Mondays. (Until now we have been open every day, 9:00–18:00.)\n\nBorrowing: Members may now borrow up to 8 books at a time (previously 5) for three weeks. E-books are limited to 3 at a time.\n\nLate returns: Adults will continue to pay 5 baht per book for each day it is late. For members under 15, fines are being replaced by 'Read Down Your Fine': every 15 minutes spent reading in the Children's Corner removes 10 baht from your fine.\n\nWhy the changes? Our survey showed that most visitors come after school or work, while very few come on Monday mornings. Staff will use Mondays to repair books and plan events.\n\nNew self-service machines will be on the ground floor, but our staff will always be happy to help.",
+   "stem": "Who will find the new arrangements LESS convenient?",
+   "choices": [
+    "A teacher who wants to borrow seven books at once",
+    "A student who usually visits at 7 p.m. on Wednesdays",
+    "A nurse who visits at 11 a.m. on Sundays",
+    "Mr Chai, who can only visit on Monday mornings"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The library will be closed on Mondays, so Mr Chai can no longer visit. The student benefits from later closing, the nurse can still come, and the teacher can now borrow up to 8 books.",
+    "th": "ห้องสมุดจะปิดวันจันทร์ คุณชัยจึงมาไม่ได้อีก ส่วนนักเรียนได้ประโยชน์จากเวลาปิดที่ช้าลง พยาบาลยังมาได้ตามเดิม และครูยืมได้ถึง 8 เล่มแล้ว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Checking statements against the text",
+    "th": "การตรวจสอบข้อความกับบทอ่าน"
+   },
+   "topic": {
+    "en": "School or public notice",
+    "th": "ประกาศ"
+   },
+   "passage": "CITY LIBRARY — WHAT'S CHANGING ON 1 SEPTEMBER\n\nOpening hours: Tuesday to Sunday, 10:00–20:00. The library will be closed on Mondays. (Until now we have been open every day, 9:00–18:00.)\n\nBorrowing: Members may now borrow up to 8 books at a time (previously 5) for three weeks. E-books are limited to 3 at a time.\n\nLate returns: Adults will continue to pay 5 baht per book for each day it is late. For members under 15, fines are being replaced by 'Read Down Your Fine': every 15 minutes spent reading in the Children's Corner removes 10 baht from your fine.\n\nWhy the changes? Our survey showed that most visitors come after school or work, while very few come on Monday mornings. Staff will use Mondays to repair books and plan events.\n\nNew self-service machines will be on the ground floor, but our staff will always be happy to help.",
+   "stem": "Which statement is TRUE according to the notice?",
+   "choices": [
+    "The library will open earlier in the morning than before.",
+    "Adults will still have to pay fines for late books.",
+    "Staff will no longer help visitors once the machines arrive.",
+    "Members can borrow eight e-books at a time."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Adults 'will continue to pay 5 baht per book' per day. The library now opens later (10:00, not 9:00), e-books are limited to 3, and staff 'will always be happy to help'.",
+    "th": "ผู้ใหญ่ยังต้องจ่ายค่าปรับ 5 บาทต่อเล่มต่อวัน ห้องสมุดเปิดช้าลง (10:00 แทน 9:00) อีบุ๊กยืมได้ไม่เกิน 3 เล่ม และเจ้าหน้าที่ยังยินดีช่วยเหลือเสมอ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Identifying the main idea",
+    "th": "การจับใจความสำคัญ"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "From: Dao Siriwan\nTo: ZipPack Customer Care\nSubject: Order #4471 — wrong item\n\nDear ZipPack Customer Care,\nOn 2 May I ordered a navy-blue SchoolPro backpack (890 baht) for my son, who starts at his new school on 20 May. The parcel arrived today, 9 May, but the backpack inside is bright orange. My son says he would rather carry his books in a cardboard box. Please let me know how I can get the right backpack before school starts.\nRegards,\nDao Siriwan\n\nFrom: ZipPack Customer Care\nTo: Dao Siriwan\nSubject: Re: Order #4471 — wrong item\n\nDear Ms Siriwan,\nWe are very sorry about the mix-up. Unfortunately, the navy-blue SchoolPro is out of stock and will be available again on 25 May. We can offer you three options:\n1. Keep the orange backpack and receive a 300-baht refund.\n2. Exchange it for a dark-grey SchoolPro, which we can deliver within three working days.\n3. Return it for a full refund.\nFor options 2 and 3, a courier will collect the orange backpack from your home free of charge. Please reply by 12 May so that we can arrange this.\nKind regards,\nAnan, ZipPack Customer Care",
+   "stem": "What is Dao's main problem?",
+   "choices": [
+    "She received a backpack in the wrong colour and needs the right one soon.",
+    "Her son lost his new backpack at school.",
+    "Her parcel never arrived.",
+    "The backpack was more expensive than she expected."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "She ordered navy blue but received orange, and she needs a suitable bag before school starts on 20 May.",
+    "th": "เธอสั่งกระเป๋าสีน้ำเงินกรมท่าแต่ได้สีส้ม และต้องการกระเป๋าที่ถูกต้องก่อนเปิดเรียนวันที่ 20 พฤษภาคม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding implied meaning",
+    "th": "การเข้าใจความหมายแฝง"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "From: Dao Siriwan\nTo: ZipPack Customer Care\nSubject: Order #4471 — wrong item\n\nDear ZipPack Customer Care,\nOn 2 May I ordered a navy-blue SchoolPro backpack (890 baht) for my son, who starts at his new school on 20 May. The parcel arrived today, 9 May, but the backpack inside is bright orange. My son says he would rather carry his books in a cardboard box. Please let me know how I can get the right backpack before school starts.\nRegards,\nDao Siriwan\n\nFrom: ZipPack Customer Care\nTo: Dao Siriwan\nSubject: Re: Order #4471 — wrong item\n\nDear Ms Siriwan,\nWe are very sorry about the mix-up. Unfortunately, the navy-blue SchoolPro is out of stock and will be available again on 25 May. We can offer you three options:\n1. Keep the orange backpack and receive a 300-baht refund.\n2. Exchange it for a dark-grey SchoolPro, which we can deliver within three working days.\n3. Return it for a full refund.\nFor options 2 and 3, a courier will collect the orange backpack from your home free of charge. Please reply by 12 May so that we can arrange this.\nKind regards,\nAnan, ZipPack Customer Care",
+   "stem": "What does the son's comment about the cardboard box suggest?",
+   "choices": [
+    "He thinks backpacks are bad for his back.",
+    "He wants to save money for his mother.",
+    "He prefers boxes because they are bigger.",
+    "He strongly dislikes the orange backpack."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Saying he would rather use a cardboard box is an exaggeration that shows how much he dislikes the orange bag.",
+    "th": "การพูดว่ายอมใส่หนังสือในกล่องกระดาษดีกว่า เป็นการพูดเกินจริงเพื่อแสดงว่าไม่ชอบกระเป๋าสีส้มอย่างมาก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน (อ่านระหว่างบรรทัด)"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "From: Dao Siriwan\nTo: ZipPack Customer Care\nSubject: Order #4471 — wrong item\n\nDear ZipPack Customer Care,\nOn 2 May I ordered a navy-blue SchoolPro backpack (890 baht) for my son, who starts at his new school on 20 May. The parcel arrived today, 9 May, but the backpack inside is bright orange. My son says he would rather carry his books in a cardboard box. Please let me know how I can get the right backpack before school starts.\nRegards,\nDao Siriwan\n\nFrom: ZipPack Customer Care\nTo: Dao Siriwan\nSubject: Re: Order #4471 — wrong item\n\nDear Ms Siriwan,\nWe are very sorry about the mix-up. Unfortunately, the navy-blue SchoolPro is out of stock and will be available again on 25 May. We can offer you three options:\n1. Keep the orange backpack and receive a 300-baht refund.\n2. Exchange it for a dark-grey SchoolPro, which we can deliver within three working days.\n3. Return it for a full refund.\nFor options 2 and 3, a courier will collect the orange backpack from your home free of charge. Please reply by 12 May so that we can arrange this.\nKind regards,\nAnan, ZipPack Customer Care",
+   "stem": "Why doesn't ZipPack simply send a navy-blue backpack?",
+   "choices": [
+    "Navy-blue backpacks are no longer made.",
+    "The courier cannot deliver before 12 May.",
+    "Dao did not pay for the navy-blue backpack.",
+    "It will not be in stock until after Dao's son starts school."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The navy-blue bag will be available on 25 May, but school starts on 20 May — five days too late for Dao's need.",
+    "th": "กระเป๋าสีน้ำเงินกรมท่าจะมีของวันที่ 25 พฤษภาคม แต่โรงเรียนเปิดวันที่ 20 พฤษภาคม จึงช้าเกินไป"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "From: Dao Siriwan\nTo: ZipPack Customer Care\nSubject: Order #4471 — wrong item\n\nDear ZipPack Customer Care,\nOn 2 May I ordered a navy-blue SchoolPro backpack (890 baht) for my son, who starts at his new school on 20 May. The parcel arrived today, 9 May, but the backpack inside is bright orange. My son says he would rather carry his books in a cardboard box. Please let me know how I can get the right backpack before school starts.\nRegards,\nDao Siriwan\n\nFrom: ZipPack Customer Care\nTo: Dao Siriwan\nSubject: Re: Order #4471 — wrong item\n\nDear Ms Siriwan,\nWe are very sorry about the mix-up. Unfortunately, the navy-blue SchoolPro is out of stock and will be available again on 25 May. We can offer you three options:\n1. Keep the orange backpack and receive a 300-baht refund.\n2. Exchange it for a dark-grey SchoolPro, which we can deliver within three working days.\n3. Return it for a full refund.\nFor options 2 and 3, a courier will collect the orange backpack from your home free of charge. Please reply by 12 May so that we can arrange this.\nKind regards,\nAnan, ZipPack Customer Care",
+   "stem": "Dao wants her son to have a SchoolPro backpack that is NOT orange before his first day. Which option should she choose?",
+   "choices": [
+    "Option 3: return it for a full refund",
+    "Wait for the navy-blue SchoolPro",
+    "Option 1: keep the orange backpack with a 300-baht refund",
+    "Option 2: exchange it for the dark-grey SchoolPro"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Only the dark-grey exchange gives her a non-orange SchoolPro in time (three working days). Option 1 keeps the orange bag, option 3 leaves her with no SchoolPro, and navy blue arrives too late.",
+    "th": "มีเพียงการเปลี่ยนเป็นสีเทาเข้มที่ได้กระเป๋า SchoolPro ที่ไม่ใช่สีส้มทันเวลา (3 วันทำการ) ทางเลือกแรกยังได้สีส้ม ทางเลือกที่สามไม่ได้กระเป๋า SchoolPro เลย และสีน้ำเงินกรมท่ามาช้าเกินไป"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Finding specific information",
+    "th": "การหาข้อมูลเฉพาะ"
+   },
+   "topic": {
+    "en": "Emails and messages",
+    "th": "อีเมลและข้อความ"
+   },
+   "passage": "From: Dao Siriwan\nTo: ZipPack Customer Care\nSubject: Order #4471 — wrong item\n\nDear ZipPack Customer Care,\nOn 2 May I ordered a navy-blue SchoolPro backpack (890 baht) for my son, who starts at his new school on 20 May. The parcel arrived today, 9 May, but the backpack inside is bright orange. My son says he would rather carry his books in a cardboard box. Please let me know how I can get the right backpack before school starts.\nRegards,\nDao Siriwan\n\nFrom: ZipPack Customer Care\nTo: Dao Siriwan\nSubject: Re: Order #4471 — wrong item\n\nDear Ms Siriwan,\nWe are very sorry about the mix-up. Unfortunately, the navy-blue SchoolPro is out of stock and will be available again on 25 May. We can offer you three options:\n1. Keep the orange backpack and receive a 300-baht refund.\n2. Exchange it for a dark-grey SchoolPro, which we can deliver within three working days.\n3. Return it for a full refund.\nFor options 2 and 3, a courier will collect the orange backpack from your home free of charge. Please reply by 12 May so that we can arrange this.\nKind regards,\nAnan, ZipPack Customer Care",
+   "stem": "Which statement about the courier is correct?",
+   "choices": [
+    "Dao must pay to send the bag back.",
+    "It will collect the bag for free whichever option Dao chooses.",
+    "Dao must take the bag to the courier's office.",
+    "It will collect the bag for free only if Dao exchanges or returns it."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The reply says 'For options 2 and 3, a courier will collect the orange backpack… free of charge.' With option 1 Dao keeps the bag, so nothing is collected.",
+    "th": "อีเมลตอบกลับระบุว่าสำหรับทางเลือกที่ 2 และ 3 จะมีพนักงานส่งของมารับกระเป๋าที่บ้านฟรี ส่วนทางเลือกที่ 1 ดาวเก็บกระเป๋าไว้ จึงไม่มีการมารับ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน (อ่านระหว่างบรรทัด)"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "The Most Reliable Member of the Household\n\nEvery afternoon at four, I take up my position by the front gate. The neighbours say I am the most reliable member of the household, and they are right. Rain or shine, I am there.\n\nToday the yellow bus is late. I pace up and down the path, listening for its tired old engine. Mrs Somsri from next door leans over the fence. 'Still waiting, are you?' she laughs, and she passes me a piece of grilled chicken through the bars, which I accept politely. It would be rude to refuse.\n\nAt last the bus turns the corner. The doors hiss open and Mali jumps down, her school bag almost as big as she is. I cannot help myself. I race towards her, my whole body shaking with joy, and knock her flat onto the grass. She shrieks, then laughs, then throws her arms around my neck.\n\n'Good boy, Biscuit,' she says. 'Did you miss me?'\n\nI do not answer. I never do. But my tail says everything.",
+   "stem": "Who is telling the story?",
+   "choices": [
+    "Mali's older brother",
+    "The bus driver",
+    "Mali's dog",
+    "Mrs Somsri"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The narrator is called 'Good boy, Biscuit', never answers in words, and 'my tail says everything' — he is Mali's dog.",
+    "th": "ผู้เล่าถูกเรียกว่า 'Good boy, Biscuit' ไม่เคยตอบเป็นคำพูด และ 'my tail says everything' จึงเป็นสุนัขของมะลิ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน (อ่านระหว่างบรรทัด)"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "The Most Reliable Member of the Household\n\nEvery afternoon at four, I take up my position by the front gate. The neighbours say I am the most reliable member of the household, and they are right. Rain or shine, I am there.\n\nToday the yellow bus is late. I pace up and down the path, listening for its tired old engine. Mrs Somsri from next door leans over the fence. 'Still waiting, are you?' she laughs, and she passes me a piece of grilled chicken through the bars, which I accept politely. It would be rude to refuse.\n\nAt last the bus turns the corner. The doors hiss open and Mali jumps down, her school bag almost as big as she is. I cannot help myself. I race towards her, my whole body shaking with joy, and knock her flat onto the grass. She shrieks, then laughs, then throws her arms around my neck.\n\n'Good boy, Biscuit,' she says. 'Did you miss me?'\n\nI do not answer. I never do. But my tail says everything.",
+   "stem": "Which earlier detail is a clue to the narrator's identity?",
+   "choices": [
+    "The neighbours think he is reliable.",
+    "He waits by the gate at four o'clock.",
+    "He accepts a piece of chicken passed through the bars of the fence.",
+    "He listens for the bus engine."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Waiting, being reliable and listening could describe a person, but being fed chicken through the bars of a fence is something people do for a pet.",
+    "th": "การรอ ความน่าไว้วางใจ และการฟังเสียงรถ อาจเป็นคนก็ได้ แต่การยื่นไก่ผ่านซี่รั้วให้กินเป็นสิ่งที่คนทำกับสัตว์เลี้ยง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding character and feelings",
+    "th": "การเข้าใจตัวละครและความรู้สึก"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "The Most Reliable Member of the Household\n\nEvery afternoon at four, I take up my position by the front gate. The neighbours say I am the most reliable member of the household, and they are right. Rain or shine, I am there.\n\nToday the yellow bus is late. I pace up and down the path, listening for its tired old engine. Mrs Somsri from next door leans over the fence. 'Still waiting, are you?' she laughs, and she passes me a piece of grilled chicken through the bars, which I accept politely. It would be rude to refuse.\n\nAt last the bus turns the corner. The doors hiss open and Mali jumps down, her school bag almost as big as she is. I cannot help myself. I race towards her, my whole body shaking with joy, and knock her flat onto the grass. She shrieks, then laughs, then throws her arms around my neck.\n\n'Good boy, Biscuit,' she says. 'Did you miss me?'\n\nI do not answer. I never do. But my tail says everything.",
+   "stem": "Why does the narrator pace up and down the path?",
+   "choices": [
+    "The bus is late and he is impatient to see Mali.",
+    "He has lost something in the garden.",
+    "He is trying to get some exercise.",
+    "He wants Mrs Somsri to give him food."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The pacing comes right after 'Today the yellow bus is late', showing he is restless while waiting for Mali.",
+    "th": "การเดินไปมาเกิดขึ้นหลังจาก 'Today the yellow bus is late' แสดงว่ากระวนกระวายรอมะลิ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding the writer's technique",
+    "th": "การเข้าใจกลวิธีของผู้เขียน"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "The Most Reliable Member of the Household\n\nEvery afternoon at four, I take up my position by the front gate. The neighbours say I am the most reliable member of the household, and they are right. Rain or shine, I am there.\n\nToday the yellow bus is late. I pace up and down the path, listening for its tired old engine. Mrs Somsri from next door leans over the fence. 'Still waiting, are you?' she laughs, and she passes me a piece of grilled chicken through the bars, which I accept politely. It would be rude to refuse.\n\nAt last the bus turns the corner. The doors hiss open and Mali jumps down, her school bag almost as big as she is. I cannot help myself. I race towards her, my whole body shaking with joy, and knock her flat onto the grass. She shrieks, then laughs, then throws her arms around my neck.\n\n'Good boy, Biscuit,' she says. 'Did you miss me?'\n\nI do not answer. I never do. But my tail says everything.",
+   "stem": "'It would be rude to refuse.' Why is this sentence funny?",
+   "choices": [
+    "The narrator really does not want the chicken.",
+    "The narrator makes his love of food sound like good manners.",
+    "The chicken is not cooked properly.",
+    "Mrs Somsri is actually being rude."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The narrator presents grabbing a free snack as a polite, proper thing to do — a humorous way of hiding his greed for food.",
+    "th": "ผู้เล่าทำให้การรับขนมฟรีดูเหมือนเป็นมารยาทที่ดี เป็นการพูดตลกเพื่อกลบความตะกละของตัวเอง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "คำศัพท์ในบริบท"
+   },
+   "topic": {
+    "en": "Short story",
+    "th": "เรื่องสั้น"
+   },
+   "passage": "The Most Reliable Member of the Household\n\nEvery afternoon at four, I take up my position by the front gate. The neighbours say I am the most reliable member of the household, and they are right. Rain or shine, I am there.\n\nToday the yellow bus is late. I pace up and down the path, listening for its tired old engine. Mrs Somsri from next door leans over the fence. 'Still waiting, are you?' she laughs, and she passes me a piece of grilled chicken through the bars, which I accept politely. It would be rude to refuse.\n\nAt last the bus turns the corner. The doors hiss open and Mali jumps down, her school bag almost as big as she is. I cannot help myself. I race towards her, my whole body shaking with joy, and knock her flat onto the grass. She shrieks, then laughs, then throws her arms around my neck.\n\n'Good boy, Biscuit,' she says. 'Did you miss me?'\n\nI do not answer. I never do. But my tail says everything.",
+   "stem": "In the first paragraph, 'reliable' is closest in meaning to ______.",
+   "choices": [
+    "very friendly",
+    "quite noisy",
+    "always there when expected",
+    "extremely clever"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'Rain or shine, I am there' explains the word: a reliable member can always be depended on to be in the right place.",
+    "th": "'Rain or shine, I am there' อธิบายความหมาย คือไว้ใจได้ อยู่ตรงนั้นเสมอตามที่คาดไว้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Sequencing events",
+    "th": "การเรียงลำดับเหตุการณ์"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "How Honeybees Choose a New Home\n\nWhen a honeybee colony grows too large, the old queen leaves with about half of the workers to start a new home. The swarm first gathers on a tree branch, where it may hang for several days. Meanwhile, a few hundred older bees, known as scouts, fly off to search for a suitable site — usually a hollow tree with a small entrance and enough space to store honey for the winter.\n\nWhen a scout finds a promising place, she returns and performs a 'waggle dance' on the surface of the swarm. The direction of the dance shows where the site is, and the number of times she repeats the dance shows how much she likes it. A scout that has found an excellent site dances enthusiastically for a long time; one that has found a poor site dances only briefly and soon stops. Other scouts are persuaded to visit the advertised sites, and if they approve, they dance too.\n\nGradually, support for weaker sites fades, while the best site attracts more and more scouts. When about fifteen scouts are at the same site at the same time, they fly back and signal the swarm to warm up its flight muscles. Within an hour, the whole swarm takes off.\n\nScientists find this process remarkable because no single bee compares all the options. The decision emerges from many small, independent judgements.",
+   "stem": "What happens immediately before the whole swarm takes off?",
+   "choices": [
+    "Scouts begin searching for hollow trees.",
+    "The old queen leaves the colony.",
+    "A single scout performs the first waggle dance.",
+    "Scouts signal the swarm to warm up its flight muscles."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The order is: the queen leaves → the swarm hangs on a branch → scouts search and dance → about fifteen scouts gather at one site → they signal the swarm to warm up → the swarm takes off within an hour.",
+    "th": "ลำดับคือ ราชินีออกจากรัง → ฝูงเกาะกิ่งไม้ → ผึ้งสำรวจออกหาและเต้นรำ → ผึ้งสำรวจราว 15 ตัวรวมกันที่จุดเดียว → ส่งสัญญาณให้ฝูงอุ่นกล้ามเนื้อบิน → ฝูงบินออกภายในหนึ่งชั่วโมง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Finding specific information",
+    "th": "การหาข้อมูลเฉพาะ"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "How Honeybees Choose a New Home\n\nWhen a honeybee colony grows too large, the old queen leaves with about half of the workers to start a new home. The swarm first gathers on a tree branch, where it may hang for several days. Meanwhile, a few hundred older bees, known as scouts, fly off to search for a suitable site — usually a hollow tree with a small entrance and enough space to store honey for the winter.\n\nWhen a scout finds a promising place, she returns and performs a 'waggle dance' on the surface of the swarm. The direction of the dance shows where the site is, and the number of times she repeats the dance shows how much she likes it. A scout that has found an excellent site dances enthusiastically for a long time; one that has found a poor site dances only briefly and soon stops. Other scouts are persuaded to visit the advertised sites, and if they approve, they dance too.\n\nGradually, support for weaker sites fades, while the best site attracts more and more scouts. When about fifteen scouts are at the same site at the same time, they fly back and signal the swarm to warm up its flight muscles. Within an hour, the whole swarm takes off.\n\nScientists find this process remarkable because no single bee compares all the options. The decision emerges from many small, independent judgements.",
+   "stem": "How does a scout show that she has found an excellent site?",
+   "choices": [
+    "She dances in the direction of the old nest.",
+    "She repeats her dance many times and keeps dancing for a long time.",
+    "She stops dancing very quickly.",
+    "She brings honey back from the site."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "'The number of times she repeats the dance shows how much she likes it', and a scout with an excellent site 'dances enthusiastically for a long time'.",
+    "th": "จำนวนครั้งที่เต้นซ้ำบอกว่าชอบสถานที่มากแค่ไหน และผึ้งที่พบสถานที่ดีเยี่ยมจะเต้นอย่างกระตือรือร้นเป็นเวลานาน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "How Honeybees Choose a New Home\n\nWhen a honeybee colony grows too large, the old queen leaves with about half of the workers to start a new home. The swarm first gathers on a tree branch, where it may hang for several days. Meanwhile, a few hundred older bees, known as scouts, fly off to search for a suitable site — usually a hollow tree with a small entrance and enough space to store honey for the winter.\n\nWhen a scout finds a promising place, she returns and performs a 'waggle dance' on the surface of the swarm. The direction of the dance shows where the site is, and the number of times she repeats the dance shows how much she likes it. A scout that has found an excellent site dances enthusiastically for a long time; one that has found a poor site dances only briefly and soon stops. Other scouts are persuaded to visit the advertised sites, and if they approve, they dance too.\n\nGradually, support for weaker sites fades, while the best site attracts more and more scouts. When about fifteen scouts are at the same site at the same time, they fly back and signal the swarm to warm up its flight muscles. Within an hour, the whole swarm takes off.\n\nScientists find this process remarkable because no single bee compares all the options. The decision emerges from many small, independent judgements.",
+   "stem": "A scout finds a hollow tree with a very large entrance. What would most probably happen?",
+   "choices": [
+    "Fifteen scouts would immediately gather there.",
+    "The whole swarm would move there at once.",
+    "She would dance for a long time because the entrance is easy to use.",
+    "She would dance only briefly, so few other scouts would visit it."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Bees prefer a small entrance, so a large one makes a poor site. Scouts with poor sites dance briefly, and support for weaker sites fades.",
+    "th": "ผึ้งชอบโพรงที่มีทางเข้าเล็ก ทางเข้าใหญ่จึงเป็นสถานที่ไม่ดี ผึ้งที่พบสถานที่ไม่ดีจะเต้นสั้น ๆ และแรงสนับสนุนจะค่อย ๆ หายไป"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Identifying the main idea",
+    "th": "การจับใจความสำคัญ"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "How Honeybees Choose a New Home\n\nWhen a honeybee colony grows too large, the old queen leaves with about half of the workers to start a new home. The swarm first gathers on a tree branch, where it may hang for several days. Meanwhile, a few hundred older bees, known as scouts, fly off to search for a suitable site — usually a hollow tree with a small entrance and enough space to store honey for the winter.\n\nWhen a scout finds a promising place, she returns and performs a 'waggle dance' on the surface of the swarm. The direction of the dance shows where the site is, and the number of times she repeats the dance shows how much she likes it. A scout that has found an excellent site dances enthusiastically for a long time; one that has found a poor site dances only briefly and soon stops. Other scouts are persuaded to visit the advertised sites, and if they approve, they dance too.\n\nGradually, support for weaker sites fades, while the best site attracts more and more scouts. When about fifteen scouts are at the same site at the same time, they fly back and signal the swarm to warm up its flight muscles. Within an hour, the whole swarm takes off.\n\nScientists find this process remarkable because no single bee compares all the options. The decision emerges from many small, independent judgements.",
+   "stem": "What is the main point of the last paragraph?",
+   "choices": [
+    "Scientists still do not understand how bees make honey.",
+    "The queen bee makes the final decision for the swarm.",
+    "A good group decision can be reached without any single bee comparing every choice.",
+    "Bees make decisions slowly and often choose badly."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The paragraph says no single bee compares all the options; instead, the choice 'emerges' from many small judgements. That is the remarkable point.",
+    "th": "ย่อหน้าสุดท้ายบอกว่าไม่มีผึ้งตัวใดเปรียบเทียบทุกทางเลือก แต่การตัดสินใจเกิดขึ้นจากการตัดสินเล็ก ๆ จำนวนมาก นี่คือประเด็นที่น่าทึ่ง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "คำศัพท์ในบริบท"
+   },
+   "topic": {
+    "en": "Informational text",
+    "th": "บทความให้ความรู้"
+   },
+   "passage": "How Honeybees Choose a New Home\n\nWhen a honeybee colony grows too large, the old queen leaves with about half of the workers to start a new home. The swarm first gathers on a tree branch, where it may hang for several days. Meanwhile, a few hundred older bees, known as scouts, fly off to search for a suitable site — usually a hollow tree with a small entrance and enough space to store honey for the winter.\n\nWhen a scout finds a promising place, she returns and performs a 'waggle dance' on the surface of the swarm. The direction of the dance shows where the site is, and the number of times she repeats the dance shows how much she likes it. A scout that has found an excellent site dances enthusiastically for a long time; one that has found a poor site dances only briefly and soon stops. Other scouts are persuaded to visit the advertised sites, and if they approve, they dance too.\n\nGradually, support for weaker sites fades, while the best site attracts more and more scouts. When about fifteen scouts are at the same site at the same time, they fly back and signal the swarm to warm up its flight muscles. Within an hour, the whole swarm takes off.\n\nScientists find this process remarkable because no single bee compares all the options. The decision emerges from many small, independent judgements.",
+   "stem": "In the last sentence, 'emerges' is closest in meaning to ______.",
+   "choices": [
+    "gradually appears",
+    "is clearly written",
+    "is carefully planned",
+    "quickly disappears"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The decision is not planned by one bee; it slowly comes into being from many small judgements, so 'emerges' means 'gradually appears'.",
+    "th": "การตัดสินใจไม่ได้ถูกวางแผนโดยผึ้งตัวเดียว แต่ค่อย ๆ เกิดขึ้นจากการตัดสินเล็ก ๆ จำนวนมาก emerges จึงแปลว่า ค่อย ๆ ปรากฏขึ้น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Identifying the main idea",
+    "th": "การจับใจความสำคัญ"
+   },
+   "topic": {
+    "en": "Opinion piece / letter to the editor",
+    "th": "บทแสดงความคิดเห็น / จดหมายถึงบรรณาธิการ"
+   },
+   "passage": "Don't Ban AI — Teach It\n\nLast month our school banned AI chatbots for homework. I am a science teacher, and I voted against the ban.\n\nLet me be clear: I do not want students to hand in essays written by a machine. A student who copies an AI answer learns as little as one who copies from a friend. But banning these tools will not stop students from using them at home; it will only stop teachers from showing them how to use them well.\n\nConsider calculators. When they first appeared in classrooms, many people feared that children would forget how to do arithmetic. Some did rely on them too much. Yet nobody today would suggest removing calculators from science lessons. Instead, we teach students when a calculator helps and when mental maths is faster.\n\nI would like us to do the same with AI. Students could be asked to compare a chatbot's explanation with their textbook and find its mistakes — and it does make mistakes. They could be required to hand in the questions they asked along with their work. Tasks like these reward thinking rather than copying.\n\nA ban is simple. Teaching good judgement is harder. But our job has never been to do what is simple.",
+   "stem": "What is the writer's position?",
+   "choices": [
+    "AI should be allowed, but students must be taught to use it wisely.",
+    "AI should be banned at school and at home.",
+    "Students should be free to copy AI answers.",
+    "Calculators should be removed from science lessons."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The writer voted against the ban and wants teachers to show students how to use AI well, while still not wanting copied essays.",
+    "th": "ผู้เขียนลงคะแนนค้านการห้าม และต้องการให้ครูสอนนักเรียนใช้ AI อย่างถูกวิธี แต่ก็ไม่ต้องการให้ลอกคำตอบ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding the writer's technique",
+    "th": "การเข้าใจกลวิธีของผู้เขียน"
+   },
+   "topic": {
+    "en": "Opinion piece / letter to the editor",
+    "th": "บทแสดงความคิดเห็น / จดหมายถึงบรรณาธิการ"
+   },
+   "passage": "Don't Ban AI — Teach It\n\nLast month our school banned AI chatbots for homework. I am a science teacher, and I voted against the ban.\n\nLet me be clear: I do not want students to hand in essays written by a machine. A student who copies an AI answer learns as little as one who copies from a friend. But banning these tools will not stop students from using them at home; it will only stop teachers from showing them how to use them well.\n\nConsider calculators. When they first appeared in classrooms, many people feared that children would forget how to do arithmetic. Some did rely on them too much. Yet nobody today would suggest removing calculators from science lessons. Instead, we teach students when a calculator helps and when mental maths is faster.\n\nI would like us to do the same with AI. Students could be asked to compare a chatbot's explanation with their textbook and find its mistakes — and it does make mistakes. They could be required to hand in the questions they asked along with their work. Tasks like these reward thinking rather than copying.\n\nA ban is simple. Teaching good judgement is harder. But our job has never been to do what is simple.",
+   "stem": "Why does the writer discuss calculators?",
+   "choices": [
+    "To suggest calculators are more useful than AI",
+    "To prove that students are bad at arithmetic",
+    "To complain that students rely too much on calculators today",
+    "To show that a feared new tool can be used sensibly when it is taught well"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Calculators were once feared but are now taught with good judgement. The writer uses this comparison to argue that AI should be handled the same way.",
+    "th": "เครื่องคิดเลขเคยถูกกลัวแต่ปัจจุบันมีการสอนให้ใช้อย่างเหมาะสม ผู้เขียนใช้การเปรียบเทียบนี้เพื่อเสนอว่า AI ก็ควรจัดการแบบเดียวกัน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Applying information to a new situation",
+    "th": "การนำข้อมูลไปใช้กับสถานการณ์ใหม่"
+   },
+   "topic": {
+    "en": "Opinion piece / letter to the editor",
+    "th": "บทแสดงความคิดเห็น / จดหมายถึงบรรณาธิการ"
+   },
+   "passage": "Don't Ban AI — Teach It\n\nLast month our school banned AI chatbots for homework. I am a science teacher, and I voted against the ban.\n\nLet me be clear: I do not want students to hand in essays written by a machine. A student who copies an AI answer learns as little as one who copies from a friend. But banning these tools will not stop students from using them at home; it will only stop teachers from showing them how to use them well.\n\nConsider calculators. When they first appeared in classrooms, many people feared that children would forget how to do arithmetic. Some did rely on them too much. Yet nobody today would suggest removing calculators from science lessons. Instead, we teach students when a calculator helps and when mental maths is faster.\n\nI would like us to do the same with AI. Students could be asked to compare a chatbot's explanation with their textbook and find its mistakes — and it does make mistakes. They could be required to hand in the questions they asked along with their work. Tasks like these reward thinking rather than copying.\n\nA ban is simple. Teaching good judgement is harder. But our job has never been to do what is simple.",
+   "stem": "Which homework task would the writer most likely approve of?",
+   "choices": [
+    "Ask a chatbot to write your essay about volcanoes and hand it in.",
+    "Find three mistakes in a chatbot's answer about volcanoes, using your textbook to check.",
+    "Write an essay about volcanoes without using any books or tools at all.",
+    "Copy a friend's notes about volcanoes."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The writer suggests comparing a chatbot's explanation with the textbook to find its mistakes, because such tasks 'reward thinking rather than copying'.",
+    "th": "ผู้เขียนเสนอให้เปรียบเทียบคำอธิบายของแชตบอตกับหนังสือเรียนเพื่อหาข้อผิดพลาด เพราะงานแบบนี้ให้รางวัลกับการคิด ไม่ใช่การลอก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding implied meaning",
+    "th": "การเข้าใจความหมายแฝง"
+   },
+   "topic": {
+    "en": "Opinion piece / letter to the editor",
+    "th": "บทแสดงความคิดเห็น / จดหมายถึงบรรณาธิการ"
+   },
+   "passage": "Don't Ban AI — Teach It\n\nLast month our school banned AI chatbots for homework. I am a science teacher, and I voted against the ban.\n\nLet me be clear: I do not want students to hand in essays written by a machine. A student who copies an AI answer learns as little as one who copies from a friend. But banning these tools will not stop students from using them at home; it will only stop teachers from showing them how to use them well.\n\nConsider calculators. When they first appeared in classrooms, many people feared that children would forget how to do arithmetic. Some did rely on them too much. Yet nobody today would suggest removing calculators from science lessons. Instead, we teach students when a calculator helps and when mental maths is faster.\n\nI would like us to do the same with AI. Students could be asked to compare a chatbot's explanation with their textbook and find its mistakes — and it does make mistakes. They could be required to hand in the questions they asked along with their work. Tasks like these reward thinking rather than copying.\n\nA ban is simple. Teaching good judgement is harder. But our job has never been to do what is simple.",
+   "stem": "What does the final sentence, 'But our job has never been to do what is simple', imply?",
+   "choices": [
+    "Teachers should choose the harder but more useful approach.",
+    "Teachers' jobs are becoming simpler because of AI.",
+    "Students should do only simple homework.",
+    "The ban was the best decision because it is simple."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The writer contrasts the simple ban with the harder task of teaching judgement and says teachers should not just take the easy way, so the harder, more useful path is better.",
+    "th": "ผู้เขียนเปรียบเทียบการห้ามซึ่งง่าย กับการสอนวิจารณญาณซึ่งยากกว่า และบอกว่าหน้าที่ครูไม่ใช่การเลือกทางง่าย จึงควรเลือกทางที่ยากแต่มีประโยชน์กว่า"
+   }
+  }
+ ]
+}

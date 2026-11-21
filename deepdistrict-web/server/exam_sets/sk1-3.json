@@ -1,0 +1,1255 @@
+{
+ "exam": "sk1",
+ "set": 3,
+ "title": {
+  "en": "Suankularb M.1 English (GATE / EPLUS+) — Practice paper 3",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.1 สวนกุหลาบ (GATE / EPLUS+) — ชุดที่ 3"
+ },
+ "minutes": 50,
+ "note": {
+  "en": "40 questions in 50 minutes: conversation, vocabulary, grammar, cloze and reading, in the style of the Suankularb M.1 pre-test. GATE and EPLUS+ applicants take the same paper; EPLUS+ needs a higher score. DeepDistrict practice — not an official or past paper.",
+  "th": "40 ข้อ 50 นาที: บทสนทนา คำศัพท์ ไวยากรณ์ เติมคำในบทความ และการอ่าน ตามแนวข้อสอบเข้า ม.1 สวนกุหลาบ ผู้สมัคร GATE และ EPLUS+ ใช้ข้อสอบชุดเดียวกัน EPLUS+ ต้องได้คะแนนสูงกว่า — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Answering a question about a seat",
+    "th": "การตอบคำถามเรื่องที่นั่ง"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Excuse me, is anyone sitting here?\nB: ______ Please, sit down.",
+   "choices": [
+    "No, it's free.",
+    "Yes, it's free.",
+    "I'm sitting.",
+    "Yes, please."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Is anyone sitting here?\" is answered \"No\" when the seat is empty, which matches \"Please, sit down\". \"Yes, it's free\" contradicts itself, \"Yes, please\" accepts an offer, and \"I'm sitting\" does not answer the question.",
+    "th": "Is anyone sitting here? ถ้าไม่มีคนนั่งต้องตอบ No, it's free ซึ่งเข้ากับ Please, sit down ส่วน Yes, it's free ขัดแย้งในตัวเอง Yes, please ใช้ตอบรับข้อเสนอ และ I'm sitting ไม่ได้ตอบคำถาม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Responding to someone who cannot come",
+    "th": "การตอบเมื่อมีคนมาไม่ได้"
+   },
+   "topic": {
+    "en": "School conversation",
+    "th": "บทสนทนาในโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Sorry, I can't make it to the club meeting this afternoon.\nB: ______ I'll send you the notes later.",
+   "choices": [
+    "No problem.",
+    "Me too.",
+    "You're welcome.",
+    "Make yourself at home."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"No problem\" accepts A's apology, and B then offers to send the notes. \"Me too\" would mean B also can't come, \"You're welcome\" answers thanks, and \"Make yourself at home\" welcomes a guest.",
+    "th": "No problem ใช้ตอบรับคำขอโทษ แล้ว B เสนอจะส่งบันทึกให้ ส่วน Me too แปลว่า ฉันก็ไปไม่ได้ You're welcome ใช้ตอบคำขอบคุณ และ Make yourself at home ใช้ต้อนรับแขก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Using 'Now that you mention it'",
+    "th": "การใช้ Now that you mention it"
+   },
+   "topic": {
+    "en": "Idiomatic responses",
+    "th": "สำนวนในการโต้ตอบ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: I'm going to the stationery shop. Do you need anything?\nB: ______ Could you get me a glue stick?",
+   "choices": [
+    "It's up to you.",
+    "Never mind.",
+    "Now that you mention it,",
+    "Not that I know of."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Now that you mention it\" means A's question has reminded B of something, and B then asks for a glue stick. \"Not that I know of\" means no, \"It's up to you\" leaves the decision to A, and \"Never mind\" cancels a request.",
+    "th": "Now that you mention it แปลว่า พอพูดขึ้นมาก็นึกได้ แล้ว B จึงฝากซื้อกาวแท่ง ส่วน Not that I know of แปลว่า เท่าที่รู้ไม่มี It's up to you แปลว่า แล้วแต่คุณ และ Never mind แปลว่า ไม่เป็นไร ไม่ต้องแล้ว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Accepting a suggestion enthusiastically",
+    "th": "การตอบรับคำชวนอย่างกระตือรือร้น"
+   },
+   "topic": {
+    "en": "Idiomatic responses",
+    "th": "สำนวนในการโต้ตอบ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: How about getting some mango sticky rice after school?\nB: ______ I'm starving.",
+   "choices": [
+    "I'd rather not.",
+    "Let's not.",
+    "You read my mind!",
+    "Take your time."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"I'm starving\" shows B wants to eat, so \"You read my mind!\" (I was thinking the same) is right. \"I'd rather not\" and \"Let's not\" refuse, and \"Take your time\" means there is no hurry.",
+    "th": "I'm starving (หิวมาก) แสดงว่า B อยากไป จึงตอบ You read my mind! (คิดเหมือนกันเลย) ส่วน I'd rather not และ Let's not เป็นการปฏิเสธ และ Take your time แปลว่า ไม่ต้องรีบ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Expressing doubt",
+    "th": "การแสดงความไม่แน่ใจ"
+   },
+   "topic": {
+    "en": "Everyday conversation",
+    "th": "บทสนทนาในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Do you think it'll rain during our school trip to Kanchanaburi?\nB: ______ The forecast says it'll be sunny all week.",
+   "choices": [
+    "I doubt it.",
+    "Of course it will.",
+    "I hope so.",
+    "I'm afraid so."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The sunny forecast shows B thinks rain is unlikely, so \"I doubt it\" fits. \"I'm afraid so\" and \"Of course it will\" say it will rain, and \"I hope so\" says B wants rain — neither matches the forecast.",
+    "th": "พยากรณ์บอกว่าแดดออกทั้งสัปดาห์ แสดงว่า B คิดว่าฝนไม่น่าจะตก จึงตอบ I doubt it ส่วน I'm afraid so และ Of course it will บอกว่าฝนจะตก และ I hope so แปลว่า อยากให้ฝนตก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Giving permission with a condition",
+    "th": "การอนุญาตแบบมีเงื่อนไข"
+   },
+   "topic": {
+    "en": "School conversation",
+    "th": "บทสนทนาในโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Kru Jane, may I hand in my essay on Monday instead of today?\nB: ______ but this is the last time.",
+   "choices": [
+    "Rules are rules, so the answer is no,",
+    "By all means, take as long as you like,",
+    "It's none of my business,",
+    "All right, I'll let it go this once,"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"But this is the last time\" shows the teacher agrees only once, so \"I'll let it go this once\" fits. \"Take as long as you like\" sets no limit, \"the answer is no\" refuses, and \"It's none of my business\" makes no sense from the teacher.",
+    "th": "but this is the last time แสดงว่าครูยอมเพียงครั้งเดียว จึงใช้ I'll let it go this once ส่วน take as long as you like ไม่มีกำหนด the answer is no เป็นการปฏิเสธ และ It's none of my business ไม่สมเหตุผลเพราะครูเป็นคนสั่งงาน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Seeing the positive side",
+    "th": "การมองแง่ดี"
+   },
+   "topic": {
+    "en": "Idiomatic responses",
+    "th": "สำนวนในการโต้ตอบ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: I spent the whole weekend studying for the test, and then it was postponed!\nB: ______ At least you're well prepared now.",
+   "choices": [
+    "That's the last straw.",
+    "Look on the bright side.",
+    "You've only got yourself to blame.",
+    "It serves you right."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"At least you're well prepared\" points to something good, so \"Look on the bright side\" fits. \"That's the last straw\" expresses final anger, and the other two blame A, which A does not deserve.",
+    "th": "At least you're well prepared now ชี้ให้เห็นข้อดี จึงใช้ Look on the bright side (มองในแง่ดี) ส่วน That's the last straw แปลว่า ทนไม่ไหวแล้ว และอีกสองสำนวนเป็นการตำหนิ A ซึ่งไม่สมเหตุผล"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Admitting something with an idiom",
+    "th": "การยอมรับด้วยสำนวน"
+   },
+   "topic": {
+    "en": "Idiomatic responses",
+    "th": "สำนวนในการโต้ตอบ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the best response to complete the conversation.\nA: Did you really eat all twelve of those spicy chicken wings?\nB: ______ I can't even feel my tongue!",
+   "choices": [
+    "Guilty as charged!",
+    "Not on your life!",
+    "Easy come, easy go!",
+    "Speak of the devil!"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Guilty as charged\" jokingly admits that something is true: yes, B ate them all, and now B's tongue is numb. \"Not on your life\" is a strong no, \"Easy come, easy go\" is about losing things easily, and \"Speak of the devil\" is said when the person you are talking about appears.",
+    "th": "Guilty as charged เป็นสำนวนยอมรับแบบขำ ๆ ว่าทำจริง (กินหมดจนลิ้นชา) ส่วน Not on your life แปลว่า ไม่มีทาง Easy come, easy go แปลว่า ได้มาง่ายก็เสียไปง่าย และ Speak of the devil ใช้เมื่อคนที่พูดถึงปรากฏตัวพอดี"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "School activity vocabulary",
+    "th": "คำศัพท์กิจกรรมโรงเรียน"
+   },
+   "topic": {
+    "en": "School life",
+    "th": "ชีวิตในโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nOur class went on a ______ to the National Science Museum last Friday.",
+   "choices": [
+    "field trip",
+    "flight",
+    "holiday",
+    "voyage"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "A class visit to a museum is a \"field trip\". A holiday is time off, a flight is a journey by plane, and a voyage is a long journey by sea.",
+    "th": "การพานักเรียนไปพิพิธภัณฑ์คือ field trip (ทัศนศึกษา) ส่วน holiday คือวันหยุด flight คือเที่ยวบิน และ voyage คือการเดินทางทางทะเลระยะไกล"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Confusing words: passed / past / succeeded",
+    "th": "คำที่สับสนบ่อย: passed / past / succeeded"
+   },
+   "topic": {
+    "en": "School life",
+    "th": "ชีวิตในโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nThe final exam was so difficult that only a few students ______ it.",
+   "choices": [
+    "succeeded",
+    "past",
+    "achieved",
+    "passed"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "You \"pass\" an exam. \"Past\" is not a verb, \"succeed\" needs \"in\" (succeeded in it), and you \"achieve\" a goal or a score, not an exam.",
+    "th": "สอบผ่านใช้ pass an exam ส่วน past ไม่ใช่คำกริยา succeed ต้องมี in และ achieve ใช้กับเป้าหมายหรือคะแนน ไม่ใช้กับข้อสอบ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Adjectives that look similar",
+    "th": "คำคุณศัพท์ที่สะกดคล้ายกัน"
+   },
+   "topic": {
+    "en": "People and personality",
+    "th": "ผู้คนและนิสัย"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nKai is very ______ about space; he asks his teacher a new question about the planets every day.",
+   "choices": [
+    "furious",
+    "anxious",
+    "curious",
+    "generous"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Someone who always wants to know more is \"curious\". \"Anxious\" means worried, \"furious\" means very angry, and \"generous\" means happy to give — all look similar but mean something different.",
+    "th": "คนที่อยากรู้อยากเห็นคือ curious ส่วน anxious แปลว่า กังวล furious แปลว่า โกรธมาก และ generous แปลว่า ใจกว้าง ซึ่งสะกดคล้ายกันแต่ความหมายต่างกัน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Verbs of reward and punishment",
+    "th": "คำกริยาเกี่ยวกับการลงโทษและให้รางวัล"
+   },
+   "topic": {
+    "en": "School rules",
+    "th": "กฎระเบียบโรงเรียน"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nTom was ______ for arriving late three times in one week, so he had to clean the classroom after school.",
+   "choices": [
+    "punished",
+    "praised",
+    "admired",
+    "rewarded"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Arriving late and having to clean the classroom show a penalty, so \"punished\" is right. \"Rewarded\", \"praised\" and \"admired\" are all positive.",
+    "th": "การมาสายและต้องทำความสะอาดห้องแสดงว่าถูกลงโทษ จึงใช้ punished ส่วน rewarded, praised และ admired เป็นความหมายเชิงบวกทั้งหมด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Phrasal verbs with 'put'",
+    "th": "กริยาวลีที่ใช้ put"
+   },
+   "topic": {
+    "en": "Sport",
+    "th": "กีฬา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nThe heavy rain forced the organisers to ______ the football match, so we played it the next day instead.",
+   "choices": [
+    "put on",
+    "put out",
+    "put up",
+    "put off"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Put off\" means postpone, which matches playing the match the next day. \"Put on\" means wear or organise a show, \"put up\" means build or raise, and \"put out\" means extinguish.",
+    "th": "put off แปลว่า เลื่อนออกไป เข้ากับการไปแข่งวันรุ่งขึ้น ส่วน put on แปลว่า สวมใส่หรือจัดการแสดง put up แปลว่า ติดตั้งหรือยกขึ้น และ put out แปลว่า ดับ (ไฟ)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Adjectives of attitude in a contrast",
+    "th": "คำคุณศัพท์บอกทัศนคติในประโยคขัดแย้ง"
+   },
+   "topic": {
+    "en": "People and personality",
+    "th": "ผู้คนและนิสัย"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nEven though the puzzle was extremely difficult, Ploy was ______ to solve it without anyone's help.",
+   "choices": [
+    "reluctant",
+    "determined",
+    "afraid",
+    "unable"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Even though\" needs a contrast: the puzzle was hard, but Ploy still firmly wanted to solve it alone — \"determined\". \"Reluctant\", \"unable\" and \"afraid\" would follow naturally from difficulty, so there is no contrast.",
+    "th": "even though ต้องมีความขัดแย้ง ปริศนายากแต่พลอยก็ตั้งใจแน่วแน่จะแก้เอง จึงใช้ determined ส่วน reluctant (ไม่เต็มใจ) unable (ทำไม่ได้) และ afraid (กลัว) เป็นผลที่คาดได้จากความยาก ไม่มีความขัดแย้ง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Collocations: in bad condition",
+    "th": "คำที่ใช้คู่กัน: in bad condition"
+   },
+   "topic": {
+    "en": "Homes and buildings",
+    "th": "บ้านและอาคาร"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nThe old wooden house was in such bad ______ that it had to be repaired before anyone could live in it.",
+   "choices": [
+    "location",
+    "condition",
+    "situation",
+    "position"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"In bad condition\" describes the physical state of a thing. \"Situation\" is about circumstances, \"position\" about where or how something is placed, and \"location\" about where something is.",
+    "th": "in bad condition ใช้บอกสภาพของสิ่งของ ส่วน situation หมายถึงสถานการณ์ position หมายถึงตำแหน่งหรือท่าทาง และ location หมายถึงที่ตั้ง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Adjectives that look similar (B2)",
+    "th": "คำคุณศัพท์ที่สะกดคล้ายกัน (ระดับ B2)"
+   },
+   "topic": {
+    "en": "Technology",
+    "th": "เทคโนโลยี"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the word or phrase that best completes the sentence.\nThe new library app makes it ______ for students to borrow e-books at any time of day or night.",
+   "choices": [
+    "convenient",
+    "confident",
+    "considerate",
+    "comfortable"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Something that makes a task easy and suits your time is \"convenient\". \"Comfortable\" describes physical ease, \"confident\" describes a person who believes in himself, and \"considerate\" describes a person who thinks of others.",
+    "th": "สิ่งที่ทำให้สะดวกทุกเวลาคือ convenient ส่วน comfortable แปลว่า สบาย (ทางกาย) confident แปลว่า มั่นใจ และ considerate แปลว่า เกรงใจผู้อื่น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "Past simple with 'last night'",
+    "th": "Past simple กับ last night"
+   },
+   "topic": {
+    "en": "Past simple",
+    "th": "Past simple"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nPim and her friends ______ to the concert at Impact Arena last night.",
+   "choices": [
+    "goes",
+    "went",
+    "go",
+    "have gone"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Last night\" is a finished time in the past, so we use the past simple \"went\". The present perfect \"have gone\" cannot be used with a finished time.",
+    "th": "last night เป็นเวลาในอดีตที่จบแล้ว จึงใช้ past simple คือ went ส่วน have gone เป็น present perfect ใช้กับเวลาที่จบแล้วไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Would you mind + -ing",
+    "th": "Would you mind + -ing"
+   },
+   "topic": {
+    "en": "Verb patterns",
+    "th": "รูปแบบคำกริยา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nWould you mind ______ the door? The air-conditioner is on.",
+   "choices": [
+    "to close",
+    "closed",
+    "closing",
+    "close"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Mind\" is followed by the -ing form: \"Would you mind closing the door?\". \"To close\", \"close\" and \"closed\" are wrong after \"mind\".",
+    "th": "mind ตามด้วยกริยารูป -ing จึงเป็น Would you mind closing the door? ส่วน to close, close และ closed ใช้หลัง mind ไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "too + adjective + for + object + to-infinitive",
+    "th": "too + คุณศัพท์ + for + กรรม + to-infinitive"
+   },
+   "topic": {
+    "en": "Infinitives",
+    "th": "Infinitive"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nThis box of books is too heavy for me ______.",
+   "choices": [
+    "carry it",
+    "to carry",
+    "to carrying",
+    "carrying"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The pattern is \"too + adjective + (for someone) + to + verb\": \"too heavy for me to carry\". The object (the box) is already the subject, so we do not add \"it\".",
+    "th": "โครงสร้างคือ too + คุณศัพท์ + for + คน + to + กริยา จึงเป็น too heavy for me to carry และไม่เติม it เพราะกล่องเป็นประธานอยู่แล้ว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Second conditional with 'were'",
+    "th": "ประโยคเงื่อนไขแบบที่ 2 กับ were"
+   },
+   "topic": {
+    "en": "Conditionals",
+    "th": "ประโยคเงื่อนไข"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nIf I ______ a bird, I would fly over the whole city.",
+   "choices": [
+    "have been",
+    "am",
+    "were",
+    "will be"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "This is an imaginary situation (second conditional), so the if-clause uses the past form; with \"I\", \"were\" is the standard form. \"Am\", \"will be\" and \"have been\" do not go with \"would\" here.",
+    "th": "เป็นสถานการณ์สมมติที่ไม่จริง (เงื่อนไขแบบที่ 2) จึงใช้รูปอดีตในส่วน if และกับ I ใช้ were ส่วน am, will be และ have been ไม่เข้ากับ would"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Subject–verb agreement: 'the number of'",
+    "th": "ความสอดคล้องของกริยากับ the number of"
+   },
+   "topic": {
+    "en": "Subject–verb agreement",
+    "th": "ความสอดคล้องของประธานและกริยา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nThe number of students who take the bus to our school ______ increased a lot this year.",
+   "choices": [
+    "were",
+    "are",
+    "have",
+    "has"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"The number of …\" is singular (one number), so we use \"has increased\". \"A number of students\" would be plural, which is the trap here.",
+    "th": "the number of … เป็นเอกพจน์ (จำนวนหนึ่งค่า) จึงใช้ has increased ส่วน a number of students จึงจะเป็นพหูพจน์ ซึ่งเป็นกับดักในประโยคนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion with 'hardly … when'",
+    "th": "การสลับที่กริยากับ hardly … when"
+   },
+   "topic": {
+    "en": "Inversion",
+    "th": "การสลับที่ประธานและกริยา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nHardly had we sat down in the classroom ______ the bell rang for assembly.",
+   "choices": [
+    "that",
+    "then",
+    "than",
+    "when"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The fixed pair is \"hardly … when\" (= as soon as). \"Than\" goes with \"no sooner\", and \"then\" and \"that\" do not complete this structure.",
+    "th": "คู่ที่ใช้คือ hardly … when (ทันทีที่) ส่วน than ใช้คู่กับ no sooner และ then กับ that ไม่ใช่คู่ของโครงสร้างนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "would rather + past simple",
+    "th": "would rather + past simple"
+   },
+   "topic": {
+    "en": "Preferences",
+    "th": "การแสดงความชอบ"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nMum says she'd rather we ______ our phones during dinner.",
+   "choices": [
+    "won't use",
+    "didn't use",
+    "not use",
+    "don't use"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "When we prefer another person to do something, \"would rather\" + subject + past simple is used, even for the present: \"she'd rather we didn't use\". The other forms are wrong in this structure.",
+    "th": "เมื่อต้องการให้ผู้อื่นทำหรือไม่ทำสิ่งใด ใช้ would rather + ประธาน + past simple แม้จะพูดถึงปัจจุบัน จึงเป็น she'd rather we didn't use ส่วนรูปอื่นผิดโครงสร้าง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion after 'Not until'",
+    "th": "การสลับที่หลัง Not until"
+   },
+   "topic": {
+    "en": "Inversion",
+    "th": "การสลับที่ประธานและกริยา"
+   },
+   "passage": "",
+   "table": null,
+   "stem": "Choose the correct answer to complete the sentence.\nNot until the rain stopped ______ out to play.",
+   "choices": [
+    "the children went",
+    "went the children",
+    "did the children go",
+    "the children did go"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "When a sentence begins with \"Not until …\", the main clause uses question order: \"did the children go\". Normal order (\"the children went\") is the common mistake.",
+    "th": "เมื่อขึ้นต้นประโยคด้วย Not until … ประโยคหลักต้องสลับเป็นรูปคำถาม คือ did the children go การใช้ลำดับปกติ the children went เป็นความผิดพลาดที่พบบ่อย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Prepositions of time: until / by",
+    "th": "บุพบทบอกเวลา: until / by"
+   },
+   "topic": {
+    "en": "School news cloze",
+    "th": "เติมคำในข่าวโรงเรียน"
+   },
+   "passage": "When the M.1 students of a Bangkok school started a \"Phone-Free Lunch\" experiment last term, few people expected it to last. The rule was simple: phones stayed in a basket at the canteen door (1) ______ the end of the lunch break. During the first week, many students complained that they felt bored and did not know what to (2) ______ about. By the third week, however, something had changed. Groups that (3) ______ never spoken to each other were playing chess, sharing snacks and even planning a small concert. Teachers noticed that fewer students arrived at afternoon classes looking tired, (4) ______ they had not spent the whole break staring at screens. In a survey at the end of term, 78% of the students said they wanted the experiment to continue. \"I didn't think I could (5) ______ without my phone for an hour,\" admitted one student, \"but now I actually look forward to lunch.\" The school has decided to keep the rule, and the student council is now (6) ______ other schools to try it, too.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (1).",
+   "choices": [
+    "until",
+    "since",
+    "during",
+    "by"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The phones stayed in the basket all the time up to the end of the break, so \"until\" fits. \"By\" means \"not later than\" and does not go with \"stayed\", \"since\" looks back from now, and \"during\" means within a period.",
+    "th": "โทรศัพท์อยู่ในตะกร้าต่อเนื่องจนถึงหมดเวลาพัก จึงใช้ until ส่วน by แปลว่า ภายใน (ไม่เกิน) ไม่ใช้กับ stayed since ใช้นับจากอดีตถึงปัจจุบัน และ during แปลว่า ในระหว่าง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Verbs of speaking: talk / say / tell",
+    "th": "คำกริยาเกี่ยวกับการพูด: talk / say / tell"
+   },
+   "topic": {
+    "en": "School news cloze",
+    "th": "เติมคำในข่าวโรงเรียน"
+   },
+   "passage": "When the M.1 students of a Bangkok school started a \"Phone-Free Lunch\" experiment last term, few people expected it to last. The rule was simple: phones stayed in a basket at the canteen door (1) ______ the end of the lunch break. During the first week, many students complained that they felt bored and did not know what to (2) ______ about. By the third week, however, something had changed. Groups that (3) ______ never spoken to each other were playing chess, sharing snacks and even planning a small concert. Teachers noticed that fewer students arrived at afternoon classes looking tired, (4) ______ they had not spent the whole break staring at screens. In a survey at the end of term, 78% of the students said they wanted the experiment to continue. \"I didn't think I could (5) ______ without my phone for an hour,\" admitted one student, \"but now I actually look forward to lunch.\" The school has decided to keep the rule, and the student council is now (6) ______ other schools to try it, too.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (2).",
+   "choices": [
+    "talk",
+    "say",
+    "discuss",
+    "tell"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Talk about\" is the natural phrase: they did not know what to talk about. \"Say\" and \"tell\" are not followed by \"about\" in this way, and \"discuss\" never takes \"about\".",
+    "th": "talk about เป็นวลีที่ใช้ตามธรรมชาติ ส่วน say และ tell ไม่ตามด้วย about แบบนี้ และ discuss ไม่ใช้กับ about"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Past perfect in a relative clause",
+    "th": "Past perfect ในประโยคขยายคำนาม"
+   },
+   "topic": {
+    "en": "School news cloze",
+    "th": "เติมคำในข่าวโรงเรียน"
+   },
+   "passage": "When the M.1 students of a Bangkok school started a \"Phone-Free Lunch\" experiment last term, few people expected it to last. The rule was simple: phones stayed in a basket at the canteen door (1) ______ the end of the lunch break. During the first week, many students complained that they felt bored and did not know what to (2) ______ about. By the third week, however, something had changed. Groups that (3) ______ never spoken to each other were playing chess, sharing snacks and even planning a small concert. Teachers noticed that fewer students arrived at afternoon classes looking tired, (4) ______ they had not spent the whole break staring at screens. In a survey at the end of term, 78% of the students said they wanted the experiment to continue. \"I didn't think I could (5) ______ without my phone for an hour,\" admitted one student, \"but now I actually look forward to lunch.\" The school has decided to keep the rule, and the student council is now (6) ______ other schools to try it, too.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (3).",
+   "choices": [
+    "have",
+    "has",
+    "were",
+    "had"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The groups had never spoken before the time described (\"By the third week\"), so the past perfect \"had never spoken\" is needed. \"Have\" and \"has\" are present, and \"were spoken\" would be passive.",
+    "th": "กลุ่มเหล่านี้ไม่เคยคุยกันมาก่อนช่วงสัปดาห์ที่สาม จึงต้องใช้ past perfect คือ had never spoken ส่วน have และ has เป็นรูปปัจจุบัน และ were spoken เป็น passive"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Linking a result to a possible reason",
+    "th": "การเชื่อมผลกับเหตุผลที่เป็นไปได้"
+   },
+   "topic": {
+    "en": "School news cloze",
+    "th": "เติมคำในข่าวโรงเรียน"
+   },
+   "passage": "When the M.1 students of a Bangkok school started a \"Phone-Free Lunch\" experiment last term, few people expected it to last. The rule was simple: phones stayed in a basket at the canteen door (1) ______ the end of the lunch break. During the first week, many students complained that they felt bored and did not know what to (2) ______ about. By the third week, however, something had changed. Groups that (3) ______ never spoken to each other were playing chess, sharing snacks and even planning a small concert. Teachers noticed that fewer students arrived at afternoon classes looking tired, (4) ______ they had not spent the whole break staring at screens. In a survey at the end of term, 78% of the students said they wanted the experiment to continue. \"I didn't think I could (5) ______ without my phone for an hour,\" admitted one student, \"but now I actually look forward to lunch.\" The school has decided to keep the rule, and the student council is now (6) ______ other schools to try it, too.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (4).",
+   "choices": [
+    "although",
+    "unless",
+    "so that",
+    "perhaps because"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Not staring at screens is a likely reason why fewer students looked tired, so \"perhaps because\" fits. \"Although\" shows contrast, \"unless\" means \"if not\", and \"so that\" shows purpose.",
+    "th": "การไม่จ้องจอเป็นเหตุผลที่เป็นไปได้ที่ทำให้นักเรียนดูเหนื่อยน้อยลง จึงใช้ perhaps because ส่วน although แสดงความขัดแย้ง unless แปลว่า ถ้าไม่ และ so that แสดงจุดประสงค์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Phrasal verb: go without",
+    "th": "กริยาวลี: go without"
+   },
+   "topic": {
+    "en": "School news cloze",
+    "th": "เติมคำในข่าวโรงเรียน"
+   },
+   "passage": "When the M.1 students of a Bangkok school started a \"Phone-Free Lunch\" experiment last term, few people expected it to last. The rule was simple: phones stayed in a basket at the canteen door (1) ______ the end of the lunch break. During the first week, many students complained that they felt bored and did not know what to (2) ______ about. By the third week, however, something had changed. Groups that (3) ______ never spoken to each other were playing chess, sharing snacks and even planning a small concert. Teachers noticed that fewer students arrived at afternoon classes looking tired, (4) ______ they had not spent the whole break staring at screens. In a survey at the end of term, 78% of the students said they wanted the experiment to continue. \"I didn't think I could (5) ______ without my phone for an hour,\" admitted one student, \"but now I actually look forward to lunch.\" The school has decided to keep the rule, and the student council is now (6) ______ other schools to try it, too.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (5).",
+   "choices": [
+    "take",
+    "go",
+    "make",
+    "get"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Go without something\" means manage without having it: the student did not think he could manage an hour without a phone. \"Make\", \"take\" and \"get\" do not form this meaning with \"without\".",
+    "th": "go without แปลว่า อยู่ได้โดยไม่มีสิ่งนั้น นักเรียนไม่คิดว่าจะอยู่ได้หนึ่งชั่วโมงโดยไม่มีโทรศัพท์ ส่วน make, take และ get ไม่ให้ความหมายนี้เมื่อใช้กับ without"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Present continuous (is + -ing)",
+    "th": "Present continuous (is + -ing)"
+   },
+   "topic": {
+    "en": "School news cloze",
+    "th": "เติมคำในข่าวโรงเรียน"
+   },
+   "passage": "When the M.1 students of a Bangkok school started a \"Phone-Free Lunch\" experiment last term, few people expected it to last. The rule was simple: phones stayed in a basket at the canteen door (1) ______ the end of the lunch break. During the first week, many students complained that they felt bored and did not know what to (2) ______ about. By the third week, however, something had changed. Groups that (3) ______ never spoken to each other were playing chess, sharing snacks and even planning a small concert. Teachers noticed that fewer students arrived at afternoon classes looking tired, (4) ______ they had not spent the whole break staring at screens. In a survey at the end of term, 78% of the students said they wanted the experiment to continue. \"I didn't think I could (5) ______ without my phone for an hour,\" admitted one student, \"but now I actually look forward to lunch.\" The school has decided to keep the rule, and the student council is now (6) ______ other schools to try it, too.",
+   "table": null,
+   "stem": "Read the passage and choose the best answer for gap (6).",
+   "choices": [
+    "encouraging",
+    "encourages",
+    "encouraged",
+    "encourage"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Is now ______ other schools\" describes an action happening at present, so we need the present continuous \"is encouraging\". \"Is encouraged other schools\" is wrong, and \"is encourage(s)\" is not a correct verb form.",
+    "th": "is now ______ other schools บอกการกระทำที่กำลังเกิดขึ้น จึงใช้ present continuous คือ is encouraging ส่วน is encouraged other schools ผิดโครงสร้าง และ is encourage หรือ is encourages ไม่ใช่รูปกริยาที่ถูก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Scanning for details",
+    "th": "การอ่านหารายละเอียด"
+   },
+   "topic": {
+    "en": "Notice / poster",
+    "th": "ประกาศ / โปสเตอร์"
+   },
+   "passage": "YOUNG WRITERS' AWARD 2027\nTheme: \"A Place That Changed Me\"\nOpen to students from Prathom 5 to Mathayom 2 living in Thailand\n\nHave you ever visited a place — a market, a temple, a beach, even your grandmother's kitchen — that made you see the world differently? Write about it, and you could see your story in print!\n\nRules\n• Stories must be written in English and be between 400 and 600 words. Entries outside this limit will not be read.\n• The story must be your own work. Teachers and parents may give advice, but they must not write or correct any part of it.\n• Do not write your name or school anywhere in the story itself; put these details only on the entry form. This helps the judges stay fair.\n• Each student may send only one entry.\n\nPrizes\nThe two age groups (P.5–P.6 and M.1–M.2) will be judged separately. In each group:\n1st prize: 5,000 baht and a set of books for the winner's school library\n2nd prize: 3,000 baht\nTen Highly Commended writers will receive certificates.\nAll prize-winning and Highly Commended stories will appear in a printed collection, launched at a book fair in Bangkok in April.\n\nDeadline\nEntries must arrive by 31 January. Send your story and completed entry form by email. Results will be posted on our website on 15 March, and winners will also be contacted directly.",
+   "table": null,
+   "stem": "Who can enter the competition?",
+   "choices": [
+    "Any writer who lives in Bangkok",
+    "Only students in M.1 and M.2",
+    "Students from P.5 to M.2 living in Thailand",
+    "Teachers and parents of young writers"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The poster says it is \"open to students from Prathom 5 to Mathayom 2 living in Thailand\". It is not limited to M.1–M.2, adults cannot enter, and it is not only for Bangkok.",
+    "th": "โปสเตอร์ระบุว่าเปิดรับนักเรียน ป.5 ถึง ม.2 ที่อาศัยในประเทศไทย ไม่ได้จำกัดเฉพาะ ม.1–ม.2 ผู้ใหญ่สมัครไม่ได้ และไม่ได้จำกัดเฉพาะกรุงเทพฯ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding the reason for a rule",
+    "th": "การเข้าใจเหตุผลของกฎ"
+   },
+   "topic": {
+    "en": "Notice / poster",
+    "th": "ประกาศ / โปสเตอร์"
+   },
+   "passage": "YOUNG WRITERS' AWARD 2027\nTheme: \"A Place That Changed Me\"\nOpen to students from Prathom 5 to Mathayom 2 living in Thailand\n\nHave you ever visited a place — a market, a temple, a beach, even your grandmother's kitchen — that made you see the world differently? Write about it, and you could see your story in print!\n\nRules\n• Stories must be written in English and be between 400 and 600 words. Entries outside this limit will not be read.\n• The story must be your own work. Teachers and parents may give advice, but they must not write or correct any part of it.\n• Do not write your name or school anywhere in the story itself; put these details only on the entry form. This helps the judges stay fair.\n• Each student may send only one entry.\n\nPrizes\nThe two age groups (P.5–P.6 and M.1–M.2) will be judged separately. In each group:\n1st prize: 5,000 baht and a set of books for the winner's school library\n2nd prize: 3,000 baht\nTen Highly Commended writers will receive certificates.\nAll prize-winning and Highly Commended stories will appear in a printed collection, launched at a book fair in Bangkok in April.\n\nDeadline\nEntries must arrive by 31 January. Send your story and completed entry form by email. Results will be posted on our website on 15 March, and winners will also be contacted directly.",
+   "table": null,
+   "stem": "Why must students NOT write their names in the story itself?",
+   "choices": [
+    "Because names are counted in the word limit",
+    "So that the judges can mark the stories fairly",
+    "Because the entry form is not needed",
+    "So that the stories can be published without names"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The poster explains: \"This helps the judges stay fair.\" The word limit, publishing without names and the entry form are not the reason — in fact the form is required.",
+    "th": "โปสเตอร์อธิบายว่าช่วยให้กรรมการตัดสินอย่างยุติธรรม ไม่ได้เกี่ยวกับการนับคำ การตีพิมพ์โดยไม่มีชื่อ และใบสมัครยังต้องส่งด้วย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Applying a rule to a situation",
+    "th": "การนำกฎไปใช้กับสถานการณ์"
+   },
+   "topic": {
+    "en": "Notice / poster",
+    "th": "ประกาศ / โปสเตอร์"
+   },
+   "passage": "YOUNG WRITERS' AWARD 2027\nTheme: \"A Place That Changed Me\"\nOpen to students from Prathom 5 to Mathayom 2 living in Thailand\n\nHave you ever visited a place — a market, a temple, a beach, even your grandmother's kitchen — that made you see the world differently? Write about it, and you could see your story in print!\n\nRules\n• Stories must be written in English and be between 400 and 600 words. Entries outside this limit will not be read.\n• The story must be your own work. Teachers and parents may give advice, but they must not write or correct any part of it.\n• Do not write your name or school anywhere in the story itself; put these details only on the entry form. This helps the judges stay fair.\n• Each student may send only one entry.\n\nPrizes\nThe two age groups (P.5–P.6 and M.1–M.2) will be judged separately. In each group:\n1st prize: 5,000 baht and a set of books for the winner's school library\n2nd prize: 3,000 baht\nTen Highly Commended writers will receive certificates.\nAll prize-winning and Highly Commended stories will appear in a printed collection, launched at a book fair in Bangkok in April.\n\nDeadline\nEntries must arrive by 31 January. Send your story and completed entry form by email. Results will be posted on our website on 15 March, and winners will also be contacted directly.",
+   "table": null,
+   "stem": "Nan sends a story of 650 words. What will most likely happen?",
+   "choices": [
+    "It will receive a certificate only.",
+    "She will be asked to shorten it.",
+    "It will not be read by the judges.",
+    "It will be judged in the older age group."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Stories must be 400–600 words, and \"Entries outside this limit will not be read.\" Nothing says she will be asked to shorten it or moved to another group.",
+    "th": "เรื่องต้องยาว 400–600 คำ และเรื่องที่เกินจะไม่ถูกอ่าน ไม่มีการบอกว่าจะให้แก้ให้สั้นลงหรือย้ายไปกลุ่มอื่น"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Distinguishing allowed and forbidden actions",
+    "th": "การแยกแยะสิ่งที่ทำได้และทำไม่ได้"
+   },
+   "topic": {
+    "en": "Notice / poster",
+    "th": "ประกาศ / โปสเตอร์"
+   },
+   "passage": "YOUNG WRITERS' AWARD 2027\nTheme: \"A Place That Changed Me\"\nOpen to students from Prathom 5 to Mathayom 2 living in Thailand\n\nHave you ever visited a place — a market, a temple, a beach, even your grandmother's kitchen — that made you see the world differently? Write about it, and you could see your story in print!\n\nRules\n• Stories must be written in English and be between 400 and 600 words. Entries outside this limit will not be read.\n• The story must be your own work. Teachers and parents may give advice, but they must not write or correct any part of it.\n• Do not write your name or school anywhere in the story itself; put these details only on the entry form. This helps the judges stay fair.\n• Each student may send only one entry.\n\nPrizes\nThe two age groups (P.5–P.6 and M.1–M.2) will be judged separately. In each group:\n1st prize: 5,000 baht and a set of books for the winner's school library\n2nd prize: 3,000 baht\nTen Highly Commended writers will receive certificates.\nAll prize-winning and Highly Commended stories will appear in a printed collection, launched at a book fair in Bangkok in April.\n\nDeadline\nEntries must arrive by 31 January. Send your story and completed entry form by email. Results will be posted on our website on 15 March, and winners will also be contacted directly.",
+   "table": null,
+   "stem": "Which of the following is allowed by the rules?",
+   "choices": [
+    "A student writes a story in Thai about Chiang Mai.",
+    "A parent corrects the spelling mistakes in the story.",
+    "A student sends two different stories about two places.",
+    "A teacher suggests a better ending, and the student rewrites it herself."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Teachers and parents \"may give advice\" but must not write or correct any part, so advice followed by the student's own rewriting is allowed. A parent correcting spelling, two entries, and writing in Thai all break the rules.",
+    "th": "ครูและผู้ปกครองให้คำแนะนำได้แต่ห้ามเขียนหรือแก้ให้ ดังนั้นครูแนะนำแล้วนักเรียนเขียนใหม่เองจึงทำได้ ส่วนผู้ปกครองแก้คำสะกด การส่งสองเรื่อง และการเขียนเป็นภาษาไทย ผิดกติกาทั้งหมด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Combining information to calculate",
+    "th": "การนำข้อมูลหลายส่วนมาคำนวณ"
+   },
+   "topic": {
+    "en": "Notice / poster",
+    "th": "ประกาศ / โปสเตอร์"
+   },
+   "passage": "YOUNG WRITERS' AWARD 2027\nTheme: \"A Place That Changed Me\"\nOpen to students from Prathom 5 to Mathayom 2 living in Thailand\n\nHave you ever visited a place — a market, a temple, a beach, even your grandmother's kitchen — that made you see the world differently? Write about it, and you could see your story in print!\n\nRules\n• Stories must be written in English and be between 400 and 600 words. Entries outside this limit will not be read.\n• The story must be your own work. Teachers and parents may give advice, but they must not write or correct any part of it.\n• Do not write your name or school anywhere in the story itself; put these details only on the entry form. This helps the judges stay fair.\n• Each student may send only one entry.\n\nPrizes\nThe two age groups (P.5–P.6 and M.1–M.2) will be judged separately. In each group:\n1st prize: 5,000 baht and a set of books for the winner's school library\n2nd prize: 3,000 baht\nTen Highly Commended writers will receive certificates.\nAll prize-winning and Highly Commended stories will appear in a printed collection, launched at a book fair in Bangkok in April.\n\nDeadline\nEntries must arrive by 31 January. Send your story and completed entry form by email. Results will be posted on our website on 15 March, and winners will also be contacted directly.",
+   "table": null,
+   "stem": "In total, how many students can win a cash prize?",
+   "choices": [
+    "Twenty-four",
+    "Twelve",
+    "Two",
+    "Four"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Each of the two age groups has a 1st and a 2nd prize with money, so 2 × 2 = four students. The Highly Commended writers receive certificates, not cash.",
+    "th": "มีสองกลุ่มอายุ แต่ละกลุ่มมีรางวัลที่ 1 และที่ 2 ซึ่งได้เงิน รวม 2 × 2 = สี่คน ส่วนผู้ได้รับรางวัลชมเชยได้เพียงเกียรติบัตร"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Understanding other characters' views",
+    "th": "การเข้าใจมุมมองของตัวละครอื่น"
+   },
+   "topic": {
+    "en": "Narrative text",
+    "th": "เรื่องเล่า"
+   },
+   "passage": "In 2019, eleven-year-old Pailin started doing something her classmates found rather strange. Every morning before school, she sat on the balcony of her family's flat in Bangkok for fifteen minutes and wrote down every bird she saw or heard. Most days the list was short: mynas, sparrows, a few pigeons. Her friends could not understand why anyone would bother.\n\nWhat they did not know was that Pailin was sending her lists to an online project run by scientists, who collect millions of records like hers from ordinary people around the world. One person's notes may seem unimportant, but when thousands of people record what they see in the same way, year after year, the results can reveal changes that no small team of scientists could ever spot on its own.\n\nFour years later, a university researcher contacted her. Pailin's records, it turned out, were among the very few long-term lists from her district, and they showed that a small green bird called the coppersmith barbet had become noticeably more common there after a nearby park was planted with fig trees. The researcher asked permission to include her data in a scientific paper. \"I never imagined that sitting on my balcony counted as science,\" Pailin said. \"Now I tell everyone: you don't need a laboratory to make a discovery — you just need patience.\"",
+   "table": null,
+   "stem": "Why did Pailin's classmates find her habit strange?",
+   "choices": [
+    "They thought she was too young to use the internet.",
+    "They could not see the point of recording common birds every day.",
+    "They thought she should be studying instead.",
+    "They did not believe there were birds in Bangkok."
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The lists showed only common birds, and \"her friends could not understand why anyone would bother\". The passage says nothing about her age online, doubting that birds exist, or studying.",
+    "th": "รายชื่อมีแต่นกธรรมดา และเพื่อนไม่เข้าใจว่าจะทำไปทำไม บทความไม่ได้พูดถึงอายุกับการใช้อินเทอร์เน็ต การไม่เชื่อว่ามีนก หรือการที่ควรไปอ่านหนังสือ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding the writer's explanation",
+    "th": "การเข้าใจคำอธิบายของผู้เขียน"
+   },
+   "topic": {
+    "en": "Narrative text",
+    "th": "เรื่องเล่า"
+   },
+   "passage": "In 2019, eleven-year-old Pailin started doing something her classmates found rather strange. Every morning before school, she sat on the balcony of her family's flat in Bangkok for fifteen minutes and wrote down every bird she saw or heard. Most days the list was short: mynas, sparrows, a few pigeons. Her friends could not understand why anyone would bother.\n\nWhat they did not know was that Pailin was sending her lists to an online project run by scientists, who collect millions of records like hers from ordinary people around the world. One person's notes may seem unimportant, but when thousands of people record what they see in the same way, year after year, the results can reveal changes that no small team of scientists could ever spot on its own.\n\nFour years later, a university researcher contacted her. Pailin's records, it turned out, were among the very few long-term lists from her district, and they showed that a small green bird called the coppersmith barbet had become noticeably more common there after a nearby park was planted with fig trees. The researcher asked permission to include her data in a scientific paper. \"I never imagined that sitting on my balcony counted as science,\" Pailin said. \"Now I tell everyone: you don't need a laboratory to make a discovery — you just need patience.\"",
+   "table": null,
+   "stem": "According to the passage, what is the main strength of projects like the one Pailin joined?",
+   "choices": [
+    "Children can learn how to use online tools.",
+    "Scientists no longer need to do any research themselves.",
+    "Ordinary people often discover completely new species.",
+    "Many records collected in the same way over time can reveal changes."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "Paragraph 2 says that when thousands record \"in the same way, year after year\", the results reveal changes a small team could not spot. It does not say scientists stop researching, that new species are found, or that the aim is learning online tools.",
+    "th": "ย่อหน้าที่สองบอกว่าเมื่อคนจำนวนมากบันทึกแบบเดียวกันทุกปี ผลจะเผยให้เห็นการเปลี่ยนแปลงที่ทีมเล็ก ๆ มองไม่เห็น ไม่ได้บอกว่านักวิทยาศาสตร์เลิกวิจัย ค้นพบสายพันธุ์ใหม่ หรือมีเป้าหมายเพื่อฝึกใช้เครื่องมือออนไลน์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Vocabulary in context (adverb)",
+    "th": "ความหมายของคำศัพท์ในบริบท (คำกริยาวิเศษณ์)"
+   },
+   "topic": {
+    "en": "Narrative text",
+    "th": "เรื่องเล่า"
+   },
+   "passage": "In 2019, eleven-year-old Pailin started doing something her classmates found rather strange. Every morning before school, she sat on the balcony of her family's flat in Bangkok for fifteen minutes and wrote down every bird she saw or heard. Most days the list was short: mynas, sparrows, a few pigeons. Her friends could not understand why anyone would bother.\n\nWhat they did not know was that Pailin was sending her lists to an online project run by scientists, who collect millions of records like hers from ordinary people around the world. One person's notes may seem unimportant, but when thousands of people record what they see in the same way, year after year, the results can reveal changes that no small team of scientists could ever spot on its own.\n\nFour years later, a university researcher contacted her. Pailin's records, it turned out, were among the very few long-term lists from her district, and they showed that a small green bird called the coppersmith barbet had become noticeably more common there after a nearby park was planted with fig trees. The researcher asked permission to include her data in a scientific paper. \"I never imagined that sitting on my balcony counted as science,\" Pailin said. \"Now I tell everyone: you don't need a laboratory to make a discovery — you just need patience.\"",
+   "table": null,
+   "stem": "The word \"noticeably\" in paragraph 3 is closest in meaning to ______.",
+   "choices": [
+    "slightly",
+    "clearly",
+    "rarely",
+    "secretly"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Noticeably more common\" means more common in a way that is easy to see — \"clearly\". \"Slightly\" means only a little, which is the opposite idea, and \"secretly\" and \"rarely\" do not fit.",
+    "th": "noticeably more common หมายถึง พบบ่อยขึ้นอย่างเห็นได้ชัด จึงใกล้เคียงกับ clearly ส่วน slightly แปลว่า เพียงเล็กน้อย ซึ่งตรงข้าม และ secretly กับ rarely ไม่เข้ากับบริบท"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Making inferences",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Narrative text",
+    "th": "เรื่องเล่า"
+   },
+   "passage": "In 2019, eleven-year-old Pailin started doing something her classmates found rather strange. Every morning before school, she sat on the balcony of her family's flat in Bangkok for fifteen minutes and wrote down every bird she saw or heard. Most days the list was short: mynas, sparrows, a few pigeons. Her friends could not understand why anyone would bother.\n\nWhat they did not know was that Pailin was sending her lists to an online project run by scientists, who collect millions of records like hers from ordinary people around the world. One person's notes may seem unimportant, but when thousands of people record what they see in the same way, year after year, the results can reveal changes that no small team of scientists could ever spot on its own.\n\nFour years later, a university researcher contacted her. Pailin's records, it turned out, were among the very few long-term lists from her district, and they showed that a small green bird called the coppersmith barbet had become noticeably more common there after a nearby park was planted with fig trees. The researcher asked permission to include her data in a scientific paper. \"I never imagined that sitting on my balcony counted as science,\" Pailin said. \"Now I tell everyone: you don't need a laboratory to make a discovery — you just need patience.\"",
+   "table": null,
+   "stem": "Why was the researcher most likely interested in Pailin's lists?",
+   "choices": [
+    "She had already written a scientific paper of her own.",
+    "She had helped to plant the fig trees in the park.",
+    "Very few people had recorded birds in her district for so long.",
+    "Her lists included a species never seen in Bangkok before."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Her records were \"among the very few long-term lists from her district\", so they were rare and valuable. The barbet was becoming more common, not new; she wrote no paper; and nothing says she planted the trees.",
+    "th": "บันทึกของไพลินเป็นหนึ่งในบันทึกระยะยาวไม่กี่ชุดในเขตนั้น จึงหายากและมีค่า นกโพระดกเพียงพบบ่อยขึ้น ไม่ใช่นกชนิดใหม่ ไพลินไม่ได้เขียนงานวิจัยเอง และไม่ได้ปลูกต้นไทร"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sk1",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Identifying the main message",
+    "th": "การระบุแนวคิดหลัก"
+   },
+   "topic": {
+    "en": "Narrative text",
+    "th": "เรื่องเล่า"
+   },
+   "passage": "In 2019, eleven-year-old Pailin started doing something her classmates found rather strange. Every morning before school, she sat on the balcony of her family's flat in Bangkok for fifteen minutes and wrote down every bird she saw or heard. Most days the list was short: mynas, sparrows, a few pigeons. Her friends could not understand why anyone would bother.\n\nWhat they did not know was that Pailin was sending her lists to an online project run by scientists, who collect millions of records like hers from ordinary people around the world. One person's notes may seem unimportant, but when thousands of people record what they see in the same way, year after year, the results can reveal changes that no small team of scientists could ever spot on its own.\n\nFour years later, a university researcher contacted her. Pailin's records, it turned out, were among the very few long-term lists from her district, and they showed that a small green bird called the coppersmith barbet had become noticeably more common there after a nearby park was planted with fig trees. The researcher asked permission to include her data in a scientific paper. \"I never imagined that sitting on my balcony counted as science,\" Pailin said. \"Now I tell everyone: you don't need a laboratory to make a discovery — you just need patience.\"",
+   "table": null,
+   "stem": "Which statement best expresses Pailin's final message?",
+   "choices": [
+    "Young people should join online projects to become famous.",
+    "Watching birds is more useful than studying at school.",
+    "Careful, patient observation by anyone can lead to discoveries.",
+    "Only scientists working in laboratories can make discoveries."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Pailin says \"you don't need a laboratory to make a discovery — you just need patience\". This is the opposite of saying only laboratory scientists can discover things, and she does not compare bird-watching with school or mention fame.",
+    "th": "ไพลินบอกว่าไม่ต้องมีห้องทดลองก็ค้นพบได้ ขอแค่มีความอดทน ซึ่งตรงข้ามกับการบอกว่ามีแต่นักวิทยาศาสตร์ในห้องทดลองที่ค้นพบได้ และเธอไม่ได้เปรียบเทียบกับการเรียนหรือพูดถึงชื่อเสียง"
+   }
+  }
+ ]
+}

@@ -1,0 +1,1515 @@
+{
+ "exam": "sp4",
+ "set": 2,
+ "title": {
+  "en": "Satit Prasarnmit M.4 English — Practice paper 2",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.4 สาธิตประสานมิตร — ชุดที่ 2"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "50 questions in 60 minutes in a standardized-test style: academic vocabulary in context, sentence structure, error identification and academic reading (about introductory TU-GET / CU-TEP level). DeepDistrict practice — not an official or past paper.",
+  "th": "50 ข้อ 60 นาที แนวข้อสอบมาตรฐาน: คำศัพท์วิชาการในบริบท โครงสร้างประโยค หาจุดผิด และการอ่านบทความวิชาการ (ระดับใกล้ TU-GET / CU-TEP เบื้องต้น) — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Academic word in context: conservative",
+    "th": "คำศัพท์วิชาการในบริบท: conservative"
+   },
+   "topic": {
+    "en": "Academic vocabulary: adjectives and adverbs",
+    "th": "คำศัพท์วิชาการ: คำคุณศัพท์และคำวิเศษณ์"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"Early estimates of the damage turned out to be far too ______; the true cost was almost three times higher.\"",
+   "choices": [
+    "excessive",
+    "exaggerated",
+    "precise",
+    "conservative"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "A \"conservative\" estimate is cautiously low, which fits a figure that turned out to be much lower than the true cost. \"Exaggerated\" and \"excessive\" mean too high, the opposite, and \"precise\" contradicts the large error.",
+    "th": "conservative estimate คือการประมาณการแบบระมัดระวังซึ่งมักต่ำกว่าความจริง ตรงกับที่ค่าเสียหายจริงสูงกว่าเกือบสามเท่า ส่วน exaggerated และ excessive แปลว่าสูงเกินไป (ตรงข้าม) และ precise ขัดกับความคลาดเคลื่อนที่มาก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Academic word in context: acceptance",
+    "th": "คำศัพท์วิชาการในบริบท: acceptance"
+   },
+   "topic": {
+    "en": "Academic vocabulary: nouns",
+    "th": "คำศัพท์วิชาการ: คำนาม"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"The theory was initially dismissed, but it has since gained wide ______ among geologists.\"",
+   "choices": [
+    "abundance",
+    "attendance",
+    "acceptance",
+    "assumption"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Gain wide acceptance\" is a fixed collocation meaning that many people come to believe something, which contrasts with \"initially dismissed\". The other nouns do not collocate with \"gain wide … among\".",
+    "th": "gain wide acceptance เป็นคำปรากฏร่วมที่แปลว่า ได้รับการยอมรับอย่างกว้างขวาง ตรงข้ามกับ initially dismissed ส่วนคำนามอื่นใช้กับโครงสร้างนี้ไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Academic word in context: curb",
+    "th": "คำศัพท์วิชาการในบริบท: curb"
+   },
+   "topic": {
+    "en": "Academic vocabulary: verbs",
+    "th": "คำศัพท์วิชาการ: คำกริยา"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"The government plans to ______ the use of single-use plastic bags by charging customers for each one.\"",
+   "choices": [
+    "accelerate",
+    "curb",
+    "compile",
+    "promote"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "To \"curb\" something is to limit or control it; charging for bags is a way to reduce their use. \"Promote\" and \"accelerate\" would increase use, and \"compile\" means collect information.",
+    "th": "curb แปลว่า ควบคุม จำกัด การเก็บเงินค่าถุงเป็นวิธีลดการใช้ ส่วน promote และ accelerate จะทำให้ใช้มากขึ้น และ compile แปลว่า รวบรวมข้อมูล"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Academic word in context: contradictory",
+    "th": "คำศัพท์วิชาการในบริบท: contradictory"
+   },
+   "topic": {
+    "en": "Academic vocabulary: adjectives and adverbs",
+    "th": "คำศัพท์วิชาการ: คำคุณศัพท์และคำวิเศษณ์"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"The two studies reached ______ conclusions: one found the drug effective, while the other found no benefit at all.\"",
+   "choices": [
+    "contradictory",
+    "consistent",
+    "complementary",
+    "comprehensive"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "One study found benefit and the other none, so the conclusions were \"contradictory\" (opposed to each other). \"Complementary\" and \"consistent\" suggest they agree or fit together; \"comprehensive\" means thorough.",
+    "th": "งานหนึ่งพบว่ายาได้ผล อีกงานไม่พบประโยชน์ ข้อสรุปจึง contradictory (ขัดแย้งกัน) ส่วน complementary และ consistent สื่อว่าสอดคล้องเสริมกัน และ comprehensive แปลว่า ครอบคลุม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Academic word in context: corroborate",
+    "th": "คำศัพท์วิชาการในบริบท: corroborate"
+   },
+   "topic": {
+    "en": "Academic vocabulary: verbs",
+    "th": "คำศัพท์วิชาการ: คำกริยา"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"Fossils of feathered dinosaurs discovered in China strongly ______ the hypothesis that birds evolved from dinosaurs.\"",
+   "choices": [
+    "dissipate",
+    "corroborate",
+    "refute",
+    "fabricate"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Feathered dinosaurs are evidence that supports a dinosaur–bird link, so they \"corroborate\" (confirm) the hypothesis. \"Refute\" means prove wrong, \"fabricate\" means invent falsely and \"dissipate\" means scatter or disappear.",
+    "th": "ฟอสซิลไดโนเสาร์ที่มีขนเป็นหลักฐานสนับสนุนว่านกวิวัฒนาการจากไดโนเสาร์ จึงใช้ corroborate (ยืนยัน) ส่วน refute = หักล้าง, fabricate = กุขึ้น, dissipate = สลายไป"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Academic word in context: vague",
+    "th": "คำศัพท์วิชาการในบริบท: vague"
+   },
+   "topic": {
+    "en": "Academic vocabulary: adjectives and adverbs",
+    "th": "คำศัพท์วิชาการ: คำคุณศัพท์และคำวิเศษณ์"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"Because the instructions were so ______, almost every participant interpreted them differently.\"",
+   "choices": [
+    "vague",
+    "meticulous",
+    "lucid",
+    "rigid"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Different interpretations result from unclear instructions, so \"vague\" fits. \"Lucid\" means clear, \"meticulous\" means very careful and detailed, and \"rigid\" means strict; none would cause confusion.",
+    "th": "การตีความต่างกันเกิดจากคำสั่งที่ไม่ชัดเจน จึงใช้ vague ส่วน lucid = ชัดเจน, meticulous = ละเอียดรอบคอบ, rigid = เข้มงวด ไม่ทำให้สับสน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "m",
+   "skill": {
+    "en": "Academic word in context: driven",
+    "th": "คำศัพท์วิชาการในบริบท: driven"
+   },
+   "topic": {
+    "en": "Academic vocabulary: verbs",
+    "th": "คำศัพท์วิชาการ: คำกริยา"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"The company's profits fell sharply, ______ largely by rising energy costs and weak demand.\"",
+   "choices": [
+    "deprived",
+    "driven",
+    "deterred",
+    "derived"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Driven by\" means caused by: the fall in profits was caused by costs and weak demand. \"Derived\" takes \"from\", \"deprived\" takes \"of\", and \"deterred\" (discouraged) needs a person or action as its object.",
+    "th": "driven by แปลว่า เกิดจาก/ขับเคลื่อนโดย กำไรลดลงเพราะต้นทุนและอุปสงค์ต่ำ ส่วน derived ใช้กับ from, deprived ใช้กับ of และ deterred แปลว่า ยับยั้งไม่ให้ทำ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "e",
+   "skill": {
+    "en": "Academic word in context: deliberately",
+    "th": "คำศัพท์วิชาการในบริบท: deliberately"
+   },
+   "topic": {
+    "en": "Academic vocabulary: adjectives and adverbs",
+    "th": "คำศัพท์วิชาการ: คำคุณศัพท์และคำวิเศษณ์"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"Unlike earlier tools, which were made from whatever stone was at hand, these axes were made from rock that had been ______ selected for its hardness.\"",
+   "choices": [
+    "deliberately",
+    "scarcely",
+    "accidentally",
+    "reluctantly"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Selecting rock \"for its hardness\" shows intention, in contrast with \"whatever stone was at hand\", so \"deliberately\" (on purpose) fits. \"Accidentally\" is the opposite, and \"reluctantly\" and \"scarcely\" make no sense here.",
+    "th": "การเลือกหินเพราะความแข็งแสดงความตั้งใจ ตรงข้ามกับการใช้หินอะไรก็ได้ที่หาได้ จึงใช้ deliberately (โดยเจตนา) ส่วน accidentally ตรงข้าม และ reluctantly, scarcely ไม่เข้ากับความหมาย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Academic word in context: impasse",
+    "th": "คำศัพท์วิชาการในบริบท: impasse"
+   },
+   "topic": {
+    "en": "Academic vocabulary: nouns",
+    "th": "คำศัพท์วิชาการ: คำนาม"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"The negotiations reached an ______: neither side was willing to make further concessions.\"",
+   "choices": [
+    "outcome",
+    "impasse",
+    "ultimatum",
+    "agreement"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "An \"impasse\" is a situation in which no progress is possible, which is explained by \"neither side was willing to make further concessions\". An \"agreement\" is the opposite, \"outcome\" is too general to match the explanation, and an \"ultimatum\" is a final demand made by one side.",
+    "th": "impasse คือ ทางตัน ไม่มีความคืบหน้า ซึ่งอธิบายด้วยข้อความว่าไม่มีฝ่ายใดยอมอ่อนข้อ ส่วน agreement (ข้อตกลง) ตรงข้าม, outcome กว้างเกินไป และ ultimatum คือคำขาดจากฝ่ายเดียว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "vocabulary",
+   "difficulty": "h",
+   "skill": {
+    "en": "Academic word in context: pertinent",
+    "th": "คำศัพท์วิชาการในบริบท: pertinent"
+   },
+   "topic": {
+    "en": "Academic vocabulary: adjectives and adverbs",
+    "th": "คำศัพท์วิชาการ: คำคุณศัพท์และคำวิเศษณ์"
+   },
+   "passage": "",
+   "stem": "Choose the word or phrase that best completes the sentence.\n\"Her comments were highly ______ to the debate: they addressed the central question directly.\"",
+   "choices": [
+    "peripheral",
+    "permanent",
+    "pertinent",
+    "persistent"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "\"Pertinent\" means directly relevant, as the second clause explains. \"Peripheral\" means of minor importance or at the edge, the opposite; \"permanent\" and \"persistent\" do not take \"to the debate\" in this sense.",
+    "th": "pertinent แปลว่า ตรงประเด็น ตามที่ประโยคหลังอธิบาย ส่วน peripheral = อยู่ชายขอบ ไม่สำคัญ (ตรงข้าม) และ permanent, persistent ไม่มีความหมายนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Past participle clause expressing reason",
+    "th": "วลี V3 บอกเหตุผล (ความรู้สึก)"
+   },
+   "topic": {
+    "en": "Reduced and participle clauses",
+    "th": "อนุประโยคลดรูปและวลี participle"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"______ by the speed of the results, the team decided to repeat the experiment.\"",
+   "choices": [
+    "Surprising",
+    "Surprised",
+    "Having surprised",
+    "To surprise"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The team was surprised (passive feeling), so the participle clause uses \"Surprised by …\". \"Surprising\" and \"Having surprised\" would mean the team surprised someone else, and \"To surprise\" expresses purpose.",
+    "th": "ทีมรู้สึกประหลาดใจ (ถูกทำให้แปลกใจ) จึงใช้ Surprised by ส่วน Surprising และ Having surprised หมายถึงทีมทำให้คนอื่นแปลกใจ และ To surprise บอกจุดประสงค์"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Mandative subjunctive after 'recommend'",
+    "th": "subjunctive หลัง recommend"
+   },
+   "topic": {
+    "en": "Subjunctive and conditionals",
+    "th": "subjunctive และประโยคเงื่อนไข"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"The report recommends that the factory ______ its emissions by half within five years.\"",
+   "choices": [
+    "will reduce",
+    "reduce",
+    "reduces",
+    "reducing"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "After \"recommend that\", formal English uses the subjunctive base form for every subject: \"the factory reduce\". \"Reduces\" and \"will reduce\" are ordinary indicative forms, and \"reducing\" is not a finite verb.",
+    "th": "หลัง recommend that ในภาษาทางการใช้ subjunctive คือกริยารูปพื้นฐานเสมอ จึงเป็น the factory reduce ส่วน reduces และ will reduce เป็นรูปปกติ และ reducing เป็นกริยาแท้ไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Inversion after 'Seldom'",
+    "th": "inversion หลัง Seldom"
+   },
+   "topic": {
+    "en": "Inversion",
+    "th": "การสลับที่ประธานกับกริยา (inversion)"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"Seldom ______ such a rapid decline in a bird population.\"",
+   "choices": [
+    "have ecologists observed",
+    "observed ecologists have",
+    "ecologists have observed",
+    "ecologists observed"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Negative adverbs such as \"Seldom\" at the start of a sentence require auxiliary + subject: \"have ecologists observed\". The normal word order is wrong after a fronted \"Seldom\".",
+    "th": "คำวิเศษณ์เชิงปฏิเสธอย่าง Seldom ที่ขึ้นต้นประโยค ต้องเรียงเป็น กริยาช่วย + ประธาน คือ have ecologists observed การเรียงแบบปกติจึงผิด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Parallel noun clauses with 'not … but'",
+    "th": "noun clause คู่ขนานกับ not ... but"
+   },
+   "topic": {
+    "en": "Noun clauses",
+    "th": "noun clause (อนุประโยคนาม)"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"The problem is not that the data are wrong but ______.\"",
+   "choices": [
+    "the misinterpreting of them",
+    "that they have been misinterpreted",
+    "they have been misinterpreting",
+    "because they misinterpreted"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Not … but\" must join parallel elements. The first is a noun clause \"that the data are wrong\", so the second must be a noun clause too: \"that they have been misinterpreted\" (the data are misinterpreted by people, so passive).",
+    "th": "not ... but ต้องเชื่อมสิ่งที่ขนานกัน ส่วนแรกเป็น noun clause (that the data are wrong) ส่วนที่สองจึงต้องเป็น noun clause เช่นกัน คือ that they have been misinterpreted และต้องเป็น passive เพราะข้อมูลถูกตีความผิด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Parallelism with 'not only … but also'",
+    "th": "โครงสร้างคู่ขนานกับ not only ... but also"
+   },
+   "topic": {
+    "en": "Parallel structure",
+    "th": "โครงสร้างคู่ขนาน (parallelism)"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"Effective science communication requires not only accuracy but also ______.\"",
+   "choices": [
+    "being clearly",
+    "that it is clear",
+    "to be clear",
+    "clarity"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Not only accuracy\" is a noun, so \"but also\" must be followed by a noun: \"clarity\". The infinitive, the -ing phrase and the clause are not parallel.",
+    "th": "หลัง not only เป็นคำนาม accuracy ดังนั้นหลัง but also ต้องเป็นคำนามเช่นกัน คือ clarity ส่วน to-infinitive, วลี -ing และอนุประโยคไม่ขนานกัน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "Appositive noun phrase",
+    "th": "appositive (นามวลีขยายนาม)"
+   },
+   "topic": {
+    "en": "Appositives and relative clauses",
+    "th": "appositive และ relative clause"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"The Silk Road, ______, carried ideas and religions as well as goods.\"",
+   "choices": [
+    "it linked China with the Mediterranean",
+    "a network of trade routes linking China with the Mediterranean",
+    "was a network of trade routes linking China with the Mediterranean",
+    "which a network of trade routes linking China with the Mediterranean"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "Between the commas we need a noun phrase renaming the Silk Road: \"a network of trade routes linking China with the Mediterranean\". \"Which\" needs a verb, and the choices with \"was\" or \"it linked\" add a second clause without a connector.",
+    "th": "ระหว่างจุลภาคต้องเป็นนามวลีที่อธิบาย The Silk Road ส่วน which ต้องมีกริยาตาม และแบบที่มี was หรือ it linked ทำให้มีประโยคซ้อนโดยไม่มีคำเชื่อม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "e",
+   "skill": {
+    "en": "Reduced passive relative clause",
+    "th": "relative clause ลดรูปแบบ passive"
+   },
+   "topic": {
+    "en": "Reduced and participle clauses",
+    "th": "อนุประโยคลดรูปและวลี participle"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"The bridge, ______ in less than two years, was considered an engineering marvel at the time.\"",
+   "choices": [
+    "completing",
+    "was completed",
+    "having completing",
+    "completed"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Completed\" is the reduced form of \"which was completed\": the bridge was completed by builders. \"Completing\" is active, \"was completed\" would give the sentence two main verbs, and \"having completing\" is not a correct form.",
+    "th": "completed คือรูปลดของ which was completed เพราะสะพานถูกสร้างเสร็จ ส่วน completing เป็น active, was completed ทำให้มีกริยาแท้สองตัว และ having completing ผิดรูป"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Avoiding a dangling participle",
+    "th": "หลีกเลี่ยงส่วนขยายลอย"
+   },
+   "topic": {
+    "en": "Dangling modifiers",
+    "th": "ส่วนขยายลอย (dangling modifier)"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"Written in plain language, ______.\"",
+   "choices": [
+    "readers with no scientific training can understand the guide",
+    "the guide can be understood by readers with no scientific training",
+    "it is easy for readers to understand the guide",
+    "we found that the guide was easy to understand"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "What is \"written in plain language\" is the guide, so the guide must be the subject of the main clause: \"the guide can be understood by readers …\". The other choices make readers, \"it\" or \"we\" the thing that was written.",
+    "th": "สิ่งที่ถูกเขียนด้วยภาษาง่ายคือคู่มือ ประธานของประโยคหลักจึงต้องเป็น the guide ส่วนแบบอื่นทำให้ readers, it หรือ we กลายเป็นสิ่งที่ถูกเขียน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "m",
+   "skill": {
+    "en": "Noun clause with 'whether … or'",
+    "th": "noun clause แบบ whether ... or"
+   },
+   "topic": {
+    "en": "Noun clauses",
+    "th": "noun clause (อนุประโยคนาม)"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"It is still debated ______ the ancient city was abandoned suddenly or declined over many decades.\"",
+   "choices": [
+    "whether",
+    "what",
+    "if or not",
+    "that"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The clause presents two alternatives (\"suddenly or … over many decades\"), so \"whether … or\" is needed. \"That\" states a fact rather than an open question, \"what\" needs a gap in the clause, and \"if or not\" is not standard.",
+    "th": "อนุประโยคเสนอทางเลือกสองทาง จึงต้องใช้ whether ... or ส่วน that ทำให้เป็นข้อเท็จจริงแทนคำถาม what ต้องมีช่องว่างในอนุประโยค และ if or not ไม่ใช่รูปมาตรฐาน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inverted third conditional (Had + subject)",
+    "th": "inversion ในเงื่อนไขแบบที่ 3"
+   },
+   "topic": {
+    "en": "Subjunctive and conditionals",
+    "th": "subjunctive และประโยคเงื่อนไข"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"______ the warning signs earlier, the disease could have been controlled.\"",
+   "choices": [
+    "Had doctors recognised",
+    "Doctors had recognised",
+    "Were doctors recognised",
+    "If doctors recognised"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The result \"could have been controlled\" refers to the past, so the condition must be past perfect. Without \"if\", the auxiliary moves to the front: \"Had doctors recognised\". \"If doctors recognised\" is the wrong tense, and the other two are not correct conditional forms.",
+    "th": "ผลลัพธ์ could have been controlled เป็นอดีต เงื่อนไขจึงต้องเป็น past perfect และเมื่อละ if ต้องนำ Had ขึ้นหน้า คือ Had doctors recognised ส่วน If doctors recognised ผิดกาล และอีกสองแบบไม่ใช่รูปเงื่อนไขที่ถูก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Agreement inside a relative clause",
+    "th": "ความสอดคล้องของกริยาใน relative clause"
+   },
+   "topic": {
+    "en": "Agreement and comparison",
+    "th": "ความสอดคล้องประธาน–กริยาและการเปรียบเทียบ"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"The number of species that ______ extinct in the past century is far higher than natural rates would predict.\"",
+   "choices": [
+    "has become",
+    "becoming",
+    "have become",
+    "was become"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The relative pronoun \"that\" refers to \"species\" (plural), so its verb is \"have become\"; the main verb \"is\" agrees with \"The number\". \"Has become\" wrongly agrees with \"number\", \"becoming\" is not finite, and \"was become\" is not a correct form.",
+    "th": "that ในอนุประโยคแทน species (พหูพจน์) กริยาจึงเป็น have become ส่วนกริยาหลัก is สอดคล้องกับ The number ดังนั้น has become ผิดเพราะไปสอดคล้องกับ number, becoming ไม่ใช่กริยาแท้ และ was become ผิดรูป"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "grammar",
+   "difficulty": "h",
+   "skill": {
+    "en": "Preposition + 'which' in relative clauses",
+    "th": "บุพบท + which ใน relative clause"
+   },
+   "topic": {
+    "en": "Appositives and relative clauses",
+    "th": "appositive และ relative clause"
+   },
+   "passage": "",
+   "stem": "Choose the option that best completes the sentence.\n\"The extent ______ human activity influences climate is no longer seriously disputed among scientists.\"",
+   "choices": [
+    "to which",
+    "in that",
+    "which",
+    "of what"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "We say \"to an extent\", so the relative clause is \"the extent to which human activity influences climate\". \"Which\" alone leaves the preposition out, and \"in that\" and \"of what\" cannot introduce a relative clause after \"extent\".",
+    "th": "เราพูดว่า to an extent ดังนั้น relative clause ต้องเป็น the extent to which ส่วน which อย่างเดียวขาดบุพบท และ in that, of what ใช้ขึ้นต้น relative clause หลัง extent ไม่ได้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "e",
+   "skill": {
+    "en": "'Despite' without 'of'",
+    "th": "despite ไม่ใช้ of"
+   },
+   "topic": {
+    "en": "Word form and usage",
+    "th": "รูปคำและการใช้คำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\n[[Despite of]] the heavy rain, the field researchers [[managed]] to collect [[all]] the samples they [[needed]].",
+   "choices": [
+    "Despite of",
+    "managed",
+    "all",
+    "needed"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "\"Despite\" is followed directly by a noun: \"Despite the heavy rain\" (or \"In spite of the heavy rain\"). \"Despite of\" is incorrect.",
+    "th": "despite ตามด้วยคำนามได้ทันที คือ Despite the heavy rain หรือใช้ In spite of ส่วน Despite of ผิด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Subject–verb agreement across a relative clause",
+    "th": "ประธาน–กริยาสอดคล้องแม้มี relative clause คั่น"
+   },
+   "topic": {
+    "en": "Agreement and comparison",
+    "th": "ความสอดคล้องประธาน–กริยาและการเปรียบเทียบ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\nThe ancient manuscripts, [[which]] were discovered in a cave in 1947, [[has provided]] scholars with [[valuable]] information [[about]] early religious texts.",
+   "choices": [
+    "which",
+    "has provided",
+    "valuable",
+    "about"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The subject is \"The ancient manuscripts\" (plural), so the verb must be \"have provided\". The relative clause between the commas does not change the subject.",
+    "th": "ประธานคือ The ancient manuscripts (พหูพจน์) กริยาจึงต้องเป็น have provided อนุประโยคระหว่างจุลภาคไม่ได้เปลี่ยนประธาน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Fixed preposition: 'similar to'",
+    "th": "บุพบทคงที่ similar to"
+   },
+   "topic": {
+    "en": "Word form and usage",
+    "th": "รูปคำและการใช้คำ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\nScientists [[have long]] debated whether animals [[are capable of]] feeling emotions [[similar with]] [[those]] of humans.",
+   "choices": [
+    "have long",
+    "are capable of",
+    "similar with",
+    "those"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The adjective \"similar\" takes \"to\": \"similar to those of humans\". \"Those\" correctly replaces the plural \"emotions\".",
+    "th": "คำคุณศัพท์ similar ใช้กับ to คือ similar to those of humans ส่วน those ใช้แทน emotions ที่เป็นพหูพจน์ได้ถูกต้อง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Parallel infinitives after 'forced … to'",
+    "th": "infinitive ที่ขนานกันหลัง forced ... to"
+   },
+   "topic": {
+    "en": "Parallel structure",
+    "th": "โครงสร้างคู่ขนาน (parallelism)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\nNot only did the drought [[destroy]] crops, but it also [[forced]] thousands of families [[to leave]] their villages and [[searching]] for work in the cities.",
+   "choices": [
+    "destroy",
+    "forced",
+    "to leave",
+    "searching"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"Forced … to\" is followed by two parallel infinitives: \"to leave their villages and (to) search for work\". \"Searching\" breaks the parallel structure. The inverted \"Not only did the drought destroy\" is correct.",
+    "th": "หลัง forced ... to ต้องตามด้วย infinitive ที่ขนานกัน คือ to leave ... and (to) search ดังนั้น searching ผิด ส่วนการสลับ Not only did the drought destroy ถูกต้อง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "'Compared with' as a reduced clause",
+    "th": "Compared with เป็นวลีลดรูปแบบ passive"
+   },
+   "topic": {
+    "en": "Reduced and participle clauses",
+    "th": "อนุประโยคลดรูปและวลี participle"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\n[[Comparing with]] other mammals, elephants have [[remarkably]] long memories, [[which]] help them [[locate]] water during droughts.",
+   "choices": [
+    "Comparing with",
+    "remarkably",
+    "which",
+    "locate"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "Elephants are compared (by us) with other mammals; they are not doing the comparing. The correct phrase is the passive form \"Compared with\".",
+    "th": "ช้างถูกนำไปเปรียบเทียบกับสัตว์อื่น ไม่ได้เป็นผู้เปรียบเทียบเอง จึงต้องใช้รูป passive คือ Compared with"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Agreement with 'neither … nor'",
+    "th": "ความสอดคล้องกับ neither ... nor"
+   },
+   "topic": {
+    "en": "Agreement and comparison",
+    "th": "ความสอดคล้องประธาน–กริยาและการเปรียบเทียบ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\n[[Although]] the survey was anonymous, neither the principal nor the teachers [[was]] willing to [[share]] the results [[with]] parents.",
+   "choices": [
+    "Although",
+    "was",
+    "share",
+    "with"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "With \"neither … nor\", the verb agrees with the nearer subject. \"The teachers\" is plural, so the verb must be \"were\".",
+    "th": "กับ neither ... nor กริยาสอดคล้องกับประธานตัวที่อยู่ใกล้กว่า คือ the teachers ซึ่งเป็นพหูพจน์ จึงต้องใช้ were"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Third conditional result clause",
+    "th": "ผลของเงื่อนไขแบบที่ 3"
+   },
+   "topic": {
+    "en": "Subjunctive and conditionals",
+    "th": "subjunctive และประโยคเงื่อนไข"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\nIf the experiment [[had been]] repeated [[with]] a larger sample, the researchers [[would reach]] a [[more reliable]] conclusion.",
+   "choices": [
+    "had been",
+    "with",
+    "would reach",
+    "more reliable"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The if-clause is past perfect (an unreal past), so the result must be \"would have reached\". \"Would reach\" refers to the present or future.",
+    "th": "if-clause ใช้ past perfect (อดีตที่ไม่เกิดจริง) ผลลัพธ์จึงต้องเป็น would have reached ส่วน would reach ใช้กับปัจจุบันหรืออนาคต"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Agreement with 'much of' + uncountable noun",
+    "th": "much of + นามนับไม่ได้ ใช้กริยาเอกพจน์"
+   },
+   "topic": {
+    "en": "Agreement and comparison",
+    "th": "ความสอดคล้องประธาน–กริยาและการเปรียบเทียบ"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that must be changed for the sentence to be correct.\nThe [[economic]] benefits of tourism are often [[exaggerated]], since [[much]] of the money spent by visitors [[leave]] the country.",
+   "choices": [
+    "economic",
+    "exaggerated",
+    "much",
+    "leave"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The subject of the last clause is \"much of the money\", which is uncountable and singular, so the verb must be \"leaves\".",
+    "th": "ประธานของอนุประโยคสุดท้ายคือ much of the money ซึ่งเป็นนามนับไม่ได้ (เอกพจน์) กริยาจึงต้องเป็น leaves"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "m",
+   "skill": {
+    "en": "Main idea",
+    "th": "ใจความสำคัญ"
+   },
+   "topic": {
+    "en": "Academic reading: environment",
+    "th": "อ่านบทความวิชาการ: สิ่งแวดล้อม"
+   },
+   "passage": "Wolves, Elk and a Famous Ecological Story\n\nWhen grey wolves were reintroduced to Yellowstone National Park in 1995 and 1996, after an absence of roughly seventy years, few people anticipated that the return of a single predator would become one of the most famous stories in modern ecology. Within a decade, scientists were reporting changes that seemed to ripple through the entire ecosystem. Elk, the wolves' main prey, had declined in number and, it was argued, changed their behaviour, avoiding the open river valleys where they were most vulnerable. Freed from constant grazing, willow and aspen trees along the riverbanks began to recover. Beavers, which depend on willow, returned to areas they had abandoned, and their dams created ponds that supported fish, amphibians and birds.\n\nThis chain of effects is an example of what ecologists call a trophic cascade: a process in which a change at the top of a food chain spreads downward through the levels below it. The Yellowstone case was quickly adopted as a powerful illustration of the importance of large predators, and it was widely used to support the argument that restoring missing species can repair damaged ecosystems, an approach often referred to as rewilding.\n\nIn recent years, however, a number of researchers have questioned whether the story is quite so simple. One difficulty is that wolves were not the only factor changing at the time. Yellowstone experienced a series of droughts, human hunting of elk outside the park increased, and populations of other predators, including bears and cougars, were also growing. Separating the influence of wolves from these other forces is extremely difficult. Another difficulty concerns the so-called \"landscape of fear\". Studies that tracked elk with GPS collars found that the animals did not consistently avoid risky areas in the way the original theory suggested, raising doubts about whether fear of wolves alone could explain the recovery of trees.\n\nCritics have also pointed out that the recovery of vegetation has been patchy. In some places willows have grown tall; in others they remain short. One explanation is that the streams themselves have changed. When beavers disappeared, their dams collapsed, the water table dropped and the streams cut deeper channels. Willows growing high above the water may now be unable to reach it, regardless of how many elk are present. If so, removing a predator may cause changes that cannot be undone simply by bringing it back.\n\nNone of this means that wolves have had no effect. Most ecologists accept that they have influenced elk numbers and, through them, parts of the ecosystem. The debate is about the size and reliability of the effects. Its lesson may be that ecosystems are rarely governed by a single cause, and that compelling stories, however useful for winning public support, should not substitute for careful evidence.",
+   "stem": "What is the main point of the passage?",
+   "choices": [
+    "Wolves should not have been reintroduced to Yellowstone because they harmed the ecosystem.",
+    "Beavers, rather than wolves, are the most important animals in Yellowstone.",
+    "The widely told story of how wolves transformed Yellowstone is now considered more complicated than it first appeared.",
+    "Trophic cascades occur only in national parks with large predators."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The passage tells the famous trophic-cascade story and then spends three paragraphs on reasons why it is \"not quite so simple\". The author never says the reintroduction was harmful and states that wolves have had some effect.",
+    "th": "บทความเล่าเรื่องดังเรื่อง trophic cascade แล้วใช้สามย่อหน้าอธิบายว่าเรื่องนี้ไม่ง่ายอย่างที่คิด ผู้เขียนไม่ได้บอกว่าการนำหมาป่ากลับมาเป็นผลเสีย และยอมรับว่าหมาป่ามีผลอยู่บ้าง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำจากบริบท"
+   },
+   "topic": {
+    "en": "Academic reading: environment",
+    "th": "อ่านบทความวิชาการ: สิ่งแวดล้อม"
+   },
+   "passage": "Wolves, Elk and a Famous Ecological Story\n\nWhen grey wolves were reintroduced to Yellowstone National Park in 1995 and 1996, after an absence of roughly seventy years, few people anticipated that the return of a single predator would become one of the most famous stories in modern ecology. Within a decade, scientists were reporting changes that seemed to ripple through the entire ecosystem. Elk, the wolves' main prey, had declined in number and, it was argued, changed their behaviour, avoiding the open river valleys where they were most vulnerable. Freed from constant grazing, willow and aspen trees along the riverbanks began to recover. Beavers, which depend on willow, returned to areas they had abandoned, and their dams created ponds that supported fish, amphibians and birds.\n\nThis chain of effects is an example of what ecologists call a trophic cascade: a process in which a change at the top of a food chain spreads downward through the levels below it. The Yellowstone case was quickly adopted as a powerful illustration of the importance of large predators, and it was widely used to support the argument that restoring missing species can repair damaged ecosystems, an approach often referred to as rewilding.\n\nIn recent years, however, a number of researchers have questioned whether the story is quite so simple. One difficulty is that wolves were not the only factor changing at the time. Yellowstone experienced a series of droughts, human hunting of elk outside the park increased, and populations of other predators, including bears and cougars, were also growing. Separating the influence of wolves from these other forces is extremely difficult. Another difficulty concerns the so-called \"landscape of fear\". Studies that tracked elk with GPS collars found that the animals did not consistently avoid risky areas in the way the original theory suggested, raising doubts about whether fear of wolves alone could explain the recovery of trees.\n\nCritics have also pointed out that the recovery of vegetation has been patchy. In some places willows have grown tall; in others they remain short. One explanation is that the streams themselves have changed. When beavers disappeared, their dams collapsed, the water table dropped and the streams cut deeper channels. Willows growing high above the water may now be unable to reach it, regardless of how many elk are present. If so, removing a predator may cause changes that cannot be undone simply by bringing it back.\n\nNone of this means that wolves have had no effect. Most ecologists accept that they have influenced elk numbers and, through them, parts of the ecosystem. The debate is about the size and reliability of the effects. Its lesson may be that ecosystems are rarely governed by a single cause, and that compelling stories, however useful for winning public support, should not substitute for careful evidence.",
+   "stem": "The word \"patchy\" in the fourth paragraph is closest in meaning to",
+   "choices": [
+    "complete",
+    "rapid",
+    "temporary",
+    "uneven"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The next sentence explains it: \"In some places willows have grown tall; in others they remain short.\" So the recovery is uneven, varying from place to place.",
+    "th": "ประโยคถัดไปอธิบายว่าบางที่ต้นวิลโลว์โตสูง บางที่ยังเตี้ย การฟื้นตัวจึงไม่สม่ำเสมอ ตรงกับ uneven"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Academic reading: environment",
+    "th": "อ่านบทความวิชาการ: สิ่งแวดล้อม"
+   },
+   "passage": "Wolves, Elk and a Famous Ecological Story\n\nWhen grey wolves were reintroduced to Yellowstone National Park in 1995 and 1996, after an absence of roughly seventy years, few people anticipated that the return of a single predator would become one of the most famous stories in modern ecology. Within a decade, scientists were reporting changes that seemed to ripple through the entire ecosystem. Elk, the wolves' main prey, had declined in number and, it was argued, changed their behaviour, avoiding the open river valleys where they were most vulnerable. Freed from constant grazing, willow and aspen trees along the riverbanks began to recover. Beavers, which depend on willow, returned to areas they had abandoned, and their dams created ponds that supported fish, amphibians and birds.\n\nThis chain of effects is an example of what ecologists call a trophic cascade: a process in which a change at the top of a food chain spreads downward through the levels below it. The Yellowstone case was quickly adopted as a powerful illustration of the importance of large predators, and it was widely used to support the argument that restoring missing species can repair damaged ecosystems, an approach often referred to as rewilding.\n\nIn recent years, however, a number of researchers have questioned whether the story is quite so simple. One difficulty is that wolves were not the only factor changing at the time. Yellowstone experienced a series of droughts, human hunting of elk outside the park increased, and populations of other predators, including bears and cougars, were also growing. Separating the influence of wolves from these other forces is extremely difficult. Another difficulty concerns the so-called \"landscape of fear\". Studies that tracked elk with GPS collars found that the animals did not consistently avoid risky areas in the way the original theory suggested, raising doubts about whether fear of wolves alone could explain the recovery of trees.\n\nCritics have also pointed out that the recovery of vegetation has been patchy. In some places willows have grown tall; in others they remain short. One explanation is that the streams themselves have changed. When beavers disappeared, their dams collapsed, the water table dropped and the streams cut deeper channels. Willows growing high above the water may now be unable to reach it, regardless of how many elk are present. If so, removing a predator may cause changes that cannot be undone simply by bringing it back.\n\nNone of this means that wolves have had no effect. Most ecologists accept that they have influenced elk numbers and, through them, parts of the ecosystem. The debate is about the size and reliability of the effects. Its lesson may be that ecosystems are rarely governed by a single cause, and that compelling stories, however useful for winning public support, should not substitute for careful evidence.",
+   "stem": "What can be inferred from the fourth paragraph about reintroducing a predator?",
+   "choices": [
+    "It always causes willows to grow taller within a few years.",
+    "It causes beavers to destroy their own dams.",
+    "It may not restore an ecosystem to its earlier state if the physical environment has changed in the meantime.",
+    "It has no effect on prey populations."
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The paragraph explains that streams cut deeper channels after the beavers left, so willows may not reach water \"regardless of how many elk are present\", and that changes \"cannot be undone simply by bringing it back\". The other choices contradict the passage.",
+    "th": "ย่อหน้านี้อธิบายว่าเมื่อบีเวอร์หายไป ลำธารกัดเซาะลึกขึ้น ต้นวิลโลว์จึงอาจเข้าไม่ถึงน้ำไม่ว่าจะมีกวางเท่าใด และการเปลี่ยนแปลงไม่อาจย้อนกลับได้เพียงแค่นำนักล่ากลับมา ตัวเลือกอื่นขัดกับบทความ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Paragraph function",
+    "th": "หน้าที่ของย่อหน้า/ประโยค"
+   },
+   "topic": {
+    "en": "Academic reading: environment",
+    "th": "อ่านบทความวิชาการ: สิ่งแวดล้อม"
+   },
+   "passage": "Wolves, Elk and a Famous Ecological Story\n\nWhen grey wolves were reintroduced to Yellowstone National Park in 1995 and 1996, after an absence of roughly seventy years, few people anticipated that the return of a single predator would become one of the most famous stories in modern ecology. Within a decade, scientists were reporting changes that seemed to ripple through the entire ecosystem. Elk, the wolves' main prey, had declined in number and, it was argued, changed their behaviour, avoiding the open river valleys where they were most vulnerable. Freed from constant grazing, willow and aspen trees along the riverbanks began to recover. Beavers, which depend on willow, returned to areas they had abandoned, and their dams created ponds that supported fish, amphibians and birds.\n\nThis chain of effects is an example of what ecologists call a trophic cascade: a process in which a change at the top of a food chain spreads downward through the levels below it. The Yellowstone case was quickly adopted as a powerful illustration of the importance of large predators, and it was widely used to support the argument that restoring missing species can repair damaged ecosystems, an approach often referred to as rewilding.\n\nIn recent years, however, a number of researchers have questioned whether the story is quite so simple. One difficulty is that wolves were not the only factor changing at the time. Yellowstone experienced a series of droughts, human hunting of elk outside the park increased, and populations of other predators, including bears and cougars, were also growing. Separating the influence of wolves from these other forces is extremely difficult. Another difficulty concerns the so-called \"landscape of fear\". Studies that tracked elk with GPS collars found that the animals did not consistently avoid risky areas in the way the original theory suggested, raising doubts about whether fear of wolves alone could explain the recovery of trees.\n\nCritics have also pointed out that the recovery of vegetation has been patchy. In some places willows have grown tall; in others they remain short. One explanation is that the streams themselves have changed. When beavers disappeared, their dams collapsed, the water table dropped and the streams cut deeper channels. Willows growing high above the water may now be unable to reach it, regardless of how many elk are present. If so, removing a predator may cause changes that cannot be undone simply by bringing it back.\n\nNone of this means that wolves have had no effect. Most ecologists accept that they have influenced elk numbers and, through them, parts of the ecosystem. The debate is about the size and reliability of the effects. Its lesson may be that ecosystems are rarely governed by a single cause, and that compelling stories, however useful for winning public support, should not substitute for careful evidence.",
+   "stem": "The third paragraph mainly serves to",
+   "choices": [
+    "present reasons for doubting that wolves alone caused the changes described earlier",
+    "describe the original evidence for the trophic cascade",
+    "argue that human hunting should be banned near the park",
+    "explain how GPS collars are attached to elk"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "It opens with \"researchers have questioned whether the story is quite so simple\" and lists other factors (droughts, hunting, other predators) and the GPS findings. It gives reasons for doubt; the original evidence was in the first paragraph.",
+    "th": "ย่อหน้าเริ่มด้วยการตั้งคำถามว่าเรื่องนี้ง่ายอย่างนั้นจริงหรือ แล้วยกปัจจัยอื่น (ภัยแล้ง การล่า นักล่าอื่น) และผลจาก GPS จึงเป็นการเสนอเหตุผลที่น่าสงสัย ส่วนหลักฐานเดิมอยู่ในย่อหน้าแรก"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Author's view",
+    "th": "ทัศนะของผู้เขียน"
+   },
+   "topic": {
+    "en": "Academic reading: environment",
+    "th": "อ่านบทความวิชาการ: สิ่งแวดล้อม"
+   },
+   "passage": "Wolves, Elk and a Famous Ecological Story\n\nWhen grey wolves were reintroduced to Yellowstone National Park in 1995 and 1996, after an absence of roughly seventy years, few people anticipated that the return of a single predator would become one of the most famous stories in modern ecology. Within a decade, scientists were reporting changes that seemed to ripple through the entire ecosystem. Elk, the wolves' main prey, had declined in number and, it was argued, changed their behaviour, avoiding the open river valleys where they were most vulnerable. Freed from constant grazing, willow and aspen trees along the riverbanks began to recover. Beavers, which depend on willow, returned to areas they had abandoned, and their dams created ponds that supported fish, amphibians and birds.\n\nThis chain of effects is an example of what ecologists call a trophic cascade: a process in which a change at the top of a food chain spreads downward through the levels below it. The Yellowstone case was quickly adopted as a powerful illustration of the importance of large predators, and it was widely used to support the argument that restoring missing species can repair damaged ecosystems, an approach often referred to as rewilding.\n\nIn recent years, however, a number of researchers have questioned whether the story is quite so simple. One difficulty is that wolves were not the only factor changing at the time. Yellowstone experienced a series of droughts, human hunting of elk outside the park increased, and populations of other predators, including bears and cougars, were also growing. Separating the influence of wolves from these other forces is extremely difficult. Another difficulty concerns the so-called \"landscape of fear\". Studies that tracked elk with GPS collars found that the animals did not consistently avoid risky areas in the way the original theory suggested, raising doubts about whether fear of wolves alone could explain the recovery of trees.\n\nCritics have also pointed out that the recovery of vegetation has been patchy. In some places willows have grown tall; in others they remain short. One explanation is that the streams themselves have changed. When beavers disappeared, their dams collapsed, the water table dropped and the streams cut deeper channels. Willows growing high above the water may now be unable to reach it, regardless of how many elk are present. If so, removing a predator may cause changes that cannot be undone simply by bringing it back.\n\nNone of this means that wolves have had no effect. Most ecologists accept that they have influenced elk numbers and, through them, parts of the ecosystem. The debate is about the size and reliability of the effects. Its lesson may be that ecosystems are rarely governed by a single cause, and that compelling stories, however useful for winning public support, should not substitute for careful evidence.",
+   "stem": "Which statement would the author most likely agree with?",
+   "choices": [
+    "Rewilding projects should be abandoned.",
+    "Scientists should avoid studying ecosystems with many interacting factors.",
+    "The idea of a trophic cascade has been completely disproved.",
+    "A story that persuades the public is not necessarily supported by strong evidence."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The final sentence warns that \"compelling stories, however useful for winning public support, should not substitute for careful evidence\". The author does not reject trophic cascades or rewilding; the debate is only about \"the size and reliability of the effects\".",
+    "th": "ประโยคสุดท้ายเตือนว่าเรื่องเล่าที่น่าเชื่อ แม้จะช่วยให้ได้แรงสนับสนุนจากสาธารณะ ก็ไม่ควรใช้แทนหลักฐานที่รอบคอบ ผู้เขียนไม่ได้ปฏิเสธ trophic cascade หรือ rewilding เพียงแต่ถกเถียงเรื่องขนาดของผล"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "m",
+   "skill": {
+    "en": "Author's purpose",
+    "th": "จุดประสงค์ของผู้เขียน"
+   },
+   "topic": {
+    "en": "Academic reading: psychology",
+    "th": "อ่านบทความวิชาการ: จิตวิทยา"
+   },
+   "passage": "Rethinking the Marshmallow Test\n\nIn a series of studies that began at Stanford University in the late 1960s, young children were offered a simple choice. A researcher placed a treat, such as a marshmallow, in front of the child and explained that she had to leave the room for a while. If the child waited until she returned, he or she would receive two treats; if not, the child could ring a bell at any time and eat the single treat immediately. Some children waited the full fifteen minutes or so; others gave in after a few seconds.\n\nThe experiment became famous because of what happened later. Follow-up studies, published in the late 1980s and 1990s, reported that children who had waited longer tended, as adolescents, to have higher test scores, to cope better with stress, and to be rated by their parents as more competent. The conclusion seemed clear and appealing: the ability to delay gratification is a stable personal trait that appears early in life and predicts success. The \"marshmallow test\" entered popular culture, and books, parenting guides and school programmes urged adults to train children's willpower.\n\nYet the original follow-up samples were small and unusual. Most of the children were the sons and daughters of staff and students at an elite university. In 2018 a team of researchers attempted to repeat the key finding with a much larger and more varied group of more than 900 children. They did find a link between waiting time and later academic achievement, but it was about half the size of the original estimate. More importantly, once they took into account factors such as family income, the mother's education and the child's early cognitive ability, the link became very small indeed.\n\nThis result suggests a different interpretation. Children's decisions to wait may reflect not only their self-control but also their circumstances. A child who has grown up in an environment where promises are reliably kept has good reason to believe that a second marshmallow will really arrive. A child whose experience has taught that resources can disappear may quite reasonably take what is available now. Other experiments support this view: when children were first exposed to an adult who broke a small promise, they waited far less time than children whose adult had kept it.\n\nIt would be wrong to conclude that self-control does not matter. The newer findings, however, cast doubt on the idea that a few minutes of behaviour in a laboratory reveal a fixed quality of character. They also suggest that efforts to improve children's lives may achieve more by making their environments stable and trustworthy than by teaching them simply to resist temptation.",
+   "stem": "The author's main purpose in the passage is to",
+   "choices": [
+    "explain how parents can train children to wait for rewards",
+    "argue that self-control has no influence on success",
+    "criticise Stanford University for choosing its participants unfairly",
+    "show how later research changed the interpretation of a famous experiment"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The passage describes the original study, then a larger 2018 study and new experiments that suggest \"a different interpretation\". The author explicitly says it would be wrong to conclude that self-control does not matter.",
+    "th": "บทความเล่าการทดลองเดิม แล้วนำเสนองานวิจัยปี 2018 และการทดลองใหม่ที่ชี้ไปสู่การตีความแบบใหม่ ผู้เขียนยังบอกชัดว่าไม่ควรสรุปว่าการควบคุมตนเองไม่สำคัญ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "e",
+   "skill": {
+    "en": "Reference",
+    "th": "การอ้างอิงคำ"
+   },
+   "topic": {
+    "en": "Academic reading: psychology",
+    "th": "อ่านบทความวิชาการ: จิตวิทยา"
+   },
+   "passage": "Rethinking the Marshmallow Test\n\nIn a series of studies that began at Stanford University in the late 1960s, young children were offered a simple choice. A researcher placed a treat, such as a marshmallow, in front of the child and explained that she had to leave the room for a while. If the child waited until she returned, he or she would receive two treats; if not, the child could ring a bell at any time and eat the single treat immediately. Some children waited the full fifteen minutes or so; others gave in after a few seconds.\n\nThe experiment became famous because of what happened later. Follow-up studies, published in the late 1980s and 1990s, reported that children who had waited longer tended, as adolescents, to have higher test scores, to cope better with stress, and to be rated by their parents as more competent. The conclusion seemed clear and appealing: the ability to delay gratification is a stable personal trait that appears early in life and predicts success. The \"marshmallow test\" entered popular culture, and books, parenting guides and school programmes urged adults to train children's willpower.\n\nYet the original follow-up samples were small and unusual. Most of the children were the sons and daughters of staff and students at an elite university. In 2018 a team of researchers attempted to repeat the key finding with a much larger and more varied group of more than 900 children. They did find a link between waiting time and later academic achievement, but it was about half the size of the original estimate. More importantly, once they took into account factors such as family income, the mother's education and the child's early cognitive ability, the link became very small indeed.\n\nThis result suggests a different interpretation. Children's decisions to wait may reflect not only their self-control but also their circumstances. A child who has grown up in an environment where promises are reliably kept has good reason to believe that a second marshmallow will really arrive. A child whose experience has taught that resources can disappear may quite reasonably take what is available now. Other experiments support this view: when children were first exposed to an adult who broke a small promise, they waited far less time than children whose adult had kept it.\n\nIt would be wrong to conclude that self-control does not matter. The newer findings, however, cast doubt on the idea that a few minutes of behaviour in a laboratory reveal a fixed quality of character. They also suggest that efforts to improve children's lives may achieve more by making their environments stable and trustworthy than by teaching them simply to resist temptation.",
+   "stem": "In the third paragraph, the word \"it\" in \"it was about half the size of the original estimate\" refers to",
+   "choices": [
+    "family income",
+    "the group of more than 900 children",
+    "the original follow-up sample",
+    "the link between waiting time and later academic achievement"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The previous clause says \"They did find a link between waiting time and later academic achievement, but it was about half the size\": the link is what was smaller.",
+    "th": "อนุประโยคก่อนหน้ากล่าวถึง a link between waiting time and later academic achievement สิ่งที่มีขนาดเพียงครึ่งหนึ่งจึงคือความเชื่อมโยงนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำจากบริบท"
+   },
+   "topic": {
+    "en": "Academic reading: psychology",
+    "th": "อ่านบทความวิชาการ: จิตวิทยา"
+   },
+   "passage": "Rethinking the Marshmallow Test\n\nIn a series of studies that began at Stanford University in the late 1960s, young children were offered a simple choice. A researcher placed a treat, such as a marshmallow, in front of the child and explained that she had to leave the room for a while. If the child waited until she returned, he or she would receive two treats; if not, the child could ring a bell at any time and eat the single treat immediately. Some children waited the full fifteen minutes or so; others gave in after a few seconds.\n\nThe experiment became famous because of what happened later. Follow-up studies, published in the late 1980s and 1990s, reported that children who had waited longer tended, as adolescents, to have higher test scores, to cope better with stress, and to be rated by their parents as more competent. The conclusion seemed clear and appealing: the ability to delay gratification is a stable personal trait that appears early in life and predicts success. The \"marshmallow test\" entered popular culture, and books, parenting guides and school programmes urged adults to train children's willpower.\n\nYet the original follow-up samples were small and unusual. Most of the children were the sons and daughters of staff and students at an elite university. In 2018 a team of researchers attempted to repeat the key finding with a much larger and more varied group of more than 900 children. They did find a link between waiting time and later academic achievement, but it was about half the size of the original estimate. More importantly, once they took into account factors such as family income, the mother's education and the child's early cognitive ability, the link became very small indeed.\n\nThis result suggests a different interpretation. Children's decisions to wait may reflect not only their self-control but also their circumstances. A child who has grown up in an environment where promises are reliably kept has good reason to believe that a second marshmallow will really arrive. A child whose experience has taught that resources can disappear may quite reasonably take what is available now. Other experiments support this view: when children were first exposed to an adult who broke a small promise, they waited far less time than children whose adult had kept it.\n\nIt would be wrong to conclude that self-control does not matter. The newer findings, however, cast doubt on the idea that a few minutes of behaviour in a laboratory reveal a fixed quality of character. They also suggest that efforts to improve children's lives may achieve more by making their environments stable and trustworthy than by teaching them simply to resist temptation.",
+   "stem": "The word \"appealing\" in the second paragraph is closest in meaning to",
+   "choices": [
+    "requesting",
+    "attractive",
+    "complicated",
+    "disturbing"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"The conclusion seemed clear and appealing\": it was attractive and easy to like, which is why it entered popular culture. \"Requesting\" relates to a different meaning of \"appeal\" (to ask for something).",
+    "th": "ข้อสรุปดูชัดเจนและน่าดึงดูดใจ จึงแพร่หลายในวัฒนธรรมสมัยนิยม appealing ในที่นี้จึงแปลว่า attractive ส่วน requesting มาจากความหมายอื่นของ appeal (ร้องขอ)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Academic reading: psychology",
+    "th": "อ่านบทความวิชาการ: จิตวิทยา"
+   },
+   "passage": "Rethinking the Marshmallow Test\n\nIn a series of studies that began at Stanford University in the late 1960s, young children were offered a simple choice. A researcher placed a treat, such as a marshmallow, in front of the child and explained that she had to leave the room for a while. If the child waited until she returned, he or she would receive two treats; if not, the child could ring a bell at any time and eat the single treat immediately. Some children waited the full fifteen minutes or so; others gave in after a few seconds.\n\nThe experiment became famous because of what happened later. Follow-up studies, published in the late 1980s and 1990s, reported that children who had waited longer tended, as adolescents, to have higher test scores, to cope better with stress, and to be rated by their parents as more competent. The conclusion seemed clear and appealing: the ability to delay gratification is a stable personal trait that appears early in life and predicts success. The \"marshmallow test\" entered popular culture, and books, parenting guides and school programmes urged adults to train children's willpower.\n\nYet the original follow-up samples were small and unusual. Most of the children were the sons and daughters of staff and students at an elite university. In 2018 a team of researchers attempted to repeat the key finding with a much larger and more varied group of more than 900 children. They did find a link between waiting time and later academic achievement, but it was about half the size of the original estimate. More importantly, once they took into account factors such as family income, the mother's education and the child's early cognitive ability, the link became very small indeed.\n\nThis result suggests a different interpretation. Children's decisions to wait may reflect not only their self-control but also their circumstances. A child who has grown up in an environment where promises are reliably kept has good reason to believe that a second marshmallow will really arrive. A child whose experience has taught that resources can disappear may quite reasonably take what is available now. Other experiments support this view: when children were first exposed to an adult who broke a small promise, they waited far less time than children whose adult had kept it.\n\nIt would be wrong to conclude that self-control does not matter. The newer findings, however, cast doubt on the idea that a few minutes of behaviour in a laboratory reveal a fixed quality of character. They also suggest that efforts to improve children's lives may achieve more by making their environments stable and trustworthy than by teaching them simply to resist temptation.",
+   "stem": "Based on the fourth paragraph, a child who eats the single marshmallow immediately might be",
+   "choices": [
+    "unaware that a second treat was offered",
+    "trying to please the researcher",
+    "making a sensible decision given his or her past experience",
+    "showing that he or she lacks intelligence"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The paragraph says a child who has learned that \"resources can disappear may quite reasonably take what is available now\". Eating at once can therefore be sensible given past experience. Intelligence and pleasing the researcher are not mentioned.",
+    "th": "ย่อหน้าบอกว่าเด็กที่เคยเรียนรู้ว่าสิ่งของอาจหายไปได้ อาจเลือกรับสิ่งที่มีอยู่ตอนนี้อย่างมีเหตุผล การกินทันทีจึงอาจเป็นการตัดสินใจที่สมเหตุสมผล ไม่มีการกล่าวถึงสติปัญญาหรือการเอาใจผู้วิจัย"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Paragraph function",
+    "th": "หน้าที่ของย่อหน้า/ประโยค"
+   },
+   "topic": {
+    "en": "Academic reading: psychology",
+    "th": "อ่านบทความวิชาการ: จิตวิทยา"
+   },
+   "passage": "Rethinking the Marshmallow Test\n\nIn a series of studies that began at Stanford University in the late 1960s, young children were offered a simple choice. A researcher placed a treat, such as a marshmallow, in front of the child and explained that she had to leave the room for a while. If the child waited until she returned, he or she would receive two treats; if not, the child could ring a bell at any time and eat the single treat immediately. Some children waited the full fifteen minutes or so; others gave in after a few seconds.\n\nThe experiment became famous because of what happened later. Follow-up studies, published in the late 1980s and 1990s, reported that children who had waited longer tended, as adolescents, to have higher test scores, to cope better with stress, and to be rated by their parents as more competent. The conclusion seemed clear and appealing: the ability to delay gratification is a stable personal trait that appears early in life and predicts success. The \"marshmallow test\" entered popular culture, and books, parenting guides and school programmes urged adults to train children's willpower.\n\nYet the original follow-up samples were small and unusual. Most of the children were the sons and daughters of staff and students at an elite university. In 2018 a team of researchers attempted to repeat the key finding with a much larger and more varied group of more than 900 children. They did find a link between waiting time and later academic achievement, but it was about half the size of the original estimate. More importantly, once they took into account factors such as family income, the mother's education and the child's early cognitive ability, the link became very small indeed.\n\nThis result suggests a different interpretation. Children's decisions to wait may reflect not only their self-control but also their circumstances. A child who has grown up in an environment where promises are reliably kept has good reason to believe that a second marshmallow will really arrive. A child whose experience has taught that resources can disappear may quite reasonably take what is available now. Other experiments support this view: when children were first exposed to an adult who broke a small promise, they waited far less time than children whose adult had kept it.\n\nIt would be wrong to conclude that self-control does not matter. The newer findings, however, cast doubt on the idea that a few minutes of behaviour in a laboratory reveal a fixed quality of character. They also suggest that efforts to improve children's lives may achieve more by making their environments stable and trustworthy than by teaching them simply to resist temptation.",
+   "stem": "What is the function of the last sentence of the fourth paragraph (\"Other experiments support this view …\")?",
+   "choices": [
+    "It provides experimental evidence for the explanation just proposed.",
+    "It gives an example of a parenting programme.",
+    "It introduces a view that the author goes on to reject.",
+    "It summarises the original Stanford findings."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The paragraph proposes that children's circumstances, especially whether promises are kept, affect waiting. The broken-promise experiment is evidence that \"supports this view\".",
+    "th": "ย่อหน้าเสนอว่าสภาพแวดล้อม โดยเฉพาะการที่ผู้ใหญ่รักษาสัญญาหรือไม่ มีผลต่อการรอ การทดลองเรื่องผู้ใหญ่ผิดสัญญาจึงเป็นหลักฐานสนับสนุนคำอธิบายนี้"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "m",
+   "skill": {
+    "en": "Main idea",
+    "th": "ใจความสำคัญ"
+   },
+   "topic": {
+    "en": "Academic reading: economics",
+    "th": "อ่านบทความวิชาการ: เศรษฐศาสตร์"
+   },
+   "passage": "Beyond the Tragedy of the Commons\n\nIn 1968 the ecologist Garrett Hardin published an essay entitled \"The Tragedy of the Commons\", which became one of the most cited works in the social sciences. Hardin asked his readers to imagine a pasture open to all. Each herder, acting rationally, gains the full benefit of adding one more animal to the pasture, while the cost of overgrazing is shared among everyone. As a result, each herder keeps adding animals until the pasture is ruined. \"Freedom in a commons,\" Hardin concluded, \"brings ruin to all.\" Since the users of a shared resource could not be expected to restrain themselves, he argued, the resource must either be divided into private property or controlled by the state.\n\nHardin's argument was elegant, and it seemed to explain a range of real problems, from the collapse of fisheries to air pollution. However, it rested on an assumption that the political economist Elinor Ostrom spent much of her career examining: that the users of a common resource are unable to communicate and make rules for themselves. Ostrom and her colleagues studied hundreds of cases around the world, including Swiss alpine meadows, Japanese forests, irrigation systems in Nepal and fishing grounds in Turkey. Many of these resources had been managed sustainably by local communities for generations, in some instances for centuries, without either privatisation or central control.\n\nFrom these cases Ostrom identified a set of conditions that successful communities tended to share. The boundaries of the resource and the group entitled to use it were clearly defined. The people affected by the rules could take part in changing them. Users' behaviour was monitored, often by the users themselves, and those who broke the rules faced penalties that began mildly and increased for repeated offences. Disputes could be resolved quickly and cheaply, and outside authorities recognised the community's right to organise itself.\n\nOstrom did not claim that communities always succeed; she documented many failures as well. Nor did she reject private property or government regulation, which she regarded as suitable in some circumstances. Her objection was to the belief that any single solution could be applied everywhere. Policies imposed from outside, she found, sometimes destroyed working local arrangements and left resources worse managed than before.\n\nIn 2009 Ostrom became the first woman to receive the Nobel Prize in Economic Sciences. Her work has influenced the management of resources from groundwater to the internet, and it has encouraged researchers to ask not whether shared resources are doomed, but under what conditions people manage to cooperate.",
+   "stem": "Which of the following best states the main idea of the passage?",
+   "choices": [
+    "Research has shown that shared resources can be managed successfully by their users under certain conditions.",
+    "Communities that share resources always fail in the end.",
+    "Hardin's essay was ignored by economists for many years.",
+    "Private ownership is the only effective way to protect natural resources."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "After presenting Hardin's pessimistic argument, the passage focuses on Ostrom's finding that communities can manage common resources and on the conditions for their success. The other statements are Hardin's view, unsupported or contradicted.",
+    "th": "หลังจากเสนอข้อโต้แย้งเชิงลบของ Hardin บทความเน้นผลการศึกษาของ Ostrom ว่าชุมชนจัดการทรัพยากรร่วมได้ภายใต้เงื่อนไขบางอย่าง ข้อความอื่นเป็นความเห็นของ Hardin ไม่มีหลักฐาน หรือขัดกับบทความ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "m",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำจากบริบท"
+   },
+   "topic": {
+    "en": "Academic reading: economics",
+    "th": "อ่านบทความวิชาการ: เศรษฐศาสตร์"
+   },
+   "passage": "Beyond the Tragedy of the Commons\n\nIn 1968 the ecologist Garrett Hardin published an essay entitled \"The Tragedy of the Commons\", which became one of the most cited works in the social sciences. Hardin asked his readers to imagine a pasture open to all. Each herder, acting rationally, gains the full benefit of adding one more animal to the pasture, while the cost of overgrazing is shared among everyone. As a result, each herder keeps adding animals until the pasture is ruined. \"Freedom in a commons,\" Hardin concluded, \"brings ruin to all.\" Since the users of a shared resource could not be expected to restrain themselves, he argued, the resource must either be divided into private property or controlled by the state.\n\nHardin's argument was elegant, and it seemed to explain a range of real problems, from the collapse of fisheries to air pollution. However, it rested on an assumption that the political economist Elinor Ostrom spent much of her career examining: that the users of a common resource are unable to communicate and make rules for themselves. Ostrom and her colleagues studied hundreds of cases around the world, including Swiss alpine meadows, Japanese forests, irrigation systems in Nepal and fishing grounds in Turkey. Many of these resources had been managed sustainably by local communities for generations, in some instances for centuries, without either privatisation or central control.\n\nFrom these cases Ostrom identified a set of conditions that successful communities tended to share. The boundaries of the resource and the group entitled to use it were clearly defined. The people affected by the rules could take part in changing them. Users' behaviour was monitored, often by the users themselves, and those who broke the rules faced penalties that began mildly and increased for repeated offences. Disputes could be resolved quickly and cheaply, and outside authorities recognised the community's right to organise itself.\n\nOstrom did not claim that communities always succeed; she documented many failures as well. Nor did she reject private property or government regulation, which she regarded as suitable in some circumstances. Her objection was to the belief that any single solution could be applied everywhere. Policies imposed from outside, she found, sometimes destroyed working local arrangements and left resources worse managed than before.\n\nIn 2009 Ostrom became the first woman to receive the Nobel Prize in Economic Sciences. Her work has influenced the management of resources from groundwater to the internet, and it has encouraged researchers to ask not whether shared resources are doomed, but under what conditions people manage to cooperate.",
+   "stem": "The word \"entitled\" in the third paragraph is closest in meaning to",
+   "choices": [
+    "given a name",
+    "obliged",
+    "invited",
+    "having the right"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "\"The group entitled to use it\" means the group that has the right to use the resource. \"Given a name\" is the meaning in the first paragraph (\"an essay entitled …\"), not here.",
+    "th": "the group entitled to use it หมายถึงกลุ่มที่มีสิทธิ์ใช้ทรัพยากร ส่วนความหมายว่าตั้งชื่อ ใช้ในย่อหน้าแรก (an essay entitled ...) ไม่ใช่ที่นี่"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Academic reading: economics",
+    "th": "อ่านบทความวิชาการ: เศรษฐศาสตร์"
+   },
+   "passage": "Beyond the Tragedy of the Commons\n\nIn 1968 the ecologist Garrett Hardin published an essay entitled \"The Tragedy of the Commons\", which became one of the most cited works in the social sciences. Hardin asked his readers to imagine a pasture open to all. Each herder, acting rationally, gains the full benefit of adding one more animal to the pasture, while the cost of overgrazing is shared among everyone. As a result, each herder keeps adding animals until the pasture is ruined. \"Freedom in a commons,\" Hardin concluded, \"brings ruin to all.\" Since the users of a shared resource could not be expected to restrain themselves, he argued, the resource must either be divided into private property or controlled by the state.\n\nHardin's argument was elegant, and it seemed to explain a range of real problems, from the collapse of fisheries to air pollution. However, it rested on an assumption that the political economist Elinor Ostrom spent much of her career examining: that the users of a common resource are unable to communicate and make rules for themselves. Ostrom and her colleagues studied hundreds of cases around the world, including Swiss alpine meadows, Japanese forests, irrigation systems in Nepal and fishing grounds in Turkey. Many of these resources had been managed sustainably by local communities for generations, in some instances for centuries, without either privatisation or central control.\n\nFrom these cases Ostrom identified a set of conditions that successful communities tended to share. The boundaries of the resource and the group entitled to use it were clearly defined. The people affected by the rules could take part in changing them. Users' behaviour was monitored, often by the users themselves, and those who broke the rules faced penalties that began mildly and increased for repeated offences. Disputes could be resolved quickly and cheaply, and outside authorities recognised the community's right to organise itself.\n\nOstrom did not claim that communities always succeed; she documented many failures as well. Nor did she reject private property or government regulation, which she regarded as suitable in some circumstances. Her objection was to the belief that any single solution could be applied everywhere. Policies imposed from outside, she found, sometimes destroyed working local arrangements and left resources worse managed than before.\n\nIn 2009 Ostrom became the first woman to receive the Nobel Prize in Economic Sciences. Her work has influenced the management of resources from groundwater to the internet, and it has encouraged researchers to ask not whether shared resources are doomed, but under what conditions people manage to cooperate.",
+   "stem": "Ostrom's findings about places such as Swiss alpine meadows most directly challenge which part of Hardin's argument?",
+   "choices": [
+    "the claim that adding animals benefits individual herders",
+    "the claim that pastures can be overgrazed",
+    "the claim that air pollution is a serious problem",
+    "the claim that users of a shared resource cannot be expected to restrain themselves"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "These communities managed resources sustainably \"without either privatisation or central control\", which means users did make and follow their own rules. That challenges Hardin's assumption that users \"could not be expected to restrain themselves\".",
+    "th": "ชุมชนเหล่านี้จัดการทรัพยากรอย่างยั่งยืนโดยไม่ต้องแปรรูปเป็นของเอกชนหรือให้รัฐควบคุม แสดงว่าผู้ใช้ควบคุมตนเองได้ จึงท้าทายข้อสันนิษฐานของ Hardin ว่าผู้ใช้ไม่อาจยับยั้งตนเอง"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Paragraph function",
+    "th": "หน้าที่ของย่อหน้า/ประโยค"
+   },
+   "topic": {
+    "en": "Academic reading: economics",
+    "th": "อ่านบทความวิชาการ: เศรษฐศาสตร์"
+   },
+   "passage": "Beyond the Tragedy of the Commons\n\nIn 1968 the ecologist Garrett Hardin published an essay entitled \"The Tragedy of the Commons\", which became one of the most cited works in the social sciences. Hardin asked his readers to imagine a pasture open to all. Each herder, acting rationally, gains the full benefit of adding one more animal to the pasture, while the cost of overgrazing is shared among everyone. As a result, each herder keeps adding animals until the pasture is ruined. \"Freedom in a commons,\" Hardin concluded, \"brings ruin to all.\" Since the users of a shared resource could not be expected to restrain themselves, he argued, the resource must either be divided into private property or controlled by the state.\n\nHardin's argument was elegant, and it seemed to explain a range of real problems, from the collapse of fisheries to air pollution. However, it rested on an assumption that the political economist Elinor Ostrom spent much of her career examining: that the users of a common resource are unable to communicate and make rules for themselves. Ostrom and her colleagues studied hundreds of cases around the world, including Swiss alpine meadows, Japanese forests, irrigation systems in Nepal and fishing grounds in Turkey. Many of these resources had been managed sustainably by local communities for generations, in some instances for centuries, without either privatisation or central control.\n\nFrom these cases Ostrom identified a set of conditions that successful communities tended to share. The boundaries of the resource and the group entitled to use it were clearly defined. The people affected by the rules could take part in changing them. Users' behaviour was monitored, often by the users themselves, and those who broke the rules faced penalties that began mildly and increased for repeated offences. Disputes could be resolved quickly and cheaply, and outside authorities recognised the community's right to organise itself.\n\nOstrom did not claim that communities always succeed; she documented many failures as well. Nor did she reject private property or government regulation, which she regarded as suitable in some circumstances. Her objection was to the belief that any single solution could be applied everywhere. Policies imposed from outside, she found, sometimes destroyed working local arrangements and left resources worse managed than before.\n\nIn 2009 Ostrom became the first woman to receive the Nobel Prize in Economic Sciences. Her work has influenced the management of resources from groundwater to the internet, and it has encouraged researchers to ask not whether shared resources are doomed, but under what conditions people manage to cooperate.",
+   "stem": "What is the main function of the fourth paragraph?",
+   "choices": [
+    "to list the conditions shared by successful communities",
+    "to describe Ostrom's Nobel Prize",
+    "to clarify the limits of Ostrom's claims and prevent a misunderstanding of her position",
+    "to argue that governments should never regulate resources"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The paragraph says what Ostrom did not claim: that communities always succeed or that private property and regulation are wrong. Her objection was only to one-size-fits-all solutions. This prevents readers from overstating her view.",
+    "th": "ย่อหน้านี้บอกสิ่งที่ Ostrom ไม่ได้อ้าง คือไม่ได้บอกว่าชุมชนสำเร็จเสมอ หรือปฏิเสธกรรมสิทธิ์เอกชนและการควบคุมของรัฐ เธอค้านเพียงการใช้วิธีเดียวกับทุกที่ จึงเป็นการป้องกันการเข้าใจผิด"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Author's view",
+    "th": "ทัศนะของผู้เขียน"
+   },
+   "topic": {
+    "en": "Academic reading: economics",
+    "th": "อ่านบทความวิชาการ: เศรษฐศาสตร์"
+   },
+   "passage": "Beyond the Tragedy of the Commons\n\nIn 1968 the ecologist Garrett Hardin published an essay entitled \"The Tragedy of the Commons\", which became one of the most cited works in the social sciences. Hardin asked his readers to imagine a pasture open to all. Each herder, acting rationally, gains the full benefit of adding one more animal to the pasture, while the cost of overgrazing is shared among everyone. As a result, each herder keeps adding animals until the pasture is ruined. \"Freedom in a commons,\" Hardin concluded, \"brings ruin to all.\" Since the users of a shared resource could not be expected to restrain themselves, he argued, the resource must either be divided into private property or controlled by the state.\n\nHardin's argument was elegant, and it seemed to explain a range of real problems, from the collapse of fisheries to air pollution. However, it rested on an assumption that the political economist Elinor Ostrom spent much of her career examining: that the users of a common resource are unable to communicate and make rules for themselves. Ostrom and her colleagues studied hundreds of cases around the world, including Swiss alpine meadows, Japanese forests, irrigation systems in Nepal and fishing grounds in Turkey. Many of these resources had been managed sustainably by local communities for generations, in some instances for centuries, without either privatisation or central control.\n\nFrom these cases Ostrom identified a set of conditions that successful communities tended to share. The boundaries of the resource and the group entitled to use it were clearly defined. The people affected by the rules could take part in changing them. Users' behaviour was monitored, often by the users themselves, and those who broke the rules faced penalties that began mildly and increased for repeated offences. Disputes could be resolved quickly and cheaply, and outside authorities recognised the community's right to organise itself.\n\nOstrom did not claim that communities always succeed; she documented many failures as well. Nor did she reject private property or government regulation, which she regarded as suitable in some circumstances. Her objection was to the belief that any single solution could be applied everywhere. Policies imposed from outside, she found, sometimes destroyed working local arrangements and left resources worse managed than before.\n\nIn 2009 Ostrom became the first woman to receive the Nobel Prize in Economic Sciences. Her work has influenced the management of resources from groundwater to the internet, and it has encouraged researchers to ask not whether shared resources are doomed, but under what conditions people manage to cooperate.",
+   "stem": "The author would most likely agree with which statement?",
+   "choices": [
+    "Ostrom proved that the tragedy of the commons never happens.",
+    "Hardin's essay has no value for modern readers.",
+    "Local communities should never be subject to penalties.",
+    "The best way to manage a shared resource depends on local circumstances."
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The author presents Ostrom's objection to \"any single solution\" applied everywhere with approval and notes that she also documented failures. Successful communities did use penalties, and Hardin's essay is described as elegant and influential.",
+    "th": "ผู้เขียนนำเสนอแนวคิดของ Ostrom ที่ค้านการใช้วิธีเดียวกับทุกที่อย่างเห็นด้วย และระบุว่าเธอบันทึกความล้มเหลวด้วย ชุมชนที่สำเร็จก็มีบทลงโทษ และบทความของ Hardin ถูกบรรยายว่ามีอิทธิพล"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "e",
+   "skill": {
+    "en": "Vocabulary in context",
+    "th": "ความหมายของคำจากบริบท"
+   },
+   "topic": {
+    "en": "Academic reading: science",
+    "th": "อ่านบทความวิชาการ: วิทยาศาสตร์"
+   },
+   "passage": "How Bacteria Outwit Antibiotics\n\nWhen penicillin became widely available in the 1940s, it seemed to many that the war against bacterial infection had been won. Diseases that had killed millions could suddenly be cured in days. Yet as early as 1945, Alexander Fleming, who had discovered penicillin, warned that its misuse could make bacteria resistant to it. His warning has proved accurate. Today, infections that resist treatment with standard antibiotics are estimated to contribute to more than a million deaths each year, and health authorities regard antimicrobial resistance as one of the most serious threats to global health.\n\nResistance is, at its root, an example of evolution by natural selection, occurring at a speed that can be observed within a human lifetime. In any large population of bacteria, a few individuals may carry genetic differences that allow them to survive a particular antibiotic. Some produce enzymes that break the drug down; others pump it out of their cells or alter the structures it is designed to attack. When the antibiotic is used, susceptible bacteria die, but resistant ones survive and multiply. Because bacteria can reproduce every twenty minutes or so under ideal conditions, a resistant strain can become dominant remarkably quickly.\n\nBacteria also have a means of spreading resistance that has no close parallel in animals. Through a process known as horizontal gene transfer, they can pass small rings of DNA, called plasmids, directly to other bacteria, including bacteria of different species. A resistance gene that arises in a harmless organism living in the gut can therefore end up in a dangerous one. This explains why resistance to a new antibiotic sometimes appears in several different kinds of bacteria within a few years of the drug's introduction.\n\nHuman behaviour has greatly accelerated the process. Antibiotics are often prescribed for illnesses caused by viruses, against which they have no effect; patients sometimes stop taking them as soon as they feel better; and in many countries large quantities are given to farm animals, not to treat disease but to make them grow faster. Each of these practices exposes bacteria to antibiotics without killing all of them, creating ideal conditions for the selection of resistant strains.\n\nMeanwhile, the development of new antibiotics has slowed dramatically. Because antibiotics are taken for short periods and new ones are held in reserve for the most serious cases, they earn far less money than medicines for long-term conditions, and many pharmaceutical companies have left the field. Experts argue that solving the problem will require action on several fronts at once: using existing drugs more carefully, improving hygiene and vaccination to prevent infections in the first place, and finding new ways to reward the development of drugs that society hopes will rarely be used.",
+   "stem": "The word \"susceptible\" in the second paragraph is closest in meaning to",
+   "choices": [
+    "dangerous",
+    "easily affected",
+    "suspicious",
+    "resistant"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "\"Susceptible bacteria die, but resistant ones survive\": susceptible is contrasted with resistant and means easily affected by the drug. \"Resistant\" is the opposite.",
+    "th": "ประโยคเปรียบ susceptible bacteria ที่ตาย กับ resistant ones ที่รอด susceptible จึงแปลว่า ได้รับผลได้ง่าย ส่วน resistant มีความหมายตรงข้าม"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "m",
+   "skill": {
+    "en": "Reference",
+    "th": "การอ้างอิงคำ"
+   },
+   "topic": {
+    "en": "Academic reading: science",
+    "th": "อ่านบทความวิชาการ: วิทยาศาสตร์"
+   },
+   "passage": "How Bacteria Outwit Antibiotics\n\nWhen penicillin became widely available in the 1940s, it seemed to many that the war against bacterial infection had been won. Diseases that had killed millions could suddenly be cured in days. Yet as early as 1945, Alexander Fleming, who had discovered penicillin, warned that its misuse could make bacteria resistant to it. His warning has proved accurate. Today, infections that resist treatment with standard antibiotics are estimated to contribute to more than a million deaths each year, and health authorities regard antimicrobial resistance as one of the most serious threats to global health.\n\nResistance is, at its root, an example of evolution by natural selection, occurring at a speed that can be observed within a human lifetime. In any large population of bacteria, a few individuals may carry genetic differences that allow them to survive a particular antibiotic. Some produce enzymes that break the drug down; others pump it out of their cells or alter the structures it is designed to attack. When the antibiotic is used, susceptible bacteria die, but resistant ones survive and multiply. Because bacteria can reproduce every twenty minutes or so under ideal conditions, a resistant strain can become dominant remarkably quickly.\n\nBacteria also have a means of spreading resistance that has no close parallel in animals. Through a process known as horizontal gene transfer, they can pass small rings of DNA, called plasmids, directly to other bacteria, including bacteria of different species. A resistance gene that arises in a harmless organism living in the gut can therefore end up in a dangerous one. This explains why resistance to a new antibiotic sometimes appears in several different kinds of bacteria within a few years of the drug's introduction.\n\nHuman behaviour has greatly accelerated the process. Antibiotics are often prescribed for illnesses caused by viruses, against which they have no effect; patients sometimes stop taking them as soon as they feel better; and in many countries large quantities are given to farm animals, not to treat disease but to make them grow faster. Each of these practices exposes bacteria to antibiotics without killing all of them, creating ideal conditions for the selection of resistant strains.\n\nMeanwhile, the development of new antibiotics has slowed dramatically. Because antibiotics are taken for short periods and new ones are held in reserve for the most serious cases, they earn far less money than medicines for long-term conditions, and many pharmaceutical companies have left the field. Experts argue that solving the problem will require action on several fronts at once: using existing drugs more carefully, improving hygiene and vaccination to prevent infections in the first place, and finding new ways to reward the development of drugs that society hopes will rarely be used.",
+   "stem": "In the third paragraph, the word \"one\" in \"can therefore end up in a dangerous one\" refers to",
+   "choices": [
+    "ring of DNA",
+    "gene",
+    "organism",
+    "antibiotic"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The sentence contrasts \"a harmless organism living in the gut\" with \"a dangerous one\", that is, a dangerous organism. The gene is what moves between them.",
+    "th": "ประโยคเปรียบ a harmless organism กับ a dangerous one คือ สิ่งมีชีวิตที่อันตราย ส่วนยีนคือสิ่งที่เคลื่อนย้ายระหว่างกัน"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "e",
+   "skill": {
+    "en": "Author's purpose",
+    "th": "จุดประสงค์ของผู้เขียน"
+   },
+   "topic": {
+    "en": "Academic reading: science",
+    "th": "อ่านบทความวิชาการ: วิทยาศาสตร์"
+   },
+   "passage": "How Bacteria Outwit Antibiotics\n\nWhen penicillin became widely available in the 1940s, it seemed to many that the war against bacterial infection had been won. Diseases that had killed millions could suddenly be cured in days. Yet as early as 1945, Alexander Fleming, who had discovered penicillin, warned that its misuse could make bacteria resistant to it. His warning has proved accurate. Today, infections that resist treatment with standard antibiotics are estimated to contribute to more than a million deaths each year, and health authorities regard antimicrobial resistance as one of the most serious threats to global health.\n\nResistance is, at its root, an example of evolution by natural selection, occurring at a speed that can be observed within a human lifetime. In any large population of bacteria, a few individuals may carry genetic differences that allow them to survive a particular antibiotic. Some produce enzymes that break the drug down; others pump it out of their cells or alter the structures it is designed to attack. When the antibiotic is used, susceptible bacteria die, but resistant ones survive and multiply. Because bacteria can reproduce every twenty minutes or so under ideal conditions, a resistant strain can become dominant remarkably quickly.\n\nBacteria also have a means of spreading resistance that has no close parallel in animals. Through a process known as horizontal gene transfer, they can pass small rings of DNA, called plasmids, directly to other bacteria, including bacteria of different species. A resistance gene that arises in a harmless organism living in the gut can therefore end up in a dangerous one. This explains why resistance to a new antibiotic sometimes appears in several different kinds of bacteria within a few years of the drug's introduction.\n\nHuman behaviour has greatly accelerated the process. Antibiotics are often prescribed for illnesses caused by viruses, against which they have no effect; patients sometimes stop taking them as soon as they feel better; and in many countries large quantities are given to farm animals, not to treat disease but to make them grow faster. Each of these practices exposes bacteria to antibiotics without killing all of them, creating ideal conditions for the selection of resistant strains.\n\nMeanwhile, the development of new antibiotics has slowed dramatically. Because antibiotics are taken for short periods and new ones are held in reserve for the most serious cases, they earn far less money than medicines for long-term conditions, and many pharmaceutical companies have left the field. Experts argue that solving the problem will require action on several fronts at once: using existing drugs more carefully, improving hygiene and vaccination to prevent infections in the first place, and finding new ways to reward the development of drugs that society hopes will rarely be used.",
+   "stem": "Why does the author mention farm animals in the fourth paragraph?",
+   "choices": [
+    "to argue that meat should not be eaten",
+    "to explain how plasmids are transferred between species",
+    "to give an example of antibiotic use that encourages resistance without treating disease",
+    "to show that animals are the main source of resistant bacteria"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "Farm animals are given antibiotics \"not to treat disease but to make them grow faster\", one of the practices that expose bacteria to the drugs and help resistant strains to be selected.",
+    "th": "สัตว์ในฟาร์มได้รับยาปฏิชีวนะไม่ใช่เพื่อรักษาโรคแต่เพื่อให้โตเร็ว ซึ่งเป็นตัวอย่างหนึ่งของการใช้ยาที่ช่วยคัดเลือกเชื้อดื้อยา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inference",
+    "th": "การอนุมาน"
+   },
+   "topic": {
+    "en": "Academic reading: science",
+    "th": "อ่านบทความวิชาการ: วิทยาศาสตร์"
+   },
+   "passage": "How Bacteria Outwit Antibiotics\n\nWhen penicillin became widely available in the 1940s, it seemed to many that the war against bacterial infection had been won. Diseases that had killed millions could suddenly be cured in days. Yet as early as 1945, Alexander Fleming, who had discovered penicillin, warned that its misuse could make bacteria resistant to it. His warning has proved accurate. Today, infections that resist treatment with standard antibiotics are estimated to contribute to more than a million deaths each year, and health authorities regard antimicrobial resistance as one of the most serious threats to global health.\n\nResistance is, at its root, an example of evolution by natural selection, occurring at a speed that can be observed within a human lifetime. In any large population of bacteria, a few individuals may carry genetic differences that allow them to survive a particular antibiotic. Some produce enzymes that break the drug down; others pump it out of their cells or alter the structures it is designed to attack. When the antibiotic is used, susceptible bacteria die, but resistant ones survive and multiply. Because bacteria can reproduce every twenty minutes or so under ideal conditions, a resistant strain can become dominant remarkably quickly.\n\nBacteria also have a means of spreading resistance that has no close parallel in animals. Through a process known as horizontal gene transfer, they can pass small rings of DNA, called plasmids, directly to other bacteria, including bacteria of different species. A resistance gene that arises in a harmless organism living in the gut can therefore end up in a dangerous one. This explains why resistance to a new antibiotic sometimes appears in several different kinds of bacteria within a few years of the drug's introduction.\n\nHuman behaviour has greatly accelerated the process. Antibiotics are often prescribed for illnesses caused by viruses, against which they have no effect; patients sometimes stop taking them as soon as they feel better; and in many countries large quantities are given to farm animals, not to treat disease but to make them grow faster. Each of these practices exposes bacteria to antibiotics without killing all of them, creating ideal conditions for the selection of resistant strains.\n\nMeanwhile, the development of new antibiotics has slowed dramatically. Because antibiotics are taken for short periods and new ones are held in reserve for the most serious cases, they earn far less money than medicines for long-term conditions, and many pharmaceutical companies have left the field. Experts argue that solving the problem will require action on several fronts at once: using existing drugs more carefully, improving hygiene and vaccination to prevent infections in the first place, and finding new ways to reward the development of drugs that society hopes will rarely be used.",
+   "stem": "What can be inferred from the final paragraph about a highly effective new antibiotic?",
+   "choices": [
+    "It might earn little money because doctors would try to use it only when other drugs fail.",
+    "It would earn more money than medicines for long-term conditions.",
+    "It would be immune to the development of resistance.",
+    "It would quickly replace all existing antibiotics."
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "New antibiotics are \"held in reserve for the most serious cases\", so they are used rarely and \"earn far less money\". A powerful new drug would be kept in reserve in the same way. Nothing suggests it would be free from resistance.",
+    "th": "ยาปฏิชีวนะใหม่ถูกเก็บสำรองไว้ใช้กับกรณีร้ายแรงที่สุด จึงถูกใช้น้อยและทำเงินได้น้อย ยาใหม่ที่ได้ผลดีก็จะถูกเก็บสำรองเช่นกัน และไม่มีข้อความว่ายาจะไม่เกิดการดื้อยา"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "sp4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading-academic",
+   "difficulty": "m",
+   "skill": {
+    "en": "Main idea",
+    "th": "ใจความสำคัญ"
+   },
+   "topic": {
+    "en": "Academic reading: science",
+    "th": "อ่านบทความวิชาการ: วิทยาศาสตร์"
+   },
+   "passage": "How Bacteria Outwit Antibiotics\n\nWhen penicillin became widely available in the 1940s, it seemed to many that the war against bacterial infection had been won. Diseases that had killed millions could suddenly be cured in days. Yet as early as 1945, Alexander Fleming, who had discovered penicillin, warned that its misuse could make bacteria resistant to it. His warning has proved accurate. Today, infections that resist treatment with standard antibiotics are estimated to contribute to more than a million deaths each year, and health authorities regard antimicrobial resistance as one of the most serious threats to global health.\n\nResistance is, at its root, an example of evolution by natural selection, occurring at a speed that can be observed within a human lifetime. In any large population of bacteria, a few individuals may carry genetic differences that allow them to survive a particular antibiotic. Some produce enzymes that break the drug down; others pump it out of their cells or alter the structures it is designed to attack. When the antibiotic is used, susceptible bacteria die, but resistant ones survive and multiply. Because bacteria can reproduce every twenty minutes or so under ideal conditions, a resistant strain can become dominant remarkably quickly.\n\nBacteria also have a means of spreading resistance that has no close parallel in animals. Through a process known as horizontal gene transfer, they can pass small rings of DNA, called plasmids, directly to other bacteria, including bacteria of different species. A resistance gene that arises in a harmless organism living in the gut can therefore end up in a dangerous one. This explains why resistance to a new antibiotic sometimes appears in several different kinds of bacteria within a few years of the drug's introduction.\n\nHuman behaviour has greatly accelerated the process. Antibiotics are often prescribed for illnesses caused by viruses, against which they have no effect; patients sometimes stop taking them as soon as they feel better; and in many countries large quantities are given to farm animals, not to treat disease but to make them grow faster. Each of these practices exposes bacteria to antibiotics without killing all of them, creating ideal conditions for the selection of resistant strains.\n\nMeanwhile, the development of new antibiotics has slowed dramatically. Because antibiotics are taken for short periods and new ones are held in reserve for the most serious cases, they earn far less money than medicines for long-term conditions, and many pharmaceutical companies have left the field. Experts argue that solving the problem will require action on several fronts at once: using existing drugs more carefully, improving hygiene and vaccination to prevent infections in the first place, and finding new ways to reward the development of drugs that society hopes will rarely be used.",
+   "stem": "Which of the following is the best title for the passage?",
+   "choices": [
+    "Why Viruses Cannot Be Treated",
+    "How Plasmids Were Discovered",
+    "Antibiotic Resistance: An Evolutionary Problem Made Worse by Human Choices",
+    "The Life and Work of Alexander Fleming"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "The passage explains resistance as natural selection, shows how human behaviour accelerates it and discusses solutions. Fleming, plasmids and viruses appear only as details.",
+    "th": "บทความอธิบายการดื้อยาว่าเป็นการคัดเลือกโดยธรรมชาติ แสดงว่าพฤติกรรมมนุษย์เร่งให้เกิดเร็วขึ้น และกล่าวถึงทางแก้ ส่วนเฟลมมิง พลาสมิด และไวรัสเป็นเพียงรายละเอียด"
+   }
+  }
+ ]
+}

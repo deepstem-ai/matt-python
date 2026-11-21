@@ -1,0 +1,217 @@
+/* ==========================================================================
+   DeepDistrict.si — shared header, menu drawer and footer (bilingual)
+   Each page sets <body data-base="">  (root) or  <body data-base="../">.
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  var ORG = "DeepDistrict.si";
+  var EMAIL = "info@deepdistrict.si";
+  var FOUNDED = 2026;
+
+  // Top menu: similar pages are grouped under one item (opens on hover, click or keyboard).
+  // Top menu: the two tracks first, then all courses and about (short on purpose — easy to scan on any screen)
+  var NAV = [
+    { en: "AI · STEM · Innovation", th: "AI · STEM · นวัตกรรม", full: ["AI · Coding · STEM · Research & Innovation", "AI · โค้ด · STEM · วิจัยและนวัตกรรม"], key: "stem", cls: "nav-trk nav-trk--stem", wide: true, children: [
+      { href: "pages/programs.html?main=stem#catalog", icon: "code", en: "Coding & apps", th: "เขียนโค้ดและสร้างแอป", desc: ["Scratch, Python, web, iPhone apps", "Scratch, Python, เว็บ, แอป iPhone"] },
+      { href: "pages/programs.html?group=ai#catalog", icon: "spark", en: "AI & data", th: "AI และข้อมูล", desc: ["Machine learning, LLMs, AI agents", "Machine Learning, LLM, AI Agent"] },
+      { href: "pages/stem.html", icon: "robot", en: "STEM & robotics · ages 10+", th: "STEM และหุ่นยนต์ · 10 ขวบขึ้นไป", desc: ["Hands-on projects and competitions", "ลงมือทำโครงงานและแข่งขัน"] },
+      { href: "pages/innovation.html", icon: "rocket", en: "Innovation projects", th: "โครงงานนวัตกรรม", desc: ["Build it, pitch it, enter it", "สร้าง นำเสนอ และส่งประกวด"] },
+      { href: "pages/research.html", icon: "microscope", en: "Research & publishing", th: "วิจัยและตีพิมพ์", desc: ["From question to paper", "จากคำถามสู่บทความวิจัย"] },
+      { href: "pages/si.html", icon: "network", en: "What is SI?", th: "SI คืออะไร", desc: ["Where AI is heading next", "ก้าวต่อไปของ AI"] }
+    ] },
+    { en: "Test Prep", th: "ติวสอบ", full: ["Standardized Test & Admissions Prep", "ติวข้อสอบมาตรฐานและสอบเข้า"], key: "prep", cls: "nav-trk nav-trk--prep", wide: true, children: [
+      { href: "pages/tests.html", icon: "trophy", en: "Free practice tests", th: "ลองทำข้อสอบฟรี", desc: ["Timed, with instant scores", "จับเวลา รู้คะแนนทันที"] },
+      { href: "pages/admissions.html#courses", icon: "school", en: "School entrance · M.1 / M.4", th: "สอบเข้า ม.1 / ม.4", desc: ["GATE, EPLUS+, gifted programmes", "GATE, EPLUS+, ห้องเรียนพิเศษ"] },
+      { href: "pages/admissions.html#tests", icon: "globe", en: "SAT · IELTS · TOEFL", th: "SAT · IELTS · TOEFL", desc: ["International test scores", "คะแนนสอบระดับนานาชาติ"] },
+      { href: "pages/admissions.html", icon: "academy", en: "University admissions", th: "สอบเข้ามหาวิทยาลัย", desc: ["TCAS, TBAT, CU-AAT, A-Level", "TCAS, TBAT, CU-AAT, A-Level"] },
+      { href: "pages/admissions.html#exams", icon: "chart", en: "Maths & science olympiads", th: "แข่งขันคณิตและวิทยาศาสตร์", desc: ["POSN, COMPAS, HKICO", "สอวน., COMPAS, HKICO"] },
+      { href: "pages/admissions.html#portfolio", icon: "pen", en: "Portfolio", th: "พอร์ตโฟลิโอ", desc: ["TCAS round 1 and abroad", "TCAS รอบ 1 และต่างประเทศ"] }
+    ] },
+    { href: "pages/programs.html", en: "All courses", th: "คอร์สทั้งหมด", cls: "nav-all" },
+    { en: "About", th: "เกี่ยวกับเรา", key: "about", children: [
+      { href: "pages/about.html", icon: "users", en: "About us", th: "เกี่ยวกับเรา" },
+      { href: "index.html#journey", icon: "rocket", en: "How it works", th: "ขั้นตอนการเรียน" },
+      { href: "pages/blog.html", icon: "book", en: "News", th: "ข่าวสาร" },
+      { href: "pages/partners.html", icon: "building", en: "Partners", th: "พันธมิตร" },
+      { href: "pages/contact.html", icon: "mail", en: "Contact", th: "ติดต่อเรา" },
+      { href: "pages/verify.html", icon: "shield", en: "Verify a document", th: "ตรวจสอบเอกสาร" }
+    ] }
+  ];
+
+
+  var COLS = [
+    { en: "Learn", th: "เรียนรู้", links: [
+      { href: "pages/programs.html?main=stem#catalog", en: "AI · Coding · STEM · Research & Innovation", th: "AI · โค้ด · STEM · วิจัยและนวัตกรรม" },
+      { href: "pages/programs.html?main=prep#catalog", en: "Standardized Test & Admissions Prep", th: "ติวข้อสอบมาตรฐานและสอบเข้า" },
+      { href: "pages/programs.html#planner", en: "Plan my path", th: "ออกแบบเส้นทางเรียน" },
+      { href: "pages/programs.html#catalog", en: "All courses", th: "รายวิชาทั้งหมด" },
+      { href: "pages/admissions.html#exams", en: "COMPAS, HKICO & POSN prep", th: "เตรียมสอบ COMPAS · HKICO · สอวน." },
+      { href: "pages/admissions.html", en: "IELTS · SAT · TBAT · CU-AAT", th: "IELTS · SAT · TBAT · CU-AAT" },
+      { href: "pages/admissions.html#portfolio", en: "Admissions portfolio", th: "พอร์ตยื่นมหาวิทยาลัย" },
+      { href: "pages/stem.html", en: "Youth STEM", th: "STEM เยาวชน" },
+      { href: "pages/tests.html", en: "Free practice tests (SAT · IELTS · M.1)", th: "ลองทำข้อสอบฟรี (SAT · IELTS · ม.1)" },
+      { href: "pages/admissions.html#online-tests", en: "Online SAT & IELTS practice", th: "ฝึกทำข้อสอบ SAT และ IELTS ออนไลน์" },
+      { href: "pages/blog.html", en: "News & insights", th: "ข่าวสารและบทความ" }
+    ] },
+    { en: "SI & research", th: "SI และวิจัย", links: [
+      { href: "pages/si.html", en: "What is SI?", th: "SI คืออะไร" },
+      { href: "pages/innovation.html", en: "Innovation Lab", th: "แล็บนวัตกรรม" },
+      { href: "pages/research.html#pathway", en: "Research pathway", th: "เส้นทางวิจัย" },
+      { href: "pages/research.html#venues", en: "Publish & compete", th: "ตีพิมพ์และแข่งขัน" }
+    ] },
+    { en: "Organisation", th: "องค์กร", links: [
+      { href: "pages/about.html", en: "About us", th: "เกี่ยวกับเรา" },
+      { href: "pages/partners.html", en: "Partners", th: "พันธมิตร" },
+      { href: "pages/contact.html", en: "Contact", th: "ติดต่อเรา" },
+      { href: "pages/legal.html#privacy", en: "Privacy (PDPA)", th: "ความเป็นส่วนตัว (PDPA)" },
+      { href: "pages/verify.html", en: "Verify a document", th: "ตรวจสอบเอกสาร" }
+    ] }
+  ];
+
+  var body = document.body;
+  var base = body.getAttribute("data-base") || "";
+  var current = body.getAttribute("data-page") || "";
+
+  function bi(en, th) { return '<span lang="en">' + en + '</span><span lang="th">' + th + "</span>"; }
+  function link(item, cls) {
+    var name = item.href.replace("pages/", "").replace(/\.html.*$/, "");
+    var aria = name === current && item.href.indexOf("#") === -1 ? ' aria-current="page"' : "";
+    var c = [cls, item.cls].filter(Boolean).join(" ");
+    return '<a href="' + base + item.href + '"' + aria + (c ? ' class="' + c + '"' : "") + ">" + bi(item.en, item.th) + "</a>";
+  }
+  function navItem(n) {
+    if (!n.children) return link(n);
+    var on = n.children.some(function (c) { return c.href.replace("pages/", "").replace(/\.html.*$/, "") === current; });
+    return '<div class="nav-menu' + (n.cls ? " " + n.cls : "") + (n.wide ? " nav-menu--wide" : "") + (on ? " is-current" : "") + '"><button type="button" class="nav-menu__btn" aria-expanded="false" aria-haspopup="true">' + bi(n.en, n.th) +
+      ' <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button><div class="nav-menu__panel" role="menu">' + (n.full ? '<p class="nav-full">' + bi(n.full[0], n.full[1]) + "</p>" : "") +
+      n.children.map(function (c) { return '<a role="menuitem" href="' + base + c.href + '">' + (c.icon ? '<i class="nav-ico">' + ico(c.icon) + "</i>" : "") + '<span class="nav-txt"><b>' + bi(c.en, c.th) + "</b>" + (c.desc ? "<small>" + bi(c.desc[0], c.desc[1]) + "</small>" : "") + "</span></a>"; }).join("") + "</div></div>";
+  }
+  function ico(name) { return '<img src="' + base + "assets/images/icons/" + name + '.svg" alt="">'; }
+  var ARROW = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  var SUN = '<svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+  var MOON = '<svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>';
+  var AUTO = '<svg class="i-auto" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg>';
+
+  var USER = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>';
+  var header =
+    '<a class="skip-link" href="#main">' + bi("Skip to content", "ข้ามไปยังเนื้อหา") + "</a>" +
+    '<div class="scroll-progress" aria-hidden="true"></div>' +
+    '<header class="site-header" id="site-header">' +
+    '  <div class="container">' +
+    '    <a class="brand" href="' + base + 'index.html" aria-label="' + ORG + '">' +
+    '      <img class="brand__on-dark" src="' + base + 'assets/images/brand/logo-horizontal-white.png" alt="DeepDistrict" width="295" height="36">' +
+    '      <img class="brand__on-light" src="' + base + 'assets/images/brand/logo-horizontal.png" alt="" width="295" height="36">' +
+    "    </a>" +
+    '    <nav class="nav-primary" aria-label="Primary">' + NAV.map(navItem).join("") + "</nav>" +
+    '    <div class="header-actions">' +
+    '      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="Light / dark" title="Light / dark">' + SUN + MOON + "</button>" +
+    '      <div class="lang-switch" role="group" aria-label="Language / ภาษา">' +
+    '        <button type="button" data-set-lang="th" aria-pressed="false" title="ภาษาไทย">TH</button>' +
+    '        <button type="button" data-set-lang="en" aria-pressed="false" title="English">EN</button>' +
+    "      </div>" +
+    '      <a class="btn btn--sm header-signin" href="' + base + 'admin/index.html" rel="nofollow" title="Students, parents, teachers and admin / นักเรียน ผู้ปกครอง ครู และผู้ดูแลระบบ">' + USER + '<span class="header-signin__txt">' + bi("Sign in", "เข้าสู่ระบบ") + "</span></a>" +
+    '      <a class="btn btn--primary btn--sm header-cta" data-magnetic href="' + base + 'pages/contact.html">' + bi("Free consultation", "ปรึกษาฟรี") + "</a>" +
+    '      <button class="icon-btn menu-toggle" type="button" aria-controls="nav-drawer" aria-expanded="false" aria-label="Menu"><span></span></button>' +
+    "    </div>" +
+    "  </div>" +
+    "</header>" +
+    '<div class="scrim" data-close-menu></div>' +
+    '<nav class="nav-drawer" id="nav-drawer" aria-label="Menu" aria-hidden="true">' +
+    // v6.5: compact, colourful, follows light / dark — the two tracks as cards, everything else as small chips
+    '<a class="dr-cta" href="' + base + 'pages/contact.html?topic=consult#form">' + bi("Book a free consultation", "นัดปรึกษาฟรี") + " " + ARROW + "</a>" +
+    NAV.filter(function (n) { return n.wide; }).map(function (n) {
+      return '<section class="dr-trk dr-trk--' + n.key + '"><a class="dr-trk__head" href="' + base + "pages/programs.html?main=" + n.key + '#catalog"><b>' + bi((n.full || [n.en])[0], (n.full || [0, n.th])[1]) + "</b><span>" + bi("All courses", "ดูคอร์สทั้งหมด") + " " + ARROW + "</span></a>" +
+        '<div class="dr-grid">' + n.children.map(function (c) { return '<a href="' + base + c.href + '">' + (c.icon ? '<i class="nav-ico">' + ico(c.icon) + "</i>" : "") + "<span>" + bi(c.en, c.th) + "</span></a>"; }).join("") + "</div></section>";
+    }).join("") +
+    '<div class="dr-chips">' + [{ href: "index.html", en: "Home", th: "หน้าแรก", icon: "rocket" }, { href: "pages/programs.html", en: "All courses", th: "คอร์สทั้งหมด", icon: "book" }]
+      .concat(NAV.filter(function (n) { return n.key === "about"; })[0].children)
+      .map(function (c) { return '<a href="' + base + c.href + '">' + (c.icon ? ico(c.icon) : "") + bi(c.en, c.th) + "</a>"; }).join("") + "</div>" +
+    '<div class="dr-prefs"><div class="theme-seg dr-theme" role="group" aria-label="Theme">' + themeBtn("auto", AUTO, "System", "ตามระบบ") + themeBtn("light", SUN, "Light", "สว่าง") + themeBtn("dark", MOON, "Dark", "มืด") + "</div>" +
+    '<div class="lang-switch dr-lang" role="group" aria-label="Language / ภาษา"><button type="button" data-set-lang="en" aria-pressed="false">EN</button><button type="button" data-set-lang="th" aria-pressed="false">TH</button></div></div>' +
+    '<a class="dr-signin" href="' + base + 'admin/index.html" rel="nofollow">' + USER + bi("Sign in — students, parents, teachers", "เข้าสู่ระบบ — นักเรียน ผู้ปกครอง ครู") + "</a>" +
+    '<p class="dr-foot"><a href="mailto:' + EMAIL + '">' + EMAIL + "</a> · " + bi("Bangkok, Thailand", "กรุงเทพฯ") + "</p>" +
+    "</nav>";
+
+  var year = new Date().getFullYear();
+  var years = year > FOUNDED ? FOUNDED + "–" + year : String(FOUNDED);
+
+  var VERSION = (window.DD_PREFS && window.DD_PREFS.SITE_VERSION) || "";
+  function row(icon, html) { return '<li>' + ico(icon) + "<span>" + html + "</span></li>"; }
+  function themeBtn(v, svg, en, th) { return '<button type="button" data-theme-set="' + v + '" aria-pressed="false" title="' + en + " / " + th + '">' + svg + '<span class="visually-hidden">' + bi(en, th) + "</span></button>"; }
+
+  var footer =
+    '<footer class="site-footer">' +
+    '  <div class="container">' +
+    '    <div class="footer-cta">' +
+    "      <div><h2>" + bi("Start with a free 30-minute consultation", "เริ่มจากปรึกษาฟรี 30 นาที") + "</h2>" +
+    "      <p>" + bi("Tell us your goal. We shape the course around you — Zoom, onsite or hybrid.", "บอกเป้าหมายของคุณ แล้วเราออกแบบหลักสูตรให้ เรียนผ่าน Zoom ที่แล็บ หรือไฮบริด") + "</p></div>" +
+    '      <a class="btn btn--primary" data-magnetic href="' + base + 'pages/contact.html">' + bi("Free consultation", "ปรึกษาฟรี") + ARROW + "</a>" +
+    "    </div>" +
+    '    <div class="footer-main">' +
+    '      <div class="footer-brand">' +
+    '        <img class="on-light" src="' + base + 'assets/images/brand/logo-horizontal.png" alt="DeepDistrict" width="295" height="36">' +
+    '        <img class="on-dark" src="' + base + 'assets/images/brand/logo-horizontal-white.png" alt="DeepDistrict" width="295" height="36">' +
+    "        <p>" + bi("Learning & research lab for STEM, AI and Super Intelligence. Bangkok, Thailand.", "แล็บการเรียนรู้และวิจัยด้าน STEM, AI และ Super Intelligence กรุงเทพฯ") + "</p>" +
+    '        <ul class="footer-contact" role="list">' +
+    row("mail", '<a href="mailto:' + EMAIL + '">' + EMAIL + "</a>") +
+    row("pin", bi("Bangkok, Thailand", "กรุงเทพมหานคร ประเทศไทย")) +
+    row("video", bi("Zoom · Onsite · Hybrid", "Zoom · ที่แล็บ · ไฮบริด")) +
+    "        </ul>" +
+    "      </div>" +
+    '      <nav class="footer-cols" aria-label="Footer">' +
+    COLS.map(function (col) {
+      return '<div class="footer-col"><h3>' + bi(col.en, col.th) + '</h3><ul role="list">' +
+        col.links.map(function (l) { return "<li>" + link(l) + "</li>"; }).join("") + "</ul></div>";
+    }).join("") +
+    "      </nav>" +
+    "    </div>" +
+    '    <div class="footer-bottom">' +
+    '      <p class="footer-copy">&copy; ' + years + " " + ORG + (VERSION ? ' <span class="footer-ver">v' + VERSION + "</span>" : "") + "</p>" +
+    '      <div class="footer-legal">' +
+    '        <a href="' + base + 'pages/legal.html#privacy">' + bi("Privacy", "ความเป็นส่วนตัว") + "</a>" +
+    '        <button type="button" data-open-consent>' + bi("Cookies", "คุกกี้") + "</button>" +
+    '        <a href="' + base + 'pages/legal.html#terms">' + bi("Terms", "ข้อกำหนด") + "</a>" +
+    '        <a href="' + base + 'admin/index.html" rel="nofollow">' + bi("Staff", "เจ้าหน้าที่") + "</a>" +
+    "      </div>" +
+    '      <div class="footer-tools">' +
+    '        <div class="theme-seg" role="group" aria-label="Theme / ธีม">' +
+    themeBtn("auto", AUTO, "System", "ตามระบบ") + themeBtn("light", SUN, "Light", "สว่าง") + themeBtn("dark", MOON, "Dark", "มืด") +
+    "        </div>" +
+    '        <button type="button" class="icon-btn to-top" data-to-top aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>' +
+    "      </div>" +
+    "    </div>" +
+    '    <details class="footer-tm"><summary>' + bi("Trademarks & independence notice", "เครื่องหมายการค้าและความเป็นอิสระ") + "</summary><p>" + bi(
+      "DeepDistrict and its logo are trademarks of DeepDistrict.si. Product and organisation names on this site — including Apple, Swift, Swift Playgrounds, Xcode, iPhone, iPad, Mac; NVIDIA, Jetson, CUDA, TensorRT, DeepStream, Isaac, NIM, NeMo; Raspberry Pi; Arduino; Claude and Claude Code (Anthropic); Codex and ChatGPT (OpenAI); Cursor (Anysphere); GitHub and GitHub Copilot (GitHub/Microsoft); Git; React (Meta); Next.js (Vercel); Zoom; COMPAS (Chulalongkorn University); HKICO — belong to their owners and are used only to describe course content. DeepDistrict is independent and is not affiliated with, sponsored or endorsed by any of them.",
+      "DeepDistrict และโลโก้เป็นเครื่องหมายการค้าของ DeepDistrict.si ชื่อผลิตภัณฑ์และองค์กรบนเว็บไซต์นี้ เช่น Apple, Swift, Swift Playgrounds, Xcode, iPhone, iPad, Mac; NVIDIA, Jetson, CUDA, TensorRT, DeepStream, Isaac, NIM, NeMo; Raspberry Pi; Arduino; Claude และ Claude Code (Anthropic); Codex และ ChatGPT (OpenAI); Cursor (Anysphere); GitHub และ GitHub Copilot (GitHub/Microsoft); Git; React (Meta); Next.js (Vercel); Zoom; COMPAS (จุฬาลงกรณ์มหาวิทยาลัย); HKICO เป็นของเจ้าของแต่ละราย ใช้เพื่ออธิบายเนื้อหาหลักสูตรเท่านั้น DeepDistrict เป็นองค์กรอิสระ ไม่มีส่วนเกี่ยวข้อง ไม่ได้รับการสนับสนุนหรือรับรองจากองค์กรเหล่านี้"
+    ) + "</p></details>" +
+    "  </div>" +
+    "</footer>";
+
+  body.insertAdjacentHTML("afterbegin", header);
+  // v6.5: every inner page carries its track colour and ends with the two tracks + a free consultation
+  var TRK = { stem: "stem", innovation: "stem", research: "stem", si: "stem", admissions: "prep", tests: "prep" }[current];
+  if (TRK) body.classList.add("trk-page", "trk-page--" + TRK);
+  if (["about", "admissions", "blog", "innovation", "partners", "research", "si", "stem", "tests"].indexOf(current) !== -1) {
+    var main = document.getElementById("main") || body;
+    main.insertAdjacentHTML("beforeend",
+      '<section class="section trk-band" aria-label="Two tracks"><div class="container">' +
+      '<div class="trk-band__head"><h2>' + bi("Ready when you are", "พร้อมเริ่มเมื่อไหร่ก็ได้") + "</h2><p>" + bi("Pick a track — or book a free consultation and let a Mentor plan it with you.", "เลือกแทร็กที่ใช่ หรือนัดปรึกษาฟรี ให้เมนเทอร์ช่วยวางแผนกับคุณ") + "</p></div>" +
+      '<div class="trk-home trk-home--sm">' +
+      '<a class="trk-big trk-big--stem" href="' + base + 'pages/programs.html?main=stem#catalog"><span class="trk-big__tag">' + bi("Track 1", "แทร็ก 1") + "</span><h3>" + bi("AI · Coding · STEM · Research &amp; Innovation", "AI · โค้ด · STEM · วิจัยและนวัตกรรม") + "</h3><p>" + bi("Code, apps, AI, robots, research and innovation projects.", "เขียนโค้ด แอป AI หุ่นยนต์ งานวิจัย และโครงงานนวัตกรรม") + '</p><span class="trk-big__go">' + bi("See courses", "ดูคอร์ส") + " " + ARROW + "</span></a>" +
+      '<a class="trk-big trk-big--prep" href="' + base + 'pages/programs.html?main=prep#catalog"><span class="trk-big__tag">' + bi("Track 2", "แทร็ก 2") + "</span><h3>" + bi("Standardized Test &amp; Admissions Prep", "ติวข้อสอบมาตรฐานและสอบเข้า") + "</h3><p>" + bi("Entrance exams, SAT, IELTS, A-Level, TCAS, maths and English.", "สอบเข้า ม.1 / ม.4, SAT, IELTS, A-Level, TCAS คณิต และอังกฤษ") + '</p><span class="trk-big__go">' + bi("See courses", "ดูคอร์ส") + " " + ARROW + "</span></a>" +
+      '</div><p class="trk-band__cta"><a class="btn btn--primary" href="' + base + 'pages/contact.html?topic=consult#form">' + bi("Book a free consultation", "นัดปรึกษาฟรี") + " " + ARROW + "</a></p></div></section>");
+  }
+  body.insertAdjacentHTML("beforeend", footer);
+
+  // grouped top-menu items: open on click / Enter / Space, close with Escape or a click elsewhere
+  var menus = Array.prototype.slice.call(document.querySelectorAll(".nav-menu"));
+  function closeAll(except) { menus.forEach(function (m) { if (m !== except) { m.classList.remove("is-open"); m.querySelector(".nav-menu__btn").setAttribute("aria-expanded", "false"); } }); }
+  menus.forEach(function (m) {
+    var btn = m.querySelector(".nav-menu__btn");
+    btn.addEventListener("click", function (e) { e.stopPropagation(); var open = !m.classList.contains("is-open"); closeAll(m); m.classList.toggle("is-open", open); btn.setAttribute("aria-expanded", String(open)); if (open) { var f = m.querySelector("a"); if (f && e.detail === 0) f.focus(); } });
+    m.addEventListener("keydown", function (e) { if (e.key === "Escape") { closeAll(); btn.focus(); } });
+    m.addEventListener("focusout", function (e) { if (!m.contains(e.relatedTarget)) { m.classList.remove("is-open"); btn.setAttribute("aria-expanded", "false"); } });
+  });
+  document.addEventListener("click", function () { closeAll(); });
+})();

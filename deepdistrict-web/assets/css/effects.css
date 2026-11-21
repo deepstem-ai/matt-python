@@ -1,0 +1,87 @@
+/* ==========================================================================
+   DeepDistrict.si — motion & effects
+   Everything here is decorative and switched off by prefers-reduced-motion
+   (see base.css) or by the JS that drives it.
+   ========================================================================== */
+
+/* ---------------------------------------------------------------- Reveal on scroll */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity var(--t-slow) var(--ease), transform var(--t-slow) var(--ease); }
+.reveal.is-in { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 90ms; }
+.reveal-delay-2 { transition-delay: 180ms; }
+.reveal-delay-3 { transition-delay: 270ms; }
+.no-js .reveal { opacity: 1; transform: none; }
+
+/* Word-by-word headline reveal ([data-split], wrapped by effects.js) */
+.w { display: inline-block; overflow: hidden; vertical-align: top; padding-bottom: 0.08em; margin-bottom: -0.08em; }
+.w > i { display: inline-block; font-style: normal; transform: translateY(105%); transition: transform 0.9s var(--ease); transition-delay: calc(var(--wi) * 55ms); }
+.is-split.is-in .w > i, .intro .is-split .w > i { transform: none; }
+.w .text-si, .w > i.text-si { -webkit-background-clip: text; background-clip: text; }
+
+/* Hero intro (staggered) */
+.intro > * { opacity: 0; transform: translateY(18px); animation: intro 0.9s var(--ease) forwards; }
+.intro > *:nth-child(2) { animation-delay: 0.12s; }
+.intro > *:nth-child(3) { animation-delay: 0.3s; }
+.intro > *:nth-child(4) { animation-delay: 0.42s; }
+.intro > *:nth-child(5) { animation-delay: 0.54s; }
+.intro > *:nth-child(6) { animation-delay: 0.66s; }
+@keyframes intro { to { opacity: 1; transform: none; } }
+
+/* ---------------------------------------------------------------- Aurora backgrounds */
+.aurora { position: relative; isolation: isolate; overflow: hidden; }
+.aurora::before, .aurora::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 640px; height: 640px;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  animation: drift 20s ease-in-out infinite alternate;
+}
+.aurora::before { top: -240px; left: -200px; background: var(--aurora-1); }
+.aurora::after { bottom: -280px; right: -200px; background: var(--aurora-2); animation-delay: -10s; }
+@keyframes drift { 33% { transform: translate(90px, 50px) scale(1.12); } 66% { transform: translate(-40px, 90px) scale(0.95); } 100% { transform: translate(60px, -40px) scale(1.08); } }
+
+/* Grid overlay that fades towards the edges */
+.grid-bg { position: relative; isolation: isolate; }
+.grid-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+          mask-image: radial-gradient(ellipse at center, #000 20%, transparent 70%);
+}
+
+/* ---------------------------------------------------------------- Hero */
+.hero-canvas { position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; }
+.hero-type {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 8px 16px;
+  border: 1px solid rgba(160, 172, 255, 0.3);
+  border-radius: var(--r-pill);
+  background: rgba(8, 12, 36, 0.55);
+  backdrop-filter: blur(8px);
+  font-family: var(--f-mono);
+  font-size: var(--fs-sm);
+  color: #cfe2ff;
+}
+.hero-type b { color: var(--sky); font-weight: 500; }
+.hero-type [data-typewriter]::after { content: "▍"; margin-left: 2px; color: var(--magenta); animation: blink 1s steps(1) infinite; }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+
+/* ---------------------------------------------------------------- Tilt (driven by effects.js) */
+[data-tilt] { transform-style: preserve-3d; will-change: transform; transition: transform 0.4s var(--ease); }
+
+/* ---------------------------------------------------------------- Page & theme transitions */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.45s; }
+html.theme-anim::view-transition-old(root) { animation: none; }
+html.theme-anim::view-transition-new(root) { animation: theme-reveal 0.7s var(--ease); }
+@keyframes theme-reveal { from { clip-path: circle(0 at var(--tx, 90%) var(--ty, 4%)); } to { clip-path: circle(150% at var(--tx, 90%) var(--ty, 4%)); } }

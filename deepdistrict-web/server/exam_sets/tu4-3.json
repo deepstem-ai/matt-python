@@ -1,0 +1,1515 @@
+{
+ "exam": "tu4",
+ "set": 3,
+ "title": {
+  "en": "Triam Udom Suksa M.4 English — Practice paper 3",
+  "th": "ภาษาอังกฤษ สอบเข้า ม.4 เตรียมอุดมศึกษา — ชุดที่ 3"
+ },
+ "minutes": 60,
+ "note": {
+  "en": "50 questions in 60 minutes in the Triam Udom style: cloze and reading at the core, error identification (collocations), and conversation. Tutor summaries report about 40 questions in recent years. DeepDistrict practice — not an official or past paper.",
+  "th": "50 ข้อ 60 นาที แนวเตรียมอุดมฯ: เติมคำในบทความและการอ่านเป็นแกนหลัก หาจุดผิด (เน้น collocation) และบทสนทนา (ข้อมูลจากสถาบันกวดวิชาระบุราว 40 ข้อในปีหลัง ๆ) — แบบฝึกของ DeepDistrict ไม่ใช่ข้อสอบจริงหรือข้อสอบเก่า"
+ },
+ "items": [
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "e",
+   "skill": {
+    "en": "Accepting an offer politely",
+    "th": "การรับข้อเสนออย่างสุภาพ"
+   },
+   "topic": {
+    "en": "Conversation: everyday response",
+    "th": "บทสนทนา: การตอบโต้ในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: Would you like me to give you a lift to the station?\nB: ______ I'd hate to take you out of your way.\nA: It's no trouble — I'm heading that way anyway.",
+   "explanation": {
+    "en": "B is grateful but worried about inconveniencing A, and A reassures B. 'That's kind of you, but are you sure?' fits both. 'No, I wouldn't like that at all' is rude, 'I'll give you one too' misunderstands the offer, and 'I'm heading that way too' does not lead to A's reassurance.",
+    "th": "B รู้สึกขอบคุณแต่เกรงใจว่าจะทำให้ A ต้องอ้อม และ A ก็ยืนยันว่าไม่ลำบาก That's kind of you, but are you sure? จึงเหมาะที่สุด ส่วน No, I wouldn't like that at all ไม่สุภาพ I'll give you one too เข้าใจข้อเสนอผิด และ I'm heading that way too ไม่สอดคล้องกับคำตอบของ A"
+   },
+   "choices": [
+    "No, I wouldn't like that at all.",
+    "Don't bother — I'm heading that way too.",
+    "That's kind of you, but are you sure?",
+    "Yes, I'll give you one too."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Making a suggestion that fits the reply",
+    "th": "การเสนอแนะให้สอดคล้องกับคำตอบ"
+   },
+   "topic": {
+    "en": "Conversation: everyday response",
+    "th": "บทสนทนา: การตอบโต้ในชีวิตประจำวัน"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: Have you finished the group report?\nB: Not quite. Ton was supposed to write the conclusion, but he's been ill.\nA: ______\nB: I'd rather not. It's his section, and he said he'd send it tonight.",
+   "explanation": {
+    "en": "B's answer 'I'd rather not' must reply to a suggestion, and the reason ('It's his section') shows the suggestion was to write Ton's part: 'Should we write it ourselves, then?' The other questions cannot be answered with 'I'd rather not'.",
+    "th": "คำตอบ I'd rather not ต้องตอบข้อเสนอ และเหตุผล It's his section แสดงว่าข้อเสนอคือการเขียนส่วนของต้นแทน จึงเป็น Should we write it ourselves, then? ส่วนคำถามอื่นตอบด้วย I'd rather not ไม่ได้"
+   },
+   "choices": [
+    "Is he feeling any better?",
+    "Should we write it ourselves, then?",
+    "Why didn't you tell me sooner?",
+    "Has he sent it to you already?"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "m",
+   "skill": {
+    "en": "Responding with dry scepticism",
+    "th": "การตอบด้วยความสงสัยแบบแห้ง ๆ"
+   },
+   "topic": {
+    "en": "Conversation: implied meaning",
+    "th": "บทสนทนา: ความหมายแฝง"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: I can't believe you told Mr Somsak his lesson was boring!\nB: I didn't say \"boring\". I said it was \"a bit slow\".\nA: ______",
+   "explanation": {
+    "en": "A doubts that B's softer wording changes anything: 'I'm not sure he'll see much difference.' 'Then he must have been delighted' and 'he loves criticism' are illogical, and 'So you did say it was boring' contradicts what B has just said.",
+    "th": "A สงสัยว่าการเปลี่ยนคำให้นุ่มลงจะไม่ได้ช่วยอะไร จึงพูดว่า I'm not sure he'll see much difference ส่วน Then he must have been delighted และ he loves criticism ไม่สมเหตุสมผล และ So you did say it was boring ขัดกับที่ B เพิ่งพูด"
+   },
+   "choices": [
+    "Then he must have been delighted.",
+    "I'm not sure he'll see much difference.",
+    "So you did say it was boring.",
+    "Oh, that's all right, then — he loves criticism."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting an indirect answer",
+    "th": "การตีความคำตอบอ้อม ๆ"
+   },
+   "topic": {
+    "en": "Conversation: implied meaning",
+    "th": "บทสนทนา: ความหมายแฝง"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: How was the job interview?\nB: Put it this way: I don't think I'll be buying a new suit for my first day.\nA: ______",
+   "explanation": {
+    "en": "B indirectly says there will be no first day, meaning the interview went badly. A sympathises: 'I'm sorry it didn't go well.' The other replies take B's words literally and miss the implication.",
+    "th": "B บอกอ้อม ๆ ว่าคงไม่มีวันแรกของการทำงาน แปลว่าสัมภาษณ์ไม่ดี A จึงแสดงความเห็นใจว่า I'm sorry it didn't go well ส่วนคำตอบอื่นตีความตามตัวอักษรและพลาดความหมายแฝง"
+   },
+   "choices": [
+    "Why don't you buy one anyway?",
+    "Oh no — I'm sorry it didn't go well.",
+    "Great! When do you start?",
+    "So they gave you a uniform instead?"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "conversation",
+   "difficulty": "h",
+   "skill": {
+    "en": "Detecting a possible insult",
+    "th": "การจับนัยที่อาจเป็นการดูถูก"
+   },
+   "topic": {
+    "en": "Conversation: implied meaning",
+    "th": "บทสนทนา: ความหมายแฝง"
+   },
+   "passage": "",
+   "stem": "Choose the most appropriate response to complete the conversation.\nA: Our presentation was chosen as the best in the year!\nB: Congratulations! Though I'd have thought Mint's group stood a better chance.\nA: ______\nB: No, no — I just meant theirs had more data. Yours was clearly more original.",
+   "explanation": {
+    "en": "B's back-handed remark could sound like an insult, and B's last line ('No, no — I just meant…') denies one. So A must have asked 'Are you saying we didn't deserve it?' The other replies do not provoke that denial.",
+    "th": "คำพูดของ B ฟังดูเหมือนดูถูกแฝง และประโยคสุดท้าย No, no — I just meant… เป็นการปฏิเสธว่าไม่ได้ตั้งใจ A จึงต้องถามว่า Are you saying we didn't deserve it? ส่วนคำตอบอื่นไม่ทำให้ B ต้องรีบแก้ตัว"
+   },
+   "choices": [
+    "Yes, Mint was very disappointed.",
+    "Are you saying we didn't deserve it?",
+    "Have you seen Mint's slides?",
+    "Thank you — we worked really hard on it."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "e",
+   "skill": {
+    "en": "Agreement with 'every one of'",
+    "th": "ความสอดคล้องกับ every one of"
+   },
+   "topic": {
+    "en": "Subject–verb agreement",
+    "th": "ความสอดคล้องของประธานและกริยา"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: Every one of the [[students]] [[have]] [[handed in]] the form [[on]] time.",
+   "choices": [
+    "students",
+    "have",
+    "handed in",
+    "on"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "The subject is 'Every one', which is singular, so the verb must be 'has handed in'.",
+    "th": "ประธานคือ Every one ซึ่งเป็นเอกพจน์ กริยาจึงต้องเป็น has handed in"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Idiom: turn a blind eye to",
+    "th": "สำนวน: turn a blind eye to"
+   },
+   "topic": {
+    "en": "Collocation",
+    "th": "คำปรากฏร่วม (collocation)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The minister [[was]] accused [[of]] [[turning]] a blind eye [[on]] corruption within her own department.",
+   "choices": [
+    "was",
+    "of",
+    "turning",
+    "on"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The idiom is 'turn a blind eye to' something (pretend not to notice it), not 'on'.",
+    "th": "สำนวนคือ turn a blind eye to (แกล้งทำเป็นมองไม่เห็น) ไม่ใช่ on"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Despite vs although",
+    "th": "despite กับ although"
+   },
+   "topic": {
+    "en": "Linking words",
+    "th": "คำเชื่อม"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[Despite]] she had trained for months, Pim [[failed]] to qualify, [[finishing]] just [[a fraction of]] a second behind.",
+   "choices": [
+    "Despite",
+    "failed",
+    "finishing",
+    "a fraction of"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "'Despite' is followed by a noun or -ing form, not a full clause. Before 'she had trained' we need 'Although' (or 'Despite having trained').",
+    "th": "Despite ตามด้วยคำนามหรือ V-ing ไม่ใช่ประโยคเต็ม ก่อน she had trained ต้องใช้ Although (หรือ Despite having trained)"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "m",
+   "skill": {
+    "en": "Uncountable noun: evidence",
+    "th": "คำนามนับไม่ได้: evidence"
+   },
+   "topic": {
+    "en": "Countable and uncountable nouns",
+    "th": "คำนามนับได้และนับไม่ได้"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: Researchers [[have]] [[found]] [[a clear]] evidence that the drug [[reduces]] symptoms in most patients.",
+   "choices": [
+    "have",
+    "found",
+    "a clear",
+    "reduces"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "'Evidence' is uncountable and cannot take 'a': 'clear evidence' or 'a clear piece of evidence'.",
+    "th": "evidence เป็นนามนับไม่ได้ ใช้ a ไม่ได้ ต้องเป็น clear evidence หรือ a clear piece of evidence"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Verb pattern: decide + to-infinitive",
+    "th": "รูปกริยา: decide + to V"
+   },
+   "topic": {
+    "en": "Verb forms",
+    "th": "รูปกริยา"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: So [[successful]] [[was]] the campaign [[that]] the government decided [[extending]] it to other provinces.",
+   "choices": [
+    "successful",
+    "was",
+    "that",
+    "extending"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "'Decide' is followed by a to-infinitive: 'decided to extend it'. The inversion 'So successful was the campaign that…' is correct.",
+    "th": "decide ตามด้วย to V จึงเป็น decided to extend it ส่วนการสลับที่ So successful was the campaign that… ถูกต้องแล้ว"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inversion after 'Only after'",
+    "th": "การสลับที่หลัง Only after"
+   },
+   "topic": {
+    "en": "Inversion",
+    "th": "การสลับที่ประธานกับกริยา (inversion)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: Only after the results [[had been]] published [[the team realised]] [[how]] [[seriously]] the data had been misread.",
+   "choices": [
+    "had been",
+    "the team realised",
+    "how",
+    "seriously"
+   ],
+   "answer": 1,
+   "explanation": {
+    "en": "When a sentence begins with 'Only after + clause', the main clause is inverted: 'did the team realise'.",
+    "th": "เมื่อขึ้นต้นด้วย Only after + clause ประโยคหลักต้องสลับที่ เป็น did the team realise"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "The more …, the more …",
+    "th": "โครงสร้าง The more …, the more …"
+   },
+   "topic": {
+    "en": "Sentence structure",
+    "th": "โครงสร้างประโยค"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[More]] the city [[expands]], the [[harder]] it becomes to [[preserve]] its green spaces.",
+   "choices": [
+    "More",
+    "expands",
+    "harder",
+    "preserve"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "The double comparative needs 'the' in both halves: 'The more the city expands, the harder it becomes…'.",
+    "th": "โครงสร้างเปรียบเทียบคู่ต้องมี the ทั้งสองส่วน: The more the city expands, the harder it becomes…"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Collocation: arrive at a conclusion",
+    "th": "collocation: arrive at a conclusion"
+   },
+   "topic": {
+    "en": "Collocation",
+    "th": "คำปรากฏร่วม (collocation)"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: After weeks of [[heated]] debate, the panel [[finally]] [[arrived to]] a conclusion [[that]] satisfied neither side.",
+   "choices": [
+    "heated",
+    "finally",
+    "arrived to",
+    "that"
+   ],
+   "answer": 2,
+   "explanation": {
+    "en": "We 'arrive at' (or 'reach' / 'come to') a conclusion; 'arrive to' is never correct.",
+    "th": "ใช้ arrive at (หรือ reach / come to) a conclusion ส่วน arrive to ผิดเสมอ"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "lie / lay confusion",
+    "th": "ความสับสนระหว่าง lie / lay"
+   },
+   "topic": {
+    "en": "Verb forms",
+    "th": "รูปกริยา"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: [[Laying]] on the beach all afternoon, he [[failed]] to notice how [[badly]] his shoulders [[were burning]].",
+   "choices": [
+    "Laying",
+    "failed",
+    "badly",
+    "were burning"
+   ],
+   "answer": 0,
+   "explanation": {
+    "en": "'Lay' needs an object (lay something down). To rest horizontally is 'lie', so the participle is 'Lying on the beach'.",
+    "th": "lay ต้องมีกรรม (วางบางสิ่งลง) ส่วนการนอนเอนคือ lie รูป participle จึงเป็น Lying on the beach"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "error",
+   "difficulty": "h",
+   "skill": {
+    "en": "Passive participle",
+    "th": "participle รูป passive"
+   },
+   "topic": {
+    "en": "Verb forms",
+    "th": "รูปกริยา"
+   },
+   "passage": "",
+   "stem": "Choose the underlined part that is incorrect: The documentary [[offers]] a [[rare]] glimpse into the lives of nomadic herders, [[whose]] traditions are [[threatening]] by climate change.",
+   "choices": [
+    "offers",
+    "rare",
+    "whose",
+    "threatening"
+   ],
+   "answer": 3,
+   "explanation": {
+    "en": "The traditions are endangered by climate change, not doing the threatening, so the passive is needed: 'are threatened by climate change'.",
+    "th": "ประเพณีถูกคุกคามโดยการเปลี่ยนแปลงสภาพภูมิอากาศ ไม่ได้เป็นผู้คุกคาม จึงต้องใช้ passive: are threatened by climate change"
+   }
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "e",
+   "skill": {
+    "en": "Verb + as: hail as",
+    "th": "กริยา + as: hail as"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "Cultivated meat — animal cells grown in steel tanks rather than on farms — has been hailed (1) ______ a solution to some of the most pressing problems of our time, from greenhouse gas emissions to animal welfare. Its supporters argue that it could (2) ______ the need to raise and slaughter billions of animals a year. Sceptics, however, point out that the technology remains extremely expensive, and that producing it on an industrial scale would require (3) ______ amounts of energy. There are cultural obstacles, too. Food is bound up with identity, and many consumers are (4) ______ of anything they regard as \"unnatural\", however safe it may be shown to be. Whether cultivated meat becomes a staple or remains a curiosity may therefore depend less on scientific breakthroughs (5) ______ on public perception.",
+   "stem": "Which option best fills gap (1)?",
+   "explanation": {
+    "en": "The pattern is 'hail something as something' (praise it publicly as): 'hailed as a solution'.",
+    "th": "รูปแบบคือ hail something as something (ยกย่องว่าเป็น) จึงเป็น hailed as a solution"
+   },
+   "choices": [
+    "like",
+    "to",
+    "as",
+    "for"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Phrasal verb: do away with",
+    "th": "phrasal verb: do away with"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "Cultivated meat — animal cells grown in steel tanks rather than on farms — has been hailed (1) ______ a solution to some of the most pressing problems of our time, from greenhouse gas emissions to animal welfare. Its supporters argue that it could (2) ______ the need to raise and slaughter billions of animals a year. Sceptics, however, point out that the technology remains extremely expensive, and that producing it on an industrial scale would require (3) ______ amounts of energy. There are cultural obstacles, too. Food is bound up with identity, and many consumers are (4) ______ of anything they regard as \"unnatural\", however safe it may be shown to be. Whether cultivated meat becomes a staple or remains a curiosity may therefore depend less on scientific breakthroughs (5) ______ on public perception.",
+   "stem": "Which option best fills gap (2)?",
+   "explanation": {
+    "en": "'Do away with' means remove or abolish, which fits ending 'the need to raise and slaughter' animals. 'Put up with' means tolerate, 'come up with' means think of, and 'make up for' means compensate.",
+    "th": "do away with แปลว่ากำจัดหรือยกเลิก เหมาะกับการทำให้ไม่ต้องเลี้ยงและฆ่าสัตว์ ส่วน put up with แปลว่าทน come up with แปลว่าคิดขึ้นมา และ make up for แปลว่าชดเชย"
+   },
+   "choices": [
+    "put up with",
+    "come up with",
+    "do away with",
+    "make up for"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Collocation: vast amounts",
+    "th": "collocation: vast amounts"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "Cultivated meat — animal cells grown in steel tanks rather than on farms — has been hailed (1) ______ a solution to some of the most pressing problems of our time, from greenhouse gas emissions to animal welfare. Its supporters argue that it could (2) ______ the need to raise and slaughter billions of animals a year. Sceptics, however, point out that the technology remains extremely expensive, and that producing it on an industrial scale would require (3) ______ amounts of energy. There are cultural obstacles, too. Food is bound up with identity, and many consumers are (4) ______ of anything they regard as \"unnatural\", however safe it may be shown to be. Whether cultivated meat becomes a staple or remains a curiosity may therefore depend less on scientific breakthroughs (5) ______ on public perception.",
+   "stem": "Which option best fills gap (3)?",
+   "explanation": {
+    "en": "'Vast amounts' is the natural collocation for a very large quantity. 'Wide', 'tall' and 'broad' describe physical size or range and do not combine with 'amounts'.",
+    "th": "vast amounts เป็น collocation ที่ใช้กับปริมาณมหาศาล ส่วน wide, tall และ broad ใช้บอกขนาดหรือความกว้างทางกายภาพ ไม่ใช้กับ amounts"
+   },
+   "choices": [
+    "vast",
+    "broad",
+    "wide",
+    "tall"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Word form: adjective + of",
+    "th": "รูปคำ: adjective + of"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "Cultivated meat — animal cells grown in steel tanks rather than on farms — has been hailed (1) ______ a solution to some of the most pressing problems of our time, from greenhouse gas emissions to animal welfare. Its supporters argue that it could (2) ______ the need to raise and slaughter billions of animals a year. Sceptics, however, point out that the technology remains extremely expensive, and that producing it on an industrial scale would require (3) ______ amounts of energy. There are cultural obstacles, too. Food is bound up with identity, and many consumers are (4) ______ of anything they regard as \"unnatural\", however safe it may be shown to be. Whether cultivated meat becomes a staple or remains a curiosity may therefore depend less on scientific breakthroughs (5) ______ on public perception.",
+   "stem": "Which option best fills gap (4)?",
+   "explanation": {
+    "en": "After 'are' and before 'of' we need an adjective: 'distrustful of'. The others are a noun/verb, an adverb and a noun.",
+    "th": "หลัง are และก่อน of ต้องใช้ adjective จึงเป็น distrustful of ส่วนตัวเลือกอื่นเป็นคำนาม/กริยา adverb และคำนาม"
+   },
+   "choices": [
+    "distrustfully",
+    "distrust",
+    "distrustfulness",
+    "distrustful"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Comparative pattern: less … than",
+    "th": "โครงสร้างเปรียบเทียบ: less … than"
+   },
+   "topic": {
+    "en": "Cloze: news / feature article",
+    "th": "เติมคำในบทความข่าว/สารคดี"
+   },
+   "passage": "Cultivated meat — animal cells grown in steel tanks rather than on farms — has been hailed (1) ______ a solution to some of the most pressing problems of our time, from greenhouse gas emissions to animal welfare. Its supporters argue that it could (2) ______ the need to raise and slaughter billions of animals a year. Sceptics, however, point out that the technology remains extremely expensive, and that producing it on an industrial scale would require (3) ______ amounts of energy. There are cultural obstacles, too. Food is bound up with identity, and many consumers are (4) ______ of anything they regard as \"unnatural\", however safe it may be shown to be. Whether cultivated meat becomes a staple or remains a curiosity may therefore depend less on scientific breakthroughs (5) ______ on public perception.",
+   "stem": "Which option best fills gap (5)?",
+   "explanation": {
+    "en": "'Depend less on X ___ on Y' is a comparative, which must be completed by 'than'.",
+    "th": "depend less on X ___ on Y เป็นการเปรียบเทียบขั้นกว่า ต้องใช้ than"
+   },
+   "choices": [
+    "as",
+    "but",
+    "rather",
+    "than"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "stop + -ing",
+    "th": "stop + V-ing"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "The house had stood empty for so long that the neighbours had stopped (6) ______ it. So when lights appeared in its windows one October evening, the whole street took notice. The new owner turned out to be an elderly woman who kept (7) ______ herself, rarely leaving the house except to buy bread and, oddly, enormous quantities of string. Rumours multiplied. Some said she was a retired spy; (8) ______ insisted she was a witch. It was not until the spring that the truth came out, when the children of the street, who had been dared to look over her wall, discovered a garden (9) ______ every branch and post was hung with tiny, intricately knotted birds made of string — hundreds of them, swaying in the breeze. Far from (10) ______ the children away, the woman invited them in and showed them how to make their own.",
+   "stem": "Which option best fills gap (6)?",
+   "explanation": {
+    "en": "The neighbours no longer noticed the house, so 'stopped noticing'. 'Stopped to notice' would mean they paused in order to notice it — the opposite.",
+    "th": "เพื่อนบ้านเลิกสังเกตบ้านหลังนั้นแล้ว จึงใช้ stopped noticing ส่วน stopped to notice แปลว่าหยุดเพื่อจะสังเกต ซึ่งความหมายตรงข้าม"
+   },
+   "choices": [
+    "to notice",
+    "noticing",
+    "notice",
+    "noticed"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Expression: keep to oneself",
+    "th": "สำนวน: keep to oneself"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "The house had stood empty for so long that the neighbours had stopped (6) ______ it. So when lights appeared in its windows one October evening, the whole street took notice. The new owner turned out to be an elderly woman who kept (7) ______ herself, rarely leaving the house except to buy bread and, oddly, enormous quantities of string. Rumours multiplied. Some said she was a retired spy; (8) ______ insisted she was a witch. It was not until the spring that the truth came out, when the children of the street, who had been dared to look over her wall, discovered a garden (9) ______ every branch and post was hung with tiny, intricately knotted birds made of string — hundreds of them, swaying in the breeze. Far from (10) ______ the children away, the woman invited them in and showed them how to make their own.",
+   "stem": "Which option best fills gap (7)?",
+   "explanation": {
+    "en": "'Keep to oneself' means to avoid other people's company, which matches 'rarely leaving the house'.",
+    "th": "keep to oneself แปลว่าเก็บตัว ไม่ค่อยสุงสิงกับใคร สอดคล้องกับ rarely leaving the house"
+   },
+   "choices": [
+    "for",
+    "on",
+    "to",
+    "by"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Determiners: others / the others / another",
+    "th": "ตัวกำหนด: others / the others / another"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "The house had stood empty for so long that the neighbours had stopped (6) ______ it. So when lights appeared in its windows one October evening, the whole street took notice. The new owner turned out to be an elderly woman who kept (7) ______ herself, rarely leaving the house except to buy bread and, oddly, enormous quantities of string. Rumours multiplied. Some said she was a retired spy; (8) ______ insisted she was a witch. It was not until the spring that the truth came out, when the children of the street, who had been dared to look over her wall, discovered a garden (9) ______ every branch and post was hung with tiny, intricately knotted birds made of string — hundreds of them, swaying in the breeze. Far from (10) ______ the children away, the woman invited them in and showed them how to make their own.",
+   "stem": "Which option best fills gap (8)?",
+   "explanation": {
+    "en": "'Some said… ; others insisted…' contrasts two unspecified groups. 'The other' would need a noun or refer to one specific remaining person, 'another' means one more person, and 'other' cannot stand alone as a pronoun.",
+    "th": "Some said… ; others insisted… เป็นการเปรียบสองกลุ่มที่ไม่เจาะจง ส่วน the other ต้องมีคำนามตามหรือหมายถึงอีกหนึ่งที่เหลืออยู่ another หมายถึงอีกหนึ่งคน และ other ใช้เป็นคำสรรพนามเดี่ยว ๆ ไม่ได้"
+   },
+   "choices": [
+    "others",
+    "another",
+    "other",
+    "the other"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Preposition + which",
+    "th": "คำบุพบท + which"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "The house had stood empty for so long that the neighbours had stopped (6) ______ it. So when lights appeared in its windows one October evening, the whole street took notice. The new owner turned out to be an elderly woman who kept (7) ______ herself, rarely leaving the house except to buy bread and, oddly, enormous quantities of string. Rumours multiplied. Some said she was a retired spy; (8) ______ insisted she was a witch. It was not until the spring that the truth came out, when the children of the street, who had been dared to look over her wall, discovered a garden (9) ______ every branch and post was hung with tiny, intricately knotted birds made of string — hundreds of them, swaying in the breeze. Far from (10) ______ the children away, the woman invited them in and showed them how to make their own.",
+   "stem": "Which option best fills gap (9)?",
+   "explanation": {
+    "en": "The clause 'every branch and post was hung with…' is already complete, so it needs 'in which' (= where) to attach to 'a garden'. 'Which' and 'that' would need a missing subject or object, and 'whose' would need a noun directly after it.",
+    "th": "ประโยค every branch and post was hung with… สมบูรณ์แล้ว จึงต้องใช้ in which (= where) เชื่อมกับ a garden ส่วน which และ that ต้องมีประธานหรือกรรมที่ขาด และ whose ต้องตามด้วยคำนามทันที"
+   },
+   "choices": [
+    "whose",
+    "which",
+    "in which",
+    "that"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Gerund after 'Far from'",
+    "th": "V-ing หลัง Far from"
+   },
+   "topic": {
+    "en": "Cloze: short story",
+    "th": "เติมคำในเรื่องสั้น"
+   },
+   "passage": "The house had stood empty for so long that the neighbours had stopped (6) ______ it. So when lights appeared in its windows one October evening, the whole street took notice. The new owner turned out to be an elderly woman who kept (7) ______ herself, rarely leaving the house except to buy bread and, oddly, enormous quantities of string. Rumours multiplied. Some said she was a retired spy; (8) ______ insisted she was a witch. It was not until the spring that the truth came out, when the children of the street, who had been dared to look over her wall, discovered a garden (9) ______ every branch and post was hung with tiny, intricately knotted birds made of string — hundreds of them, swaying in the breeze. Far from (10) ______ the children away, the woman invited them in and showed them how to make their own.",
+   "stem": "Which option best fills gap (10)?",
+   "explanation": {
+    "en": "'From' is a preposition, so it takes a gerund: 'Far from chasing the children away' (= instead of doing so, as might have been expected).",
+    "th": "from เป็นคำบุพบท จึงตามด้วย V-ing: Far from chasing the children away (= แทนที่จะไล่อย่างที่คาดไว้)"
+   },
+   "choices": [
+    "to chase",
+    "chased",
+    "chasing",
+    "chase"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Verb + preposition: blame … for",
+    "th": "กริยา + บุพบท: blame … for"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "It has become fashionable to (11) ______ social media for almost every ill of modern adolescence, from poor sleep to rising anxiety. There is some truth in this. (12) ______, the evidence is far less conclusive than the headlines suggest. Many of the studies most often cited show correlation rather than causation: teenagers who are unhappy may use their phones more, rather than the other way round. Moreover, the effects, (13) ______ they exist, appear to vary enormously from one young person to another. To treat \"screen time\" as a single, uniformly harmful substance is to (14) ______ the point. What matters is not simply how long teenagers spend online but what they do there, and with whom. Policies built on panic rather than evidence risk (15) ______ young people of the genuine benefits — connection, creativity, information — that the online world can offer.",
+   "stem": "Which option best fills gap (11)?",
+   "explanation": {
+    "en": "'Blame X for Y' fits 'social media for almost every ill'. We 'accuse someone of', 'attribute something to', and 'charge someone for' means asking them to pay.",
+    "th": "blame X for Y เหมาะกับ social media for almost every ill ส่วน accuse ใช้กับ of, attribute ใช้กับ to และ charge someone for แปลว่าเรียกเก็บเงิน"
+   },
+   "choices": [
+    "attribute",
+    "charge",
+    "accuse",
+    "blame"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Contrast linker: nevertheless",
+    "th": "คำเชื่อมขัดแย้ง: nevertheless"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "It has become fashionable to (11) ______ social media for almost every ill of modern adolescence, from poor sleep to rising anxiety. There is some truth in this. (12) ______, the evidence is far less conclusive than the headlines suggest. Many of the studies most often cited show correlation rather than causation: teenagers who are unhappy may use their phones more, rather than the other way round. Moreover, the effects, (13) ______ they exist, appear to vary enormously from one young person to another. To treat \"screen time\" as a single, uniformly harmful substance is to (14) ______ the point. What matters is not simply how long teenagers spend online but what they do there, and with whom. Policies built on panic rather than evidence risk (15) ______ young people of the genuine benefits — connection, creativity, information — that the online world can offer.",
+   "stem": "Which option best fills gap (12)?",
+   "explanation": {
+    "en": "The writer concedes 'some truth' and then contrasts it: the evidence is less conclusive. 'Nevertheless' signals this contrast; the others signal result, addition and similarity.",
+    "th": "ผู้เขียนยอมรับว่ามีส่วนจริงแล้วแย้งว่าหลักฐานยังไม่ชัดเจน จึงใช้ Nevertheless แสดงความขัดแย้ง ส่วนคำอื่นแสดงผล การเพิ่มเติม และความคล้ายคลึง"
+   },
+   "choices": [
+    "Moreover",
+    "Nevertheless",
+    "Likewise",
+    "Therefore"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "Reduced conditional: where they exist",
+    "th": "เงื่อนไขแบบย่อ: where they exist"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "It has become fashionable to (11) ______ social media for almost every ill of modern adolescence, from poor sleep to rising anxiety. There is some truth in this. (12) ______, the evidence is far less conclusive than the headlines suggest. Many of the studies most often cited show correlation rather than causation: teenagers who are unhappy may use their phones more, rather than the other way round. Moreover, the effects, (13) ______ they exist, appear to vary enormously from one young person to another. To treat \"screen time\" as a single, uniformly harmful substance is to (14) ______ the point. What matters is not simply how long teenagers spend online but what they do there, and with whom. Policies built on panic rather than evidence risk (15) ______ young people of the genuine benefits — connection, creativity, information — that the online world can offer.",
+   "stem": "Which option best fills gap (13)?",
+   "explanation": {
+    "en": "'Where they exist' means 'in cases where there are effects' — a hedge that the effects may not exist at all. 'Which', 'what' and 'whom' cannot introduce this clause.",
+    "th": "where they exist แปลว่า 'ในกรณีที่ผลกระทบมีอยู่จริง' เป็นการพูดเผื่อว่าผลกระทบอาจไม่มีเลย ส่วน which, what และ whom ใช้ขึ้นต้นอนุประโยคนี้ไม่ได้"
+   },
+   "choices": [
+    "where",
+    "whom",
+    "what",
+    "which"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "m",
+   "skill": {
+    "en": "Idiom: miss the point",
+    "th": "สำนวน: miss the point"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "It has become fashionable to (11) ______ social media for almost every ill of modern adolescence, from poor sleep to rising anxiety. There is some truth in this. (12) ______, the evidence is far less conclusive than the headlines suggest. Many of the studies most often cited show correlation rather than causation: teenagers who are unhappy may use their phones more, rather than the other way round. Moreover, the effects, (13) ______ they exist, appear to vary enormously from one young person to another. To treat \"screen time\" as a single, uniformly harmful substance is to (14) ______ the point. What matters is not simply how long teenagers spend online but what they do there, and with whom. Policies built on panic rather than evidence risk (15) ______ young people of the genuine benefits — connection, creativity, information — that the online world can offer.",
+   "stem": "Which option best fills gap (14)?",
+   "explanation": {
+    "en": "'Miss the point' means fail to understand what really matters, which the next sentence then explains. 'Lose', 'skip' and 'pass' do not form this idiom.",
+    "th": "miss the point แปลว่าไม่เข้าใจประเด็นที่สำคัญจริง ๆ ซึ่งประโยคต่อไปอธิบาย ส่วน lose, skip และ pass ไม่ใช้เป็นสำนวนนี้"
+   },
+   "choices": [
+    "pass",
+    "lose",
+    "skip",
+    "miss"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "cloze",
+   "difficulty": "h",
+   "skill": {
+    "en": "risk + -ing; deprive … of",
+    "th": "risk + V-ing และ deprive … of"
+   },
+   "topic": {
+    "en": "Cloze: opinion article",
+    "th": "เติมคำในบทความแสดงความคิดเห็น"
+   },
+   "passage": "It has become fashionable to (11) ______ social media for almost every ill of modern adolescence, from poor sleep to rising anxiety. There is some truth in this. (12) ______, the evidence is far less conclusive than the headlines suggest. Many of the studies most often cited show correlation rather than causation: teenagers who are unhappy may use their phones more, rather than the other way round. Moreover, the effects, (13) ______ they exist, appear to vary enormously from one young person to another. To treat \"screen time\" as a single, uniformly harmful substance is to (14) ______ the point. What matters is not simply how long teenagers spend online but what they do there, and with whom. Policies built on panic rather than evidence risk (15) ______ young people of the genuine benefits — connection, creativity, information — that the online world can offer.",
+   "stem": "Which option best fills gap (15)?",
+   "explanation": {
+    "en": "'Risk' is followed by a gerund: 'risk depriving young people of…'. 'Deprive someone of something' means take it away from them.",
+    "th": "risk ตามด้วย V-ing เป็น risk depriving young people of… และ deprive someone of something แปลว่าทำให้ขาดหรือพรากสิ่งนั้นไป"
+   },
+   "choices": [
+    "deprive",
+    "deprived",
+    "to deprive",
+    "depriving"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Main finding of a report",
+    "th": "ผลการศึกษาหลักในข่าว"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "BANGKOK — Tiny fragments of plastic were found in the digestive tracts of more than two-thirds of fish bought from markets along the Gulf of Thailand, according to a study published this week.\n\nResearchers bought 400 fish of twelve common species from markets in four coastal provinces over a period of eighteen months. Particles smaller than five millimetres — mostly fibres from synthetic clothing and fragments of packaging — were detected in 71 per cent of the samples. Species that feed near the sea floor were the most heavily affected.\n\nThe lead author, a marine scientist who has studied plastic pollution for more than a decade, was careful to put the findings in context. \"We are not telling people to stop eating fish,\" she said. \"Most of the particles were in the gut, which is usually removed before cooking. What concerns us is what these numbers tell us about the state of the sea itself.\"\n\nHer caution was not shared by all. Within hours of the study's release, several social media accounts had circulated posts warning that seafood was \"poisoned\", and at least one large coastal market reported a sharp fall in sales the following morning.\n\nFishing associations reacted angrily, accusing the media of sensationalism. A spokesman pointed out that the study did not measure whether eating such fish posed any risk to human health — a point the researchers themselves acknowledge. \"That is the next question,\" the lead author said, \"and it is a much harder one to answer.\"\n\nEnvironmental groups, meanwhile, said the study confirmed what they had long argued: that the problem cannot be solved by beach clean-ups alone. They are calling for limits on single-use packaging and for washing machines to be fitted with filters that capture synthetic fibres before they reach the drains.",
+   "stem": "What was the study's main finding?",
+   "explanation": {
+    "en": "Particles were found in 71 per cent of the fish. The study did not measure health risk, and the other claims are not made.",
+    "th": "พบเศษพลาสติกในปลาร้อยละ 71 การศึกษาไม่ได้วัดความเสี่ยงต่อสุขภาพ และข้ออ้างอื่นไม่มีในข่าว"
+   },
+   "choices": [
+    "Most plastic in the sea comes from fishing boats.",
+    "Fish sold in markets contain more plastic than fish caught at sea.",
+    "Plastic particles were present in most of the fish sampled.",
+    "Eating fish from the Gulf of Thailand is dangerous to health."
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Locating a specific detail",
+    "th": "การหารายละเอียดเฉพาะ"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "BANGKOK — Tiny fragments of plastic were found in the digestive tracts of more than two-thirds of fish bought from markets along the Gulf of Thailand, according to a study published this week.\n\nResearchers bought 400 fish of twelve common species from markets in four coastal provinces over a period of eighteen months. Particles smaller than five millimetres — mostly fibres from synthetic clothing and fragments of packaging — were detected in 71 per cent of the samples. Species that feed near the sea floor were the most heavily affected.\n\nThe lead author, a marine scientist who has studied plastic pollution for more than a decade, was careful to put the findings in context. \"We are not telling people to stop eating fish,\" she said. \"Most of the particles were in the gut, which is usually removed before cooking. What concerns us is what these numbers tell us about the state of the sea itself.\"\n\nHer caution was not shared by all. Within hours of the study's release, several social media accounts had circulated posts warning that seafood was \"poisoned\", and at least one large coastal market reported a sharp fall in sales the following morning.\n\nFishing associations reacted angrily, accusing the media of sensationalism. A spokesman pointed out that the study did not measure whether eating such fish posed any risk to human health — a point the researchers themselves acknowledge. \"That is the next question,\" the lead author said, \"and it is a much harder one to answer.\"\n\nEnvironmental groups, meanwhile, said the study confirmed what they had long argued: that the problem cannot be solved by beach clean-ups alone. They are calling for limits on single-use packaging and for washing machines to be fitted with filters that capture synthetic fibres before they reach the drains.",
+   "stem": "According to the report, which fish contained the most plastic?",
+   "explanation": {
+    "en": "The second paragraph states that 'species that feed near the sea floor were the most heavily affected'.",
+    "th": "ย่อหน้าที่สองระบุว่า 'ปลาที่หากินใกล้พื้นทะเลได้รับผลกระทบมากที่สุด'"
+   },
+   "choices": [
+    "Species that live close to beaches",
+    "Fish bought in the capital",
+    "The largest fish in each sample",
+    "Species that feed near the sea floor"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Purpose of a quotation",
+    "th": "จุดประสงค์ของคำพูดที่ยกมา"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "BANGKOK — Tiny fragments of plastic were found in the digestive tracts of more than two-thirds of fish bought from markets along the Gulf of Thailand, according to a study published this week.\n\nResearchers bought 400 fish of twelve common species from markets in four coastal provinces over a period of eighteen months. Particles smaller than five millimetres — mostly fibres from synthetic clothing and fragments of packaging — were detected in 71 per cent of the samples. Species that feed near the sea floor were the most heavily affected.\n\nThe lead author, a marine scientist who has studied plastic pollution for more than a decade, was careful to put the findings in context. \"We are not telling people to stop eating fish,\" she said. \"Most of the particles were in the gut, which is usually removed before cooking. What concerns us is what these numbers tell us about the state of the sea itself.\"\n\nHer caution was not shared by all. Within hours of the study's release, several social media accounts had circulated posts warning that seafood was \"poisoned\", and at least one large coastal market reported a sharp fall in sales the following morning.\n\nFishing associations reacted angrily, accusing the media of sensationalism. A spokesman pointed out that the study did not measure whether eating such fish posed any risk to human health — a point the researchers themselves acknowledge. \"That is the next question,\" the lead author said, \"and it is a much harder one to answer.\"\n\nEnvironmental groups, meanwhile, said the study confirmed what they had long argued: that the problem cannot be solved by beach clean-ups alone. They are calling for limits on single-use packaging and for washing machines to be fitted with filters that capture synthetic fibres before they reach the drains.",
+   "stem": "Why does the lead author say \"We are not telling people to stop eating fish\"?",
+   "explanation": {
+    "en": "She was 'careful to put the findings in context': she explains that the gut is usually removed and that her real concern is the state of the sea, not panic about eating fish.",
+    "th": "เธอ 'ระมัดระวังที่จะอธิบายผลการศึกษาให้ถูกบริบท' โดยบอกว่าลำไส้มักถูกตัดทิ้งก่อนปรุง และสิ่งที่กังวลจริงคือสภาพทะเล ไม่ใช่ให้คนตื่นตระหนกเรื่องกินปลา"
+   },
+   "choices": [
+    "To show that she personally eats a lot of fish",
+    "To prevent her findings from being exaggerated",
+    "To admit that the study's results were unreliable",
+    "To defend the fishing industry against criticism"
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Understanding contrast in a text",
+    "th": "การเข้าใจการเปรียบตัดกันในบทความ"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "BANGKOK — Tiny fragments of plastic were found in the digestive tracts of more than two-thirds of fish bought from markets along the Gulf of Thailand, according to a study published this week.\n\nResearchers bought 400 fish of twelve common species from markets in four coastal provinces over a period of eighteen months. Particles smaller than five millimetres — mostly fibres from synthetic clothing and fragments of packaging — were detected in 71 per cent of the samples. Species that feed near the sea floor were the most heavily affected.\n\nThe lead author, a marine scientist who has studied plastic pollution for more than a decade, was careful to put the findings in context. \"We are not telling people to stop eating fish,\" she said. \"Most of the particles were in the gut, which is usually removed before cooking. What concerns us is what these numbers tell us about the state of the sea itself.\"\n\nHer caution was not shared by all. Within hours of the study's release, several social media accounts had circulated posts warning that seafood was \"poisoned\", and at least one large coastal market reported a sharp fall in sales the following morning.\n\nFishing associations reacted angrily, accusing the media of sensationalism. A spokesman pointed out that the study did not measure whether eating such fish posed any risk to human health — a point the researchers themselves acknowledge. \"That is the next question,\" the lead author said, \"and it is a much harder one to answer.\"\n\nEnvironmental groups, meanwhile, said the study confirmed what they had long argued: that the problem cannot be solved by beach clean-ups alone. They are calling for limits on single-use packaging and for washing machines to be fitted with filters that capture synthetic fibres before they reach the drains.",
+   "stem": "\"Her caution was not shared by all.\" This sentence contrasts the lead author's approach with ______.",
+   "explanation": {
+    "en": "The next sentences describe social media posts calling seafood 'poisoned' and a drop in market sales — the opposite of her careful, measured message.",
+    "th": "ประโยคต่อมาบรรยายโพสต์ในโซเชียลมีเดียที่บอกว่าอาหารทะเล 'มีพิษ' จนยอดขายตก ซึ่งตรงข้ามกับท่าทีที่ระมัดระวังของเธอ"
+   },
+   "choices": [
+    "the fishing associations' demand for more research",
+    "the researchers' decision to study only twelve species",
+    "the environmental groups' call for washing-machine filters",
+    "the alarmist reaction on social media that hurt seafood sales"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring common ground",
+    "th": "การอนุมานจุดที่ทั้งสองฝ่ายเห็นตรงกัน"
+   },
+   "topic": {
+    "en": "Reading: news report",
+    "th": "การอ่าน: รายงานข่าว"
+   },
+   "passage": "BANGKOK — Tiny fragments of plastic were found in the digestive tracts of more than two-thirds of fish bought from markets along the Gulf of Thailand, according to a study published this week.\n\nResearchers bought 400 fish of twelve common species from markets in four coastal provinces over a period of eighteen months. Particles smaller than five millimetres — mostly fibres from synthetic clothing and fragments of packaging — were detected in 71 per cent of the samples. Species that feed near the sea floor were the most heavily affected.\n\nThe lead author, a marine scientist who has studied plastic pollution for more than a decade, was careful to put the findings in context. \"We are not telling people to stop eating fish,\" she said. \"Most of the particles were in the gut, which is usually removed before cooking. What concerns us is what these numbers tell us about the state of the sea itself.\"\n\nHer caution was not shared by all. Within hours of the study's release, several social media accounts had circulated posts warning that seafood was \"poisoned\", and at least one large coastal market reported a sharp fall in sales the following morning.\n\nFishing associations reacted angrily, accusing the media of sensationalism. A spokesman pointed out that the study did not measure whether eating such fish posed any risk to human health — a point the researchers themselves acknowledge. \"That is the next question,\" the lead author said, \"and it is a much harder one to answer.\"\n\nEnvironmental groups, meanwhile, said the study confirmed what they had long argued: that the problem cannot be solved by beach clean-ups alone. They are calling for limits on single-use packaging and for washing machines to be fitted with filters that capture synthetic fibres before they reach the drains.",
+   "stem": "Which statement would both the researchers and the fishing associations accept?",
+   "explanation": {
+    "en": "The spokesman says the study did not measure risk to human health, and the report adds this is 'a point the researchers themselves acknowledge'.",
+    "th": "โฆษกบอกว่าการศึกษาไม่ได้วัดความเสี่ยงต่อสุขภาพคน และข่าวระบุว่า 'นักวิจัยเองก็ยอมรับประเด็นนี้'"
+   },
+   "choices": [
+    "The study did not show whether eating such fish is harmful to people.",
+    "The media reported the study fairly and accurately.",
+    "People should eat less seafood until more research is done.",
+    "Beach clean-ups alone can solve the problem of microplastics."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "e",
+   "skill": {
+    "en": "Understanding characters' attitudes",
+    "th": "การเข้าใจทัศนคติของตัวละคร"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "For forty years my uncle Prasit painted the same view: the river below his house, the temple roof on the far bank, and the hills beyond. He painted it at dawn and at dusk, in the rainy season and in the dry, and he sold almost none of the pictures. They stood stacked against the walls of every room, so that visiting him was like walking through a very slow film of the same afternoon.\n\nThe family regarded this as a harmless eccentricity, like his refusal to own a telephone. My mother, his younger sister, described him to strangers as \"artistic\", in the tone other people use for \"unemployed\".\n\nWhen he died, we expected to spend a weekend clearing the house. Instead, a man in a linen suit arrived from a gallery in the capital and asked, very politely, whether he might look at the paintings. He spent four hours with them. Then he asked whether we had noticed the temple.\n\nWe had not. Looking again, in the order he arranged them, we saw what forty years of glances had missed. In the earliest paintings the temple roof was bright and whole. Over the years it faded, cracked and sagged; in some of the later canvases it had all but disappeared behind the scaffolding of a new hotel. And then — in the final picture, finished a week before my uncle died — the hotel was gone, and the temple stood as it had in the first painting, golden and entire.\n\n\"The hotel is still there,\" my mother said quietly. \"I drove past it this morning.\"\n\nThe man in the linen suit nodded. \"Yes,\" he said. \"I don't think he was painting what he saw.\"\n\nThe exhibition opens next month. My mother has been to the gallery twice to help with the labels, and she has stopped saying \"artistic\" in that particular tone.",
+   "stem": "How did the family originally regard Prasit's painting?",
+   "explanation": {
+    "en": "The text says the family 'regarded this as a harmless eccentricity'. He sold almost none of the paintings, so it was not a business.",
+    "th": "เรื่องบอกว่าครอบครัว 'มองว่าเป็นความแปลกประหลาดที่ไม่มีพิษภัย' และเขาแทบขายภาพไม่ได้เลย จึงไม่ใช่ธุรกิจ"
+   },
+   "choices": [
+    "As a harmless habit of an odd man",
+    "As a profitable business",
+    "As a serious problem that worried them",
+    "As a talent that would one day make him famous"
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Interpreting tone of voice",
+    "th": "การตีความน้ำเสียง"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "For forty years my uncle Prasit painted the same view: the river below his house, the temple roof on the far bank, and the hills beyond. He painted it at dawn and at dusk, in the rainy season and in the dry, and he sold almost none of the pictures. They stood stacked against the walls of every room, so that visiting him was like walking through a very slow film of the same afternoon.\n\nThe family regarded this as a harmless eccentricity, like his refusal to own a telephone. My mother, his younger sister, described him to strangers as \"artistic\", in the tone other people use for \"unemployed\".\n\nWhen he died, we expected to spend a weekend clearing the house. Instead, a man in a linen suit arrived from a gallery in the capital and asked, very politely, whether he might look at the paintings. He spent four hours with them. Then he asked whether we had noticed the temple.\n\nWe had not. Looking again, in the order he arranged them, we saw what forty years of glances had missed. In the earliest paintings the temple roof was bright and whole. Over the years it faded, cracked and sagged; in some of the later canvases it had all but disappeared behind the scaffolding of a new hotel. And then — in the final picture, finished a week before my uncle died — the hotel was gone, and the temple stood as it had in the first painting, golden and entire.\n\n\"The hotel is still there,\" my mother said quietly. \"I drove past it this morning.\"\n\nThe man in the linen suit nodded. \"Yes,\" he said. \"I don't think he was painting what he saw.\"\n\nThe exhibition opens next month. My mother has been to the gallery twice to help with the labels, and she has stopped saying \"artistic\" in that particular tone.",
+   "stem": "What does \"in the tone other people use for 'unemployed'\" suggest about the mother?",
+   "explanation": {
+    "en": "Saying 'artistic' as others say 'unemployed' means the word was a polite cover for disapproval — she saw his painting as not a real occupation.",
+    "th": "การพูดคำว่า artistic ด้วยน้ำเสียงแบบที่คนพูดว่า unemployed แสดงว่าเป็นคำสุภาพที่แฝงความไม่เห็นด้วย เธอมองว่าการวาดภาพไม่ใช่งานจริงจัง"
+   },
+   "choices": [
+    "Her use of the word 'artistic' was mildly disapproving.",
+    "She was proud of her brother's achievements.",
+    "She believed her brother had lost his job.",
+    "She did not know what her brother did all day."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Interpreting a simile",
+    "th": "การตีความการเปรียบเทียบ (simile)"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "For forty years my uncle Prasit painted the same view: the river below his house, the temple roof on the far bank, and the hills beyond. He painted it at dawn and at dusk, in the rainy season and in the dry, and he sold almost none of the pictures. They stood stacked against the walls of every room, so that visiting him was like walking through a very slow film of the same afternoon.\n\nThe family regarded this as a harmless eccentricity, like his refusal to own a telephone. My mother, his younger sister, described him to strangers as \"artistic\", in the tone other people use for \"unemployed\".\n\nWhen he died, we expected to spend a weekend clearing the house. Instead, a man in a linen suit arrived from a gallery in the capital and asked, very politely, whether he might look at the paintings. He spent four hours with them. Then he asked whether we had noticed the temple.\n\nWe had not. Looking again, in the order he arranged them, we saw what forty years of glances had missed. In the earliest paintings the temple roof was bright and whole. Over the years it faded, cracked and sagged; in some of the later canvases it had all but disappeared behind the scaffolding of a new hotel. And then — in the final picture, finished a week before my uncle died — the hotel was gone, and the temple stood as it had in the first painting, golden and entire.\n\n\"The hotel is still there,\" my mother said quietly. \"I drove past it this morning.\"\n\nThe man in the linen suit nodded. \"Yes,\" he said. \"I don't think he was painting what he saw.\"\n\nThe exhibition opens next month. My mother has been to the gallery twice to help with the labels, and she has stopped saying \"artistic\" in that particular tone.",
+   "stem": "\"Like walking through a very slow film of the same afternoon\" describes ______.",
+   "explanation": {
+    "en": "The stacked paintings all show the same view, so moving past them is like watching frames of a film in which almost nothing changes — a hint of the gradual changes the gallery man later notices.",
+    "th": "ภาพที่วางซ้อนกันล้วนเป็นวิวเดียวกัน การเดินผ่านจึงเหมือนดูเฟรมภาพยนตร์ที่แทบไม่เปลี่ยน ซึ่งปูทางไปสู่การเปลี่ยนแปลงทีละน้อยที่ชายจากแกลเลอรีสังเกตเห็นภายหลัง"
+   },
+   "choices": [
+    "the boredom the narrator felt during long visits",
+    "a house so dark that visitors could hardly see",
+    "the uncle's habit of showing films to his guests",
+    "many paintings of one scene, each slightly different from the last"
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Inferring meaning from dialogue",
+    "th": "การอนุมานความหมายจากบทพูด"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "For forty years my uncle Prasit painted the same view: the river below his house, the temple roof on the far bank, and the hills beyond. He painted it at dawn and at dusk, in the rainy season and in the dry, and he sold almost none of the pictures. They stood stacked against the walls of every room, so that visiting him was like walking through a very slow film of the same afternoon.\n\nThe family regarded this as a harmless eccentricity, like his refusal to own a telephone. My mother, his younger sister, described him to strangers as \"artistic\", in the tone other people use for \"unemployed\".\n\nWhen he died, we expected to spend a weekend clearing the house. Instead, a man in a linen suit arrived from a gallery in the capital and asked, very politely, whether he might look at the paintings. He spent four hours with them. Then he asked whether we had noticed the temple.\n\nWe had not. Looking again, in the order he arranged them, we saw what forty years of glances had missed. In the earliest paintings the temple roof was bright and whole. Over the years it faded, cracked and sagged; in some of the later canvases it had all but disappeared behind the scaffolding of a new hotel. And then — in the final picture, finished a week before my uncle died — the hotel was gone, and the temple stood as it had in the first painting, golden and entire.\n\n\"The hotel is still there,\" my mother said quietly. \"I drove past it this morning.\"\n\nThe man in the linen suit nodded. \"Yes,\" he said. \"I don't think he was painting what he saw.\"\n\nThe exhibition opens next month. My mother has been to the gallery twice to help with the labels, and she has stopped saying \"artistic\" in that particular tone.",
+   "stem": "\"I don't think he was painting what he saw.\" What does this imply about the final painting?",
+   "explanation": {
+    "en": "The hotel still stands, yet the last painting shows the temple 'golden and entire' as in the first. So the uncle painted the view as he remembered or wished it to be.",
+    "th": "โรงแรมยังตั้งอยู่ แต่ภาพสุดท้ายกลับแสดงวัด 'สีทองและสมบูรณ์' เหมือนภาพแรก แปลว่าลุงวาดวิวตามความทรงจำหรือความปรารถนา ไม่ใช่ตามที่เห็นจริง"
+   },
+   "choices": [
+    "It was copied from a photograph of the temple.",
+    "It expressed the uncle's memory or wish rather than the scene as it really was.",
+    "It was painted by someone other than the uncle.",
+    "It proves that the hotel had been demolished."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting a story's ending",
+    "th": "การตีความตอนจบของเรื่อง"
+   },
+   "topic": {
+    "en": "Reading: short story",
+    "th": "การอ่าน: เรื่องสั้น"
+   },
+   "passage": "For forty years my uncle Prasit painted the same view: the river below his house, the temple roof on the far bank, and the hills beyond. He painted it at dawn and at dusk, in the rainy season and in the dry, and he sold almost none of the pictures. They stood stacked against the walls of every room, so that visiting him was like walking through a very slow film of the same afternoon.\n\nThe family regarded this as a harmless eccentricity, like his refusal to own a telephone. My mother, his younger sister, described him to strangers as \"artistic\", in the tone other people use for \"unemployed\".\n\nWhen he died, we expected to spend a weekend clearing the house. Instead, a man in a linen suit arrived from a gallery in the capital and asked, very politely, whether he might look at the paintings. He spent four hours with them. Then he asked whether we had noticed the temple.\n\nWe had not. Looking again, in the order he arranged them, we saw what forty years of glances had missed. In the earliest paintings the temple roof was bright and whole. Over the years it faded, cracked and sagged; in some of the later canvases it had all but disappeared behind the scaffolding of a new hotel. And then — in the final picture, finished a week before my uncle died — the hotel was gone, and the temple stood as it had in the first painting, golden and entire.\n\n\"The hotel is still there,\" my mother said quietly. \"I drove past it this morning.\"\n\nThe man in the linen suit nodded. \"Yes,\" he said. \"I don't think he was painting what he saw.\"\n\nThe exhibition opens next month. My mother has been to the gallery twice to help with the labels, and she has stopped saying \"artistic\" in that particular tone.",
+   "stem": "What does the final paragraph suggest?",
+   "explanation": {
+    "en": "She is helping with the exhibition and 'has stopped saying 'artistic' in that particular tone' — her disapproval has given way to appreciation.",
+    "th": "แม่ไปช่วยงานนิทรรศการ และ 'เลิกพูดคำว่า artistic ด้วยน้ำเสียงแบบนั้นแล้ว' แสดงว่าความไม่เห็นด้วยได้เปลี่ยนเป็นความชื่นชม"
+   },
+   "choices": [
+    "The mother is still embarrassed by her brother's paintings.",
+    "The mother's view of her brother has changed to something closer to respect.",
+    "The gallery has asked the mother to become an artist.",
+    "The family plans to sell the paintings to the hotel."
+   ],
+   "answer": 1
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Main criticism in a review",
+    "th": "คำวิจารณ์หลัก"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "The new Central Library has been open for six weeks, and it has already appeared in three international design magazines. It is not hard to see why. The building is a gleaming curve of glass and white concrete that seems to float above the plaza, and at night, lit from within, it looks less like a library than a lantern someone has set down gently on the city. Photographers adore it.\n\nReaders may be less enthusiastic. The main reading room, the building's centrepiece, is a vast, echoing space with a ceiling four storeys high. It is magnificent to stand in and almost impossible to concentrate in: every footstep, every whispered conversation, every chair scraped across the stone floor carries to the far corners. On both of my visits, the most crowded area of the building was not the reading room at all but a narrow, carpeted corridor on the second floor, where students sat on the floor with their backs against the wall because it was the only quiet place they could find.\n\nThe books themselves seem almost an afterthought. Large parts of the collection have been moved to an off-site store and must be ordered two days in advance; the shelves that remain have been arranged, apparently, for visual effect, with the result that the children's section is on the top floor, reached by a staircase that no parent with a pushchair will enjoy.\n\nNone of this is to say the building is a failure. As a civic symbol it is undeniably powerful, and the plaza outside has quickly become a popular place to meet. But a library is not only a symbol. It is a place where people need to sit, think and find things, and on those modest measures the Central Library has some way to go. Perhaps its next prize could be for acoustics.",
+   "stem": "What is the writer's main criticism of the Central Library?",
+   "explanation": {
+    "en": "The review praises the look of the building but criticises noise, hidden books and an awkward layout — all practical problems for readers. The plaza is called popular, and the press attention is real.",
+    "th": "บทวิจารณ์ชมรูปลักษณ์ของอาคาร แต่ติเรื่องเสียงดัง หนังสือที่ถูกเก็บไว้ที่อื่น และการจัดวางที่ไม่สะดวก ซึ่งเป็นปัญหาการใช้งานจริง ส่วนลานหน้าอาคารได้รับความนิยม"
+   },
+   "choices": [
+    "It is designed more for appearance than for the practical needs of library users.",
+    "It is too small for the number of people who visit it.",
+    "It has received too little attention from the international press.",
+    "Its plaza is unpopular with local residents."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Purpose of an example",
+    "th": "จุดประสงค์ของการยกตัวอย่าง"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "The new Central Library has been open for six weeks, and it has already appeared in three international design magazines. It is not hard to see why. The building is a gleaming curve of glass and white concrete that seems to float above the plaza, and at night, lit from within, it looks less like a library than a lantern someone has set down gently on the city. Photographers adore it.\n\nReaders may be less enthusiastic. The main reading room, the building's centrepiece, is a vast, echoing space with a ceiling four storeys high. It is magnificent to stand in and almost impossible to concentrate in: every footstep, every whispered conversation, every chair scraped across the stone floor carries to the far corners. On both of my visits, the most crowded area of the building was not the reading room at all but a narrow, carpeted corridor on the second floor, where students sat on the floor with their backs against the wall because it was the only quiet place they could find.\n\nThe books themselves seem almost an afterthought. Large parts of the collection have been moved to an off-site store and must be ordered two days in advance; the shelves that remain have been arranged, apparently, for visual effect, with the result that the children's section is on the top floor, reached by a staircase that no parent with a pushchair will enjoy.\n\nNone of this is to say the building is a failure. As a civic symbol it is undeniably powerful, and the plaza outside has quickly become a popular place to meet. But a library is not only a symbol. It is a place where people need to sit, think and find things, and on those modest measures the Central Library has some way to go. Perhaps its next prize could be for acoustics.",
+   "stem": "Why does the writer describe students sitting in a carpeted corridor?",
+   "explanation": {
+    "en": "The students crowd the corridor 'because it was the only quiet place they could find', which proves the echoing reading room fails as a place to study.",
+    "th": "นักเรียนไปนั่งเบียดที่ทางเดิน 'เพราะเป็นที่เดียวที่เงียบ' แสดงว่าห้องอ่านหนังสือหลักที่เสียงก้องใช้ทำงานไม่ได้"
+   },
+   "choices": [
+    "To show that the library has too few chairs",
+    "To praise the students for their hard work",
+    "To show that the main reading room is too noisy to work in",
+    "To suggest that the corridor should be turned into a café"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting juxtaposed sentences",
+    "th": "การตีความประโยคที่วางเทียบกัน"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "The new Central Library has been open for six weeks, and it has already appeared in three international design magazines. It is not hard to see why. The building is a gleaming curve of glass and white concrete that seems to float above the plaza, and at night, lit from within, it looks less like a library than a lantern someone has set down gently on the city. Photographers adore it.\n\nReaders may be less enthusiastic. The main reading room, the building's centrepiece, is a vast, echoing space with a ceiling four storeys high. It is magnificent to stand in and almost impossible to concentrate in: every footstep, every whispered conversation, every chair scraped across the stone floor carries to the far corners. On both of my visits, the most crowded area of the building was not the reading room at all but a narrow, carpeted corridor on the second floor, where students sat on the floor with their backs against the wall because it was the only quiet place they could find.\n\nThe books themselves seem almost an afterthought. Large parts of the collection have been moved to an off-site store and must be ordered two days in advance; the shelves that remain have been arranged, apparently, for visual effect, with the result that the children's section is on the top floor, reached by a staircase that no parent with a pushchair will enjoy.\n\nNone of this is to say the building is a failure. As a civic symbol it is undeniably powerful, and the plaza outside has quickly become a popular place to meet. But a library is not only a symbol. It is a place where people need to sit, think and find things, and on those modest measures the Central Library has some way to go. Perhaps its next prize could be for acoustics.",
+   "stem": "The short sentences \"Photographers adore it.\" and \"Readers may be less enthusiastic.\" are placed side by side to suggest that the building ______.",
+   "explanation": {
+    "en": "Photographers judge appearance; readers judge use. Setting the two reactions next to each other introduces the review's central contrast between image and function.",
+    "th": "ช่างภาพตัดสินที่รูปลักษณ์ ส่วนผู้อ่านตัดสินที่การใช้งาน การวางสองประโยคนี้เคียงกันจึงปูประเด็นหลักของบทวิจารณ์ คือความขัดแย้งระหว่างภาพลักษณ์กับการใช้งานจริง"
+   },
+   "choices": [
+    "is too expensive to visit",
+    "is more popular with tourists than with residents",
+    "looks better than it works",
+    "will soon be redesigned"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Recognising understatement",
+    "th": "การรู้ทันการพูดน้อยกว่าความจริง (understatement)"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "The new Central Library has been open for six weeks, and it has already appeared in three international design magazines. It is not hard to see why. The building is a gleaming curve of glass and white concrete that seems to float above the plaza, and at night, lit from within, it looks less like a library than a lantern someone has set down gently on the city. Photographers adore it.\n\nReaders may be less enthusiastic. The main reading room, the building's centrepiece, is a vast, echoing space with a ceiling four storeys high. It is magnificent to stand in and almost impossible to concentrate in: every footstep, every whispered conversation, every chair scraped across the stone floor carries to the far corners. On both of my visits, the most crowded area of the building was not the reading room at all but a narrow, carpeted corridor on the second floor, where students sat on the floor with their backs against the wall because it was the only quiet place they could find.\n\nThe books themselves seem almost an afterthought. Large parts of the collection have been moved to an off-site store and must be ordered two days in advance; the shelves that remain have been arranged, apparently, for visual effect, with the result that the children's section is on the top floor, reached by a staircase that no parent with a pushchair will enjoy.\n\nNone of this is to say the building is a failure. As a civic symbol it is undeniably powerful, and the plaza outside has quickly become a popular place to meet. But a library is not only a symbol. It is a place where people need to sit, think and find things, and on those modest measures the Central Library has some way to go. Perhaps its next prize could be for acoustics.",
+   "stem": "\"…a staircase that no parent with a pushchair will enjoy.\" The writer's tone here is best described as ______.",
+   "explanation": {
+    "en": "Saying parents will not 'enjoy' the stairs is a mild way of saying the children's section is almost inaccessible to them — irony through understatement.",
+    "th": "การบอกว่าพ่อแม่ที่เข็นรถเข็นเด็กจะไม่ 'สนุก' กับบันได เป็นการพูดเบา ๆ ว่าแผนกหนังสือเด็กแทบเข้าถึงไม่ได้ จึงเป็นการประชดด้วยการพูดน้อยกว่าความจริง"
+   },
+   "choices": [
+    "light-hearted praise of the design",
+    "genuine sympathy for the architects",
+    "understated irony that points to a real practical problem",
+    "angry and openly insulting"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting a sarcastic conclusion",
+    "th": "การตีความบทสรุปเชิงเสียดสี"
+   },
+   "topic": {
+    "en": "Reading: critical review",
+    "th": "การอ่าน: บทวิจารณ์"
+   },
+   "passage": "The new Central Library has been open for six weeks, and it has already appeared in three international design magazines. It is not hard to see why. The building is a gleaming curve of glass and white concrete that seems to float above the plaza, and at night, lit from within, it looks less like a library than a lantern someone has set down gently on the city. Photographers adore it.\n\nReaders may be less enthusiastic. The main reading room, the building's centrepiece, is a vast, echoing space with a ceiling four storeys high. It is magnificent to stand in and almost impossible to concentrate in: every footstep, every whispered conversation, every chair scraped across the stone floor carries to the far corners. On both of my visits, the most crowded area of the building was not the reading room at all but a narrow, carpeted corridor on the second floor, where students sat on the floor with their backs against the wall because it was the only quiet place they could find.\n\nThe books themselves seem almost an afterthought. Large parts of the collection have been moved to an off-site store and must be ordered two days in advance; the shelves that remain have been arranged, apparently, for visual effect, with the result that the children's section is on the top floor, reached by a staircase that no parent with a pushchair will enjoy.\n\nNone of this is to say the building is a failure. As a civic symbol it is undeniably powerful, and the plaza outside has quickly become a popular place to meet. But a library is not only a symbol. It is a place where people need to sit, think and find things, and on those modest measures the Central Library has some way to go. Perhaps its next prize could be for acoustics.",
+   "stem": "What is implied by the final sentence, \"Perhaps its next prize could be for acoustics\"?",
+   "explanation": {
+    "en": "After describing the echoing reading room, the writer sarcastically 'suggests' a prize for the very thing the building does worst.",
+    "th": "หลังจากบรรยายว่าห้องอ่านหนังสือเสียงก้อง ผู้เขียน 'เสนอ' รางวัลด้านระบบเสียงอย่างเสียดสี ซึ่งเป็นสิ่งที่อาคารทำได้แย่ที่สุด"
+   },
+   "choices": [
+    "Sound control is one of the building's weakest points, so such a prize is unlikely.",
+    "The architects plan to hold concerts in the reading room.",
+    "The writer believes the building has won too few prizes.",
+    "The library is likely to win an award for its acoustics soon."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Writer's view of a popular idea",
+    "th": "ความเห็นของผู้เขียนต่อแนวคิดที่นิยม"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "Every few months, an article appears listing the \"untranslatable words\" of the world's languages: the Portuguese saudade, the Japanese wabi-sabi, the Thai kreng jai. Such lists are charming, and they usually come with the suggestion that each word opens a window onto a unique national soul. The Danes, we are told, are happier because they have hygge.\n\nLinguists tend to be more sceptical. For one thing, almost any word can be translated if one is willing to use a phrase rather than a single word. Kreng jai may have no exact English equivalent, but its meaning — a reluctance to impose on others, out of consideration for their feelings — can be explained perfectly well in a sentence. What is lost is not the idea but the convenience of having it packed into a single, familiar word.\n\nFor another, the claim that a language determines what its speakers are able to think has a long and troubled history. In its strongest form, it suggests that speakers of a language without a word for something cannot grasp the concept at all — an idea the evidence has largely failed to support. English speakers have no trouble recognising the feeling the Germans call Schadenfreude; they have simply had to borrow the word.\n\nYet the sceptics can be too dismissive. There is good evidence that language influences, in subtler ways, what we notice and remember. Speakers of languages that require them to mark whether information was seen directly or merely heard about, for example, may pay closer attention to the source of what they know. A word does not create a feeling, but having one may make it easier to recognise, to discuss and, perhaps, to value.\n\nThe truth, then, is less romantic than the lists suggest, but more interesting. Languages do not lock us inside separate worlds. They simply light some corners of the shared one more brightly than others.",
+   "stem": "What is the writer's view of lists of \"untranslatable words\"?",
+   "explanation": {
+    "en": "The writer calls them 'charming' but rejects the 'national soul' claim and ends by calling the truth 'less romantic than the lists suggest'.",
+    "th": "ผู้เขียนเรียกว่า 'น่ารัก' แต่ไม่เห็นด้วยกับข้ออ้างเรื่อง 'จิตวิญญาณของชาติ' และสรุปว่าความจริง 'โรแมนติกน้อยกว่าที่รายการเหล่านั้นบอก'"
+   },
+   "choices": [
+    "They are dishonest and should not be published.",
+    "They prove that some ideas cannot be expressed in English.",
+    "They are scientifically accurate and should be used in schools.",
+    "They are appealing but exaggerate how much one word reveals about a culture."
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "m",
+   "skill": {
+    "en": "Purpose of an example",
+    "th": "จุดประสงค์ของการยกตัวอย่าง"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "Every few months, an article appears listing the \"untranslatable words\" of the world's languages: the Portuguese saudade, the Japanese wabi-sabi, the Thai kreng jai. Such lists are charming, and they usually come with the suggestion that each word opens a window onto a unique national soul. The Danes, we are told, are happier because they have hygge.\n\nLinguists tend to be more sceptical. For one thing, almost any word can be translated if one is willing to use a phrase rather than a single word. Kreng jai may have no exact English equivalent, but its meaning — a reluctance to impose on others, out of consideration for their feelings — can be explained perfectly well in a sentence. What is lost is not the idea but the convenience of having it packed into a single, familiar word.\n\nFor another, the claim that a language determines what its speakers are able to think has a long and troubled history. In its strongest form, it suggests that speakers of a language without a word for something cannot grasp the concept at all — an idea the evidence has largely failed to support. English speakers have no trouble recognising the feeling the Germans call Schadenfreude; they have simply had to borrow the word.\n\nYet the sceptics can be too dismissive. There is good evidence that language influences, in subtler ways, what we notice and remember. Speakers of languages that require them to mark whether information was seen directly or merely heard about, for example, may pay closer attention to the source of what they know. A word does not create a feeling, but having one may make it easier to recognise, to discuss and, perhaps, to value.\n\nThe truth, then, is less romantic than the lists suggest, but more interesting. Languages do not lock us inside separate worlds. They simply light some corners of the shared one more brightly than others.",
+   "stem": "Why does the writer mention Schadenfreude?",
+   "explanation": {
+    "en": "English speakers 'have no trouble recognising the feeling'; they just borrowed the word. This counters the strong claim that without a word you cannot grasp the concept.",
+    "th": "ผู้พูดภาษาอังกฤษ 'เข้าใจความรู้สึกนี้ได้โดยไม่ลำบาก' เพียงแต่ยืมคำมาใช้ ตัวอย่างนี้จึงหักล้างข้ออ้างว่าถ้าไม่มีคำก็เข้าใจแนวคิดไม่ได้"
+   },
+   "choices": [
+    "To prove that German has more words for feelings than English",
+    "To argue that English should stop borrowing foreign words",
+    "To show that people can understand a concept even when their language lacks a word for it",
+    "To show that some feelings exist only in Germany"
+   ],
+   "answer": 2
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting a key sentence",
+    "th": "การตีความประโยคสำคัญ"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "Every few months, an article appears listing the \"untranslatable words\" of the world's languages: the Portuguese saudade, the Japanese wabi-sabi, the Thai kreng jai. Such lists are charming, and they usually come with the suggestion that each word opens a window onto a unique national soul. The Danes, we are told, are happier because they have hygge.\n\nLinguists tend to be more sceptical. For one thing, almost any word can be translated if one is willing to use a phrase rather than a single word. Kreng jai may have no exact English equivalent, but its meaning — a reluctance to impose on others, out of consideration for their feelings — can be explained perfectly well in a sentence. What is lost is not the idea but the convenience of having it packed into a single, familiar word.\n\nFor another, the claim that a language determines what its speakers are able to think has a long and troubled history. In its strongest form, it suggests that speakers of a language without a word for something cannot grasp the concept at all — an idea the evidence has largely failed to support. English speakers have no trouble recognising the feeling the Germans call Schadenfreude; they have simply had to borrow the word.\n\nYet the sceptics can be too dismissive. There is good evidence that language influences, in subtler ways, what we notice and remember. Speakers of languages that require them to mark whether information was seen directly or merely heard about, for example, may pay closer attention to the source of what they know. A word does not create a feeling, but having one may make it easier to recognise, to discuss and, perhaps, to value.\n\nThe truth, then, is less romantic than the lists suggest, but more interesting. Languages do not lock us inside separate worlds. They simply light some corners of the shared one more brightly than others.",
+   "stem": "\"What is lost is not the idea but the convenience.\" What does the writer mean?",
+   "explanation": {
+    "en": "The meaning of kreng jai 'can be explained perfectly well in a sentence'; only the neatness of one familiar word is lost.",
+    "th": "ความหมายของ kreng jai 'อธิบายได้ดีในหนึ่งประโยค' สิ่งที่เสียไปมีเพียงความสะดวกของการมีคำเดียวที่คุ้นเคย"
+   },
+   "choices": [
+    "Translators often lose important ideas because they work too quickly.",
+    "The idea behind kreng jai cannot be understood by foreigners.",
+    "Single words are always more accurate than explanations.",
+    "Translating such a word may need a longer explanation, but its meaning can still be conveyed."
+   ],
+   "answer": 3
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Function of a paragraph in an argument",
+    "th": "หน้าที่ของย่อหน้าในการโต้แย้ง"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "Every few months, an article appears listing the \"untranslatable words\" of the world's languages: the Portuguese saudade, the Japanese wabi-sabi, the Thai kreng jai. Such lists are charming, and they usually come with the suggestion that each word opens a window onto a unique national soul. The Danes, we are told, are happier because they have hygge.\n\nLinguists tend to be more sceptical. For one thing, almost any word can be translated if one is willing to use a phrase rather than a single word. Kreng jai may have no exact English equivalent, but its meaning — a reluctance to impose on others, out of consideration for their feelings — can be explained perfectly well in a sentence. What is lost is not the idea but the convenience of having it packed into a single, familiar word.\n\nFor another, the claim that a language determines what its speakers are able to think has a long and troubled history. In its strongest form, it suggests that speakers of a language without a word for something cannot grasp the concept at all — an idea the evidence has largely failed to support. English speakers have no trouble recognising the feeling the Germans call Schadenfreude; they have simply had to borrow the word.\n\nYet the sceptics can be too dismissive. There is good evidence that language influences, in subtler ways, what we notice and remember. Speakers of languages that require them to mark whether information was seen directly or merely heard about, for example, may pay closer attention to the source of what they know. A word does not create a feeling, but having one may make it easier to recognise, to discuss and, perhaps, to value.\n\nThe truth, then, is less romantic than the lists suggest, but more interesting. Languages do not lock us inside separate worlds. They simply light some corners of the shared one more brightly than others.",
+   "stem": "What is the function of the fourth paragraph?",
+   "explanation": {
+    "en": "'Yet the sceptics can be too dismissive' turns the argument: language does not determine thought, but it may influence 'in subtler ways' what we notice — a weaker, more defensible claim.",
+    "th": "Yet the sceptics can be too dismissive เป็นการหักเห ภาษาไม่ได้กำหนดความคิด แต่อาจมีอิทธิพล 'อย่างแนบเนียนกว่า' ต่อสิ่งที่เราสังเกต ซึ่งเป็นข้ออ้างที่อ่อนลงและหนักแน่นกว่า"
+   },
+   "choices": [
+    "It qualifies the sceptics' position by accepting a weaker version of the claim.",
+    "It fully supports the idea that language determines thought.",
+    "It repeats the sceptics' argument with new examples.",
+    "It introduces a new topic unrelated to translation."
+   ],
+   "answer": 0
+  },
+  {
+   "kind": "m1",
+   "program": "tu4",
+   "subject": "eng",
+   "lang": "en",
+   "format": "mcq",
+   "part": "reading",
+   "difficulty": "h",
+   "skill": {
+    "en": "Interpreting a concluding metaphor",
+    "th": "การตีความอุปลักษณ์ในบทสรุป"
+   },
+   "topic": {
+    "en": "Reading: essay / feature",
+    "th": "การอ่าน: บทความเชิงสารคดี"
+   },
+   "passage": "Every few months, an article appears listing the \"untranslatable words\" of the world's languages: the Portuguese saudade, the Japanese wabi-sabi, the Thai kreng jai. Such lists are charming, and they usually come with the suggestion that each word opens a window onto a unique national soul. The Danes, we are told, are happier because they have hygge.\n\nLinguists tend to be more sceptical. For one thing, almost any word can be translated if one is willing to use a phrase rather than a single word. Kreng jai may have no exact English equivalent, but its meaning — a reluctance to impose on others, out of consideration for their feelings — can be explained perfectly well in a sentence. What is lost is not the idea but the convenience of having it packed into a single, familiar word.\n\nFor another, the claim that a language determines what its speakers are able to think has a long and troubled history. In its strongest form, it suggests that speakers of a language without a word for something cannot grasp the concept at all — an idea the evidence has largely failed to support. English speakers have no trouble recognising the feeling the Germans call Schadenfreude; they have simply had to borrow the word.\n\nYet the sceptics can be too dismissive. There is good evidence that language influences, in subtler ways, what we notice and remember. Speakers of languages that require them to mark whether information was seen directly or merely heard about, for example, may pay closer attention to the source of what they know. A word does not create a feeling, but having one may make it easier to recognise, to discuss and, perhaps, to value.\n\nThe truth, then, is less romantic than the lists suggest, but more interesting. Languages do not lock us inside separate worlds. They simply light some corners of the shared one more brightly than others.",
+   "stem": "\"They simply light some corners of the shared one more brightly than others.\" What does this metaphor suggest?",
+   "explanation": {
+    "en": "'The shared one' is the one world we all live in. Languages do not separate us into different worlds; they just draw more attention to some aspects of it.",
+    "th": "the shared one หมายถึงโลกเดียวที่ทุกคนอยู่ร่วมกัน ภาษาไม่ได้แยกเราไปอยู่คนละโลก เพียงทำให้เราสังเกตบางแง่มุมของโลกนั้นได้ชัดกว่า"
+   },
+   "choices": [
+    "Speakers of different languages live in completely different worlds.",
+    "Languages make speakers more attentive to certain parts of a reality everyone shares.",
+    "Languages with more words are easier to learn.",
+    "Some languages are more advanced than others."
+   ],
+   "answer": 1
+  }
+ ]
+}
