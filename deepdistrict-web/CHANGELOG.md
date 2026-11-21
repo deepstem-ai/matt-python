@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.5 r14 — November 2026
+- **Payment notice for a round that has already started:** it says how many lessons were already taught (with the
+  dates) and asks to pay **before the next lesson** instead of "before the first lesson"; the text for LINE matches.
+
 ## 6.5 r13 — November 2026
 - `CLAUDE.md` now ships inside the program folder, so a Claude Code session on the owner's own computer follows the
   same rules: real data is frozen, records are only ever added with `tools/add_records.py`, backups first.

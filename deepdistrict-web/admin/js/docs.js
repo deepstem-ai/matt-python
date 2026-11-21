@@ -273,7 +273,13 @@
   function roundInfo(e) {
     var ls = A.sessionsOf(e.id).filter(function (s) { return s.status !== "cancelled"; });
     var d = function (x) { return A.fmtDate(x, { day: "numeric", month: "short", year: "numeric" }); };
-    return { n: ls.length, first: ls.length ? ls[0].date : e.start, last: ls.length ? ls[ls.length - 1].date : "", d: d };
+    var today = A.today(), live = ls.filter(function (s) { return s.status !== "rescheduled"; });
+    var taught = live.filter(function (s) { return A.counts(s) || (s.status === "scheduled" && s.date < today); });
+    var next = live.filter(function (s) { return s.status === "scheduled" && s.date >= today; })[0];
+    var started = !!(live.length && live[0].date < today);
+    var dueBy = !started ? (live.length ? live[0].date : "") : next ? next.date : A.addDays(today, 3);
+    return { n: live.length, first: live.length ? live[0].date : e.start, last: live.length ? live[live.length - 1].date : "", d: d,
+             started: started, taught: taught, next: next, dueBy: dueBy };
   }
   function addressee(e) {
     var stu = A.byId("users", e.studentId) || {}, g = stu.guardianId && A.byId("users", stu.guardianId), kid = stu.nick || stu.name || "";
@@ -289,8 +295,10 @@
       "<p>" + L("Thank you very much for your continued trust in DeepDistrict" + (who.kid ? " to look after " + esc(who.kid) + "'s learning" : "") + ". We are delighted to continue with the next round of <b>" + esc(A.courseName(e.courseCode)) + "</b>" + (prevE ? "" : "") + ".",
         "ขอขอบพระคุณเป็นอย่างสูงที่ไว้วางใจให้ DeepDistrict ได้ดูแลการเรียนของน้อง" + esc(who.kid) + " มาโดยตลอด ทางเรายินดีเป็นอย่างยิ่งที่ได้ดูแลน้องต่อในคอร์ส <b>" + esc(A.courseName(e.courseCode)) + "</b> รอบใหม่") + "</p>" +
       "<p>" + (fee ? L("We will confirm the course fee for this round with you shortly.", "ทางเราจะแจ้งยืนยันค่าเรียนของรอบนี้ให้ทราบอีกครั้งในเร็ว ๆ นี้")
-        : due > 0.009 ? L("May we kindly ask you to settle the course fee of <b>" + A.money(due) + "</b>" + (r.first ? " before the first lesson on " + esc(r.d(r.first)) : "") + ", using the bank account below.",
-            "จึงใคร่ขอความกรุณาชำระค่าเรียนจำนวน <b>" + A.money(due) + "</b>" + (r.first ? " ก่อนวันเริ่มเรียนรอบใหม่ (" + esc(r.d(r.first)) + ")" : "") + " ผ่านบัญชีธนาคารด้านล่างนี้")
+        : due > 0.009 ? (r.started && r.taught.length ? L(who.kid ? esc(who.kid) + " has already joined " + r.taught.length + " lesson(s) of this round (" + esc(r.taught.map(function (x) { return r.d(x.date); }).join(", ")) + "). " : "",
+              "น้อง" + esc(who.kid) + "เริ่มเรียนรอบนี้แล้ว " + r.taught.length + " ครั้ง (" + esc(r.taught.map(function (x) { return r.d(x.date); }).join(", ")) + ") ") : "") +
+          L("May we kindly ask you to settle the course fee of <b>" + A.money(due) + "</b>" + (r.dueBy ? (r.started ? (r.next ? " before the next lesson on " : " by ") : " before the first lesson on ") + esc(r.d(r.dueBy)) : "") + ", using the bank account below.",
+            "จึงใคร่ขอความกรุณาชำระค่าเรียนจำนวน <b>" + A.money(due) + "</b>" + (r.dueBy ? (r.started ? (r.next ? " ก่อนคาบเรียนถัดไป (" : " ภายในวันที่ (") : " ก่อนวันเริ่มเรียนรอบใหม่ (") + esc(r.d(r.dueBy)) + ")" : "") + " ผ่านบัญชีธนาคารด้านล่างนี้")
         : L("The fee for this round has been paid in full — thank you.", "ค่าเรียนของรอบนี้ชำระครบเรียบร้อยแล้ว ขอบพระคุณมากค่ะ/ครับ")) + "</p></div>" +
       learnerBlock(e) +
       '<dl class="rp-meta rp-meta--small"><div><dt>' + L("New round", "รอบเรียนใหม่") + "</dt><dd>" + esc(when || "–") + "</dd></div>" +
@@ -319,7 +327,11 @@
     if (e.pattern && e.pattern.length) lines.push(L("Regular time: ", "วันเวลาเรียน: ") + A.patternText(e.pattern));
     lines.push("");
     if (fee) lines.push(L("We will confirm the course fee for this round with you shortly.", "ทางเราจะแจ้งยืนยันค่าเรียนของรอบนี้ให้ทราบอีกครั้งในเร็ว ๆ นี้"));
-    else if (due > 0.009) lines.push(L("Amount to pay: " + A.money(due) + (r.first ? " (before " + r.d(r.first) + ")" : ""), "ยอดที่ต้องชำระ: " + A.money(due) + (r.first ? " (ก่อนวันเริ่มเรียน " + r.d(r.first) + ")" : "")));
+    else if (due > 0.009) {
+      if (r.started && r.taught.length) lines.push(L("Lessons already taught in this round: " + r.taught.length + " (" + r.taught.map(function (x) { return r.d(x.date); }).join(", ") + ")", "เรียนรอบนี้ไปแล้ว " + r.taught.length + " ครั้ง (" + r.taught.map(function (x) { return r.d(x.date); }).join(", ") + ")"));
+      lines.push(L("Amount to pay: " + A.money(due) + (r.dueBy ? (r.started ? (r.next ? " (before the next lesson, " : " (by ") : " (before ") + r.d(r.dueBy) + ")" : ""),
+                   "ยอดที่ต้องชำระ: " + A.money(due) + (r.dueBy ? (r.started ? (r.next ? " (ก่อนคาบเรียนถัดไป " : " (ภายใน ") : " (ก่อนวันเริ่มเรียน ") + r.d(r.dueBy) + ")" : "")));
+    }
     else lines.push(L("The fee for this round has been paid in full — thank you.", "ค่าเรียนของรอบนี้ชำระครบเรียบร้อยแล้ว ขอบพระคุณมากค่ะ/ครับ"));
     if (fee || due > 0.009) lines.push("", L("Please transfer to", "กรุณาโอนเข้าบัญชี"), L("Bank: ", "ธนาคาร: ") + L(b.bankEn, b.bank), L("Account name: ", "ชื่อบัญชี: ") + b.name, L("Account no.: ", "เลขที่บัญชี: ") + b.no, "",
       L("Once transferred, please send us the transfer slip by LINE or email — we will issue the receipt right away.", "เมื่อโอนเรียบร้อยแล้ว รบกวนส่งสลิปการโอนกลับมาทาง LINE หรืออีเมล เพื่อให้ทางเราออกใบเสร็จรับเงินให้ทันที"),
