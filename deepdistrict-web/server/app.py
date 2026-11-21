@@ -518,6 +518,47 @@ def import_batch(con, f, me=None):
     return added
 
 
+def add_records(con, b, me, preview=False):
+    """ADD ONLY: add the records of a prepared file whose ids are not in the database yet. A record that already
+    exists — even archived — is left exactly as it is; nothing is updated, archived or removed. Used by
+    Data → Add records from a file and by tools/add_records.py."""
+    have = {(r["col"], r["id"]) for r in con.execute("SELECT col, id FROM records")}
+    new = {c: [r for r in (b.get(c) or []) if isinstance(r, dict) and r.get("id") and (c, r["id"]) not in have] for c in COLLECTIONS}
+    skipped = sum(len([r for r in (b.get(c) or []) if isinstance(r, dict) and (c, r.get("id")) in have]) for c in COLLECTIONS)
+    ids = lambda c: {i for (cc, i) in have if cc == c} | {r["id"] for r in new.get(c, [])}
+    users, enrs = ids("users"), ids("enrolments")
+    missing = [e["id"] for e in new["enrolments"] if e.get("studentId") not in users] + \
+              [x["id"] for x in new["sessions"] if x.get("enrolmentId") not in enrs] + \
+              [x["id"] for x in new["payments"] if x.get("enrolmentId") not in enrs]
+    if missing:
+        raise ValueError("the file refers to a learner or enrolment that is not in this system: " + ", ".join(missing[:5]))
+    cc = get_kv(con, "customCourses", []) or []
+    codes = {c.get("code") for c in cc}
+    new_cc = [c for c in (b.get("customCourses") or []) if isinstance(c, dict) and c.get("code") and c["code"] not in codes]
+    names = {u["id"]: u.get("name") for u in load_col(con, "users")}
+    names.update({u["id"]: u.get("name") for u in new["users"]})
+    summary = {"added": {c: len(v) for c, v in new.items() if v}, "courses": [c["code"] for c in new_cc], "skipped": skipped,
+               "students": sorted({names.get(e.get("studentId"), "") for e in new["enrolments"]})}
+    if preview:
+        return summary
+    by = (me or {}).get("id") or "add-file"
+    before = {(r["col"], r["id"]): (r["data"], r["archived"]) for r in con.execute("SELECT col, id, data, archived FROM records")}
+    for c, recs in new.items():
+        for r in recs:
+            put_rec(con, c, r, by)
+    after = {(r["col"], r["id"]): (r["data"], r["archived"]) for r in con.execute("SELECT col, id, data, archived FROM records")}
+    if any(after.get(k) != v for k, v in before.items()):      # belt and braces: an existing record must never change
+        con.rollback()
+        raise ValueError("an existing record would have changed — nothing was added")
+    if new_cc:
+        set_kv(con, "customCourses", cc + new_cc)
+    done = get_kv(con, "importDone", {}) or {}
+    done[str(b.get("id") or "file")] = {"at": now_iso(), "by": by, "addOnly": True, "final": True}
+    set_kv(con, "importDone", done)
+    audit(con, me, "Added records from a file: " + ", ".join(f"{v} {k}" for k, v in summary["added"].items()) + (f" ({skipped} already there, left as they are)" if skipped else ""))
+    return dict(summary, ok=True)
+
+
 def import_on_start(con):
     """Real records prepared for this centre are added by themselves on the first start after an update (once per
     file). Nothing that is already there is changed or removed."""
@@ -1222,40 +1263,14 @@ def api(environ, start, path):
                             "counts": {k: len(b.get(k) or []) for k in COLLECTIONS + ("customCourses",)}})
             return respond(start, "200 OK", {"items": out})
         if path == "import/add" and method == "POST":
-            # Add records from a prepared file (an admin uploads it in Data). ADD ONLY: a record whose id already
-            # exists — even archived — is left exactly as it is; nothing is updated, archived or removed.
             b = body.get("file") if isinstance(body.get("file"), dict) else None
             if not b:
                 return respond(start, "400 Bad Request", {"error": "not a DeepDistrict records file"})
-            have = {(r["col"], r["id"]) for r in con.execute("SELECT col, id FROM records")}
-            new = {c: [r for r in (b.get(c) or []) if isinstance(r, dict) and r.get("id") and (c, r["id"]) not in have] for c in COLLECTIONS}
-            skipped = sum(len([r for r in (b.get(c) or []) if isinstance(r, dict) and (c, r.get("id")) in have]) for c in COLLECTIONS)
-            ids = lambda c: {i for (cc, i) in have if cc == c} | {r["id"] for r in new.get(c, [])}
-            users, enrs = ids("users"), ids("enrolments")
-            missing = [e["id"] for e in new["enrolments"] if e.get("studentId") not in users] + \
-                      [s["id"] for s in new["sessions"] if s.get("enrolmentId") not in enrs] + \
-                      [p["id"] for p in new["payments"] if p.get("enrolmentId") not in enrs]
-            if missing:
-                return respond(start, "400 Bad Request", {"error": "the file refers to a learner or enrolment that is not in this system: " + ", ".join(missing[:5])})
-            cc = get_kv(con, "customCourses", []) or []
-            codes = {c.get("code") for c in cc}
-            new_cc = [c for c in (b.get("customCourses") or []) if isinstance(c, dict) and c.get("code") and c["code"] not in codes]
-            names = {u["id"]: u.get("name") for u in load_col(con, "users")}
-            names.update({u["id"]: u.get("name") for u in new["users"]})
-            summary = {"added": {c: len(v) for c, v in new.items() if v}, "courses": [c["code"] for c in new_cc], "skipped": skipped,
-                       "students": sorted({names.get(e.get("studentId"), "") for e in new["enrolments"]})}
-            if body.get("preview"):
-                return respond(start, "200 OK", summary)
-            for c, recs in new.items():
-                for r in recs:
-                    put_rec(con, c, r, me["id"])
-            if new_cc:
-                set_kv(con, "customCourses", cc + new_cc)
-            done = get_kv(con, "importDone", {}) or {}
-            done[str(b.get("id") or "file")] = {"at": now_iso(), "by": me["id"], "addOnly": True, "final": True}
-            set_kv(con, "importDone", done)
-            audit(con, me, "Added records from a file: " + ", ".join(f"{v} {k}" for k, v in summary["added"].items()) + (f" ({skipped} already there, left as they are)" if skipped else ""))
-            return respond(start, "200 OK", dict(summary, ok=True))
+            try:
+                summary = add_records(con, b, me, preview=bool(body.get("preview")))
+            except ValueError as e:
+                return respond(start, "400 Bad Request", {"error": str(e)})
+            return respond(start, "200 OK", summary)
         if path == "import/batch" and method == "POST":
             bid = str(body.get("id") or "")
             f = ROOT / "server" / "real_data" / (bid + ".json")

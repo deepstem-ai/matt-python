@@ -18,6 +18,21 @@ From now on:
 - If a request seems to need a data change, explain what the staff should do in the back office instead,
   or ask the owner first.
 
+## Adding records the owner asks for (the only allowed data change)
+
+When the owner asks to add learners / lessons and this session runs on the computer that holds the data
+(`deepdistrict-web/server/data/deepdistrict.db`):
+
+1. Put the records in a DeepDistrict records file (.json — same shape as an export: `users`, `enrolments`,
+   `sessions`, `payments`, `customCourses`; NEW ids only). Never include a record that already exists.
+2. Run `python3 deepdistrict-web/tools/add_records.py <file.json>` (shows the summary, asks; `--yes` to skip).
+   It backs the database up first (`server/data/backups/before-add-*.db`), adds only new ids, verifies every
+   existing record is byte-for-byte unchanged (or rolls back), and adding the same file twice adds nothing.
+3. Tell the owner to refresh the back office. Staff can do the same from More menus → Data → Add records from a file.
+
+Never edit, move, cancel or delete existing records this way — those changes are made by staff in the back office
+(they need a reason and are marked on the lesson).
+
 ## Releases
 
 - Build the zip with `git archive` from the repository root (`deepdistrict-web/` prefix); bump the version with

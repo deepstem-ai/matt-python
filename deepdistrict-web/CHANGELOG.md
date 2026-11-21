@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.5 r11 — November 2026
+- `tools/add_records.py <file.json>`: add records from a prepared file on the computer that holds the data —
+  backup first (`server/data/backups/before-add-*.db`, never overwritten), add only new ids, then a byte-for-byte
+  check of every existing record (anything different → rolled back). The Data page button uses the same check.
+
 ## 6.5 r10 — November 2026
 - **Add records from a file** (More menus → Data, admins): upload a DeepDistrict records file (.json); the system shows
   what will be added and asks to confirm. It only ADDS learners, enrolments, lessons and courses that are not there
