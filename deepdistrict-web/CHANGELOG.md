@@ -1,5 +1,9 @@
 # Changelog
 
+## 6.5 r13 — November 2026
+- `CLAUDE.md` now ships inside the program folder, so a Claude Code session on the owner's own computer follows the
+  same rules: real data is frozen, records are only ever added with `tools/add_records.py`, backups first.
+
 ## 6.5 r12 — November 2026
 - **One-click update on Windows** (`tools/windows/DeepDistrict-Update.bat` + `.ps1`): put them next to the new zip
   (and an optional `deepdistrict-add-*.json`) in Downloads and double-click. It stops if DeepDistrict is still
