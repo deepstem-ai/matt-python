@@ -1,5 +1,10 @@
 # Changelog
 
+## 6.5 r15 — November 2026
+- **Cancel a payment recorded by mistake, right where it is:** in the Payments table of an enrolment (and on the
+  Payments page) admins have *Cancel payment…*; give a reason (pre-filled "Recorded by mistake — not paid yet") and
+  the payment is archived with that reason — restorable in Data — and the balance is due again.
+
 ## 6.5 r14 — November 2026
 - **Payment notice for a round that has already started:** it says how many lessons were already taught (with the
   dates) and asks to pay **before the next lesson** instead of "before the first lesson"; the text for LINE matches.

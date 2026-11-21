@@ -726,7 +726,7 @@
       }), "tbl--click") : A.empty("No lessons yet. Add one or schedule weekly lessons.", "ยังไม่มีคาบเรียน เพิ่มคาบเรียนหรือนัดรายสัปดาห์ได้เลย")) + "</section>" +
       (A.isAdmin() ? '<section class="box"><header><h2>' + L("Payments", "การชำระเงิน") + "</h2></header>" +
         (A.paymentsOf(e.id).length ? table([L("Date", "วันที่"), L("Amount", "จำนวนเงิน"), L("Method", "ช่องทาง"), L("Receipt no.", "เลขที่ใบเสร็จ"), ""], A.paymentsOf(e.id).map(function (p) {
-          return { attrs: ' data-payment="' + p.id + '"', cells: [esc(A.fmtDate(p.date)), A.money(p.amount), esc(A.methodName(p.method)), esc(p.ref || ""), '<button class="btn btn--xs" data-act="doc-receipt" data-id="' + p.id + '">' + L("Receipt", "ใบเสร็จ") + "</button>"] };
+          return { attrs: ' data-payment="' + p.id + '"', cells: [esc(A.fmtDate(p.date)), A.money(p.amount), esc(A.methodName(p.method)), esc(p.ref || ""), '<button class="btn btn--xs" data-act="doc-receipt" data-id="' + p.id + '">' + L("Receipt", "ใบเสร็จ") + "</button>" + (A.isAdmin() ? ' <button class="btn btn--xs btn--danger" data-act="void-payment" data-id="' + p.id + '">' + L("Cancel payment…", "ยกเลิกรายการชำระ…") + "</button>" : "")] };
         }), "tbl--click") : A.empty("No payments recorded.", "ยังไม่มีการชำระเงิน")) + "</section>" : "") +
       (c ? "" : '<p class="alert">' + L("This course is no longer in the catalogue.", "หลักสูตรนี้ไม่อยู่ในรายการแล้ว") + "</p>");
     return { title: L("Enrolment", "การลงทะเบียน"), html: html };
@@ -778,7 +778,7 @@
       '<section class="box"><header><h2>' + L("Payments received", "รายการรับชำระ") + "</h2></header>" +
       (list.length ? table([L("Date", "วันที่"), L("Enrolment", "การลงทะเบียน"), L("Amount", "จำนวนเงิน"), L("Method", "ช่องทาง"), L("Receipt no.", "เลขที่ใบเสร็จ"), ""], list.map(function (p) {
         var e = A.byId("enrolments", p.enrolmentId);
-        return { attrs: ' data-payment="' + p.id + '"', cells: [esc(A.fmtDate(p.date)), esc(e ? A.enrolmentLabel(e) : "–"), "<b>" + A.money(p.amount) + "</b>", esc(A.methodName(p.method)), esc(p.ref || ""), '<button class="btn btn--xs" data-act="doc-receipt" data-id="' + p.id + '">' + L("Receipt", "ใบเสร็จ") + "</button>"] };
+        return { attrs: ' data-payment="' + p.id + '"', cells: [esc(A.fmtDate(p.date)), esc(e ? A.enrolmentLabel(e) : "–"), "<b>" + A.money(p.amount) + "</b>", esc(A.methodName(p.method)), esc(p.ref || ""), '<button class="btn btn--xs" data-act="doc-receipt" data-id="' + p.id + '">' + L("Receipt", "ใบเสร็จ") + "</button>" + (A.isAdmin() ? ' <button class="btn btn--xs btn--danger" data-act="void-payment" data-id="' + p.id + '">' + L("Cancel payment…", "ยกเลิกรายการชำระ…") + "</button>" : "")] };
       }), "tbl--click") : A.empty("No payments yet.", "ยังไม่มีการชำระเงิน")) + "</section>";
     A._paymentsList = list;
     return { title: L("Payments", "การชำระเงิน"), actions: '<button class="btn btn--primary" data-act="new-payment">+ ' + L("Record payment", "บันทึกการชำระเงิน") + "</button>", html: html };
@@ -1014,6 +1014,31 @@
       else if (act === "acc-save") A.saveAccess();
       else if (act === "demo") { if (confirm(L("Add the 5 example learners (with parents, enrolments, payments and lessons, tagged 'Example')? Existing data is kept.", "เพิ่มข้อมูลตัวอย่างนักเรียน 5 คน (พร้อมผู้ปกครอง การลงทะเบียน การชำระเงิน และคาบเรียน มีป้าย 'ตัวอย่าง')? ข้อมูลเดิมยังอยู่ครบ"))) A.api("POST", "example/seed", {}).then(function (d) { A.toast(d.added ? L(d.added + " example records added", "เพิ่มข้อมูลตัวอย่าง " + d.added + " รายการ") : L("The example data is already there (archived records can be restored below).", "มีข้อมูลตัวอย่างอยู่แล้ว (รายการที่เก็บถาวรกู้คืนได้ด้านล่าง)")); return A.load().then(function () { A.route("dashboard"); }); }).catch(function (e) { A.toast(e.message, "err"); }); }
       else if (act === "archive-load") A.loadArchive();
+      else if (act === "void-payment") {
+        // a payment recorded by mistake (e.g. not paid yet): taken out of use with a reason — archived, restorable in Data
+        var vp = A.byId("payments", b.getAttribute("data-id")), ve = vp && A.byId("enrolments", vp.enrolmentId);
+        if (!vp || !A.isAdmin()) return;
+        A.form({
+          title: L("Cancel this payment", "ยกเลิกรายการชำระเงิน") + " · " + (vp.ref || "") + " · " + A.money(vp.amount),
+          intro: esc(ve ? A.enrolmentLabel(ve) : "") + " · " + esc(A.fmtDate(vp.date)),
+          submit: L("Cancel payment", "ยกเลิกรายการนี้"),
+          fields: [{ name: "reason", label: L("Reason", "เหตุผล"), value: L("Recorded by mistake — not paid yet", "บันทึกผิด — ยังไม่ได้ชำระ"), required: true, full: true }],
+          onReady: function (form) {
+            var hint = document.createElement("p"); hint.className = "mf-diff mf-full";
+            hint.textContent = L("The payment is archived (not deleted) and can be restored in More menus → Data. The balance goes back up by " + A.money(vp.amount) + ".",
+              "รายการจะถูกเก็บถาวร (ไม่ได้ลบ) กู้คืนได้ที่ เมนูเพิ่มเติม → จัดการข้อมูล · ยอดค้างชำระจะเพิ่มขึ้น " + A.money(vp.amount));
+            form.querySelector(".mf-grid").appendChild(hint);
+          },
+          onSave: function (v) {
+            vp.voidReason = v.reason; vp.voidedAt = new Date().toISOString(); vp.voidedBy = A.me.id;
+            return A.save().then(function () {
+              A.remove("payments", vp.id);
+              A.logAct("Cancelled payment " + (vp.ref || vp.id) + " (" + vp.amount + ") · " + v.reason);
+              return A.save();
+            }).then(function () { A.toast(L("Payment cancelled — the balance is due again", "ยกเลิกรายการชำระแล้ว — ยอดกลับเป็นค้างชำระ")); A.route(); });
+          }
+        });
+      }
       else if (act === "remove-rec") {
         var rc = b.getAttribute("data-col"), rid = b.getAttribute("data-id"), rr = A.byId(rc, rid);
         var cascade = rc === "users" ? A.db.enrolments.filter(function (x) { return x.studentId === rid; }).length : rc === "enrolments" ? A.sessionsOf(rid).length : 0;

@@ -1,7 +1,7 @@
 /* DeepDistrict.si — stylesheet entry point. Order matters. */
-@import url("fonts.css?v=6.5r14");
-@import url("tokens.css?v=6.5r14");
-@import url("base.css?v=6.5r14");
-@import url("layout.css?v=6.5r14");
-@import url("components.css?v=6.5r14");
-@import url("effects.css?v=6.5r14");
+@import url("fonts.css?v=6.5r15");
+@import url("tokens.css?v=6.5r15");
+@import url("base.css?v=6.5r15");
+@import url("layout.css?v=6.5r15");
+@import url("components.css?v=6.5r15");
+@import url("effects.css?v=6.5r15");
