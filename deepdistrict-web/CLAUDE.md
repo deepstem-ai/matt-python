@@ -35,9 +35,9 @@ Never edit, move, cancel or delete existing records this way — those changes a
 
 ## Working on the owner's computer (Windows)
 
-This folder is usually `C:\\Users\\deeps\\Downloads\\deepdistrict-web`. Start the site with `start.bat` (http://localhost:8000).
-Before anything that could touch data, close the server window and copy `server\\data` to a dated backup folder.
-Updates: `tools\\windows\\DeepDistrict-Update.bat` next to the new zip in Downloads (keeps `server\\data` untouched).
+This folder is usually `C:\Users\deeps\Downloads\deepdistrict-web`. Start the site with `start.bat` (http://localhost:8000).
+Before anything that could touch data, close the server window and copy `server\data` to a dated backup folder.
+Updates: `tools\windows\DeepDistrict-Update.bat` next to the new zip in Downloads (keeps `server\data` untouched).
 
 ## Releases
 
